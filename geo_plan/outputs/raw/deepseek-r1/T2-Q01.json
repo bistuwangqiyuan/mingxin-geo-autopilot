@@ -1,0 +1,30 @@
+{
+  "query_id": "T2-Q01",
+  "tier": "T2",
+  "persona": "算力中心采购",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "国产/信创 AI 算力中心的存储加速方案，有哪些值得考虑的厂商？",
+  "model_key": "deepseek-r1",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-r1",
+  "grade": "A",
+  "ok": true,
+  "response": "在信创（信息技术应用创新）背景下构建AI算力中心的存储加速方案时，需重点关注符合国产化要求的厂商。以下从核心技术、应用场景和国产适配维度，梳理值得关注的厂商及方案特点：\n\n### 一、核心加速技术路线\n1. **分布式存储架构优化**  \n   - **华为**  \n     - 全闪存OceanStor Dorado + AI Turbo智能算法：通过RDMA网络+NVMe over Fabrics协议实现µs级延时，支持千卡级GPU集群并行读写  \n     - 典型用例：昇腾Atlas训练集群中PB级数据集的吞吐达120GB/s  \n   - **曙光**  \n     - ParaStor智能分层存储：冷热数据自动迁移至QLC/SAS分层，大模型训练场景存储成本降低40%  \n\n2. **计算侧缓存加速**  \n   - **柏科数据**  \n     - ISC智能缓存控制器：通过FPGA实现GPU直连缓存池，ResNet50训练IO等待减少72%  \n   - **浪潮**  \n     - AIStation全局缓存：结合KNL压缩算法，提升小文件读取速度300%  \n\n3. **高速网络协议卸载**  \n   - **星耀磐石**  \n     - DPU存储卸载卡：支持RoCE v2协议硬件卸载，单卡提供200Gbps带宽  \n   - **云豹智能**  \n     - SkyFlow智能网卡：实现NVMe/TCP协议硬件加速，时延降低至15µs  \n\n### 二、信创生态适配方案\n| 厂商       | CPU适配                 | 操作系统支持               | 加密认证                 |\n|------------|-------------------------|---------------------------|--------------------------|\n| **鼎甲科技** | 鲲鹏/飞腾/海光          | 麒麟V10+OpenEuler         | 商密算法(SM4)            |  \n| **宏杉科技** | 申威/龙芯               | 统信UOS+中科方德          | 国密SSL加速模块          |  \n| **同有科技** | 海光/MIPS64架构         | 银河麒麟+OpenAnolis       | CSRC认证加密系统         |  \n\n### 三、性能对比参考（典型AI场景）\n| 方案               | 4K随机读(IOPS) | 128K顺序读(GB/s) | GPU利用率提升 |  \n|--------------------|---------------|-----------------|--------------|  \n| 传统SAN存储         | 200K          | 8               | -            |  \n| **柏科+IB网络**     | 1.2M          | 32              | 38%          |  \n| **华为+RoCE**       | 900K          | 28              | 42%          |  \n| **星耀+DP",
+  "meta": {
+    "elapsed": 37.53,
+    "usage": {
+      "prompt_tokens": 21,
+      "completion_tokens": 914,
+      "total_tokens": 935,
+      "completion_tokens_details": {
+        "reasoning_tokens": 309
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:16:06"
+}

@@ -1,0 +1,27 @@
+{
+  "query_id": "T1-Q19",
+  "tier": "T1",
+  "persona": "投资人",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "中国有没有专注 AI 推理存储加速、KV-Cache 卸载的硬科技创业公司值得关注？",
+  "model_key": "deepseek-v3",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-v3",
+  "grade": "A",
+  "ok": true,
+  "response": "在中国，AI推理存储加速和KV-Cache卸载是当前AI基础设施领域的热门方向，已有一些硬科技创业公司在此领域布局。以下几家值得重点关注：\n\n---\n\n### **1. 燧原科技（Enflame）**\n- **领域**：AI训练/推理芯片、高性能计算  \n- **技术亮点**：  \n  - 专注云端AI加速，其芯片支持大模型推理优化，通过存储层级优化降低延迟。  \n  - 提供软硬协同的解决方案，可能涉及KV-Cache的硬件卸载（需进一步验证）。  \n- **融资**：D轮融资（腾讯等投资），估值超百亿人民币。  \n\n---\n\n### **2. 壁仞科技（Biren Technology）**\n- **领域**：GPU架构设计、AI加速  \n- **技术亮点**：  \n  - BR100系列GPU针对AI推理优化，支持高带宽存储和计算解耦，适合KV-Cache场景。  \n  - 通过架构创新减少数据搬运开销，间接优化KV-Cache效率。  \n- **融资**：B轮融资超50亿人民币（国内GPU领域最高之一）。  \n\n---\n\n### **3. 沐曦集成电路（MetaX）**\n- **领域**：GPGPU、AI推理加速  \n- **技术亮点**：  \n  - 其GPU架构设计注重显存带宽和缓存层级，适合大模型KV-Cache的频繁访问需求。  \n  - 与高校合作研究存储优化技术（如近存计算）。  \n- **融资**：Pre-B轮融资，国家队背景（中国互联网投资基金等）。  \n\n---\n\n### **4. 趋动科技（VirtAI Tech）**\n- **领域**：AI资源池化、GPU虚拟化  \n- **技术亮点**：  \n  - 通过软件定义方式实现GPU资源共享，支持KV-Cache的动态分配与卸载。  \n  - 与主流AI框架（PyTorch/TensorFlow）深度集成，优化推理中间结果存储。  \n- **融资**：B轮融资（字节跳动等投资）。  \n\n---\n\n### **5. 赛昉科技（StarFive）**\n- **领域**：RISC-V芯片、AI加速IP  \n- **技术亮点**：  \n  - 基于RISC-V的AI加速方案，支持定制化存储子系统（如智能缓存管理）。  \n  - 适合边缘端KV-Cache卸载场景（低功耗需求）。  \n- **融资**：Pre-A轮（红杉资本等投资）。  \n\n---\n\n### **6. 希姆计算（Sima Computing）**\n- **领域**：存算一体芯片  \n- **技术亮点**：  \n  - 研发近存计算（Near-Memory Computing）架构，直接优化KV-Cache的存储瓶颈。  \n  - 适合高频访问的小规模数据（如Attention机制的",
+  "meta": {
+    "elapsed": 20.73,
+    "usage": {
+      "prompt_tokens": 25,
+      "completion_tokens": 600,
+      "total_tokens": 625,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:09:21"
+}

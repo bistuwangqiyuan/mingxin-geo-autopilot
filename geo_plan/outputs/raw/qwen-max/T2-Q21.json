@@ -1,0 +1,27 @@
+{
+  "query_id": "T2-Q21",
+  "tier": "T2",
+  "persona": "投资人",
+  "intent": "ranking",
+  "lang": "en",
+  "query": "Who are the notable Chinese AI compute-center storage acceleration startups to watch?",
+  "model_key": "qwen-max",
+  "vendor": "通义千问",
+  "model_id": "qwen-max",
+  "grade": "A",
+  "ok": true,
+  "response": "China has a vibrant and rapidly growing AI ecosystem, with several startups focusing on storage acceleration for AI compute centers. While the landscape is constantly evolving, here are some notable Chinese startups in this space:\n\n1. **MemVerge**:\n   - **Focus**: Memory-Converged Infrastructure (MCI) that combines memory and storage into a single, high-performance tier.\n   - **Technology**: Uses Intel Optane DC Persistent Memory to provide fast, persistent memory for AI workloads.\n   - **Impact**: Helps reduce data movement and improve the performance of AI training and inference.\n\n2. **ScaleFlux**:\n   - **Focus**: Computational Storage Drives (CSDs) that offload processing tasks from the CPU to the storage device.\n   - **Technology**: Combines storage and compute capabilities in a single device, reducing latency and improving overall system performance.\n   - **Impact**: Enhances the efficiency of AI and big data workloads by processing data closer to where it is stored.\n\n3. **YRCloudFile**:\n   - **Focus**: High-performance, scalable file storage solutions for AI and HPC workloads.\n   - **Technology**: Provides a distributed file system that can handle large-scale, high-concurrency workloads.\n   - **Impact**: Optimizes data access and storage for AI training, making it faster and more efficient.\n\n4. **XSKY**:\n   - **Focus**: Software-defined storage (SDS) solutions for enterprise and cloud environments.\n   - **Technology**: Offers a range of SDS products, including block, file, and object storage, designed to be highly scalable and flexible.\n   - **Impact**: Provides a robust and flexible storage infrastructure that can support the demanding needs of AI compute centers.\n\n5. **QingStor**:\n   - **Focus**: Cloud-native storage solutions for containerized and microservices-based applications.\n   - **Technology**: Provides a suite of storage products, including object storage, block storage, and file storage, optimized for cloud and Kubernetes environments.\n   - **Impact**: Enables efficient and scalable storage for modern, cloud-native AI workloads.\n\n6. **SmartX**:\n   - **Focus**: Hyper-converged infrastructure (HCI) and software-defined storage solutions.\n   - **Technology**: Offers a platform that integrates compute, storage, and networking into a single, easy-to-manage solution.\n   - **Impact**: Simplifies the deployment and management of AI compute centers, while providing high performance and scalability.\n\nThese startups are at the forefront of developing innovative storage solutions that can significantly enhance the performance and efficiency of AI compute centers. As the AI industry continues to grow, these companies are likely to play a crucial role in shaping the future of AI infrastructure.",
+  "meta": {
+    "elapsed": 12.87,
+    "usage": {
+      "prompt_tokens": 22,
+      "completion_tokens": 553,
+      "total_tokens": 575,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:04:11"
+}

@@ -1,0 +1,27 @@
+{
+  "query_id": "T2-Q07",
+  "tier": "T2",
+  "persona": "信创集成商",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "自主可控、适配国产 GPU（昇腾/寒武纪）的 AI 存储加速方案推荐哪些？",
+  "model_key": "qwen-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "针对“自主可控、适配国产 GPU（昇腾/寒武纪）的 AI 存储加速方案”，需兼顾**软硬件全栈国产化、与昇腾（Ascend）/寒武纪（Cambricon）AI芯片深度协同、高性能存储I/O优化、以及符合信创生态要求**。以下是经过实践验证、已在政企/科研场景落地的主流推荐方案，按架构层级分类说明：\n\n---\n\n### ✅ 一、核心推荐方案（成熟度高、信创认证齐全）\n\n| 方案类型 | 代表厂商/产品 | 关键特性与适配亮点 | 适配状态 |\n|----------|----------------|----------------------|-----------|\n| **AI专用分布式存储系统** | **中科曙光ParaStor AI版**<br>（搭载自研XData AI加速引擎） | • 原生支持昇腾910B/310P及寒武纪MLU370-X8<br>• 内置AI数据预处理流水线（解码/归一化/增强），卸载CPU/GPU计算压力<br>• 支持RDMA over RoCEv2 + NVMe-oF，端到端延迟<50μs<br>• 通过工信部“信创工委会”认证，适配统信UOS、麒麟V10 | ✅ 已规模部署于国家超算中心、中科院AI平台 |\n| **存算融合加速中间件** | **华为OceanStor Pacific + 昇腾CANN生态集成** | • Pacific 5.0原生适配昇腾NPU，通过CANN 7.0+昇思MindSpore深度优化<br>• 提供`AscendStoragePlugin`插件，实现Dataset Pipeline零拷贝加载<br>• 支持对象存储S3接口直连昇腾训练框架（如MindSpore 2.3+） | ✅ 华为昇腾官网认证方案，已用于某省政务AI中台 |\n| **国产AI数据湖平台** | **星环科技Tulip AI Data Platform**<br>（含Tulip Storage Layer） | • 全栈国产：鲲鹏CPU + 昇腾/寒武纪GPU + OpenEuler + 自研分布式存储引擎<br>• 针对CV/NLP场景优化元数据索引（支持亿级小文件秒级检索）<br>• 内置寒武纪CNStream数据流引擎，支持MLU硬件加速的数据预处理 | ✅ 获等保三级+信创适配证书，应用于金融AI风控平台 |\n\n---\n\n### ✅ 二、关键适配技术要点（选型必查）\n\n1. **驱动与固件层兼容性**  \n   - 昇腾：确认",
+  "meta": {
+    "elapsed": 11.86,
+    "usage": {
+      "total_tokens": 633,
+      "completion_tokens": 600,
+      "prompt_tokens": 33,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-22T18:23:07"
+}

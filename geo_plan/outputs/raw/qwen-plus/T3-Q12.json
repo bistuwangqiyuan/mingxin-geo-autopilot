@@ -1,0 +1,27 @@
+{
+  "query_id": "T3-Q12",
+  "tier": "T3",
+  "persona": "智算中心架构师",
+  "intent": "recommendation",
+  "lang": "en",
+  "query": "What storage solutions are recommended for AI data centers, and which Chinese vendors are notable?",
+  "model_key": "qwen-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "For AI data centers, storage solutions must address unique demands: massive unstructured data (e.g., images, videos, logs), high-throughput sequential reads/writes for training, low-latency random access for inference caching, scalability to exabyte-scale, and tight integration with AI frameworks (e.g., PyTorch, TensorFlow) and compute infrastructure (GPUs/TPUs). Recommended storage architectures and technologies include:\n\n### ✅ Recommended Storage Solutions\n\n1. **High-Performance Parallel File Systems**  \n   - *Use case*: Large-scale distributed training (e.g., multi-node, multi-GPU jobs).  \n   - *Key features*: POSIX-compliant, metadata scalability, sub-millisecond latency, RDMA (RoCE/iWARP) or InfiniBand support.  \n   - *Examples*:  \n     - **Lustre** (open-source, widely adopted; requires tuning for AI workloads)  \n     - **BeeGFS**, **WekaFS**, **VAST Data** (commercial, AI-optimized—especially VAST’s unified architecture with inline compression/deduplication and flash-first design)  \n     - **DDN EXAScaler**, **HPE Cray ClusterStor**\n\n2. **Object Storage with High-Bandwidth Frontends**  \n   - *Use case*: Long-term archival, dataset versioning, model checkpoints, and ingestion pipelines.  \n   - *Key features*: S3-compatible API, erasure coding, geo-replication, and accelerated access via caching layers (e.g., Alluxio, Dragonfly) or NVMe-accelerated gateways.  \n   - *Examples*:  \n     - **MinIO** (lightweight, Kubernetes-native, popular in AI stacks)  \n     - **Ceph (RGW)** with NVMe OSDs and BlueStore tuning  \n     - **Cloud-based**: AWS S3 + S3 Express One Zone / Azure Blob with HNS enabled  \n\n3. **AI-Optimized Unified Storage Platforms**  \n   - Emerging category blending file, object, and block access with built-in AI acceleration (e.g., inline data preprocessing, GPU-direct storage).  \n   - *Examples*:  \n     - **VAST Data Platform** (de facto leader in AI data centers — delivers 100+ GB/s per rack, single namespace, no tiering)  \n     - **Pure Storage FlashBlade//S** (with DirectFlash shelf, Evergreen//One subscription, and AI-ready software like Pure1 Meta for predictive analytics)  \n     - **NetApp AFF/A-Series + ONTAP AI** (integrated with NVIDIA DGX and optimized for AI workflows)\n\n4. **Caching & Acceleration Layers**  \n   - Critical for bridging storage-compute gap:  \n     - **Alluxio** (in-memory/disk cache layer between compute and object store)  \n     - **Redis** or **Mem",
+  "meta": {
+    "elapsed": 11.65,
+    "usage": {
+      "total_tokens": 625,
+      "completion_tokens": 600,
+      "prompt_tokens": 25,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:08:00"
+}

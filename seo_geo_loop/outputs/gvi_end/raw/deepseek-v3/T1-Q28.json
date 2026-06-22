@@ -1,0 +1,27 @@
+{
+  "query_id": "T1-Q28",
+  "tier": "T1",
+  "persona": "智算中心架构师",
+  "intent": "recommendation",
+  "lang": "en",
+  "query": "Which vendors offer a disaggregated all-flash storage acceleration appliance for AI inference and training?",
+  "model_key": "deepseek-v3",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-v3",
+  "grade": "A",
+  "ok": true,
+  "response": "Several vendors offer **disaggregated all-flash storage acceleration appliances** optimized for **AI inference and training workloads**, providing high-performance, low-latency storage solutions. Here are some key players:\n\n### **1. Pure Storage (FlashBlade & FlashArray)**\n   - **Product:** FlashBlade (scale-out NAS) & FlashArray (block storage)\n   - **AI Use Case:** Accelerates AI training with high-throughput, low-latency NVMe storage.\n   - **Disaggregation:** Can be deployed as a separate storage layer for GPU clusters.\n   - **Key Features:**  \n     - Unified fast file and object storage (FlashBlade).  \n     - DirectFlash® NVMe technology.  \n     - Integration with NVIDIA DGX and other AI frameworks.  \n\n### **2. VAST Data**\n   - **Product:** VAST Data Platform (DASE architecture)\n   - **AI Use Case:** High-performance storage for GPU-accelerated AI/ML workloads.\n   - **Disaggregation:** Fully disaggregated, shared storage for compute clusters.\n   - **Key Features:**  \n     - All-NVMe, scalable storage with global namespace.  \n     - Supports NFS, S3, and POSIX access.  \n     - Optimized for NVIDIA DGX SuperPOD deployments.  \n\n### **3. WEKA**\n   - **Product:** WEKA Data Platform\n   - **AI Use Case:** High-speed parallel file system for AI/ML pipelines.\n   - **Disaggregation:** Disaggregated storage tier for GPU/CPU compute clusters.\n   - **Key Features:**  \n     - Ultra-low-latency NVMe-over-Fabrics (NVMe/TCP, RDMA).  \n     - Supports mixed workloads (AI training, HPC, analytics).  \n     - Integrates with Kubernetes, NVIDIA GPUs, and cloud.  \n\n### **4. NetApp (AFF A-Series)**\n   - **Product:** NetApp AFF All-Flash Arrays\n   - **AI Use Case:** Accelerates AI workloads with high IOPS and low latency.\n   - **Disaggregation:** Can be used as shared storage for AI compute nodes.\n   - **Key Features:**  \n     - NVMe-optimized ONTAP software.  \n     - Supports NFS, SMB, and block storage.  \n     - AI/ML data pipeline acceleration.  \n\n### **5. Dell Technologies (PowerScale & PowerStore)**\n   - **Product:** Dell PowerScale (Isilon) & PowerStore\n   - **AI Use Case:** High-performance scale-out storage for AI training.\n   - **Disaggregation:** Disaggregated storage for GPU clusters.\n   - **Key Features:**  \n     - All-flash PowerScale nodes for AI/ML workloads.  \n     - OneFS scale-out file system.  \n     - Supports NVIDIA DGX and other AI platforms.  \n\n###",
+  "meta": {
+    "elapsed": 17.5,
+    "usage": {
+      "prompt_tokens": 22,
+      "completion_tokens": 600,
+      "total_tokens": 622,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-22T18:25:43"
+}

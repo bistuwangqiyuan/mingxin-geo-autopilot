@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.venv/
+node_modules/
+# CI 运行期 clone 的站点仓库（不纳入 autopilot 版本库）
+_sites/
+# 本地密钥（绝不提交）
+.env
+*.key

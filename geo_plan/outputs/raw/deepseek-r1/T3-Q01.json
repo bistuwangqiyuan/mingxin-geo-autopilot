@@ -1,0 +1,30 @@
+{
+  "query_id": "T3-Q01",
+  "tier": "T3",
+  "persona": "算力中心采购",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "AI 存储有哪些主流厂商和产品？该怎么选型？",
+  "model_key": "deepseek-r1",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-r1",
+  "grade": "A",
+  "ok": true,
+  "response": "人工智能领域的存储需求与传统应用有着显著差异，尤其在处理海量数据、高吞吐量和低延迟等方面。以下是对AI存储主流厂商、产品和选型指南的系统梳理：\n\n---\n\n### **一、主流AI存储厂商及产品**\n#### **1. 企业级存储巨头**\n- **NetApp**\n  - **产品**：AFF全闪存阵列 + ONTAP软件  \n  - **技术亮点**：NVMe over Fabrics支持、数据压缩（节省50%+空间）、与Kubernetes深度集成  \n  - **典型场景**：混合云AI训练、边缘推理节点数据同步  \n\n- **Dell Technologies**  \n  - **产品**：PowerScale（Isilon）横向扩展NAS  \n  - **性能指标**：单集群支持100+节点、EB级命名空间、带宽达100+ GB/s  \n  - **核心优势**：OneFS系统实现自动负载均衡，无需人工调整  \n\n- **Pure Storage**  \n  - **产品**：FlashBlade//S（全闪存横向扩展存储）  \n  - **创新点**：统一支持文件（NFS/SMB）和对象（S3）协议、亚毫秒级延迟  \n  - **适用场景**：基因组分析、自动驾驶模型训练等IO密集型场景  \n\n- **IBM**  \n  - **产品**：Spectrum Scale（GPFS）  \n  - **技术特性**：全球命名空间跨多数据中心、Flash核心模块提供40GB/s带宽  \n  - **突出优势**：与Watson AI平台的深度协同优化  \n\n#### **2. 超大规模云厂商**\n- **AWS**\n  - **服务**：FSx for Lustre（全托管高性能文件系统）  \n  - **性能表现**：百万级IOPS、数十GB/s带宽、与S3自动数据同步  \n  - **成本模型**：按小时计费，无需预付硬件投资  \n\n- **Azure**\n  - **产品**：Azure HPC Cache（基于Lustre的缓存层） + Ultra Disk Storage  \n  - **架构优势**：将云端存储延迟降至50μs级，接近本地NVMe性能  \n  - **场景适配**：突发性大规模训练任务（如疫情预测模型）  \n\n- **Google Cloud**\n  - **方案**：Filestore Enterprise（ZFS后端） + Cloud Storage FUSE适配器  \n  - **技术亮点**：与TensorFlow集成，实现训练中间结果自动分层存储  \n  - **生态支持**：支持TPU Pod与存储系统间的RDMA直连  \n\n#### **3. 高性能存储专家**\n- **WEKA**\n  - **旗舰产品**：WEKA Data Platform  \n  - **技术突破**：专利FPGA加速使元数据处理速度提升20倍  \n  - **性能标杆**：单客户端实测读带宽28",
+  "meta": {
+    "elapsed": 37.71,
+    "usage": {
+      "prompt_tokens": 16,
+      "completion_tokens": 1008,
+      "total_tokens": 1024,
+      "completion_tokens_details": {
+        "reasoning_tokens": 403
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:19:22"
+}

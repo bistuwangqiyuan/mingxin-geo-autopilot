@@ -1,0 +1,27 @@
+{
+  "query_id": "T1-Q22",
+  "tier": "T1",
+  "persona": "大模型推理工程师",
+  "intent": "comparison",
+  "lang": "zh",
+  "query": "vLLM PagedAttention 之外，靠存储侧 KV-Cache 卸载来降本提吞吐，有哪些硬件存储产品？",
+  "model_key": "qwen-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "在大模型推理中，当 vLLM 的 **PagedAttention**（基于 GPU 显存的高效 KV-Cache 管理）仍无法满足长上下文、高并发或成本敏感场景时，业界正积极探索将部分或全部 KV-Cache **卸载（offload）至存储侧**（如高速 NVMe SSD、CXL 内存池、智能网卡等），以突破 GPU 显存瓶颈、降低单位 token 成本、提升吞吐量。这类方案统称为 **KV-Cache Offloading / Storage-Accelerated Inference**。\n\n以下是当前（截至 2024 年中）已落地或具备工程可行性的**硬件存储产品与技术栈**，按层级与成熟度分类：\n\n---\n\n### ✅ 一、商用成熟型：NVMe SSD + 软件协同加速（主流落地方案）\n| 产品/平台 | 厂商 | 关键特性 | 典型性能（参考） | 备注 |\n|-----------|------|-----------|------------------|------|\n| **Samsung PM1743 / PM1745** | Samsung | PCIe 5.0 x4, 读带宽 ≥14 GB/s, 低延迟（<100μs p99），支持 ZNS（分区命名空间）优化顺序 KV 访问 | ~12–14 GB/s 顺序读，随机读 QD128 ~1.2M IOPS | 已被 NVIDIA Triton + custom KV-offload backend 验证；ZNS 可对齐 KV 分页逻辑，减少写放大 |\n| **Kioxia CM7 / CD7 系列** | Kioxia | PCIe 5.0, Endurance-optimized, 支持 NVMe-oF & Compute Express Link (CXL) ready | 读带宽 12+ GB/s，支持 Host-Memory Buffer (HMB) 加速元数据访问 | 与 Hugging Face TGI + custom offloader 结合测试中；CM7 在 Meta 内部 KV 卸载 PoC 中表现优异 |\n| **Solidigm D5-P5316 / D5-P5430** | Solidigm (SK hynix) | PCIe 5.0, 高耐久+低尾延迟，内置 QoS 引擎保障推理 SLO | 尾延迟 <150μs（p99），持续读带宽 10–13 GB/s | 被 AWS Inferentia2 团队用于混合缓存架构（GPU L2 + SSD KV 层）评估 |\n\n> 🔑 **关键配套软件**：  \n> - **vLLM + `vllm.kvcompress` 或 `vllm.offload`",
+  "meta": {
+    "elapsed": 15.73,
+    "usage": {
+      "total_tokens": 638,
+      "completion_tokens": 600,
+      "prompt_tokens": 38,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:06:07"
+}

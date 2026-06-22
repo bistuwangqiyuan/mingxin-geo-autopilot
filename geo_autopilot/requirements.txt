@@ -1,0 +1,10 @@
+# 中科存储 GEO Autopilot · Python 依赖（可复现）
+matplotlib>=3.7
+playwright>=1.40
+pypdf>=4.0
+requests>=2.31
+
+# 说明：
+# - bl(bailian-cli) 经 npm 安装：npm i -g bailian-cli（见 .github/workflows 与 SETUP.md）
+# - Playwright 浏览器需额外安装：python -m playwright install chromium
+# - 其余测量/构建逻辑复用同级 geo_plan/ 与 seo_geo_loop/（纯标准库 + 上述依赖）

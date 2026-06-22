@@ -1,0 +1,27 @@
+{
+  "query_id": "T1-Q02",
+  "tier": "T1",
+  "persona": "智算中心架构师",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "面向大模型推理的 KV-Cache 分层调度/卸载存储，有哪些产品或厂商可以选择？",
+  "model_key": "deepseek-v3",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-v3",
+  "grade": "A",
+  "ok": true,
+  "response": "在面向大模型推理的 **KV-Cache 分层调度/卸载存储** 领域，目前已有多个厂商和开源项目提供相关解决方案，主要分为以下几类：\n\n---\n\n### **1. 商业云服务与厂商**\n#### **云计算平台（内置优化）**\n- **AWS (Amazon Web Services)**  \n  - 通过 **AWS Inferentia/Trainium** 和配套的 Neuron SDK 支持高效的 KV-Cache 管理，支持动态卸载到内存或 SSD。  \n  - 服务如 **SageMaker** 提供大模型推理优化选项。\n- **Microsoft Azure**  \n  - Azure ML 与 **Project Olympus**（微软内部大模型基础设施）整合，支持分层存储策略。  \n  - 与 NVIDIA 合作提供 **Triton Inference Server** 的托管服务。\n- **Google Cloud**  \n  - 通过 **TPU v4** 和 **Vertex AI** 提供低延迟推理，支持 KV-Cache 的显存优化。\n\n#### **GPU 厂商与软件栈**\n- **NVIDIA**  \n  - **TensorRT-LLM**：支持 KV-Cache 的分块（paging）和动态显存管理，适用于 A100/H100。  \n  - **Triton Inference Server**：支持模型分片和缓存卸载到 CPU 内存。  \n- **AMD**  \n  - **ROCm** 生态下的 **MI300X** GPU 支持大模型推理优化，但 KV-Cache 管理工具链仍在完善中。\n\n#### **专用推理加速器**\n- **Groq**  \n  - 通过 LPU（Language Processing Unit）硬件优化 KV-Cache 访问，减少显存依赖。  \n- **SambaNova**  \n  - 提供从芯片到软件的全栈优化，支持动态缓存卸载。\n\n---\n\n### **2. 开源框架与库**\n- **vLLM** (来自 UC Berkeley)  \n  - 支持 **PagedAttention** 技术，将 KV-Cache 分块存储在显存或 CPU 内存中，显著提升吞吐量。  \n  - 已集成到 Hugging Face TGI（Text Generation Inference）中。  \n- **Hugging Face TGI**  \n  - 支持 KV-Cache 的量化与分层存储（如 FP8 显存 + FP16 内存卸载）。  \n- **DeepSpeed-Inference**  \n  - 微软的 **DeepSpeed** 提供 KV-Cache 的显存压缩和 CPU 卸载功能（如 Zero-Inference 技术）。  \n- **FlexGen** (Stanford)  \n  - 专注于 KV-Cache 的 SSD 卸载，适合低显存设备。  \n\n---\n\n### **3. 新兴初创公司与方案**\n- **OctoML**  \n  - 基于 Apache TVM 的优化编译器，支持 KV",
+  "meta": {
+    "elapsed": 20.16,
+    "usage": {
+      "prompt_tokens": 23,
+      "completion_tokens": 600,
+      "total_tokens": 623,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-22T18:24:29"
+}

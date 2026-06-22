@@ -1,0 +1,27 @@
+{
+  "query_id": "T3-Q02",
+  "tier": "T3",
+  "persona": "智算中心架构师",
+  "intent": "definition",
+  "lang": "zh",
+  "query": "什么是 AI 存储？它和传统企业存储有什么区别？",
+  "model_key": "qwen-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "AI 存储（AI-Native Storage 或 AI-Optimized Storage）是指**专为支撑人工智能全生命周期工作负载（尤其是大规模模型训练、推理、数据预处理与向量检索）而设计的新型存储架构与系统**，它不仅是“能存AI数据的存储”，更是深度协同计算、具备智能感知与自适应能力的数据基础设施。\n\n它与传统企业存储（如SAN/NAS、传统分布式文件系统或对象存储）存在本质性差异，主要体现在以下六个维度：\n\n| 维度 | 传统企业存储 | AI 存储 |\n|--------|----------------|-----------|\n| **核心设计目标** | 高可靠性、强一致性、通用性（支持ERP/数据库/文件共享等） | **极致IO吞吐与低延迟、高并发小文件/混合IO、语义感知能力**，优先保障AI训练/推理的数据供给效率 |\n| **IO特征适配** | 优化顺序大块读写（如数据库日志、视频流）、中等IOPS；对随机小文件（<4KB）性能差 | 原生适配AI典型负载：<br>• 训练：每秒数万~百万级小文件（样本、分片、checkpoint）随机读取 + 高吞吐checkpoint写入（GB/s级）<br>• 推理：低延迟向量检索（毫秒级P99）、高频元数据操作（embedding ID查找）<br>• 数据预处理：海量非结构化数据（图像/文本/视频）的并行解析与特征提取 |\n| **数据组织与语义层** | 以文件/块/对象为单位，无AI语义理解（如不知道“这是ResNet50的第3 epoch checkpoint”） | 内置**AI数据原语支持**：<br>• 向量索引原生集成（支持IVF/PQ/HNSW等算法加速）<br>• 数据集版本管理（类似DVC/Git LFS但内核级支持）<br>• 标签/嵌入/模态元数据自动提取与关联（如自动识别图像中的类别标签、OCR文本、语音转录） |\n| **计算协同方式** | 存算分离，计算节点通过网络（FC/iSCSI/NFS/S3）访问存储，存在网络瓶颈与序列化开销 | **存算融合演进**：<br>• 智能存储节点卸载预处理（解码、归一化、Augmentation）<br>• 存储端执行近数据计算（Near-Data Processing）：如向量相似性搜索在SSD/FPGA上完成<br>• 支持RDMA（RoCEv2/InfiniBand）零拷贝直通GPU",
+  "meta": {
+    "elapsed": 15.7,
+    "usage": {
+      "total_tokens": 622,
+      "completion_tokens": 600,
+      "prompt_tokens": 22,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:07:37"
+}

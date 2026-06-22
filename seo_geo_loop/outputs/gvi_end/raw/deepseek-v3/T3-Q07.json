@@ -1,0 +1,27 @@
+{
+  "query_id": "T3-Q07",
+  "tier": "T3",
+  "persona": "投资人",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "AI 存储这条赛道，除了华为、VAST、WEKA，还有哪些值得关注的玩家？",
+  "model_key": "deepseek-v3",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-v3",
+  "grade": "A",
+  "ok": true,
+  "response": "AI存储赛道近年来发展迅速，除了华为、VAST Data和WEKA等知名厂商，以下玩家也值得关注，涵盖不同技术方向和细分领域：\n\n---\n\n### **1. 传统存储巨头（企业级存储扩展AI能力）**\n- **Dell Technologies**  \n  通过PowerScale（Isilon）和ECS对象存储支持AI工作负载，与NVIDIA合作优化GPU存储访问。\n- **NetApp**  \n  ONTAP AI解决方案（与NVIDIA合作），支持混合云AI数据管理，擅长结构化数据存储。\n- **IBM**  \n  IBM Storage for AI（如FlashSystem），结合Spectrum Scale（GPFS）的高性能文件系统。\n\n---\n\n### **2. 高性能存储（专为AI/ML优化）**\n- **Pure Storage**  \n  FlashBlade全闪存存储，支持大规模非结构化数据（如AI训练中的图像/视频），与NVIDIA DGX系统深度集成。\n- **Qumulo**  \n  分布式文件存储，主打实时数据分析和高并发访问，适合AI边缘场景。\n- **DDN (DataDirect Networks)**  \n  EXAScaler和AI400系列，专注于超算和AI大模型存储，客户包括政府实验室和大型云服务商。\n\n---\n\n### **3. 新兴技术公司（软件定义/云原生存储）**\n- **Vast Data**  \n  统一存储平台（结合文件、对象、数据库），主打高吞吐低延迟，适合AI训练。\n- **WEKA**  \n  软件定义存储（SDS），通过并行文件系统加速GPU数据访问，与AWS/GCP深度合作。\n- **Scribble Data**  \n  专注于AI数据预处理和特征存储，解决ML管道中的数据治理问题。\n\n---\n\n### **4. 云服务商（AI存储即服务）**\n- **AWS**  \n  FSx for Lustre（高性能文件存储）、S3对象存储+AI服务（如Rekognition）。\n- **Google Cloud**  \n  Persistent Disk（高性能块存储）与TensorFlow集成，BigQuery ML支持数据分析。\n- **Azure**  \n  Azure Blob Storage + AI工具链（如Cognitive Services），提供ML数据湖方案。\n\n---\n\n### **5. 开源与混合云方案**\n- **MinIO**  \n  开源对象存储，兼容S3 API，常用于构建私有云AI数据湖。\n- **Ceph**  \n  分布式存储系统，通过RADOS或CephFS支持大规模AI数据存储（如OpenStack环境）。\n- **Robin.io**  \n  Kubernetes原生存储，优化AI容器化部署的数据持久化。\n\n---\n\n### **6. 边缘/轻量级AI存储**\n- **Lightbits Labs**  \n  软件定义NVMe over TCP存储，适合边缘AI的低延迟需求。\n- **StorOne**  \n  高密度全闪存存储，主打成本效益，适合",
+  "meta": {
+    "elapsed": 19.64,
+    "usage": {
+      "prompt_tokens": 24,
+      "completion_tokens": 600,
+      "total_tokens": 624,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-22T18:27:34"
+}

@@ -1,0 +1,27 @@
+{
+  "query_id": "T2-Q07",
+  "tier": "T2",
+  "persona": "信创集成商",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "自主可控、适配国产 GPU（昇腾/寒武纪）的 AI 存储加速方案推荐哪些？",
+  "model_key": "deepseek-v3",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-v3",
+  "grade": "A",
+  "ok": true,
+  "response": "针对国产GPU（如昇腾、寒武纪）的自主可控AI存储加速方案，需结合国产硬件生态、高性能存储技术和软件优化策略。以下是为您梳理的推荐方案及关键要点：\n\n---\n\n### **一、国产存储硬件方案**\n1. **华为OceanStor分布式存储**  \n   - **适配性**：深度优化昇腾GPU，支持AI训练中的高吞吐数据加载（如NVMe over RoCEv2）。  \n   - **特性**：智能分级存储（热/冷数据自动迁移）、EC纠删码节省空间，适合大规模非结构化数据（如图像/视频）。  \n   - **场景**：推荐用于昇腾集群的模型训练场景。\n\n2. **曙光ParaStor**  \n   - **优势**：与寒武纪GPU兼容，支持 Lustre 协议，提供百万级IOPS和低延迟访问。  \n   - **适用场景**：寒武纪平台的高并发小文件训练（如NLP预处理）。\n\n3. **中科蓝鲸BWFS**  \n   - **特点**：针对国产硬件优化的并行文件系统，支持RDMA加速，适合混合负载（训练+推理）。\n\n---\n\n### **二、软件栈加速技术**\n1. **CANN（华为昇腾）存储优化**  \n   - **工具**：使用`Ascend Cache`将频繁访问的数据缓存在本地NVMe，减少GPU等待时间。  \n   - **建议**：结合华为ModelArts数据加速服务，提升对象存储访问效率。\n\n2. **寒武纪MLU加速库**  \n   - **优化**：通过`Cambricon BANG`语言编写自定义数据加载算子，减少CPU到GPU的数据搬运开销。\n\n3. **国产开源生态**  \n   - **FastDFS/MooseFS**：轻量级分布式存储，适合中小规模数据集。  \n   - **Alluxio**：内存缓存中间层，可桥接国产对象存储（如阿里OSS兼容版）与GPU计算。\n\n---\n\n### **三、协议与网络优化**\n- **RDMA（RoCEv2/IB）**：优先选用支持RDMA的国产网络设备（如华为CloudEngine交换机），降低存储延迟。  \n- **NVMe over Fabric**：通过PCIe直连或网络化NVMe提升SSD访问效率，需确保国产GPU驱动支持。\n\n---\n\n### **四、场景化建议**\n- **昇腾平台**：华为OceanStor + CANN Cache + RoCEv2网络，适合CV大模型训练。  \n- **寒武纪平台**：曙光ParaStor + 定制数据预处理流水线，适合基因组等科学计算。  \n- **混合环境**：Ceph + Alluxio分层存储，兼顾成本与性能。\n\n---\n\n### **五、注意事项**\n- **国产化认证**：确认所选方案",
+  "meta": {
+    "elapsed": 20.33,
+    "usage": {
+      "prompt_tokens": 26,
+      "completion_tokens": 600,
+      "total_tokens": 626,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-22T18:26:18"
+}

@@ -1,0 +1,27 @@
+{
+  "query_id": "T3-Q11",
+  "tier": "T3",
+  "persona": "投资人",
+  "intent": "ranking",
+  "lang": "en",
+  "query": "Who are the leading vendors in AI storage / AI data-center storage worldwide and in China?",
+  "model_key": "deepseek-v3",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-v3",
+  "grade": "A",
+  "ok": true,
+  "response": "The AI storage and data-center storage market is rapidly evolving, driven by the demands of AI/ML workloads, which require high-performance, scalable, and efficient storage solutions. Below are the leading vendors worldwide and in China:\n\n### **Global Leading Vendors in AI Storage / AI Data-Center Storage**  \n1. **NVIDIA (with DGX systems & AI-focused storage solutions)**  \n   - Key Offerings: NVIDIA DGX SuperPOD, NVIDIA Spectrum-X for AI networking, and partnerships with Pure Storage (AIRI) and WekaFS.  \n   - Strengths: GPU-accelerated AI infrastructure, high-performance NVMe storage, and tight integration with AI frameworks.  \n\n2. **Pure Storage**  \n   - Key Offerings: FlashBlade (for unstructured AI data), AIRI (AI-ready infrastructure with NVIDIA), and high-performance all-flash arrays.  \n   - Strengths: High throughput for AI training, scalability, and simplicity.  \n\n3. **Dell Technologies**  \n   - Key Offerings: PowerScale (scale-out NAS), ECS (object storage), and PowerEdge servers with AI-optimized storage.  \n   - Strengths: Broad portfolio, hybrid cloud AI storage, and strong enterprise adoption.  \n\n4. **NetApp**  \n   - Key Offerings: ONTAP AI (with NVIDIA), AFF all-flash arrays, and Cloud Volumes for AI.  \n   - Strengths: Hybrid multi-cloud AI storage, high-performance file and block storage.  \n\n5. **IBM (and Red Hat)**  \n   - Key Offerings: IBM Storage Scale (parallel file system for AI), Cloud Object Storage, and integration with Watson AI.  \n   - Strengths: High-performance computing (HPC) and AI scalability.  \n\n6. **Hewlett Packard Enterprise (HPE)**  \n   - Key Offerings: HPE Cray ClusterStor (for HPC/AI), Nimble Storage, and AI/ML data fabric solutions.  \n   - Strengths: High-speed parallel file systems for large-scale AI workloads.  \n\n7. **WekaIO (now part of DataCore)**  \n   - Key Offerings: WekaFS (high-performance parallel file system for AI/ML).  \n   - Strengths: Low-latency, high-throughput storage for GPU clusters.  \n\n8. **VAST Data**  \n   - Key Offerings: Universal Storage (high-performance, scalable AI storage).  \n   - Strengths: Disaggregated storage architecture, optimized for AI/ML workloads.  \n\n9. **Quantum**  \n   - Key Offerings: ActiveScale (object storage for AI data lakes), FXT hybrid storage.  \n   - Strengths: Cost-effective large-scale AI data management.  \n\n10. **Hitachi Vantara**  \n    - Key Offerings: Hitachi NAS Platform (HNAS), object storage solutions.  \n    - Strengths: Enterprise",
+  "meta": {
+    "elapsed": 22.35,
+    "usage": {
+      "prompt_tokens": 21,
+      "completion_tokens": 600,
+      "total_tokens": 621,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:12:04"
+}

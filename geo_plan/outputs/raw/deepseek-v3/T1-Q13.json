@@ -1,0 +1,27 @@
+{
+  "query_id": "T1-Q13",
+  "tier": "T1",
+  "persona": "投资人",
+  "intent": "ranking",
+  "lang": "zh",
+  "query": "提升大模型推理 token 产出的存储加速方案，哪家做得最专、最领先？",
+  "model_key": "deepseek-v3",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-v3",
+  "grade": "A",
+  "ok": true,
+  "response": "在提升大模型推理（尤其是token产出）的存储加速方案领域，以下几家公司在技术和产品上表现尤为突出，各有专长：\n\n---\n\n### **1. NVIDIA（英伟达）**\n- **技术亮点**：\n  - **GPU显存优化**：通过TensorRT-LLM和FasterTransformer等推理框架，优化显存带宽利用，减少数据传输延迟。\n  - **NVLink与NVSwitch**：多GPU间高速互联技术，加速模型参数同步。\n  - **H100/H200的HBM3显存**：高带宽内存（带宽达3TB/s以上）显著提升token生成速度。\n- **场景适配**：适合需要低延迟、高吞吐的实时推理场景（如对话AI）。\n- **优势**：硬件-软件全栈优化，生态完善。\n\n---\n\n### **2. AMD（超威半导体）**\n- **技术亮点**：\n  - **Instinct MI300系列**：采用CDNA3架构和HBM3显存，支持FP8/INT8量化，提升存储效率。\n  - **ROCm软件栈**：开源工具链（如MIOpen）优化大模型推理的显存访问。\n- **场景适配**：适合成本敏感型场景，提供高性价比方案。\n- **优势**：开放生态，兼容性逐步提升。\n\n---\n\n### **3. Intel（英特尔）**\n- **技术亮点**：\n  - **Habana Gaudi2**：专用AI加速器，通过SRAM和HBM混合存储架构优化token级计算。\n  - **第四代至强（Sapphire Rapids）**：支持AMX指令集，加速矩阵运算。\n- **场景适配**：企业级部署，尤其是需要CPU-AI协同的场景。\n- **优势**：与现有数据中心基础设施无缝集成。\n\n---\n\n### **4. 云计算厂商（AWS/Azure/Google Cloud）**\n- **AWS**：\n  - **Inferentia2**：定制芯片支持低延迟推理，通过Neuron SDK优化显存管理。\n  - **S3 Intelligent-Tiering**：冷热数据分层存储，降低模型加载延迟。\n- **Google Cloud**：\n  - **TPU v4**：通过高带宽互联（600GB/s）和优化模型分片，加速token生成。\n- **场景适配**：云原生AI服务，弹性扩展需求。\n\n---\n\n### **5. 存储加速芯片初创公司**\n- **Groq**：\n  - **LPU（语言处理单元）**：专为LLM设计，通过SRAM取代传统DRAM，实现极低延迟（单token生成<1ms）。\n- **Cerebras**：\n  - **Wafer-Scale引擎**：超大芯片（如CS-2）减少跨节点通信，存储与计算一体化。\n- **优势**：颠覆性架构，",
+  "meta": {
+    "elapsed": 20.27,
+    "usage": {
+      "prompt_tokens": 24,
+      "completion_tokens": 600,
+      "total_tokens": 624,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:09:01"
+}

@@ -1,0 +1,27 @@
+{
+  "query_id": "T2-Q20",
+  "tier": "T2",
+  "persona": "智算中心架构师",
+  "intent": "recommendation",
+  "lang": "en",
+  "query": "Which Chinese vendors provide AI data-center storage acceleration for domestic GPUs (Ascend/Cambricon)?",
+  "model_key": "qwen-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "Several Chinese vendors provide AI data-center storage acceleration solutions optimized for domestic GPUs such as Huawei’s **Ascend** series (e.g., Ascend 910B) and Cambricon’s **MLU** series (e.g., MLU370-X8, MLU590). These solutions focus on high-throughput, low-latency I/O to address the “storage wall” in large-scale AI training—especially for unstructured data (images, videos, text corpora). Key vendors include:\n\n### 1. **Huawei (Huawei Technologies)**  \n- **Solution**: **OceanStor Dorado + Ascend AI Stack Integration**, enhanced with **AI-Native Storage** features.  \n- **Key Tech**:  \n  - *SmartIO*: Accelerates data preprocessing (e.g., JPEG decoding, format conversion) directly in storage controllers using FPGA/ASIC offload.  \n  - *DataEngine for AI*: Integrates with Ascend’s CANN (Compute Architecture for Neural Networks) and MindSpore to enable zero-copy data loading via shared memory or RDMA.  \n  - *NVMoF over RoCEv2* support with ASCEND NPU-aware scheduling.  \n- **Deployment**: Widely used in Huawei’s internal AI cloud (e.g., Pangu training clusters) and commercial deployments (e.g., China Mobile, Baidu’s joint AI labs).\n\n### 2. **Inspur (Inspur Information)**  \n- **Solution**: **AS13000 AI Storage + NF5688M6/NF5688M7 AI servers** (with Ascend/Cambricon accelerators).  \n- **Key Tech**:  \n  - *AI Data Acceleration Engine (ADAE)*: A software-defined layer that co-schedules storage I/O and GPU compute; supports Cambricon’s BrainStorm SDK and Ascend’s Data Processing Unit (DPU) offload.  \n  - *Object-to-Tensor streaming*: Direct ingestion of S3/object storage into GPU memory via RDMA + GPUDirect Storage (GDS)-like path (adapted for domestic stacks).  \n  - Certified for Cambricon MLU370/590 and Huawei Ascend 910B in Inspur’s “AI Ready” validation program.\n\n### 3. **XSKY (Beijing Xsky Data Technology Co., Ltd.)**  \n- **Solution**: **XSKY XE3000 AI-Optimized Distributed Storage** + integration with domestic AI chips.  \n- **Key Tech**:  \n  - *TensorFS*: A purpose-built file system layer supporting POSIX + AI-native APIs (e.g., `torch.data`-compatible metadata indexing, prefetch-aware caching).  \n  - *Hardware offload*: Supports SmartNICs (e.g., Huawei HiSilicon-based cards) and Cambricon’s embedded",
+  "meta": {
+    "elapsed": 11.46,
+    "usage": {
+      "total_tokens": 628,
+      "completion_tokens": 600,
+      "prompt_tokens": 28,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-22T18:23:32"
+}

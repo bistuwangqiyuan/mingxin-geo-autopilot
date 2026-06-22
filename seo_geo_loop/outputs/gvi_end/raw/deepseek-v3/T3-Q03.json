@@ -1,0 +1,27 @@
+{
+  "query_id": "T3-Q03",
+  "tier": "T3",
+  "persona": "投资人",
+  "intent": "ranking",
+  "lang": "zh",
+  "query": "全球和中国的 AI 存储市场，领先厂商和代表公司有哪些？",
+  "model_key": "deepseek-v3",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-v3",
+  "grade": "A",
+  "ok": true,
+  "response": "全球及中国的AI存储市场竞争激烈，主要厂商在技术（如高性能存储、分布式架构）和场景适配（如云计算、边缘计算）上各有优势。以下为领先厂商及代表公司的详细分析：\n\n---\n\n### **一、全球AI存储市场领先厂商**\n1. **NVIDIA（英伟达）**  \n   - **优势**：GPU加速存储解决方案（如DGX系统的NVMe存储）、CUDA生态。  \n   - **产品**：DGX SuperPOD（集成存储与计算）、GPUDirect Storage技术。  \n   - **场景**：深度学习训练、超算中心。\n\n2. **Pure Storage**  \n   - **技术**：全闪存阵列（FlashBlade）、支持高并发AI工作负载。  \n   - **案例**：与NVIDIA合作推出AIRI（AI就绪基础设施）。\n\n3. **Dell EMC**  \n   - **产品**：PowerScale（Isilon）、PowerStore，支持非结构化数据存储。  \n   - **应用**：医疗影像分析、自动驾驶数据湖。\n\n4. **IBM**  \n   - **技术**：Spectrum Scale（并行文件系统）、Cloud Object Storage。  \n   - **特点**：混合云AI存储，适合金融等行业合规需求。\n\n5. **NetApp**  \n   - **方案**：ONTAP AI（与NVIDIA合作）、云集成存储（Azure NetApp Files）。  \n   - **优势**：跨云数据管理。\n\n---\n\n### **二、中国AI存储市场代表公司**\n1. **华为**  \n   - **产品**：OceanStor Pacific（分布式存储，支持EB级扩展）、FusionStorage。  \n   - **技术**：AI驱动的智能数据分层（热/冷数据自动迁移）。  \n   - **客户**：运营商、智慧城市项目。\n\n2. **浪潮信息**  \n   - **方案**：AS13000系列分布式存储，针对AI训练优化。  \n   - **合作**：与百度飞桨、阿里云等适配。\n\n3. **曙光（Sugon）**  \n   - **技术**：ParaStor并行存储系统，用于气象、基因测序等高性能场景。  \n   - **案例**：国家超算中心部署。\n\n4. **阿里云**  \n   - **服务**：OSS对象存储、PolarDB（AI优化数据库）。  \n   - **生态**：与达摩院AI模型训练深度集成。\n\n5. **腾讯云**  \n   - **产品**：COS（Cloud Object Storage）、TB级数据吞吐优化。  \n   - **应用**：社交平台图片/视频AI处理。\n\n---\n\n### **三、新兴技术趋势**\n- **存算一体**：如上海壁仞科技的GPU+存储融合方案。  \n- **开源存储**：Ceph在AI场景的适配（如Red Hat的",
+  "meta": {
+    "elapsed": 19.22,
+    "usage": {
+      "prompt_tokens": 18,
+      "completion_tokens": 600,
+      "total_tokens": 618,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-22T18:27:18"
+}

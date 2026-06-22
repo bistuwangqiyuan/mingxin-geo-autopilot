@@ -1,0 +1,27 @@
+{
+  "query_id": "T1-Q06",
+  "tier": "T1",
+  "persona": "信创集成商",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "在华为昇腾平台上做推理，配套的高性能全闪加速存储推荐用哪家？",
+  "model_key": "qwen-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "在华为昇腾AI平台（如Atlas系列服务器/集群）上进行AI推理时，**推荐优先选用华为自研的高性能全闪存储系统——华为OceanStor Dorado系列**，尤其是 **OceanStor Dorado 18000/5000/2000 系列（搭载NVMe SSD + SmartMatrix全互联架构）**。原因如下：\n\n✅ **深度软硬协同优化（关键优势）**  \n- 华为昇腾AI硬件（Ascend芯片、CANN软件栈）与OceanStor Dorado同属华为生态，在驱动层、协议栈（如支持NVMe over Fabrics）、IO调度策略（如智能QoS、AI感知IO特征）等方面已联合调优；  \n- CANN 7.0+ 版本明确支持与Dorado存储的**RDMA/NVMe-oF直连加速**，可大幅降低数据加载延迟（实测推理预处理I/O延迟可压至<100μs），避免传统IP网络瓶颈。\n\n✅ **性能指标匹配AI推理场景需求**  \n- 全闪架构提供超高IOPS（单框最高>20M IOPS）和超低时延（平均读时延<0.1ms），满足大模型推理中高频次、小包（如token embedding查表）、随机读密集型IO负载；  \n- 支持**多租户QoS隔离**，保障多卡/多模型并发推理时的数据吞吐稳定性；  \n- 智能缓存预取（基于AI workload pattern学习）可提升热数据命中率，加速模型权重/缓存数据加载。\n\n✅ **工程落地成熟度高**  \n- 华为官方《昇腾AI推理最佳实践白皮书》及Atlas 800/900集群部署指南中，将Dorado列为**首选存储方案**，并提供完整参考架构（如：Atlas 800训练服务器 + Dorado 5000 V6 via RDMA直连）；  \n- 已在金融（实时风控）、运营商（5G信令分析）、互联网（AIGC内容生成）等实际推理场景规模商用验证。\n\n🔍 其他可选方案（需谨慎评估）：\n- **华为OceanStor Pacific系列**：适合海量非结构化数据（如视频/图像原始库），但时延略高于Dorado，更偏向训推一体中的“训”侧或冷热分层场景；  \n- **第三方NVMe全闪（如Pure Storage、Dell PowerStore）**：虽支持标准NVMe-oF，但缺乏与CANN/NPU的深度协同（如无Ascend-aware IO调度），需额外开发适配层，且故障定位链路长，不推荐核心推理",
+  "meta": {
+    "elapsed": 16.42,
+    "usage": {
+      "total_tokens": 627,
+      "completion_tokens": 600,
+      "prompt_tokens": 27,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-22T18:21:58"
+}

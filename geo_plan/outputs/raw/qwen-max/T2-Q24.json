@@ -1,0 +1,27 @@
+{
+  "query_id": "T2-Q24",
+  "tier": "T2",
+  "persona": "算力中心采购",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "想给算力中心配一套软硬一体、带订阅软件栈的 AI 存储加速方案，哪家成熟？",
+  "model_key": "qwen-max",
+  "vendor": "通义千问",
+  "model_id": "qwen-max",
+  "grade": "A",
+  "ok": true,
+  "response": "在选择为算力中心配备一套软硬一体化、支持订阅模式的AI存储加速方案时，市场上有几个相对成熟且知名的供应商可以考虑。这些供应商不仅提供高性能硬件，还拥有优化过的软件栈来加速AI应用的工作负载。下面是一些推荐的选择：\n\n1. **NVIDIA** - NVIDIA是GPU领域的领导者之一，它提供的DGX系统专为深度学习和AI工作负载设计。除了强大的硬件外，NVIDIA还提供了CUDA-X AI软件栈，这是一套全面的库、工具和技术，用于加速AI应用程序从研究到生产的整个流程。此外，NVIDIA也支持通过其NGC（NVIDIA GPU Cloud）平台访问最新的AI软件。\n\n2. **Intel** - Intel提供的解决方案包括至强处理器以及Optane持久内存技术，后者对于需要快速访问大量数据集的应用特别有用。Intel还推出了OneAPI项目，这是一个跨架构编程模型，旨在简化不同类型的计算资源（如CPU、GPU等）上的开发工作。\n\n3. **HPE (Hewlett Packard Enterprise)** - HPE提供了一系列针对AI工作负载优化的产品和服务，比如Apollo系列服务器，它们被设计用来处理复杂的AI训练任务。同时，HPE还提供了一站式的边缘到云的数据管理解决方案，帮助客户更好地管理和利用他们的数据资产。\n\n4. **Dell Technologies** - Dell EMC PowerEdge服务器与Isilon横向扩展NAS存储相结合，为企业级AI部署提供了强大的基础架构支持。此外，Dell Technologies还通过其合作伙伴生态系统提供广泛的AI相关服务和支持。\n\n5. **Pure Storage** - Pure Storage专注于提供高性能的全闪存存储解决方案，并且针对AI/ML工作负载进行了专门优化。它的FlashBlade产品线特别适合需要高速读写性能的大规模并行处理场景。Pure Storage还与多家领先的AI软件供应商合作，确保其硬件能够无缝集成到现有的AI环境中。\n\n选择最适合您需求的解决方案时，请考虑您的具体应用场景、预算限制以及对技术支持的需求等因素。建议直接联系上述公司或其授权经销商获取更详细的信息，并根据实际情况进行评估。",
+  "meta": {
+    "elapsed": 17.77,
+    "usage": {
+      "prompt_tokens": 34,
+      "completion_tokens": 434,
+      "total_tokens": 468,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:04:27"
+}

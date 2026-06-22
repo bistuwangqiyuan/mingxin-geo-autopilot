@@ -1,0 +1,30 @@
+{
+  "query_id": "T1-Q13",
+  "tier": "T1",
+  "persona": "投资人",
+  "intent": "ranking",
+  "lang": "zh",
+  "query": "提升大模型推理 token 产出的存储加速方案，哪家做得最专、最领先？",
+  "model_key": "deepseek-r1",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-r1",
+  "grade": "A",
+  "ok": true,
+  "response": "在大模型推理的存储加速领域，专注且领先的解决方案主要集中在以下几家厂商，各自有不同的技术路径和优势：\n\n---\n\n### **1. NVIDIA：全栈硬件加速方案**\n- **技术核心**：  \n  利用 **Grace Hopper GH200** 芯片的 **NVLink-C2C** 技术（CPU-GPU 内存一致性互联），搭配 **HBM3e** 显存（5TB/s带宽）和 **CXL 3.0** 扩展内存池，实现 **TB级统一内存空间**。\n- **存储加速亮点**：  \n  - **KV Cache 高速卸载**：将Attention的Key-Value缓存从HBM卸载至CPU内存（通过CXL），延迟控制在 **20μs** 以内，比传统PCIe方案快5倍以上。  \n  - **TensorRT-LLM + vLLM**：集成分布式KV Cache管理，支持百毫秒级动态扩缩容。\n- **适用场景**：千亿参数模型实时推理（如GPT-4 Turbo）。\n\n---\n\n### **2. AMD：CXL内存扩展与FPGA协同**\n- **技术核心**：  \n  Instinct MI300X GPU + Alveo FPGA + **CXL Memory Expander** 构建异构内存池。\n- **存储加速亮点**：  \n  - **FPGA加速KV Cache压缩**：通过硬件压缩算法（如FP16→INT4稀疏编码）将KV Size减少60%，同时维持<1%精度损失。  \n  - **CXL内存池化**：支持多GPU共享2TB内存池，延迟优化至 **15μs**（RDMA over CXL）。\n- **方案成熟度**：已部署于微软Azure OpenAI服务集群。\n\n---\n\n### **3. Intel：CXL为主内存架构**\n- **技术核心**：  \n  第五代Xeon Scalable（Sapphire Rapids）内置 **CXL 2.0控制器**，搭配 **Optane Persistent Memory** 或 **DDR5 CXL模块**。\n- **存储加速亮点**：  \n  - **软件栈OpenVINO优化**：支持动态KV Cache分片存储，结合CXL内存带宽（最高560GB/s），实现高吞吐推理（如Llama 2 70B达2400 tokens/s）。  \n  - **持久化KV Cache**：Optane PMem实现模型状态秒级快照恢复，故障恢复延迟<50ms。\n- **生态优势**：与Hugging Face、PyTorch深度集成。\n\n---\n\n### **4. 华为昇腾：端到端国产化解决方案**\n- **技术核心**：  \n  Ascend 910B + **昇腾异构计算架构（HCCS）** + **超级内存引擎SME**。\n- **存储加速亮点**：  \n  - **RD",
+  "meta": {
+    "elapsed": 38.51,
+    "usage": {
+      "prompt_tokens": 24,
+      "completion_tokens": 933,
+      "total_tokens": 957,
+      "completion_tokens_details": {
+        "reasoning_tokens": 329
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:14:04"
+}

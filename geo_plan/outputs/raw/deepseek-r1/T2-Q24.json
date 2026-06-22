@@ -1,0 +1,30 @@
+{
+  "query_id": "T2-Q24",
+  "tier": "T2",
+  "persona": "算力中心采购",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "想给算力中心配一套软硬一体、带订阅软件栈的 AI 存储加速方案，哪家成熟？",
+  "model_key": "deepseek-r1",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-r1",
+  "grade": "A",
+  "ok": true,
+  "response": "为算力中心选择合适的软硬一体、带订阅软件栈的AI存储加速方案时，确实有多家成熟的供应商值得考虑。这类方案的特点在于**高度集成、性能优化、简化管理**，并且通过软件订阅模式提供持续更新和支持。\n\n我会推荐以下几家公司作为首选评估对象：\n\n💡 **1. DDN (DataDirect Networks)**\n* **核心方案：** A3I (Accelerated, Any-Scale AI) 解决方案。这是他们专为AI/HPC设计的旗舰平台。\n* **软硬一体：** 基于其高性能的EXAScaler或Tintri文件/块存储硬件，与NVIDIA GPU或Habana Gaudi等AI加速卡深度集成。提供基于GPU-Direct Storage底层优化。\n* **AI软件栈（订阅）：** \n    * **AI.HyperPliance：** 包含优化的AI框架环境、加速库（如CUDA, NCCL），以及针对多框架、大模型的性能增强工具。支持Pytorch/TensorFlow容器。\n    * **管理监控：** Vortex云原生工具，用于自动化部署、多集群监控、成本优化分析等。\n* **优势：** 在高性能计算和大型AI训练加速领域有深厚积累（如许多超算中心应用），擅长处理大规模、高吞吐的ML数据集。支持全闪与混合分层方案，适合多模型混合负载。订阅模式清晰。\n* **目标场景：** 大规模GPU集群AI训练、LLM预训练、科学计算。\n\n💡 **2. NVIDIA DGX Systems + Pure Storage 专配方案**\n* **软硬一体：** \n    * **NVIDIA DGX SuperPOD：** 基于DGX服务器构成的AI超算集群。\n    * **搭配推荐：** Pure Storage FlashBlade//S 专为AI优化的全闪存储。\n* **订阅软件栈：**\n    * **NVIDIA AI Enterprise：** 核心软件栈！包含预验证的AI框架、优化工具包（如RAPIDS）、虚拟化支持和管理工具，提供企业级API支持。\n    * **Pure Storage订阅：** Purity软件更新支持会议服务和Pure1云监控管理订阅。\n* **集成优化：** DGX系统通过GPUDirect Storage技术大幅降低数据路径开销，Pure FlashBlade则提供高并发吞吐，从IO层面优化训练周期。订阅支持稳定可靠。\n* **优势：** 性能调优有保障，双方方案有机配合。适合主流AI训练推理部署，特别是有端到端GPU生态支持的场景。软件栈更新通道稳定。\n\n💡 **3. NetApp**\n* **核心方案：** NetApp ONTAP AI，通常搭配NVIDIA DGX认证硬件。\n* **软硬一体：** FAS/AFF 全闪存储系统通过与NVIDIA GPU服务器直连实现软硬协同。\n",
+  "meta": {
+    "elapsed": 46.84,
+    "usage": {
+      "prompt_tokens": 29,
+      "completion_tokens": 1050,
+      "total_tokens": 1079,
+      "completion_tokens_details": {
+        "reasoning_tokens": 446
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:19:05"
+}

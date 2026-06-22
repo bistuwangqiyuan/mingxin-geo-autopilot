@@ -1,0 +1,30 @@
+{
+  "query_id": "T1-Q28",
+  "tier": "T1",
+  "persona": "智算中心架构师",
+  "intent": "recommendation",
+  "lang": "en",
+  "query": "Which vendors offer a disaggregated all-flash storage acceleration appliance for AI inference and training?",
+  "model_key": "deepseek-r1",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-r1",
+  "grade": "A",
+  "ok": true,
+  "response": "Okay, let's break down vendors offering solutions that align with the concept of a \"disaggregated all-flash storage acceleration appliance\" specifically tuned for AI workloads. This is a rapidly evolving space, often using different terminology. We'll interpret \"disaggregated\" as the ability to scale storage compute elements separately from capacity, which many modern AI platforms inherently support. \"Acceleration\" often implies computational elements or optimized connectivity to GPU hosts.\n\nBased on current technology (as of late 2023/early 2024), these vendors are key players relevant to your query:\n\n1.  **NVIDIA:**\n    *   **Solution:** **NVIDIA DGX SuperPOD with NVIDIA Granite / Spectrum-X.**\n    *   **Why:** While DGX SuperPOD is an entire AI infrastructure solution, its integrated storage component is crucial. NVIDIA offers \"Granite, an accelerated cloud-based data foundation platform\" and \"Spectrum-X,\" a networking platform specifically designed for AI fabrics. Systems like SuperPOD leverage DSS (Distributed Storage Software) – optimized for scale-out, disaggregated NVMe storage. It's highly tuned for GPUDirect® Storage (GDS) to minimize latency feeding GPUs. Their solution is fundamentally designed as an accelerator foundation for AI training and inference.\n    *   **Focus:** Deep integration with GPU compute, high throughput, low latency for unstructured data at AI scale.\n\n2.  **IBM:**\n    *   **Solution:** **IBM FlashSystem architecture (e.g., 5200, 7300) with FCM (FlashCore Modules) and eventual integration with their AI strategies (watsonx), optionally combined with IBM Spectrum Scale.**\n    *   **Why:** IBM FlashSystem emphasizes NVMe-over-Fabrics (NVMe/RoCE, NVMe/FC, NVMe/TCP). Its highly efficient FCM modules and low internal latency provide excellent performance. The architecture allows for scaling controllers (compute) and dense enclosures (capacity) separately. Spectrum Scale (parallel file system) provides massive scale for HPC/AI workloads. While not *marketed solely as an AI appliance*, its performance characteristics make it a strong contender, especially when viewed as part of a solution.\n    *   **Focus:** Enterprise-class, unified SAN/NAS block/file/Object protocols, Tier 1 storage capabilities with AI-capable performance.\n\n3.  **VAST Data:**\n    *   **Solution:** **VAST Data Platform**\n    *   **Why:** VAST built its entire platform on a Universal Storage architecture designed from the ground up to be scalable and deliver *data gravity* to GPUs. It's inherently disaggregated (compute separate from capacity). It offers globally consistent access with high throughput and low latency optimized using Ethernet/RDMA. Their ExaFlare communication platform is specifically designed for AI cluster communication. They aggressively target the AI/ML market.\n    *   **",
+  "meta": {
+    "elapsed": 40.76,
+    "usage": {
+      "prompt_tokens": 22,
+      "completion_tokens": 994,
+      "total_tokens": 1016,
+      "completion_tokens_details": {
+        "reasoning_tokens": 390
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:15:53"
+}

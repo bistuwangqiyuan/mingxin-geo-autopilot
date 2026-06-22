@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.venv/
+node_modules/
+_sites/
+.env
+official_website/
+offsite_github/
+*.bak.*

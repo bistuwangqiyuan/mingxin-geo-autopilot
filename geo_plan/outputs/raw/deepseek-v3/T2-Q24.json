@@ -1,0 +1,27 @@
+{
+  "query_id": "T2-Q24",
+  "tier": "T2",
+  "persona": "算力中心采购",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "想给算力中心配一套软硬一体、带订阅软件栈的 AI 存储加速方案，哪家成熟？",
+  "model_key": "deepseek-v3",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-v3",
+  "grade": "A",
+  "ok": true,
+  "response": "为算力中心配置软硬一体、带订阅软件栈的AI存储加速方案时，需综合考虑性能、扩展性、生态兼容性和服务支持。以下是目前市场上成熟的主流方案及推荐建议：\n\n---\n\n### **1. NVIDIA DGX SuperPOD + NVIDIA AI Enterprise**\n- **硬件**：基于DGX A100/H100 GPU服务器，搭配高速NVMe存储或Spectrum-3以太网/InfiniBand网络。\n- **软件栈**：NVIDIA AI Enterprise订阅（含CUDA、RAPIDS、TensorRT等），提供容器化AI工具链和生命周期管理。\n- **优势**：\n  - 全栈优化，专为大规模AI训练/推理设计。\n  - 支持多节点横向扩展，性能线性提升。\n  - NVIDIA专业支持，与主流AI框架（PyTorch、TensorFlow）深度集成。\n- **适用场景**：需要极致性能的企业级AI算力中心，预算充足。\n\n---\n\n### **2. IBM Storage Scale System (ESS) + IBM Watsonx.data**\n- **硬件**：ESS高性能分布式存储（基于FlashSystem），支持GPFS文件系统。\n- **软件栈**：Watsonx.data订阅服务（AI数据湖、元数据管理），支持Red Hat OpenShift集成。\n- **优势**：\n  - 高吞吐、低延迟存储，适合海量非结构化数据（如视频、文本）。\n  - 内置AI数据管道优化，与IBM Cloud Pak for Data无缝协作。\n- **适用场景**：混合云环境下的AI/大数据分析，需强数据治理能力。\n\n---\n\n### **3. VAST Data + VAST AI软件栈**\n- **硬件**：VAST Data全闪存存储系统（Disaggregated Shared Everything架构）。\n- **软件栈**：VAST AI订阅（含数据编排、GPU Direct Storage加速）。\n- **优势**：\n  - 全局命名空间，支持千万级IOPS和亚毫秒延迟。\n  - 与NVIDIA GPUDirect Storage兼容，减少数据搬运开销。\n- **适用场景**：需要高并发低延迟的AI训练场景（如自动驾驶、医疗影像）。\n\n---\n\n### **4. Dell PowerScale (Isilon) + Dell AI解决方案**\n- **硬件**：PowerScale全闪节点，支持OneFS文件系统。\n- **软件栈**：Dell APEX订阅服务（含MLOps工具链），可选与VMware Tanzu集成。\n- **优势**：\n  - 横向扩展存储，平衡性能与成本。\n  - 与Dell EMC服务器（如PowerEdge）深度适配，部署简单。\n- **适用场景**：中大型企业AI项目，需兼顾传统HPC与AI需求。\n\n---\n\n### **5. 国内厂商：华为 Atlas 800 + OceanStor Pacific**\n- **硬件**：Atlas 800训练服务器（",
+  "meta": {
+    "elapsed": 20.83,
+    "usage": {
+      "prompt_tokens": 29,
+      "completion_tokens": 600,
+      "total_tokens": 629,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:11:22"
+}

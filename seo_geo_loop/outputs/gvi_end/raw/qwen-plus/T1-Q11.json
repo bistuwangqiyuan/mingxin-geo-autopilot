@@ -1,0 +1,27 @@
+{
+  "query_id": "T1-Q11",
+  "tier": "T1",
+  "persona": "智算中心架构师",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "做 EBOF + NVMe-oF 的存算分离扩展存储，有没有已经第三方实测验证过的国产产品？",
+  "model_key": "qwen-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "是的，目前已有**多家国产厂商的 EBOF（Ethernet-based NVMe-oF）+ NVMe-oF 存算分离方案**完成第三方权威实测验证，并在实际项目中落地应用。以下为经**中国信息通信研究院（CAICT）、国家工业信息安全发展研究中心、信通院“可信区块链”/“云边端一体化”测试实验室、以及头部运营商/超算中心第三方评测**验证过的代表性国产产品与实践案例（截至2024年Q3）：\n\n---\n\n✅ **已通过第三方实测验证的国产EBOF/NVMe-oF产品及验证机构**\n\n| 厂商 | 产品/方案 | 第三方验证机构 | 关键验证内容 | 典型实测指标（公开报告节选） |\n|------|-----------|----------------|--------------|------------------------------|\n| **中科海光（Hygon）联合中科曙光** | “海光DCU+曙光ParaStor EBOF存储池”方案 | **中国信息通信研究院（CAICT）《存算分离性能评测报告》（2023.12）** | 端到端NVMe-oF over RoCEv2时延、IOPS稳定性、多租户隔离性、故障自愈能力 | • 单节点读吞吐 ≥22GB/s（4KB随机读，256队列深度）<br>• P99延迟 ≤120μs（4KB随机读）<br>• 故障切换时间 <800ms（无IO丢失） |\n| **华为OceanStor Dorado + SmartNIC加速卡** | Dorado全闪存阵列支持NVMe/TCP & RoCEv2双协议EBOF接入 | **国家工业信息安全发展研究中心《AI训练场景存算分离性能评估报告》（2024.03）** | 大模型训练（如LLaMA-7B/13B）下数据加载效率、GPU利用率提升、网络拥塞控制有效性 | • 训练吞吐提升37%（vs传统iSCSI挂载）<br>• GPU计算空闲率下降至<5%<br>• 支持单集群200+ GPU节点并发访问 |\n| **浪潮存储AS13000G7 + 自研EBOF网关** | 基于自研SmartNIC（支持RDMA offload）的EBOF网关，对接NVMe SSD池 | **中国移动集团研究院《智算中心存算分离POC测试报告》（2024.05）** | 与飞腾CPU+昇腾AI芯片协同适配性、跨AZ容灾能力、国产化生态兼容性（麒麟OS、统信UOS、openE",
+  "meta": {
+    "elapsed": 11.62,
+    "usage": {
+      "total_tokens": 634,
+      "completion_tokens": 600,
+      "prompt_tokens": 34,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-22T18:22:06"
+}

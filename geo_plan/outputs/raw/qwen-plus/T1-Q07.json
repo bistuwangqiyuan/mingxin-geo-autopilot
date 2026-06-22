@@ -1,0 +1,27 @@
+{
+  "query_id": "T1-Q07",
+  "tier": "T1",
+  "persona": "投资人",
+  "intent": "ranking",
+  "lang": "zh",
+  "query": "国产 KV-Cache 卸载/存算分离全闪存储赛道，技术领先的代表性公司是哪几家？",
+  "model_key": "qwen-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "目前（截至2024年中），**“国产 KV-Cache 卸载/存算分离全闪存储”并非一个已成熟落地、有明确产业共识的独立赛道**，而更准确地说，是**大模型推理加速与新型AI基础设施演进中正在探索的技术方向之一**，涉及多个技术层级的交叉融合。需要从概念澄清、技术实质和产业实践三个层面理性分析：\n\n---\n\n### 一、概念辨析：什么是“KV-Cache 卸载”？\n- **KV-Cache**：Transformer 推理中缓存的 Key/Value 张量（通常占显存70%+），重复使用以避免重计算。\n- **KV-Cache 卸载（Offloading）**：将部分或全部 KV-Cache 从GPU显存（HBM）迁移到更廉价但带宽/延迟受限的存储介质（如CPU内存、CXL内存、NVMe SSD、甚至专用存内计算芯片），以缓解显存瓶颈、支持更大batch/更长上下文。\n- **“全闪存储”**：指基于NVMe SSD/傲腾/新型非易失内存（如CXL-attached SSD）构建的高性能存储层。\n- **“存算分离”**：在AI推理场景下，指将计算（GPU）与KV缓存存储物理分离，通过高速互连（PCIe 5.0/6.0、CXL 2.0+/3.0、NVLink-Switch等）协同调度。\n\n⚠️ 注意：  \n- 纯“全闪存储”（如传统企业级NVMe阵列）**带宽（~10–20 GB/s）和延迟（~100 μs）远低于GPU HBM（>2 TB/s, ~100 ns）**，直接卸载到普通SSD会严重拖慢推理吞吐（P99延迟飙升）。因此，**真正可行的方案必须结合软硬协同优化**（如分层缓存、预取、量化压缩、CXL内存池化、近存计算等）。\n\n---\n\n### 二、国内真正具备技术深度并布局该方向的代表性公司（非简单“卖SSD”的厂商）\n\n| 公司 | 核心技术路径 | 进展与特点 | 是否“代表领先”？ |\n|------|--------------|-------------|------------------|\n| **中科驭数（Yusur）** | 自研DPU（K2系列）+ KV-Cache硬件卸载引擎 + 自研RDMA/CXL协议栈 | 已发布“KCache”方案，支持GPU→DPU→CXL内存/SSD的低开销KV卸载，实测在Llama-2-7B上支持128K上下文",
+  "meta": {
+    "elapsed": 15.6,
+    "usage": {
+      "total_tokens": 632,
+      "completion_tokens": 600,
+      "prompt_tokens": 32,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:05:28"
+}

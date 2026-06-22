@@ -1,0 +1,27 @@
+{
+  "query_id": "T1-Q15",
+  "tier": "T1",
+  "persona": "算力中心采购",
+  "intent": "definition",
+  "lang": "zh",
+  "query": "什么是面向 AI 训练与推理的高性能全闪加速存储？典型带宽、IOPS、时延指标是多少？",
+  "model_key": "qwen-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "面向 AI 训练与推理的高性能全闪加速存储（High-Performance All-Flash Accelerated Storage for AI），是一种专为满足大模型训练（如 LLaMA、GPT、Stable Diffusion）和高并发推理场景而设计的底层存储系统。它以全闪存（NVMe SSD/U.2/PCIe 5.0/6.0 SSD 或 CXL 内存池）为核心介质，结合软硬件协同优化（如 RDMA 网络、并行文件系统、AI-aware I/O 调度、数据预取与缓存智能分层），旨在彻底消除传统存储（HDD/混合阵列）在吞吐、时延和并发能力上的瓶颈，确保 GPU/NPU 算力不因 I/O 等待而空转。\n\n其核心目标是：**让存储带宽与 GPU 显存带宽（如 H100 SXM5 的 2 TB/s 峰值显存带宽）和互连带宽（如 NVLink 900 GB/s）相匹配，实现“算力—存储”平衡**。\n\n---\n\n### ✅ 典型性能指标（2024–2025 主流商用/超算级方案）\n\n| 指标 | 单节点（典型高端配置） | 多节点集群（16–128节点规模） | 说明 |\n|------|------------------------|------------------------------|------|\n| **持续带宽（Aggregate Throughput）** | 30–80 GB/s（读）<br>15–40 GB/s（写） | **1–20+ TB/s（端到端）** | • 基于 NVMe-oF over RDMA（RoCEv2 / InfiniBand）<br>• 集群带宽线性可扩展（接近理想扩展比 >90%）<br>• 实测值（非理论峰值），含真实数据集（如 LAION-5B 图像+文本混合加载） |\n| **随机 IOPS（4K 随机读/写）** | 2–5M IOPS（读）<br>0.8–2M IOPS（写） | **20–200+ M IOPS** | • 针对小文件（tokenized shards、checkpoint shards、LoRA 权重）密集访问优化<br>• 启用多级元数据索引（如 B+树+LSM+GPU-accelerated hash lookup） |\n| **端到端时延（p95/p99）** | < 100 μs（读）<br>< 200 μs（写） | < 1",
+  "meta": {
+    "elapsed": 11.78,
+    "usage": {
+      "total_tokens": 635,
+      "completion_tokens": 600,
+      "prompt_tokens": 35,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-22T18:22:15"
+}

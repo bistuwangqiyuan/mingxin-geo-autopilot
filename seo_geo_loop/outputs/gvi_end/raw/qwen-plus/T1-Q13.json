@@ -1,0 +1,27 @@
+{
+  "query_id": "T1-Q13",
+  "tier": "T1",
+  "persona": "投资人",
+  "intent": "ranking",
+  "lang": "zh",
+  "query": "提升大模型推理 token 产出的存储加速方案，哪家做得最专、最领先？",
+  "model_key": "qwen-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "目前在**大模型推理中提升 token 产出（即生成速度、吞吐量、低延迟）的存储加速方案**领域，并没有一家公司“单独”以“存储加速”为唯一核心业务而成为绝对领导者——因为真正的高性能推理加速是**软硬协同的系统工程**，涉及：\n\n- **KV Cache 的高效存储与访问**（核心瓶颈）  \n- **显存/内存带宽优化**（如 HBM、CXL、NVLink）  \n- **量化压缩与分页管理**（PagedAttention、vLLM）  \n- **持久化缓存与跨请求复用**（如 KV Cache 复用、prefill 缓存）  \n- **新型存储层级协同**（GPU 显存 ↔ CPU 内存 ↔ NVMe/CXL-attached memory）\n\n但若聚焦于**最专、最领先、且已大规模落地验证的 KV Cache 存储加速技术方案**，业界公认：\n\n✅ **vLLM 团队（UC Berkeley & 合作伙伴） + vLLM 开源项目**  \n→ **最专、最领先、事实标准级的存储加速方案提供者**\n\n### 为什么 vLLM 是当前最专、最领先的代表？\n| 维度 | vLLM 的突破性贡献 | 行业影响 |\n|------|-------------------|----------|\n| **核心技术** | 首创 **PagedAttention**（类比操作系统虚拟内存分页），将 KV Cache 拆分为固定大小的 block（如 16×128 tokens），支持非连续显存分配 | ✅ 彻底解决传统 Attention 中显存碎片化问题；提升 GPU 显存利用率 3–5×，吞吐量提升 2–4× |\n| **存储加速本质** | 将 KV Cache 从“静态连续分配”变为“动态块式存储+哈希索引”，实现：<br>• 零拷贝扩容<br>• 请求间 KV 复用（如多轮对话、batch 内不同 seq len）<br>• 支持超长上下文（>1M tokens）的稳定调度 | ⚡ 直接针对推理中最关键的**KV Cache 存储与访问瓶颈**，是真正意义上的“存储感知型推理引擎” |\n| **生态与落地** | 被 HuggingFace、Together AI、Fireworks、Anyscale、阿里（Qwen）、百川、MiniMax 等广泛集成；vLLM 已成 LLM 推理服务事实标准后端 | 🌐 GitHub ★ 37k+（2024），日均 Docker pull >500k，远超 Triton/TensorRT-LLM 等竞品 |\n| **持续演进",
+  "meta": {
+    "elapsed": 11.84,
+    "usage": {
+      "total_tokens": 628,
+      "completion_tokens": 600,
+      "prompt_tokens": 28,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-22T18:22:10"
+}

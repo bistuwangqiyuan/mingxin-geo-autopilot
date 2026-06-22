@@ -1,0 +1,27 @@
+{
+  "query_id": "T2-Q03",
+  "tier": "T2",
+  "persona": "信创集成商",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "存量智算中心改造，想用存储加速提升单位算力 token 产出，选哪家方案？",
+  "model_key": "qwen-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "在存量智算中心改造中，以“**存储加速提升单位算力 token 产出**”为目标，核心矛盾不是单纯追求存储吞吐或IOPS，而是**消除大模型训练/推理中的IO瓶颈（尤其是KV Cache加载、权重分片读取、检查点恢复、数据集预加载等场景）**，从而让GPU算力更持续、更高利用率地用于计算（即提升 tokens/sec per GPU）。\n\n以下是经过产业验证、技术适配性高、且对存量改造友好的主流方案选型分析（聚焦2024–2025主流实践）：\n\n---\n\n✅ **首选推荐：NVIDIA Magnum IO + GPUDirect Storage (GDS) + 高性能并行文件系统（Lustre/CephFS with RDMA）**\n\n| 维度 | 说明 |\n|------|------|\n| **为什么最匹配？** | GDS绕过CPU和内核栈，实现GPU显存 ↔ 存储的**零拷贝直通访问**，将IO延迟从毫秒级降至微秒级；Magnum IO提供统一IO栈优化（包括UCX、RAPIDS IO、HPC-X），原生支持PyTorch/DALI/Horovod等AI框架。实测在LLaMA-3 70B训练中，GDS+Lustre可将数据加载耗时降低60–75%，GPU利用率从55%→82%+，**token/s per GPU提升约1.8–2.3×**（来源：NVIDIA DGX Cloud白皮书 & 阿里云智算中心改造案例）。 |\n| **存量改造友好性** | ✅ 支持在现有IB/RoCE网络（≥200Gbps）、x86服务器（需NVIDIA A100/H100/L40S及以上+驱动R535+）上部署；无需更换GPU，仅需升级驱动、安装MOFED/UCX、配置Lustre客户端；Lustre可复用原有对象存储（如Ceph）或新建高性能全闪存池。 |\n| **典型组合** | • 存储层：Ceph Pacific/Quincy（启用BlueStore+NVMe OSD）或商业Lustre（DDN EXAScaler / VAST Data）<br>• 网络：InfiniBand NDR 或 RoCEv2（200G/400G，需PFC/ECN/QoS保障）<br>• 计算节点：A100/H100 + R535+驱动 + GDS 2.0+ |\n\n---\n\n🔸 **次选（适合特定场景/预算受限）：**\n\n1. **VAST Data Universal",
+  "meta": {
+    "elapsed": 15.72,
+    "usage": {
+      "total_tokens": 630,
+      "completion_tokens": 600,
+      "prompt_tokens": 30,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:06:38"
+}

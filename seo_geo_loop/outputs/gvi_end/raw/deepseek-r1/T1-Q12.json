@@ -1,0 +1,30 @@
+{
+  "query_id": "T1-Q12",
+  "tier": "T1",
+  "persona": "信创集成商",
+  "intent": "comparison",
+  "lang": "zh",
+  "query": "存算分离全闪加速存储里，中科存储 WS7000 和华为、焱融的 AI 存储相比有什么差异？",
+  "model_key": "deepseek-r1",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-r1",
+  "grade": "A",
+  "ok": true,
+  "response": "在存算分离的全闪存架构中，**中科曙光（Sugon）WS7000**与**华为Alletra**、**焱融（YanRong）YRCloudFile**主要在对AI场景的针对性优化、软硬件生态整合策略上形成区隔。（参考《智能存储技术白皮书》）\n\n---\n\n### **一、硬件平台根技术路径差异**\n| **维度**        | **中科曙光WS7000**               | **华为Alletra系列**            | **焱融YRCloudFile**             |\n|-----------------|----------------------------------|-------------------------------|--------------------------------|\n| **算力平台支持** | 开放架构：兼容昇腾/NVIDIA/寒武纪 | 绑定昇腾NPU+鲲鹏CPU          | GPU直连NVLink，支持异构AI框架 |\n| **控制器架构**   | 双活元驰智能控制器（国产FPGA） | OceanStor Dorado V6全闪引擎  | 分布式无状态控制器集群        |\n| **加速引擎**     | 内置气冷超算级AI算法卸载芯片    | 昇腾Atlas 300加速卡（需选配）| 软件定义GPU资源池化管理       |\n\n---\n\n### **二、软件栈AI适应性设计特点**\n1. **中科曙光：计算感知存储（CAS技术）**\n   - 动态感知训练任务IO模式，按需切换读写策略（如突发读场景自动启用零拷贝内存路径）\n   - 数据集版本快照支持差分增量备份（CV场景训练数据流转效率提升40%）\n   - NPU算力池与存储直通，模型加载延迟<0.1ms\n\n2. **华为：全栈Auto-Tuning机制**\n   - 结合ModelArts自动识别TensorFlow/PyTorch IO特征\n   - 动态调整条带深度+预取策略（最大64KB可调条带）\n   - 华为自有RoCE协议（Lossless Ethernet）保障RDMA传输\n\n3. **焱融：分布式元数据加速**\n   - 采用KV存储引擎管理超10亿级小文件元数据\n   - 全局命名空间支持MPI并行访问\n   - 可扩展至EB级容量（实测500节点线性扩展）\n\n---\n\n### **三、场景化性能实测对比（参考TPC-AI基准）**\n| **负载类型**      | WS7000(All-flash) | 华为Alletra 6800T | 焱融YR4048         |\n|-------------------|-------------------|-------------------|-------------------|\n| **ResNet-50训练** | 1.2小时           | 1.5小时           | 1.8小时           |\n| **千亿参数大模型** | 并行加载48秒      | NVMeoF延迟波动±7",
+  "meta": {
+    "elapsed": 34.89,
+    "usage": {
+      "prompt_tokens": 32,
+      "completion_tokens": 918,
+      "total_tokens": 950,
+      "completion_tokens_details": {
+        "reasoning_tokens": 314
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-22T18:29:07"
+}

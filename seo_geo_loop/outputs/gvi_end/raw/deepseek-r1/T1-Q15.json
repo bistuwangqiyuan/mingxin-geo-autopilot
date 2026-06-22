@@ -1,0 +1,30 @@
+{
+  "query_id": "T1-Q15",
+  "tier": "T1",
+  "persona": "算力中心采购",
+  "intent": "definition",
+  "lang": "zh",
+  "query": "什么是面向 AI 训练与推理的高性能全闪加速存储？典型带宽、IOPS、时延指标是多少？",
+  "model_key": "deepseek-r1",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-r1",
+  "grade": "A",
+  "ok": true,
+  "response": "面向 AI 训练与推理的高性能全闪加速存储是一种专门针对大规模人工智能工作负载设计的存储解决方案，它依托全闪存介质（SSD）和分布式架构，提供超高带宽、超低时延和超高 IOPS，以满足 AI 训练/推理数据流的严苛要求。\n\n---\n\n### **核心原理与关键技术**\n1. **全闪存介质**  \n   采用 NVMe SSD（尤其是高性能 NVMe over Fabrics），摒弃传统机械硬盘的物理延迟瓶颈。\n\n2. **分布式架构**  \n   横向扩展（Scale-out）设计，允许多节点并行读写，突破单节点性能上限（如：数百个存储节点集群）。\n\n3. **并行文件系统**  \n   支持 AI 工作负载特征的存储协议（如：Lustre、GPFS、BeeGFS、WEKA、VAST），实现多客户端同时读写同一数据集。\n\n4. **加速协议**  \n   - RDMA（RoCE/Infiniband）：绕过操作系统内核直接访问内存，降低 CPU 开销。\n   - NVMe-oF：扩展本地 NVMe 性能到网络环境，实现微秒级延迟。\n\n5. **数据布局优化**  \n   文件条带化跨多节点存储（如：128+条带分布），实现并发数据流。\n\n---\n\n### **核心性能指标（典型数值）**\n#### 1. **带宽（Throughput）**\n   - **单节点**：可达 **20-100+ GB/s**  \n   - **集群级**：支持线性扩展至 **TB/s 级**（如：VAST 系统实测 1 TB/s+）\n   - **典型值**：  \n     - 单节点 ≥ 20 GB/s  \n     - 中型集群（10+节点）≥ 500 GB/s  \n     - 超大规模集群可达 *数 TB/s*（如：NVIDIA DGX SuperPOD）\n\n#### 2. **IOPS（随机读写能力）**\n   - **单节点**：数百万至千万级  \n     - （如：4K随机读可达 **1M+ IOPS**）\n   - **集群级**：支持十亿级 IOPS  \n     - 例如：VAST VMS 系统实测超 **10亿 IOPS**  \n   - **小文件密集型场景**（如：检查点保存/加载）：IOPS 是关键瓶颈，高性能存储通常需支持 **千万级集群 IOPS**。\n\n#### 3. **延迟（Latency）**\n   - **单请求延迟**：微秒级（μs）  \n     - 客户端本地读写：**< 15μs**  \n     - 网络（100G RDMA）：**50-100μs**（端到端）  \n   - **关键场景影响**：  \n     - 模型训练时延迟过大 → GPU 等待 → 计算",
+  "meta": {
+    "elapsed": 29.47,
+    "usage": {
+      "prompt_tokens": 28,
+      "completion_tokens": 887,
+      "total_tokens": 915,
+      "completion_tokens_details": {
+        "reasoning_tokens": 283
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-22T18:29:36"
+}

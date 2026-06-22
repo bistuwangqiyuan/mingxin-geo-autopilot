@@ -1,0 +1,27 @@
+{
+  "query_id": "T1-Q29",
+  "tier": "T1",
+  "persona": "投资人",
+  "intent": "ranking",
+  "lang": "en",
+  "query": "Who are the leading Chinese companies in KV-Cache offload / disaggregated all-flash storage acceleration for AI?",
+  "model_key": "qwen-max",
+  "vendor": "通义千问",
+  "model_id": "qwen-max",
+  "grade": "A",
+  "ok": true,
+  "response": "As of my last update, the field of KV-Cache offload and disaggregated all-flash storage acceleration for AI is a rapidly evolving area. While there are several global players in this space, such as NVIDIA, Intel, and Pure Storage, the Chinese market also has some notable companies that are making significant contributions. Here are a few leading Chinese companies in this domain:\n\n1. **Alibaba Cloud**:\n   - Alibaba Cloud, a subsidiary of Alibaba Group, is one of the leading cloud service providers in China. They have been actively developing and deploying advanced storage solutions, including disaggregated storage and AI-specific accelerations. Alibaba Cloud's PolarDB and other storage solutions are designed to handle high-performance workloads, and they have been investing in research and development to enhance their offerings.\n\n2. **Huawei**:\n   - Huawei is a major player in the technology and telecommunications sector. They offer a range of storage solutions, including all-flash storage systems, and are known for their OceanStor series. Huawei has been focusing on AI and machine learning, and their storage solutions are designed to support high-performance computing (HPC) and AI workloads.\n\n3. **Inspur**:\n   - Inspur is a leading provider of IT infrastructure and services in China. They offer a variety of storage solutions, including all-flash arrays, and have been working on integrating AI and machine learning into their products. Inspur's storage solutions are designed to support large-scale data processing and AI applications.\n\n4. **Tencent Cloud**:\n   - Tencent Cloud, a division of Tencent, is another major cloud service provider in China. They offer a range of storage solutions, including object storage and file storage, and have been investing in AI and machine learning technologies. Tencent Cloud's storage solutions are designed to support high-performance and scalable workloads, making them suitable for AI applications.\n\n5. **ZTE**:\n   - ZTE is a global leader in telecommunications and information technology. They offer a range of storage solutions, including all-flash storage, and have been working on integrating AI and machine learning into their products. ZTE's storage solutions are designed to support high-performance computing and AI workloads.\n\nThese companies are at the forefront of developing and deploying advanced storage solutions that can support the demanding requirements of AI and machine learning workloads. However, the specific focus on KV-Cache offload and disaggregated all-flash storage acceleration may vary, and it's always a good idea to check the latest product offerings and research from these companies for the most up-to-date information.",
+  "meta": {
+    "elapsed": 21.62,
+    "usage": {
+      "prompt_tokens": 30,
+      "completion_tokens": 514,
+      "total_tokens": 544,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-22T18:18:21"
+}

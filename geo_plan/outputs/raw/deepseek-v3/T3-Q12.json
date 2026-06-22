@@ -1,0 +1,27 @@
+{
+  "query_id": "T3-Q12",
+  "tier": "T3",
+  "persona": "智算中心架构师",
+  "intent": "recommendation",
+  "lang": "en",
+  "query": "What storage solutions are recommended for AI data centers, and which Chinese vendors are notable?",
+  "model_key": "deepseek-v3",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-v3",
+  "grade": "A",
+  "ok": true,
+  "response": "For AI data centers, storage solutions must handle massive datasets, high-speed I/O, and scalability. Recommended storage types include:\n\n1. **High-Performance Storage (All-Flash Arrays)** – For low-latency, high-throughput workloads (e.g., NVMe SSDs, NVMe-oF).  \n2. **Distributed Storage** – Scalable solutions like object storage for unstructured data (e.g., AI training datasets).  \n3. **Parallel File Systems** – Optimized for high-speed access (e.g., Lustre, Ceph).  \n4. **AI-Optimized Storage** – Solutions with GPU-direct storage and RDMA support to reduce bottlenecks.  \n\n### **Notable Chinese Storage Vendors for AI Data Centers**  \n1. **Huawei**  \n   - **OceanStor Dorado** (All-Flash NVMe arrays)  \n   - **OceanStor Pacific** (Scalable object storage for AI/ML)  \n   - Supports AI frameworks like TensorFlow and RDMA networking.  \n\n2. **Inspur**  \n   - **AS13000** (Distributed storage for AI/cloud)  \n   - High-density storage with NVMe support, used in hyperscale AI data centers.  \n\n3. **Sugon**  \n   - **Parastor** (Parallel file system for HPC/AI workloads)  \n   - Supports Lustre and high-throughput data access.  \n\n4. **Lenovo**  \n   - **ThinkSystem DM Series** (All-Flash & hybrid storage)  \n   - Optimized for AI workloads with NVMe and GPU integration.  \n\n5. **Alibaba Cloud**  \n   - **ESSD (Enhanced SSD)** – Cloud-based high-performance storage for AI training.  \n\n6. **Tencent Cloud**  \n   - **CBS (Cloud Block Storage)** – Low-latency SSD options for AI/ML.  \n\n### **Key Considerations for AI Storage**  \n- **Low Latency**: NVMe and GPU-direct storage reduce bottlenecks.  \n- **Scalability**: Distributed/object storage for petabyte-scale datasets.  \n- **Compatibility**: Support for AI frameworks (TensorFlow, PyTorch).  \n- **Hybrid Cloud**: Some vendors offer on-prem + cloud AI storage solutions.  \n\nWould you like recommendations based on a specific AI workload (e.g., training vs. inference)?",
+  "meta": {
+    "elapsed": 16.71,
+    "usage": {
+      "prompt_tokens": 20,
+      "completion_tokens": 488,
+      "total_tokens": 508,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:12:01"
+}

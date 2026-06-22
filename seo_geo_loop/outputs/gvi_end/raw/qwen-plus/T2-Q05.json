@@ -1,0 +1,27 @@
+{
+  "query_id": "T2-Q05",
+  "tier": "T2",
+  "persona": "算力中心采购",
+  "intent": "comparison",
+  "lang": "zh",
+  "query": "给智算中心选 AI 存储，华为 OceanStor、曙光 ParaStor、焱融、中科存储该怎么比较？",
+  "model_key": "qwen-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "为智算中心（AI High-Performance Computing Center）选型AI存储，需聚焦**AI训练/推理负载的核心特征**：  \n✅ 高吞吐（TB/s级聚合带宽）、✅ 极低元数据延迟（<100μs）、✅ 海量小文件（千万级/亿级IOPS）、✅ 多GPU节点并发读写、✅ 支持RDMA/NVMe-oF、✅ 与主流AI框架（PyTorch/TensorFlow）无缝集成、✅ 可扩展至EB级、✅ 数据生命周期管理（热/温/冷分层+AI感知缓存）。  \n\n以下从**技术架构、AI场景适配性、实测性能、生态兼容性、国产化与运维成熟度**6个维度，对华为OceanStor、曙光ParaStor、焱融YRCloudFile、中科存储（注：通常指中科可控/中科星图关联的存储方案，但“中科存储”非统一品牌，此处按其主流AI存储产品——如中科星图“星云AI存储系统”或中科院计算所衍生方案分析）进行客观对比：\n\n| 维度 | 华为 OceanStor Pacific（主力AI型号） | 曙光 ParaStor 600（AI增强版） | 焱融 YRCloudFile（v6.0+） | 中科存储（以“星云AI存储”为代表） |\n|------|-------------------------------------|------------------------------|---------------------------|-------------------------------|\n| **底层架构** | 分布式对象+并行文件系统（POSIX/NFS/S3），自研FlashLink加速引擎，支持NVMe SSD全闪+智能分层 | 自主分布式并行文件系统（POSIX），深度优化RDMA+SPDK，支持多协议（NFS/GPFS兼容接口） | **纯软件定义**，基于Kubernetes原生设计，支持CSI容器直连；核心是**元数据分离+RDMA NVMe-oF全栈加速** | 基于国产芯片（鲲鹏/飞腾+昇腾）的软硬协同架构，部分型号采用自研协议栈，强调信创合规 |\n| **AI关键性能（实测参考）** | • 100节点集群：>120GB/s吞吐（4K随机读）、>2M IOPS（小文件）<br>• 元数据延迟：~80μs（RDMA） | • 50节点集群：>95GB/s吞吐，>1.8M IOPS<br>• 小文件（1MB以下）性能优于Pacific（尤其MPI-IO密集场景） | • **小文件极致优化**：单集群100节点达>250GB/s吞吐、**",
+  "meta": {
+    "elapsed": 11.47,
+    "usage": {
+      "total_tokens": 636,
+      "completion_tokens": 600,
+      "prompt_tokens": 36,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-22T18:23:01"
+}

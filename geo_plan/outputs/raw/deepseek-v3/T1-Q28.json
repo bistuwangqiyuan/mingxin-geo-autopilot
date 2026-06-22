@@ -1,0 +1,27 @@
+{
+  "query_id": "T1-Q28",
+  "tier": "T1",
+  "persona": "智算中心架构师",
+  "intent": "recommendation",
+  "lang": "en",
+  "query": "Which vendors offer a disaggregated all-flash storage acceleration appliance for AI inference and training?",
+  "model_key": "deepseek-v3",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-v3",
+  "grade": "A",
+  "ok": true,
+  "response": "Several vendors offer **disaggregated all-flash storage acceleration appliances** optimized for **AI inference and training workloads**, providing high-performance, low-latency access to large datasets. Here are some key players in this space:\n\n### **1. Pure Storage (FlashBlade & FlashArray)**\n   - **Product:** FlashBlade (scale-out NAS) & FlashArray//X (block storage)\n   - **Key Features:** \n     - High-throughput, low-latency NVMe-based storage.\n     - Disaggregated architecture (compute and storage separate).\n     - Supports AI/ML workloads with parallel file access (NFS, S3).\n   - **Use Case:** AI training, high-performance data lakes.\n\n### **2. VAST Data**\n   - **Product:** VAST Data Platform (Universal Storage)\n   - **Key Features:** \n     - Disaggregated, all-NVMe storage with global namespace.\n     - Optimized for GPU-driven AI workloads.\n     - Supports S3, NFS, and POSIX access.\n   - **Use Case:** Large-scale AI model training.\n\n### **3. WekaIO (Now part of DataCore)**\n   - **Product:** WekaFS (software-defined parallel file system)\n   - **Key Features:** \n     - High-performance, low-latency NVMe flash storage.\n     - Disaggregated architecture (can run on-prem or cloud).\n     - Supports AI/ML workloads with POSIX and S3 interfaces.\n   - **Use Case:** GPU-accelerated AI/ML pipelines.\n\n### **4. DDN (DataDirect Networks)**\n   - **Product:** A³I (Accelerated, Any-Scale AI Storage)\n   - **Key Features:** \n     - All-flash NVMe storage for AI/GPU workloads.\n     - Disaggregated, scalable architecture.\n     - Supports Lustre and parallel file systems.\n   - **Use Case:** Large-scale AI training (HPC environments).\n\n### **5. NetApp**\n   - **Product:** NetApp AFF (All-Flash FAS) & ONTAP AI (with NVIDIA)\n   - **Key Features:** \n     - NVMe-optimized storage with GPU compute integration.\n     - Disaggregated (optional) via FlexPod or converged solutions.\n   - **Use Case:** AI inference and training acceleration.\n\n### **6. IBM Storage (Spectrum Scale & FlashSystem)**\n   - **Product:** IBM FlashSystem & Spectrum Scale (GPFS)\n   - **Key Features:** \n     - High-performance NVMe storage for AI.\n     - Disaggregated architecture with parallel file access.\n   - **Use Case:** Enterprise AI/ML workloads.\n\n### **7. Dell PowerScale (Isilon)**\n   - **Product:** PowerScale (OneFS-based all-flash nodes)\n   - **Key Features:** \n     - Scale-out NAS with NVMe acceleration",
+  "meta": {
+    "elapsed": 19.17,
+    "usage": {
+      "prompt_tokens": 22,
+      "completion_tokens": 600,
+      "total_tokens": 622,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:09:47"
+}

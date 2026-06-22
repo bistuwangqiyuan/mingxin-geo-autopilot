@@ -1,0 +1,27 @@
+{
+  "query_id": "T1-Q28",
+  "tier": "T1",
+  "persona": "智算中心架构师",
+  "intent": "recommendation",
+  "lang": "en",
+  "query": "Which vendors offer a disaggregated all-flash storage acceleration appliance for AI inference and training?",
+  "model_key": "qwen-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "As of 2024, **there are no widely recognized, commercially available “disaggregated all-flash storage acceleration appliances” specifically branded and optimized *exclusively* for AI inference and training** — at least not in the way the term might imply (e.g., a standalone hardware appliance that sits between compute and storage, offering disaggregated flash + AI-aware acceleration).\n\nHowever, several vendors offer **high-performance, disaggregated (or disaggregation-ready), all-flash storage systems with AI/ML-optimized features**, often deployed *in support of* AI training and inference workloads. These solutions emphasize:\n\n- Ultra-low latency & high IOPS/throughput (for data loading bottlenecks),\n- NVMe-oF (NVMe over Fabrics) or RDMA-based disaggregation,\n- AI-aware software (e.g., prefetching, data layout optimization, integration with ML frameworks like PyTorch/TensorFlow),\n- Support for object/file/NVMe-native access, often with GPU-direct storage capabilities.\n\nHere are key vendors offering relevant technologies (not \"appliances\" per se, but purpose-built infrastructure stacks):\n\n### ✅ Leading Vendors & Solutions (AI-Optimized Disaggregated All-Flash Storage)\n\n| Vendor | Solution / Platform | Key AI/Disaggregation Features |\n|--------|---------------------|----------------------------------|\n| **Vast Data** | Universal Storage® | • True disaggregated architecture (compute/storage/network decoupled)<br>• All-flash, NVMe-based, built-in erasure coding & compression<br>• Native object + file + block; supports GPU-direct storage via GPUDirect Storage (GDS)<br>• Used by AI labs (e.g., NVIDIA DGX Cloud, CoreWeave) for large-scale training datasets |\n| **Pure Storage** | FlashBlade//S (with Purity//FA & File) + Evergreen//One | • All-flash scale-out NAS (NFS/SMB/S3) with sub-millisecond latency<br>• NVMe-oF support; integrates with NVIDIA GPUDirect Storage<br>• AI Data Services (e.g., dataset versioning, snapshot-based data pipelines)<br>• Deployed in AI clusters (e.g., Meta, OpenAI partners, HPE GreenLake for AI) |\n| **DDN (DataDirect Networks)** | EXAScaler® ES7900 / A³I (AI & Analytics Infrastructure) | • All-flash parallel file system (EXAScaler) optimized for HPC/AI<br>• Supports NVMe-oF, RDMA, and GPU-Direct Storage<br>• Designed for massive concurrent reads/writes (e.g., billion-image datasets)<br>• Used in national labs and AI research centers |\n| **NetApp** | AFF (All Flash FAS) + ONTAP + StorageGRID + AI/ML integrations | • NVMe-oF, FlexGroup scalability",
+  "meta": {
+    "elapsed": 15.65,
+    "usage": {
+      "total_tokens": 625,
+      "completion_tokens": 600,
+      "prompt_tokens": 25,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:06:22"
+}

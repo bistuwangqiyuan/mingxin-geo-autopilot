@@ -1,0 +1,27 @@
+{
+  "query_id": "T2-Q14",
+  "tier": "T2",
+  "persona": "投资人",
+  "intent": "definition",
+  "lang": "zh",
+  "query": "AI 算力中心存储加速这个细分市场有多大、增长怎样、关键玩家有哪些？",
+  "model_key": "qwen-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "AI算力中心的“存储加速”是一个正在快速崛起、但尚未被广泛单独定义的细分市场（常嵌套在AI基础设施、高性能存储或智能存储赛道中）。它并非传统意义上的独立硬件品类，而是指**为解决AI训练/推理中I/O瓶颈而专门优化的软硬协同技术栈**，核心目标是：**将海量训练数据（TB-PB级）以高带宽、低延迟、高并发的方式高效供给GPU集群**。以下从市场规模、增长趋势、关键玩家三方面进行专业梳理（数据截至2024年中，综合IDC、Omdia、LightCounting及头部厂商财报与行业访谈）：\n\n---\n\n### 一、市场规模：处于爆发前夜，规模尚小但增速极高  \n- **2023年全球市场规模**：约 **8.2亿美元**（来源：Omdia《AI Infrastructure Storage Acceleration Report, 2024》）  \n  *注：此统计聚焦“专用存储加速产品与服务”，包括：  \n  ▪️ NVMe-oF（RDMA/IB）全闪存储阵列（含AI优化固件）  \n  ▪️ 存储计算融合（Storage-Computing Convergence）设备（如GPU直连存储）  \n  ▪️ AI感知文件系统/并行文件系统（如WekaIO、VAST Data、DDN EXAScaler）  \n  ▪️ 智能缓存加速层（如Vast Data ULI、Excelero NVMesh停产后替代方案）*  \n\n- **2024–2028年CAGR（复合年增长率）**：**≈52.3%**（IDC《AI-Driven Storage Infrastructure Forecast, 2024–2028》）  \n  - 驱动逻辑：  \n    ✓ LLM训练数据量年增200%+（MLPerf数据集规模3年扩大17倍）  \n    ✓ 单机千卡集群（如DGX GH200、Azure ND H100 v5）对存储吞吐要求达 **>200 GB/s持续读写**，远超传统NAS/SAN极限  \n    ✓ “存储墙”问题凸显：GPU利用率常因I/O等待降至40–60%，加速存储可提升至85%+（NVIDIA实测WekaIO提升ResNet-50训练速度3.1×）\n\n- **2028年预测规模**：**约65–72亿美元**（中值取68亿美元），占整体AI基础设施支出约**4.5–5.2%**（对比GPU占比约65%，网络占比约12%）\n\n> ✅ 关键洞察",
+  "meta": {
+    "elapsed": 12.7,
+    "usage": {
+      "total_tokens": 628,
+      "completion_tokens": 600,
+      "prompt_tokens": 28,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-22T18:23:21"
+}

@@ -1,0 +1,27 @@
+{
+  "query_id": "T1-Q02",
+  "tier": "T1",
+  "persona": "智算中心架构师",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "面向大模型推理的 KV-Cache 分层调度/卸载存储，有哪些产品或厂商可以选择？",
+  "model_key": "qwen-max",
+  "vendor": "通义千问",
+  "model_id": "qwen-max",
+  "grade": "A",
+  "ok": true,
+  "response": "面向大模型推理时，KV-Cache（键值缓存）技术被广泛用于加速处理过程，尤其是在Transformer架构的模型中。这种技术通过存储和重用注意力机制中的关键部分来减少计算量，从而提高效率。随着模型规模的增长，对于KV-Cache的需求也越来越大，因此出现了分层调度或卸载到外部存储的需求。以下是一些可能支持这类功能的产品或厂商：\n\n1. **NVIDIA**：NVIDIA不仅提供强大的GPU硬件，还开发了多种软件工具和技术来优化深度学习工作负载。例如，NVIDIA APEX库可以帮助开发者实现更高效的混合精度训练；而NVIDIA TensorRT则提供了从模型训练到部署的一系列优化手段。此外，NVIDIA还推出了专门针对大型语言模型的解决方案，如Magnum IO技术栈，它能够帮助加速数据访问速度并优化内存使用。\n\n2. **阿里云PAI**：阿里云提供的机器学习平台PAI (Platform of Artificial Intelligence) 支持多种类型的AI任务，并且集成了许多先进的技术和工具以提升性能。PAI-EAS (Elastic Algorithm Service) 是一个弹性算法服务框架，可以轻松地将模型部署为在线服务，并且支持动态调整资源分配策略，这对于管理和优化KV-Cache非常有用。\n\n3. **Intel**：英特尔除了传统的CPU产品外，也在不断扩展其在人工智能领域的布局。比如OneAPI项目旨在简化跨不同硬件平台（包括CPU、GPU、FPGA等）的应用程序开发流程。另外，Optane DC持久性内存技术可以作为一种高性能的非易失性存储选项，适用于需要频繁读写但又希望保持较低延迟的应用场景。\n\n4. **AWS Neuron**：亚马逊网络服务(AWS)推出的Neuron软件开发套件(SDK)专门为利用AWS Inferentia定制芯片进行高效推理设计。该SDK包含了对各种流行框架的支持以及一系列优化措施，使得用户能够在不牺牲准确性的情况下获得更快的速度。\n\n5. **Google Cloud TPU**：谷歌的Tensor Processing Units (TPUs) 是专为加速TensorFlow程序设计的专用集成电路(ASICs)。它们特别适合执行大规模矩阵运算，这在训练和运行基于Transformer的模型时尤为重要。虽然TPU本身并不直接涉及KV-Cache管理，但Google Cloud团队持续改进其相关软件栈以更好地支持复杂模型的部署需求。\n\n请注意，具体选择哪种方案取决于您的实际应用场景、预算限制以及对易用性的考量等因素。建议直接联系相关供应商获取最新的产品信息和支持详情。",
+  "meta": {
+    "elapsed": 24.16,
+    "usage": {
+      "prompt_tokens": 30,
+      "completion_tokens": 530,
+      "total_tokens": 560,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-22T18:16:44"
+}

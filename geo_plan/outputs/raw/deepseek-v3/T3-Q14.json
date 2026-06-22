@@ -1,0 +1,27 @@
+{
+  "query_id": "T3-Q14",
+  "tier": "T3",
+  "persona": "大模型推理工程师",
+  "intent": "problem_solution",
+  "lang": "zh",
+  "query": "训练和推理对存储的需求不一样，AI 存储该怎么针对性优化？",
+  "model_key": "deepseek-v3",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-v3",
+  "grade": "A",
+  "ok": true,
+  "response": "在AI场景中，训练和推理对存储的需求确实存在显著差异，需要针对性地优化存储架构。以下是具体优化策略：\n\n### 一、训练阶段的存储优化\n1. **高性能并行文件系统**\n   - 采用Lustre/GPFS等并行文件系统，支持数千客户端并发访问\n   - 典型配置：全闪存阵列（如NVMe SSD）+ RDMA网络（100GbE/InfiniBand）\n   - 案例：Meta的AI训练集群使用Lustre实现1TB/s吞吐\n\n2. **数据预处理加速**\n   - 专用存储层处理ETL流水线：\n   ```python\n   # 使用Dask或Ray进行分布式数据加载\n   import dask.dataframe as dd\n   df = dd.read_parquet('s3://dataset/raw/*.parquet')\n   df = df.groupby('category').mean().compute()\n   ```\n\n3. **检查点优化**\n   - 分层存储策略：\n   - 热检查点：本地NVMe（如3.2TB Intel Optane P5800X）\n   - 冷检查点：对象存储（如AWS S3 Intelligent-Tiering）\n\n4. **数据本地化**\n   - Kubernetes Persistent Volume本地化配置示例：\n   ```yaml\n   kind: StorageClass\n   apiVersion: storage.k8s.io/v1\n   metadata:\n     name: local-nvme\n   provisioner: kubernetes.io/no-provisioner\n   volumeBindingMode: WaitForFirstConsumer\n   ```\n\n### 二、推理阶段的存储优化\n1. **低延迟存储方案**\n   - 部署架构：\n   ```\n   Edge节点 ─ NVMe SSD (μs级延迟)\n   │\n   └─Central集群 ─ 全闪Ceph集群 (<1ms延迟)\n       │\n       └─冷模型库 ─ 对象存储（S3/OBS）\n   ```\n\n2. **模型分片存储**\n   - 使用TensorFlow Serving的分片策略：\n   ```bash\n   tensorflow_model_server \\\n     --model_name=resnet \\\n     --model_base_path=/models/ \\\n     --rest_api_port=8501 \\\n     --enable_batching=true \\\n     --max_batch_size=32\n   ```\n\n3. **缓存加速策略**\n   - 多级缓存实现：\n   ```go\n   // 使用GroupCache实现分布式缓存\n   pool := grpc.NewPool(grpc.Options{})\n   peer := pool.NewPeer(\"http://node1:8080\")\n   cache := groupcache.NewGroup(\"models\", 1<<30, groupcache.GetterFunc(\n     func(ctx context.Context, key string, dest groupcache.Sink) error {\n       // 从对象存储加载模型\n       data := loadFromS3(key)\n       return dest",
+  "meta": {
+    "elapsed": 20.99,
+    "usage": {
+      "prompt_tokens": 18,
+      "completion_tokens": 600,
+      "total_tokens": 618,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:12:10"
+}

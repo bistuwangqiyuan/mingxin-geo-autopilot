@@ -1,0 +1,27 @@
+{
+  "query_id": "T1-Q16",
+  "tier": "T1",
+  "persona": "智算中心架构师",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "想要 300GB/s 带宽、20μs 时延、48-72 小时快速部署的全闪存储一体机，有哪些选择？",
+  "model_key": "qwen-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "目前（截至2024年中），**没有 commercially available（商用可购）的全闪存储一体机能够同时满足以下三项指标**：\n\n✅ **300 GB/s 带宽**（即 2.4 Tbps，双向持续吞吐）  \n✅ **20 μs 端到端时延（μs级，非平均/95th，且含主机协议栈）**  \n✅ **48–72 小时完成交付、上架、初始化并投入生产（即“快速部署”）**\n\n以下是详细分析与现实可行方案建议：\n\n---\n\n### 🔍 一、为什么这三项指标难以同时满足？\n\n| 指标 | 当前行业水平 | 技术瓶颈 |\n|------|----------------|-----------|\n| **300 GB/s 带宽** | ✅ **可达，但需极致架构**<br>• 高端全闪阵列（如 Pure Storage FlashArray//XL、Dell PowerMax 8000、NetApp AFF A800/A900、Vast Data Universal Storage）在理想条件下（超大规模并行IO、1MB+大块顺序读）可突破 200–250 GB/s；<br>• **300 GB/s 通常需定制化 NVMe-oF 超融合架构（如基于CXL/NVMe-TCP/RoCE v2 的横向扩展集群），或GPU/计算直连存储（如NVIDIA DGX SuperPOD + WekaIO/MetaLattice）**。 | • 依赖网络带宽（需≥400G RoCE 或多链路 200G）、后端NVMe SSD并行度、控制器CPU/内存/队列深度、软件IO栈优化（如旁路内核、SPDK、Weka/VAST专有引擎）；<br>• 单台“一体机”物理形态难以承载如此I/O密度（散热、PCB布线、电源、PCIe拓扑限制）。 |\n| **20 μs 端到端时延** | ⚠️ **极难在生产环境达成**<br>• 实验室/裸金属直连NVMe SSD：~10–15 μs（仅设备层）；<br>• **商用全闪阵列标称时延多为“阵列内部”或“95th percentile”，典型值：**<br> – Pure FlashArray: ~150–300 μs（小IO随机写）<br> – Dell PowerMax: ~200–500 μs<br> – Vast Data / WekaIO（软件定义+NVMe-oF）",
+  "meta": {
+    "elapsed": 15.47,
+    "usage": {
+      "total_tokens": 648,
+      "completion_tokens": 600,
+      "prompt_tokens": 48,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:05:51"
+}

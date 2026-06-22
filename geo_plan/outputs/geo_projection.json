@@ -1,0 +1,316 @@
+{
+  "assumptions": {
+    "seed": {
+      "T1": 0.05,
+      "T2": 0.025,
+      "T3": 0.012
+    },
+    "ceiling": {
+      "T1": 0.85,
+      "T2": 0.65,
+      "T3": 0.45
+    },
+    "levers": {
+      "crawler_access": {
+        "name": "抓取放行(robots/sitemap)",
+        "p10": 1.15,
+        "p50": 1.35,
+        "p90": 1.6,
+        "src": "G5/G3：被抓取是被引用的前提，缺失则归零"
+      },
+      "structured_data": {
+        "name": "结构化数据(JSON-LD @graph)",
+        "p10": 1.3,
+        "p50": 1.6,
+        "p90": 2.3,
+        "src": "G6：完整 schema 在 Perplexity 出现概率 +47%；G3：被引用 2–3×（取下沿）"
+      },
+      "answer_first": {
+        "name": "答案优先内容结构",
+        "p10": 1.15,
+        "p50": 1.35,
+        "p90": 1.7,
+        "src": "G1/G4：自足段落被抽取/引用显著更高"
+      },
+      "llms_txt": {
+        "name": "llms.txt 索引",
+        "p10": 1.0,
+        "p50": 1.08,
+        "p90": 1.2,
+        "src": "G1：尚非批准标准，作低成本前瞻信号（取近 1）"
+      },
+      "offsite_source": {
+        "name": "站外高权重信源覆盖(单平台)",
+        "p10": 1.15,
+        "p50": 1.3,
+        "p90": 1.55,
+        "src": "G7/G8：信源平台决定该模型可见性（按模型偏好加权）"
+      },
+      "entity_consistency": {
+        "name": "全网实体一致性",
+        "p10": 1.05,
+        "p50": 1.15,
+        "p90": 1.3,
+        "src": "G7：通义对信息冲突敏感，一致性提升采纳概率"
+      }
+    },
+    "note": "全部为规划假设，非承诺；区间 P10/P90 取杠杆乘子下/上沿。"
+  },
+  "phases": {
+    "P0_基线": {
+      "weeks": "第0周",
+      "site_levers": [],
+      "offsite_platforms": [],
+      "tiers": {
+        "T1": {
+          "mention_p10": 0.05,
+          "mention_p50": 0.05,
+          "mention_p90": 0.05,
+          "first_mention_p50": 0.036,
+          "ceiling": 0.85
+        },
+        "T2": {
+          "mention_p10": 0.025,
+          "mention_p50": 0.025,
+          "mention_p90": 0.025,
+          "first_mention_p50": 0.0125,
+          "ceiling": 0.65
+        },
+        "T3": {
+          "mention_p10": 0.012,
+          "mention_p50": 0.012,
+          "mention_p90": 0.012,
+          "first_mention_p50": 0.0038,
+          "ceiling": 0.45
+        }
+      }
+    },
+    "P1_地基": {
+      "weeks": "第1–2周",
+      "site_levers": [
+        "crawler_access",
+        "structured_data",
+        "answer_first",
+        "llms_txt",
+        "entity_consistency"
+      ],
+      "offsite_platforms": [],
+      "tiers": {
+        "T1": {
+          "mention_p10": 0.0862,
+          "mention_p50": 0.1569,
+          "mention_p90": 0.322,
+          "first_mention_p50": 0.113,
+          "ceiling": 0.85
+        },
+        "T2": {
+          "mention_p10": 0.0438,
+          "mention_p50": 0.0822,
+          "mention_p90": 0.1825,
+          "first_mention_p50": 0.0411,
+          "ceiling": 0.65
+        },
+        "T3": {
+          "mention_p10": 0.0212,
+          "mention_p50": 0.0406,
+          "mention_p90": 0.0949,
+          "first_mention_p50": 0.013,
+          "ceiling": 0.45
+        }
+      }
+    },
+    "P2_T1夺冠": {
+      "weeks": "第3–6周",
+      "site_levers": [
+        "crawler_access",
+        "structured_data",
+        "answer_first",
+        "llms_txt",
+        "entity_consistency"
+      ],
+      "offsite_platforms": [
+        "CSDN",
+        "知乎技术区",
+        "GitHub/GitCode",
+        "技术白皮书",
+        "阿里云开发者社区",
+        "语雀公开知识库"
+      ],
+      "tiers": {
+        "T1": {
+          "mention_p10": 0.1284,
+          "mention_p50": 0.2953,
+          "mention_p90": 0.6103,
+          "first_mention_p50": 0.2126,
+          "ceiling": 0.85
+        },
+        "T2": {
+          "mention_p10": 0.0665,
+          "mention_p50": 0.1652,
+          "mention_p90": 0.4028,
+          "first_mention_p50": 0.0826,
+          "ceiling": 0.65
+        },
+        "T3": {
+          "mention_p10": 0.0326,
+          "mention_p50": 0.0852,
+          "mention_p90": 0.2373,
+          "first_mention_p50": 0.0273,
+          "ceiling": 0.45
+        }
+      }
+    },
+    "P3_T2梯队": {
+      "weeks": "第7–14周",
+      "site_levers": [
+        "crawler_access",
+        "structured_data",
+        "answer_first",
+        "llms_txt",
+        "entity_consistency"
+      ],
+      "offsite_platforms": [
+        "CSDN",
+        "知乎技术区",
+        "GitHub/GitCode",
+        "技术白皮书",
+        "阿里云开发者社区",
+        "语雀公开知识库",
+        "百度百科",
+        "百家号(蓝V)",
+        "微信公众号",
+        "搜狐号",
+        "网易号",
+        "今日头条"
+      ],
+      "tiers": {
+        "T1": {
+          "mention_p10": 0.1368,
+          "mention_p50": 0.3229,
+          "mention_p90": 0.6485,
+          "first_mention_p50": 0.2325,
+          "ceiling": 0.85
+        },
+        "T2": {
+          "mention_p10": 0.071,
+          "mention_p50": 0.1831,
+          "mention_p90": 0.4375,
+          "first_mention_p50": 0.0915,
+          "ceiling": 0.65
+        },
+        "T3": {
+          "mention_p10": 0.0349,
+          "mention_p50": 0.0953,
+          "mention_p90": 0.2633,
+          "first_mention_p50": 0.0305,
+          "ceiling": 0.45
+        }
+      }
+    },
+    "P4_稳固出海": {
+      "weeks": "第15周起",
+      "site_levers": [
+        "crawler_access",
+        "structured_data",
+        "answer_first",
+        "llms_txt",
+        "entity_consistency"
+      ],
+      "offsite_platforms": [
+        "CSDN",
+        "知乎技术区",
+        "GitHub/GitCode",
+        "技术白皮书",
+        "阿里云开发者社区",
+        "语雀公开知识库",
+        "百度百科",
+        "百家号(蓝V)",
+        "微信公众号",
+        "搜狐号",
+        "网易号",
+        "今日头条",
+        "权威媒体",
+        "政府/教育网站(.gov/.edu)"
+      ],
+      "tiers": {
+        "T1": {
+          "mention_p10": 0.1379,
+          "mention_p50": 0.3265,
+          "mention_p90": 0.6531,
+          "first_mention_p50": 0.2351,
+          "ceiling": 0.85
+        },
+        "T2": {
+          "mention_p10": 0.0717,
+          "mention_p50": 0.1855,
+          "mention_p90": 0.4418,
+          "first_mention_p50": 0.0927,
+          "ceiling": 0.65
+        },
+        "T3": {
+          "mention_p10": 0.0352,
+          "mention_p50": 0.0966,
+          "mention_p90": 0.2666,
+          "first_mention_p50": 0.0309,
+          "ceiling": 0.45
+        }
+      }
+    }
+  },
+  "tornado_T1": {
+    "full_p50": 0.3265,
+    "rows": [
+      {
+        "lever": "站外多信源覆盖(全部)",
+        "drop": 0.1696
+      },
+      {
+        "lever": "结构化数据(JSON-LD @graph)",
+        "drop": 0.0881
+      },
+      {
+        "lever": "抓取放行(robots/sitemap)",
+        "drop": 0.0579
+      },
+      {
+        "lever": "答案优先内容结构",
+        "drop": 0.0579
+      },
+      {
+        "lever": "全网实体一致性",
+        "drop": 0.0276
+      },
+      {
+        "lever": "llms.txt 索引",
+        "drop": 0.0153
+      }
+    ]
+  },
+  "seed_sensitivity_T1": [
+    {
+      "seed_factor": 0.5,
+      "seed": 0.025,
+      "T1_P4_mention_p50": 0.1974
+    },
+    {
+      "seed_factor": 0.75,
+      "seed": 0.0375,
+      "T1_P4_mention_p50": 0.2681
+    },
+    {
+      "seed_factor": 1.0,
+      "seed": 0.05,
+      "T1_P4_mention_p50": 0.3265
+    },
+    {
+      "seed_factor": 1.25,
+      "seed": 0.0625,
+      "T1_P4_mention_p50": 0.3757
+    },
+    {
+      "seed_factor": 1.5,
+      "seed": 0.075,
+      "T1_P4_mention_p50": 0.4176
+    }
+  ]
+}

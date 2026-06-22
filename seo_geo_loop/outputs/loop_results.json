@@ -1,0 +1,577 @@
+{
+  "computed_at": "2026-06-22T18:02:58",
+  "rounds_run": 10,
+  "n_lever_groups": 13,
+  "weights": {
+    "A": 0.25,
+    "B": 0.2,
+    "C": 0.2,
+    "D": 0.2,
+    "E": 0.15
+  },
+  "baseline_cri": 69.51,
+  "final_cri": 97.01,
+  "ceiling_cri": 97.01,
+  "total_gain": 27.5,
+  "converged_round": 10,
+  "rounds": [
+    {
+      "round": 0,
+      "lever_enabled": null,
+      "lever_name": "基线（无新增杠杆）",
+      "levers_on": [],
+      "cri": 69.51,
+      "pillars": {
+        "A": 0.8348,
+        "B": 0.8333,
+        "C": 0.5211,
+        "D": 0.7222,
+        "E": 0.4737
+      },
+      "delta": 0.0,
+      "verify_ok": true,
+      "lowest": [
+        [
+          0.0,
+          "B.llms_full_coverage"
+        ],
+        [
+          0.0,
+          "C.org_enriched"
+        ],
+        [
+          0.0,
+          "C.person"
+        ],
+        [
+          0.0,
+          "C.product"
+        ],
+        [
+          0.0,
+          "C.search_action"
+        ]
+      ]
+    },
+    {
+      "round": 1,
+      "lever_enabled": "g1_org",
+      "lever_name": "Organization 实体富化",
+      "pillar_tag": "C/E",
+      "levers_on": [
+        "g1_org"
+      ],
+      "cri": 74.0,
+      "pillars": {
+        "A": 0.8348,
+        "B": 0.8333,
+        "C": 0.621,
+        "D": 0.7222,
+        "E": 0.6403
+      },
+      "delta": 4.49,
+      "verify_ok": true,
+      "lowest": [
+        [
+          0.0,
+          "B.llms_full_coverage"
+        ],
+        [
+          0.0,
+          "C.person"
+        ],
+        [
+          0.0,
+          "C.product"
+        ],
+        [
+          0.0,
+          "C.search_action"
+        ],
+        [
+          0.0,
+          "D.key_facts"
+        ]
+      ]
+    },
+    {
+      "round": 2,
+      "lever_enabled": "g2_product",
+      "lever_name": "WS7000 Product 结构化数据",
+      "pillar_tag": "C",
+      "levers_on": [
+        "g1_org",
+        "g2_product"
+      ],
+      "cri": 74.0,
+      "pillars": {
+        "A": 0.8348,
+        "B": 0.8333,
+        "C": 0.621,
+        "D": 0.7222,
+        "E": 0.6403
+      },
+      "delta": 0.0,
+      "verify_ok": true,
+      "lowest": [
+        [
+          0.0,
+          "B.llms_full_coverage"
+        ],
+        [
+          0.0,
+          "C.person"
+        ],
+        [
+          0.0,
+          "C.product"
+        ],
+        [
+          0.0,
+          "C.search_action"
+        ],
+        [
+          0.0,
+          "D.key_facts"
+        ]
+      ]
+    },
+    {
+      "round": 3,
+      "lever_enabled": "g3_breadcrumb",
+      "lever_name": "全站 BreadcrumbList",
+      "pillar_tag": "C",
+      "levers_on": [
+        "g1_org",
+        "g2_product",
+        "g3_breadcrumb"
+      ],
+      "cri": 75.48,
+      "pillars": {
+        "A": 0.8348,
+        "B": 0.8333,
+        "C": 0.6947,
+        "D": 0.7222,
+        "E": 0.6403
+      },
+      "delta": 1.48,
+      "verify_ok": true,
+      "lowest": [
+        [
+          0.0,
+          "B.llms_full_coverage"
+        ],
+        [
+          0.0,
+          "C.person"
+        ],
+        [
+          0.0,
+          "C.product"
+        ],
+        [
+          0.0,
+          "C.search_action"
+        ],
+        [
+          0.0,
+          "D.key_facts"
+        ]
+      ]
+    },
+    {
+      "round": 4,
+      "lever_enabled": "g4_search",
+      "lever_name": "WebSite SearchAction",
+      "pillar_tag": "C",
+      "levers_on": [
+        "g1_org",
+        "g2_product",
+        "g3_breadcrumb",
+        "g4_search"
+      ],
+      "cri": 77.48,
+      "pillars": {
+        "A": 0.8348,
+        "B": 0.8333,
+        "C": 0.7947,
+        "D": 0.7222,
+        "E": 0.6403
+      },
+      "delta": 2.0,
+      "verify_ok": true,
+      "lowest": [
+        [
+          0.0,
+          "B.llms_full_coverage"
+        ],
+        [
+          0.0,
+          "C.person"
+        ],
+        [
+          0.0,
+          "C.product"
+        ],
+        [
+          0.0,
+          "D.key_facts"
+        ],
+        [
+          0.0,
+          "E.author"
+        ]
+      ]
+    },
+    {
+      "round": 5,
+      "lever_enabled": "g5_person",
+      "lever_name": "核心人物 Person 结构化数据",
+      "pillar_tag": "C/E",
+      "levers_on": [
+        "g1_org",
+        "g2_product",
+        "g3_breadcrumb",
+        "g4_search",
+        "g5_person"
+      ],
+      "cri": 79.48,
+      "pillars": {
+        "A": 0.8348,
+        "B": 0.8333,
+        "C": 0.8947,
+        "D": 0.7222,
+        "E": 0.6403
+      },
+      "delta": 2.0,
+      "verify_ok": true,
+      "lowest": [
+        [
+          0.0,
+          "B.llms_full_coverage"
+        ],
+        [
+          0.0,
+          "C.product"
+        ],
+        [
+          0.0,
+          "D.key_facts"
+        ],
+        [
+          0.0,
+          "E.author"
+        ],
+        [
+          0.0,
+          "E.last_updated"
+        ]
+      ]
+    },
+    {
+      "round": 6,
+      "lever_enabled": "g6_headmeta",
+      "lever_name": "抓取/社媒头部富化",
+      "pillar_tag": "A/E",
+      "levers_on": [
+        "g1_org",
+        "g2_product",
+        "g3_breadcrumb",
+        "g4_search",
+        "g5_person",
+        "g6_headmeta"
+      ],
+      "cri": 85.25,
+      "pillars": {
+        "A": 0.9656,
+        "B": 0.8333,
+        "C": 0.8947,
+        "D": 0.7222,
+        "E": 0.807
+      },
+      "delta": 5.77,
+      "verify_ok": true,
+      "lowest": [
+        [
+          0.0,
+          "B.llms_full_coverage"
+        ],
+        [
+          0.0,
+          "C.product"
+        ],
+        [
+          0.0,
+          "D.key_facts"
+        ],
+        [
+          0.0,
+          "E.last_updated"
+        ],
+        [
+          0.3333,
+          "D.q_h2"
+        ]
+      ]
+    },
+    {
+      "round": 7,
+      "lever_enabled": "g7_answer",
+      "lever_name": "答案优先「速答 · 关键事实」块",
+      "pillar_tag": "D",
+      "levers_on": [
+        "g1_org",
+        "g2_product",
+        "g3_breadcrumb",
+        "g4_search",
+        "g5_person",
+        "g6_headmeta",
+        "g7_answer"
+      ],
+      "cri": 90.07,
+      "pillars": {
+        "A": 0.9656,
+        "B": 0.8333,
+        "C": 0.8947,
+        "D": 0.963,
+        "E": 0.807
+      },
+      "delta": 4.82,
+      "verify_ok": true,
+      "lowest": [
+        [
+          0.0,
+          "B.llms_full_coverage"
+        ],
+        [
+          0.0,
+          "C.product"
+        ],
+        [
+          0.0,
+          "E.last_updated"
+        ],
+        [
+          0.7778,
+          "D.q_h2"
+        ],
+        [
+          0.8421,
+          "E.spec_consistency"
+        ]
+      ]
+    },
+    {
+      "round": 8,
+      "lever_enabled": "g8_llms",
+      "lever_name": "llms-full 全站覆盖 + 更新时间戳",
+      "pillar_tag": "B/E",
+      "levers_on": [
+        "g1_org",
+        "g2_product",
+        "g3_breadcrumb",
+        "g4_search",
+        "g5_person",
+        "g6_headmeta",
+        "g7_answer",
+        "g8_llms"
+      ],
+      "cri": 95.9,
+      "pillars": {
+        "A": 0.9656,
+        "B": 1.0,
+        "C": 0.8947,
+        "D": 0.963,
+        "E": 0.9737
+      },
+      "delta": 5.83,
+      "verify_ok": true,
+      "lowest": [
+        [
+          0.0,
+          "C.product"
+        ],
+        [
+          0.7778,
+          "D.q_h2"
+        ],
+        [
+          0.8421,
+          "E.spec_consistency"
+        ],
+        [
+          0.9474,
+          "C.breadcrumb"
+        ]
+      ]
+    },
+    {
+      "round": 9,
+      "lever_enabled": "g9_sameas",
+      "lever_name": "真实站外实体锚点 sameAs",
+      "pillar_tag": "C/E",
+      "levers_on": [
+        "g1_org",
+        "g2_product",
+        "g3_breadcrumb",
+        "g4_search",
+        "g5_person",
+        "g6_headmeta",
+        "g7_answer",
+        "g8_llms",
+        "g9_sameas"
+      ],
+      "cri": 95.9,
+      "pillars": {
+        "A": 0.9656,
+        "B": 1.0,
+        "C": 0.8947,
+        "D": 0.963,
+        "E": 0.9737
+      },
+      "delta": 0.0,
+      "verify_ok": true,
+      "lowest": [
+        [
+          0.0,
+          "C.product"
+        ],
+        [
+          0.7778,
+          "D.q_h2"
+        ],
+        [
+          0.8421,
+          "E.spec_consistency"
+        ],
+        [
+          0.9474,
+          "C.breadcrumb"
+        ]
+      ]
+    },
+    {
+      "round": 10,
+      "lever_enabled": "g10_answer_all",
+      "lever_name": "答案优先块全覆盖（问句式 H2）",
+      "pillar_tag": "D",
+      "levers_on": [
+        "g1_org",
+        "g2_product",
+        "g3_breadcrumb",
+        "g4_search",
+        "g5_person",
+        "g6_headmeta",
+        "g7_answer",
+        "g8_llms",
+        "g9_sameas",
+        "g10_answer_all"
+      ],
+      "cri": 96.64,
+      "pillars": {
+        "A": 0.9656,
+        "B": 1.0,
+        "C": 0.8947,
+        "D": 1.0,
+        "E": 0.9737
+      },
+      "delta": 0.74,
+      "verify_ok": true,
+      "lowest": [
+        [
+          0.0,
+          "C.product"
+        ],
+        [
+          0.8421,
+          "E.spec_consistency"
+        ],
+        [
+          0.9474,
+          "C.breadcrumb"
+        ]
+      ]
+    }
+  ],
+  "lever_groups": [
+    {
+      "id": "g1_org",
+      "pillar": "C/E",
+      "name": "Organization 实体富化",
+      "desc": "为全站 Organization 结构化数据补 slogan/brand/knowsAbout/contactPoint/numberOfEmployees/areaServed 等可核验字段（不臆造外部 sameAs 档案）。"
+    },
+    {
+      "id": "g2_product",
+      "pillar": "C",
+      "name": "WS7000 Product 结构化数据",
+      "desc": "在 AI 算力中心方案页为 WS7000 平台补 Product schema（规格为项目方口径，如实标注）。"
+    },
+    {
+      "id": "g3_breadcrumb",
+      "pillar": "C",
+      "name": "全站 BreadcrumbList",
+      "desc": "为全部主站内容页自动补 BreadcrumbList（此前仅 GEO 专题页具备）。"
+    },
+    {
+      "id": "g4_search",
+      "pillar": "C",
+      "name": "WebSite SearchAction",
+      "desc": "为 WebSite 结构化数据补 potentialAction(SearchAction)，暴露站内检索入口。"
+    },
+    {
+      "id": "g5_person",
+      "pillar": "C/E",
+      "name": "核心人物 Person 结构化数据",
+      "desc": "在关于我们页补 CEO / 首席科学家 / 院士顾问的 Person schema（真实身份）。"
+    },
+    {
+      "id": "g6_headmeta",
+      "pillar": "A/E",
+      "name": "抓取/社媒头部富化",
+      "desc": "补 theme-color、og:locale:alternate、twitter:title/description、author/publisher、generator 与 robots max-snippet 等头部信号。"
+    },
+    {
+      "id": "g7_answer",
+      "pillar": "D",
+      "name": "答案优先「速答 · 关键事实」块",
+      "desc": "在产品/技术/实测/解决方案/AI算力中心页注入问句式 H2 + 自足直答 + 可核验来源的关键事实块。"
+    },
+    {
+      "id": "g8_llms",
+      "pillar": "B/E",
+      "name": "llms-full 全站覆盖 + 更新时间戳",
+      "desc": "llms-full.txt 增列全站页面索引；每页加可见的机器可读「最后更新」<time>。"
+    },
+    {
+      "id": "g9_sameas",
+      "pillar": "C/E",
+      "name": "真实站外实体锚点 sameAs",
+      "desc": "把已上线且实测可达的站外信源（EdgeOne 知识微站 + GitHub Pages/仓库）注入 Organization.sameAs；仅写真实 URL，兑现此前诚实留空的实体锚点。"
+    },
+    {
+      "id": "g10_answer_all",
+      "pillar": "D",
+      "name": "答案优先块全覆盖（问句式 H2）",
+      "desc": "把「速答·关键事实」答案块 + 问句式 H2 扩展到 faq/glossary/ip/about/cases 等剩余主内容页，提升问句式 H2 覆盖率与可抽取直答比例。"
+    },
+    {
+      "id": "g11_spec_consistency",
+      "pillar": "E",
+      "name": "全站规格口径一致性",
+      "desc": "审计驱动地统一全站关键规格表述（带宽/IOPS/时延/适配/中位降幅等），消除口径漂移，强化实体一致性与 E-E-A-T。"
+    },
+    {
+      "id": "g12_media_speakable",
+      "pillar": "A/C",
+      "name": "媒体尺寸 + Speakable + WebPage",
+      "desc": "为正文图补 width/height + loading=lazy + decoding=async（降 CLS）；首页注入 WebPage 与 SpeakableSpecification，便于语音/抽取式呈现。"
+    },
+    {
+      "id": "g13_perf",
+      "pillar": "A",
+      "name": "性能就绪（font-display + preload）",
+      "desc": "关键 CSS 预加载、font-display:swap、消除渲染阻塞冗余；静态「性能就绪」子项并入 CRI v2，真实 Lighthouse/实验室分另列作线上验证。"
+    }
+  ],
+  "scope": "official_website 主站双语内容页（zh/ + en/，不含 training 子站与 portal）"
+}

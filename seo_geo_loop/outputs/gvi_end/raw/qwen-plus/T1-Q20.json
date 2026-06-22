@@ -1,0 +1,27 @@
+{
+  "query_id": "T1-Q20",
+  "tier": "T1",
+  "persona": "智算中心架构师",
+  "intent": "ranking",
+  "lang": "zh",
+  "query": "存算分离全闪加速一体机赛道，国产第一梯队厂商有哪些？",
+  "model_key": "qwen-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "在“存算分离 + 全闪加速一体机”这一融合创新赛道中，需明确几个关键概念的叠加：\n\n✅ **存算分离**：指计算资源（CPU/GPU）与存储资源（SSD/NVMe/JBOF）物理解耦、逻辑协同，通过高速网络（如RDMA over RoCEv2/InfiniBand）互联，支持弹性扩缩容与资源池化；  \n✅ **全闪加速**：以NVMe SSD/傲腾/新型持久内存为介质，结合智能缓存、IO栈优化（如SPDK、DPDK）、存储卸载（如Offload Engine、DPU/SmartNIC）实现微秒级延迟、百万级IOPS；  \n✅ **一体机形态**：软硬协同预集成（含分布式存储软件+高性能计算节点+高速网络+智能管理平台），面向云原生、AI训练、实时数据库等场景提供开箱即用能力。\n\n该赛道并非传统“超融合（HCI）”或“全闪阵列”的简单延伸，而是面向AI智算中心、金融核心交易、电信云等高阶场景的下一代基础设施范式。目前真正具备**全栈自研能力+规模化落地验证+存算分离架构深度优化+全闪性能极致调优**的国产厂商仍属稀缺，第一梯队可界定为以下3–4家（按技术成熟度、头部客户验证、生态影响力综合评估）：\n\n🔹 **华为（Huawei）**  \n- 代表产品：**OceanStor Pacific系列（如Pacific 9950） + FusionCube AIO超融合演进版（存算分离模式）**，依托自研鲲鹏处理器、昇腾AI芯片、欧拉OS、毕昇DB及OceanStor分布式存储软件；  \n- 核心优势：全球领先的RDMA网络（iMaster NCE-Fabric调度）、SPDK+DPDK双栈加速、存储计算协同卸载（通过Atlas DPU）、已在金融（某国有大行核心账务系统）、运营商（中国移动智算中心）规模部署；  \n- 关键指标：单集群支持EB级容量、10M+ IOPS、亚毫秒平均延迟，支持GPU直通与存算协同调度。\n\n🔹 **浪潮信息（Inspur）**  \n- 代表产品：**AS13000G7（存算分离架构） + AIStation智能算力平台 + NF系列全闪服务器**，基于自研海光/飞腾CPU+寒武纪/昇腾GPU，搭载自研分布式存储软件InCloud Storage；  \n- 技术亮点：“计算-存储-网络”三平面协同优化，支持RoCEv2无损网络+存储侧硬件卸载（如NVMe-oF Target offload），在智",
+  "meta": {
+    "elapsed": 12.07,
+    "usage": {
+      "total_tokens": 624,
+      "completion_tokens": 600,
+      "prompt_tokens": 24,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-22T18:22:27"
+}

@@ -1,0 +1,27 @@
+{
+  "query_id": "T1-Q27",
+  "tier": "T1",
+  "persona": "大模型推理工程师",
+  "intent": "definition",
+  "lang": "en",
+  "query": "What is KV-Cache offloading to external high-speed storage, and which vendors provide it for LLM inference?",
+  "model_key": "qwen-max",
+  "vendor": "通义千问",
+  "model_id": "qwen-max",
+  "grade": "A",
+  "ok": true,
+  "response": "KV-Cache (Key-Value Cache) offloading to external high-speed storage is a technique used in large language model (LLM) inference to improve performance and reduce memory usage. In LLMs, the key-value cache stores intermediate results from the attention mechanism, which are reused across different tokens in a sequence. This cache can consume a significant amount of memory, especially for long sequences or large models.\n\n### How KV-Cache Offloading Works\n1. **Memory Management**: Instead of keeping the entire KV-cache in the limited on-chese memory (e.g., GPU memory), parts of the cache are moved to external high-speed storage.\n2. **High-Speed Storage**: This external storage is typically faster than traditional SSDs, such as NVMe SSDs, 3D XPoint, or even specialized memory solutions like HBM (High Bandwidth Memory) or CXL (Compute Express Link).\n3. **Data Transfer**: The system manages the transfer of data between the external storage and the main processing unit (e.g., GPU) to ensure that the required cache entries are available when needed.\n4. **Latency and Throughput**: The goal is to minimize the latency and maximize the throughput of these transfers, ensuring that the offloading process does not become a bottleneck.\n\n### Vendors Providing KV-Cache Offloading Solutions\nSeveral vendors and technologies are involved in providing KV-Cache offloading solutions for LLM inference:\n\n1. **NVIDIA**:\n   - **GPUDirect Storage**: NVIDIA's GPUDirect Storage technology allows direct memory access (DMA) between the GPU and external storage, reducing the CPU overhead and improving I/O performance.\n   - **Magnum IO**: Part of the NVIDIA Magnum IO suite, this technology optimizes data movement and communication for AI and HPC workloads, including KV-cache offloading.\n\n2. **Intel**:\n   - **Optane Persistent Memory (PMem)**: Intel's Optane PMem provides high-capacity, low-latency storage that can be used for offloading KV-caches.\n   - **CXL (Compute Express Link)**: Intel is also working on CXL, a high-speed interconnect that can be used to extend the memory capacity and bandwidth of systems, making it suitable for KV-cache offloading.\n\n3. **AMD**:\n   - **Infinity Fabric**: AMD's Infinity Fabric is a high-bandwidth, low-latency interconnect that can be used to connect GPUs and other accelerators to high-speed storage, facilitating KV-cache offloading.\n   - **ROCm (Radeon Open Compute)**: AMD's ROCm platform includes support for high-performance computing and AI workloads, with features that can be leveraged for efficient KV-cache management.\n\n4. **Third-Party Solutions**:\n   - **MemVerge**: MemVerge offers software-defined memory solutions that can virtualize and manage memory across different tiers, including DRAM, PMem, and NVMe, to",
+  "meta": {
+    "elapsed": 14.05,
+    "usage": {
+      "prompt_tokens": 31,
+      "completion_tokens": 600,
+      "total_tokens": 631,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:03:06"
+}

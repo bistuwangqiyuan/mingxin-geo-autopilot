@@ -1,0 +1,30 @@
+{
+  "query_id": "T3-Q12",
+  "tier": "T3",
+  "persona": "智算中心架构师",
+  "intent": "recommendation",
+  "lang": "en",
+  "query": "What storage solutions are recommended for AI data centers, and which Chinese vendors are notable?",
+  "model_key": "deepseek-r1",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-r1",
+  "grade": "A",
+  "ok": true,
+  "response": "Okay, let's break down storage recommendations for AI data centers and highlight some notable Chinese vendors in this space. AI workloads place extreme demands on storage infrastructure, requiring solutions that can handle massive amounts of data with incredibly high throughput, low latency, and seamless scalability.\n\n## Key Storage Requirements for AI Data Centers\n\n1.  **Massive Scalability:** AI training datasets are enormous and constantly growing. Storage systems must scale to petabytes (PBs) or exabytes (EBs) linearly and non-disruptively.\n2.  **High Throughput:** Data ingestion (feeding data to GPUs) requires immense sequential read bandwidth, often exceeding multiple gigabytes per second *per server*. Aggregated bandwidth for a cluster can be tens or hundreds of GB/s.\n3.  **Low Latency:** While not as latency-sensitive as some transactional databases, minimizing the time to deliver the *next* batch of training data prevents idle GPUs.\n4.  **Concurrent Access:** Hundreds or thousands of compute nodes need simultaneous access to the *same* datasets for distributed training workloads.\n5.  **Performance Consistency:** Predictable performance is crucial across large dataset reads and when under heavy concurrent load.\n6.  **Cost Efficiency:** Given the sheer volume, the solution must provide high performance per dollar per terabyte.\n7.  **Workflow Integration:** The storage must integrate well with AI/ML frameworks and the chosen compute platform (GPU clusters).\n\n## Recommended Storage Solutions (& Technologies Underlying Them)\n\n1.  **High-Performance Parallel File Systems (Distributed File Systems):** **The gold standard for primary GPU cluster storage.**\n    *   **Why:** Designed explicitly for massively parallel workloads across large compute clusters, offering high-aggregate bandwidth and concurrent file access. They scale capacity and performance independently or together.\n    *   **Examples/Standards:**\n        *   **IBM Spectrum Scale (formerly GPFS):** Robust, mature, high-performance offering, often used as the base for vendor solutions.\n        *   **WekaIO:** Software-defined, high-performance file system optimized for NVMe and GPU workflows.\n        *   **VAST Data:** Unified high-performance file (NFS/SMB) and object (S3) platform built on NVMe and computational storage, often presented under these protocols but optimized differently.\n        *   **Quobyte, Lustre:** Other mature options.\n    *   **Technology:** Usually deployed on large-scale clusters of flash (NVMe preferred) or optimized HDD storage servers, interconnected with high-speed network fabrics (InfiniBand or high-bandwidth Ethernet). They abstract a large pool of storage into a single consistent namespace.\n\n2.  **Object Storage (Optimized for Scale-Out & Capacity):**\n    *   **Why:** Ideal for archiving massive datasets, version control for datasets/models, checkpointing during long training jobs, and managing data lakes accessed via APIs (like S3). Offers massive scalability and",
+  "meta": {
+    "elapsed": 40.38,
+    "usage": {
+      "prompt_tokens": 20,
+      "completion_tokens": 1042,
+      "total_tokens": 1062,
+      "completion_tokens_details": {
+        "reasoning_tokens": 438
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:20:36"
+}

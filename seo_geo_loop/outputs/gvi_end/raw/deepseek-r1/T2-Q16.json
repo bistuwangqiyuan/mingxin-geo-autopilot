@@ -1,0 +1,30 @@
+{
+  "query_id": "T2-Q16",
+  "tier": "T2",
+  "persona": "智算中心架构师",
+  "intent": "comparison",
+  "lang": "zh",
+  "query": "AI 算力中心存储选型：并行文件系统、对象存储、存算分离全闪加速，分别适合什么场景？",
+  "model_key": "deepseek-r1",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-r1",
+  "grade": "A",
+  "ok": true,
+  "response": "好的，我们来详细探讨一下AI算力中心中这三种存储技术各自的适用场景：\n\n**核心逻辑：没有绝对的好坏，只有基于具体负载需求和规模的最优选择。**\n\n## 1. 并行文件系统（Parallel File System - PFS）\n\n*   **代表技术:** Lustre, BeeGFS, IBM Spectrum Scale (GPFS), WekaFS等。\n*   **核心特点:**\n    *   **高吞吐、低延迟:** 设计目标是在计算节点集群（如GPU服务器）之间提供极高的、共享式的文件读写性能（尤其是大文件读写）。\n    *   **高扩展性（计算端）：** 可以支持大量计算客户端（通常是计算节点/NFS Gateway）并发访问同一个文件系统命名空间。\n    *   **共享全局命名空间:** 所有计算节点看到的是同一个目录结构和文件视图。\n    *   **通常构建在高速网络:** 依托于InfiniBand或RoCE等高速低延迟网络。\n    *   **成本相对较高：** 通常需要专用存储服务器节点和复杂的网络配置。\n*   **最适合的场景:**\n    *   **训练阶段：** AI模型训练的**核心阶段**。训练程序通常需要从同一个数据集（共享存储）中高速、随机地读取大量小文件或海量数据文件片段（LLM场景的多重随机读取）。GPU服务器集群（数十、数百甚至数千个节点）需要极高的IOPS和吞吐来保证它们都能“吃饱”，避免因数据供给瓶颈导致GPU闲置。PFS为此提供了极致性能。\n    *   **需要低延迟共享访问的工作流：** 前置的数据预处理（Python/Pandas对CSV、Parquet文件的清洗、转换等）、需要多个节点同时读写中间结果的复杂流水线（如A/B实验的不同分支）、或多团队协作访问同一个共享数据集。\n*   **不擅长的场景:**\n    *   永久存储海量的历史数据或归档数据：**成本高昂**。\n    *   通过互联网或低带宽网络访问数据：不适合仅支持POSIX接口的协议访问。\n    *   非POSIX接口访问：它不是为REST或S3 API设计的。\n\n## 2. 对象存储（Object Storage）\n\n*   **代表技术:** Amazon S3, MinIO, Ceph Object Gateway (RGW), Swift等。\n*   **核心特点:**\n    *   **海量无敌:** 设计目标是近乎无限的横向扩展能力，可存储EB级别的数据。\n    *   **极高的耐用性和持久性:** 通常通过多副本或纠删码实现极高的数据保护级别（例如 11 Nines）。\n    *   **无目录层级结构:** 基于桶和键值对（对象名），访问通过REST API（通常是S3兼容API）。\n    *   **成本效益:** 相对PFS而言，每TB存储成本低很多，尤其在大规模",
+  "meta": {
+    "elapsed": 44.13,
+    "usage": {
+      "prompt_tokens": 31,
+      "completion_tokens": 856,
+      "total_tokens": 887,
+      "completion_tokens_details": {
+        "reasoning_tokens": 252
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-22T18:33:17"
+}

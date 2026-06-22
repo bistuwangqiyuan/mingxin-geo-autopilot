@@ -1,0 +1,30 @@
+{
+  "query_id": "T1-Q29",
+  "tier": "T1",
+  "persona": "投资人",
+  "intent": "ranking",
+  "lang": "en",
+  "query": "Who are the leading Chinese companies in KV-Cache offload / disaggregated all-flash storage acceleration for AI?",
+  "model_key": "deepseek-r1",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-r1",
+  "grade": "A",
+  "ok": true,
+  "response": "The domain of KV-Cache offload and disaggregated all-flash storage acceleration for large-scale AI workloads is rapidly emerging. While specialized pure-play startups dominate this space in the US segment (e.g., Pliops, Eideticom, ScaleFlux), the landscape in China features a mix of established tech giants, specialized hardware innovators, and innovative startups approaching this challenge through slightly different angles. There aren't clear, singular \"leaders\" like in the US yet, but several prominent players are actively developing relevant technologies:\n\n1.  **Inspur / Yusur Technologies (浪潮 / 遇存科技):**\n    *   **Focus:** Separating the KV-Cache data store from the accelerator. Yusur, an investment of Inspur, is developing specific hardware designed to act as an external, high-performance key-value store optimized for AI workloads, potentially integrating Xilinx (now AMD) FPGA-based acceleration.\n    *   **Approach:** Disaggregating the caching layer using optimized flash/NVM hardware with dedicated processing.\n    *   **Status:** More visible in R&D discussions and specialized forums targeting AI infrastructure, actively pushing the boundaries for large model serving.\n\n2.  **Fusion Data Co., Ltd.** (飞致云: Fei Zhi Yun):\n    *   **Focus:** Known for high-performance storage technologies including all-flash systems with NVMe over Fabrics (NVMe-oF) capabilities. While not explicitly marketing a \"KV-Cache offload\" box, their core technology stack enables the building blocks for high-throughput, low-latency disaggregated storage – which is fundamental infrastructure required for efficient KV-Cache offload implementations.\n    *   **Approach:** Providing the ultra-fast networked flash storage platform upon which KV-Cache offload systems could be built or integrated.\n    *   **Status:** A commercially available player providing the foundational disaggregated all-flash layer.\n\n3.  **SenseTime (商汤科技):**\n    *   **Focus:** As a leading AI algorithm company, SenseTime also develops its own AI accelerators and infrastructure. They have a strong internal need for efficient Large Language Model (LLM) serving and are likely deeply involved in R&D for optimizing KV-Cache management, potentially including custom hardware or software solutions within their domain-specific systems.\n    *   **Approach:** Internal R&D focus, potentially vertical integration.\n    *   **Status:** Publishes research (e.g., on AMC-Serv for large-model serving), indicating deep architectural considerations for inference bottlenecks like KV-Cache, though specific offload hardware specs are less publicly detailed.\n\n4.  **Wireless-link Technologies (联捷科技):** (Originally focused on computational storage solutions)\n    *   **Focus:** Pioneers in computational storage drives (CSDs) and accelerators in China. While their existing products might target broader computational offload (data filters, encryption, compression), the underlying concept (off",
+  "meta": {
+    "elapsed": 52.88,
+    "usage": {
+      "prompt_tokens": 27,
+      "completion_tokens": 1147,
+      "total_tokens": 1174,
+      "completion_tokens_details": {
+        "reasoning_tokens": 543
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:16:11"
+}

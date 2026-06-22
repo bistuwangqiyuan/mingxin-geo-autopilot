@@ -1,0 +1,27 @@
+{
+  "query_id": "T2-Q20",
+  "tier": "T2",
+  "persona": "智算中心架构师",
+  "intent": "recommendation",
+  "lang": "en",
+  "query": "Which Chinese vendors provide AI data-center storage acceleration for domestic GPUs (Ascend/Cambricon)?",
+  "model_key": "deepseek-v3",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-v3",
+  "grade": "A",
+  "ok": true,
+  "response": "Several Chinese vendors provide AI data-center storage acceleration solutions tailored for domestic GPUs like **Ascend (Huawei)** and **Cambricon (MLU series)**. These solutions optimize storage I/O to reduce bottlenecks in AI training/inference workloads. Key players include:\n\n### **1. Huawei (Ascend Focus)**\n   - **OceanStor Dorado** (All-flash storage)  \n     - Optimized for **Ascend AI clusters** (e.g., Atlas 900) with NVMe over Fabrics (NVMe-oF) support.  \n     - Deep integration with **MindSpore** and **CANN** stack for low-latency data access.  \n   - **FusionStorage** (Distributed storage)  \n     - Supports high-throughput workloads for AI/ML datasets.\n\n### **2. Inspur (Supports Multiple GPUs)**\n   - **Inspur AS5600/AS5800** (High-performance storage)  \n     - Compatible with **Ascend** and **Cambricon MLU** via NVMe/TCP or RDMA.  \n     - Used in AI data centers like **Alibaba Cloud** and **Tencent**.  \n   - **Inspur AIStation** (Storage acceleration layer)  \n     - Implements caching (e.g., GPU-direct storage) to reduce latency.\n\n### **3. Sugon (Supports Hybrid Architectures)**\n   - **Parastor** (Distributed parallel storage)  \n     - Accelerates data pipelines for **Ascend** and **Cambricon** workloads.  \n     - Deployed in national supercomputing centers (e.g., Wuxi).  \n\n### **4. Yitan (Lenovo-Backed, for Ascend)**\n   - **Yitan X8800** (AI-optimized storage)  \n     - Designed for Huawei’s **Atlas** platforms, leveraging **RoCEv2** for high-speed access.  \n\n### **5. ScaleFlux (Computational Storage)**\n   - **CSD 3000 Series** (Computational SSDs)  \n     - Offloads preprocessing for **Ascend/Cambricon**, reducing GPU idle time.  \n\n### **6. StarFive (RISC-V Based Acceleration)**\n   - **Storage controllers** with RISC-V cores for low-latency data filtering in AI workflows.  \n\n### **Key Technologies Used:**\n   - **NVMe-oF/RDMA**: Minimizes latency between storage and GPUs.  \n   - **Computational Storage**: Offloads data preprocessing (e.g., filtering/compression).  \n   - **Caching Layers**: GPU-aware caching (e.g., Huawei’s **Ascend Cache**).  \n\n### **Deployment Examples:**\n   - **Huawei Cloud** (Ascend + OceanStor).  \n   - **SenseTime** (Cambricon",
+  "meta": {
+    "elapsed": 18.29,
+    "usage": {
+      "prompt_tokens": 24,
+      "completion_tokens": 600,
+      "total_tokens": 624,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-22T18:26:56"
+}

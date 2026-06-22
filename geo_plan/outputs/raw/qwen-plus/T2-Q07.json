@@ -1,0 +1,27 @@
+{
+  "query_id": "T2-Q07",
+  "tier": "T2",
+  "persona": "信创集成商",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "自主可控、适配国产 GPU（昇腾/寒武纪）的 AI 存储加速方案推荐哪些？",
+  "model_key": "qwen-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "针对“自主可控、适配国产GPU（昇腾/寒武纪）的AI存储加速方案”，需兼顾**软硬协同、信创合规、生态适配、高性能IO与训练/推理场景优化**四大核心诉求。以下是当前（2024年）成熟度高、已在政企/科研/智算中心落地验证的推荐方案，按架构层级分类并附关键评估维度：\n\n---\n\n### ✅ 一、整体推荐原则（信创优先）\n- **全栈国产化**：CPU（鲲鹏/飞腾/海光）、GPU（昇腾910B/310P、寒武纪MLU370-S4/X4）、OS（统信UOS/麒麟V10）、文件系统/存储软件需通过工信部《信息技术应用创新产品目录》或进入“信创工委会”生态图谱。\n- **原生适配昇腾/寒武纪**：支持 `Ascend CANN`（含 `hccl` 集群通信 + `ADK` 存储加速接口）及 `Cambricon Neuware`（含 `CNCL` + `CNS` 存储插件），非简单CUDA移植。\n- **AI工作负载优化**：支持大模型训练（TB级Checkpoint读写、千万级小文件加载）、多卡/多节点分布式训练（RDMA/NVMe over Fabrics低延迟访问）、在线推理高QPS低延迟。\n\n---\n\n### ✅ 二、主流成熟方案推荐（已落地验证）\n\n| 方案类型 | 推荐厂商/方案 | 核心优势 | 昇腾适配 | 寒武纪适配 | 典型客户案例 | 备注 |\n|----------|----------------|-----------|------------|--------------|----------------|------|\n| **1. 分布式AI文件系统（首选）** | **华为 OceanStor A800 + AI NAS（搭载OceanFS）** | • 原生集成昇腾CANN，支持`HCCP`（HCCL+POSIX）直通<br>• RDMA+NVMe-oF，训练数据加载延迟<50μs<br>• 支持Checkpoint秒级快照/跨集群同步 | ✅ 深度适配（华为自研，CANN 7.0+原生支持） | ❌ 无官方支持 | 国家超算中心、某省级AI实验室 | 需搭配昇腾服务器（Atlas 800T A2等） |\n| | **XSKY星辰天合 XEOS AI Edition** | • 信创认证（鲲鹏+昇腾+麒麟全栈兼容）<br>• 自研`AI-IO Engine`，小文件聚合+预取优化（ResNet",
+  "meta": {
+    "elapsed": 15.89,
+    "usage": {
+      "total_tokens": 633,
+      "completion_tokens": 600,
+      "prompt_tokens": 33,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:06:45"
+}

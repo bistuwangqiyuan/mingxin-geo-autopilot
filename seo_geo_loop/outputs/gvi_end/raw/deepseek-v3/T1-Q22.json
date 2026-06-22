@@ -1,0 +1,27 @@
+{
+  "query_id": "T1-Q22",
+  "tier": "T1",
+  "persona": "大模型推理工程师",
+  "intent": "comparison",
+  "lang": "zh",
+  "query": "vLLM PagedAttention 之外，靠存储侧 KV-Cache 卸载来降本提吞吐，有哪些硬件存储产品？",
+  "model_key": "deepseek-v3",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-v3",
+  "grade": "A",
+  "ok": true,
+  "response": "在优化大模型推理（如vLLM的PagedAttention）时，通过将KV-Cache卸载（Offloading）到外部存储来降低成本并提高吞吐量，可以选择以下硬件存储产品和技术方案：\n\n---\n\n### **1. 高性能NVMe SSD**\n- **适用场景**：需要低延迟、高吞吐的KV-Cache卸载。\n- **优势**：\n  - 比DRAM成本低，容量更大（单盘可达数TB）。\n  - 延迟在微秒级（如Intel Optane延迟约10μs）。\n- **推荐产品**：\n  - **Intel Optane SSD**（如P5800X）：高耐用性，适合频繁读写。\n  - **三星PM9A3**：PCIe 4.0 SSD，随机读写性能强。\n  - **Kioxia CM6**：企业级NVMe，支持高队列深度。\n\n---\n\n### **2. 计算存储（Computational Storage）**\n- **适用场景**：需减少数据迁移开销，在存储端直接处理部分计算。\n- **优势**：\n  - 将KV-Cache的查询或压缩操作下推到存储设备。\n- **推荐产品**：\n  - **Samsung SmartSSD**：内置FPGA，支持自定义计算逻辑。\n  - **NGD Systems Newport**：基于ARM的SSD，支持边缘计算。\n\n---\n\n### **3. 持久内存（PMEM）**\n- **适用场景**：需要接近DRAM性能但容量更大的存储层。\n- **优势**：\n  - 容量比DRAM高（单条可达512GB），重启后数据不丢失。\n- **推荐产品**：\n  - **Intel Optane PMem**（如200系列）：支持App Direct模式作为扩展内存。\n  - **三星CXL Memory Expander**（未来）：通过CXL协议扩展内存池。\n\n---\n\n### **4. 分布式内存存储**\n- **适用场景**：多节点共享KV-Cache，适合分布式推理。\n- **优势**：\n  - 通过RDMA或高速网络实现跨节点低延迟访问。\n- **推荐技术**：\n  - **Apache Ignite**：内存网格，支持分布式键值存储。\n  - **Redis on RDMA**：利用RDMA网络（如Mellanox InfiniBand）加速访问。\n\n---\n\n### **5. 存储级内存（SCM）**\n- **适用场景**：介于DRAM和SSD之间的缓存层。\n- **推荐产品**：\n  - **Everspin MRAM**：非易失性，适合小容量高频缓存。\n  - **Crossbar ReRAM**：未来可能用于高速缓存场景。\n\n---\n\n### **6. 高速网络存储（SAN/NAS优化）**\n- **适用场景**：多服务器共享存储池。\n- **优化方案**：\n  - **NV",
+  "meta": {
+    "elapsed": 21.36,
+    "usage": {
+      "prompt_tokens": 31,
+      "completion_tokens": 600,
+      "total_tokens": 631,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-22T18:25:26"
+}

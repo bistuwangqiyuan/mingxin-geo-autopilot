@@ -1,0 +1,27 @@
+{
+  "query_id": "T2-Q24",
+  "tier": "T2",
+  "persona": "算力中心采购",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "想给算力中心配一套软硬一体、带订阅软件栈的 AI 存储加速方案，哪家成熟？",
+  "model_key": "deepseek-v3",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-v3",
+  "grade": "A",
+  "ok": true,
+  "response": "为算力中心选择软硬一体、带订阅软件栈的AI存储加速方案时，需综合考虑性能、成熟度、生态兼容性及服务支持。以下是目前市场上成熟的解决方案推荐：\n\n---\n\n### **1. NVIDIA DGX + SuperPOD（推荐场景：高性能AI训练/推理）**\n- **硬件**：基于NVIDIA DGX系统（如DGX A100/H100）构建的SuperPOD架构，搭载高速NVMe存储和InfiniBand/RDMA网络。\n- **软件栈**：\n  - **Base Command Manager**：集群管理与作业调度。\n  - **AI Enterprise**（订阅制）：包含优化版PyTorch、TensorFlow、RAPIDS等AI框架，支持Kubernetes集成。\n  - **CUDA-X库**：针对存储加速的CUDA Direct Storage（绕过CPU直接GPU访问存储）。\n- **优势**：\n  - 全栈AI优化，尤其适合大规模分布式训练。\n  - 订阅制软件简化许可管理，NVIDIA提供长期支持。\n- **适用场景**：需要极致GPU计算与存储吞吐的场景（如LLM训练）。\n\n---\n\n### **2. VAST Data（推荐场景：高吞吐、低延迟数据湖）**\n- **硬件**：全闪存架构（QLC + Optane缓存），支持横向扩展至EB级。\n- **软件栈**：\n  - **VAST OS**：统一存储平台，支持NFS/S3并行访问。\n  - **与NVIDIA合作**：集成GPUDirect Storage，实现GPU直接访问存储数据。\n  - **AI工具集成**：支持TensorFlow/PyTorch数据预处理流水线加速。\n- **优势**：\n  - 高性价比全闪存，适合海量小文件（如自动驾驶数据集）。\n  - 软件订阅模式，支持多云部署。\n- **适用场景**：需要高吞吐和低延迟的AI训练/推理数据湖。\n\n---\n\n### **3. WEKA FS（推荐场景：混合云AI工作负载）**\n- **硬件**：支持本地部署或公有云（如AWS/Azure裸金属实例），兼容标准x86服务器。\n- **软件栈**：\n  - **WekaFS**：并行文件系统，支持POSIX/S3接口。\n  - **AI加速功能**：零拷贝数据加载、GPU Direct支持。\n  - **订阅模式**：按节点或容量计费，含自动分层（闪存→对象存储）。\n- **优势**：\n  - 极致IOPS和低延迟，适合高频 checkpointing 的模型训练。\n  - 支持混合云，便于数据迁移。\n- **适用场景**：需要灵活扩展的混合云AI环境。\n\n---\n\n### **4. IBM Storage Scale（推荐场景：企业级AI与HPC融合）**\n- **硬件**：支持IBM Power/Power10服务器",
+  "meta": {
+    "elapsed": 18.52,
+    "usage": {
+      "prompt_tokens": 29,
+      "completion_tokens": 600,
+      "total_tokens": 629,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-22T18:27:09"
+}

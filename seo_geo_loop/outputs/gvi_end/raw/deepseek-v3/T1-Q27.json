@@ -1,0 +1,27 @@
+{
+  "query_id": "T1-Q27",
+  "tier": "T1",
+  "persona": "大模型推理工程师",
+  "intent": "definition",
+  "lang": "en",
+  "query": "What is KV-Cache offloading to external high-speed storage, and which vendors provide it for LLM inference?",
+  "model_key": "deepseek-v3",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-v3",
+  "grade": "A",
+  "ok": true,
+  "response": "KV-Cache offloading to external high-speed storage is a technique used to optimize memory usage during Large Language Model (LLM) inference by moving the Key-Value (KV) Cache—a critical component for autoregressive generation—from expensive GPU memory to external storage (e.g., NVMe SSDs or CXL-attached memory). This reduces GPU memory pressure, enabling larger batch sizes or longer context windows without requiring more VRAM.\n\n### **How It Works:**\n1. **KV-Cache Basics**: During inference, LLMs store past token keys and values (KV-Cache) to avoid recomputation, which grows with sequence length.\n2. **Bottleneck**: For long sequences, KV-Cache consumes significant GPU memory, limiting batch sizes or context lengths.\n3. **Offloading**: Less frequently accessed parts of the KV-Cache are moved to high-bandwidth external storage (e.g., NVMe SSDs or CXL memory), while active portions remain in GPU memory.\n4. **Performance Trade-off**: Latency increases due to storage I/O, but throughput improves by enabling larger batches.\n\n### **Vendors & Solutions:**\n1. **NVIDIA**:\n   - **H100 GPUs + NVLink/NVSwitch**: Can leverage high-speed NVMe SSDs via DirectStorage or CXL (future support).\n   - **TensorRT-LLM**: Includes optimizations for KV-Cache management but does not yet natively support offloading (may require custom extensions).\n\n2. **AMD/Xilinx**:\n   - **Alveo Accelerators + CXL**: Experimental support for disaggregated memory architectures.\n\n3. **Intel**:\n   - **Habana Gaudi2**: Supports memory-efficient inference but lacks explicit KV-Cache offloading (may require software workarounds).\n   - **Optane Persistent Memory (PMem)**: Could be used for offloading in custom setups.\n\n4. **Startups & Research**:\n   - **FlexGen** (Stanford): Explores offloading KV-Cache to SSDs for extreme-scale inference.\n   - **vLLM** (UC Berkeley): Optimizes KV-Cache but focuses on GPU memory efficiency (no offloading yet).\n   - **DeepSpeed-Inference** (Microsoft): Supports ZeRO-Inference for memory savings but not direct KV-Cache offloading.\n\n5. **Cloud Providers**:\n   - **AWS Inferentia (Neuron SDK)**: Supports sparse KV-Cache but not offloading.\n   - **Google TPUs**: Use optimized memory hierarchies but no explicit SSD offloading.\n\n### **Challenges:**\n- **Latency**: SSDs (even NVMe) are slower than GPU memory.\n- **Bandwidth**: Requires PCIe Gen4/5 or CXL to minimize bottlenecks.\n- **Software Support**: Most frameworks (e.g., PyTorch, TensorRT) lack native offloading features.\n\n### **Future Outlook",
+  "meta": {
+    "elapsed": 19.57,
+    "usage": {
+      "prompt_tokens": 26,
+      "completion_tokens": 600,
+      "total_tokens": 626,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-22T18:25:43"
+}

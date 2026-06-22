@@ -1,0 +1,27 @@
+{
+  "query_id": "T2-Q20",
+  "tier": "T2",
+  "persona": "智算中心架构师",
+  "intent": "recommendation",
+  "lang": "en",
+  "query": "Which Chinese vendors provide AI data-center storage acceleration for domestic GPUs (Ascend/Cambricon)?",
+  "model_key": "deepseek-v3",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-v3",
+  "grade": "A",
+  "ok": true,
+  "response": "Several Chinese vendors provide AI data center storage acceleration solutions tailored for domestic GPUs like Huawei's **Ascend** and **Cambricon's** platforms. These solutions focus on optimizing storage performance to handle massive AI workloads efficiently. Here are key vendors and their offerings:\n\n### **1. Huawei (Ascend Ecosystem)**\n   - **Solution**: Huawei’s **OceanStor Dorado** all-flash storage and **FusionStorage** distributed storage systems are optimized for Ascend GPUs.\n   - **Features**:\n     - High-throughput, low-latency NVMe-oF (NVMe over Fabrics) support.\n     - AI-optimized data pipelines for training/inference workloads.\n     - Tight integration with **Atlas** AI computing platforms and **MindSpore** framework.\n\n### **2. Inspur (For Ascend & Cambricon)**\n   - **Solution**: **Inspur AS13000** distributed storage system with AI acceleration features.\n   - **Features**:\n     - Supports high-speed protocols like **RoCEv2** and **NVMe-oF**.\n     - Optimized for hybrid workloads (AI + HPC).\n     - Validated with Cambricon’s **MLU** series and Huawei Ascend.\n\n### **3. Sugon (For Cambricon & Domestic GPUs)**\n   - **Solution**: **Sugon Parastor** parallel storage system.\n   - **Features**:\n     - High-bandwidth storage for AI training clusters.\n     - Supports **RDMA** and **GPU Direct Storage (GDS)**-like optimizations.\n     - Used in Cambricon-based AI data centers.\n\n### **4. StarFive (Storage Acceleration for AI)**\n   - **Solution**: **StarFive NVMe acceleration cards** and software stacks.\n   - **Features**:\n     - Low-latency storage access for AI/ML workloads.\n     - Compatibility with domestic GPUs via open-source drivers.\n\n### **5. Yitu (Cambricon Partner)**\n   - **Solution**: **Yitu’s AI storage optimization software** for Cambricon MLU platforms.\n   - **Features**:\n     - Cache-aware data prefetching for deep learning.\n     - Integration with Cambricon’s **NeuWare** SDK.\n\n### **6. Alibaba Cloud (For Hybrid AI Workloads)**\n   - **Solution**: **Alibaba Cloud’s PAI (Platform for AI)** with optimized ESSD storage.\n   - **Features**:\n     - Supports Ascend and Cambricon in hybrid cloud environments.\n     - AI-oriented storage tiering and caching.\n\n### **Key Technologies Used**:\n- **NVMe-oF** (NVMe over Fabrics) for low-latency access.\n- **RDMA/RoCE** for high-throughput data transfer.\n- **GPU-aware storage tiering** to reduce I/O bottlenecks.\n-",
+  "meta": {
+    "elapsed": 20.3,
+    "usage": {
+      "prompt_tokens": 24,
+      "completion_tokens": 600,
+      "total_tokens": 624,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:11:07"
+}

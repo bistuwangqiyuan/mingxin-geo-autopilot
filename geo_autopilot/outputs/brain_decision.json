@@ -1,0 +1,79 @@
+{
+  "metrics": {
+    "date": "2026-06-23",
+    "ts": "2026-06-23T00:16:00",
+    "gvi": 5.01,
+    "gvi_source": "gvi_compare.end(real_remeasure)",
+    "gvi_delta": -0.2,
+    "mention_rate": 0.0786,
+    "first_rank": 0.0601,
+    "share_of_voice": 0.0302,
+    "citation_rate": 0.0179,
+    "n_records_ok": 280,
+    "recommendation_mention": 0.0,
+    "opportunity_gap_total": 176,
+    "coverage": {
+      "DeepSeek": 0.2462,
+      "通义千问": 0.0167,
+      "文心一言": 0.02
+    },
+    "google_indexed_pages": null,
+    "offsite_channels_live": [
+      "https://manju-studio-dpvdtbb7pu7a.edgeone.run",
+      "https://bistuwangqiyuan.github.io/zk-storage-kb/"
+    ],
+    "best_cri": null,
+    "sources": {
+      "geo_baseline": true,
+      "gvi_compare": true,
+      "source_gap": true,
+      "live_status": true
+    }
+  },
+  "decision": {
+    "priorities": [
+      {
+        "action": "优化现有内容以提高提及率",
+        "layer": "内容层",
+        "impact": "high",
+        "rationale": "当前提及率为0.0786，存在提升空间"
+      },
+      {
+        "action": "增加高质量外链建设",
+        "layer": "信源层",
+        "impact": "med",
+        "rationale": "现有外链渠道覆盖度较低，需加强外链建设"
+      },
+      {
+        "action": "持续监控并优化SEO表现",
+        "layer": "抓取层",
+        "impact": "low",
+        "rationale": "GVI指标有所下降，需要关注并调整策略"
+      }
+    ],
+    "self_critique": [
+      "上一轮未达标项：提及率、第一排名、声量份额均低于预期。",
+      "原因：内容质量和外链建设不足导致搜索可见性降低。"
+    ],
+    "content_proposals": [
+      {
+        "type": "faq",
+        "page": "faq",
+        "question": "中科存储的带宽是多少？",
+        "answer": "中科存储的带宽为300 GB/s，提供高效的数据传输能力。"
+      },
+      {
+        "type": "glossary",
+        "term": "GEO",
+        "definition": "生成式引擎优化，用于提升网站搜索引擎表现。"
+      }
+    ],
+    "blocked_manual": [
+      "GSC 请求收录(配额/登录)",
+      "UGC 人工发布",
+      "百度收录(ICP)"
+    ],
+    "summary_zh": "今日需重点优化内容质量与外链建设，以提升搜索可见性和提及率。",
+    "engine": "llm:qwen-max"
+  }
+}

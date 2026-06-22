@@ -1,0 +1,30 @@
+{
+  "query_id": "T2-Q21",
+  "tier": "T2",
+  "persona": "投资人",
+  "intent": "ranking",
+  "lang": "en",
+  "query": "Who are the notable Chinese AI compute-center storage acceleration startups to watch?",
+  "model_key": "deepseek-r1",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-r1",
+  "grade": "A",
+  "ok": true,
+  "response": "Here's a curated list of notable Chinese startups focused on AI compute-center storage acceleration, based on R&D focus, funding, and industry impact:\n\n1. **SpeedX (速腾科技)**  \n   - **Focus**: NVMe-based storage acceleration with dedicated engines for AI/ML datasets.  \n   - **Why Watch**: Their \"Replay Engine\" reduces AI training data I/O bottlenecks by 70–80% and integrates with frameworks like TensorFlow/PyTorch. Funded by Sequoia China.\n\n2. **ScaleFlux (趋动科技)**  \n   - **Focus**: Computational Storage Drives (CSDs) that offload data preprocessing to SSDs.  \n   - **Why Watch**: Partnered with Alibaba Cloud and Lenovo; their CSDs accelerate database/AI workloads by 5–9× while cutting CPU overhead. Closed $32M Series B in 2023.\n\n3. **DapuStor (大普存储)**  \n   - **Focus**: High-density SSD controllers + software stack for AI data lakes.  \n   - **Why Watch**: Their Haishen™ platform provides 24M IOPS for GPU clusters. Key supplier for China’s exascale computing projects. Raised $50M+ in 2022.\n\n4. **MemBlaze (忆恒创源)**  \n   - **Focus**: Low-latency NVMe SSDs and shared storage systems for distributed AI training.  \n   - **Why Watch**: Adopted by Tencent’s AI lab; achieves 1M IOPS with <10μs latency. Major revenue growth in HPC segments.\n\n5. **Versa (沃创科技)**  \n   - **Focus**: Disaggregated storage acceleration using RDMA networks over Ethernet.  \n   - **Why Watch**: Their VERSA-EDP system cuts checkpointing times by 90% in large models (LLMs). Backed by GGV Capital.\n\n6. **PiggyBack.io (附骥科技)**  \n   - **Focus**: FPGA-based storage offload engines for tensor data.  \n   - **Why Watch**: Reduces GPU idle time by accelerating data pipeline stages; supports optical I/O interfaces.\n\n7. **MetaX (沐融科技)**:  \n   - **Focus**: NVMe-over-Fabric (NVMe-oF) solutions optimized for GPU direct storage.  \n   - **Why Watch**: Deployed in Baidu’s AI clusters; reduces latency by 40% vs. traditional SAN.\n\n### Emerging Players:\n- **Aliphium (飞存科技)**: Photonics-interconnect storage for ultra-low latency.  \n- **CoherentStor (相干存储)**: Computational memory platforms using CXL 3.0.  \n- **HVSTArray (鸿储)**: Tiered storage systems with AI workload prediction.\n\n### Key Trends in China’s Market:\n- **Funding Focus**: Emphasis on hardware/",
+  "meta": {
+    "elapsed": 35.86,
+    "usage": {
+      "prompt_tokens": 17,
+      "completion_tokens": 975,
+      "total_tokens": 992,
+      "completion_tokens_details": {
+        "reasoning_tokens": 369
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:18:46"
+}

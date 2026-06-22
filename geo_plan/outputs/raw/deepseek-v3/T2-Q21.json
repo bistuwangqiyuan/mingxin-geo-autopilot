@@ -1,0 +1,27 @@
+{
+  "query_id": "T2-Q21",
+  "tier": "T2",
+  "persona": "投资人",
+  "intent": "ranking",
+  "lang": "en",
+  "query": "Who are the notable Chinese AI compute-center storage acceleration startups to watch?",
+  "model_key": "deepseek-v3",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-v3",
+  "grade": "A",
+  "ok": true,
+  "response": "Several Chinese startups are making waves in AI compute-center storage acceleration, leveraging technologies like NVMe, RDMA, and computational storage to optimize performance for AI/ML workloads. Here are some notable ones to watch:\n\n### **1. SmartX** (北京志凌海纳科技有限公司)  \n   - **Focus**: Distributed storage, hyper-converged infrastructure (HCI), and high-performance storage for AI/ML.  \n   - **Tech**: NVMe-oF (NVMe over Fabrics), RDMA optimization.  \n   - **Why Watch?** Used by cloud providers and enterprises for low-latency AI training workloads.\n\n### **2. Qumulo (China Subsidiary / Local Partners)**  \n   - **Focus**: Scalable file storage for AI/ML data lakes.  \n   - **Tech**: High-throughput parallel file systems optimized for GPU clusters.  \n   - **Why Watch?** Strong presence in hybrid cloud AI storage solutions.\n\n### **3. DapuStor** (深圳大普微电子)  \n   - **Focus**: Computational storage and AI-accelerated SSDs.  \n   - **Tech**: FPGA-based SSDs with in-storage processing for AI workloads.  \n   - **Why Watch?** Their \"Data Processing Unit\" (DPU) SSDs reduce data movement bottlenecks in AI training.\n\n### **4. ScaleFlux** (ScaleFlux China /  ScaleFlux Inc. with China operations)  \n   - **Focus**: Computational storage drives (CSDs) for database and AI acceleration.  \n   - **Tech**: Transparent compression, near-storage compute.  \n   - **Why Watch?** Partnering with Alibaba Cloud and Tencent for AI storage efficiency.\n\n### **5. XSKY** (北京星辰天合科技)  \n   - **Focus**: Software-defined storage (SDS) for AI/GPU clusters.  \n   - **Tech**: Ceph-based high-performance object storage with RDMA support.  \n   - **Why Watch?** Used in large-scale AI training environments.\n\n### **6. MemBlaze** (北京忆恒创源)  \n   - **Focus**: Ultra-low-latency NVMe SSDs for AI servers.  \n   - **Tech**: High-endurance flash storage for high-throughput model training.  \n   - **Why Watch?** Key supplier for Baidu, Alibaba, and other hyperscalers.\n\n### **7. YeePay (China) / Local Computational Storage Innovators**  \n   - **Focus**: Emerging startups exploring storage-class memory (SCM) and near-data processing.  \n   - **Tech**: Optane-like solutions for AI caching layers.  \n\n### **Key Trends in China’s AI Storage Acceleration Space**  \n- **NVMe-oF Adoption**: Startups are pushing RDMA-based storage networks to reduce latency.  \n- **Computational Storage**: Companies like DapuStor are integrating processing inside",
+  "meta": {
+    "elapsed": 20.79,
+    "usage": {
+      "prompt_tokens": 17,
+      "completion_tokens": 600,
+      "total_tokens": 617,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:11:12"
+}

@@ -1,0 +1,27 @@
+{
+  "query_id": "T2-Q01",
+  "tier": "T2",
+  "persona": "算力中心采购",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "国产/信创 AI 算力中心的存储加速方案，有哪些值得考虑的厂商？",
+  "model_key": "qwen-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "在国产化/信创背景下建设AI算力中心时，存储加速方案需兼顾**自主可控、高性能、高可靠、与国产AI芯片/框架深度适配、符合等保/密评要求**。以下是从技术实力、信创适配性、落地案例和生态协同角度综合评估的**值得重点考虑的国内厂商（含部分已实现国产化替代的中外合资或深度本地化企业）**：\n\n---\n\n### ✅ **第一梯队（全栈信创适配、大规模AI场景验证）**\n1. **中科曙光（Sugon）**  \n   - **优势**：  \n     - 信创国家队，深度参与国家算力网络建设；  \n     - 自研ParaStor分布式存储系统（支持EB级扩展），专为AI训练优化：提供**GPU Direct Storage（GDS）加速接口**，支持昇腾、寒武纪、海光等国产AI芯片直连；  \n     - 与华为昇腾、寒武纪思元、壁仞BR100等完成联合认证；  \n     - 支持国密SM4加密、等保三级+密评支持；  \n     - 已在多个省级智算中心（如合肥、成都、武汉）落地千卡级AI训练集群。  \n   - **适用场景**：超大规模模型训练（LLM、多模态）、科学计算。\n\n2. **浪潮信息（Inspur）**  \n   - **优势**：  \n     - AS13000分布式存储系统已通过麒麟V10、统信UOS、欧拉OS全栈适配；  \n     - 独创**AI-Optimized I/O引擎**（支持RDMA over RoCEv2 + NVMe-oF），实测ResNet50数据加载速度提升3.2倍；  \n     - 与寒武纪、天数智芯、摩尔线程等完成联合调优；  \n     - 提供“存算分离+缓存加速”混合架构（SSD+持久内存PMem），降低AI训练IO瓶颈；  \n     - 政企客户覆盖广，信创项目交付经验丰富。  \n   - **注意**：需关注其部分高端组件（如NVMe SSD主控）的国产化率（已逐步切换长江存储、长鑫存储方案）。\n\n3. **华为（Huawei）—— OceanStor Pacific 系列**  \n   - **优势**：  \n     - 全栈自研（鲲鹏CPU + 昇腾NPU + 欧拉OS + 鲲鹏存储OS），信创成熟度极高；  \n     - OceanStor Pacific 9920 支持**AI数据湖原生加速**：内置对象存储+文件协议统一访问，支持HDFS兼容",
+  "meta": {
+    "elapsed": 12.1,
+    "usage": {
+      "total_tokens": 629,
+      "completion_tokens": 600,
+      "prompt_tokens": 29,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-22T18:22:55"
+}

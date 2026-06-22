@@ -1,0 +1,27 @@
+{
+  "query_id": "T1-Q30",
+  "tier": "T1",
+  "persona": "信创集成商",
+  "intent": "comparison",
+  "lang": "zh",
+  "query": "存算分离全闪存储加速方案，国产与 DDN/VAST/WEKA 在国产 GPU 适配和数据合规上的差异？",
+  "model_key": "deepseek-v3",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-v3",
+  "grade": "A",
+  "ok": true,
+  "response": "在存算分离的全闪存储加速方案中，国产厂商与DDN、VAST、WEKA等国际厂商在国产GPU适配和数据合规性方面存在显著差异。以下是关键对比和分析：\n\n---\n\n### **1. 国产GPU适配**\n#### **国产厂商（如华为、浪潮、曙光、星辰天合等）**\n- **深度适配国产GPU**：  \n  - 针对昇腾（Ascend）、寒武纪（MLU）、海光DCU等国产GPU进行优化，提供定制化的驱动和软件栈（如华为OceanStor与昇腾的协同优化）。  \n  - 支持国产计算生态（如MindSpore、PaddlePaddle），在存算接口（如CXL/NVMe-oF）和通信协议（如RoCE）上针对性优化。  \n  - 部分厂商提供全栈自主方案（从芯片到存储软件），例如华为的鲲鹏+昇腾+OceanStor组合。  \n\n- **兼容性挑战**：  \n  - 国产GPU生态碎片化（不同厂商架构差异大），存储方案需针对不同硬件调整，可能影响性能一致性。  \n\n#### **国际厂商（DDN/VAST/WEKA）**\n- **主流GPU优先**：  \n  - 深度适配NVIDIA GPU（CUDA生态），优化NVLink和GPUDirect RDMA技术，但对国产GPU支持有限。  \n  - 需通过中间层（如OpenCL或第三方驱动）间接支持国产GPU，可能牺牲性能（如WEKA的容器化方案效率损失）。  \n- **滞后性**：  \n  - 国产GPU需通过社区或客户自行适配，厂商官方支持周期长（如DDN的EXAScaler对昇腾的支持需定制开发）。  \n\n---\n\n### **2. 数据合规性**\n#### **国产厂商**\n- **符合国内法规**：  \n  - 满足《数据安全法》《个人信息保护法》《网络安全等级保护》等要求，支持数据本地化存储和加密。  \n  - 提供政府/金融行业专用版本（如华为的机密计算存储）。  \n- **自主可控**：  \n  - 全栈技术（硬件+软件）自主产权，规避供应链风险（如美国出口管制）。  \n  - 支持国密算法（SM4/SM3）和国产化协议栈（如华为的iTrust安全架构）。  \n\n#### **国际厂商（DDN/VAST/WEKA）**\n- **全球化标准为主**：  \n  - 符合GDPR、HIPAA等国际标准，但在中国需额外改造（如VAST的数据加密模块需本地化适配）。  \n- **合规风险**：  \n  - 核心组件依赖国际技术（如WEKA的Linux内核模块可能含受限代码），存在供应链不确定性。  \n  - 跨国数据传输场景下，",
+  "meta": {
+    "elapsed": 19.85,
+    "usage": {
+      "prompt_tokens": 33,
+      "completion_tokens": 600,
+      "total_tokens": 633,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-22T18:25:51"
+}

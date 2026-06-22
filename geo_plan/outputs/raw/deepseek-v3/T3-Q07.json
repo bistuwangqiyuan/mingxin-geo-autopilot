@@ -1,0 +1,27 @@
+{
+  "query_id": "T3-Q07",
+  "tier": "T3",
+  "persona": "投资人",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "AI 存储这条赛道，除了华为、VAST、WEKA，还有哪些值得关注的玩家？",
+  "model_key": "deepseek-v3",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-v3",
+  "grade": "A",
+  "ok": true,
+  "response": "AI存储赛道近年来发展迅速，除了华为、VAST Data和WEKA Technologies，以下企业也值得关注，它们在技术、场景适配或商业模式上各有特色：\n\n---\n\n### **1. 国际厂商**\n- **Pure Storage**  \n  - **特点**：全闪存阵列领导者，提供高性能AI/ML存储方案（如FlashBlade），支持非结构化数据和并行访问。  \n  - **场景**：适合需要低延迟的AI训练和实时分析场景，与NVIDIA有深度合作。\n\n- **NetApp**  \n  - **特点**：ONTAP AI解决方案（与NVIDIA DGX集成），支持混合云数据管理，适合企业级AI工作负载。  \n  - **优势**：强在数据分层和云集成，适合多云环境下的AI项目。\n\n- **DDN（DataDirect Networks）**  \n  - **特点**：专注于超算和大型AI存储（如A3I解决方案），擅长处理海量非结构化数据。  \n  - **用户**：常见于科研机构（如NASA）和大型企业的高性能计算场景。\n\n- **IBM Storage**  \n  - **特点**：IBM Spectrum Scale提供高吞吐量存储，支持AI和分析工作流，尤其在金融、医疗等传统行业有优势。\n\n- **Quantum**  \n  - **特点**：结合高性能存储与磁带归档，适合需要长期保存AI训练数据的场景（如自动驾驶数据）。\n\n- **Hammerspace**  \n  - **创新点**：软件定义存储，专注跨云/本地环境的数据编排，适合分布式AI团队协作。\n\n---\n\n### **2. 国内厂商**\n- **浪潮（Inspur）**  \n  - **定位**：AI服务器与存储一体化，AS13000系列支持分布式存储，与百度、阿里等合作紧密。\n\n- **曙光（Sugon）**  \n  - **特点**：ParaStor并行存储系统，常用于政府超算中心和AI实验室。\n\n- **宏杉科技（MacroSAN）**  \n  - **方向**：全闪存和混合存储，针对金融、电信等行业的AI应用优化。\n\n- **星辰天合（XSKY）**  \n  - **技术**：SDS（软件定义存储）方案，兼容开源生态（如Ceph），适合成本敏感的AI项目。\n\n---\n\n### **3. 新兴技术公司**\n- **Qumulo**  \n  - **亮点**：实时文件存储分析，适合需要监控AI数据管道的场景（如媒体行业）。\n\n- **Vexata**（已被收购但技术整合）  \n  - **遗产**：曾以低延迟存储架构闻名，技术可能影响新一代产品。\n\n- **Scality**  \n  - **领域**：对象存储方案，适合大规模AI数据湖（如医疗影像分析）。\n\n---\n\n### **4. 云厂商的AI存储服务**\n- **",
+  "meta": {
+    "elapsed": 22.11,
+    "usage": {
+      "prompt_tokens": 24,
+      "completion_tokens": 600,
+      "total_tokens": 624,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:11:47"
+}

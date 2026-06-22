@@ -1,0 +1,27 @@
+{
+  "query_id": "T3-Q01",
+  "tier": "T3",
+  "persona": "算力中心采购",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "AI 存储有哪些主流厂商和产品？该怎么选型？",
+  "model_key": "deepseek-v3",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-v3",
+  "grade": "A",
+  "ok": true,
+  "response": "在AI场景中，存储系统的选型需综合考虑性能、扩展性、与计算框架的兼容性以及成本。以下是主流厂商、产品及选型建议的详细分析：\n\n---\n\n### **一、主流厂商及产品分类**\n#### **1. 本地存储（高性能场景）**\n- **厂商与产品**：\n  - **Pure Storage**：FlashBlade（全闪统一存储，支持文件与对象，适合高吞吐AI训练）\n  - **Dell EMC**：PowerScale（Isilon）、PowerStore（Scale-out NAS，兼容传统与AI负载）\n  - **NetApp**：AFF A系列（全闪NAS，ONTAP AI解决方案集成NVIDIA DGX）\n  - **华为**：OceanStor Dorado（全闪存，低延迟，支持华为Atlas AI平台）\n- **特点**：低延迟、高带宽，适合小规模训练或边缘推理。\n\n#### **2. 分布式存储（大规模数据）**\n- **厂商与产品**：\n  - **DDN**：EXAScaler（Lustre优化版）、A3I（专为AI设计，支持GPU Direct）\n  - **VAST Data**：Universal Storage（结合高密度QLC SSD与元数据加速）\n  - **IBM**：Storage Scale（GPFS，支持POSIX接口，常用于HPC+AI混合场景）\n  - **开源方案**：Ceph（对象存储）、MinIO（S3兼容，适合云原生AI）\n- **特点**：横向扩展，适合PB级非结构化数据（如图像、视频）。\n\n#### **3. 云存储（弹性扩展）**\n- **公有云服务**：\n  - **AWS**：S3（对象存储）、EFS（文件存储，与SageMaker集成）\n  - **Azure**：Blob Storage + Azure Data Lake（与Azure ML深度集成）\n  - **Google Cloud**：Cloud Storage（多区域冗余，适合TensorFlow数据集）\n- **特点**：按需付费，适合临时性训练任务或混合云场景。\n\n#### **4. 超融合架构（HCI）**\n- **厂商与产品**：\n  - **Nutanix**：Files Storage（整合Kubernetes，适合边缘AI推理）\n  - **VMware**：vSAN（虚拟化环境下的AI负载优化）\n\n---\n\n### **二、选型关键指标**\n1. **性能需求**：\n   - **吞吐量**：视觉类AI需100GB/s+带宽（如Lustre/FlashBlade）。\n   - **IOPS**：小文件随机读写（如数据库训练）需高IOPS（全闪存优先）。\n   - **延迟**：推理场景要求亚毫秒级延迟（NVMe over Fabrics）。\n\n2. **数据规模与类型**：\n   - **小规模",
+  "meta": {
+    "elapsed": 13.89,
+    "usage": {
+      "prompt_tokens": 16,
+      "completion_tokens": 600,
+      "total_tokens": 616,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:11:20"
+}

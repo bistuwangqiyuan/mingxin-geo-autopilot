@@ -1,0 +1,30 @@
+{
+  "query_id": "T3-Q07",
+  "tier": "T3",
+  "persona": "投资人",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "AI 存储这条赛道，除了华为、VAST、WEKA，还有哪些值得关注的玩家？",
+  "model_key": "deepseek-r1",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-r1",
+  "grade": "A",
+  "ok": true,
+  "response": "AI存储赛道确实越来越热闹！除了你先提到的**华为OceanStor**（全闪存和分布式存储）、**VAST Data**（通用存储架构）和**WEKA**（高性能并行文件系统），还有一些值得你留意的玩家：\n\n## 📍 1. DDN (DataDirect Networks)\n*   **定位:** 算是HPC和AI领域的老兵了，在超级计算和大规模训练场景有深厚积累。\n*   **优势:**  提供高性能并行文件系统（例如 EXAScaler搭配Lustre📁），以及针对AI优化的全闪存解决方案（A3I系列）。特别强调**与GPU厂商的深度集成**和极致的带宽/IOPS性能，很适合GPU集群环境。\n*   **值得关注点:**  实践经验丰富，广泛用于大型科研机构和企业的AI中心。\n\n## 📍 2. Pure Storage\n*   **定位:**  全闪存存储解决方案供应商，以其简单性和高性能著称。\n*   **优势:**  FlashBlade系列是主打的高性能非结构化数据平台（NFS、SMB、S3对象），以横向扩展能力见长。通过优化和与框架如NVIDIA DGX的合作（AIRI解决方案），在AI训练和推理方面做得不错。用户评价通常集中在**管理简便性**上。\n*   **值得关注点:**  现在积极拥抱AI生态，提供整合方案，订阅模式对灵活部署很友好。\n\n## 📍 3. Pavilion Data (曾用名Pavilion Hyperparallel Flash Array)\n*   **定位:**  高性能NVMe全闪存阵列（尤其是超低延迟方案）。\n*   **优势:**  采用创新的横向扩展架构，通过PCIe扩展提升带宽和IOPS。能达到**微秒级延迟**，特别适合训练数据集加载的加速环节。\n*   **值得关注点:**  选择分布式架构，主要在要求苛刻的AI/HPC环境展现技术优势。\n\n## 📍 4. NetApp (旗下解决方案)\n*   **定位:**  传统企业存储巨头，很早就在融合云和AI布局。\n*   **优势:**   通过ONTAP软件（基于AFF全闪存阵列）能处理文件和对象访问。关键在围绕**数据管道**开发了一套解决方案，比如共享式全闪存存储（适用于训练数据）、高性能GPU直连（用于加速）、对象存储（管理数据集）。最近收购WEKA失败后，也强化了自己在AI领域的解决方案。\n*   **值得关注点:**  企业级功能如安全性和数据管理是优势，对大型企业寻求统一的数据管理框架很有吸引力。\n\n## 📍 5. Fujitsu (子公司 Fujitsu Technology Solutions)\n*   **定位:**  美国等市场相对低调，但在日本及亚洲市场很少缺席。\n*   **优势:**  有支持高带宽的ETERNUS存储系统，应对AI训练需求的能力不",
+  "meta": {
+    "elapsed": 43.01,
+    "usage": {
+      "prompt_tokens": 24,
+      "completion_tokens": 1003,
+      "total_tokens": 1027,
+      "completion_tokens_details": {
+        "reasoning_tokens": 399
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:20:05"
+}

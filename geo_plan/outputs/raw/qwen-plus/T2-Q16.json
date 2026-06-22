@@ -1,0 +1,27 @@
+{
+  "query_id": "T2-Q16",
+  "tier": "T2",
+  "persona": "智算中心架构师",
+  "intent": "comparison",
+  "lang": "zh",
+  "query": "AI 算力中心存储选型：并行文件系统、对象存储、存算分离全闪加速，分别适合什么场景？",
+  "model_key": "qwen-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "在AI算力中心（尤其是大模型训练/推理、科学计算、AI平台）的存储架构选型中，**并行文件系统、对象存储、存算分离全闪加速**并非互斥方案，而是面向不同数据生命周期阶段、访问模式和性能/成本诉求的互补组件。以下是三者的典型适用场景、核心能力对比与协同建议：\n\n---\n\n### 一、并行文件系统（如 Lustre、BeeGFS、IBM Spectrum Scale、WekaIO、VAST Data）\n✅ **核心定位：高性能、低延迟、强一致性的共享文件存储，支撑大规模并发I/O密集型计算**\n\n🔹 **最适合场景：**\n- **大模型训练（尤其是千卡以上集群）的中间数据流**  \n  ▪️ 训练过程中高频读取训练集（Shuffle后分片）、写入检查点（Checkpoints）、日志、梯度缓存；  \n  ▪️ 需要POSIX语义、多节点同时读写同一目录（如`/data/train`, `/ckpt`），支持毫秒级元数据操作；  \n  ▪️ 典型需求：100+ GB/s聚合带宽、<1ms随机读延迟、千万级IOPS、高并发小文件（如PyTorch DataLoader的数千个`.pt`样本）。\n\n- **HPC混合负载（AI+仿真/渲染）**  \n  ▪️ 如气候建模+AI降尺度、EDA仿真+AI验证等需共享工作空间的场景。\n\n- **实时数据预处理流水线（在线ETL）**  \n  ▪️ 多GPU节点并行解压、格式转换（Parquet→TFRecord）、增强，结果直写共享目录供训练消费。\n\n⚠️ **不适用：** 长期归档、海量非结构化冷数据、Web级对象访问（如S3 API）、跨地域多活。\n\n---\n\n### 二、对象存储（如 Ceph RGW、MinIO、AWS S3、阿里云OSS、Cloudian）\n✅ **核心定位：海量、持久、低成本、API驱动的非结构化数据湖底座，强调可扩展性与生态兼容性**\n\n🔹 **最适合场景：**\n- **AI数据湖（Data Lake for AI）——原始数据与成果归档层**  \n  ▪️ 存储PB级原始语料（网页、PDF、图像、视频）、清洗后的高质量数据集（`s3://ai-datalake/raw/`, `s3://ai-datalake/curated/`）；  \n  ▪️ 模型版本管理（MLflow/SageMaker Model Registry后端）、训练产出（ONNX/Triton模型包、评估报告）；  \n  ▪️ 成本敏感：利用纠删",
+  "meta": {
+    "elapsed": 15.67,
+    "usage": {
+      "total_tokens": 638,
+      "completion_tokens": 600,
+      "prompt_tokens": 38,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:07:06"
+}

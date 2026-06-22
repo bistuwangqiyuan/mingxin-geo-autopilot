@@ -1,0 +1,27 @@
+{
+  "query_id": "T1-Q29",
+  "tier": "T1",
+  "persona": "投资人",
+  "intent": "ranking",
+  "lang": "en",
+  "query": "Who are the leading Chinese companies in KV-Cache offload / disaggregated all-flash storage acceleration for AI?",
+  "model_key": "qwen-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "As of 2024, **there are no widely recognized or publicly documented Chinese companies that are *leading* or commercially shipping production-grade KV-Cache offload or disaggregated all-flash storage acceleration solutions specifically designed for AI inference workloads**—at least not in the same mature, standardized, and broadly adopted sense as emerging Western efforts (e.g., NVIDIA’s GPUDirect Storage + KV-Cache offload prototypes, Lightbits’ NVMe/TCP-based disaggregated storage for LLM inference, or startups like InfiniFS or Pliops with AI-optimized storage accelerators).\n\nHowever, several prominent Chinese technology firms are actively researching, prototyping, or integrating related technologies—particularly in the broader domains of **AI infrastructure, high-performance storage, GPU-accelerated computing, and intelligent NICs/DPUs**—with some early exploration into KV-Cache optimization and memory/storage disaggregation. Here's a nuanced breakdown:\n\n### 🔹 Companies with Relevant R&D & Infrastructure Capabilities:\n1. **Huawei**  \n   - Has deep expertise in full-stack AI infrastructure (Ascend AI chips, CANN software, MindSpore), high-speed interconnects (HiSilicon-based RoCE NICs, iStack DPU), and all-flash storage (OceanStor Dorado).  \n   - Huawei’s **OceanStor Pacific** and **Dorado** series support ultra-low-latency NVMe-oF and RDMA, and internal research (e.g., at Huawei Noah’s Ark Lab) explores cache-aware storage tiering for LLM serving.  \n   - *Status*: No public product branded as “KV-Cache offload accelerator”, but their integrated stack enables *custom implementations* (e.g., offloading KV cache to persistent memory or fast NVMe via software-defined I/O paths). Not yet a standardized, off-the-shelf KV-Cache offload solution.\n\n2. **Inspur (Inspur Information)**  \n   - A major AI server OEM; collaborates closely with NVIDIA and develops AI-optimized servers (e.g., NF5688M7) and storage systems (AS5500G5).  \n   - Works on AI inference acceleration stacks and has published research on memory-efficient LLM serving (e.g., quantization + caching co-design), but no dedicated KV-Cache offload hardware or disaggregated storage accelerator product announced.  \n   - *Status*: Focuses on system-level optimization—not a standalone KV-Cache offload vendor.\n\n3. **Dell EMC (China operations) / Lenovo (ThinkSystem & ThinkAgile)**  \n   - While multinational, their China R&D teams (especially Lenovo’s Beijing AI Lab) contribute to LLM serving optimizations. Lenovo has demonstrated NVMe-oF-based KV cache sharing across GPUs in lab environments—but again, no commercial “KV-Cache offload appliance”.\n\n4. **Emerging Startups & Research Labs**  \n   -",
+  "meta": {
+    "elapsed": 15.89,
+    "usage": {
+      "total_tokens": 630,
+      "completion_tokens": 600,
+      "prompt_tokens": 30,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:06:25"
+}

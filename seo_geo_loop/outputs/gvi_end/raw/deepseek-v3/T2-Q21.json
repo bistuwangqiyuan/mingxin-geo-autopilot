@@ -1,0 +1,27 @@
+{
+  "query_id": "T2-Q21",
+  "tier": "T2",
+  "persona": "投资人",
+  "intent": "ranking",
+  "lang": "en",
+  "query": "Who are the notable Chinese AI compute-center storage acceleration startups to watch?",
+  "model_key": "deepseek-v3",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-v3",
+  "grade": "A",
+  "ok": true,
+  "response": "Several Chinese startups are making significant strides in AI compute-center storage acceleration, leveraging technologies like NVMe, RDMA, and computational storage to optimize performance for AI/ML workloads. Here are some notable ones to watch:\n\n### **1. ScaleFlux (Beijing)**\n   - **Focus**: Computational Storage (CSD) and NVMe-based acceleration.\n   - **Why Watch?**: Their **Computational Storage Drive (CSD)** technology offloads data processing from CPUs, improving efficiency in AI training and inference workloads.\n   - **Partners**: Collaborates with major cloud and data center providers.\n\n### **2. MemBlaze (Beijing)**\n   - **Focus**: High-performance NVMe SSDs for AI/ML storage acceleration.\n   - **Why Watch?**: Their **PBlaze** series SSDs are optimized for low-latency, high-throughput AI workloads in data centers.\n   - **Customers**: Used by Alibaba Cloud, Tencent, and other hyperscalers.\n\n### **3. Shenzhen DapuStor (Shenzhen)**\n   - **Focus**: Enterprise-grade NVMe SSDs and storage controllers.\n   - **Why Watch?**: Their **Ruler series** NVMe SSDs are designed for AI and big data applications, offering high endurance and low latency.\n   - **Differentiator**: Strong focus on domestic supply chain independence.\n\n### **4. Starblaze Technology (Beijing)**\n   - **Focus**: SSD controllers and computational storage solutions.\n   - **Why Watch?**: Their **StorLink** controllers support advanced AI storage acceleration features.\n   - **Partnerships**: Works with Chinese hyperscalers and OEMs.\n\n### **5. YMTC (Yangtze Memory Technologies, Wuhan)**\n   - **Focus**: 3D NAND flash and next-gen storage for AI.\n   - **Why Watch?**: Though primarily a NAND manufacturer, YMTC is expanding into AI-optimized storage solutions, competing with Samsung and Micron.\n   - **Innovation**: Developing high-density, low-power storage for AI data centers.\n\n### **6. Pangu Storage (Shenzhen)**\n   - **Focus**: Distributed storage acceleration for AI/ML.\n   - **Why Watch?**: Their **AI-aware storage system** dynamically optimizes data placement for training workloads.\n   - **Use Case**: Used in autonomous driving and large-scale AI model training.\n\n### **7. QCT (Quanta Cloud Technology, China Branch)**\n   - **Focus**: AI-optimized storage servers and solutions.\n   - **Why Watch?**: While not a pure startup, QCT’s China division is innovating in GPU-storage convergence for AI.\n\n### **Key Trends in China’s AI Storage Acceleration Market:**\n- **Domestic Independence**: Many startups emphasize **localized supply chains** to reduce reliance on Western tech.\n- **Computational Storage**: Offloading",
+  "meta": {
+    "elapsed": 20.35,
+    "usage": {
+      "prompt_tokens": 17,
+      "completion_tokens": 600,
+      "total_tokens": 617,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-22T18:26:58"
+}

@@ -1,0 +1,27 @@
+{
+  "query_id": "T1-Q28",
+  "tier": "T1",
+  "persona": "智算中心架构师",
+  "intent": "recommendation",
+  "lang": "en",
+  "query": "Which vendors offer a disaggregated all-flash storage acceleration appliance for AI inference and training?",
+  "model_key": "qwen-max",
+  "vendor": "通义千问",
+  "model_id": "qwen-max",
+  "grade": "A",
+  "ok": true,
+  "response": "Several vendors offer disaggregated all-flash storage solutions that can be used to accelerate AI inference and training. These solutions are designed to provide high-performance, low-latency storage for data-intensive workloads. Here are some notable vendors in this space:\n\n1. **VAST Data**:\n   - VAST Data offers a universal storage platform that combines the performance of all-flash with the economics of traditional storage. Their solution is well-suited for AI and machine learning workloads, providing high throughput and low latency.\n\n2. **Pure Storage**:\n   - Pure Storage's FlashBlade is a high-performance, all-flash storage system that is often used in AI and machine learning environments. It offers fast data access and can be deployed in a disaggregated architecture to support AI workloads.\n\n3. **DDN (DataDirect Networks)**:\n   - DDN provides high-performance storage solutions, including their A3I (AI and Analytics at Scale) platform, which is designed specifically for AI and machine learning. The A3I platform can be configured with all-flash storage to deliver the performance required for AI inference and training.\n\n4. **NetApp**:\n   - NetApp's AFF (All-Flash FAS) series and EF Series all-flash arrays are designed for high-performance workloads, including AI and machine learning. They offer features like NVMe over Fabrics (NVMe-oF) to provide low-latency, high-throughput storage.\n\n5. **HPE (Hewlett Packard Enterprise)**:\n   - HPE offers several all-flash storage solutions, such as the HPE Primera and HPE Nimble Storage, which can be used in AI and machine learning environments. These solutions can be integrated into a disaggregated architecture to support AI workloads.\n\n6. **IBM**:\n   - IBM's FlashSystem series includes all-flash storage solutions that are suitable for AI and machine learning workloads. These systems can be configured to provide the performance and scalability needed for AI inference and training.\n\n7. **Dell Technologies**:\n   - Dell EMC PowerStore and PowerMax all-flash storage arrays are designed for high-performance and can be used in AI and machine learning environments. They offer features like NVMe and end-to-end NVMe-oF to deliver low-latency, high-throughput storage.\n\n8. **Kioxia (formerly Toshiba Memory)**:\n   - Kioxia offers high-performance SSDs and storage solutions that can be integrated into disaggregated storage architectures. Their solutions are often used in data centers and can be tailored for AI and machine learning workloads.\n\nThese vendors provide a range of options for disaggregated all-flash storage, each with its own set of features and capabilities. When selecting a solution, it's important to consider factors such as performance requirements, scalability, integration with existing infrastructure, and total cost of ownership.",
+  "meta": {
+    "elapsed": 18.55,
+    "usage": {
+      "prompt_tokens": 25,
+      "completion_tokens": 574,
+      "total_tokens": 599,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:03:11"
+}

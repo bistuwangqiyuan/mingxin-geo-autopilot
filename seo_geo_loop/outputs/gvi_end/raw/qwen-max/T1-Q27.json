@@ -1,0 +1,27 @@
+{
+  "query_id": "T1-Q27",
+  "tier": "T1",
+  "persona": "大模型推理工程师",
+  "intent": "definition",
+  "lang": "en",
+  "query": "What is KV-Cache offloading to external high-speed storage, and which vendors provide it for LLM inference?",
+  "model_key": "qwen-max",
+  "vendor": "通义千问",
+  "model_id": "qwen-max",
+  "grade": "A",
+  "ok": true,
+  "response": "KV-Cache (Key-Value Cache) offloading to external high-speed storage is a technique used in large language model (LLM) inference to improve performance and reduce memory pressure on the main processing units, such as GPUs. In LLMs, the key-value pairs (KVs) are intermediate results that are stored in memory during the forward pass of the model. These KVs can consume a significant amount of memory, especially for long sequences or large batch sizes.\n\n### How KV-Cache Offloading Works:\n1. **Memory Offloading**: Instead of keeping all the KVs in the GPU's limited memory, some of these KVs are offloaded to an external high-speed storage system. This external storage is typically faster than traditional SSDs and can be accessed with low latency.\n2. **Reduced Memory Footprint**: By offloading KVs, the memory footprint on the GPU is reduced, allowing for larger batch sizes or longer sequence lengths without running out of memory.\n3. **Performance Considerations**: The offloading process must be carefully managed to ensure that the overhead of data transfer does not negate the benefits of reduced memory usage. High-speed interconnects and efficient data management are crucial.\n\n### Vendors Providing KV-Cache Offloading Solutions:\nSeveral vendors and technologies are emerging to support KV-Cache offloading for LLM inference. Here are some notable ones:\n\n1. **NVIDIA**:\n   - **NVLink and GPUDirect**: NVIDIA's NVLink and GPUDirect technologies enable fast, low-latency communication between GPUs and external storage. NVIDIA has also been working on software solutions to manage KV offloading efficiently.\n   - **Magnum IO**: NVIDIA's Magnum IO suite provides a set of tools and libraries to optimize data movement and storage access, which can be leveraged for KV-Cache offloading.\n\n2. **Cerebras Systems**:\n   - **CS-2 System**: Cerebras Systems offers a specialized AI accelerator, the CS-2, which includes a high-bandwidth, low-latency interconnect called SwarmX. This system can be configured to offload KVs to external storage, enabling the processing of very large models and datasets.\n\n3. **SambaNova Systems**:\n   - **DataScale**: SambaNova's DataScale platform is designed for high-performance AI and machine learning workloads. It includes features for efficient memory management and offloading, which can be applied to KV-Cache offloading.\n\n4. **Habana Labs (Intel)**:\n   - **Gaudi and Gaudi2 Processors**: Intel's Habana Labs offers AI accelerators like the Gaudi and Gaudi2 processors, which are designed for high-performance AI training and inference. These processors include features for efficient memory management and can be configured to offload KVs to external storage.\n\n5. **Graphcore**:\n   - **IPU-Machine**: Graphcore's IPU (Intelligence Processing Unit) and",
+  "meta": {
+    "elapsed": 17.42,
+    "usage": {
+      "prompt_tokens": 31,
+      "completion_tokens": 600,
+      "total_tokens": 631,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-22T18:18:06"
+}

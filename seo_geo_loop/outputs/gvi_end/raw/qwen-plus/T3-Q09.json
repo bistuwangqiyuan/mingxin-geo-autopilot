@@ -1,0 +1,27 @@
+{
+  "query_id": "T3-Q09",
+  "tier": "T3",
+  "persona": "算力中心采购",
+  "intent": "ranking",
+  "lang": "zh",
+  "query": "AI 存储 / AI 算力中心存储，国产厂商里谁比较领先？",
+  "model_key": "qwen-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "在AI存储与AI算力中心存储领域（即面向大模型训练/推理、海量非结构化数据（如图像、视频、文档）的高性能、高吞吐、高扩展、支持AI工作负载特征的存储系统），国产厂商近年来进步显著，已形成梯队格局。以下为当前（截至2024年中）在技术实力、落地规模、生态适配和客户认可度方面较为领先的国产厂商，并附关键优势分析：\n\n✅ 第一梯队（综合领先，已规模化商用，深度适配AI场景）  \n1. **浪潮存储（Inspur Storage）**  \n- 代表产品：AS13000G7（全闪/混闪分布式存储）、AI智算存储解决方案（含“智算存”协同架构）  \n- 核心优势：  \n  ▪️ 与浪潮AI服务器（NF系列）、源腾大模型平台深度协同，支持GPU Direct Storage（GDS）、RDMA over RoCEv2、POSIX/NFS/S3多协议统一；  \n  ▪️ 在多个国家级智算中心（如济南、合肥、武汉等地）落地，单集群支持EB级容量+百GB/s吞吐，训练数据加载效率提升3–5×；  \n  ▪️ 自研存储OS（InStorage OS）支持智能IO调度、热冷数据自动分层（对接OSS/对象存储）、AI workload感知QoS。  \n- 典型客户：国家超算中心、头部互联网公司、央企AI实验室。\n\n2. **华为OceanStor（华为存储）**  \n- 代表产品：OceanStor Pacific系列（专为AI/HPC设计的分布式文件/对象存储）、Dorado全闪高端存储（用于AI元数据/小文件加速）  \n- 核心优势：  \n  ▪️ Pacific 9000系列支持百万级IOPS + TB/s级带宽，原生集成昇腾AI集群（CANN+MindSpore），支持NVIDIA GPUDirect Storage及华为自研昇腾GDS加速；  \n  ▪️ “存算协同”架构：通过iMaster NCE-AI实现存储资源与训练任务动态绑定、数据预取预测（基于训练job特征）；  \n  ▪️ 全栈自主可控（鲲鹏CPU + 昇腾AI + OceanStor OS + 自研SSD控制器），信创适配成熟度高。  \n- 典型客户：鹏城实验室、之江实验室、三大运营商智算中心、金融行业头部AI平台。\n\n3. **曙光（中科曙光）ParaStor**  \n- 代表产品：ParaStor 600（面向AI/HPC的高性能并行文件系统）  \n- 核心优势：  \n  ▪️ 基于",
+  "meta": {
+    "elapsed": 11.92,
+    "usage": {
+      "total_tokens": 628,
+      "completion_tokens": 600,
+      "prompt_tokens": 28,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-22T18:24:02"
+}

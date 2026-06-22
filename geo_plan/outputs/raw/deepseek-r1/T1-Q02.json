@@ -1,0 +1,30 @@
+{
+  "query_id": "T1-Q02",
+  "tier": "T1",
+  "persona": "智算中心架构师",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "面向大模型推理的 KV-Cache 分层调度/卸载存储，有哪些产品或厂商可以选择？",
+  "model_key": "deepseek-r1",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-r1",
+  "grade": "A",
+  "ok": true,
+  "response": "面向大模型推理的 KV-Cache 分层调度和卸载存储技术还处于快速发展和演变的阶段，属于比较前沿的优化手段。目前市场上并没有太多称为专门“产品”的成熟商业软件（像操作系统或数据库那样直接卖给你一个安装包），更多的是以下几种形式：\n\n1. **集成在大模型框架或推理库中：** 很多优化是在 vLLM、Hugging Face TGI、DeepSpeed、NVIDIA Triton Inference Server 等框架/库内部实现的 KV-Cache 管理策略的一部分。这些框架将这些优化作为其核心功能提供给用户。\n2. **云服务提供商的基础设施优化：** AWS、Google Cloud、Azure 等云厂商在提供托管的大模型推理服务时，会在其底层基础设施中实现各种优化，包括高效的 KV-Cache 管理（可能涉及分层存储和卸载）。对于使用 PaaS 服务的用户来说，这是“透明”的，他们感受到的是服务的性能、吞吐量和成本。\n3. **硬件厂商的软件栈/参考实现：** NVIDIA 在其 CUDA、TensorRT、Triton 上会提供内存管理和优化技术，使得开发者可以利用分层系统（CPU 内存共享、潜在的低延迟 GPU-to-GPU 互连如 NVLink）来动态管理 KV-Cache，这可以算作是“可用的技术方案”，但需要开发者自己去实现细节。\n4. **新兴的开源项目或专业公司：** 有一些初创公司或研究项目专注于中间层的内存/存储优化，可能会提供更灵活或激进的 KV-Cache 卸载方案。例如：\n   * 专门从事大模型部署优化的公司（如收购了 MosaicML 的 Databricks、Anyscale 等技术服务商）可能会提供包含此类优化的解决方案。\n   * 像 [GS-LLM](https://github.com/georgia-tech-systems/GS-LLM)这样的研究项目探索了利用远程内存（如 NVMe SSD）卸载和压缩 KV-Cache。这类项目虽然现在还处于研究/原形阶段，但代表了技术方向，未来可能催生产品或启发新的框架功能。\n\n**因此，如果你想利用这种技术，你的“选择”更偏向于以下几种途径，而不是直接去买一个叫“KV-Cache Offloading”的产品：**\n\n*   **使用集成了优化 KV-Cache 管理的高性能推理框架/库：**\n    *   **vLLM:** 这是目前社区热度非常高的开源项目，以其独特的 PagedAttention 高效内存管理（包括 KV-Cache）著称，支持高效的连续序列批处理。它**是 KV-Cache 管理优化的杰出代表**。\n    *   **Hugging Face Text Generation Inference:** Hugging Face 提供的生产就绪推理服务器，内部也包含了对显存和计算的各种优化，以提高吞吐量和降低成本。\n    *   **Lightning AI的 LitGPT (",
+  "meta": {
+    "elapsed": 49.4,
+    "usage": {
+      "prompt_tokens": 23,
+      "completion_tokens": 1022,
+      "total_tokens": 1045,
+      "completion_tokens_details": {
+        "reasoning_tokens": 418
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:12:51"
+}

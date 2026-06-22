@@ -1,0 +1,27 @@
+{
+  "query_id": "T3-Q02",
+  "tier": "T3",
+  "persona": "智算中心架构师",
+  "intent": "definition",
+  "lang": "zh",
+  "query": "什么是 AI 存储？它和传统企业存储有什么区别？",
+  "model_key": "qwen-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "AI 存储（AI-Native Storage 或 AI-Optimized Storage）是指**专为支撑人工智能全生命周期工作负载（尤其是大规模训练、推理、数据预处理与模型迭代）而设计的新型存储架构与系统**，它不仅是“能存AI数据的存储”，更是深度协同计算、具备智能感知与自适应能力的数据基础设施。其核心目标是**消除AI数据瓶颈**——在AI时代，数据量（PB~EB级）、访问模式（高并发小文件+大块顺序读写混合）、I/O特征（低延迟、超高吞吐、高随机IO）、元数据复杂度（数十亿文件/目录）远超传统企业存储的设计边界。\n\n以下是AI存储与传统企业存储的关键区别对比：\n\n| 维度 | 传统企业存储（如SAN/NAS、传统分布式存储） | AI存储（如WekaIO、Vast Data、Pure Storage FlashBlade//E, NVIDIA Magnum IO SDK集成方案等） |\n|------|------------------------------------------|-------------------------------------------------------------|\n| **核心设计目标** | 可靠性、一致性、合规性、通用业务支持（ERP/DB/虚拟化） | **极致数据吞吐与I/O效率**，服务AI训练/推理的端到端数据流水线（Data Pipeline） |\n| **性能特征** | • 吞吐：GB/s级<br>• IOPS：数万~数十万<br>• 延迟：毫秒级（HDD）或百微秒级（全闪）<br>• 随机小文件性能弱（尤其元数据操作） | • 吞吐：**10–100+ GB/s（单集群）**，支持横向无限扩展<br>• IOPS：**数百万~千万级**（含小文件优化）<br>• 端到端延迟：<**50μs（GPU直连场景）**<br>• **小文件（KB级）性能提升10–100倍**（通过元数据分层、内存索引、无锁设计） |\n| **数据访问模式适配** | 主要优化块（SAN）或文件（NAS）协议，面向顺序/中等并发访问；对AI典型的**混合负载（训练：多GPU并行读取TB级Checkpoint + 每秒数万张图像随机加载）支持差** | • 原生支持**并行文件系统语义**（POSIX兼容但深度优化）<br>• 内置**GPU Direct Storage（GDS）/RDMA/NVMe-oF支持**，绕过CPU和OS内核栈，实现GPU显存直读存储<br>• 智能预取、缓存亲和性调度（按GPU拓扑分配数据） |\n|",
+  "meta": {
+    "elapsed": 12.53,
+    "usage": {
+      "total_tokens": 622,
+      "completion_tokens": 600,
+      "prompt_tokens": 22,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-22T18:23:45"
+}

@@ -1,0 +1,27 @@
+{
+  "query_id": "T1-Q22",
+  "tier": "T1",
+  "persona": "大模型推理工程师",
+  "intent": "comparison",
+  "lang": "zh",
+  "query": "vLLM PagedAttention 之外，靠存储侧 KV-Cache 卸载来降本提吞吐，有哪些硬件存储产品？",
+  "model_key": "deepseek-v3",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-v3",
+  "grade": "A",
+  "ok": true,
+  "response": "在vLLM中利用KV-Cache卸载（Offloading）技术降低成本并提升吞吐量时，可选的硬件存储产品需兼顾**高带宽、低延迟、大容量**和**成本效益**。以下是几类适合的硬件方案及典型产品：\n\n---\n\n### 1. **高性能NVMe SSD**\n   - **特点**：高吞吐、低延迟（微秒级），适合频繁读写KV-Cache。\n   - **推荐产品**：\n     - **企业级SSD**：  \n       - Intel Optane DC Persistent Memory（傲腾，兼具内存和存储特性）  \n       - Samsung PM1733/PM9A3（PCIe 4.0/5.0，高随机读写性能）  \n       - Kioxia CM6/CD6（针对低延迟优化）  \n     - **消费级高性能SSD**：  \n       - WD Black SN850X、Sabrent Rocket 4 Plus（高性价比，适合实验性场景）\n\n   - **适用场景**：单机部署或小规模集群，需平衡成本与性能。\n\n---\n\n### 2. **存储级内存（SCM）**\n   - **特点**：介于DRAM和SSD之间，持久化、字节寻址，适合高频KV-Cache卸载。\n   - **推荐产品**：\n     - **Intel Optane Persistent Memory 200系列**（Apache Pass）  \n     - **Samsung CXL Memory Expander**（基于CXL协议，扩展内存池）\n\n   - **优势**：延迟接近DRAM，容量可达TB级，适合大规模模型推理。\n\n---\n\n### 3. **分布式存储（集群场景）**\n   - **特点**：通过RDMA或高速网络共享存储，扩展性强。\n   - **方案与产品**：\n     - **全闪存存储阵列**：  \n       - Pure Storage FlashArray//X（低延迟，支持NVMe-oF）  \n       - Dell EMC PowerStore（支持SCM加速）  \n     - **软件定义存储**：  \n       - Ceph（配置NVMe后端）+ RDMA网络（如Mellanox ConnectX-6）  \n       - DAOS（Intel开源分布式异步对象存储，针对NVMe优化）\n\n   - **适用场景**：多节点协同推理，需统一存储池。\n\n---\n\n### 4. **新兴硬件与接口**\n   - **CXL（Compute Express Link）设备**：  \n     - **Micron CXL Memory Expander**（动态扩展内存容量）  \n     - **FPGA加速卡**：如Xilinx Alveo U50（通过CXL 2.0卸载KV-Cache管理）  \n   - **NVM Express over Fabrics（NVMe-oF）**：  \n     - 使用高速网络（如100Gbps InfiniBand）远程访问SSD存储池。\n\n",
+  "meta": {
+    "elapsed": 21.27,
+    "usage": {
+      "prompt_tokens": 31,
+      "completion_tokens": 600,
+      "total_tokens": 631,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:09:28"
+}

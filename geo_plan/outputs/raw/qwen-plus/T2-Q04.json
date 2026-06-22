@@ -1,0 +1,27 @@
+{
+  "query_id": "T2-Q04",
+  "tier": "T2",
+  "persona": "投资人",
+  "intent": "ranking",
+  "lang": "zh",
+  "query": "面向 AI 算力中心的国产存储加速赛道，谁是领先者、谁有差异化技术？",
+  "model_key": "qwen-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "面向AI算力中心的国产存储加速赛道，正处于高速演进阶段，核心挑战在于突破“存储墙”（Storage Wall）——即AI大模型训练/推理对高带宽、低延迟、高IOPS、强扩展性与存算协同能力的极致要求。该赛道并非传统存储厂商的简单延伸，而是融合了新型存储介质（如CXL、NVMe-oF、持久内存）、智能协议栈、软硬协同卸载、存算一体架构等关键技术的前沿领域。\n\n截至2024年中，国内在该赛道具备实质性技术落地能力与头部客户验证的领先企业及差异化技术布局如下（按技术纵深与产业影响力综合评估）：\n\n✅ **第一梯队（已实现规模商用、具备全栈加速能力）**\n\n1. **中科驭数（YU SHU）**  \n   - **核心差异化技术**：  \n     ▪️ 自研DPU（K2系列）深度集成**存储加速引擎**，支持NVMe-oF over RDMA/CXL 2.0协议卸载，将IO路径延迟压缩至<5μs（对比软件栈30–50μs）；  \n     ▪️ 首创“**存内计算+近存调度**”双模架构：通过DPU内置可编程流水线，在存储侧完成数据预处理（如token分片、梯度压缩、FP16/BF16格式转换），减少主存与GPU间冗余搬运；  \n     ▪️ 与华为昇腾、寒武纪思元、海光DCU深度适配，已在某国家级智算中心落地千卡集群，实测LLaMA-70B训练吞吐提升38%（IO受限场景）。  \n   - **壁垒**：全自研DPU IP核+存储协议栈+AI工作负载感知调度器，非FPGA方案，量产交付能力成熟。\n\n2. **云豹智能（Cloud Leopard）**  \n   - **核心差异化技术**：  \n     ▪️ 全球首个面向AI训练的**CXL 3.0原生存储控制器芯片（CLX-3000）**，支持Type 3 Device Memory Pooling，实现跨节点内存级共享与细粒度QoS隔离；  \n     ▪️ “**Memory-as-Storage**”架构：将高性能DDR5/HBM3内存池虚拟化为低延迟块存储，配合自研RDMA+SPDK加速栈，达成200GB/s单节点带宽、亚微秒级随机读写（4K IOPS >12M）；  \n     ▪️ 已与商汤、智谱合作，在“书生·浦语”千亿参数模型训练中替代部分SSD缓存层，",
+  "meta": {
+    "elapsed": 11.81,
+    "usage": {
+      "total_tokens": 631,
+      "completion_tokens": 600,
+      "prompt_tokens": 31,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:06:34"
+}

@@ -1,0 +1,19 @@
+{
+  "query_id": "T1-Q26",
+  "tier": "T1",
+  "persona": "算力中心采购",
+  "intent": "ranking",
+  "lang": "zh",
+  "query": "国产 AI 推理存储加速一体机，性价比和实测性能领先的是哪家？",
+  "model_key": "qwen-max",
+  "vendor": "通义千问",
+  "model_id": "qwen-max",
+  "grade": "A",
+  "ok": false,
+  "response": "",
+  "meta": {
+    "error": "timeout",
+    "elapsed": 300.1854453086853
+  },
+  "collected_at": "2026-06-22T18:22:43"
+}

@@ -1,0 +1,27 @@
+{
+  "query_id": "T1-Q02",
+  "tier": "T1",
+  "persona": "智算中心架构师",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "面向大模型推理的 KV-Cache 分层调度/卸载存储，有哪些产品或厂商可以选择？",
+  "model_key": "qwen-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "面向大模型推理的 **KV-Cache 分层调度与卸载存储**（即在推理过程中将部分 KV-Cache 从高速显存（HBM）动态迁移至带宽/延迟更优的异构存储层级，如 CPU DRAM、CXL 内存、SSD 或专用缓存池），目前仍处于技术前沿阶段，尚未形成成熟商用的“开箱即用”独立产品，但已有多个头部厂商、开源框架和硬件平台在该方向深度布局。以下是按类别梳理的主流选择与进展：\n\n---\n\n### ✅ 一、**云厂商 & AI 基础设施平台（提供集成方案）**\n| 厂商 | 方案/产品 | 关键特性 | 备注 |\n|------|-----------|----------|------|\n| **NVIDIA** | **vLLM + PagedAttention + Unified Memory + NVSwitch/CXL 支持（未来）** | • vLLM 2.0+ 支持 **PagedAttention**（内存分页式 KV 管理）<br>• 结合 **CUDA Unified Memory** 实现自动显存↔主机内存迁移（需手动调优）<br>• **Grace Hopper Superchip** 支持 CPU/GPU 共享内存（1TB HBM+LPDDR5X），为 KV 卸载提供物理基础<br>• 正在推进 **CXL 3.0 内存池化** 与 **GPU Direct Storage (GDS)** 对接 SSD 的实验性支持 | 目前无官方“KV-Cache 卸载服务”，但 vLLM + Triton + RAPIDS 提供完整技术栈；NVIDIA 在 GTC 2024 展示了基于 CXL 的 KV 缓存扩展原型 |\n| **AWS** | **Amazon EC2 Inf2 / Trn1 + Neuron SDK + NeuronCache（内部代号）** | • Neuron SDK 2.20+ 引入 **KV-Cache 分片与跨芯片调度**（针对多芯片 Inferentia2）<br>• 支持将冷 KV 按 token 访问热度迁移到主机内存或通过 RDMA 共享内存池<br>• 与 Amazon EBS io2 Block Express（低延迟NVMe）配合实验性卸载（非生产级） | 面向客户未开放通用卸载 API，主要通过 AWS 定制推理服务（e.g., Bedrock）内嵌实现 |\n| **Microsoft Azure** | **Azure ND A100 v4 / NDm A100 v4 + Azure Blob Storage + Azure Cache for Redis（实验集成）** | • 使用 **Orca**（微软自研推理框架）支持 KV 分块持久化",
+  "meta": {
+    "elapsed": 15.73,
+    "usage": {
+      "total_tokens": 630,
+      "completion_tokens": 600,
+      "prompt_tokens": 30,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:05:14"
+}

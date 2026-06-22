@@ -1,0 +1,30 @@
+{
+  "query_id": "T1-Q22",
+  "tier": "T1",
+  "persona": "大模型推理工程师",
+  "intent": "comparison",
+  "lang": "zh",
+  "query": "vLLM PagedAttention 之外，靠存储侧 KV-Cache 卸载来降本提吞吐，有哪些硬件存储产品？",
+  "model_key": "deepseek-r1",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-r1",
+  "grade": "A",
+  "ok": true,
+  "response": "好的，我们来梳理一下为实现降低推理成本（降本）并提高吞吐量（提吞吐）的目标，在 KV-Cache 卸载策略中可以使用的主要硬件存储技术选项。\n\n理解核心目标：KV-Cache 卸载的本质是**将原本必须存于昂贵 GPU/HBM 显存中的键值缓存 (KV-Cache) 临时地或部分地搬到更大容量、更低成本的存储介质上**，从而：\n1.  **释放 GPU 显存空间**：使单张 GPU 可处理更大的模型或更多的并发请求。\n2.  **降低硬件成本**：用廉价的存储单元替代昂贵的 GPU 显存扩展开销。\n3.  **提高吞吐量**：允许部署更多模型或处理更多用户请求（尤其是长序列场景）。\n\n硬件存储选项主要基于两大技术方向：**直接连接块存储**和**网络块存储**。以下是主要的硬件产品和技术类别：\n\n### 🌟 1. 本地高性能 NVMe SSD (Direct-Attached Block Storage)\n*   **描述**: 这是最常用的存储卸载介质。通过高速 PCIe（通常为 Gen4 或 Gen5）通道直接连接到服务器主板或通过 NVMe over Fabrics 连接到专用适配卡。\n*   **优点**:\n    *   **性价比高**: SSD/GB 的成本显著低于 GPU 显存/HBM。\n    *   **可扩展容量**: 单服务器可轻松集成数 TB 甚至数十 TB 的 NVMe SSD 存储。\n    *   **性能适中**: 现代高性能企业级或数据中心级 NVMe SSD，尤其是 QLC 或存储优化款 (如：\n        *   **Intel Optane P5800X (或先前型号)**: 虽已停产，但在低延迟写入方面仍有优势（但需考虑伦理采购）。\n        *   **Samsung PM/SE 系列 (如 PM9A3, SE-SIT)**: 性能稳定，容量大，广泛使用。\n        *   **Micron 9400/7450 系列**。\n        *   **Kioxia CM 系列**。\n        *   **新产品 (如 Samsung 推出的近4x于旧款的TLC版SSD)**：提供优秀的性能与成本均衡。\n    *   **延迟在可接受范围内**: 访问延迟通常在几十微妙级别，虽然比 GPU 显存慢几个数量级，但对于容忍一定延迟的 KV-Cache 或冷缓存已足够。\n*   **缺点**:\n    *   **延迟远高于 HBM**: 可能成为吞吐瓶颈。\n    *   **单服务器扩展性局限**: 受插槽限制。\n*   **适用场景**: 在单台服务器内扩展 KV-Cache 容量的理想方式。作为缓存池的第一层本地扩展。\n\n### 🚆 2. NVMe over Fabrics (NVMe-oF) (",
+  "meta": {
+    "elapsed": 48.14,
+    "usage": {
+      "prompt_tokens": 31,
+      "completion_tokens": 1087,
+      "total_tokens": 1118,
+      "completion_tokens_details": {
+        "reasoning_tokens": 482
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:15:12"
+}

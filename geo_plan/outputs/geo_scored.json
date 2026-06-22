@@ -1,0 +1,5604 @@
+{
+  "scored": [
+    {
+      "query_id": "T1-Q01",
+      "tier": "T1",
+      "persona": "大模型推理工程师",
+      "intent": "definition",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q02",
+      "tier": "T1",
+      "persona": "智算中心架构师",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q03",
+      "tier": "T1",
+      "persona": "算力中心采购",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q04",
+      "tier": "T1",
+      "persona": "智算中心架构师",
+      "intent": "definition",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q05",
+      "tier": "T1",
+      "persona": "大模型推理工程师",
+      "intent": "problem_solution",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q06",
+      "tier": "T1",
+      "persona": "信创集成商",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q07",
+      "tier": "T1",
+      "persona": "投资人",
+      "intent": "ranking",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q08",
+      "tier": "T1",
+      "persona": "智算中心架构师",
+      "intent": "comparison",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q09",
+      "tier": "T1",
+      "persona": "算力中心采购",
+      "intent": "problem_solution",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q10",
+      "tier": "T1",
+      "persona": "大模型推理工程师",
+      "intent": "definition",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 1,
+        "first_rank": 0.5,
+        "share_of_voice": 0.5,
+        "citation": 0,
+        "accuracy": 0.3,
+        "needs_review": true
+      },
+      "gvi": 55.5
+    },
+    {
+      "query_id": "T1-Q11",
+      "tier": "T1",
+      "persona": "智算中心架构师",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q12",
+      "tier": "T1",
+      "persona": "信创集成商",
+      "intent": "comparison",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 1,
+        "first_rank": 1.0,
+        "share_of_voice": 0.2777777777777778,
+        "citation": 0,
+        "accuracy": 0.5,
+        "needs_review": true
+      },
+      "gvi": 65.56
+    },
+    {
+      "query_id": "T1-Q13",
+      "tier": "T1",
+      "persona": "投资人",
+      "intent": "ranking",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q14",
+      "tier": "T1",
+      "persona": "大模型推理工程师",
+      "intent": "problem_solution",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q15",
+      "tier": "T1",
+      "persona": "算力中心采购",
+      "intent": "definition",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q16",
+      "tier": "T1",
+      "persona": "智算中心架构师",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q17",
+      "tier": "T1",
+      "persona": "信创集成商",
+      "intent": "comparison",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q18",
+      "tier": "T1",
+      "persona": "大模型推理工程师",
+      "intent": "problem_solution",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q19",
+      "tier": "T1",
+      "persona": "投资人",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q20",
+      "tier": "T1",
+      "persona": "智算中心架构师",
+      "intent": "ranking",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q21",
+      "tier": "T1",
+      "persona": "算力中心采购",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q22",
+      "tier": "T1",
+      "persona": "大模型推理工程师",
+      "intent": "comparison",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q23",
+      "tier": "T1",
+      "persona": "信创集成商",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q24",
+      "tier": "T1",
+      "persona": "投资人",
+      "intent": "definition",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 1,
+        "first_rank": 1.0,
+        "share_of_voice": 0.5,
+        "citation": 1,
+        "accuracy": 0.8,
+        "needs_review": true
+      },
+      "gvi": 88.0
+    },
+    {
+      "query_id": "T1-Q25",
+      "tier": "T1",
+      "persona": "智算中心架构师",
+      "intent": "problem_solution",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q26",
+      "tier": "T1",
+      "persona": "算力中心采购",
+      "intent": "ranking",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q27",
+      "tier": "T1",
+      "persona": "大模型推理工程师",
+      "intent": "definition",
+      "lang": "en",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q28",
+      "tier": "T1",
+      "persona": "智算中心架构师",
+      "intent": "recommendation",
+      "lang": "en",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q29",
+      "tier": "T1",
+      "persona": "投资人",
+      "intent": "ranking",
+      "lang": "en",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q30",
+      "tier": "T1",
+      "persona": "信创集成商",
+      "intent": "comparison",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q01",
+      "tier": "T2",
+      "persona": "算力中心采购",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q02",
+      "tier": "T2",
+      "persona": "智算中心架构师",
+      "intent": "problem_solution",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q03",
+      "tier": "T2",
+      "persona": "信创集成商",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q04",
+      "tier": "T2",
+      "persona": "投资人",
+      "intent": "ranking",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q05",
+      "tier": "T2",
+      "persona": "算力中心采购",
+      "intent": "comparison",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 1,
+        "first_rank": 0.25,
+        "share_of_voice": 0.09523809523809523,
+        "citation": 0,
+        "accuracy": 0.8,
+        "needs_review": true
+      },
+      "gvi": 46.15
+    },
+    {
+      "query_id": "T2-Q06",
+      "tier": "T2",
+      "persona": "智算中心架构师",
+      "intent": "definition",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q07",
+      "tier": "T2",
+      "persona": "信创集成商",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q08",
+      "tier": "T2",
+      "persona": "算力中心采购",
+      "intent": "problem_solution",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q09",
+      "tier": "T2",
+      "persona": "投资人",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q10",
+      "tier": "T2",
+      "persona": "智算中心架构师",
+      "intent": "comparison",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q11",
+      "tier": "T2",
+      "persona": "算力中心采购",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q12",
+      "tier": "T2",
+      "persona": "信创集成商",
+      "intent": "ranking",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q13",
+      "tier": "T2",
+      "persona": "大模型推理工程师",
+      "intent": "problem_solution",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q14",
+      "tier": "T2",
+      "persona": "投资人",
+      "intent": "definition",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q15",
+      "tier": "T2",
+      "persona": "算力中心采购",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q16",
+      "tier": "T2",
+      "persona": "智算中心架构师",
+      "intent": "comparison",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q17",
+      "tier": "T2",
+      "persona": "信创集成商",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q18",
+      "tier": "T2",
+      "persona": "投资人",
+      "intent": "ranking",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q19",
+      "tier": "T2",
+      "persona": "算力中心采购",
+      "intent": "problem_solution",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q20",
+      "tier": "T2",
+      "persona": "智算中心架构师",
+      "intent": "recommendation",
+      "lang": "en",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q21",
+      "tier": "T2",
+      "persona": "投资人",
+      "intent": "ranking",
+      "lang": "en",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q22",
+      "tier": "T2",
+      "persona": "信创集成商",
+      "intent": "comparison",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 1,
+        "first_rank": 1.0,
+        "share_of_voice": 0.16666666666666666,
+        "citation": 0,
+        "accuracy": 0.8,
+        "needs_review": true
+      },
+      "gvi": 66.33
+    },
+    {
+      "query_id": "T2-Q23",
+      "tier": "T2",
+      "persona": "大模型推理工程师",
+      "intent": "problem_solution",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q24",
+      "tier": "T2",
+      "persona": "算力中心采购",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q25",
+      "tier": "T2",
+      "persona": "智算中心架构师",
+      "intent": "definition",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q01",
+      "tier": "T3",
+      "persona": "算力中心采购",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q02",
+      "tier": "T3",
+      "persona": "智算中心架构师",
+      "intent": "definition",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q03",
+      "tier": "T3",
+      "persona": "投资人",
+      "intent": "ranking",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q04",
+      "tier": "T3",
+      "persona": "信创集成商",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q05",
+      "tier": "T3",
+      "persona": "算力中心采购",
+      "intent": "comparison",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q06",
+      "tier": "T3",
+      "persona": "智算中心架构师",
+      "intent": "problem_solution",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q07",
+      "tier": "T3",
+      "persona": "投资人",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q08",
+      "tier": "T3",
+      "persona": "大模型推理工程师",
+      "intent": "definition",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q09",
+      "tier": "T3",
+      "persona": "算力中心采购",
+      "intent": "ranking",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q10",
+      "tier": "T3",
+      "persona": "信创集成商",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q11",
+      "tier": "T3",
+      "persona": "投资人",
+      "intent": "ranking",
+      "lang": "en",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q12",
+      "tier": "T3",
+      "persona": "智算中心架构师",
+      "intent": "recommendation",
+      "lang": "en",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q13",
+      "tier": "T3",
+      "persona": "算力中心采购",
+      "intent": "comparison",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 1,
+        "first_rank": 0.16666666666666666,
+        "share_of_voice": 0.058823529411764705,
+        "citation": 0,
+        "accuracy": 0.6000000000000001,
+        "needs_review": true
+      },
+      "gvi": 41.34
+    },
+    {
+      "query_id": "T3-Q14",
+      "tier": "T3",
+      "persona": "大模型推理工程师",
+      "intent": "problem_solution",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q15",
+      "tier": "T3",
+      "persona": "投资人",
+      "intent": "definition",
+      "lang": "zh",
+      "model_key": "deepseek-r1",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q01",
+      "tier": "T1",
+      "persona": "大模型推理工程师",
+      "intent": "definition",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q02",
+      "tier": "T1",
+      "persona": "智算中心架构师",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q03",
+      "tier": "T1",
+      "persona": "算力中心采购",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q04",
+      "tier": "T1",
+      "persona": "智算中心架构师",
+      "intent": "definition",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q05",
+      "tier": "T1",
+      "persona": "大模型推理工程师",
+      "intent": "problem_solution",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q06",
+      "tier": "T1",
+      "persona": "信创集成商",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q07",
+      "tier": "T1",
+      "persona": "投资人",
+      "intent": "ranking",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q08",
+      "tier": "T1",
+      "persona": "智算中心架构师",
+      "intent": "comparison",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q09",
+      "tier": "T1",
+      "persona": "算力中心采购",
+      "intent": "problem_solution",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q10",
+      "tier": "T1",
+      "persona": "大模型推理工程师",
+      "intent": "definition",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 1,
+        "first_rank": 1.0,
+        "share_of_voice": 0.6666666666666666,
+        "citation": 0,
+        "accuracy": 0.3,
+        "needs_review": true
+      },
+      "gvi": 71.33
+    },
+    {
+      "query_id": "T1-Q11",
+      "tier": "T1",
+      "persona": "智算中心架构师",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q12",
+      "tier": "T1",
+      "persona": "信创集成商",
+      "intent": "comparison",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 1,
+        "first_rank": 1.0,
+        "share_of_voice": 0.29411764705882354,
+        "citation": 0,
+        "accuracy": 0.8,
+        "needs_review": true
+      },
+      "gvi": 68.88
+    },
+    {
+      "query_id": "T1-Q13",
+      "tier": "T1",
+      "persona": "投资人",
+      "intent": "ranking",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q14",
+      "tier": "T1",
+      "persona": "大模型推理工程师",
+      "intent": "problem_solution",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q15",
+      "tier": "T1",
+      "persona": "算力中心采购",
+      "intent": "definition",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q16",
+      "tier": "T1",
+      "persona": "智算中心架构师",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q17",
+      "tier": "T1",
+      "persona": "信创集成商",
+      "intent": "comparison",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q18",
+      "tier": "T1",
+      "persona": "大模型推理工程师",
+      "intent": "problem_solution",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q19",
+      "tier": "T1",
+      "persona": "投资人",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q20",
+      "tier": "T1",
+      "persona": "智算中心架构师",
+      "intent": "ranking",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q21",
+      "tier": "T1",
+      "persona": "算力中心采购",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q22",
+      "tier": "T1",
+      "persona": "大模型推理工程师",
+      "intent": "comparison",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q23",
+      "tier": "T1",
+      "persona": "信创集成商",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q24",
+      "tier": "T1",
+      "persona": "投资人",
+      "intent": "definition",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 1,
+        "first_rank": 1.0,
+        "share_of_voice": 0.42857142857142855,
+        "citation": 1,
+        "accuracy": 0.8,
+        "needs_review": true
+      },
+      "gvi": 86.57
+    },
+    {
+      "query_id": "T1-Q25",
+      "tier": "T1",
+      "persona": "智算中心架构师",
+      "intent": "problem_solution",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q26",
+      "tier": "T1",
+      "persona": "算力中心采购",
+      "intent": "ranking",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q27",
+      "tier": "T1",
+      "persona": "大模型推理工程师",
+      "intent": "definition",
+      "lang": "en",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q28",
+      "tier": "T1",
+      "persona": "智算中心架构师",
+      "intent": "recommendation",
+      "lang": "en",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q29",
+      "tier": "T1",
+      "persona": "投资人",
+      "intent": "ranking",
+      "lang": "en",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q30",
+      "tier": "T1",
+      "persona": "信创集成商",
+      "intent": "comparison",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q01",
+      "tier": "T2",
+      "persona": "算力中心采购",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q02",
+      "tier": "T2",
+      "persona": "智算中心架构师",
+      "intent": "problem_solution",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q03",
+      "tier": "T2",
+      "persona": "信创集成商",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q04",
+      "tier": "T2",
+      "persona": "投资人",
+      "intent": "ranking",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q05",
+      "tier": "T2",
+      "persona": "算力中心采购",
+      "intent": "comparison",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 1,
+        "first_rank": 0.25,
+        "share_of_voice": 0.10526315789473684,
+        "citation": 0,
+        "accuracy": 0.6000000000000001,
+        "needs_review": true
+      },
+      "gvi": 44.36
+    },
+    {
+      "query_id": "T2-Q06",
+      "tier": "T2",
+      "persona": "智算中心架构师",
+      "intent": "definition",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q07",
+      "tier": "T2",
+      "persona": "信创集成商",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q08",
+      "tier": "T2",
+      "persona": "算力中心采购",
+      "intent": "problem_solution",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q09",
+      "tier": "T2",
+      "persona": "投资人",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q10",
+      "tier": "T2",
+      "persona": "智算中心架构师",
+      "intent": "comparison",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q11",
+      "tier": "T2",
+      "persona": "算力中心采购",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q12",
+      "tier": "T2",
+      "persona": "信创集成商",
+      "intent": "ranking",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q13",
+      "tier": "T2",
+      "persona": "大模型推理工程师",
+      "intent": "problem_solution",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q14",
+      "tier": "T2",
+      "persona": "投资人",
+      "intent": "definition",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q15",
+      "tier": "T2",
+      "persona": "算力中心采购",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q16",
+      "tier": "T2",
+      "persona": "智算中心架构师",
+      "intent": "comparison",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q17",
+      "tier": "T2",
+      "persona": "信创集成商",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q18",
+      "tier": "T2",
+      "persona": "投资人",
+      "intent": "ranking",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q19",
+      "tier": "T2",
+      "persona": "算力中心采购",
+      "intent": "problem_solution",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q20",
+      "tier": "T2",
+      "persona": "智算中心架构师",
+      "intent": "recommendation",
+      "lang": "en",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q21",
+      "tier": "T2",
+      "persona": "投资人",
+      "intent": "ranking",
+      "lang": "en",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q22",
+      "tier": "T2",
+      "persona": "信创集成商",
+      "intent": "comparison",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 1,
+        "first_rank": 1.0,
+        "share_of_voice": 0.11764705882352941,
+        "citation": 0,
+        "accuracy": 0.8,
+        "needs_review": true
+      },
+      "gvi": 65.35
+    },
+    {
+      "query_id": "T2-Q23",
+      "tier": "T2",
+      "persona": "大模型推理工程师",
+      "intent": "problem_solution",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q24",
+      "tier": "T2",
+      "persona": "算力中心采购",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q25",
+      "tier": "T2",
+      "persona": "智算中心架构师",
+      "intent": "definition",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q01",
+      "tier": "T3",
+      "persona": "算力中心采购",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q02",
+      "tier": "T3",
+      "persona": "智算中心架构师",
+      "intent": "definition",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q03",
+      "tier": "T3",
+      "persona": "投资人",
+      "intent": "ranking",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q04",
+      "tier": "T3",
+      "persona": "信创集成商",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q05",
+      "tier": "T3",
+      "persona": "算力中心采购",
+      "intent": "comparison",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q06",
+      "tier": "T3",
+      "persona": "智算中心架构师",
+      "intent": "problem_solution",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q07",
+      "tier": "T3",
+      "persona": "投资人",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q08",
+      "tier": "T3",
+      "persona": "大模型推理工程师",
+      "intent": "definition",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q09",
+      "tier": "T3",
+      "persona": "算力中心采购",
+      "intent": "ranking",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q10",
+      "tier": "T3",
+      "persona": "信创集成商",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q11",
+      "tier": "T3",
+      "persona": "投资人",
+      "intent": "ranking",
+      "lang": "en",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q12",
+      "tier": "T3",
+      "persona": "智算中心架构师",
+      "intent": "recommendation",
+      "lang": "en",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q13",
+      "tier": "T3",
+      "persona": "算力中心采购",
+      "intent": "comparison",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q14",
+      "tier": "T3",
+      "persona": "大模型推理工程师",
+      "intent": "problem_solution",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q15",
+      "tier": "T3",
+      "persona": "投资人",
+      "intent": "definition",
+      "lang": "zh",
+      "model_key": "deepseek-v3",
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q01",
+      "tier": "T1",
+      "persona": "大模型推理工程师",
+      "intent": "definition",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q02",
+      "tier": "T1",
+      "persona": "智算中心架构师",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q03",
+      "tier": "T1",
+      "persona": "算力中心采购",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q04",
+      "tier": "T1",
+      "persona": "智算中心架构师",
+      "intent": "definition",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q05",
+      "tier": "T1",
+      "persona": "大模型推理工程师",
+      "intent": "problem_solution",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q06",
+      "tier": "T1",
+      "persona": "信创集成商",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q07",
+      "tier": "T1",
+      "persona": "投资人",
+      "intent": "ranking",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q08",
+      "tier": "T1",
+      "persona": "智算中心架构师",
+      "intent": "comparison",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q09",
+      "tier": "T1",
+      "persona": "算力中心采购",
+      "intent": "problem_solution",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q10",
+      "tier": "T1",
+      "persona": "大模型推理工程师",
+      "intent": "definition",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 1,
+        "first_rank": 1.0,
+        "share_of_voice": 1.0,
+        "citation": 0,
+        "accuracy": 0.3,
+        "needs_review": true
+      },
+      "gvi": 78.0
+    },
+    {
+      "query_id": "T1-Q11",
+      "tier": "T1",
+      "persona": "智算中心架构师",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q12",
+      "tier": "T1",
+      "persona": "信创集成商",
+      "intent": "comparison",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 1,
+        "first_rank": 1.0,
+        "share_of_voice": 0.4444444444444444,
+        "citation": 0,
+        "accuracy": 0.8,
+        "needs_review": true
+      },
+      "gvi": 71.89
+    },
+    {
+      "query_id": "T1-Q13",
+      "tier": "T1",
+      "persona": "投资人",
+      "intent": "ranking",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q14",
+      "tier": "T1",
+      "persona": "大模型推理工程师",
+      "intent": "problem_solution",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q15",
+      "tier": "T1",
+      "persona": "算力中心采购",
+      "intent": "definition",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q16",
+      "tier": "T1",
+      "persona": "智算中心架构师",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q17",
+      "tier": "T1",
+      "persona": "信创集成商",
+      "intent": "comparison",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q18",
+      "tier": "T1",
+      "persona": "大模型推理工程师",
+      "intent": "problem_solution",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q19",
+      "tier": "T1",
+      "persona": "投资人",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q20",
+      "tier": "T1",
+      "persona": "智算中心架构师",
+      "intent": "ranking",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q21",
+      "tier": "T1",
+      "persona": "算力中心采购",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q22",
+      "tier": "T1",
+      "persona": "大模型推理工程师",
+      "intent": "comparison",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q23",
+      "tier": "T1",
+      "persona": "信创集成商",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q24",
+      "tier": "T1",
+      "persona": "投资人",
+      "intent": "definition",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 1,
+        "first_rank": 1.0,
+        "share_of_voice": 1.0,
+        "citation": 1,
+        "accuracy": 0.8,
+        "needs_review": true
+      },
+      "gvi": 98.0
+    },
+    {
+      "query_id": "T1-Q25",
+      "tier": "T1",
+      "persona": "智算中心架构师",
+      "intent": "problem_solution",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q26",
+      "tier": "T1",
+      "persona": "算力中心采购",
+      "intent": "ranking",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q27",
+      "tier": "T1",
+      "persona": "大模型推理工程师",
+      "intent": "definition",
+      "lang": "en",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q28",
+      "tier": "T1",
+      "persona": "智算中心架构师",
+      "intent": "recommendation",
+      "lang": "en",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q29",
+      "tier": "T1",
+      "persona": "投资人",
+      "intent": "ranking",
+      "lang": "en",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q30",
+      "tier": "T1",
+      "persona": "信创集成商",
+      "intent": "comparison",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q01",
+      "tier": "T2",
+      "persona": "算力中心采购",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q02",
+      "tier": "T2",
+      "persona": "智算中心架构师",
+      "intent": "problem_solution",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q03",
+      "tier": "T2",
+      "persona": "信创集成商",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q04",
+      "tier": "T2",
+      "persona": "投资人",
+      "intent": "ranking",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q05",
+      "tier": "T2",
+      "persona": "算力中心采购",
+      "intent": "comparison",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 1,
+        "first_rank": 0.25,
+        "share_of_voice": 0.16666666666666666,
+        "citation": 0,
+        "accuracy": 0.3,
+        "needs_review": true
+      },
+      "gvi": 42.58
+    },
+    {
+      "query_id": "T2-Q06",
+      "tier": "T2",
+      "persona": "智算中心架构师",
+      "intent": "definition",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q07",
+      "tier": "T2",
+      "persona": "信创集成商",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q08",
+      "tier": "T2",
+      "persona": "算力中心采购",
+      "intent": "problem_solution",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q09",
+      "tier": "T2",
+      "persona": "投资人",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q10",
+      "tier": "T2",
+      "persona": "智算中心架构师",
+      "intent": "comparison",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q11",
+      "tier": "T2",
+      "persona": "算力中心采购",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q12",
+      "tier": "T2",
+      "persona": "信创集成商",
+      "intent": "ranking",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q13",
+      "tier": "T2",
+      "persona": "大模型推理工程师",
+      "intent": "problem_solution",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q14",
+      "tier": "T2",
+      "persona": "投资人",
+      "intent": "definition",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q15",
+      "tier": "T2",
+      "persona": "算力中心采购",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q16",
+      "tier": "T2",
+      "persona": "智算中心架构师",
+      "intent": "comparison",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q17",
+      "tier": "T2",
+      "persona": "信创集成商",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q18",
+      "tier": "T2",
+      "persona": "投资人",
+      "intent": "ranking",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q19",
+      "tier": "T2",
+      "persona": "算力中心采购",
+      "intent": "problem_solution",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q20",
+      "tier": "T2",
+      "persona": "智算中心架构师",
+      "intent": "recommendation",
+      "lang": "en",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q21",
+      "tier": "T2",
+      "persona": "投资人",
+      "intent": "ranking",
+      "lang": "en",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q22",
+      "tier": "T2",
+      "persona": "信创集成商",
+      "intent": "comparison",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 1,
+        "first_rank": 1.0,
+        "share_of_voice": 0.21428571428571427,
+        "citation": 0,
+        "accuracy": 0.6000000000000001,
+        "needs_review": true
+      },
+      "gvi": 65.29
+    },
+    {
+      "query_id": "T2-Q23",
+      "tier": "T2",
+      "persona": "大模型推理工程师",
+      "intent": "problem_solution",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q24",
+      "tier": "T2",
+      "persona": "算力中心采购",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q25",
+      "tier": "T2",
+      "persona": "智算中心架构师",
+      "intent": "definition",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q01",
+      "tier": "T3",
+      "persona": "算力中心采购",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q02",
+      "tier": "T3",
+      "persona": "智算中心架构师",
+      "intent": "definition",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q03",
+      "tier": "T3",
+      "persona": "投资人",
+      "intent": "ranking",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q04",
+      "tier": "T3",
+      "persona": "信创集成商",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q05",
+      "tier": "T3",
+      "persona": "算力中心采购",
+      "intent": "comparison",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q06",
+      "tier": "T3",
+      "persona": "智算中心架构师",
+      "intent": "problem_solution",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q07",
+      "tier": "T3",
+      "persona": "投资人",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q08",
+      "tier": "T3",
+      "persona": "大模型推理工程师",
+      "intent": "definition",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q09",
+      "tier": "T3",
+      "persona": "算力中心采购",
+      "intent": "ranking",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q10",
+      "tier": "T3",
+      "persona": "信创集成商",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q11",
+      "tier": "T3",
+      "persona": "投资人",
+      "intent": "ranking",
+      "lang": "en",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q12",
+      "tier": "T3",
+      "persona": "智算中心架构师",
+      "intent": "recommendation",
+      "lang": "en",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q13",
+      "tier": "T3",
+      "persona": "算力中心采购",
+      "intent": "comparison",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 1,
+        "first_rank": 0.16666666666666666,
+        "share_of_voice": 0.1,
+        "citation": 0,
+        "accuracy": 0.6000000000000001,
+        "needs_review": true
+      },
+      "gvi": 42.17
+    },
+    {
+      "query_id": "T3-Q14",
+      "tier": "T3",
+      "persona": "大模型推理工程师",
+      "intent": "problem_solution",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q15",
+      "tier": "T3",
+      "persona": "投资人",
+      "intent": "definition",
+      "lang": "zh",
+      "model_key": "qwen-max",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q01",
+      "tier": "T1",
+      "persona": "大模型推理工程师",
+      "intent": "definition",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q02",
+      "tier": "T1",
+      "persona": "智算中心架构师",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q03",
+      "tier": "T1",
+      "persona": "算力中心采购",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q04",
+      "tier": "T1",
+      "persona": "智算中心架构师",
+      "intent": "definition",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q05",
+      "tier": "T1",
+      "persona": "大模型推理工程师",
+      "intent": "problem_solution",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q06",
+      "tier": "T1",
+      "persona": "信创集成商",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q07",
+      "tier": "T1",
+      "persona": "投资人",
+      "intent": "ranking",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q08",
+      "tier": "T1",
+      "persona": "智算中心架构师",
+      "intent": "comparison",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q09",
+      "tier": "T1",
+      "persona": "算力中心采购",
+      "intent": "problem_solution",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q10",
+      "tier": "T1",
+      "persona": "大模型推理工程师",
+      "intent": "definition",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 1,
+        "first_rank": 1.0,
+        "share_of_voice": 0.6666666666666666,
+        "citation": 0,
+        "accuracy": 0.3,
+        "needs_review": true
+      },
+      "gvi": 71.33
+    },
+    {
+      "query_id": "T1-Q11",
+      "tier": "T1",
+      "persona": "智算中心架构师",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q12",
+      "tier": "T1",
+      "persona": "信创集成商",
+      "intent": "comparison",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 1,
+        "first_rank": 1.0,
+        "share_of_voice": 0.42857142857142855,
+        "citation": 1,
+        "accuracy": 0.3,
+        "needs_review": true
+      },
+      "gvi": 81.57
+    },
+    {
+      "query_id": "T1-Q13",
+      "tier": "T1",
+      "persona": "投资人",
+      "intent": "ranking",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q14",
+      "tier": "T1",
+      "persona": "大模型推理工程师",
+      "intent": "problem_solution",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q15",
+      "tier": "T1",
+      "persona": "算力中心采购",
+      "intent": "definition",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q16",
+      "tier": "T1",
+      "persona": "智算中心架构师",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q17",
+      "tier": "T1",
+      "persona": "信创集成商",
+      "intent": "comparison",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q18",
+      "tier": "T1",
+      "persona": "大模型推理工程师",
+      "intent": "problem_solution",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q19",
+      "tier": "T1",
+      "persona": "投资人",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q20",
+      "tier": "T1",
+      "persona": "智算中心架构师",
+      "intent": "ranking",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q21",
+      "tier": "T1",
+      "persona": "算力中心采购",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q22",
+      "tier": "T1",
+      "persona": "大模型推理工程师",
+      "intent": "comparison",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q23",
+      "tier": "T1",
+      "persona": "信创集成商",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q24",
+      "tier": "T1",
+      "persona": "投资人",
+      "intent": "definition",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 1,
+        "first_rank": 1.0,
+        "share_of_voice": 1.0,
+        "citation": 1,
+        "accuracy": 0.8,
+        "needs_review": true
+      },
+      "gvi": 98.0
+    },
+    {
+      "query_id": "T1-Q25",
+      "tier": "T1",
+      "persona": "智算中心架构师",
+      "intent": "problem_solution",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q26",
+      "tier": "T1",
+      "persona": "算力中心采购",
+      "intent": "ranking",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q27",
+      "tier": "T1",
+      "persona": "大模型推理工程师",
+      "intent": "definition",
+      "lang": "en",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q28",
+      "tier": "T1",
+      "persona": "智算中心架构师",
+      "intent": "recommendation",
+      "lang": "en",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q29",
+      "tier": "T1",
+      "persona": "投资人",
+      "intent": "ranking",
+      "lang": "en",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T1-Q30",
+      "tier": "T1",
+      "persona": "信创集成商",
+      "intent": "comparison",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q01",
+      "tier": "T2",
+      "persona": "算力中心采购",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q02",
+      "tier": "T2",
+      "persona": "智算中心架构师",
+      "intent": "problem_solution",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q03",
+      "tier": "T2",
+      "persona": "信创集成商",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q04",
+      "tier": "T2",
+      "persona": "投资人",
+      "intent": "ranking",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q05",
+      "tier": "T2",
+      "persona": "算力中心采购",
+      "intent": "comparison",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 1,
+        "first_rank": 0.25,
+        "share_of_voice": 0.09090909090909091,
+        "citation": 0,
+        "accuracy": 0.6000000000000001,
+        "needs_review": true
+      },
+      "gvi": 44.07
+    },
+    {
+      "query_id": "T2-Q06",
+      "tier": "T2",
+      "persona": "智算中心架构师",
+      "intent": "definition",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q07",
+      "tier": "T2",
+      "persona": "信创集成商",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q08",
+      "tier": "T2",
+      "persona": "算力中心采购",
+      "intent": "problem_solution",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q09",
+      "tier": "T2",
+      "persona": "投资人",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q10",
+      "tier": "T2",
+      "persona": "智算中心架构师",
+      "intent": "comparison",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q11",
+      "tier": "T2",
+      "persona": "算力中心采购",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q12",
+      "tier": "T2",
+      "persona": "信创集成商",
+      "intent": "ranking",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q13",
+      "tier": "T2",
+      "persona": "大模型推理工程师",
+      "intent": "problem_solution",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q14",
+      "tier": "T2",
+      "persona": "投资人",
+      "intent": "definition",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q15",
+      "tier": "T2",
+      "persona": "算力中心采购",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q16",
+      "tier": "T2",
+      "persona": "智算中心架构师",
+      "intent": "comparison",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q17",
+      "tier": "T2",
+      "persona": "信创集成商",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q18",
+      "tier": "T2",
+      "persona": "投资人",
+      "intent": "ranking",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q19",
+      "tier": "T2",
+      "persona": "算力中心采购",
+      "intent": "problem_solution",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q20",
+      "tier": "T2",
+      "persona": "智算中心架构师",
+      "intent": "recommendation",
+      "lang": "en",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q21",
+      "tier": "T2",
+      "persona": "投资人",
+      "intent": "ranking",
+      "lang": "en",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q22",
+      "tier": "T2",
+      "persona": "信创集成商",
+      "intent": "comparison",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 1,
+        "first_rank": 1.0,
+        "share_of_voice": 0.13333333333333333,
+        "citation": 0,
+        "accuracy": 0.8,
+        "needs_review": true
+      },
+      "gvi": 65.67
+    },
+    {
+      "query_id": "T2-Q23",
+      "tier": "T2",
+      "persona": "大模型推理工程师",
+      "intent": "problem_solution",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q24",
+      "tier": "T2",
+      "persona": "算力中心采购",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T2-Q25",
+      "tier": "T2",
+      "persona": "智算中心架构师",
+      "intent": "definition",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q01",
+      "tier": "T3",
+      "persona": "算力中心采购",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q02",
+      "tier": "T3",
+      "persona": "智算中心架构师",
+      "intent": "definition",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q03",
+      "tier": "T3",
+      "persona": "投资人",
+      "intent": "ranking",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q04",
+      "tier": "T3",
+      "persona": "信创集成商",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q05",
+      "tier": "T3",
+      "persona": "算力中心采购",
+      "intent": "comparison",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q06",
+      "tier": "T3",
+      "persona": "智算中心架构师",
+      "intent": "problem_solution",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q07",
+      "tier": "T3",
+      "persona": "投资人",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q08",
+      "tier": "T3",
+      "persona": "大模型推理工程师",
+      "intent": "definition",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q09",
+      "tier": "T3",
+      "persona": "算力中心采购",
+      "intent": "ranking",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q10",
+      "tier": "T3",
+      "persona": "信创集成商",
+      "intent": "recommendation",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q11",
+      "tier": "T3",
+      "persona": "投资人",
+      "intent": "ranking",
+      "lang": "en",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q12",
+      "tier": "T3",
+      "persona": "智算中心架构师",
+      "intent": "recommendation",
+      "lang": "en",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q13",
+      "tier": "T3",
+      "persona": "算力中心采购",
+      "intent": "comparison",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q14",
+      "tier": "T3",
+      "persona": "大模型推理工程师",
+      "intent": "problem_solution",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    },
+    {
+      "query_id": "T3-Q15",
+      "tier": "T3",
+      "persona": "投资人",
+      "intent": "definition",
+      "lang": "zh",
+      "model_key": "qwen-plus",
+      "vendor": "通义千问",
+      "grade": "A",
+      "ok": true,
+      "parts": {
+        "mention": 0,
+        "first_rank": 0.0,
+        "share_of_voice": 0.0,
+        "citation": 0,
+        "accuracy": 0.0,
+        "needs_review": false
+      },
+      "gvi": 0.0
+    }
+  ]
+}

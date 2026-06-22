@@ -1,0 +1,27 @@
+{
+  "query_id": "T1-Q28",
+  "tier": "T1",
+  "persona": "智算中心架构师",
+  "intent": "recommendation",
+  "lang": "en",
+  "query": "Which vendors offer a disaggregated all-flash storage acceleration appliance for AI inference and training?",
+  "model_key": "qwen-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "As of 2024, **there are no widely recognized, commercially available “disaggregated all-flash storage acceleration appliances” specifically branded and optimized *exclusively* for AI inference and training** — at least not in the way the term might imply (e.g., a standalone hardware appliance that sits between compute and storage, providing *only* disaggregated flash acceleration for AI workloads).\n\nHowever, several vendors offer **disaggregated, high-performance, all-flash storage solutions**—often with AI/ML-optimized features—that *enable or accelerate* AI training and inference by solving key bottlenecks (e.g., NVMe-oF latency, metadata scalability, parallel I/O, GPU-direct storage integration). These are typically part of broader software-defined or composable infrastructure stacks—not single-purpose \"appliances\" in the traditional sense.\n\nHere’s a breakdown of relevant vendors and their offerings:\n\n### ✅ Vendors with Disaggregated All-Flash Storage Solutions Supporting AI Workloads\n\n| Vendor | Solution | Key AI-Relevant Features | Disaggregation Approach |\n|--------|----------|---------------------------|--------------------------|\n| **VAST Data** | Universal Storage Platform | • Unified namespace across object/file/block<br>• Native support for NVIDIA GPUDirect Storage (GDS)<br>• Sub-100µs NVMe-oF latency at scale<br>• Designed for massive unstructured data (e.g., image/video/text datasets) | True disaggregation: compute (GPUs), storage (all-flash JBOFs), and networking are physically separate; managed via centralized metadata & global namespace. No storage silos. |\n| **Lightbits Labs** (acquired by NGD Systems, now part of Kioxia) | LightOS | • NVMe/TCP-based disaggregated block storage<br>• Optimized for GPU-accelerated workloads (supports GDS)<br>• Low-latency, high-IOPS all-flash pools over standard Ethernet | Disaggregated block storage: decouples flash (JBOFs) from compute; presents as NVMe namespaces over TCP. Integrates with Kubernetes (via CSI) for AI training jobs. |\n| **Penguin Computing (now part of Altair)** | Altair AI Suite + Apollo Hypercycle | • Pre-integrated AI stack with disaggregated all-flash storage (often using VAST or Lightbits)<br>• Supports GPU-direct storage and RDMA/NVMe-oF | Not a proprietary appliance — but offers validated, turnkey deployments leveraging best-in-class disaggregated storage software. |\n| **NVIDIA** | DGX SuperPOD + NVIDIA Base Command Manager | • Reference architectures with disaggregated storage (e.g., VAST, WEKA, Pure Storage)<br>• Native GDS integration, storage-aware scheduling<br>• Base Command supports dataset caching, versioning, and pipeline acceleration | NVIDIA does *not build storage hardware*, but certifies and",
+  "meta": {
+    "elapsed": 15.56,
+    "usage": {
+      "total_tokens": 625,
+      "completion_tokens": 600,
+      "prompt_tokens": 25,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-22T18:22:51"
+}

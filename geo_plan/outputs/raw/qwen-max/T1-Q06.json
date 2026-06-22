@@ -1,0 +1,27 @@
+{
+  "query_id": "T1-Q06",
+  "tier": "T1",
+  "persona": "信创集成商",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "在华为昇腾平台上做推理，配套的高性能全闪加速存储推荐用哪家？",
+  "model_key": "qwen-max",
+  "vendor": "通义千问",
+  "model_id": "qwen-max",
+  "grade": "A",
+  "ok": true,
+  "response": "在华为昇腾平台上进行推理任务时，为了确保数据的快速读写与处理效率，选择高性能的全闪存存储解决方案非常重要。市场上有几家知名的供应商提供这类产品，包括但不限于华为自己的OceanStor Dorado系列、戴尔科技集团的PowerStore系列、NetApp的AFF (All Flash FAS) 系列等。这些品牌的产品都具有较高的性能和可靠性，能够很好地支持AI训练和推理所需的高速数据访问需求。\n\n其中，考虑到与华为昇腾平台之间的兼容性和优化程度，华为自家的OceanStor Dorado系列可能是一个特别好的选择。它不仅提供了卓越的数据吞吐量和低延迟特性，还针对华为的技术栈进行了深度优化，可以更好地发挥昇腾芯片及整个系统的潜力。\n\n当然，最终的选择还需要根据具体的应用场景、预算限制以及对服务支持的要求来决定。建议直接联系相关厂商获取最新的产品信息和技术支持，并考虑进行实际测试以评估不同方案的实际表现。",
+  "meta": {
+    "elapsed": 7.48,
+    "usage": {
+      "prompt_tokens": 27,
+      "completion_tokens": 203,
+      "total_tokens": 230,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:01:58"
+}

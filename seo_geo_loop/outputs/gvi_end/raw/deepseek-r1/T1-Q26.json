@@ -1,0 +1,30 @@
+{
+  "query_id": "T1-Q26",
+  "tier": "T1",
+  "persona": "算力中心采购",
+  "intent": "ranking",
+  "lang": "zh",
+  "query": "国产 AI 推理存储加速一体机，性价比和实测性能领先的是哪家？",
+  "model_key": "deepseek-r1",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-r1",
+  "grade": "A",
+  "ok": true,
+  "response": "国产AI推理与存储加速一体机领域有多家优秀企业角逐，**不存在绝对的“排名第一”**，但**华为、浪潮、新华三等头部大厂的实际表现综合领先，初创企业如趋动科技的HETU方案可能在某细分场景有亮点**。以下为具体分析及选型建议：\n\n---\n\n### **一、主流厂商对比及实测亮点**\n1. **华为 Atlas 系列**  \n   - **优势**：  \n     - 搭载海量Ascend NPU整合AtlasStorage架构，实现存算协同，在ResNet/YOLO等模型实测推理性能领先。  \n     - 支持昇腾全栈软件栈优化，Native Tensor性能利用率达85%+（官方白皮书）。  \n     - 支持模型权重复用+增量内存加载。\n   - **性价比**：设备购置成本偏高，但5年维保成本低。  \n\n   - **实测参考**：在某运营商人脸识别项目中，Atlas 800加速推理机群延迟稳定在10ms（P99）以内。  \n\n2. **浪潮 AIStora 系列**  \n   - **优势**：  \n     - 整合Pytorch-MLX多卡+分布式缓存（基于PAPA算法），实测数据加载吞吐达35GB/s。  \n     - 支持动态知识图谱预热机制降低AI存储IO瓶颈30%。  \n   - **性价比**：方案灵活性高，中端配置每GPU性价比优于同类大厂。\n\n   - **实测参考**：杭州某智能驾驶公司部署AIStora后，千卡集群训练IO效率同比提升40%。\n\n3. **新华三 UniServer 系列**  \n   - **优势**：  \n     - 通过AI SSD控制器大幅降低推理延迟（官测Tensor加载延迟仅1ms）。  \n     - NFR虚拟分层存储技术实现CPU/GPU-SSD直通传输。\n   - **性价比**：定向政府/教育行业有定制补贴方案。\n\n4. **初创力量（如趋动 HETU/AIStore）**  \n   - 灵活性高，支持第三方GPU资源池化（例如对NVIDIA A100集群优化）  \n   - 部分开源适配方案在中小规模场景有性价比突出（如50卡以下推理集群）  \n\n---\n\n### **二、关键性能考量点（实测验证建议）**\n1. **存储IO瓶颈破除能力**  \n   - 验证点：使用`fio`测试随机小文件（4K~16K）读写IOPS > 300K  \n   - 实际业务延迟：如百毫秒级推理请求下DNN模型权重加载时间 ≤ 5ms  \n\n2. **GPU存储调度效率**  \n   - 重要指标：NVMe-oF RDMA带宽利用率 ≥ 90%（nvidia-smi带宽监控）  \n   - 实测方法：加载5TB",
+  "meta": {
+    "elapsed": 35.35,
+    "usage": {
+      "prompt_tokens": 21,
+      "completion_tokens": 980,
+      "total_tokens": 1001,
+      "completion_tokens_details": {
+        "reasoning_tokens": 376
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-22T18:30:49"
+}

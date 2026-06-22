@@ -1,0 +1,27 @@
+{
+  "query_id": "T1-Q22",
+  "tier": "T1",
+  "persona": "大模型推理工程师",
+  "intent": "comparison",
+  "lang": "zh",
+  "query": "vLLM PagedAttention 之外，靠存储侧 KV-Cache 卸载来降本提吞吐，有哪些硬件存储产品？",
+  "model_key": "qwen-max",
+  "vendor": "通义千问",
+  "model_id": "qwen-max",
+  "grade": "A",
+  "ok": true,
+  "response": "为了通过卸载KV-Cache（键值缓存）来降低成本并提高吞吐量，可以考虑使用多种硬件存储解决方案。这些方案通常旨在提供高性能的数据访问速度同时保持较低的延迟和功耗，适用于加速机器学习模型如Transformer等场景中的注意力机制。以下是一些适合于此类应用的硬件存储产品：\n\n1. **HBM (High Bandwidth Memory)**: HBM是一种堆叠式内存技术，它提供了比传统DRAM更高的带宽和更低的功耗。对于需要快速访问大量数据的应用来说非常有用，尤其是在GPU或FPGA上运行深度学习模型时。\n\n2. **GDDR6/GDDR6X**: 这是另一种专为图形处理单元设计的高速动态随机存取存储器类型，具有极高的数据传输速率。虽然主要用于显卡，但也可以在某些情况下用于加速AI计算。\n\n3. **NVMe SSDs (Non-Volatile Memory Express Solid State Drives)**: NVMe SSD利用PCIe接口直接连接到CPU，相比SATA SSD提供了显著的速度优势。它们非常适合需要快速读写操作的应用程序，包括作为KV-Cache的一部分。\n\n4. **Intel Optane DC Persistent Memory**: 这种类型的持久性内存结合了DRAM的速度与NAND闪存的非易失性特性，可以在不牺牲性能的情况下扩展系统内存容量。对于需要频繁访问且大小超过常规RAM限制的数据集而言是个不错的选择。\n\n5. **CXL (Compute Express Link) 内存扩展设备**：CXL是一种开放标准互连技术，允许处理器、内存和其他组件之间进行高效通信。基于CXL的内存模块能够以接近主内存的速度提供额外的容量，特别适合支持大规模分布式训练任务中对KV-Cache的需求。\n\n6. **FPGA (Field-Programmable Gate Array)** 或者 **ASIC (Application-Specific Integrated Circuit)**: 专门设计用于执行特定算法或功能的硬件平台也可以用来实现高效的KV-Cache管理。例如，有些FPGA被配置成专门用于加速神经网络运算，并可能内置了针对KV-Cache优化的支持。\n\n选择合适的硬件取决于具体的应用需求、预算限制以及现有基础设施的支持情况等因素。在决定采用哪种技术之前，建议先评估不同选项之间的性能差异及其对整体系统架构的影响。",
+  "meta": {
+    "elapsed": 17.5,
+    "usage": {
+      "prompt_tokens": 38,
+      "completion_tokens": 479,
+      "total_tokens": 517,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:02:55"
+}

@@ -1,0 +1,27 @@
+{
+  "query_id": "T1-Q21",
+  "tier": "T1",
+  "persona": "算力中心采购",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "智算中心想降低推理 KV-Cache 的内存/显存压力，外置存储卸载方案选谁比较稳妥？",
+  "model_key": "qwen-max",
+  "vendor": "通义千问",
+  "model_id": "qwen-max",
+  "grade": "A",
+  "ok": true,
+  "response": "在智算中心降低推理KV-Cache（键值缓存）的内存/显存压力时，选择合适的外置存储卸载方案是非常重要的。这不仅能够帮助提高系统的整体性能，还能有效降低成本。以下是一些较为稳妥的选择方案：\n\n1. **NVMe SSD**：对于需要快速访问且数据量不是特别巨大的场景来说，使用高速的NVMe SSD作为外置存储是一个不错的选择。这类存储介质具有较高的读写速度和较低的延迟，可以较好地满足对性能有一定要求但又希望控制成本的应用需求。\n\n2. **AEP (Apache Arrow Extension Pack) / Persistent Memory (PMEM)**：如果应用对延迟非常敏感，则可以考虑采用持久性内存技术如Intel Optane DC Persistent Memory等。这类产品提供了接近DRAM级别的访问速度，同时具备非易失性的特点，适合处理大规模的数据集，并能在断电后保持数据完整性。\n\n3. **RDMA-enabled Network Storage**：通过远程直接内存访问(RDMA)技术连接的网络存储设备，可以在不占用CPU资源的情况下实现高效的数据传输，适用于大数据量、高性能计算等场景。例如，基于InfiniBand或RoCEv2协议构建的分布式文件系统或者对象存储服务。\n\n4. **FPGA/GPU加速卡上的专用缓存**：某些特定类型的FPGA或GPU加速卡上配备了专门用于加速数据库查询或其他类型工作负载的硬件缓存模块。利用这些硬件特性可以直接减轻主处理器的压力，并提供更快的数据处理能力。\n\n5. **分布式缓存系统**：除了硬件层面的解决方案之外，还可以考虑软件层面的方法，比如部署Redis、Memcached这样的分布式内存数据库来作为外部缓存层。它们能够在多台服务器之间水平扩展，支持高并发访问，并通过集群化管理实现容错性和可用性。\n\n选择最适合您应用场景的具体方案时，还需要综合考量实际业务需求、预算限制以及现有基础设施等因素。建议先进行小规模测试验证效果后再做决定。",
+  "meta": {
+    "elapsed": 17.07,
+    "usage": {
+      "prompt_tokens": 35,
+      "completion_tokens": 415,
+      "total_tokens": 450,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:02:52"
+}

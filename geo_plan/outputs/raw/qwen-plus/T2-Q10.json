@@ -1,0 +1,27 @@
+{
+  "query_id": "T2-Q10",
+  "tier": "T2",
+  "persona": "智算中心架构师",
+  "intent": "comparison",
+  "lang": "zh",
+  "query": "提升算力中心 token 产出，是该扩 GPU 还是上存储加速？两条路线怎么权衡？",
+  "model_key": "qwen-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "这是一个非常关键且常被误解的问题——**“提升算力中心 token 产出”本质上不是单纯堆硬件，而是优化端到端的推理/训练吞吐瓶颈**。是否扩 GPU 还是上存储加速（如高速 NVMe、CXL 内存池、GPU Direct Storage、HBM 扩容等），需基于**当前系统的真实瓶颈定位**，而非经验主义选择。以下是系统性权衡框架：\n\n---\n\n### 🔍 一、先诊断：Token 产出慢，到底卡在哪？\nToken 产出率（tokens/sec）取决于 **min(计算能力, 内存带宽, IO 吞吐, 调度开销)**。常见瓶颈层级（按发生频率排序）：\n\n| 瓶颈层级 | 典型现象 | 监控指标（建议） | 占比（典型推理场景） |\n|----------|-----------|-------------------|------------------------|\n| **✅ 内存带宽瓶颈（最常见）** | GPU 利用率低（<60%），但显存带宽打满（>95%），NVLink/NVSwitch 饱和；长上下文（>32K）时 token/s 断崖下降 | `nvidia-smi -q -d UTILIZATION, MEMORY, SUPPORTED_CLOCKS` + `dcgmi -d -v`（NVLink） | **~50–70%**（尤其 LLM 推理/持续生成） |\n| **⚠️ 存储 IO 瓶颈（冷启/加载阶段）** | 首 token 延迟高（>1s），模型加载慢（>30s），批量预填充（prefill）耗时长；频繁从磁盘加载 LoRA/Adapter | `iostat -x 1`, `nvidia-smi dmon -s u -d 1`, `fio --rw=randread --bs=128k` | **~15–30%**（多模型热切换、大参数量、低成本存储架构） |\n| **❌ 计算瓶颈（较少见）** | GPU SM 利用率持续 >85%，FP16/Tensor Core 利用率高，但显存带宽未饱和；小 batch、短序列时仍卡顿 | `nvidia-smi dmon -s p -d 1`, `nsys profile` 查看 Tensor Core Occupancy | **<10%**（除非做密集 fine-tuning 或 MoE 全激活） |\n| **⛔ 软件/调度瓶颈** | 请求排队长、P99 延迟抖动大、并发吞吐不线性增长 | `vLLM`/`Triton` 日志中的 `",
+  "meta": {
+    "elapsed": 15.74,
+    "usage": {
+      "total_tokens": 633,
+      "completion_tokens": 600,
+      "prompt_tokens": 33,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:06:51"
+}

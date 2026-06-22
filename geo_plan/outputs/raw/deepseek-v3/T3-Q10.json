@@ -1,0 +1,27 @@
+{
+  "query_id": "T3-Q10",
+  "tier": "T3",
+  "persona": "信创集成商",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "做 AI 数据中心项目，存储这块有哪些自主可控的国产方案？",
+  "model_key": "deepseek-v3",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-v3",
+  "grade": "A",
+  "ok": true,
+  "response": "在AI数据中心项目中，存储系统的自主可控是保障数据安全和供应链稳定的关键。以下是国产自主可控的存储方案分类及推荐，涵盖硬件、软件及全栈解决方案：\n\n---\n\n### **一、全栈国产存储解决方案**\n1. **华为（Huawei）**\n   - **OceanStor Dorado**：全闪存存储，支持高性能AI训练场景，采用自研鲲鹏处理器和昇腾AI芯片，兼容国产操作系统（如麒麟、统信UOS）。\n   - **FusionStorage**：分布式存储软件，可部署在x86或国产硬件上，支持EB级扩展。\n\n2. **浪潮（Inspur）**\n   - **AS13000系列**：分布式存储系统，支持国产化硬件（如飞腾/海光CPU），提供对象、块、文件一体化存储。\n   - **NVMe全闪存存储**：针对低延迟AI负载优化。\n\n3. **中科曙光（Sugon）**\n   - **ParaStor**：并行分布式存储系统，适配国产处理器（如龙芯、飞腾），支持高性能计算（HPC）和AI场景。\n\n4. **宏杉科技（Macrosan）**\n   - **MS系列存储**：全自主研发的中高端存储设备，支持国产加密算法，通过信创认证。\n\n---\n\n### **二、国产分布式存储软件**\n1. **星辰天合（XSKY）**\n   - **XEDP**：软件定义存储（SDS），支持异构硬件（包括国产芯片），提供文件、对象、块存储统一平台。\n\n2. **大道云行（SSS）**\n   - **TaoCloud**：基于开源Ceph的国产化优化版本，适配鲲鹏、飞腾等平台。\n\n3. **鼎甲科技（DJ）**\n   - **DCStorage**：灾备与存储一体化方案，支持国产操作系统和数据库。\n\n---\n\n### **三、国产存储芯片与介质**\n1. **长江存储（YMTC）**\n   - **NAND闪存芯片**：自研Xtacking架构，用于SSD存储设备。\n   - 合作厂商：联芸科技（Maxio）主控芯片 + 长江存储NAND的国产SSD方案。\n\n2. **兆芯（Zhaoxin）**\n   - **SATA/NVMe控制器**：为国产存储硬件提供芯片支持。\n\n3. **国科微（Goke）**\n   - **存储主控芯片**：适用于企业级SSD。\n\n---\n\n### **四、信创生态兼容方案**\n- **硬件平台**：华为鲲鹏、飞腾（Phytium）、海光（Hygon）、龙芯（Loongson）服务器。\n- **操作系统**：麒麟软件（Kylin）、统信UOS（Deepin）。\n- **数据库**：达梦（DM）、人大",
+  "meta": {
+    "elapsed": 22.97,
+    "usage": {
+      "prompt_tokens": 18,
+      "completion_tokens": 600,
+      "total_tokens": 618,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:12:01"
+}

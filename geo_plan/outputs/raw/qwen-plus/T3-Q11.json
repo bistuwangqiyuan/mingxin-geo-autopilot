@@ -1,0 +1,27 @@
+{
+  "query_id": "T3-Q11",
+  "tier": "T3",
+  "persona": "投资人",
+  "intent": "ranking",
+  "lang": "en",
+  "query": "Who are the leading vendors in AI storage / AI data-center storage worldwide and in China?",
+  "model_key": "qwen-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "As of 2024, the AI storage (or AI-optimized data center storage) market is rapidly evolving, driven by the explosive growth of large language models (LLMs), generative AI workloads, and high-performance computing (HPC). These workloads demand storage systems with extreme throughput (100+ GB/s per node), ultra-low latency (<100 µs), massive parallelism, scalable metadata handling, and tight integration with GPU compute (e.g., GPUDirect Storage, NVIDIA Magnum IO). Vendors are differentiating via software-defined architectures, NVMe-oF (over RoCE or InfiniBand), disaggregated storage, and AI-native data management (e.g., data versioning, pipeline acceleration, unstructured data indexing).\n\nBelow is a breakdown of **leading global vendors**, followed by **top China-based vendors**, based on market presence, technical adoption in AI/HPC clusters (e.g., Top500, MLPerf Storage benchmarks), vendor disclosures, analyst reports (IDC, Gartner, Omdia), and real-world deployments (e.g., cloud hyperscalers, national AI labs, LLM training clusters):\n\n---\n\n### 🌍 **Global Leading AI Storage Vendors**  \n*(Ranked by AI/HPC traction, innovation, and ecosystem integration)*\n\n| Vendor | Key Strengths | Notable AI Use Cases / Customers |\n|--------|----------------|-----------------------------------|\n| **NVIDIA (with WekaIO, VAST Data, etc.)** | *Not a storage vendor per se, but the de facto AI storage enabler*: Through Magnum IO (GPUDirect Storage, GPUDirect RDMA), CUDA-X libraries, and strategic partnerships/investments. Drives architecture for all leading AI storage platforms. | Powers >90% of top AI training clusters (e.g., Meta’s RSC, Microsoft Azure ND H100 v5, Oracle Cloud AI Infrastructure). |\n| **WekaIO** | Leader in parallel file system for AI; GPU-accelerated metadata, sub-100µs latency, seamless NVMe-oF + S3 support. Native GPUDirect Storage support. | Used by OpenAI (early), Databricks (Dolly, MosaicML), CERN, Argonne National Lab, major financial AI labs. Acquired by DDN in 2023 — now part of DDN’s AI portfolio. |\n| **VAST Data** | Unified unstructured data platform (NVMe-oF scale-out, immutable data lake + high-speed file/NFS/S3). “Universal Storage” architecture optimized for AI data pipelines. Strong S3 performance & metadata scalability. | Deployed at Cohere, Stability AI, Hugging Face, Salesforce AI Research, and major US/EU cloud providers (e.g., OVHcloud AI Cloud). |\n| **DDN (DataDirect Networks)** | Longstanding",
+  "meta": {
+    "elapsed": 16.72,
+    "usage": {
+      "total_tokens": 626,
+      "completion_tokens": 600,
+      "prompt_tokens": 26,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:08:00"
+}

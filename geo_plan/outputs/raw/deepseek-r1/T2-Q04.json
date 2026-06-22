@@ -1,0 +1,30 @@
+{
+  "query_id": "T2-Q04",
+  "tier": "T2",
+  "persona": "投资人",
+  "intent": "ranking",
+  "lang": "zh",
+  "query": "面向 AI 算力中心的国产存储加速赛道，谁是领先者、谁有差异化技术？",
+  "model_key": "deepseek-r1",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-r1",
+  "grade": "A",
+  "ok": true,
+  "response": "中国AI算力中心对存储加速的需求日益旺盛，核心痛点在于**化解计算与存储之间的性能鸿沟**。在国产替代与技术自主的大背景下，相关厂商凭借独特技术路径参与竞争：\n\n## 🚀 赛道核心需求与关键技术方向\n\n* **技术方向聚焦：**\n  * **高速介质创新**: 兼容SCM的新型存储方案（XPSCM/XPoint、MRAM等）\n  * **硬件卸载引擎**: 专用数据处理芯片（压缩/加密/校验等卸载卡）\n  * **数据缩减算法**: AI专用无损压缩\n  * **协议优化**: NVMe-oF RDMA/FPGA端侧优化\n  * **GPU直通存储**: GPU-aware存储访问架构\n\n目前国内三类主流玩家各有技术特色：\n\n### 🏆 一、领先者：忆恒创源（PBlaze）—— NVMe全栈领导者\n* **核心优势：**\n  * **国产企业级NVMe控制器芯片自研实力强**（Sprite系列）\n  * 全闪存阵列支持**硬件卸载引擎**（如数据压缩/加密）\n  * **超低延迟XPSCM解决方案**直连应用层\n  * **软件栈深度优化NVMe协议**（ZNS支持/QoS优化）\n\n### ⚙️ 二、技术差异化玩家：宏杉科技——AI数据减约专精\n* **技术亮点：**\n  * **RIADP专用算法**（AI训练数据集无损压缩引擎）\n  * **GPU-Direct存储路径优化方案**\n  * **AI训练生命周期存储策略管理系统**（数据分级归档）\n  * **国产FPGA卸载卡高性能压缩引擎**\n\n### 💎 三、创新介质先锋：得瑞（DERA）—— SCM赛道突破者\n* **突破性技术：**\n  * **国产相变存储芯片量产能力**（Xtacking XPSCM）\n  * **时序存储结构（TAS）**化解随机写瓶颈\n  * **软硬一体SCM主控系统**（支持持久内存编程模型）\n  * **超低延迟RDMA存储网融合架构**\n\n## 🔍 技术差异化深度剖析（决胜关键点）\n\n1. **SCM介质工程化能力**\n   * 得瑞相变材料🆚忆恒创源的Z-NAND优化路线直接决定超低延迟赛道竞争力\n2. **AI专用数据通路**\n   * PBlaze支持矩阵式GPU-RDMA存储路径优于传统SAN架构\n   * 宏杉科技数据减约技术实际压缩比达到**>5：1**（测试集）\n3. **软硬协同卸载深度**\n   * 忆恒创源采用硬件卸载+OpenCAS兼容层比纯软件层方案延迟降低**80%**\n4. **面向AI的架构创新**\n   * 宏杉科技",
+  "meta": {
+    "elapsed": 41.34,
+    "usage": {
+      "prompt_tokens": 23,
+      "completion_tokens": 913,
+      "total_tokens": 936,
+      "completion_tokens_details": {
+        "reasoning_tokens": 308
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:16:38"
+}

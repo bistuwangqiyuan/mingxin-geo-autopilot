@@ -1,0 +1,27 @@
+{
+  "query_id": "T3-Q15",
+  "tier": "T3",
+  "persona": "投资人",
+  "intent": "definition",
+  "lang": "zh",
+  "query": "AI 存储为什么是 AI 基础设施里增长最快的环节之一？市场规模和增速大概是多少？",
+  "model_key": "qwen-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "AI存储之所以成为AI基础设施中增长最快的环节之一，核心原因在于**AI工作负载对数据吞吐、容量、延迟和访问模式的颠覆性需求**，远超传统IT存储的承载能力。以下是系统性分析：\n\n---\n\n### 一、为什么AI存储增长最快？——四大驱动逻辑\n\n| 驱动因素 | 具体表现 | 对存储的挑战 |\n|----------|----------|--------------|\n| **1. 数据爆炸式增长** | 训练大模型需PB级高质量语料（如Llama 3训练数据超15TB；多模态模型需图像/视频/音频混合数据）；推理阶段用户交互产生持续流式数据（如实时语音转写、视频分析）。 | 存储容量年增>60%；需支持EB级可扩展架构。 |\n| **2. I/O瓶颈凸显** | GPU算力提升远快于存储带宽（如H100 GPU显存带宽达2TB/s，但传统NVMe SSD持续读仅7GB/s，集群存储常成“木桶短板”）。训练中数据加载延迟占总耗时30–50%（MLPerf基准显示）。 | 要求端到端带宽≥100GB/s（单节点）、微秒级访问延迟；需新型协议（如GPUDirect Storage, CXL-attached storage）。 |\n| **3. 数据访问模式剧变** | 传统存储优化随机小IO（数据库），而AI需**高并发、大块连续读（TB级checkpoint加载）、海量小文件元数据操作（千万级参数分片/LoRA适配器）**。 | 文件系统元数据性能成瓶颈（如POSIX接口在亿级小文件下性能骤降）；需对象存储+AI原生文件系统（如WekaFS、VAST Data、Pure Storage FlashBlade//X）。 |\n| **4. 存储架构重构需求** | AI训练要求计算与存储紧耦合（避免PCIe瓶颈），推动存算融合、CXL内存池化、液冷存储等新范式。推理场景则需低延迟向量存储（如Pinecone、Milvus）支撑RAG。 | 传统SAN/NAS架构失效；催生AI-native存储硬件+软件栈（如NVIDIA DGX Cloud集成Weka，AWS Trainium+FSx for Lustre）。 |\n\n> ✅ 关键洞察：**AI不是“更快的数据库”，而是“新物种级的数据引擎”——存储从被动仓库升级为主动数据加速器。**\n\n---\n\n### 二、市场规模与增速（2024–2025权威数据）\n\n| 指标 | 数值 | 数据来源与说明 |\n|------|------|----------------|\n| **",
+  "meta": {
+    "elapsed": 12.62,
+    "usage": {
+      "total_tokens": 632,
+      "completion_tokens": 600,
+      "prompt_tokens": 32,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-22T18:24:14"
+}

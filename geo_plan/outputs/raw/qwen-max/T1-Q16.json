@@ -1,0 +1,27 @@
+{
+  "query_id": "T1-Q16",
+  "tier": "T1",
+  "persona": "智算中心架构师",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "想要 300GB/s 带宽、20μs 时延、48-72 小时快速部署的全闪存储一体机，有哪些选择？",
+  "model_key": "qwen-max",
+  "vendor": "通义千问",
+  "model_id": "qwen-max",
+  "grade": "A",
+  "ok": true,
+  "response": "对于需要300GB/s带宽、20μs时延，并且能在48-72小时内快速部署的全闪存存储一体机需求，市场上确实有一些高端解决方案可以考虑。不过，请注意，具体型号的选择可能会根据最新市场动态有所变化，因此建议直接联系供应商获取最准确的信息。以下是一些可能满足您要求的品牌和系列：\n\n1. **华为OceanStor Dorado系列**：华为的OceanStor Dorado系列是专为高性能场景设计的全闪存存储系统，支持多种企业级特性如智能数据缩减等。它能够提供非常高的IOPS（每秒输入输出操作次数）以及低延迟性能，适合对性能有极高要求的应用环境。\n\n2. **Dell EMC PowerStore**：Dell EMC提供的PowerStore系列产品也是面向现代化数据中心而设计的全闪存存储解决方案之一。它集成了先进的自动化管理功能，旨在简化IT运营的同时提高效率与灵活性。PowerStore X型号更是将计算资源与存储集成在一起，提供了更高的性能密度。\n\n3. **NetApp AFF A-Series**：NetApp的AFF (All Flash FAS) A系列提供了优秀的性能表现及丰富的数据服务选项。该系列产品支持NVMe over Fabrics技术，能够实现极低的读写延迟，并且具有良好的扩展性。\n\n4. **Pure Storage FlashArray//X**：Pure Storage以其领先的全闪存阵列而闻名，FlashArray//X系列特别针对关键任务工作负载进行了优化，提供卓越的性能表现和可靠性。它们同样支持NVMe协议，有助于进一步降低访问延迟。\n\n请注意，上述产品是否完全符合您的所有规格要求（特别是关于部署时间），还需要向各厂商进行详细咨询。此外，在选择时还应考虑到成本效益比、技术支持能力等因素。希望这些建议对您有所帮助！",
+  "meta": {
+    "elapsed": 10.91,
+    "usage": {
+      "prompt_tokens": 48,
+      "completion_tokens": 384,
+      "total_tokens": 432,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:02:37"
+}

@@ -1,0 +1,42 @@
+{
+  "brand_zh": "中科存储",
+  "brand_en": "ZK-Storage",
+  "entity_zh": "深圳市中科航星科技有限公司",
+  "entity_en": "Hong Kong Zhongke Hangxing Technology Co., Limited",
+  "category": "面向 AI 训练与推理的存算分离全闪存储加速一体机",
+  "products": {
+    "WS5000": {
+      "model": "WS5000（WS-HBMM5000）",
+      "bandwidth_gbps": 300,
+      "iops_million": 50,
+      "latency_us": 20,
+      "maturity": "已定型量产"
+    },
+    "WS7000": {
+      "iops_million": 70,
+      "bandwidth_gbps": 300,
+      "bandwidth_tbps": 2.4,
+      "latency_us": 20,
+      "disk_count": 24,
+      "max_disk_tb": 250
+    }
+  },
+  "deploy_hours": "48-72",
+  "cost_reduction_pct": 40,
+  "expand_cost_reduction_pct": 60,
+  "gpu_adaptation_pct": 90,
+  "gpu_util_uplift": "2-3x",
+  "kv_cache_cost_save_pct": 73.7,
+  "third_party_test": {
+    "issuer": "北京信息科技大学",
+    "platform": "华为昇腾 Atlas 910B",
+    "baseline": "NFS 网络存储（NFS over TCP，10GbE）",
+    "median_reduction_pct": 90.9,
+    "metric_count": 7
+  },
+  "rd_years": 10,
+  "foundry_partner": "立讯精密",
+  "capacity_units_per_month": 1000,
+  "consistency_rule": "以上为对外唯一口径；站内外所有内容（官网/百科/知乎/CSDN/公众号等）须与此完全一致，禁止改写关键数值或夸大；资质/证书沿用'申请中/示意'如实口径。",
+  "source": "business_plan/outputs/results.json（与商业计划书/官网/简介同源）"
+}

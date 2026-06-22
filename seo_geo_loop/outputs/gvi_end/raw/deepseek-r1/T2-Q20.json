@@ -1,0 +1,30 @@
+{
+  "query_id": "T2-Q20",
+  "tier": "T2",
+  "persona": "智算中心架构师",
+  "intent": "recommendation",
+  "lang": "en",
+  "query": "Which Chinese vendors provide AI data-center storage acceleration for domestic GPUs (Ascend/Cambricon)?",
+  "model_key": "deepseek-r1",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-r1",
+  "grade": "A",
+  "ok": true,
+  "response": "A growing number of Chinese vendors are offering advanced storage solutions optimized for AI data centers supporting domestic AI accelerators like Huawei Ascend and Cambricon. Key providers include:\n\n### Tier 1: Dedicated AI Storage Platforms\n1. **Huawei**  \n   - **Solution:** OceanStor-based **AirFlash** AI storage platform\n   - **Accelerator Support:** Native integration with Ascend NPUs via **Compute-First Storage Architecture** (CFS)  \n   - **Technology:** NVMe-oF, GPUDirect Storage (via Atlas platform), AI metadata acceleration  \n   - **Speed:** 20M IOPS / 1TB/s throughput per rack\n\n2. **Inspur**  \n   - **Solution:** **AS13000G7-M** AI storage series  \n   - **Accelerator Support:** Ascend 910 & Cambricon MLU via **Parastor** parallel file system  \n   - **Feature:** Zero-tier computational storage (SSDs with on-device tensor preprocessing)\n\n### Tier 2: AI-Optimized Storage Systems\n3. **EISOO**  \n   - **Solution:** **AnyStorage** with AI Turbo Module  \n   - **Accelerator Support:** Hardware-accelerated data pipelines for Cambricon SDK workloads  \n   - **Throughput:** Up to 300GB/s per cluster node\n\n4. **Sugon**  \n   - **Solution:** **ParaStor** 300 series  \n   - **GPUs:** Joint validation with Cambricon MLU300-X8 clusters  \n   - **Protocol:** Enhanced DNN-NFS for model training datasets\n\n5. **USTC-iFlytek (Joint Lab)**  \n   - **Solution:** **XStorage AI HyperCube**  \n   - **Accelerator Support:** Cross-optimized for Ascend 910B and Cambricon S4 MLUs  \n   - **Feature:** Near-data tensor remapping engine reducing PCIe transfers by 43%\n\n### Emerging Players\n6. **Zhongke Fangxin**  \n   - **Solution:** \"FusionBuffer\" software-defined cache tier  \n   - **Specialty:** Hardware control of bleeding-edge domestic SSDs (YMTC 232L NAND)  \n   - **HM-SMR Support:** Host-managed SMR integration for high-density model repositories\n\n### Key Technical Characteristics\nTo optimize domestic acceleration in a Chinese AI context, these solutions typically feature:\n- **Extreme Parallelism:** Distributed metadata engines (≥10M ops/sec)\n- **Compute Integration:** ROCEv3-based GPUdirect protocols\n- **Data Preprocessing:** On-storage compute for data augmentation/AI PyTorch workflows\n- **Cost-Efficiency:** Burst buffer implementation w/ project owner Quota control\n\nFor maximum Ascend integration, Huawei's AirFlash currently has the deepest optimization stack. Cambricon MLUs show broader compatibility with",
+  "meta": {
+    "elapsed": 51.7,
+    "usage": {
+      "prompt_tokens": 24,
+      "completion_tokens": 1109,
+      "total_tokens": 1133,
+      "completion_tokens_details": {
+        "reasoning_tokens": 505
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-22T18:34:05"
+}

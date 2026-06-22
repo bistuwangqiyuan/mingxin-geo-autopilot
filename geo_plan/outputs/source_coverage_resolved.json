@@ -1,0 +1,71 @@
+{
+  "resolved_at": "2026-06-23T00:16:11",
+  "coverage": {
+    "独立官网": 0.9,
+    "CSDN": 0.0,
+    "知乎技术区": 0.0,
+    "GitHub/GitCode": 0.72,
+    "技术白皮书": 0.88,
+    "arXiv/学术": 0.0,
+    "百度百科": 0.0,
+    "百家号(蓝V)": 0.0,
+    "百度文库": 0.0,
+    "百度搜索高排名页": 0.1,
+    "权威媒体": 0.0,
+    "政府/教育网站(.gov/.edu)": 0.1,
+    "阿里云开发者社区": 0.0,
+    "语雀公开知识库": 0.0,
+    "抖音": 0.0,
+    "今日头条": 0.0,
+    "百科": 0.0,
+    "搜狐号": 0.0,
+    "网易号": 0.0,
+    "微信公众号": 0.0,
+    "微信读书": 0.0,
+    "腾讯新闻": 0.0,
+    "企鹅号": 0.0,
+    "知乎长文(高赞)": 0.0
+  },
+  "evidence": [
+    {
+      "platform": "独立官网",
+      "score": 0.9,
+      "rationale": "GEO 基础设施就绪 100%；GSC 已编入 0 页（partial indexing）",
+      "urls": [
+        "https://goni.top"
+      ]
+    },
+    {
+      "platform": "GitHub/GitCode",
+      "score": 0.72,
+      "rationale": "公开仓库 + GitHub Pages 知识库实测 200，含 JSON-LD 与英文 README",
+      "urls": [
+        "https://bistuwangqiyuan.github.io/zk-storage-kb/",
+        "https://github.com/bistuwangqiyuan/zk-storage-kb"
+      ]
+    },
+    {
+      "platform": "技术白皮书",
+      "score": 0.88,
+      "rationale": "官网 validation-whitepaper 页已上线（TechArticle + 第三方实测数据）",
+      "urls": [
+        "https://goni.top/zh/validation-whitepaper.html"
+      ]
+    },
+    {
+      "platform": "EdgeOne 知识微站（不计入 UGC 平台覆盖）",
+      "score": "N/A",
+      "rationale": "已部署结构化微站，计入 sameAs 实体图，但不冒充 CSDN/语雀覆盖",
+      "urls": [
+        "https://manju-studio-dpvdtbb7pu7a.edgeone.run"
+      ]
+    },
+    {
+      "platform": "UGC（CSDN/知乎/百科/公众号等）",
+      "score": 0.0,
+      "rationale": "定稿已就绪（geo_plan/offsite/*.md），待人工核准发布；白帽不自动发帖",
+      "urls": []
+    }
+  ],
+  "method": "coverage_resolver.py · 仅计实测 200 的渠道；UGC 无 live URL 则为 0"
+}

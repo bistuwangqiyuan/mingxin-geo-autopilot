@@ -1,0 +1,27 @@
+{
+  "query_id": "T1-Q29",
+  "tier": "T1",
+  "persona": "投资人",
+  "intent": "ranking",
+  "lang": "en",
+  "query": "Who are the leading Chinese companies in KV-Cache offload / disaggregated all-flash storage acceleration for AI?",
+  "model_key": "deepseek-v3",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-v3",
+  "grade": "A",
+  "ok": true,
+  "response": "In China, several leading companies and startups are pioneering **KV-Cache offload** and **disaggregated all-flash storage acceleration** for AI workloads, particularly to optimize large-scale inference (e.g., LLMs like GPT-4 or Claude). These solutions address bottlenecks in **GPU memory bandwidth** and **KV-Cache management** by offloading storage/compute to high-performance flash or computational storage devices. Here are the key players:\n\n### **1. Huawei**\n   - **Solution:** OceanStor Pacific (distributed storage) + **Computational Storage** (AI-oriented flash acceleration).\n   - **Focus:** High-performance disaggregated storage for AI training/inference, leveraging NVMe-oF and RDMA.\n   - **KV-Cache Relevance:** Actively researching computational storage to offload KV-Cache in LLM inference.\n\n### **2. Alibaba Cloud (Aliyun)**\n   - **Solution:** **PolarDB** (disaggregated storage) + **Apsara Distributed Flash**.\n   - **Focus:** AI acceleration through low-latency KV storage (e.g., for recommendation systems, LLM inference).\n   - **KV-Cache Relevance:** Exploring offloading KV-Cache to flash-based storage in cloud-based AI services.\n\n### **3. Tencent Cloud**\n   - **Solution:** **TDSQL** (distributed database) + **CBS (Cloud Block Storage)** with NVMe optimization.\n   - **Focus:** AI/ML workload acceleration via high-throughput, low-latency flash storage.\n   - **KV-Cache Relevance:** Actively working on disaggregated KV-Cache solutions for LLMs.\n\n### **4. Baidu**\n   - **Solution:** **XuanYuan Storage** (AI-optimized distributed storage).\n   - **Focus:** AI training/inference acceleration, including flash-based KV offload for large models.\n   - **KV-Cache Relevance:** Researching flash-based KV-Cache disaggregation for Ernie and other LLMs.\n\n### **5. Inspur**\n   - **Solution:** **AS13000** (scale-out all-flash storage) + **AI Storage Optimization**.\n   - **Focus:** NVMe-oF-based acceleration for AI workloads.\n   - **KV-Cache Relevance:** Partnering with GPU vendors to explore KV-Cache offload.\n\n### **6. Emerging Startups & Research Efforts**\n   - **SmartX** (Hyper-converged infrastructure with NVMe acceleration).\n   - **Yusur** (Computational SSD startup, working on AI offload).\n   - **Academia:** Tsinghua, CAS, and others researching **computational storage for KV-Cache**.\n\n### **Why This Matters for AI?**\n- **KV-Cache Offload:** Reduces GPU memory pressure in LLM inference by moving cached attention keys/values to fast flash.\n- **Disaggregated Flash:** Enables scalable,",
+  "meta": {
+    "elapsed": 22.05,
+    "usage": {
+      "prompt_tokens": 27,
+      "completion_tokens": 600,
+      "total_tokens": 627,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:09:55"
+}

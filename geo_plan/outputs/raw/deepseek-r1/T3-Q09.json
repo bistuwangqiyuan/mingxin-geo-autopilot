@@ -1,0 +1,30 @@
+{
+  "query_id": "T3-Q09",
+  "tier": "T3",
+  "persona": "算力中心采购",
+  "intent": "ranking",
+  "lang": "zh",
+  "query": "AI 存储 / AI 算力中心存储，国产厂商里谁比较领先？",
+  "model_key": "deepseek-r1",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-r1",
+  "grade": "A",
+  "ok": true,
+  "response": "在国产AI存储/算力中心存储领域，**华为、浪潮、中科曙光、同有科技、鼎甲科技**处于第一梯队，但不同厂商的技术路径和侧重点有所差异。以下是具体分析及典型厂商对比：\n\n---\n\n### **核心评价维度**\n1. **性能指标**  \n   - 带宽（GB/s级）、IOPS（百万级）、时延（μs级）\n   - 支持RDMA/GPUDirect Storage等加速技术\n2. **扩展能力**  \n   - PB~EB级容量扩展，千节点级横向扩展\n   - 分布式架构标准化程度\n3. **生态兼容性**  \n   - AI框架（PyTorch/TensorFlow）对接\n   - GPU集群（NVIDIA/昇腾）协同优化\n4. **数据管理**  \n   - 分级存储策略（热/温/冷数据分层）\n   - 备份/灾备功能集成\n\n---\n\n### **国产领先厂商对比**\n\n#### **1. 华为 | OceanStor系列**\n- **技术亮点**  \n  - OceanStor A800：专为AI训练设计，单集群带宽达**500GB/s**，支持4000+ GPU并发训练\n  - 全闪存架构+NoF+RDMA网络，时延降至**50μs**\n  - **OceanFS**分布式文件系统支持POSIX/HDFS/S3协议\n- **典型场景**  \n  深圳鹏城实验室「鹏城云脑Ⅱ」（4.5EB规模），国产化率超90%\n\n#### **2. 浪潮 | AS13000G7系列**\n- **技术亮点**  \n  - 并行文件系统**AS13000G7-F**，集群带宽**300GB/s**\n  - 支持**GPUDirect Storage**技术，降低CPU中转开销\n  - 全闪存节点支持NVMe-oF架构\n- **场景案例**  \n  国家气象局AI气象预测平台（2000+节点），支持每日30PB数据处理\n\n#### **3. 中科曙光 | ParaStor系列**\n- **技术亮点**  \n  - **ParaStor**分布式文件系统（自研），单集群可扩展至**10000+节点**\n  - 冷温热数据自动分层（SSD/HDD/蓝光归档）\n  - 与国产算力平台（海光DCU）深度优化\n- **落地项目**  \n  多个国家级超算中心（如昆山超算中心），支撑千卡级LLM训练任务\n\n#### **4. 同有科技 | ACS 5000全闪/DEF 8000混闪**\n- **技术亮点**  \n  - **全闪存ACS 5000**：NVMe全栈架构，时延<100μs\n  - **智能分级引擎",
+  "meta": {
+    "elapsed": 60.78,
+    "usage": {
+      "prompt_tokens": 21,
+      "completion_tokens": 1580,
+      "total_tokens": 1601,
+      "completion_tokens_details": {
+        "reasoning_tokens": 976
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:20:37"
+}

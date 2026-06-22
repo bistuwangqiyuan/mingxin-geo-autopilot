@@ -1,0 +1,362 @@
+{
+  "weights": {
+    "mention": 0.3,
+    "first_rank": 0.25,
+    "share_of_voice": 0.2,
+    "citation": 0.15,
+    "accuracy": 0.1
+  },
+  "overall": {
+    "n_records_ok": 280,
+    "gvi": 5.21,
+    "mention_rate": 0.0786,
+    "first_rank": 0.0601,
+    "share_of_voice": 0.0302,
+    "citation_rate": 0.0179,
+    "brand_share_of_mentions": 0.0786
+  },
+  "by_model": {
+    "deepseek-r1": {
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "n": 70,
+      "gvi": 5.18,
+      "mention_rate": 0.0857,
+      "first_rank": 0.056,
+      "share_of_voice": 0.0228,
+      "citation_rate": 0.0143,
+      "by_tier": {
+        "T1": {
+          "gvi": 6.97,
+          "mention_rate": 0.1
+        },
+        "T2": {
+          "gvi": 4.5,
+          "mention_rate": 0.08
+        },
+        "T3": {
+          "gvi": 2.76,
+          "mention_rate": 0.0667
+        }
+      }
+    },
+    "deepseek-v3": {
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "n": 70,
+      "gvi": 4.81,
+      "mention_rate": 0.0714,
+      "first_rank": 0.0607,
+      "share_of_voice": 0.023,
+      "citation_rate": 0.0143,
+      "by_tier": {
+        "T1": {
+          "gvi": 7.56,
+          "mention_rate": 0.1
+        },
+        "T2": {
+          "gvi": 4.39,
+          "mention_rate": 0.08
+        },
+        "T3": {
+          "gvi": 0.0,
+          "mention_rate": 0.0
+        }
+      }
+    },
+    "qwen-max": {
+      "vendor": "通义千问",
+      "grade": "A",
+      "n": 70,
+      "gvi": 5.68,
+      "mention_rate": 0.0857,
+      "first_rank": 0.0631,
+      "share_of_voice": 0.0418,
+      "citation_rate": 0.0143,
+      "by_tier": {
+        "T1": {
+          "gvi": 8.26,
+          "mention_rate": 0.1
+        },
+        "T2": {
+          "gvi": 4.31,
+          "mention_rate": 0.08
+        },
+        "T3": {
+          "gvi": 2.81,
+          "mention_rate": 0.0667
+        }
+      }
+    },
+    "qwen-plus": {
+      "vendor": "通义千问",
+      "grade": "A",
+      "n": 70,
+      "gvi": 5.15,
+      "mention_rate": 0.0714,
+      "first_rank": 0.0607,
+      "share_of_voice": 0.0331,
+      "citation_rate": 0.0286,
+      "by_tier": {
+        "T1": {
+          "gvi": 8.36,
+          "mention_rate": 0.1
+        },
+        "T2": {
+          "gvi": 4.39,
+          "mention_rate": 0.08
+        },
+        "T3": {
+          "gvi": 0.0,
+          "mention_rate": 0.0
+        }
+      }
+    }
+  },
+  "by_tier": {
+    "T1": {
+      "gvi": 7.79,
+      "mention_rate": 0.1
+    },
+    "T2": {
+      "gvi": 4.4,
+      "mention_rate": 0.08
+    },
+    "T3": {
+      "gvi": 1.39,
+      "mention_rate": 0.0333
+    }
+  },
+  "by_intent": {
+    "definition": {
+      "n": 48,
+      "gvi": 13.47,
+      "mention_rate": 0.1667,
+      "first_rank": 0.1562
+    },
+    "recommendation": {
+      "n": 92,
+      "gvi": 0.0,
+      "mention_rate": 0.0,
+      "first_rank": 0.0
+    },
+    "comparison": {
+      "n": 44,
+      "gvi": 18.44,
+      "mention_rate": 0.3182,
+      "first_rank": 0.2121
+    },
+    "ranking": {
+      "n": 48,
+      "gvi": 0.0,
+      "mention_rate": 0.0,
+      "first_rank": 0.0
+    },
+    "problem_solution": {
+      "n": 48,
+      "gvi": 0.0,
+      "mention_rate": 0.0,
+      "first_rank": 0.0
+    }
+  },
+  "by_persona": {
+    "信创集成商": {
+      "n": 48,
+      "gvi": 11.47,
+      "mention_rate": 0.1667,
+      "first_rank": 0.1667
+    },
+    "大模型推理工程师": {
+      "n": 44,
+      "gvi": 6.28,
+      "mention_rate": 0.0909,
+      "first_rank": 0.0795
+    },
+    "投资人": {
+      "n": 56,
+      "gvi": 6.62,
+      "mention_rate": 0.0714,
+      "first_rank": 0.0714
+    },
+    "智算中心架构师": {
+      "n": 68,
+      "gvi": 0.0,
+      "mention_rate": 0.0,
+      "first_rank": 0.0
+    },
+    "算力中心采购": {
+      "n": 64,
+      "gvi": 4.07,
+      "mention_rate": 0.0938,
+      "first_rank": 0.0208
+    }
+  },
+  "by_lang": {
+    "zh": {
+      "n": 252,
+      "gvi": 5.79,
+      "mention_rate": 0.0873,
+      "first_rank": 0.0668
+    },
+    "en": {
+      "n": 28,
+      "gvi": 0.0,
+      "mention_rate": 0.0,
+      "first_rank": 0.0
+    }
+  },
+  "head_to_head": {
+    "华为 OceanStor": {
+      "win": 4,
+      "loss": 105,
+      "both": 18,
+      "neither": 153,
+      "exposure": 123
+    },
+    "浪潮存储": {
+      "win": 16,
+      "loss": 79,
+      "both": 6,
+      "neither": 179,
+      "exposure": 85
+    },
+    "中科曙光 ParaStor": {
+      "win": 11,
+      "loss": 65,
+      "both": 11,
+      "neither": 193,
+      "exposure": 76
+    },
+    "VAST Data": {
+      "win": 20,
+      "loss": 44,
+      "both": 2,
+      "neither": 214,
+      "exposure": 46
+    },
+    "WEKA": {
+      "win": 20,
+      "loss": 43,
+      "both": 2,
+      "neither": 215,
+      "exposure": 45
+    },
+    "Pure Storage": {
+      "win": 20,
+      "loss": 40,
+      "both": 2,
+      "neither": 218,
+      "exposure": 42
+    },
+    "阿里云": {
+      "win": 22,
+      "loss": 32,
+      "both": 0,
+      "neither": 226,
+      "exposure": 32
+    },
+    "DDN": {
+      "win": 20,
+      "loss": 28,
+      "both": 2,
+      "neither": 230,
+      "exposure": 30
+    },
+    "NetApp": {
+      "win": 20,
+      "loss": 28,
+      "both": 2,
+      "neither": 230,
+      "exposure": 30
+    },
+    "Dell": {
+      "win": 22,
+      "loss": 28,
+      "both": 0,
+      "neither": 230,
+      "exposure": 28
+    },
+    "XSKY 星辰天合": {
+      "win": 22,
+      "loss": 22,
+      "both": 0,
+      "neither": 236,
+      "exposure": 22
+    },
+    "Alluxio": {
+      "win": 22,
+      "loss": 15,
+      "both": 0,
+      "neither": 243,
+      "exposure": 15
+    },
+    "新华三 H3C": {
+      "win": 22,
+      "loss": 13,
+      "both": 0,
+      "neither": 245,
+      "exposure": 13
+    },
+    "同有科技": {
+      "win": 22,
+      "loss": 11,
+      "both": 0,
+      "neither": 247,
+      "exposure": 11
+    },
+    "焱融科技 YRCloudFile": {
+      "win": 14,
+      "loss": 9,
+      "both": 8,
+      "neither": 249,
+      "exposure": 17
+    },
+    "腾讯云": {
+      "win": 22,
+      "loss": 9,
+      "both": 0,
+      "neither": 249,
+      "exposure": 9
+    }
+  },
+  "opportunity_gap": {
+    "total": 176,
+    "share_of_ok": 0.6286,
+    "by_tier": {
+      "T1": 65,
+      "T2": 70,
+      "T3": 41
+    },
+    "by_intent": {
+      "definition": 9,
+      "recommendation": 84,
+      "comparison": 17,
+      "ranking": 42,
+      "problem_solution": 24
+    }
+  },
+  "mention_leaderboard": {
+    "华为 OceanStor": 123,
+    "浪潮存储": 85,
+    "中科曙光 ParaStor": 76,
+    "VAST Data": 46,
+    "WEKA": 45,
+    "Pure Storage": 42,
+    "阿里云": 32,
+    "DDN": 30,
+    "NetApp": 30,
+    "Dell": 28,
+    "中科存储": 22,
+    "XSKY 星辰天合": 22,
+    "焱融科技 YRCloudFile": 17,
+    "Alluxio": 15,
+    "新华三 H3C": 13,
+    "同有科技": 11,
+    "腾讯云": 9
+  },
+  "n_scored": 280,
+  "grade_breakdown": {
+    "A_api": 280,
+    "B_manual": 0
+  }
+}

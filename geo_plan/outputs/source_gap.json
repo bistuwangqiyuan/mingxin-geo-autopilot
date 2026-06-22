@@ -1,0 +1,610 @@
+{
+  "by_model": {
+    "DeepSeek": {
+      "weighted_coverage": 0.2462,
+      "gap": 0.7538,
+      "model_weight": 1.0,
+      "detail": [
+        {
+          "platform": "CSDN",
+          "tier": "primary",
+          "coverage": 0.0
+        },
+        {
+          "platform": "知乎技术区",
+          "tier": "primary",
+          "coverage": 0.0
+        },
+        {
+          "platform": "GitHub/GitCode",
+          "tier": "primary",
+          "coverage": 0.72
+        },
+        {
+          "platform": "技术白皮书",
+          "tier": "primary",
+          "coverage": 0.88
+        },
+        {
+          "platform": "arXiv/学术",
+          "tier": "primary",
+          "coverage": 0.0
+        },
+        {
+          "platform": "博客园",
+          "tier": "secondary",
+          "coverage": 0.0
+        },
+        {
+          "platform": "少数派",
+          "tier": "secondary",
+          "coverage": 0.0
+        },
+        {
+          "platform": "InfoQ/机器之心",
+          "tier": "secondary",
+          "coverage": 0.0
+        }
+      ],
+      "schema_pref": [
+        "TechArticle",
+        "HowTo",
+        "Dataset"
+      ]
+    },
+    "通义千问": {
+      "weighted_coverage": 0.0167,
+      "gap": 0.9833,
+      "model_weight": 0.95,
+      "detail": [
+        {
+          "platform": "权威媒体",
+          "tier": "primary",
+          "coverage": 0.0
+        },
+        {
+          "platform": "政府/教育网站(.gov/.edu)",
+          "tier": "primary",
+          "coverage": 0.1
+        },
+        {
+          "platform": "阿里云开发者社区",
+          "tier": "primary",
+          "coverage": 0.0
+        },
+        {
+          "platform": "语雀公开知识库",
+          "tier": "primary",
+          "coverage": 0.0
+        },
+        {
+          "platform": "官网(权威背书)",
+          "tier": "primary",
+          "coverage": 0.0
+        },
+        {
+          "platform": "新浪财经",
+          "tier": "secondary",
+          "coverage": 0.0
+        },
+        {
+          "platform": "认证媒体号",
+          "tier": "secondary",
+          "coverage": 0.0
+        }
+      ],
+      "schema_pref": [
+        "Organization",
+        "FAQPage",
+        "Article",
+        "Product"
+      ]
+    },
+    "文心一言": {
+      "weighted_coverage": 0.02,
+      "gap": 0.98,
+      "model_weight": 0.9,
+      "detail": [
+        {
+          "platform": "百度百科",
+          "tier": "primary",
+          "coverage": 0.0
+        },
+        {
+          "platform": "百家号(蓝V)",
+          "tier": "primary",
+          "coverage": 0.0
+        },
+        {
+          "platform": "百度文库",
+          "tier": "primary",
+          "coverage": 0.0
+        },
+        {
+          "platform": "百度搜索高排名页",
+          "tier": "primary",
+          "coverage": 0.1
+        },
+        {
+          "platform": "搜狐号",
+          "tier": "secondary",
+          "coverage": 0.0
+        },
+        {
+          "platform": "垂直合作站",
+          "tier": "secondary",
+          "coverage": 0.0
+        }
+      ],
+      "schema_pref": [
+        "FAQPage",
+        "Article"
+      ]
+    },
+    "豆包": {
+      "weighted_coverage": 0.0,
+      "gap": 1.0,
+      "model_weight": 0.8,
+      "detail": [
+        {
+          "platform": "抖音",
+          "tier": "primary",
+          "coverage": 0.0
+        },
+        {
+          "platform": "今日头条",
+          "tier": "primary",
+          "coverage": 0.0
+        },
+        {
+          "platform": "百科",
+          "tier": "primary",
+          "coverage": 0.0
+        },
+        {
+          "platform": "搜狐号",
+          "tier": "primary",
+          "coverage": 0.0
+        },
+        {
+          "platform": "网易号",
+          "tier": "primary",
+          "coverage": 0.0
+        },
+        {
+          "platform": "什么值得买",
+          "tier": "secondary",
+          "coverage": 0.0
+        },
+        {
+          "platform": "懂车帝(垂类)",
+          "tier": "secondary",
+          "coverage": 0.0
+        }
+      ],
+      "schema_pref": [
+        "FAQPage",
+        "VideoObject"
+      ]
+    },
+    "腾讯元宝": {
+      "weighted_coverage": 0.0,
+      "gap": 1.0,
+      "model_weight": 0.8,
+      "detail": [
+        {
+          "platform": "微信公众号",
+          "tier": "primary",
+          "coverage": 0.0
+        },
+        {
+          "platform": "微信读书",
+          "tier": "primary",
+          "coverage": 0.0
+        },
+        {
+          "platform": "腾讯新闻",
+          "tier": "primary",
+          "coverage": 0.0
+        },
+        {
+          "platform": "企鹅号",
+          "tier": "primary",
+          "coverage": 0.0
+        },
+        {
+          "platform": "搜狗收录",
+          "tier": "secondary",
+          "coverage": 0.0
+        }
+      ],
+      "schema_pref": [
+        "Article",
+        "FAQPage"
+      ]
+    },
+    "Kimi": {
+      "weighted_coverage": 0.0,
+      "gap": 1.0,
+      "model_weight": 0.75,
+      "detail": [
+        {
+          "platform": "知乎长文(高赞)",
+          "tier": "primary",
+          "coverage": 0.0
+        },
+        {
+          "platform": "搜狐",
+          "tier": "primary",
+          "coverage": 0.0
+        },
+        {
+          "platform": "CSDN",
+          "tier": "primary",
+          "coverage": 0.0
+        },
+        {
+          "platform": "少数派",
+          "tier": "secondary",
+          "coverage": 0.0
+        },
+        {
+          "platform": "公众号",
+          "tier": "secondary",
+          "coverage": 0.0
+        }
+      ],
+      "schema_pref": [
+        "Article",
+        "FAQPage"
+      ]
+    }
+  },
+  "platform_priority": [
+    {
+      "platform": "CSDN",
+      "impact": 1.75,
+      "current_coverage": 0.0,
+      "priority": 1.75,
+      "models": [
+        "DeepSeek",
+        "Kimi"
+      ]
+    },
+    {
+      "platform": "搜狐号",
+      "impact": 1.25,
+      "current_coverage": 0.0,
+      "priority": 1.25,
+      "models": [
+        "文心一言",
+        "豆包"
+      ]
+    },
+    {
+      "platform": "知乎技术区",
+      "impact": 1.0,
+      "current_coverage": 0.0,
+      "priority": 1.0,
+      "models": [
+        "DeepSeek"
+      ]
+    },
+    {
+      "platform": "arXiv/学术",
+      "impact": 1.0,
+      "current_coverage": 0.0,
+      "priority": 1.0,
+      "models": [
+        "DeepSeek"
+      ]
+    },
+    {
+      "platform": "权威媒体",
+      "impact": 0.95,
+      "current_coverage": 0.0,
+      "priority": 0.95,
+      "models": [
+        "通义千问"
+      ]
+    },
+    {
+      "platform": "阿里云开发者社区",
+      "impact": 0.95,
+      "current_coverage": 0.0,
+      "priority": 0.95,
+      "models": [
+        "通义千问"
+      ]
+    },
+    {
+      "platform": "语雀公开知识库",
+      "impact": 0.95,
+      "current_coverage": 0.0,
+      "priority": 0.95,
+      "models": [
+        "通义千问"
+      ]
+    },
+    {
+      "platform": "官网(权威背书)",
+      "impact": 0.95,
+      "current_coverage": 0.0,
+      "priority": 0.95,
+      "models": [
+        "通义千问"
+      ]
+    },
+    {
+      "platform": "百度百科",
+      "impact": 0.9,
+      "current_coverage": 0.0,
+      "priority": 0.9,
+      "models": [
+        "文心一言"
+      ]
+    },
+    {
+      "platform": "百家号(蓝V)",
+      "impact": 0.9,
+      "current_coverage": 0.0,
+      "priority": 0.9,
+      "models": [
+        "文心一言"
+      ]
+    },
+    {
+      "platform": "百度文库",
+      "impact": 0.9,
+      "current_coverage": 0.0,
+      "priority": 0.9,
+      "models": [
+        "文心一言"
+      ]
+    },
+    {
+      "platform": "少数派",
+      "impact": 0.875,
+      "current_coverage": 0.0,
+      "priority": 0.875,
+      "models": [
+        "DeepSeek",
+        "Kimi"
+      ]
+    },
+    {
+      "platform": "政府/教育网站(.gov/.edu)",
+      "impact": 0.95,
+      "current_coverage": 0.1,
+      "priority": 0.855,
+      "models": [
+        "通义千问"
+      ]
+    },
+    {
+      "platform": "百度搜索高排名页",
+      "impact": 0.9,
+      "current_coverage": 0.1,
+      "priority": 0.81,
+      "models": [
+        "文心一言"
+      ]
+    },
+    {
+      "platform": "抖音",
+      "impact": 0.8,
+      "current_coverage": 0.0,
+      "priority": 0.8,
+      "models": [
+        "豆包"
+      ]
+    },
+    {
+      "platform": "今日头条",
+      "impact": 0.8,
+      "current_coverage": 0.0,
+      "priority": 0.8,
+      "models": [
+        "豆包"
+      ]
+    },
+    {
+      "platform": "百科",
+      "impact": 0.8,
+      "current_coverage": 0.0,
+      "priority": 0.8,
+      "models": [
+        "豆包"
+      ]
+    },
+    {
+      "platform": "网易号",
+      "impact": 0.8,
+      "current_coverage": 0.0,
+      "priority": 0.8,
+      "models": [
+        "豆包"
+      ]
+    },
+    {
+      "platform": "微信公众号",
+      "impact": 0.8,
+      "current_coverage": 0.0,
+      "priority": 0.8,
+      "models": [
+        "腾讯元宝"
+      ]
+    },
+    {
+      "platform": "微信读书",
+      "impact": 0.8,
+      "current_coverage": 0.0,
+      "priority": 0.8,
+      "models": [
+        "腾讯元宝"
+      ]
+    },
+    {
+      "platform": "腾讯新闻",
+      "impact": 0.8,
+      "current_coverage": 0.0,
+      "priority": 0.8,
+      "models": [
+        "腾讯元宝"
+      ]
+    },
+    {
+      "platform": "企鹅号",
+      "impact": 0.8,
+      "current_coverage": 0.0,
+      "priority": 0.8,
+      "models": [
+        "腾讯元宝"
+      ]
+    },
+    {
+      "platform": "知乎长文(高赞)",
+      "impact": 0.75,
+      "current_coverage": 0.0,
+      "priority": 0.75,
+      "models": [
+        "Kimi"
+      ]
+    },
+    {
+      "platform": "搜狐",
+      "impact": 0.75,
+      "current_coverage": 0.0,
+      "priority": 0.75,
+      "models": [
+        "Kimi"
+      ]
+    },
+    {
+      "platform": "博客园",
+      "impact": 0.5,
+      "current_coverage": 0.0,
+      "priority": 0.5,
+      "models": [
+        "DeepSeek"
+      ]
+    },
+    {
+      "platform": "InfoQ/机器之心",
+      "impact": 0.5,
+      "current_coverage": 0.0,
+      "priority": 0.5,
+      "models": [
+        "DeepSeek"
+      ]
+    },
+    {
+      "platform": "新浪财经",
+      "impact": 0.475,
+      "current_coverage": 0.0,
+      "priority": 0.475,
+      "models": [
+        "通义千问"
+      ]
+    },
+    {
+      "platform": "认证媒体号",
+      "impact": 0.475,
+      "current_coverage": 0.0,
+      "priority": 0.475,
+      "models": [
+        "通义千问"
+      ]
+    },
+    {
+      "platform": "垂直合作站",
+      "impact": 0.45,
+      "current_coverage": 0.0,
+      "priority": 0.45,
+      "models": [
+        "文心一言"
+      ]
+    },
+    {
+      "platform": "什么值得买",
+      "impact": 0.4,
+      "current_coverage": 0.0,
+      "priority": 0.4,
+      "models": [
+        "豆包"
+      ]
+    },
+    {
+      "platform": "懂车帝(垂类)",
+      "impact": 0.4,
+      "current_coverage": 0.0,
+      "priority": 0.4,
+      "models": [
+        "豆包"
+      ]
+    },
+    {
+      "platform": "搜狗收录",
+      "impact": 0.4,
+      "current_coverage": 0.0,
+      "priority": 0.4,
+      "models": [
+        "腾讯元宝"
+      ]
+    },
+    {
+      "platform": "公众号",
+      "impact": 0.375,
+      "current_coverage": 0.0,
+      "priority": 0.375,
+      "models": [
+        "Kimi"
+      ]
+    },
+    {
+      "platform": "GitHub/GitCode",
+      "impact": 1.0,
+      "current_coverage": 0.72,
+      "priority": 0.28,
+      "models": [
+        "DeepSeek"
+      ]
+    },
+    {
+      "platform": "技术白皮书",
+      "impact": 1.0,
+      "current_coverage": 0.88,
+      "priority": 0.12,
+      "models": [
+        "DeepSeek"
+      ]
+    }
+  ],
+  "coverage_snapshot": {
+    "独立官网": 0.9,
+    "CSDN": 0.0,
+    "知乎技术区": 0.0,
+    "GitHub/GitCode": 0.72,
+    "技术白皮书": 0.88,
+    "arXiv/学术": 0.0,
+    "百度百科": 0.0,
+    "百家号(蓝V)": 0.0,
+    "百度文库": 0.0,
+    "百度搜索高排名页": 0.1,
+    "权威媒体": 0.0,
+    "政府/教育网站(.gov/.edu)": 0.1,
+    "阿里云开发者社区": 0.0,
+    "语雀公开知识库": 0.0,
+    "抖音": 0.0,
+    "今日头条": 0.0,
+    "百科": 0.0,
+    "搜狐号": 0.0,
+    "网易号": 0.0,
+    "微信公众号": 0.0,
+    "微信读书": 0.0,
+    "腾讯新闻": 0.0,
+    "企鹅号": 0.0,
+    "知乎长文(高赞)": 0.0
+  },
+  "note": "覆盖率/缺口基于 coverage_resolver 诚实推导（仅计实测 200 渠道）；UGC 未发布则保持 0。"
+}

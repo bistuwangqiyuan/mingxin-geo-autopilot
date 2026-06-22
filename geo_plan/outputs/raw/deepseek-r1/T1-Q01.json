@@ -1,0 +1,30 @@
+{
+  "query_id": "T1-Q01",
+  "tier": "T1",
+  "persona": "大模型推理工程师",
+  "intent": "definition",
+  "lang": "zh",
+  "query": "什么是 KV-Cache 卸载（KV Cache offload）外置存储加速？它如何降低大模型推理成本？",
+  "model_key": "deepseek-r1",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-r1",
+  "grade": "A",
+  "ok": true,
+  "response": "KV-Cache 卸载（KV Cache Offload）是一种针对大模型（如Transformer架构的LLM）推理过程的优化技术，其核心思想是通过**将键值缓存（KV Cache）从昂贵的高性能设备（如GPU显存）转移到相对廉价的外置存储设备（如内存或SSD）**，从而大幅降低推理成本。\n\n以下是技术原理和成本降低逻辑的详细解析：\n\n---\n\n### **一、KV-Cache的作用与痛点**\n在Transformer模型的 **自回归生成（逐token输出）** 过程中，模型需要重复使用历史token的Key和Value向量计算注意力权重。为避免重复计算，系统会缓存这些向量形成 **KV-Cache**。其特点：\n1. **显存占用高**：缓存大小与输入长度（`sequence_length`）、模型层数（`num_layers`）、注意力头数（`num_heads`）正相关。例如Llama 70B模型推理1K上下文时，KV-Cache可占用20GB+显存。\n2. **动态增长**：生成式任务中，KV-Cache随输出token数量线性增长（如生成1024个token需额外占据20GB显存）。\n\n---\n\n### **二、KV-Cache卸载的核心机制**\n该技术通过分层存储策略解决显存瓶颈：\n1. **高频活跃数据保留在GPU显存** ：  \n   当前正在计算的token相关数据（如当前层的激活值）、小部分近期KV向量。\n2. **低频历史数据卸载到外置存储**：  \n   将较早生成的、访问频率低的KV-Cache转移到 **主机内存（RAM）** 或 **高速SSD（如NVMe）** 中，仅当计算需要时才动态加载回GPU。\n\n---\n\n### **三、关键技术实现方式**\n1. **细粒度数据管理**  \n   - 按时间步或注意力层拆分KV-Cache，标记“热数据”（近期使用）和“冷数据”（早期生成）。\n2. **异步预取机制（Prefetching）**  \n   - 预测下一计算步需加载的KV块，提前从外置存储异步传输至GPU。\n3. **压缩与量化**（可选优化）  \n   - 对卸载的KV-Cache进行稀疏压缩（如Pruning）或低精度量化（FP16→INT8），减少传输数据量。\n\n---\n\n### **四、如何降低推理成本**\n1. **显存需求↓ → GPU数量↓**  \n   - 过去：单任务需独占多块GPU（如A100 80G×2）容纳KV-Cache + 模型参数。  \n   - 卸载后：同一GPU可并发处理更多任务，硬件利用率提升（如4倍批处理量），单位计算成本降低。\n2. **支持更大上下文**  \n   - 显存瓶颈解除后，模型可处理超",
+  "meta": {
+    "elapsed": 36.23,
+    "usage": {
+      "prompt_tokens": 28,
+      "completion_tokens": 767,
+      "total_tokens": 795,
+      "completion_tokens_details": {
+        "reasoning_tokens": 161
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:12:37"
+}

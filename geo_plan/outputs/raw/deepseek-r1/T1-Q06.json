@@ -1,0 +1,30 @@
+{
+  "query_id": "T1-Q06",
+  "tier": "T1",
+  "persona": "信创集成商",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "在华为昇腾平台上做推理，配套的高性能全闪加速存储推荐用哪家？",
+  "model_key": "deepseek-r1",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-r1",
+  "grade": "A",
+  "ok": true,
+  "response": "在华为昇腾平台上配置高性能全闪存储时，考虑到其对**低延迟、高吞吐及可靠性的极致需求**，以下几类存储解决方案较适合，具体选择需结合场景预算：\n\n### ⚡ 核心推荐方向\n1. **华为OceanStor Dorado全闪存**（首选生态方案）  \n   - **优势**：与昇腾平台深度适配，支持**NVMe over RoCE**协议，提供μs级延迟（如Dorado 8000X可达100μs内），并通过**SmartIO适配器**实现GPU direct存储访问，避免宿主机CPU瓶颈。\n   - **场景匹配**：适用于需与Atlas服务器进行RDMA网络直连的实时推理（如自动驾驶实时决策）。\n\n2. **Pure Storage FlashArray//XL系列**  \n   - **技术亮点**：基于QLC NAND+SCM（存储级内存）分层设计，提供**一致的低延迟**（<500μs），支持**AI Native数据缩减**（节省模型存储空间），并通过Pure File Services提供NFSv4.1加速。\n   - **适用场景**：多容器实例同时加载模型库的场景（如在线广告推荐系统的高并发推理）。\n\n3. **VAST Data Universal Storage**  \n   - **架构优势**：分布式全闪架构支持**全局命名空间**，**双控制器**设计可承载1000+昇腾节点的并发读取，尤其适合**千亿级参数模型并行加载**。\n   - **性能表现**：在Meta Llama-3 70B模型实测中，200节点同时加载仅需8秒（传统存储需分钟级）。\n\n### 🛠️ 关键配置建议\n- **协议栈**：强制启用 **NVMe-oF** + **RDMA（RoCEv2）**（避免TCP/IP堆栈延迟）  \n- **网络拓扑**：  \n  - 单机柜场景：采用 **TOR交换机组** + **100GbE DAC直连线缆**  \n  - 跨机柜场景：部署 **200Gb 低延时交换网络**（如Arista 7800R3系列）  \n- **存储基准参数**：  \n   ```plaintext\n   需求项          推荐阈值  \n   -----------------------------------------------\n   随机读IOPS       >1M/节点   (4K块)  \n   顺序读带宽       >5GB/s/节点  \n   尾延迟（99%）    <1ms  \n   HA切换时间       <30秒  \n   ```\n\n### ⚠️ 实际案例参考\n某自动驾驶公司使用**OceanStor Dorado 6800V6** + **Atlas 900**集群：  \n- **场景**：200路视频流实时检测（YOLOv7-tiny）  \n- **结果**：存储延迟从HDD方案的9ms降至",
+  "meta": {
+    "elapsed": 44.28,
+    "usage": {
+      "prompt_tokens": 23,
+      "completion_tokens": 1001,
+      "total_tokens": 1024,
+      "completion_tokens_details": {
+        "reasoning_tokens": 397
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:12:55"
+}

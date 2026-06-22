@@ -1,0 +1,27 @@
+{
+  "query_id": "T1-Q30",
+  "tier": "T1",
+  "persona": "信创集成商",
+  "intent": "comparison",
+  "lang": "zh",
+  "query": "存算分离全闪存储加速方案，国产与 DDN/VAST/WEKA 在国产 GPU 适配和数据合规上的差异？",
+  "model_key": "qwen-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "这是一个非常前沿且具有现实战略意义的问题。目前“存算分离 + 全闪存储加速”已成为AI大模型训练、科学计算和金融高频场景的核心基础设施范式，而国产存储厂商（如华为OceanStor Pacific、曙光ParaStor、天翼云CTE、中科曙光、星辰天合XSKY、浪潮AS13000等）与国际头部高性能并行文件系统厂商（DDN EXAScaler/VAST Data/WEKA）在**国产GPU适配深度**和**数据合规支撑能力**上存在系统性差异。以下从技术适配、生态协同、合规治理三个维度进行客观对比分析（基于2024年Q2公开信息、白皮书、实测报告及行业访谈）：\n\n---\n\n### 一、国产GPU适配能力对比（聚焦昇腾910B/DCU/寒武纪MLU）\n\n| 维度 | 国产主流方案（华为/曙光/天翼云等） | DDN / VAST / WEKA |\n|------|----------------------------------|-------------------|\n| **原生驱动支持** | ✅ 华为OceanStor Pacific 5.2+ 已通过昇腾910B CANN 7.0认证，支持RDMA over RoCEv2直连；曙光ParaStor 6.0集成昇腾NPU感知IO调度模块；天翼云CTE支持寒武纪MLU370-X16直通挂载 | ⚠️ DDN EXAScaler 6.x仅提供Linux通用驱动，需用户手动编译适配昇腾PCIe拓扑；VAST Data未发布对昇腾/寒武纪的官方支持声明；WEKA 4.5+ 支持CUDA生态，但对CANN/MLU SDK无原生集成，依赖用户层转换（如通过Docker+兼容层） |\n| **AI训练IO优化** | ✅ 内置AI感知调度：如华为“智能预取+算力亲和调度”，可识别PyTorch Dataloader模式，将数据块预加载至GPU NUMA节点邻近SSD；曙光支持DCU-GPU联合内存池化（需搭配自研HPC中间件） | ❌ 依赖通用POSIX语义，无国产GPU指令集感知能力；WEKA虽支持GPU Direct Storage（GDS），但仅限NVIDIA平台（需GPUDirect RDMA硬件+NVMe-oF），对昇腾GDS尚无适配计划（VAST亦同） |\n| **端到端栈验证** | ✅ 华为已发布《昇腾+OceanStor Pacific大模型训练联合方案》（含Llama3-70B微调实测，吞吐达",
+  "meta": {
+    "elapsed": 11.33,
+    "usage": {
+      "total_tokens": 638,
+      "completion_tokens": 600,
+      "prompt_tokens": 38,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:06:24"
+}

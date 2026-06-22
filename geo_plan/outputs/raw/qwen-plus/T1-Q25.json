@@ -1,0 +1,27 @@
+{
+  "query_id": "T1-Q25",
+  "tier": "T1",
+  "persona": "智算中心架构师",
+  "intent": "problem_solution",
+  "lang": "zh",
+  "query": "怎样在不增购 GPU 的前提下，靠存储加速把同等算力的 token 产出提升一截？",
+  "model_key": "qwen-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "这是一个非常实际且前沿的问题——在 GPU 算力（显存带宽、计算单元）不变的前提下，通过**存储栈优化**来提升 token 产出速率（即 tokens/sec），本质是**降低推理瓶颈中的 I/O 和内存延迟开销**，让 GPU 计算单元更“吃饱”、更少等待。以下是经过工业界验证、无需新增 GPU 的可行路径（按性价比和落地难度排序）：\n\n---\n\n### ✅ 核心思路：GPU 计算 ≠ 一直满载；瓶颈常在「数据搬运」而非「计算」\n典型 LLM 推理瓶颈分布（以 Llama-3-8B FP16 为例）：\n- **显存带宽瓶颈**（~40–60% 时间）：权重加载、KV Cache 读写、LoRA/Adapter 切换；\n- **PCIe 带宽瓶颈**（batch > 1 或动态 batching 时显著）：Host→GPU 的 prompt embedding / past_key_values 传输；\n- **CPU 内存延迟/带宽瓶颈**：Tokenizer、prefill 阶段 CPU 侧处理、缓存未命中导致的阻塞；\n- **文件 I/O 瓶颈**：模型分片加载、权重 offloading（如 vLLM 的 PagedAttention 启动时）、冷启动重加载。\n\n→ **目标：把“等待数据”的时间压缩到极致，提升 GPU 利用率（SM Util）和有效吞吐（tokens/sec）**\n\n---\n\n### 🔧 具体可落地的存储加速策略（零硬件增购）\n\n| 层级 | 方案 | 提升原理 | 预期收益 | 实施难度 | 工具/配置示例 |\n|------|------|-----------|------------|-------------|----------------|\n| **1. 显存内 KV Cache 优化** | ✅ **PagedAttention（vLLM） + 连续内存池** | 消除 KV Cache 碎片化，减少显存 realloc/realloc，提升显存带宽利用率 | +25%～40% tokens/sec（尤其 high-concurrency 场景） | ⭐⭐ | `vllm.LLM(..., enable_prefix_caching=True, max_num_seqs=256)` |\n| **2. 权重加载与缓存** | ✅ **模型权重 mmap + 预热 + GPU 显存预分配**<br>✅ **FP16/BF16 → AWQ/GPTQ 4-bit（无精度损失推理）** | 减少首次加载延迟；4-bit 权重使显存带宽需求↓75%，带宽受限场景直接受益 | mmap + warmup：+10–15% 首",
+  "meta": {
+    "elapsed": 15.7,
+    "usage": {
+      "total_tokens": 633,
+      "completion_tokens": 600,
+      "prompt_tokens": 33,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:06:16"
+}

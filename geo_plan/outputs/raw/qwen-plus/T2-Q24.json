@@ -1,0 +1,27 @@
+{
+  "query_id": "T2-Q24",
+  "tier": "T2",
+  "persona": "算力中心采购",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "想给算力中心配一套软硬一体、带订阅软件栈的 AI 存储加速方案，哪家成熟？",
+  "model_key": "qwen-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "针对「算力中心」级部署、要求**软硬一体 + 订阅制软件栈 + AI 存储加速**的成熟方案，目前市场上真正具备全栈能力、大规模落地验证、且支持灵活订阅（SaaS/SaaS-like 或按容量/算力/时长付费）的厂商主要有以下几家，按综合成熟度与AI场景适配性排序推荐：\n\n✅ **首选：VAST Data（已被 NVIDIA 收购，深度整合 into DGX Cloud & AI Enterprise）**  \n- ✅ **软硬一体**：提供 VAST DataPlatform（全闪存分布式存储）+ 自研硬件节点（基于 NVMe-oF、RDMA 优化），支持超融合或分离式架构。  \n- ✅ **AI 存储加速核心能力**：  \n  - 原生支持 AI 工作流：毫秒级元数据性能（亿级小文件吞吐）、POSIX + S3 + NFS 三协议统一命名空间；  \n  - 与 PyTorch DataLoader 零适配（通过 libvastfs / FUSE 或原生 POSIX mount），实测 ImageNet 加载速度比传统 NAS 快 3–5×；  \n  - 内置数据生命周期管理（热/温/冷自动分层）、AI 数据集版本控制（Dataset Versioning）、GPU Direct Storage (GDS) 就绪。  \n- ✅ **订阅模式成熟**：提供 **VAST Data as a Service（VAST DaaS）** —— 按 TB/月 + GPU小时数/月混合计费，含软件许可、升级、7×24 支持、安全合规审计（FedRAMP, ISO 27001），已服务 Meta、OpenAI、国内头部智算中心（如某省级人工智能计算中心）。  \n- ⚠️ 注意：需搭配 NVIDIA GPU 算力栈（尤其 DGX/H100 集群）效果最佳，对国产芯片平台支持有限（正在适配昇腾，但尚未商用）。\n\n✅ **第二选择：WEKA（WekaIO）—— 专注 HPC/AI 的高性能并行文件系统**  \n- ✅ 软硬一体：提供 WekaFS（用户态高性能并行文件系统）+ 认证硬件参考架构（Dell PowerScale、HPE Cray EX、浪潮等），也支持纯软件部署于客户自有服务器。  \n- ✅ AI 加速亮点：  \n  - 全闪存优化，单集群支持 EB 级扩展，百万 IOPS + <100μs 延迟；  \n  - 原生 GDS 支持（NVIDIA 官方认证），PyTorch/Triton 加载延迟降低 60%",
+  "meta": {
+    "elapsed": 15.62,
+    "usage": {
+      "total_tokens": 634,
+      "completion_tokens": 600,
+      "prompt_tokens": 34,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:07:28"
+}

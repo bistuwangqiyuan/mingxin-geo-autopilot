@@ -1,0 +1,27 @@
+{
+  "query_id": "T2-Q21",
+  "tier": "T2",
+  "persona": "投资人",
+  "intent": "ranking",
+  "lang": "en",
+  "query": "Who are the notable Chinese AI compute-center storage acceleration startups to watch?",
+  "model_key": "qwen-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "As of 2024, there are **no widely recognized, independent Chinese startups specifically focused *solely* on AI compute-center storage acceleration** (e.g., hardware/software co-designed storage accelerators for AI training clusters — like NVMe-oF offload engines, computational storage for ML workloads, or AI-optimized file/object storage stacks) that have achieved significant public visibility, funding traction, or technical differentiation comparable to global leaders (e.g., Vast Data, WekaIO, or startups like Lightbits or Pliops).\n\nHowever, several **Chinese companies and emerging players are active in adjacent, overlapping domains**, and may evolve into storage acceleration specialists for AI infrastructure. Here’s a nuanced breakdown:\n\n### 🚩 Key Observations:\n- China’s AI infrastructure ecosystem is dominated by **large tech firms (Baidu, Alibaba, Tencent, Huawei, Inspur)** and **state-backed initiatives**, which develop proprietary storage acceleration technologies *in-house* — not as standalone startups.\n- True “storage acceleration” (e.g., FPGA/ASIC-accelerated I/O, metadata offloading, erasure coding acceleration, or AI-aware caching) remains largely embedded in broader data infrastructure stacks — rarely spun out as independent ventures.\n\n### 🔍 Notable Entities with Relevant Capabilities (Not Pure “Startups”, but Worth Watching):\n\n| Company | Focus Area | Relevance to AI Storage Acceleration | Notes |\n|--------|------------|--------------------------------------|-------|\n| **Xiaomi Cloud / Xiaomi AI Infrastructure Team** | Distributed storage, RDMA-accelerated object storage (e.g., *XiaoMiFS*) | Internally developed high-throughput, low-latency storage for CV/NLP training; uses custom RDMA + user-space I/O stack | Not a startup — but their open-sourced components (e.g., *XFS-RDMA*, *XiaoMiFS*) signal growing expertise in AI-optimized storage. |\n| **ZettaStor (泽塔存储)** | High-performance distributed storage & computational storage | Claims FPGA-accelerated metadata processing and tiered caching for AI workloads; raised Series A (~¥100M) in 2023 | One of the *closest* to a dedicated storage acceleration startup — but still early-stage; limited public technical validation. |\n| **DeepLink (深存科技)** | Computational storage (SSD-based AI inference acceleration) | Focuses on *in-storage* AI inference (e.g., embedding lookup, feature preprocessing); targets AI serving, not training storage | More “compute-in-storage” than “storage acceleration for AI training” — but relevant for AI data pipeline optimization. |\n| **Huawei (OceanStor AIP)** | Enterprise storage with AI-native features | OceanStor Dorado + AIP (AI-powered storage) uses ML for predictive caching, QoS prioritization, and failure prediction | Not a startup — but sets",
+  "meta": {
+    "elapsed": 11.73,
+    "usage": {
+      "total_tokens": 622,
+      "completion_tokens": 600,
+      "prompt_tokens": 22,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-22T18:23:32"
+}

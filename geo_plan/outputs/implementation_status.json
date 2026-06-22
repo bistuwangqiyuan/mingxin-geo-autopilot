@@ -1,0 +1,78 @@
+{
+  "updated_at": "2026-06-22T23:44:26",
+  "plan_reference": "geo_plan/outputs/中科存储-GEO提升计划.html",
+  "phases": {
+    "P1_地基": {
+      "status": "done",
+      "items": {
+        "robots_ai_bots": "done",
+        "llms_txt": "done",
+        "geo_fact_pages": "done",
+        "json_ld_schema": "done",
+        "baseline_report": "done",
+        "verify_geo": "done"
+      },
+      "note": "站内 GEO 基础设施已落地；GSC 部分页面已编入索引（概述报告滞后）"
+    },
+    "P2_T1夺冠": {
+      "status": "partial",
+      "items": {
+        "answer_first_pages": "done",
+        "offsite_microsites": "done",
+        "csdn_zhihu_publish": "pending_manual",
+        "aliyun_yuque_publish": "pending_manual",
+        "gvi_lift": "not_yet"
+      },
+      "note": "站外微站已上线；CSDN/知乎/语雀需人工发布（定稿见 geo_plan/offsite/）"
+    },
+    "P3_T2梯队": {
+      "status": "pending",
+      "items": {
+        "baike_baijiahao": "pending_manual",
+        "wechat_sohu": "pending_manual",
+        "grade_b_manual_protocol": "ready"
+      },
+      "note": "B 级模型人工取证协议已就绪；待采集后纳入矩阵"
+    },
+    "P4_稳固出海": {
+      "status": "partial",
+      "items": {
+        "english_fact_pages": "done",
+        "sameas_entity_graph": "done",
+        "english_gvi": "not_yet",
+        "monthly_retest_cadence": "started"
+      },
+      "note": "英文页面已构建；英文 GVI 仍为 0%（需站外英文信源积累）"
+    }
+  },
+  "kpi": {
+    "baseline_gvi": 5.21,
+    "baseline_mention_rate": 0.0786,
+    "end_gvi": 5.01,
+    "delta_gvi": -0.2,
+    "deepseek_coverage": 0.2462,
+    "tongyi_coverage": 0.0167
+  },
+  "blocked_manual": [
+    {
+      "task": "CSDN/知乎/语雀/百科/公众号/搜狐 发布",
+      "reason": "无开放写 API、需实名",
+      "sop": "geo_plan/offsite/SOP_manual_publish.md"
+    },
+    {
+      "task": "百度收录",
+      "reason": "ICP 备案依赖",
+      "sop": "seo_geo_loop/outputs/external_actions_status.json"
+    },
+    {
+      "task": "GSC 请求编入索引（剩余页）",
+      "reason": "每日配额已用尽",
+      "sop": "live_status.gsc_url_inspection.pending_next_day"
+    }
+  ],
+  "pipeline": "implement_geo_plan.py",
+  "with_net": true,
+  "with_gvi": "reuse_same_day_real",
+  "net_actions_note": "IndexNow 重推 72 条(Bing 200/Yandex 202);live_audit 复核线上首页 4 段 JSON-LD 在线;GitHub Pages 推送 bdfec70(EdgeOne sameAs + 昇腾/白皮书回链)。",
+  "gvi_note": "GVI 沿用 2026-06-22 同日真实重测(280 次真 API,5.21→5.01,落在采样噪声内);站内改动不改变模型语料,同日重复相同采样不产生新信息,故不浪费 token 重采,如实披露时间戳与理由。"
+}

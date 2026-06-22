@@ -1,0 +1,27 @@
+{
+  "query_id": "T2-Q10",
+  "tier": "T2",
+  "persona": "智算中心架构师",
+  "intent": "comparison",
+  "lang": "zh",
+  "query": "提升算力中心 token 产出，是该扩 GPU 还是上存储加速？两条路线怎么权衡？",
+  "model_key": "qwen-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "这是一个非常关键且常被误解的问题——**“提升算力中心 token 产出”本质上不是单纯堆硬件，而是优化端到端推理/训练吞吐的瓶颈链路**。是否扩GPU还是上存储加速，需基于**当前真实瓶颈诊断**，而非经验主义选择。以下是系统性权衡框架：\n\n---\n\n### 🔍 一、先明确：Token 产出 = f(计算能力, 数据供给, 调度效率)\n- **Token/秒（TPS）** 取决于：\n  - ✅ **计算层**：GPU算力（TFLOPS）、显存带宽、kernel利用率（如FlashAttention是否启用）\n  - ✅ **存储/IO层**：模型权重加载速度（从SSD/NVMe/内存）、KV Cache持久化/交换延迟、数据预处理吞吐\n  - ✅ **软件栈**：推理引擎（vLLM/Triton）、PagedAttention、量化策略（INT4/AWQ）、批处理（batch size & max_seq_len）\n  - ⚠️ **隐性瓶颈**：PCIe带宽（GPU↔CPU↔SSD）、网络（多卡通信NCCL）、调度排队（请求队列积压）\n\n> 💡 关键洞察：**90%以上生产级LLM服务的token产出瓶颈不在GPU算力本身，而在“喂不饱GPU”——即数据供给不足或KV Cache管理低效。**\n\n---\n\n### ⚖️ 二、两条路线的适用场景与ROI对比\n\n| 维度                | 扩GPU（横向/纵向）                          | 上存储加速（NVMe+内存池+缓存优化）         |\n|---------------------|---------------------------------------------|---------------------------------------------|\n| **典型触发信号**     | GPU利用率持续 < 60%，但TPS上不去；<br>显存未满但请求排队长（`nvidia-smi`显示idle高） | GPU利用率 > 85%，但`iostat -x 1`显示SSD r_await > 20ms；<br>vLLM日志频繁出现`prefill latency spikes`或`swap-in latency` |\n| **核心解决痛点**     | 算力不足 → 并行处理更多请求                 | 模型加载慢、KV Cache交换慢、上下文切换卡顿    |\n| **典型方案**         | • 增加A100/H100卡（注意PCIe拓扑）<br>• 升级至Hopper架构（FP8加速）<br>• 启用TensorRT-LLM优化推理 | • 部署高速U.2 NVMe阵列（读取带宽 > 15GB/s）<br>• 使用内存映",
+  "meta": {
+    "elapsed": 11.97,
+    "usage": {
+      "total_tokens": 633,
+      "completion_tokens": 600,
+      "prompt_tokens": 33,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-22T18:23:11"
+}

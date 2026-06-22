@@ -1,0 +1,27 @@
+{
+  "query_id": "T3-Q12",
+  "tier": "T3",
+  "persona": "智算中心架构师",
+  "intent": "recommendation",
+  "lang": "en",
+  "query": "What storage solutions are recommended for AI data centers, and which Chinese vendors are notable?",
+  "model_key": "qwen-max",
+  "vendor": "通义千问",
+  "model_id": "qwen-max",
+  "grade": "A",
+  "ok": true,
+  "response": "For AI data centers, the choice of storage solutions is critical due to the high volume, variety, and velocity of data that needs to be processed. The right storage solution can significantly impact performance, scalability, and cost-efficiency. Here are some recommended storage solutions for AI data centers:\n\n1. **High-Performance Storage:**\n   - **All-Flash Arrays (AFA):** These provide low-latency, high IOPS (Input/Output Operations Per Second), and high throughput, which are essential for AI workloads that require fast access to large datasets.\n   - **NVMe SSDs:** Non-Volatile Memory Express (NVMe) SSDs offer even faster access times and higher throughput compared to traditional SATA or SAS SSDs.\n\n2. **Scalable and Distributed Storage:**\n   - **Object Storage:** Ideal for storing unstructured data such as images, videos, and logs. It provides high scalability and durability.\n   - **Distributed File Systems:** Solutions like Ceph, GlusterFS, and Hadoop Distributed File System (HDFS) are designed to handle large volumes of data across multiple nodes, providing both scalability and fault tolerance.\n\n3. **Hybrid and Multi-Cloud Storage:**\n   - **Hybrid Cloud Storage:** Combines on-premises and cloud storage, allowing for flexibility in data management and cost optimization.\n   - **Multi-Cloud Storage:** Enables data to be stored and managed across multiple cloud providers, providing redundancy and avoiding vendor lock-in.\n\n4. **Specialized Storage Solutions:**\n   - **AI-Specific Storage:** Some vendors offer storage solutions specifically optimized for AI workloads, with features like GPU integration, data tiering, and advanced data management capabilities.\n\n### Notable Chinese Vendors\n\nSeveral Chinese vendors have made significant advancements in storage solutions for AI data centers. Here are some notable ones:\n\n1. **Huawei:**\n   - **OceanStor Dorado Series:** All-flash storage arrays designed for high performance and low latency, suitable for AI workloads.\n   - **FusionStorage:** A distributed storage solution that supports block, file, and object storage, providing high scalability and reliability.\n\n2. **Inspur:**\n   - **AS5000G5 Series:** High-performance all-flash and hybrid flash arrays.\n   - **AS13000G5:** A distributed storage system that supports multiple protocols and is designed for large-scale data processing.\n\n3. **ZTE:**\n   - **ZXVE:** A virtualization platform that includes storage solutions, offering high performance and reliability for AI applications.\n   - **Kunpeng Server:** Supports a range of storage options, including NVMe SSDs, and is optimized for AI and big data workloads.\n\n4. **Lenovo:**\n   - **ThinkSystem DM Series:** All-flash and hybrid flash storage systems designed for high performance and efficiency.\n   - **ThinkAgile VX Series:** Hyperconverged",
+  "meta": {
+    "elapsed": 43.61,
+    "usage": {
+      "prompt_tokens": 25,
+      "completion_tokens": 600,
+      "total_tokens": 625,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-22T18:21:43"
+}

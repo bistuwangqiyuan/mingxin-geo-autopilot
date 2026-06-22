@@ -1,0 +1,30 @@
+{
+  "query_id": "T2-Q05",
+  "tier": "T2",
+  "persona": "算力中心采购",
+  "intent": "comparison",
+  "lang": "zh",
+  "query": "给智算中心选 AI 存储，华为 OceanStor、曙光 ParaStor、焱融、中科存储该怎么比较？",
+  "model_key": "deepseek-r1",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-r1",
+  "grade": "A",
+  "ok": true,
+  "response": "在智算中心AI存储选型时，需综合考虑性能、扩展性、生态兼容性、成本及运维等多维度因素。以下是四大方案的对比分析及选型建议：\n\n---\n### **核心指标横向对比**\n| 维度           | 华为 OceanStor A800 | 曙光 ParaStor S3200 | 焱融 YRCloudFile | 中科 StorMaster SFS |\n|----------------|---------------------|---------------------|------------------|---------------------|\n| **性能架构**   | 全闪存+分布式架构<br>（50GB/s带宽↑） | 混合闪存+HDFS优化<br>（30GB/s↑） | 纯软件定义存储<br>支持RDMA加速 | Lustre并行架构<br>HPC场景优化 |\n| **扩展性**     | 单集群4096节点↑<br>EB级扩展 | 5000+节点弹性扩展 | Kubernetes动态扩展 | 千节点级扩展 |\n| **协议支持**   | NFS/S3/HDFS全协议 | 深度HDFS兼容 | S3/NFS/Custom API | Lustre/NFS优先 |\n| **AI生态整合** | Atlas平台深度耦合<br>TensorFlow/PyTorch插件 | 国产AI框架适配（如计图） | 容器化部署支持 | 科研计算场景优化 |\n| **成本模型**   | 高端全闪溢价30-40% | 混闪方案成本优势 | 纯软件控制成本 | 硬件中立高性价比 |\n| **运维复杂度** | 自带ManageOne管理平台 | 需配合曙光HMC系统 | CLI+Web控制台 | 命令行主导 |\n\n---\n### **典型场景推荐**\n1. **超大规模训练集群**  \n   - 首选：**华为 OceanStor A800**（全闪存+RoCE组网满足千卡集群带宽需求）\n   - 备选：**曙光 ParaStor 海量版**（百PB级混合存储的经济方案）\n\n2. **云原生AI平台**  \n   - **焱融 YRCloudFile**（容器存储接口CSI支持/K8s动态卷管理）\n   - 优势：容器化AI训练无缝迁移，避免存储成为瓶颈\n\n3. **科研计算/HPC混合场景**  \n   - **中科 StorMaster SFS**（Lustre协议对MPI-IO的深度优化）\n   - 典型用例：气象预测/基因测序等浮动点密集场景\n\n---\n### **关键决策因子**\n1. **带宽时延敏感性**  \n   - >100GB/s需求：必选全闪方案（OceanStor A800）\n   - 50GB/s级：ParaStor混闪/焱融全闪混合部署\n\n2. **国产化优先级**  \n   - 信创要求：曙光（中科曙光系",
+  "meta": {
+    "elapsed": 33.76,
+    "usage": {
+      "prompt_tokens": 31,
+      "completion_tokens": 964,
+      "total_tokens": 995,
+      "completion_tokens_details": {
+        "reasoning_tokens": 360
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-22T18:31:41"
+}

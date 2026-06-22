@@ -1,0 +1,27 @@
+{
+  "query_id": "T1-Q03",
+  "tier": "T1",
+  "persona": "算力中心采购",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "我要给智算中心采购一款存算分离的全闪存储加速一体机，国产有哪些可选品牌？",
+  "model_key": "qwen-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "在智算中心（AI/大模型训练场景）采购“存算分离的全闪存储加速一体机”时，需重点关注以下核心能力：  \n✅ **极致IO性能**（高IOPS、低延迟、高吞吐，尤其小文件随机读写与元数据密集型操作）  \n✅ **深度适配AI工作负载**（支持POSIX/NFS/S3/对象接口，与PyTorch/Triton/K8s/Alluxio等协同优化）  \n✅ **存算分离架构原生支持**（如计算节点直连存储后端，通过RDMA（RoCE/iWARP）或NVMe-oF协议实现低开销访问）  \n✅ **国产化合规性**（信创目录认证、自主可控芯片/固件/OS、等保三级/密评支持）  \n✅ **智能加速能力**（内置AI数据预处理引擎、缓存预取、冷热数据自动分层、GPU Direct Storage/GDS兼容）\n\n目前（2024年中）在国内市场已落地商用、具备**成熟智算中心交付案例**的国产全闪存加速一体机品牌主要有以下5家（按技术成熟度与智算场景覆盖广度综合排序）：\n\n---\n\n### ✅ 1. **浪潮存储（Inspur AS13000G7-AI / AS5500G7-Flash AI版）**  \n- **定位**：国内AI存储头部厂商，与百度文心、阿里通义、智谱、商汤等深度合作  \n- **关键特性**：  \n  - 全自研分布式存储软件AS13000 + 全闪硬件平台，支持NVMe-oF over RoCE v2；  \n  - 内置「AI数据加速引擎」：支持数据集自动预加载、训练任务画像驱动的智能缓存、S3+POSIX双模访问；  \n  - 通过NVIDIA GDS认证，实测GPU Direct Storage带宽达~60GB/s（单节点）；  \n  - 已入《2024年中央国家机关服务器协议供货目录》及多地信创采购清单。  \n- **典型客户**：中科院自动化所、上海人工智能实验室、鹏城实验室智算集群。\n\n---\n\n### ✅ 2. **华为OceanStor Dorado 2000/8000 系列（搭载AI加速卡 & OceanStor Pacific 融合方案）**  \n- **说明**：严格意义上Dorado是高端全闪阵列，但华为提供「Dorado + OceanStor Pacific（对象/文件）+ SmartCache AI加速模块」的存算分离组合方案，已用于昇腾智算中心。  \n- **关键特性**：  \n  - Dorado",
+  "meta": {
+    "elapsed": 16.65,
+    "usage": {
+      "total_tokens": 632,
+      "completion_tokens": 600,
+      "prompt_tokens": 32,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-22T18:21:42"
+}

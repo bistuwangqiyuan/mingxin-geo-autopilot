@@ -1,0 +1,325 @@
+{
+  "computed_at": "2026-06-23T00:16:34",
+  "method_note": "收录/排名为 agent web_search 实查(无付费 SERP API);在线技术 SEO 为线上 HTML 确定性核对;性能见 lighthouse.json(method=psi/lab)。",
+  "indexing": {
+    "google_site": "partial_indexed(2026-06-22 经 GSC 网址检查实证:zh/index、zh/product、zh/kv-cache-offload 显示『网页已编入索引』;概述『编制索引』报告滞后仍显示 0 已收录)",
+    "bing_site": "not_indexed(公开 site: 检索;IndexNow 已推送待抓取)",
+    "baidu": "pending(ICP 备案后复核)"
+  },
+  "ranking_summary": "目标词未进入排名;品牌词头部被『中科曙光 FlashNexus/ParaStor』占据(品牌混淆风险已确认,已上线实体消歧缓解)。",
+  "serp_observation_date": "2026-06-22",
+  "serp_observations_today": [
+    {
+      "engine": "google",
+      "query": "site:goni.top",
+      "our_position": "not_indexed",
+      "observed_top_domains": "(none)",
+      "source": "agent_web_search",
+      "notes": "公开检索 site:goni.top 仍无结果(2026-06-22 复查);GSC 网址检查则显示部分页『已编入索引』,公开索引滞后于 GSC。"
+    },
+    {
+      "engine": "google",
+      "query": "中科存储 WS5000 存算分离 全闪存储",
+      "our_position": "not_ranked",
+      "observed_top_domains": "dobigdata.cn;elecfans.com;news.qq.com;sugon.com;dostor.com",
+      "source": "agent_web_search",
+      "notes": "2026-06-22 复查:头部被中科曙光 FlashNexus/ParaStor 占据,goni.top 未进榜;『中科存储/中科曙光』品牌混淆风险确认,已上线 Organization 实体消歧(legalName+disambiguatingDescription)缓解。"
+    },
+    {
+      "engine": "bing",
+      "query": "site:goni.top",
+      "our_position": "not_indexed",
+      "observed_top_domains": "(none)",
+      "source": "agent_web_search",
+      "notes": "必应公开检索零收录(沿用同期观测);IndexNow 已多次推送 68 条 URL(Bing 200),待其抓取入库。"
+    },
+    {
+      "engine": "baidu",
+      "query": "中科存储",
+      "our_position": "unknown",
+      "observed_top_domains": "(未抽样)",
+      "source": "pending",
+      "notes": "百度需备案后复核(ICP 依赖)"
+    }
+  ],
+  "serp_rows_appended": 4,
+  "live_onpage": [
+    {
+      "url": "https://goni.top/zh/index.html",
+      "status": 200,
+      "onpage": {
+        "title": "中科存储 WS5000 全闪加速存储算力一体机",
+        "has_description": true,
+        "canonical": true,
+        "hreflang_count": 3,
+        "h1_count": 1,
+        "jsonld_count": 4,
+        "jsonld_types": [
+          "BreadcrumbList",
+          "Organization",
+          "WebPage",
+          "WebSite"
+        ],
+        "og": true,
+        "twitter_title": true,
+        "theme_color": true,
+        "search_action": true,
+        "key_facts_block": true,
+        "last_updated_time": true,
+        "html_len": 18712
+      }
+    },
+    {
+      "url": "https://goni.top/zh/product.html",
+      "status": 200,
+      "onpage": {
+        "title": "产品 · WS5000 / WS7000 · 中科存储",
+        "has_description": true,
+        "canonical": true,
+        "hreflang_count": 3,
+        "h1_count": 1,
+        "jsonld_count": 4,
+        "jsonld_types": [
+          "BreadcrumbList",
+          "Organization",
+          "WebPage",
+          "WebSite"
+        ],
+        "og": true,
+        "twitter_title": true,
+        "theme_color": true,
+        "search_action": true,
+        "key_facts_block": true,
+        "last_updated_time": true,
+        "html_len": 19697
+      }
+    },
+    {
+      "url": "https://goni.top/en/index.html",
+      "status": 200,
+      "onpage": {
+        "title": "ZK-Storage WS5000 · All-Flash Accelerated Storage for AI",
+        "has_description": true,
+        "canonical": true,
+        "hreflang_count": 3,
+        "h1_count": 1,
+        "jsonld_count": 4,
+        "jsonld_types": [
+          "BreadcrumbList",
+          "Organization",
+          "WebPage",
+          "WebSite"
+        ],
+        "og": true,
+        "twitter_title": true,
+        "theme_color": true,
+        "search_action": true,
+        "key_facts_block": true,
+        "last_updated_time": true,
+        "html_len": 22980
+      }
+    }
+  ],
+  "live_deploy_has_session_upgrades": true,
+  "deploy_note": "线上 goni.top 已部署本会话全部站内优化:线上实测 product.html 已无商品级 Product 标记(merchant_product_removed=True)、首页含 SpeakableSpecification/SearchAction;本次新增 Organization legalName + disambiguatingDescription(实体消歧)亦已随最新提交部署上线。",
+  "gvi": {
+    "start": 5.21,
+    "end": 5.01
+  },
+  "cri_local_best": 96.44,
+  "lighthouse": {
+    "computed_at": "2026-06-22T18:31:10",
+    "results": [
+      {
+        "method": "lab",
+        "ok": true,
+        "url": "https://goni.top/zh/index.html",
+        "collected_at": "2026-06-22T18:30:44",
+        "metrics": {
+          "ttfb": 1253.7999999523163,
+          "domContentLoaded": 3514.7999999523163,
+          "load": 5773.199999928474,
+          "fcp": 3556,
+          "lcp": 4564,
+          "cls": 0.0006800161721434829,
+          "resourceCount": 10,
+          "transferBytes": 399157
+        },
+        "html_len": 19007,
+        "onpage": {
+          "title": true,
+          "meta_description": true,
+          "canonical": true,
+          "h1": 1,
+          "hreflang": 3,
+          "og": true,
+          "jsonld_types": [
+            "BreadcrumbList",
+            "Organization",
+            "WebPage",
+            "WebSite"
+          ],
+          "viewport": true
+        }
+      },
+      {
+        "method": "lab",
+        "ok": true,
+        "url": "https://goni.top/zh/product.html",
+        "collected_at": "2026-06-22T18:30:53",
+        "metrics": {
+          "ttfb": 1217.6000000238419,
+          "domContentLoaded": 3166.9000000953674,
+          "load": 5133.700000047684,
+          "fcp": 3184,
+          "lcp": 4192,
+          "cls": 0.0006800161721434829,
+          "resourceCount": 10,
+          "transferBytes": 398737
+        },
+        "html_len": 20029,
+        "onpage": {
+          "title": true,
+          "meta_description": true,
+          "canonical": true,
+          "h1": 1,
+          "hreflang": 3,
+          "og": true,
+          "jsonld_types": [
+            "BreadcrumbList",
+            "Organization",
+            "WebPage",
+            "WebSite"
+          ],
+          "viewport": true
+        }
+      },
+      {
+        "method": "lab",
+        "ok": true,
+        "url": "https://goni.top/en/index.html",
+        "collected_at": "2026-06-22T18:31:02",
+        "metrics": {
+          "ttfb": 1655.3999999761581,
+          "domContentLoaded": 3565.2000000476837,
+          "load": 5131.600000023842,
+          "fcp": 3588,
+          "lcp": 4580,
+          "cls": 0.0008520571775153357,
+          "resourceCount": 10,
+          "transferBytes": 399145
+        },
+        "html_len": 23226,
+        "onpage": {
+          "title": true,
+          "meta_description": true,
+          "canonical": true,
+          "h1": 1,
+          "hreflang": 3,
+          "og": true,
+          "jsonld_types": [
+            "BreadcrumbList",
+            "Organization",
+            "WebPage",
+            "WebSite"
+          ],
+          "viewport": true
+        }
+      }
+    ]
+  },
+  "indexnow": {
+    "submitted_at": "2026-06-23T00:16:12+08:00",
+    "url_count": 72,
+    "endpoints": {
+      "indexnow.org": 200,
+      "bing": 200,
+      "yandex": 200
+    }
+  },
+  "index_acceleration_checklist": [
+    "完成 ICP 备案(百度收录的前置;影响国内可见性)",
+    "开通并验证 Google Search Console / 百度站长 / Bing Webmaster,提交 sitemap.xml",
+    "用 IndexNow(已具 key 文件)推送 Bing/Yandex;Google 用 GSC URL Inspection 请求编入",
+    "向 sitemap ping 端点提交;确保 robots.txt 放行(已具)",
+    "通过站外高权重信源(GitHub/CDN 微站/百科/媒体)建立指向 goni.top 的真实外链",
+    "缓解品牌混淆:强化『中科存储 ZK-Storage / WS5000』实体词与 sameAs 实体锚点"
+  ],
+  "gsc_account": {
+    "checked_at": "2026-06-22T00:45:00+08:00",
+    "account": "REDACTED_GOOGLE_ACCOUNT",
+    "properties": [
+      {
+        "property": "sc-domain:goni.top",
+        "type": "域名资源(覆盖全子域+http/https)",
+        "verified": true
+      }
+    ],
+    "property_count": 1,
+    "note": "该谷歌账号仅有 goni.top 一个已验证属性(域名资源)。“所有网站”=goni.top。如需纳入其它站点,需先在 GSC「添加资源」并完成验证。",
+    "sitemap_status": {
+      "url": "https://goni.top/sitemap.xml",
+      "state": "成功(Success)",
+      "last_read": "2026-06-21",
+      "note": "先前为「无法抓取」(处理中),现已被 Google 成功读取。"
+    }
+  },
+  "gsc_url_inspection": {
+    "performed_at": "2026-06-22T00:15:00+08:00",
+    "method": "用户在浏览器登录 GSC(域名资源 sc-domain:goni.top, REDACTED_GOOGLE_ACCOUNT)后,助手经浏览器逐页『网址检查』并点击『请求编入索引』,每次均为真实 GSC 实时测试与确认弹窗,如实记录。",
+    "daily_quota_note": "GSC『请求编入索引』有每日配额;本日第 7 次请求触发『超出了配额』弹窗,故 6 次成功后停止,剩余页面需次日继续。",
+    "rerun_note_2026-06-22T18:14": "全量重跑复核:当日(2026-06-22)『请求编入索引』配额已于 00:15 用尽(6 次成功+第 7 次超额);且检测到浏览器 GSC 会话正用于另一属性(sc-domain:zoka.top)。为不打断用户当前会话且配额已耗尽,本轮不重复请求,pending_next_day 页面顺延次日;已对全站重推 IndexNow(Bing 200/Yandex 202)作为补充收录信号。",
+    "requested_ok": [
+      {
+        "url": "https://goni.top/en/index.html",
+        "prior_status": "未编入索引",
+        "result": "已加入优先抓取队列"
+      },
+      {
+        "url": "https://goni.top/",
+        "prior_status": "未找到(404,上次抓取 2026-04-28,旧部署遗留)",
+        "result": "已加入优先抓取队列;现线上为 200,重抓后应纠正"
+      },
+      {
+        "url": "https://goni.top/zh/index.html",
+        "prior_status": "网页已编入索引",
+        "result": "已请求重抓(内容更新)"
+      },
+      {
+        "url": "https://goni.top/zh/product.html",
+        "prior_status": "已编入索引,但『产品摘要』检测到 1 项无效内容",
+        "result": "已请求重抓"
+      },
+      {
+        "url": "https://goni.top/zh/kv-cache-offload.html",
+        "prior_status": "网页已编入索引",
+        "result": "已请求重抓"
+      },
+      {
+        "url": "https://goni.top/zh/ai-inference-storage.html",
+        "prior_status": "未编入索引(Google 无法识别此网址)",
+        "result": "已加入优先抓取队列"
+      }
+    ],
+    "failed_quota": [
+      {
+        "url": "https://goni.top/zh/technology.html",
+        "prior_status": "未编入索引",
+        "result": "超出当日配额,未提交"
+      }
+    ],
+    "pending_next_day": [
+      "https://goni.top/zh/technology.html",
+      "https://goni.top/zh/solutions.html",
+      "https://goni.top/zh/faq.html",
+      "https://goni.top/zh/about.html",
+      "https://goni.top/en/product.html",
+      "https://goni.top/en/kv-cache-offload.html"
+    ],
+    "findings": [
+      "重要(正面):谷歌已实际开始收录 goni.top — zh/index、zh/product、zh/kv-cache-offload 均显示『网页已编入索引』,推翻『零收录』旧判断;概述报告存在滞后。",
+      "根因定位:GSC『404』来源于首页 / 在旧部署(2026-04-28 抓取)返回 404;现已修复为 200,本次已请求重抓。",
+      "待修复:product.html 的 Product 结构化数据被判『1 项无效内容』(缺 offers/review/aggregateRating 之一,无法进入商品富结果)。因 B2B 无公开价/评分,需决定补『询价 Offer』或移除商品级标记。"
+    ]
+  }
+}

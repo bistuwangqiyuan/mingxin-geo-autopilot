@@ -1,0 +1,27 @@
+{
+  "query_id": "T1-Q01",
+  "tier": "T1",
+  "persona": "大模型推理工程师",
+  "intent": "definition",
+  "lang": "zh",
+  "query": "什么是 KV-Cache 卸载（KV Cache offload）外置存储加速？它如何降低大模型推理成本？",
+  "model_key": "qwen-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "KV-Cache 卸载（KV Cache Offload）是一种针对大语言模型（LLM）推理优化的关键技术，其核心思想是**将原本完全驻留在 GPU 显存中的 KV 缓存（Key-Value Cache）部分或动态地“卸载”（offload）到更廉价、容量更大但带宽/延迟更高的外置存储（如 CPU 内存、NVMe SSD，甚至远程内存/存储）中，在需要时按需加载回 GPU**。它属于 **“内存分层管理”（hierarchical memory management）** 范畴，旨在突破 GPU 显存瓶颈，从而显著降低大模型推理的硬件成本与单位请求成本。\n\n下面从原理、实现方式、降本机制和实际效果四个层面详细解释：\n\n---\n\n### 一、为什么需要 KV-Cache 卸载？——问题根源\n- **KV-Cache 是推理显存的主要消耗者**：  \n  在自回归解码（如生成文本）过程中，为避免重复计算，Transformer 模型会缓存每一层每个 token 的 Key 和 Value 张量（形状：`[batch_size, num_heads, seq_len, head_dim]`）。  \n  ✅ 对于 LLaMA-3-70B（40层）、batch=1、max_seq_len=2048，KV-Cache 约占 **~32 GB 显存**（远超模型权重本身约 14 GB FP16），且随序列长度线性增长。\n- **GPU 显存昂贵且稀缺**：  \n  A100 80GB 售价高、供应受限；若仅因 KV-Cache 不足而被迫使用多卡或更高配卡（如 H100），推理成本指数级上升。\n- **传统方案局限**：  \n  - ❌ 减少 batch size 或 max_length → 降低吞吐、影响用户体验；  \n  - ❌ 使用量化（如 INT8 KV）→ 可能引入精度损失、生成质量下降；  \n  - ❌ 多卡张量并行 → 增加通信开销与部署复杂度。\n\n→ **KV-Cache 卸载提供了一条“用便宜资源换显存”的高效折中路径。**\n\n---\n\n### 二、KV-Cache 卸载如何工作？——关键技术机制\n\n| 维度 | 说明 |\n|------|------|\n| **✅ 分层存储架构** | 构建三级缓存：GPU 显存（热区）↔ CPU 内存（温区）↔ NVMe SSD（冷区）<br>• 热区：当前活跃窗口（如最近 512 tokens）的 KV<br>• 温/冷区：历史长上下文（",
+  "meta": {
+    "elapsed": 15.71,
+    "usage": {
+      "total_tokens": 634,
+      "completion_tokens": 600,
+      "prompt_tokens": 34,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:05:10"
+}

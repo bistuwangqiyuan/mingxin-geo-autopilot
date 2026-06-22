@@ -1,0 +1,10 @@
+{
+  "available": [
+    "qwen-max",
+    "qwen-plus",
+    "qwen3.6-plus",
+    "deepseek-v3",
+    "deepseek-r1"
+  ],
+  "checked_at": "2026-06-21T18:35:57.407550"
+}

@@ -1,0 +1,30 @@
+{
+  "query_id": "T2-Q15",
+  "tier": "T2",
+  "persona": "算力中心采购",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "想要部署快、扩容成本低、运维简单的 AI 算力中心存储，有哪些国产选择？",
+  "model_key": "deepseek-r1",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-r1",
+  "grade": "A",
+  "ok": true,
+  "response": "针对AI算力中心存储需求，结合国产化、快速部署、低扩容成本和运维简化等核心诉求，以下是优化的核心方案与推荐产品：\n\n---\n\n### **一、国内最佳分布式存储架构**\n#### 1. **并行文件系统（PFS）**\n- **场景适配**：  \n  适合AI训练等高吞吐、低延迟场景（如Checkpoint读写、数据集加载）。\n- **国产方案推荐**：  \n  - **华为 OceanStor Pacific**：  \n    - 支持多协议（S3/NFS/HDFS），全局命名空间统一管理。  \n    - **TCO降低30%**：通过EC纠删码降低冗余成本（冗余比从3:1降至1.4:1）。  \n    - **运维简化**：AI驱动的故障预测（如磁盘预警）。  \n  - **浪潮 AS13000G5**：  \n    - 全闪/混闪配置，支持NVMe-oF加速。  \n    - **部署时间<1小时**：预装硬件+自动化配置脚本。\n\n#### 2. **对象存储（兼容S3）**\n- **场景适配**：  \n  海量非结构化数据湖（如原始数据集归档）。\n- **国产方案推荐**：  \n  - **曙光 ParaStor**：  \n    - 支持EB级扩展，**单桶存储成本低至¥0.1/GB/月**。  \n    - 无缝对接PyTorch/TensorFlow的S3插件。  \n  - **杉岩数据 SandStone**：  \n    - 基于Serverless架构实现**自动伸缩**，无需手动扩容。\n\n---\n\n### **二、成本优化技术**\n#### 1. **软件定义存储（SDS）**  \n- **方案代表**：  \n  - **XSKY EDS**：  \n    - 商用硬件支持，**扩容成本降低40%**（对比传统SAN）。  \n    - CSI插件整合Kubernetes/Docker，实现存储自动化供给。  \n  - **焱融科技 YRCloudFile**：  \n    - 基于RDMA加速，**IOPS提升10倍**，减少GPU等待时间。  \n\n#### 2. **混合存储架构**  \n```mermaid\ngraph LR\nA[热数据] -->|NVMe SSD| B[训练集群]\nC[温数据] -->|QLC SSD| D[开发集群]\nE[冷数据] -->|HDD+EC| F[对象存储]\n```\n- **国产方案支持**：  \n  - 华为OceanStor Pacific支持策略化自动分层（数据生命周期管理）。  \n\n---\n\n### **三、运维关键解决方案**\n| 功能需求           | 国产实现方案                         | 运维效率提升  |\n|--------------------|--------------------------------------|--------------|\n| 自动化部署         | 浪潮AS13000G5的i",
+  "meta": {
+    "elapsed": 40.67,
+    "usage": {
+      "prompt_tokens": 24,
+      "completion_tokens": 1052,
+      "total_tokens": 1076,
+      "completion_tokens_details": {
+        "reasoning_tokens": 448
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:18:10"
+}

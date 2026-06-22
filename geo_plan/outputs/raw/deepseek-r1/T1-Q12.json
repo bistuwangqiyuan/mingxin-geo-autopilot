@@ -1,0 +1,30 @@
+{
+  "query_id": "T1-Q12",
+  "tier": "T1",
+  "persona": "信创集成商",
+  "intent": "comparison",
+  "lang": "zh",
+  "query": "存算分离全闪加速存储里，中科存储 WS7000 和华为、焱融的 AI 存储相比有什么差异？",
+  "model_key": "deepseek-r1",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-r1",
+  "grade": "A",
+  "ok": true,
+  "response": "我将从中科存储、华为、焱融三家产品在**面向存算分离场景的AI全闪加速存储**方面的技术差异、适用场景和特点进行详细对比分析：\n\n---\n\n### 核心差异对比表\n| **维度**           | **中科存储 WS7000**           | **焱融 AI 存储 (YRCloudFile)**           | **华为 OceanStor A系列全闪存**         |\n|--------------------|--------------------------------|------------------------------------------|---------------------------------------|\n| **基础架构**       | 分布式架构，Scale-Out          | 分布式架构，软件定义存储 (SDS)           | 高端全闪阵列 (集中式 + Scale-Out可选) |\n| **典型协议支持**   | NVMe-oF、NFS、S3               | NVMe-oF、NFS、S3                         | NVMe-oF、FC、NFS、S3、SCM            |\n| **定位重点**       | 高吞吐/低延迟聚合性能          | 容器化/云原生优化、高IOPS小文件性能      | 企业级高可用性 + 性能 + 综合功能      |\n| **关键技术亮点**   | RDMA网络加速、全局Cache管理    | 容器PVC适配、小文件元数据优化、云协同    | 端到端NVMe、SmartNoF、HyperMetro      |\n| **AI特化功能**     | Model数据流编排                | GPU资源池化管理                          | AI负载纳管 (结合Atlas存储联动)        |\n| **生态整合**       | 支持国产化芯片 + 主流框架      | 深度兼容K8s/Spark/Ray                    | 华为AI平台Ascend/ModelArts原生支持   |\n| **部署灵活性**     | 软硬件一体机/纯软件            | 纯软件多硬件支持 + 全栈云存储            | 主推一体机                            |\n| **数据保护机制**   | 分布式EC纠删码                 | 多副本 + EC                              | RAID2.0 + 双活 + 站间复制             |\n\n---\n\n### 深度解析差异点\n\n#### 1. **架构设计思路不同**\n   - **中科存储WS7000**：坚持**全分布式Scale-Out架构**，利用多点协作分散负载，单集群支持**PB→EB级**水平扩展，适合大规模AI训练资源池建设。\n   - **华为OceanStor A系列**：在**集中式高性能双控**基础上可选Scale-Out扩展柜，提供高性能+服务连续性组合，适用于大型企业级传统AI部署。\n   - **焱融YRCloudFile**：**纯软件SDS架构**+全闪存性能，支持裸金属/云/容器部署场景，轻量化部署适合混合DevOps型AI团队。\n\n#### 2. **性能优化维度",
+  "meta": {
+    "elapsed": 47.55,
+    "usage": {
+      "prompt_tokens": 32,
+      "completion_tokens": 1093,
+      "total_tokens": 1125,
+      "completion_tokens_details": {
+        "reasoning_tokens": 488
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:13:56"
+}

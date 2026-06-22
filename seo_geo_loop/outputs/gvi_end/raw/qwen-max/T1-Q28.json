@@ -1,0 +1,27 @@
+{
+  "query_id": "T1-Q28",
+  "tier": "T1",
+  "persona": "智算中心架构师",
+  "intent": "recommendation",
+  "lang": "en",
+  "query": "Which vendors offer a disaggregated all-flash storage acceleration appliance for AI inference and training?",
+  "model_key": "qwen-max",
+  "vendor": "通义千问",
+  "model_id": "qwen-max",
+  "grade": "A",
+  "ok": true,
+  "response": "Several vendors offer disaggregated all-flash storage solutions that can be used to accelerate AI inference and training. These solutions are designed to provide high performance, low latency, and scalable storage for the demanding workloads of AI applications. Here are some notable vendors in this space:\n\n1. **Pure Storage**:\n   - **FlashBlade**: A high-performance, all-flash storage system that is well-suited for AI and machine learning workloads. It offers high throughput and low latency, making it a good fit for both AI training and inference.\n   - **AIRI (AI-Ready Infrastructure)**: A joint solution with NVIDIA, combining Pure Storage's FlashBlade with NVIDIA DGX systems, specifically designed for AI workloads.\n\n2. **NVIDIA**:\n   - **Magnum IO**: While not a storage appliance per se, Magnum IO is a suite of software and hardware technologies that optimize I/O performance for AI, HPC, and data analytics. It works with various storage solutions to enhance performance.\n   - **DGX Systems**: NVIDIA's DGX systems are often paired with high-performance storage solutions from other vendors to create a complete AI infrastructure.\n\n3. **Dell Technologies**:\n   - **PowerMax**: An all-flash storage array that can be used for AI workloads, offering high performance and low latency.\n   - **Isilon**: A scale-out NAS solution that can be used for unstructured data, which is common in AI and machine learning.\n\n4. **HPE (Hewlett Packard Enterprise)**:\n   - **Primera**: An all-flash storage solution that provides high performance and reliability, suitable for AI workloads.\n   - **Apollo Systems**: HPE's Apollo systems are designed for high-performance computing and can be configured with high-speed storage for AI workloads.\n\n5. **IBM**:\n   - **FlashSystem**: IBM's all-flash storage arrays, including the FlashSystem 9200, are designed for high performance and can be used for AI and machine learning workloads.\n   - **Spectrum Scale**: A software-defined storage solution that can be used with all-flash hardware to provide a scalable and high-performance storage environment for AI.\n\n6. **NetApp**:\n   - **AFF (All-Flash FAS)**: NetApp's all-flash storage systems are designed for high performance and can be used for AI workloads.\n   - **ONTAP AI**: A joint solution with NVIDIA, combining NetApp's AFF with NVIDIA DGX systems, optimized for AI workloads.\n\n7. **Kioxia (formerly Toshiba Memory)**:\n   - **Fluctus**: Kioxia offers high-performance SSDs and storage solutions that can be integrated into AI infrastructure.\n\n8. **Samsung**:\n   - **NVMe SSDs**: Samsung offers high-performance NVMe SSDs that can be used in disaggregated storage solutions for AI workloads.\n\n9. **Western Digital**:\n   - **Ultrast",
+  "meta": {
+    "elapsed": 30.92,
+    "usage": {
+      "prompt_tokens": 25,
+      "completion_tokens": 600,
+      "total_tokens": 625,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-22T18:18:25"
+}

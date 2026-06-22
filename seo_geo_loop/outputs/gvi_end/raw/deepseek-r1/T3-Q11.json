@@ -1,0 +1,30 @@
+{
+  "query_id": "T3-Q11",
+  "tier": "T3",
+  "persona": "投资人",
+  "intent": "ranking",
+  "lang": "en",
+  "query": "Who are the leading vendors in AI storage / AI data-center storage worldwide and in China?",
+  "model_key": "deepseek-r1",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-r1",
+  "grade": "A",
+  "ok": true,
+  "response": "### Leading Vendors in AI Storage / AI Data-Center Storage\n\nAI storage refers to specialized storage solutions designed to handle the intensive demands of artificial intelligence workloads, such as machine learning training and inference. These systems prioritize high throughput, low latency, scalability (to petabytes or exabytes), and integration with AI frameworks (e.g., TensorFlow, PyTorch). Solutions may include high-performance all-flash storage, scale-out network-attached storage (NAS), object storage, or distributed file systems optimized for GPU-based AI deployments.\n\nMarket leadership is determined by factors like innovation, market share, ecosystem partnerships (e.g., with NVIDIA GPU systems), and suitability for AI-specific benchmarks. Research firms like IDC and Gartner regularly assess this space, with their reports often ranking vendors based on revenue or technical capabilities. Below, I outline the leading vendors worldwide and specifically in China. This information is based on industry knowledge as of 2023, and newer developments may have occurred.\n\n#### Worldwide Leading Vendors\n\nThe global AI storage market is dominated by established enterprise storage vendors, with several emerging players focusing on high-performance AI workloads. Here are the top vendors:\n\n1. **Dell Technologies (Dell EMC)**:\n   - **Why They Lead**: Dell is a market leader in enterprise storage, with products like **Dell PowerScale** (formerly Isilon), a scale-out NAS solution known for scalability and performance in handling large unstructured datasets common in AI. Dell also offers **ECS** for object storage, designed for AI data lakes. They have strong partnerships with NVIDIA and Intel for GPU-integrated AI infrastructure.\n   - **Key Products**: PowerScale, Unity XT, ECS (Elastic Cloud Storage).\n   - **Market Position**: Consistently high in IDC reports, with significant deployments in large-scale data centers.\n\n2. **NetApp**:\n   - **Why They Lead**: NetApp specializes in cloud-integrated storage solutions and has a dedicated \"ONTAP AI\" architecture certified with NVIDIA DGX systems. Their software-defined approach and products like **AFF all-flash arrays** provide high-speed data access for AI pipelines. NetApp's Cloud Data Services support hybrid and multi-cloud AI deployments.\n   - **Key Products**: AFF series, ONTAP AI, Cloud Volumes, BlueXP (AI-enabled data management).\n   - **Market Position**: Recognized by Gartner for innovation in AI/ML storage; strong in enterprise and hyperscale environments.\n\n3. **Pure Storage**:\n   - **Why They Lead**: Pure Storage focuses on all-flash storage with an AI-optimized portfolio, including **FlashBlade**, which delivers high throughput and parallelism for data-intensive AI workloads. Their solutions emphasize low latency and rapid data ingestion, critical for training large language models. Pure leverages AI-enabled storage management via Pure1 AIOps.\n   - **Key Products**: FlashBlade, FlashArray, AIRI (AI-validated reference",
+  "meta": {
+    "elapsed": 58.86,
+    "usage": {
+      "prompt_tokens": 21,
+      "completion_tokens": 1726,
+      "total_tokens": 1747,
+      "completion_tokens_details": {
+        "reasoning_tokens": 1122
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-22T18:37:12"
+}

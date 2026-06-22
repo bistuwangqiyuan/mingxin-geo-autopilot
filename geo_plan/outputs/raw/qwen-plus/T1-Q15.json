@@ -1,0 +1,27 @@
+{
+  "query_id": "T1-Q15",
+  "tier": "T1",
+  "persona": "算力中心采购",
+  "intent": "definition",
+  "lang": "zh",
+  "query": "什么是面向 AI 训练与推理的高性能全闪加速存储？典型带宽、IOPS、时延指标是多少？",
+  "model_key": "qwen-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "面向AI训练与推理的高性能全闪加速存储（High-Performance All-Flash Accelerated Storage for AI Training & Inference）是一种专为满足大模型AI工作负载严苛IO需求而设计的存储系统，其核心目标是**消除存储I/O瓶颈，确保GPU/NPU集群持续饱和运行**。它并非传统企业级全闪存阵列的简单升级，而是融合了硬件加速、软件栈深度优化、协议卸载、智能预取与缓存协同等关键技术的端到端加速架构。\n\n---\n\n### ✅ 核心特征（区别于通用全闪存）\n\n| 维度 | 传统高端全闪存 | AI专用全闪加速存储 |\n|------|----------------|---------------------|\n| **设计目标** | 均衡支持OLTP/OLAP/备份等混合负载 | 极致吞吐+低尾部时延+高并发流式读取（训练：TB级数据集随机/顺序扫描；推理：毫秒级小文件高QPS访问） |\n| **数据访问模式** | 随机小IO为主（4K–64K） | 训练：大块连续读（128KB–2MB+）、高吞吐流式加载；推理：海量小文件（<1MB）高并发随机读（模型权重、KV Cache元数据） |\n| **关键优化技术** | RAID、缓存分层、QoS | GPU Direct Storage (GDS) / GPUDirect RDMA 卸载、用户态零拷贝IO（如SPDK）、AI感知预取（基于训练epoch/step预测）、分布式并行文件系统（Lustre/Weka/FSx for Lustre/DAOS）+ NVMe-oF后端、智能元数据索引（加速千万级小文件list/stat） |\n| **拓扑集成** | 通过主机OS内核栈（block/NVMe）访问 | 直连GPU内存（GDS），绕过CPU和内核，实现GPU→Storage直通；支持RDMA over Converged Ethernet (RoCEv2) 或 InfiniBand直连 |\n| **可靠性与扩展性** | 企业级RAID/纠删码 | 跨节点EC+本地NVMe RAID 0/1（性能优先），支持EB级横向扩展，亚毫秒级故障自愈 |\n\n---\n\n### 📊 典型性能指标（2024–2025主流商用方案参考）\n\n> ⚠️ 注意：指标高度依赖**配置规模（节点数/SSD数/网络带宽）** 和 **测试场景（单流 vs 多流/多客户端/GPU直通）**。以下为**单节点中高端配置（如8×U.2 NVMe",
+  "meta": {
+    "elapsed": 15.44,
+    "usage": {
+      "total_tokens": 635,
+      "completion_tokens": 600,
+      "prompt_tokens": 35,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:05:51"
+}

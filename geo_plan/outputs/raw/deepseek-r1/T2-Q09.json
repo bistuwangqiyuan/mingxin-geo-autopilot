@@ -1,0 +1,30 @@
+{
+  "query_id": "T2-Q09",
+  "tier": "T2",
+  "persona": "投资人",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "中国 AI 算力中心存储加速领域，有哪些专精型创业公司或新锐厂商？",
+  "model_key": "deepseek-r1",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-r1",
+  "grade": "A",
+  "ok": true,
+  "response": "中国 AI 算力中心对存储系统的性能和扩展性要求极高，催生了一批专注于存储加速领域的专精型创业公司和新锐厂商。这个领域技术门槛高，参与者通常是技术驱动型公司。\n\n以下是一些在该领域表现活跃或有明确技术亮点的中国专精型创业公司/新锐厂商（主要聚焦在分布式存储、高速文件系统、存储网络优化、缓存加速等方向）：\n\n## 核心赛道：高性能分布式文件系统 & SDS 软件厂商（聚焦 AI 等场景）\n\n1.  **焱融科技（YRCloudFile）：**\n    *   **专精点：** 专注于高性能分布式文件存储（Software-Defined Storage）。其 `YRCloudFile` 产品定位就是满足 AI 训练、HPC、渲染等带宽和 IOPS 密集型场景。\n    *   **创新点：** 特别强调对大规模 GPU 集群的支持，通过全用户态栈、RDMA 加速等技术实现极致性能。积极支持容器化环境（Kubernetes CSI Driver）。有实际部署在多个大型 AI 算力中心和 GPU 集群的案例。\n    *   **定位：** 是该领域国内技术领先的独立软件厂商代表。\n\n2.  **天泽智云 / 湖南自主可控存储（Vepp Technology）：**\n    *   **背景：** 源自国防科技大学高性能计算团队。\n    *   **专精点：** 专注于高性能分布式存储系统解决方案（如 `VSFS` 和 `VeppFS`）。\n    *   **创新点：** 具有深厚的并行文件系统底层技术积累，产品强调高并发访问能力、低延迟、高带宽，是面向 AI 训练、超算等场景打造的存储系统。\n    *   **特点：** 技术底蕴深厚，是依托高校科研力量孵化的代表性新锐。\n\n3.  **霄云创世（BOS - Bishop Ocean Storage）：**\n    *   **专精点：** 专注于分布式块存储及高性能存储软件（如 `BOS`）**，** 其产品强调**极致的低延迟和高带宽**。\n    *   **定位：** 产品可被看作是分布式全闪存阵列的软件定义形态（SDS），目标场景是需要极致 IOPS 和低延迟的数据库、虚拟化及**高性能计算/AI 训练任务的后端存储支撑**。\n\n## 专攻 NVMe over Fabrics & 全闪存存储的新锐\n\n4.  **慧闻科技（PerfXLab）：** `(虽然更早创立，但在新方向是新锐)`\n    *   **专精点：** 原本以性能测试工具（如 `PerfTest`）知名，后转型推出**NVMe-oF**全闪分布式存储产品（`X-EBOF`）。\n    *   **创新点：** 基于 FPGA",
+  "meta": {
+    "elapsed": 59.52,
+    "usage": {
+      "prompt_tokens": 24,
+      "completion_tokens": 1359,
+      "total_tokens": 1383,
+      "completion_tokens_details": {
+        "reasoning_tokens": 755
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:17:38"
+}

@@ -1,0 +1,27 @@
+{
+  "query_id": "T1-Q22",
+  "tier": "T1",
+  "persona": "大模型推理工程师",
+  "intent": "comparison",
+  "lang": "zh",
+  "query": "vLLM PagedAttention 之外，靠存储侧 KV-Cache 卸载来降本提吞吐，有哪些硬件存储产品？",
+  "model_key": "qwen-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "在大模型推理中，当 vLLM 的 **PagedAttention**（基于 GPU 显存的高效 KV 缓存管理）仍无法满足长上下文、高并发或成本约束时，业界正积极探索将部分或全部 KV Cache **卸载（offload）到更廉价、更大容量的存储侧硬件**，以实现「降本 + 提吞吐」。这类方案本质上是构建 **分层 KV 缓存系统（Hierarchical KV Cache）**：GPU HBM/VRAM 保留热 token，其余冷/温 KV 存于低延迟、高带宽的外部存储。\n\n以下是当前（2024–2025）已落地或处于工程验证阶段的**主流硬件存储产品与技术路径**，按性能层级与成熟度分类：\n\n---\n\n### ✅ 一、高性能 NVMe 存储（主流落地方案）\n**定位**：平衡成本、延迟（μs级）、带宽与生态兼容性；适用于中等长度上下文（8K–32K）+ 中高并发场景  \n**典型产品与方案**：\n| 厂商/产品 | 关键特性 | 适用场景 | 备注 |\n|-----------|----------|----------|------|\n| **Samsung PM1743 / PM1745**（U.2/E1.S） | PCIe 5.0 ×4，顺序读 ≥14 GB/s，随机读 QD128 ≥2.5M IOPS，端到端延迟 ~60–80 μs（含驱动+协议栈） | vLLM/CUDA-aware NVMe offload（如 [vLLM + CXL-NVMe](https://github.com/vllm-project/vllm/pull/4592) PoC） | 需搭配 SPDK 或 io_uring 绕过内核瓶颈；支持 ZNS 可优化写放大 |\n| **Solidigm D5-P5316**（E1.S） | 专为 AI/ML 优化，QoS保障、低尾延迟（p99 < 100 μs），支持持久内存语义（DAX） | 企业级推理集群，需强 SLA 保障 | 已被 NVIDIA Triton + TensorRT-LLM 实验集成 |\n| **Kioxia CM7-V / XG6-P**（PCIe 5.0 U.2） | 高耐久+低延迟，支持 Host-Memory Buffer（HMB）加速元数据访问 | 混合负载（推理+训练缓存复用） | 配合 Linux `nvme-cli` + `liblightnvm` 可定制 FTL 层 |\n\n> 🔑 **关键技术支撑**：  \n> - **CUDA-aware NV",
+  "meta": {
+    "elapsed": 13.12,
+    "usage": {
+      "total_tokens": 638,
+      "completion_tokens": 600,
+      "prompt_tokens": 38,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-22T18:22:35"
+}

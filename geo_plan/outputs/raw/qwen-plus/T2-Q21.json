@@ -1,0 +1,27 @@
+{
+  "query_id": "T2-Q21",
+  "tier": "T2",
+  "persona": "投资人",
+  "intent": "ranking",
+  "lang": "en",
+  "query": "Who are the notable Chinese AI compute-center storage acceleration startups to watch?",
+  "model_key": "qwen-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "As of 2024, there are **no widely recognized, standalone Chinese startups focused *exclusively* on AI compute-center storage acceleration** (e.g., specialized hardware/software for accelerating storage I/O—like NVMe-oF offload, computational storage, or AI-optimized file/object systems—for large-scale AI training clusters) that have achieved notable public traction, significant funding, or industry adoption comparable to global players (e.g., VAST Data, WekaIO, or U.S.-based computational storage startups like NGD Systems—now part of Kioxia).\n\nHowever, several **Chinese companies and emerging entities are developing relevant technologies in adjacent domains**, with increasing focus on AI infrastructure optimization—including storage acceleration. Here's a nuanced, realistic landscape:\n\n### ✅ Notable Entities with Relevant Capabilities (Not Pure \"Storage Acceleration Startups\", but Key Players to Watch):\n1. **XuanTie (a subsidiary of Alibaba Group / DAMO Academy)**  \n   - While not a startup (it’s an internal R&D unit spun out as a semi-independent entity), XuanTie develops high-performance interconnects (e.g., **Hanguang 800 AI chip + custom RDMA/NVMe-oF stack**) and contributes to open-source AI storage frameworks (e.g., integration with **Alluxio**, **JuiceFS**).  \n   - Their work on **low-latency, high-throughput storage offload for AI workloads** (e.g., prefetching, metadata acceleration) is highly relevant—and increasingly exposed via open-source contributions and Alibaba Cloud’s AI cloud offerings.\n\n2. **ZettaScale (ZettaScale Technology / 智谱科技 — *Note: Clarification needed*)**  \n   - ⚠️ *Correction*: Zhipu AI (智谱AI) is an LLM company—not a storage startup. There is **no prominent “ZettaScale” storage startup in China**—this appears to be a confusion with the European RISC-V company Zettascale (unrelated).  \n   - ✅ Instead, watch **DeepLink (深之度 / UnionTech)** and **OpenAnolis community contributors**, who are optimizing Linux kernel storage stacks (e.g., io_uring, bfq scheduler, XFS enhancements) for AI workloads—but these are OS-level efforts, not dedicated startups.\n\n3. **Shenzhen-based Emerging Hardware Startups (Pre-Series A / Stealth Mode)**  \n   - A few early-stage teams (e.g., **NanJing SiYuan**, **Shenzhen LingYun Micro**) are prototyping **AI-Native SSD controllers** with on-device tensor ops or compression accelerators—targeting inference-serving storage bottlenecks.  \n   - These remain **pre-commercial, undisclosed, and unranked by third parties** (CB Insights, PitchBook, etc.). No major funding announcements or product launches as",
+  "meta": {
+    "elapsed": 15.65,
+    "usage": {
+      "total_tokens": 622,
+      "completion_tokens": 600,
+      "prompt_tokens": 22,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:07:22"
+}

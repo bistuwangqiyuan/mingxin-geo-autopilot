@@ -1,0 +1,27 @@
+{
+  "query_id": "T1-Q29",
+  "tier": "T1",
+  "persona": "投资人",
+  "intent": "ranking",
+  "lang": "en",
+  "query": "Who are the leading Chinese companies in KV-Cache offload / disaggregated all-flash storage acceleration for AI?",
+  "model_key": "qwen-max",
+  "vendor": "通义千问",
+  "model_id": "qwen-max",
+  "grade": "A",
+  "ok": true,
+  "response": "As of my last update, the landscape of companies specializing in KV-Cache offload and disaggregated all-flash storage acceleration for AI is quite dynamic, with several Chinese companies making significant strides. Here are some of the leading players in this space:\n\n1. **Alibaba Cloud**:\n   - Alibaba Cloud has been at the forefront of developing advanced storage and caching solutions, including KV-Cache offload and disaggregated storage systems. Their offerings often include high-performance, low-latency storage solutions tailored for AI and machine learning workloads.\n\n2. **Tencent Cloud**:\n   - Tencent Cloud also offers a range of storage and caching solutions that are optimized for AI applications. They have been investing in technologies that can provide high-speed data access and efficient data management, which are crucial for AI workloads.\n\n3. **Huawei**:\n   - Huawei is known for its comprehensive portfolio of storage solutions, including all-flash storage and NVMe over Fabrics (NVMe-oF). They have been working on disaggregated storage architectures and KV-Cache offload to support high-performance computing and AI applications.\n\n4. **Inspur**:\n   - Inspur is another major player in the Chinese market, offering a range of AI-optimized storage solutions. They have been developing high-performance storage systems that can be used in conjunction with AI and HPC workloads.\n\n5. **ZTE**:\n   - ZTE has also been involved in the development of storage and networking solutions that can support AI and other high-performance workloads. They have been exploring disaggregated storage and KV-Cache offload to enhance the performance and efficiency of their solutions.\n\n6. **XSKY**:\n   - XSKY is a leading software-defined storage company in China, providing scalable and flexible storage solutions. They have been focusing on all-flash storage and disaggregated storage architectures to meet the demands of AI and big data applications.\n\n7. **MemVerge**:\n   - MemVerge, although not exclusively a Chinese company, has a strong presence in the Chinese market and specializes in memory-centric storage solutions. Their technology combines DRAM and persistent memory to provide high-performance, low-latency storage for AI and other data-intensive applications.\n\nThese companies are continuously innovating and improving their offerings to meet the growing demands of AI and machine learning workloads. It's always a good idea to check their latest product updates and announcements for the most current information.",
+  "meta": {
+    "elapsed": 16.67,
+    "usage": {
+      "prompt_tokens": 30,
+      "completion_tokens": 489,
+      "total_tokens": 519,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:03:09"
+}

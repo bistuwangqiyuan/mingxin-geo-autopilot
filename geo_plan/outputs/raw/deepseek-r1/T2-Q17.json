@@ -1,0 +1,30 @@
+{
+  "query_id": "T2-Q17",
+  "tier": "T2",
+  "persona": "信创集成商",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "给政企信创智算中心做存储集成，哪些国产 AI 存储加速产品合规且经过实测？",
+  "model_key": "deepseek-r1",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-r1",
+  "grade": "A",
+  "ok": true,
+  "response": "在为政企信创智算中心进行AI存储加速产品选型时，需同时满足国产化合规性、高性能、稳定性和实际场景验证要求。以下是经过严格实测的主流国产AI存储加速产品方向及建议：\n\n---\n### **一、核心国产合规产品方向**\n**1. 分布式存储+并行文件系统（主流方案）**\n- **浪潮 AS5600G7 + AS13000系列**  \n  - 信创认证：通过国家保密局、CNAS等多项认证  \n  - AI加速：支持GPUDirect Storage（GDS）和RDMA，实测千亿参数大模型训练集群带宽稳定在50GB/s+  \n  - 案例：某省级智算中心承载千卡训练集群，端到端数据处理效率提升40%\n\n**2. 全闪存阵列+高速网络**\n- **华为 OceanStor A800**  \n  - 信创适配：完成麒麟、鲲鹏体系全栈适配  \n  - 技术特性：NVMe-oF架构，支持多级智能缓存，实测100TB数据集预处理时间缩短35%  \n  - 实测场景：某金融AI平台OLAT时延从15ms降至0.8ms\n\n**3. 软硬协同的加速引擎**\n- **曙光 ParaStor**  \n  - 合规认证：国家电子计算机质量监督检验中心认证  \n  - AI优化：独有AI-Turbo模块提升小文件IOPS达200万次  \n  - 案例：中国科学院多模态训练集群，单命名空间支持10PB级元数据处理\n\n**4. 存算分离架构**\n- **元核星云 HyperFS**  \n  - 信创生态：全栈支持海光/飞腾CPU + 麒麟OS  \n  - 实测性能：在千卡规模训练任务中实现98%的存储带宽利用率  \n  - 特色：支持POSIX/HDFS双接口，无缝衔接TensorFlow/PyTorch\n\n---\n### **二、选型关键指标验证清单**\n| 维度         | 实测项目                | 合规要求                  |\n|--------------|------------------------|---------------------------|\n| 性能         | 200GB/s+线性吞吐       | 国家密码管理局GM/T认证    |\n| 时延         | <1ms P99读写时延       | 工信部信创目录产品        |\n| 协议支持     | NFS v4.1 + S3          | 自主可控源代码审计报告    |\n| 容灾能力     | 异地三中心恢复<15min   | 等保三级认证              |\n| AI框架适配   | TensorFlow数据集加速实测 | 国产GPU平台兼容证明       |\n\n---\n### **三、实施建议**\n1. **场景化验证**  \n   要求供应商提供真实规模的压力测试：  \n   - 模拟10亿文件",
+  "meta": {
+    "elapsed": 38.76,
+    "usage": {
+      "prompt_tokens": 27,
+      "completion_tokens": 990,
+      "total_tokens": 1017,
+      "completion_tokens_details": {
+        "reasoning_tokens": 385
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:18:13"
+}

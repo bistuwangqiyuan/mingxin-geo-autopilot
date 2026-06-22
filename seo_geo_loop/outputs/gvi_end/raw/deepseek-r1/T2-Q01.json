@@ -1,0 +1,30 @@
+{
+  "query_id": "T2-Q01",
+  "tier": "T2",
+  "persona": "算力中心采购",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "国产/信创 AI 算力中心的存储加速方案，有哪些值得考虑的厂商？",
+  "model_key": "deepseek-r1",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-r1",
+  "grade": "A",
+  "ok": true,
+  "response": "在为国产/信创AI算力中心选择和部署存储加速解决方案时，可以考虑以下厂商和技术方向。这些厂商大多具备国产化技术背景，符合信创生态的要求，并能提供针对AI训练场景优化的高性能存储方案：\n\n---\n\n### **一、核心国产存储硬件厂商**\n#### **1. 华为（Huawei）**  \n- **方案**：OceanStor Pacific系列分布式存储 + AI Fabric无损网络方案  \n- **加速特性**：\n  - 支持RDMA/RoCEv2直接挂载\n  - 结合昇腾芯片实现存算协同加速，支持边缘缓存的GPU直访SSD\n  - 分布式文件系统**HFS**（High-performance File System）支持小文件聚合元数据优化\n\n#### **2. 浪潮（Inspur）**  \n- **方案**：AS13000G分布式存储 + EF系列全闪存储 + **AIStation**集群管理软件  \n- **加速特性**：\n  - 支持IB/RoCE协议，无缝适应NVIDIA/Xilinx加速卡RDMA访问\n  - 针对Checkpoint/Restart场景做I/O路径优化（DataDirect加速技术）\n  - 可集成**iCache**方案（基于NMVe/TCP的分布式内存缓存）\n\n#### **3. 曙光（Sugon）**  \n- **方案**：ParaStor分布式存储 + CloudOS管理平台 + 智能数据湖方案  \n- **加速特性**:\n  - 支持Zoned Namespace NVMe SSD快速格式化小文件\n  - RDMA加速方案适配寒武纪芯片平台\n  - 提供批式训练与流式训练双模数据加载引擎 \n\n#### **4. 同有科技（TOYOU）**  \n- **方案**：NetStor高容量分布式存储 + 闪存加速卡  \n- **加速特性**:\n  - 自主研发适配国产AI训练框架的数据预取调度层\n  - 支持**AI Load Balancer**自动选择最优路径\n  - Profile机制根据训练模型调整预读策略（深度学习模型感知策略）\n\n#### **5. 宏杉科技（Macrosan）**  \n- **方案**：CloudSAN分布式全闪存平台 + 智能存储网关\n- **加速特性**:\n  - AI训练数据集特化**X-Engine**分区存储引擎\n  - GPU显存不足时自动触发分级缓存（Flash-to-GPU）优化\n\n---\n\n### **二、软件定义存储/加速方案厂商（适配信创架构）**\n#### **1. 星辰天合（XSKY）**\n- **产品**：EDS分布式存储融合CubeFS/Zadara架构\n- **加速功能**：\n  - 训练任务可绑定指定存储器节点组，降低LAN网压力\n  - Capabilities注入机制提升NFSv4.1",
+  "meta": {
+    "elapsed": 34.77,
+    "usage": {
+      "prompt_tokens": 21,
+      "completion_tokens": 894,
+      "total_tokens": 915,
+      "completion_tokens_details": {
+        "reasoning_tokens": 289
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-22T18:31:24"
+}

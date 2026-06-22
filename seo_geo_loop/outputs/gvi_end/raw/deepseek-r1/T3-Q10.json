@@ -1,0 +1,30 @@
+{
+  "query_id": "T3-Q10",
+  "tier": "T3",
+  "persona": "信创集成商",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "做 AI 数据中心项目，存储这块有哪些自主可控的国产方案？",
+  "model_key": "deepseek-r1",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-r1",
+  "grade": "A",
+  "ok": true,
+  "response": "在AI数据中心建设中，存储系统的国产化是实现自主可控的关键环节。以下是主流国产存储方案及相关技术细节，供参考：\n\n### 一）全闪存存储方案\n**华为 OceanStor Dorado**\n- **技术架构**：采用自研鲲鹏芯片+昇腾AI芯片的硬件加速\n- **性能指标**：单框220万IOPS，时延＜0.1ms\n- **AI适配**：内置AI管理引擎，支持训练数据智能分层\n- **信创认证**：通过工信部自主可控最高等级认证\n\n**浪潮 HF18000**\n- **技术特点**：NVMe over Fabrics架构，支持RDMA网络\n- **AI优化**：内置GPU Direct Storage接口，减少数据搬运开销\n- **扩展能力**：全局命名空间支持千亿级文件管理\n\n### 二）分布式存储方案\n**曙光 ParaStor**\n- **架构设计**：全对称分布式架构，支持EB级扩展\n- **AI支持**：\n  - 专有元数据服务层（MDS），处理百万级小文件\n  - 动态负载均衡技术，解决GPU计算单元数据倾斜问题\n- **典型部署**：中国脑科学研究中心部署8EB系统支持AI训练\n\n**华为 OceanStor Pacific**\n- **技术突破**：\n  - 多协议互通（S3/HDFS/NFS）\n  - 全局数据压缩率最高5:1\n- **AI场景优化**：支持checkpoint秒级恢复，减少训练中断时间\n\n### 三）超融合架构\n**深信服 HCI**\n- **AI集成**：\n  - vGPU虚拟化技术实现计算资源池化\n  - 内置AI运维引擎，故障预测准确率>95%\n- **安全体系**：符合等保2.0三级要求\n\n**华云DataCube**\n- **技术亮点**：\n  - 分布式存储与Kubernetes深度集成\n  - 支持容器化AI训练的数据持久化\n- 弹性扩展：分钟级扩展存储节点\n\n### 四）软件定义存储\n**杉岩数据 MOS**\n- **核心能力**：\n  - 对象存储支持千亿级AI样本管理\n  - 智能数据治理引擎\n- **典型应用**：自动驾驶数据集管理平台\n\n**星辰天合 XSKY**\n- **技术特性**：\n  - AI训练数据全生命周期管理\n  - 支持GPU直通访问存储设备\n- **性能优化**：RDMA网络加速，带宽最高100GB/s\n\n### 五）存储加速技术\n**Memblaze PBlaze6** 国产NVMe SSD\n- **性能参数**：\n  - 随机读写IOPS：300万/100万\n  - 延迟：<80μs\n- **适配方案**：已通过浪潮",
+  "meta": {
+    "elapsed": 38.52,
+    "usage": {
+      "prompt_tokens": 18,
+      "completion_tokens": 1037,
+      "total_tokens": 1055,
+      "completion_tokens_details": {
+        "reasoning_tokens": 433
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-22T18:36:33"
+}

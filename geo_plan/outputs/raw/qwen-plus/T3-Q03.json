@@ -1,0 +1,27 @@
+{
+  "query_id": "T3-Q03",
+  "tier": "T3",
+  "persona": "投资人",
+  "intent": "ranking",
+  "lang": "zh",
+  "query": "全球和中国的 AI 存储市场，领先厂商和代表公司有哪些？",
+  "model_key": "qwen-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "全球和中国AI存储市场正处于高速扩张阶段，其核心驱动力是大模型训练/推理对高带宽、低延迟、高吞吐、可扩展存储（尤其是向量数据库、高性能并行文件系统、存算协同架构）的爆发性需求。需注意：**“AI存储”并非独立硬件品类，而是面向AI工作负载优化的存储软硬一体化解决方案**，涵盖高性能NVMe SSD、智能存储控制器、分布式文件系统（如Lustre、BeeGFS）、向量数据库、AI原生存储软件（如支持语义检索、嵌入向量索引、混合负载调度等），以及存算一体/近存计算等前沿架构。\n\n以下从**全球**和**中国**两个维度，梳理领先厂商与代表公司（按技术定位与市场影响力综合评估，截至2024年中）：\n\n---\n\n### 一、全球AI存储领先厂商与代表公司\n\n| 类别 | 公司 | 核心优势与AI存储布局 |\n|--------|------|------------------------|\n| **头部存储基础设施巨头** | **NVIDIA** | • 不仅是GPU厂商，更是AI存储生态定义者：<br>– 推出 **DGX SuperPOD + NVIDIA Magnum IO**（含GPUDirect Storage, GPUDirect RDMA）实现GPU直连存储，绕过CPU瓶颈；<br>– **NVIDIA Base Command Platform** 深度集成数据管理、版本控制与向量索引；<br>– 收购 **Run:ai**（K8s AI编排）+ 投资 **Weaviate**（开源向量数据库），构建端到端AI数据栈。 |\n| | **DDN (DataDirect Networks)** | • 全球HPC/AI存储领导者，尤其在超大规模训练场景：<br>– EXAScaler并行文件系统（支持EB级扩展、微秒级延迟）被Meta、OpenAI、CERN等用于千亿参数模型训练；<br>– 与NVIDIA深度合作，提供认证AI-Ready存储平台（如A3I系列）。 |\n| | **Pure Storage** | • 以全闪存+软件定义见长：<br>– FlashBlade//S 系统专为AI/ML优化，支持S3对象接口+高性能NFS/SMB，内置AI感知QoS与数据生命周期管理；<br>– 推出 **Pure AI** 解决方案（含数据标注加速、特征缓存、向量索引加速模块）；<br>– 与Hugging Face、Databricks集成。 |\n| | **Dell Technologies (PowerScale + PowerStore)** | • PowerScale（原Isilon）是主流AI训练数据湖底座：<br>– OneFS文件系统",
+  "meta": {
+    "elapsed": 17.05,
+    "usage": {
+      "total_tokens": 624,
+      "completion_tokens": 600,
+      "prompt_tokens": 24,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:07:39"
+}

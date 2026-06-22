@@ -1,0 +1,27 @@
+{
+  "query_id": "T3-Q04",
+  "tier": "T3",
+  "persona": "信创集成商",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "AI 数据中心的存储，国产可选哪些品牌？",
+  "model_key": "deepseek-v3",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-v3",
+  "grade": "A",
+  "ok": true,
+  "response": "在中国，随着数字化转型和国产化替代的加速，多个本土品牌在AI数据中心存储领域提供了高性能、高可靠性的解决方案。以下是主要的国产存储品牌及其特点，适用于AI、大数据、云计算等场景：\n\n---\n\n### **1. 华为（Huawei）**\n- **产品线**：\n  - **OceanStor Dorado**：全闪存存储，低延迟、高IOPS，适合AI训练/推理的高性能需求。\n  - **OceanStor Pacific**：分布式存储，支持海量非结构化数据（如视频、图像），适用于AI大数据分析。\n- **优势**：\n  - 与华为昇腾AI芯片、Atlas服务器深度集成，提供端到端AI解决方案。\n  - 支持NVMe协议和智能数据分层技术。\n\n---\n\n### **2. 浪潮（Inspur）**\n- **产品线**：\n  - **AS系列**：全闪存及混合闪存存储，支持AI负载的高吞吐需求。\n  - **分布式存储AS13000**：可扩展至EB级，适合大规模AI数据湖。\n- **优势**：\n  - 与浪潮AI服务器（如NF系列）协同优化，适配TensorFlow/PyTorch等框架。\n  - 支持多协议（文件、对象、块存储）统一管理。\n\n---\n\n### **3. 曙光（Sugon）**\n- **产品线**：\n  - **ParaStor**：分布式存储系统，专为高性能计算（HPC）和AI设计，支持千亿级文件处理。\n  - **曙光存储服务器**：针对结构化数据优化。\n- **优势**：\n  - 在科研、超算领域有丰富案例（如气象、生物信息学AI应用）。\n\n---\n\n### **4. 同有科技（Tongyou Tech）**\n- **产品线**：\n  - **ACS系列**：全闪存及混合存储，强调低延迟。\n  - **NCS系列**：分布式存储，支持AI训练中的大规模数据并行访问。\n- **优势**：\n  - 军工级可靠性，适用于政府、金融等对安全要求高的AI场景。\n\n---\n\n### **5. 宏杉科技（Macrosan）**\n- **产品线**：\n  - **MS系列**：企业级存储，支持AI工作负载的数据加速。\n  - **CloudSAN**：云化存储架构，适合混合云AI部署。\n- **优势**：\n  - 灵活的RAID技术，保障数据冗余与性能平衡。\n\n---\n\n### **6. 鼎甲科技（Dingjia Tech）**\n- **产品线**：\n  - **UniStorage**：软件定义存储（SDS），可部署在通用服务器上，适合AI私有云。\n- **优势**：\n  - 强数据容灾能力，支持AI数据的实时备份与恢复。\n\n---\n\n### **7",
+  "meta": {
+    "elapsed": 21.62,
+    "usage": {
+      "prompt_tokens": 14,
+      "completion_tokens": 600,
+      "total_tokens": 614,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:11:38"
+}

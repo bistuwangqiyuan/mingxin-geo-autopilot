@@ -1,0 +1,27 @@
+{
+  "query_id": "T2-Q19",
+  "tier": "T2",
+  "persona": "算力中心采购",
+  "intent": "problem_solution",
+  "lang": "zh",
+  "query": "新建智算中心，怎么从一开始就用存储加速架构把每块 GPU 都用满？",
+  "model_key": "qwen-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "要从新建智算中心的第一天起就实现「用满每块GPU」——即让GPU计算单元持续处于高利用率（>90%），而非被I/O、数据加载、通信或调度瓶颈拖累——关键不在于堆算力，而在于**以GPU为中心重构全栈数据流**，构建端到端的存储加速架构。以下是经过大规模AI集群验证的系统性落地路径（非理论，含关键选型与避坑点）：\n\n---\n\n### 一、核心原则：GPU不是计算单元，而是**数据消费者** → 存储必须成为GPU的“缓存延伸”\n传统“存储→CPU→GPU”链路（经PCIe→CPU内存→GPU显存）是最大罪魁祸首（带宽损失70%+，延迟>100μs）。必须打破CPU中介，实现 **GPU Direct Storage (GDS) + GPU Direct Memory Access (GDMA)** 原生通路。\n\n✅ **第一步：硬件层强制解耦CPU与数据搬运**\n| 组件 | 必选方案 | 关键参数 | 避坑警告 |\n|--------|-----------|------------|-------------|\n| **存储网络** | NVIDIA Quantum-2 InfiniBand (IB) 或 NVIDIA Spectrum-X（专为AI优化） | ≥400Gbps端口，子网管理器(SM)启用GPUDirect RDMA路由 | ❌ 拒绝100G RoCEv2（丢包率>0.1%即导致GDS降级为CPU中转） |\n| **存储系统** | 全闪存并行文件系统（Lustre over NVMe-oF 或 WekaFS） | 客户端直连NVMe SSD（非RAID卡/控制器），单节点吞吐≥30GB/s | ❌ 避免Ceph（元数据瓶颈）、避免NAS（SMB/NFS协议开销毁掉GDS） |\n| **GPU服务器** | NVIDIA HGX H100（8×H100 SXM5）+ **BlueField-3 DPU** | DPU卸载存储协议栈、加密、QoS；启用GPUDirect Storage v3.0 | ❌ 禁用传统RAID卡（会拦截NVMe请求）；必须BIOS关闭CSM/Legacy模式 |\n\n> 🔑 **为什么DPU不可替代？**  \n> BlueField-3可将Lustre客户端协议栈、RDMA传输、NVMe-oF Target全卸载，使GPU通过PCIe直接读取远程NVMe设备（延迟<5μs，带宽≈本地NVMe 95%）。实测对比：无DPU时GDS带宽仅12GB/s，有DPU达",
+  "meta": {
+    "elapsed": 16.42,
+    "usage": {
+      "total_tokens": 629,
+      "completion_tokens": 600,
+      "prompt_tokens": 29,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:07:18"
+}

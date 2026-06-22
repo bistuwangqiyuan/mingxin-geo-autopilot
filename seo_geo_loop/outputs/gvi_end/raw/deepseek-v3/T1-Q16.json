@@ -1,0 +1,27 @@
+{
+  "query_id": "T1-Q16",
+  "tier": "T1",
+  "persona": "智算中心架构师",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "想要 300GB/s 带宽、20μs 时延、48-72 小时快速部署的全闪存储一体机，有哪些选择？",
+  "model_key": "deepseek-v3",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-v3",
+  "grade": "A",
+  "ok": true,
+  "response": "针对需求为300GB/s带宽、20μs延迟、48-72小时快速部署的全闪存存储一体机，以下是经过筛选的推荐方案及关键分析：\n\n---\n\n### **1. 纯硬件加速全闪方案**\n#### **推荐型号**\n- **Pure Storage FlashBlade//S**  \n  - **带宽**：单机架可达300GB/s（需横向扩展，支持NFS/S3协议）。  \n  - **延迟**：稳定在150μs以内（需配置NVMe-oF RDMA优化至接近20μs）。  \n  - **部署**：预配置节点，48小时内完成硬件部署+软件调优。  \n  - **亮点**：无GC干扰，支持动态负载均衡，适合混合负载。  \n\n- **Dell PowerScale F900**（基于PowerEdge+NVMe）  \n  - **带宽**：单节点40GB/s，需8节点集群达成320GB/s。  \n  - **延迟**：90μs（通过RDMA+用户态协议栈优化可降至30μs）。  \n  - **部署**：Dell快速交付计划，72小时内完成交付+验证。  \n\n#### **适用场景**  \n适合需要线性扩展且对协议兼容性要求高的环境（如HPC、AI训练）。\n\n---\n\n### **2. 超低延迟定制化方案**\n#### **推荐型号**\n- **Vast Data Universal Storage**  \n  - **带宽**：分布式架构下可突破300GB/s（依赖100GbE/200GbE网络）。  \n  - **延迟**：通过用户态NVMe/TCP优化至25μs（需禁用部分高级功能）。  \n  - **部署**：预装软件镜像，支持72小时“即插即用”部署。  \n\n- **IBM FlashSystem 7300**（搭配Spectrum Virtualize）  \n  - **带宽**：双控200GB/s，需多控集群扩展。  \n  - **延迟**：70μs（启用FPGA加速后可达35μs，需定制配置）。  \n  - **部署**：IBM蓝线团队提供72小时紧急部署服务。  \n\n#### **适用场景**  \n对延迟敏感但可接受轻度调优的场景（如高频交易、实时分析）。\n\n---\n\n### **3. 全栈优化方案（硬件+网络+协议）**\n#### **关键配置**\n- **硬件**：选用Kioxia XL-FLASH或Solidigm D5-P5316低延迟SSD。  \n- **网络**：200GbE/400GbE RoCEv2或InfiniBand HDR。  \n- **协议栈**：NVMe-oF + RDMA（规避TCP/IP栈开销）。  \n\n#### **推荐厂商**\n- **Liqid Element LQD4500**：可组合架构，支持动态分配资源，延迟",
+  "meta": {
+    "elapsed": 14.6,
+    "usage": {
+      "prompt_tokens": 34,
+      "completion_tokens": 600,
+      "total_tokens": 634,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-22T18:25:02"
+}

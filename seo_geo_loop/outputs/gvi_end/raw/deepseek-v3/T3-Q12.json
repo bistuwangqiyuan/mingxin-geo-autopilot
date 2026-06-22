@@ -1,0 +1,27 @@
+{
+  "query_id": "T3-Q12",
+  "tier": "T3",
+  "persona": "智算中心架构师",
+  "intent": "recommendation",
+  "lang": "en",
+  "query": "What storage solutions are recommended for AI data centers, and which Chinese vendors are notable?",
+  "model_key": "deepseek-v3",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-v3",
+  "grade": "A",
+  "ok": true,
+  "response": "For AI data centers, efficient and scalable storage solutions are critical to handle massive datasets, high-speed processing, and low-latency access. Key recommended storage solutions include:\n\n### **Recommended Storage Solutions for AI Data Centers**  \n1. **High-Performance SSDs (NVMe, U.2, PCIe Gen4/5)**  \n   - Essential for fast read/write operations in AI training and inference.  \n   - Example: **Samsung PM9A3, Intel Optane (discontinued but legacy use), Kioxia CM6**  \n\n2. **Distributed Storage Systems**  \n   - **Ceph, Lustre, GlusterFS** – Open-source solutions for scalable, fault-tolerant storage.  \n   - **DDN (DataDirect Networks)** – High-performance parallel file systems.  \n\n3. **All-Flash Arrays (AFA)**  \n   - Enterprise-grade flash storage for low-latency AI workloads.  \n   - Example: **Pure Storage FlashArray, NetApp AFF**  \n\n4. **AI-Optimized Storage (GPU Direct Storage, NVMe over Fabrics)**  \n   - Enables direct GPU-to-storage data transfer, reducing CPU bottlenecks.  \n   - Example: **NVIDIA Magnum IO with GPUDirect Storage**  \n\n5. **Object Storage (for Large-Scale Data Lakes)**  \n   - **Amazon S3, MinIO, OpenIO** – Cost-effective for archival and unstructured data.  \n\n6. **Hybrid Storage (Flash + HDD for Tiered Storage)**  \n   - Balances performance and cost (e.g., **Dell EMC PowerScale, Huawei OceanStor**).  \n\n---\n\n### **Notable Chinese Storage Vendors for AI Data Centers**  \nChina has several strong players in enterprise and AI storage:  \n\n1. **Huawei**  \n   - **OceanStor Dorado (All-Flash)** – High-performance NVMe storage for AI.  \n   - **FusionStorage** – Distributed storage for cloud and AI workloads.  \n\n2. **Inspur (浪潮)**  \n   - **AS13000** – Scalable distributed storage for AI/ML.  \n   - **NF5280M6 Server** – Optimized for AI with high-speed storage.  \n\n3. **Sugon (中科曙光)**  \n   - **ParaStor** – High-performance parallel storage for HPC and AI.  \n\n4. **Lenovo**  \n   - **ThinkSystem DM Series** – Hybrid and all-flash storage for AI.  \n\n5. **Alibaba Cloud & Tencent Cloud**  \n   - Offer AI-optimized cloud storage solutions (e.g., **Alibaba Cloud ESSD, Tencent Cloud CBS**).  \n\n6. **Yusur (泽石科技)**  \n   - Specializes in high-end SSDs for enterprise and AI workloads.  \n\n7. **Dawning Information Industry (",
+  "meta": {
+    "elapsed": 17.35,
+    "usage": {
+      "prompt_tokens": 20,
+      "completion_tokens": 600,
+      "total_tokens": 620,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-22T18:27:48"
+}

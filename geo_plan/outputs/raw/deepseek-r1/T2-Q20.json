@@ -1,0 +1,30 @@
+{
+  "query_id": "T2-Q20",
+  "tier": "T2",
+  "persona": "智算中心架构师",
+  "intent": "recommendation",
+  "lang": "en",
+  "query": "Which Chinese vendors provide AI data-center storage acceleration for domestic GPUs (Ascend/Cambricon)?",
+  "model_key": "deepseek-r1",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-r1",
+  "grade": "A",
+  "ok": true,
+  "response": "Several key Chinese vendors provide AI data-center storage acceleration solutions optimized for domestic GPUs like **Huawei Ascend** and **Cambricon**. Here are the top players and their offerings:\n\n---\n\n### **1. Huawei (Ascend Ecosystem Leader)**\n- **Product**: **OceanStor Pacific** (Distributed Storage System)  \n  - **Key Features**:  \n    - **All-flash architecture** with NVMe-oF support for ultra-low latency (<100 μs access).  \n    - **Huawei IVF (Integrated Vision File)**: Optimized for Ascend NPUs, 3× faster metadata for AI training/vision workloads.  \n    - **Multi-protocol support** (S3, NFS, HDFS) + Huawei **Atlas COP** for seamless Ascend GPU integration.  \n    - **All-scenario acceleration**: Supports AI training (TensorFlow/PyTorch), HPC, and big data analytics.  \n\n---\n\n### **2. Inspur Information**\n- **Product**: **Inspur AS13000G7** AI Storage Platform  \n  - **Key Features**:  \n    - High-density NVMe support (up to 36 GPUs per node) + **LLM/GPU-aware tiering** for Ascend/Cambricon clusters.  \n    - **Global I/O Parallel Engine** accelerates checkpointing by 67% for distributed AI training jobs.  \n    - Validated with **Ascend Atlas AI Suite** and **Cambricon NeuWare** SDKs.  \n\n---\n\n### **3. Lenovo**  \n- **Product**: **ThinkSystem DE Series** with **LanStor/Lenovo AI EX** Software  \n  - **Key Features**:  \n    - **GPU Direct Storage** support for Ascend via Huawei CANN libraries.  \n    - **TensorFlow/PyTorch Plugins** for zero-copy data loading to Ascend NPUs.  \n    - **Erasure Coding + AI Compression** to reduce storage overheads by 40% for AI datasets.  \n\n---\n\n### **4. Sugon (中科曙光)**  \n- **Product**: **ParaStor® AI** (Lustre-based Parallel File System)  \n  - **Key Features**:  \n    - **Multi-GPU Metadata Acceleration** for Ascend clusters (10M IOPS per node).  \n    - **StorMaster® AI** optimizer to auto-tier data for Cambricon MLU-X300 workflows.  \n    - **Deep Learning IO Scheduler** cuts model checkpoint time by 50%.  \n\n--- \n\n### **5. Dawning (曙光)**  \n- **Product**: **Dawning StoneFlex® AI Storage Platform**  \n  - **Key Features**:  \n    - **Ascend Booster Flash Pool**: Combines NVMe-oF with Huawei Ascend CacheLink for data prefetching.  \n    - **VisionPro Toolkit** for Cambricon GP",
+  "meta": {
+    "elapsed": 38.23,
+    "usage": {
+      "prompt_tokens": 24,
+      "completion_tokens": 1046,
+      "total_tokens": 1070,
+      "completion_tokens_details": {
+        "reasoning_tokens": 441
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:18:45"
+}

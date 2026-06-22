@@ -1,0 +1,101 @@
+{
+  "computed_at": "2026-06-22T18:31:10",
+  "results": [
+    {
+      "method": "lab",
+      "ok": true,
+      "url": "https://goni.top/zh/index.html",
+      "collected_at": "2026-06-22T18:30:44",
+      "metrics": {
+        "ttfb": 1253.7999999523163,
+        "domContentLoaded": 3514.7999999523163,
+        "load": 5773.199999928474,
+        "fcp": 3556,
+        "lcp": 4564,
+        "cls": 0.0006800161721434829,
+        "resourceCount": 10,
+        "transferBytes": 399157
+      },
+      "html_len": 19007,
+      "onpage": {
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": 1,
+        "hreflang": 3,
+        "og": true,
+        "jsonld_types": [
+          "BreadcrumbList",
+          "Organization",
+          "WebPage",
+          "WebSite"
+        ],
+        "viewport": true
+      }
+    },
+    {
+      "method": "lab",
+      "ok": true,
+      "url": "https://goni.top/zh/product.html",
+      "collected_at": "2026-06-22T18:30:53",
+      "metrics": {
+        "ttfb": 1217.6000000238419,
+        "domContentLoaded": 3166.9000000953674,
+        "load": 5133.700000047684,
+        "fcp": 3184,
+        "lcp": 4192,
+        "cls": 0.0006800161721434829,
+        "resourceCount": 10,
+        "transferBytes": 398737
+      },
+      "html_len": 20029,
+      "onpage": {
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": 1,
+        "hreflang": 3,
+        "og": true,
+        "jsonld_types": [
+          "BreadcrumbList",
+          "Organization",
+          "WebPage",
+          "WebSite"
+        ],
+        "viewport": true
+      }
+    },
+    {
+      "method": "lab",
+      "ok": true,
+      "url": "https://goni.top/en/index.html",
+      "collected_at": "2026-06-22T18:31:02",
+      "metrics": {
+        "ttfb": 1655.3999999761581,
+        "domContentLoaded": 3565.2000000476837,
+        "load": 5131.600000023842,
+        "fcp": 3588,
+        "lcp": 4580,
+        "cls": 0.0008520571775153357,
+        "resourceCount": 10,
+        "transferBytes": 399145
+      },
+      "html_len": 23226,
+      "onpage": {
+        "title": true,
+        "meta_description": true,
+        "canonical": true,
+        "h1": 1,
+        "hreflang": 3,
+        "og": true,
+        "jsonld_types": [
+          "BreadcrumbList",
+          "Organization",
+          "WebPage",
+          "WebSite"
+        ],
+        "viewport": true
+      }
+    }
+  ]
+}

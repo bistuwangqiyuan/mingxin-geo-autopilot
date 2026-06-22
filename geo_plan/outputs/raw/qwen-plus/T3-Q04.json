@@ -1,0 +1,27 @@
+{
+  "query_id": "T3-Q04",
+  "tier": "T3",
+  "persona": "信创集成商",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "AI 数据中心的存储，国产可选哪些品牌？",
+  "model_key": "qwen-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "在AI数据中心存储领域，国产存储品牌近年来发展迅速，已具备提供高性能、高可靠、高扩展性的全栈解决方案能力，尤其在面向大模型训练/推理的海量非结构化数据（如图片、视频、日志、向量数据库底座）场景下，国产厂商在分布式文件存储（如POSIX兼容）、对象存储、高性能并行存储（如Lustre/GPFS替代方案）、以及与AI框架（PyTorch/TensorFlow）和向量数据库（Milvus/Weaviate）深度优化的存储系统方面均有成熟落地。\n\n以下是主流且具备AI数据中心级交付能力的**国产存储品牌及代表产品**（截至2024年）：\n\n✅ **一线头部厂商（全栈能力+大规模商用验证）**\n1. **华为（Huawei）**  \n   - **OceanStor Pacific 系列**：专为AI/大数据设计的分布式融合存储，支持文件、对象、大数据协议统一接入；单集群支持EB级容量、千万级IOPS；内置AI数据加速引擎（如智能预取、冷热分级、GPU直通访问优化），已广泛应用于智算中心（如昇腾AI云、各地人工智能计算中心）。  \n   - 优势：与昇腾AI芯片、CANN、MindSpore深度协同；支持NVMe over Fabrics（RoCE）、GPUDirect Storage（GDS）加速；信创适配完备（麒麟、统信、欧拉等）。\n\n2. **浪潮信息（Inspur）**  \n   - **AS13000G7/G8 分布式存储**：面向AI训练优化，支持小文件聚合、元数据加速、RDMA网络卸载；提供AI训练数据集缓存加速模块（如Dataset Cache Service），显著降低PyTorch DataLoader延迟；已落地多地智算中心（如济南、成都智算中心）。  \n   - 衍生方案：与英伟达合作推出“AI Ready Storage”认证方案，支持GDS直连。\n\n3. **曙光（Sugon）**  \n   - **ParaStor 分布式并行文件系统**：源自国家863计划，长期服务于超算中心（如“天河”“神威”），天然适配HPC+AI混合负载；支持 Lustre 兼容接口 + 自研高性能协议；具备亿级小文件处理能力、亚毫秒级元数据响应；支持GPU Direct Storage 和 RDMA 加速。  \n   - 近年升级为 **XData AI 存储平台**，集成向量索引加速、数据版本管理（类似DVC）、模型数据血缘追踪。\n\n✅ **专业型/高成长性厂商（技术特色鲜明，AI场景深度优化）**\n4. **星辰天合（XSK",
+  "meta": {
+    "elapsed": 15.5,
+    "usage": {
+      "total_tokens": 620,
+      "completion_tokens": 600,
+      "prompt_tokens": 20,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:07:41"
+}

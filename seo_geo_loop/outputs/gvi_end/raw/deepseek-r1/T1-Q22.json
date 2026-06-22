@@ -1,0 +1,30 @@
+{
+  "query_id": "T1-Q22",
+  "tier": "T1",
+  "persona": "大模型推理工程师",
+  "intent": "comparison",
+  "lang": "zh",
+  "query": "vLLM PagedAttention 之外，靠存储侧 KV-Cache 卸载来降本提吞吐，有哪些硬件存储产品？",
+  "model_key": "deepseek-r1",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-r1",
+  "grade": "A",
+  "ok": true,
+  "response": "在 vLLM 的 `PagedAttention` 方案之外，通过将 **KV-Cache** 部分卸载或溢出到比 GPU 显存更便宜、容量更大的**“近端存储”**（即在服务器内部、或通过低延迟网络访问的存储）来降低成本并提高吞吐量，是一种常见的优化策略。用于承担这种卸载存储任务的硬件产品主要包括以下几类：\n\n🚀 **1. 服务器主内存 (CPU DRAM)**\n* **原理:** 这是最靠近 GPU 的一级存储。GPU 显存不足时，卸载的 KV-Cache 主要存放在 CPU 的主内存中。`PagedAttention` 的 Page 状态也存储在这里（如表示页表在显存还是主存）。\n* **硬件产品:** 服务器内存条（如 DDR4、DDR5）。容量通常在 128GB 到 1.5TB+ 💾 范围。\n* **优缺点:**\n    * ✅ **优点:** 访问延迟远低于 NVMe SSD（纳秒级 vs 微秒级），带宽非常高（几十到上百 GB/s）。\n    * ❌ **缺点:** 成本高于 NVMe SSD (按单位容量计算，尤其在大容量场景)。容量扩展有限制（需考虑主板插槽数和单条容量上限）。断电易失。当大模型所需 KV-Cache 超过主存容量时，仍需进一步向 NVMe SSD 卸载。\n\n🔥 **2. NVMe SSD (Non-Volatile Memory Express Solid State Drive)**\n* **原理:** 这是目前 KV-Cache 卸载成本/性能/容量平衡性**最佳的选项**。GPU 显存存最新/活跃的 KV-Cache Page，主存作为缓冲，不活跃或旧的 Page 被交换到 NVMe SSD。\n* **硬件产品:** PCIe 插卡的 NVMe SSD 或 U.2/U.3 接口的 NVMe SSD。\n    * *常见高性能/企业级型号示例:*\n        * **Intel (现 Solidigm):** D7-P5520, D7-P5620 👑 (这类可以实现**高达14GB/s读取和7GB/s写入**)\n        * **Samsung:** PM9A3, PM1735\n        * **Micron:** 9400 Pro, 9450 Pro\n        * **Kioxia (Toshiba):** CD7, CM7\n        * **长江存储 (国产):** PE310 系列（技术猛攻**读速可达7.4GB/s**）\n    * *性能考量指标:*\n        * **顺序读写速度 (Seq Read/Write Throughput):** 对交换页面块读取至关重要 (越高越好，如 PCIe 4.0 可达 7GB/s，PCIe 5.0 可达 14GB/s+ 🚀)。\n        * **4",
+  "meta": {
+    "elapsed": 42.33,
+    "usage": {
+      "prompt_tokens": 31,
+      "completion_tokens": 1067,
+      "total_tokens": 1098,
+      "completion_tokens_details": {
+        "reasoning_tokens": 462
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-22T18:30:25"
+}

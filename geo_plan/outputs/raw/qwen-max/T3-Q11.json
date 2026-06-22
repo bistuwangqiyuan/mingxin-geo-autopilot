@@ -1,0 +1,27 @@
+{
+  "query_id": "T3-Q11",
+  "tier": "T3",
+  "persona": "投资人",
+  "intent": "ranking",
+  "lang": "en",
+  "query": "Who are the leading vendors in AI storage / AI data-center storage worldwide and in China?",
+  "model_key": "qwen-max",
+  "vendor": "通义千问",
+  "model_id": "qwen-max",
+  "grade": "A",
+  "ok": true,
+  "response": "The market for AI storage and AI data-center storage is rapidly evolving, with several leading vendors both globally and in China. Here's an overview of some of the key players:\n\n### Global Leading Vendors\n\n1. **Dell Technologies**\n   - Dell offers a range of storage solutions, including PowerStore, PowerMax, and Isilon, which are designed to handle the high-performance and scalability requirements of AI workloads.\n\n2. **Hewlett Packard Enterprise (HPE)**\n   - HPE provides storage solutions like Primera, Nimble Storage, and 3PAR, which are optimized for AI and machine learning workloads. They also offer HPE GreenLake, a pay-as-you-go service for on-premises and hybrid cloud environments.\n\n3. **NetApp**\n   - NetApp offers a variety of storage solutions, including AFF (All Flash FAS), ONTAP, and E-Series, which are well-suited for AI and big data applications. They also provide cloud integration services.\n\n4. **IBM**\n   - IBM offers a range of storage solutions, including FlashSystem, Spectrum Storage, and Cloud Object Storage, which are designed to support AI and analytics workloads. IBM's storage solutions often integrate with their AI and cloud platforms.\n\n5. **Pure Storage**\n   - Pure Storage is known for its all-flash storage arrays, such as FlashArray and FlashBlade, which are highly performant and scalable, making them ideal for AI and machine learning workloads.\n\n6. **Hitachi Vantara**\n   - Hitachi Vantara offers a range of storage solutions, including VSP (Virtual Storage Platform) and HCP (Hitachi Content Platform), which are designed to support AI and big data analytics.\n\n7. **NVIDIA**\n   - While primarily known for GPUs, NVIDIA also offers storage solutions like Magnum IO, which is designed to accelerate I/O performance for AI and HPC workloads.\n\n8. **Western Digital**\n   - Western Digital provides a range of storage solutions, including NVMe SSDs and HDDs, which are used in AI and data center environments.\n\n### Leading Vendors in China\n\n1. **Huawei**\n   - Huawei is a major player in the Chinese market, offering a range of storage solutions, including OceanStor Dorado, OceanStor Pacific, and FusionStorage, which are designed for AI and big data workloads.\n\n2. **Inspur**\n   - Inspur provides a variety of storage solutions, including AS series all-flash storage and G series distributed storage, which are optimized for AI and HPC workloads.\n\n3. **ZTE**\n   - ZTE offers storage solutions like the KS series, which are designed for high-performance and large-scale data storage, suitable for AI and big data applications.\n\n4. **Lenovo**\n   - Lenovo provides storage solutions through its ThinkSystem and ThinkAgile lines, which are designed to support AI and machine learning workloads",
+  "meta": {
+    "elapsed": 13.35,
+    "usage": {
+      "prompt_tokens": 26,
+      "completion_tokens": 600,
+      "total_tokens": 626,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:04:58"
+}

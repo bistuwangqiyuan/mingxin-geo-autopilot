@@ -1,0 +1,27 @@
+{
+  "query_id": "T3-Q13",
+  "tier": "T3",
+  "persona": "算力中心采购",
+  "intent": "comparison",
+  "lang": "zh",
+  "query": "AI 存储市场里，海外（VAST/WEKA/DDN/Pure）和国产（华为/中科存储等）各有什么优劣？",
+  "model_key": "qwen-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "在AI存储市场（尤其是面向大模型训练、推理、HPC/AI融合场景的高性能、高吞吐、低延迟、海量小文件/大文件混合负载场景），海外厂商（VAST Data、WEKA、DDN、Pure Storage）与国产头部厂商（华为OceanStor Pacific/FlashNext、中科曙光ParaStor/DeepStor、浪潮AS13000、阿里云NAS/CPFS、天翼云TeleDB+存储底座等）呈现出显著的技术路线、生态定位和战略逻辑差异。以下从**技术架构、性能与扩展性、AI原生能力、生态适配、可靠性与运维、安全合规、成本与商业模式**7个维度进行客观对比分析，并附关键结论：\n\n---\n\n### 一、海外主流厂商（VAST / WEKA / DDN / Pure）\n| 维度 | 优势 | 劣势 |\n|------|------|------|\n| **技术架构** | • VAST：全闪存+统一命名空间+ZNS SSD优化，端到端NVMe-oF，无元数据服务器瓶颈<br>• WEKA：用户态分布式文件系统（基于RDMA），POSIX兼容+AI工作流深度优化（如TensorFlow/PyTorch插件）<br>• DDN：EXAScaler（Lustre增强版）+ Infinite Memory Engine（IME）缓存层，HPC基因深厚<br>• Pure：FlashBlade//FB2（Unified FastFile & Object），强对象+文件双模，S3+POSIX无缝切换 | • 架构激进（如VAST的“data-centric”设计），部分客户存在学习曲线和运维复杂度<br>• 多数依赖x86+NVMe硬件，对国产CPU/OS适配有限（如鲲鹏、昇腾、麒麟、统信UOS支持弱或需定制） |\n| **性能与扩展性** | • 单集群EB级扩展（VAST/WEKA宣称100PB+有效容量线性扩展）<br>• 小文件（1KB~4KB）随机读写IOPS达千万级（WEKA实测>5M IOPS@4K）<br>• 全局命名空间下跨节点零拷贝迁移，训练任务启动延迟<1s | • 高性能依赖高端RDMA网络（200G/400G RoCEv2），组网成本高（交换机、网卡、调优人力）<br>• 超大规模部署时，控制平面稳定性仍需头部客户长期验证（如Meta、OpenAI未公开全量架构细节） |\n| **AI原生能力** | • 深度集成：WEKA DirectML、VAST AI Accelerator、Pure",
+  "meta": {
+    "elapsed": 15.71,
+    "usage": {
+      "total_tokens": 641,
+      "completion_tokens": 600,
+      "prompt_tokens": 41,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:08:06"
+}

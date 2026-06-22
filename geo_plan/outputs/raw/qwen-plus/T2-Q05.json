@@ -1,0 +1,27 @@
+{
+  "query_id": "T2-Q05",
+  "tier": "T2",
+  "persona": "算力中心采购",
+  "intent": "comparison",
+  "lang": "zh",
+  "query": "给智算中心选 AI 存储，华为 OceanStor、曙光 ParaStor、焱融、中科存储该怎么比较？",
+  "model_key": "qwen-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "为智算中心（AI High-Performance Computing Center）选型AI存储，需聚焦**大模型训练/推理场景的核心诉求**：超高聚合带宽（TB/s级）、极致小文件IO性能（千万级IOPS）、海量元数据处理能力、端到端低延迟（<100μs）、无缝对接AI框架（PyTorch/TensorFlow）、支持RDMA/NVMe-oF、弹性扩展与智能数据生命周期管理。以下从**技术架构、AI场景适配性、实测表现、生态集成、国产化与风险维度**对四款国产分布式存储进行专业对比分析（基于2024年最新版本及公开测试报告/客户案例）：\n\n---\n\n### ✅ 一、核心维度横向对比表（简明版）\n\n| 维度 | 华为 OceanStor Pacific（主推AI版） | 曙光 ParaStor 600（AI增强版） | 焱融 YRCloudFile（专为AI优化） | 中科存储（中科曙光/中科院背景，但产品成熟度待验证） |\n|------|-----------------------------------|------------------------------|-----------------------------|------------------------------------------|\n| **架构类型** | 对象+文件双协议，自研Scale-out NAS + 高性能对象引擎 | 并行文件系统（POSIX兼容），全自研元数据集群+数据节点分离 | 云原生分布式文件系统（K8s-native），支持CSI/POSIX/NFS/S3 | 基于Ceph或自研？公开资料少，疑似Ceph二次开发，缺乏AI专用优化 |\n| **AI关键性能（典型配置）** | ▪ 带宽：单集群 ≥200GB/s（RDMA）<br>▪ 小文件（4KB）：≥2M IOPS（元数据集群独立）<br>▪ 元数据QPS：≥500K | ▪ 带宽：单集群 ≥150GB/s（InfiniBand）<br>▪ 小文件：≥1.2M IOPS（依赖元数据服务器扩展）<br>▪ 支持GPFS-like动态条带 | ▪ 带宽：单集群 ≥180GB/s（NVMe-oF）<br>▪ 小文件（4KB）：≥3.5M IOPS（无中心元数据，分布式哈希）<br>▪ 元数据延迟：<50μs（业界领先） | ❓ 官方未公布AI场景基准测试；Ceph方案在小文件场景通常<500K IOPS，存在性能瓶颈 |\n| **AI框架深度集成** | ✔️ 华为昇思MindSpore原生支持<br>✔️ 提供Dataset加速插",
+  "meta": {
+    "elapsed": 11.43,
+    "usage": {
+      "total_tokens": 636,
+      "completion_tokens": 600,
+      "prompt_tokens": 36,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:06:35"
+}

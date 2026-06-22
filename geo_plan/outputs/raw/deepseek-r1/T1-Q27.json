@@ -1,0 +1,30 @@
+{
+  "query_id": "T1-Q27",
+  "tier": "T1",
+  "persona": "大模型推理工程师",
+  "intent": "definition",
+  "lang": "en",
+  "query": "What is KV-Cache offloading to external high-speed storage, and which vendors provide it for LLM inference?",
+  "model_key": "deepseek-r1",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-r1",
+  "grade": "A",
+  "ok": true,
+  "response": "Okay, let's break down **KV-Cache Offloading to External High-Speed Storage** for LLM inference.\n\n## What is KV-Cache?\n\nLLMs based on transformer architectures use an attention mechanism. To avoid recalculating the Key and Value vectors for *every* previous token during the generation of *each new token*, transformers use a **Key-Value Cache** (KV-Cache).\n\n*   **What it stores:** For each layer in the decoder, the K and V vectors computed for each token in the sequence *so far*.\n*   **Why it's needed:** It dramatically accelerates the generation process after the first token. Instead of processing the entire sequence again for each new token, it only computes the K/V for the *current* (new) token and leverages the cached K/V for all previous tokens.\n*   **The Problem:** For **large models (e.g., 70B+ parameters)** and **long sequence lengths (e.g., 100K+ tokens)**, this KV-Cache can consume *gigabytes* of **high-speed GPU memory**:\n    *   Formula: `Batch Size * Layers * Sequence Length * Model Hidden Dimension Size * Bytes Per Element * 2 (for K and V)`\n    *   Example: Batch size 1, 80 layers, 32K tokens, hidden dim 4096, float16 (2 bytes) = ~40 GB for KV-Cache alone per model instance! This directly competes with the memory needed for model parameters and activations.\n\n## What is KV-Cache Offloading to External (High-Speed) Storage?\n\nKV-Cache offloading moves this large, constantly growing KV-Cache from the scarce and expensive GPU memory out to **secondary storage that is separate from the GPU**.\n\n*   **Goal:** Free up precious GPU DRAM for other critical tasks (holding model weights for fast access, intermediate activations) or allow larger batch sizes / context lengths without requiring prohibitively expensive GPUs with enormous memory.\n*   **The Challenge:** GPU memory is *extremely* fast (hundreds of GB/s), while typical \"external storage\" (like network-attached hard drives or even NVMe SSDs) is orders of magnitude slower. Offloading K/V without significantly crippling token generation speed is the major hurdle.\n*   **How it *might* work:** Sophisticated solutions need to overcome the latency gap:\n    *   **High-Speed Storage Requirement:** The external storage *must* be very high-throughput and low-latency to minimize impact – think direct-attached or low-latency networked **NVMe SSDs**.\n    *   **Prefetching/Lookahead:** The inference engine doesn't just write the finished KV vectors. It also needs to predict which parts of the cache (from prior tokens) will likely be needed *soon* for the next attention computations and **prefetch** those segments",
+  "meta": {
+    "elapsed": 49.33,
+    "usage": {
+      "prompt_tokens": 26,
+      "completion_tokens": 1266,
+      "total_tokens": 1292,
+      "completion_tokens_details": {
+        "reasoning_tokens": 661
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:15:57"
+}

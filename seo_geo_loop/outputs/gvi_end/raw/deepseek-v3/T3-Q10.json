@@ -1,0 +1,27 @@
+{
+  "query_id": "T3-Q10",
+  "tier": "T3",
+  "persona": "信创集成商",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "做 AI 数据中心项目，存储这块有哪些自主可控的国产方案？",
+  "model_key": "deepseek-v3",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-v3",
+  "grade": "A",
+  "ok": true,
+  "response": "在AI数据中心项目中，存储系统的自主可控国产化方案至关重要，尤其是在高性能、高可靠性和大规模扩展场景下。以下是当前国内主流的自主可控存储方案分类及代表厂商：\n\n---\n\n### **一、全闪存存储（高性能AI训练）**\n1. **华为 OceanStor Dorado**  \n   - 全闪存阵列，支持NVMe协议，延迟低至0.1ms，适用于高吞吐AI训练。  \n   - 自研鲲鹏处理器 + 昇腾AI加速芯片，完全国产化。\n\n2. **浪潮 AS5600G2**  \n   - 全闪存架构，支持SCM（存储级内存），性能达百万级IOPS。  \n   - 与国产飞腾CPU深度适配。\n\n3. **宏杉科技 MS系列**  \n   - 国产自研控制器，支持分布式全闪存，兼容龙芯/飞腾平台。\n\n---\n\n### **二、分布式存储（大规模数据湖/非结构化数据）**\n1. **曙光 ParaStor**  \n   - 专为AI设计，单集群支持EB级扩展，带宽达TB级，适配国产AI框架（如百度PaddlePaddle）。  \n   - 自研文件系统，支持海量小文件高效存储。\n\n2. **华为 FusionStorage**  \n   - 分布式块/对象存储，支持鲲鹏+昇腾生态，与ModelArts AI平台深度集成。\n\n3. **星辰天合 XSKY**  \n   - 软件定义存储（SDS），兼容国产CPU（如申威），支持CSI接口与Kubernetes集成。\n\n---\n\n### **三、超融合架构（边缘AI/中小规模部署）**\n1. **深信服 HCI**  \n   - 整合计算、存储、网络，支持国产虚拟化平台（如麒麟云）。  \n   - 内置AI负载均衡算法。\n\n2. **华云数据 CloudUltra**  \n   - 超融合方案适配飞腾/龙芯，提供GPU直通能力，适合边缘推理场景。\n\n---\n\n### **四、专用存储芯片与介质**\n1. **长江存储 NAND闪存**  \n   - Xtacking 3D NAND技术，用于企业级SSD，性能对标国际大厂。\n\n2. **兆芯/国科微 SSD控制器**  \n   - 国产主控芯片，支持PCIe 4.0，降低对国外技术的依赖。\n\n---\n\n### **五、政策合规与生态适配**\n- **操作系统适配**：支持麒麟软件、统信UOS等国产系统。  \n- **AI框架兼容性**：需验证与国产AI框架（如华为MindSpore、清华计图）的IO性能优化。  \n- **安全认证**：通过等保2.0、可信计算认证（如可信华泰）。\n\n---\n\n### **选型建议**\n",
+  "meta": {
+    "elapsed": 19.69,
+    "usage": {
+      "prompt_tokens": 18,
+      "completion_tokens": 600,
+      "total_tokens": 618,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-22T18:27:39"
+}

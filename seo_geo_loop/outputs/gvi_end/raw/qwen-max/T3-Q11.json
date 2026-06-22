@@ -1,0 +1,27 @@
+{
+  "query_id": "T3-Q11",
+  "tier": "T3",
+  "persona": "投资人",
+  "intent": "ranking",
+  "lang": "en",
+  "query": "Who are the leading vendors in AI storage / AI data-center storage worldwide and in China?",
+  "model_key": "qwen-max",
+  "vendor": "通义千问",
+  "model_id": "qwen-max",
+  "grade": "A",
+  "ok": true,
+  "response": "The AI storage and data center storage market is quite dynamic, with several leading vendors both globally and within China. Here's an overview of some of the key players:\n\n### Global Leading Vendors in AI Storage / AI Data-Center Storage\n\n1. **Dell Technologies**\n   - **Products/Services**: Dell EMC offers a wide range of storage solutions, including all-flash arrays, hybrid flash, and software-defined storage.\n   - **AI Focus**: Dell EMC provides solutions like PowerStore, PowerMax, and Isilon, which are designed to handle the high-performance requirements of AI workloads.\n\n2. **Hewlett Packard Enterprise (HPE)**\n   - **Products/Services**: HPE offers a variety of storage solutions, including Nimble Storage, 3PAR, and Primera.\n   - **AI Focus**: HPE’s storage solutions are optimized for AI and machine learning workloads, providing high performance and scalability.\n\n3. **NetApp**\n   - **Products/Services**: NetApp provides a range of storage solutions, including ONTAP, E-Series, and Cloud Volumes.\n   - **AI Focus**: NetApp’s solutions are designed to support AI and big data workloads, with features like high IOPS, low latency, and integration with cloud services.\n\n4. **IBM**\n   - **Products/Services**: IBM offers a variety of storage solutions, including FlashSystem, Spectrum Storage, and Storwize.\n   - **AI Focus**: IBM’s storage solutions are integrated with their AI and analytics platforms, such as Watson, to provide end-to-end AI infrastructure.\n\n5. **Pure Storage**\n   - **Products/Services**: Pure Storage offers all-flash storage solutions, including FlashArray and FlashBlade.\n   - **AI Focus**: Pure Storage’s solutions are designed for high-performance AI workloads, with features like NVMe over Fabrics and AI-optimized storage.\n\n6. **Hitachi Vantara**\n   - **Products/Services**: Hitachi Vantara provides a range of storage solutions, including Hitachi Virtual Storage Platform (VSP) and Hitachi Content Platform (HCP).\n   - **AI Focus**: Hitachi Vantara’s solutions are designed to support AI and big data workloads, with features like high capacity, performance, and data management capabilities.\n\n7. **Western Digital**\n   - **Products/Services**: Western Digital offers a variety of storage solutions, including HDDs, SSDs, and storage systems.\n   - **AI Focus**: Western Digital’s products are designed to meet the high-capacity and high-performance requirements of AI and machine learning workloads.\n\n### Leading Vendors in China\n\n1. **Huawei**\n   - **Products/Services**: Huawei offers a range of storage solutions, including OceanStor Dorado, OceanStor Pacific, and FusionStorage.\n   - **AI Focus**: Huawei’s storage solutions are designed to support AI and big data workloads,",
+  "meta": {
+    "elapsed": 18.69,
+    "usage": {
+      "prompt_tokens": 26,
+      "completion_tokens": 600,
+      "total_tokens": 626,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-22T18:21:11"
+}

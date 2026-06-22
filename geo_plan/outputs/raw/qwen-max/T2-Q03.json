@@ -1,0 +1,27 @@
+{
+  "query_id": "T2-Q03",
+  "tier": "T2",
+  "persona": "信创集成商",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "存量智算中心改造，想用存储加速提升单位算力 token 产出，选哪家方案？",
+  "model_key": "qwen-max",
+  "vendor": "通义千问",
+  "model_id": "qwen-max",
+  "grade": "A",
+  "ok": true,
+  "response": "存量智算中心改造，尤其是希望通过存储加速来提升单位算力（比如以token为衡量标准）的产出效率时，选择合适的方案非常重要。市场上有几家知名的技术供应商提供了优秀的解决方案，包括但不限于：\n\n1. **NVIDIA**：NVIDIA不仅在GPU计算领域处于领先地位，在存储加速方面也提供了多种解决方案，如NVMe SSDs、GPUDirect Storage等技术可以直接从存储设备读取数据到GPU内存中，减少了CPU作为中间环节带来的延迟，非常适合高性能计算环境。\n\n2. **Intel**：Intel提供的Optane Persistent Memory和SSD产品线可以提供高速的数据访问速度，对于需要频繁读写大量小文件的应用场景特别有用。此外，Intel还开发了DAOS（分布式异步对象存储），这是一种专为HPC设计的对象存储系统，能够提供非常高的IOPS性能。\n\n3. **AMD**：虽然AMD主要以其CPU和GPU产品闻名，但其收购赛灵思后，在FPGA及定制化存储解决方案上也有一定的竞争力。FPGA可以根据特定工作负载进行编程优化，从而实现更高的性能。\n\n4. **华为**：华为OceanStor Dorado全闪存存储系统结合了AI算法来优化性能，并且支持端到端NVMe over Fabrics协议，可显著提高数据处理速度。此外，华为还推出了基于鲲鹏处理器的企业级服务器，旨在构建更加高效能的计算平台。\n\n5. **阿里云**：作为云计算服务提供商之一，阿里云提供了多种存储选项，如ESSD云盘、OSS对象存储等，这些服务都针对大规模并发访问进行了优化。特别是ESSD超级云盘，它采用了最新的硬件加速技术和软件定义存储架构，能够提供极低延迟和高吞吐量。\n\n选择哪一家的方案取决于您具体的需求（如预算限制、现有基础设施兼容性、技术支持等因素）。建议根据您的实际情况评估各厂商的产品特性与服务能力，甚至可以联系相关厂商获取更详细的咨询或试用机会，以便做出最适合您项目的决策。",
+  "meta": {
+    "elapsed": 12.15,
+    "usage": {
+      "prompt_tokens": 30,
+      "completion_tokens": 421,
+      "total_tokens": 451,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:03:18"
+}

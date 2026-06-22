@@ -1,0 +1,27 @@
+{
+  "query_id": "T1-Q03",
+  "tier": "T1",
+  "persona": "算力中心采购",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "我要给智算中心采购一款存算分离的全闪存储加速一体机，国产有哪些可选品牌？",
+  "model_key": "deepseek-v3",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-v3",
+  "grade": "A",
+  "ok": true,
+  "response": "在国产全闪存储加速一体机（存算分离架构）领域，有多家品牌提供成熟解决方案，以下是主要推荐品牌及产品特点，供参考：\n\n---\n\n### **1. 华为（Huawei）**\n- **产品型号**：OceanStor Dorado 全闪存存储（可搭配FusionSphere实现存算分离）\n- **特点**：\n  - 支持NVMe over Fabric（NVMe-oF），延迟低至百微秒级\n  - 智能分级存储（QoS自动优化）\n  - 与鲲鹏处理器生态深度整合，国产化率高\n  - 适用于高性能计算（HPC）、AI训练等场景\n\n---\n\n### **2. 浪潮（Inspur）**\n- **产品型号**：AS5600G2全闪存存储 + 浪潮AI加速套件\n- **特点**：\n  - 支持分布式存储与计算资源池化\n  - 提供GPU Direct Storage加速能力\n  - 与浪潮服务器无缝兼容，适合智算中心规模化部署\n  - 提供国产化选项（如搭载海光CPU）\n\n---\n\n### **3. 曙光（Sugon）**\n- **产品型号**：ParaStor 全闪分布式存储 + 曙光硅立方加速引擎\n- **特点**：\n  - 专为存算分离架构设计，支持RDMA高速网络\n  - 与曙光自研DCU（GPU）计算平台协同优化\n  - 提供冷热数据分层管理，降低TCO\n\n---\n\n### **4. 同有科技（Tongyu）**\n- **产品型号**：ACS 5000系列全闪加速存储\n- **特点**：\n  - 国产自研控制器（支持飞腾/龙芯平台）\n  - 支持NVMe/TCP协议，兼容主流计算节点\n  - 提供数据压缩/去重功能，提升有效容量\n\n---\n\n### **5. 宏杉科技（Macrosan）**\n- **产品型号**：MS系列全闪存存储\n- **特点**：\n  - 灵活支持块/文件/对象存储协议\n  - 与国产操作系统（如麒麟）深度适配\n  - 提供存储快照与克隆功能，适合多租户场景\n\n---\n\n### **6. 鼎甲科技（Dingjia）**\n- **产品型号**：DCS Series 分布式全闪存储\n- **特点**：\n  - 软硬件全栈国产化（申威CPU+自研存储OS）\n  - 内置数据容灾模块，符合等保要求\n  - 适用于金融、政务等对安全性要求高的场景\n\n---\n\n### **选型建议**：\n1. **性能需求**：若需超低延迟，优先考虑支持NVMe-oF/RDMA的方案（如华为、曙光",
+  "meta": {
+    "elapsed": 17.96,
+    "usage": {
+      "prompt_tokens": 25,
+      "completion_tokens": 600,
+      "total_tokens": 625,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-22T18:24:28"
+}

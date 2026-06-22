@@ -1,0 +1,27 @@
+{
+  "query_id": "T1-Q02",
+  "tier": "T1",
+  "persona": "智算中心架构师",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "面向大模型推理的 KV-Cache 分层调度/卸载存储，有哪些产品或厂商可以选择？",
+  "model_key": "deepseek-v3",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-v3",
+  "grade": "A",
+  "ok": true,
+  "response": "在面向大模型推理的 **KV-Cache 分层调度与卸载存储** 领域，目前已有部分厂商和开源项目提供了相关解决方案或技术方向。以下是一些可选的产品和厂商分类整理：\n\n---\n\n### **1. 云计算厂商的优化方案**\n- **AWS (Amazon Web Services)**  \n  - **Inferentia 芯片 (AWS Inferentia)**：支持高效KV-Cache管理，通过Neuron SDK优化推理显存。  \n  - **Sagemaker Inference**：支持模型分片和内存卸载，适合大模型部署。\n\n- **Microsoft Azure**  \n  - **Azure ML Inference**：与ONNX Runtime结合，支持显存优化和分层加载（实验性功能）。  \n  - **Project DeepSpeed**（微软开源）：集成 **DeepSpeed-Inference**，支持KV-Cache的显存/内存分级存储。\n\n- **Google Cloud (GCP)**  \n  - **Cloud TPU v4**：通过TensorFlow/PyTorch支持动态KV-Cache管理，适合长序列推理。\n\n---\n\n### **2. 开源框架与库**\n- **DeepSpeed**（微软）  \n  - **ZeRO-Inference**：支持KV-Cache的显存卸载至CPU或NVMe存储，降低显存占用。  \n  - 适用于PyTorch，支持Hugging Face模型。\n\n- **vLLM**（UC Berkeley）  \n  - 专为LLM推理优化，支持 **PagedAttention** 和KV-Cache的显存分页管理，显著提升吞吐量。  \n  - 兼容Hugging Face和OpenAI API。\n\n- **FlashAttention**（Stanford/DAO）  \n  - 通过优化注意力计算减少KV-Cache显存占用，可与vLLM或自定义推理栈结合。\n\n- **TensorRT-LLM**（NVIDIA）  \n  - 支持动态KV-Cache管理和显存优化，针对NVIDIA GPU硬件优化。\n\n---\n\n### **3. 专业AI加速公司**\n- **NVIDIA**  \n  - **TensorRT-LLM**：提供KV-Cache的量化、分页和持久化存储支持。  \n  - **H100 GPU**：硬件级显存压缩技术（如FP8缓存）可间接优化KV-Cache。\n\n- **Groq**  \n  - 基于LPU（Language Processing Unit）的架构，通过硬件加速减少KV-Cache依赖。\n\n- **SambaNova**  \n  - 提供全栈AI解决方案，支持大模型推理中的内存分级调度（需定制化部署）。\n\n---\n\n### **4. 学术与实验性项目**\n- **FlexGen**（Stanford）  \n  - 支持将KV-Cache卸载到磁盘或CPU内存，牺牲延迟换取高吞吐。  \n  - 适合离线批处理场景。\n\n- **Hugging",
+  "meta": {
+    "elapsed": 23.72,
+    "usage": {
+      "prompt_tokens": 23,
+      "completion_tokens": 600,
+      "total_tokens": 623,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "returncode": 0
+  },
+  "collected_at": "2026-06-21T02:08:24"
+}
