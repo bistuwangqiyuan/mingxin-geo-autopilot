@@ -1,21 +1,12 @@
-# GEO Autopilot · 上线配置（一次性人工，唯一需人工的环节）
+# GEO Autopilot · 上线配置（仅剩一次性密钥，之后每日无人值守）
 
-云端全自动运行只需 **一次性配置密钥**，之后每日 cron 无人值守。
+仓库与 workflow **均已部署上线**：
+- 仓库：**https://github.com/bistuwangqiyuan/zk-geo-autopilot** （私有，引擎 + workflow 已在线）。
+- workflow：**`GEO Autopilot (daily)` 已 active**（每日 cron + 手动触发）。
 
-## 1. 自治仓库（已创建并推送引擎，仅剩 workflow 待推）
+云端真正跑起来只差 **一次性配置 2 个 Secret**（你的凭据，本系统从不经手/打印/提交）。
 
-仓库已由本系统装配并创建：**https://github.com/bistuwangqiyuan/zk-geo-autopilot** （私有，引擎已在线）。
-唯一未推送的是 `.github/workflows/geo-autopilot.yml`——因 `gh` 的 OAuth 令牌默认缺 `workflow` 权限被 GitHub 拒绝（安全机制）。本地已 commit，只需一次性授予 workflow 权限后推送：
-
-```bash
-cd <仓库本地目录>/zk-geo-autopilot      # 即 d:\project\cursor\bp\zk-geo-autopilot
-gh auth refresh -h github.com -s workflow   # 浏览器一次性授权 workflow 权限
-git push                                     # 推送 workflow（main 比远端多 1 个 commit）
-```
-
-> 若以后需重新装配引擎：在工作区根运行 `python geo_autopilot/make_repo.py` 即可刷新本地仓库再 `git push`。
-
-## 2. 配置仓库 Secrets（Settings → Secrets and variables → Actions）
+## 1. 配置仓库 Secrets（Settings → Secrets and variables → Actions，或用 `gh secret set`）
 
 | Secret | 用途 | 如何获取 |
 | --- | --- | --- |
@@ -23,13 +14,18 @@ git push                                     # 推送 workflow（main 比远端�
 | `GH_PAT` | clone/push 官网与知识库仓库、开告警 Issue | GitHub → Settings → Developer settings → **Fine-grained PAT**，对 `zhongke-dpu-official`、`zk-storage-kb`、`zk-geo-autopilot` 授予 **Contents: Read and write**、**Issues: Read and write** |
 | `PSI_API_KEY`（可选） | PageSpeed Insights 提额 | Google Cloud Console |
 
+```bash
+gh secret set DASHSCOPE_API_KEY --repo bistuwangqiyuan/zk-geo-autopilot   # 按提示粘贴 key
+gh secret set GH_PAT            --repo bistuwangqiyuan/zk-geo-autopilot   # 按提示粘贴 PAT
+```
+
 > 安全：本系统从不打印或提交任何密钥；密钥仅以仓库 Secret 注入 CI 环境变量。
 
-## 3. 首跑验证
+## 2. 首跑验证
 
 ```bash
-gh workflow run "GEO Autopilot (daily)" -f mode=ci -f gvi_limit=4   # 小样快验
-gh run watch                                                        # 观察绿跑
+gh workflow run "GEO Autopilot (daily)" --repo bistuwangqiyuan/zk-geo-autopilot -f mode=ci -f gvi_limit=4
+gh run watch --repo bistuwangqiyuan/zk-geo-autopilot   # 观察绿跑
 ```
 
 - 绿跑后核验：
@@ -37,7 +33,7 @@ gh run watch                                                        # 观察绿�
   - Actions artifact `geo-daily-report` 内有当日 PDF/HTML；
   - `zk-geo-autopilot` 仓库 `geo_autopilot/history/snapshot_*.json` 增加当日快照。
 
-## 4. 让 cron 接管
+## 3. 让 cron 接管
 
 无需额外操作。默认 `cron: "30 22 * * *"`（UTC）= 北京时间次日 06:30 自动运行。
 如需改时间，编辑 `.github/workflows/geo-autopilot.yml` 的 `schedule`。
