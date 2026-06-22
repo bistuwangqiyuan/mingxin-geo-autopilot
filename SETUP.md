@@ -2,15 +2,18 @@
 
 云端全自动运行只需 **一次性配置密钥**，之后每日 cron 无人值守。
 
-## 1. 创建自治仓库
+## 1. 自治仓库（已创建并推送引擎，仅剩 workflow 待推）
+
+仓库已由本系统装配并创建：**https://github.com/bistuwangqiyuan/zk-geo-autopilot** （私有，引擎已在线）。
+唯一未推送的是 `.github/workflows/geo-autopilot.yml`——因 `gh` 的 OAuth 令牌默认缺 `workflow` 权限被 GitHub 拒绝（安全机制）。本地已 commit，只需一次性授予 workflow 权限后推送：
 
 ```bash
-# 在工作区根目录运行：装配最小引擎到 ../zk-geo-autopilot 并 git init + commit
-python geo_autopilot/make_repo.py
-
-cd ../zk-geo-autopilot
-gh repo create zk-geo-autopilot --private --source . --push
+cd <仓库本地目录>/zk-geo-autopilot      # 即 d:\project\cursor\bp\zk-geo-autopilot
+gh auth refresh -h github.com -s workflow   # 浏览器一次性授权 workflow 权限
+git push                                     # 推送 workflow（main 比远端多 1 个 commit）
 ```
+
+> 若以后需重新装配引擎：在工作区根运行 `python geo_autopilot/make_repo.py` 即可刷新本地仓库再 `git push`。
 
 ## 2. 配置仓库 Secrets（Settings → Secrets and variables → Actions）
 
