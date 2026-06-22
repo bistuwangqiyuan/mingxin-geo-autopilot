@@ -12,8 +12,8 @@
 CI 中再把 official_website / zk-storage-kb clone 为同级目录，paths.py 零改动解析。
 
 用法：
-  python make_repo.py                 # 装配到 ../zk-geo-autopilot 并 git init+commit
-  python make_repo.py --dest D:\path  # 指定目标
+  python make_repo.py                  # 装配到 ../zk-geo-autopilot 并 git init+commit
+  python make_repo.py --dest <PATH>    # 指定目标目录
 """
 from __future__ import annotations
 

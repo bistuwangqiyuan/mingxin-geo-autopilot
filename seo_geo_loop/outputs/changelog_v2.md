@@ -52,3 +52,22 @@
 - **版本控制说明**：仓库根 `microai` 非 git 仓库；受版本控制的 `official_website`(dd58cc5) 与 `zk-storage-kb`(fc98c43) 均已提交并推送，`seo_geo_loop/outputs` 为本地交付产物。
 
 > 红线遵守：UGC 平台无开放写 API/需实名 → 不自动发帖，仅交付定稿 + SOP；预测一律标注"规划假设、非承诺"；sameAs 仅写实测 200 的 URL；不刷量、不伪造、不隐藏文字。
+
+---
+
+## 2026-06-23 · 全自动 AI GEO 系统（GEO Autopilot）开发 + 本地端到端测试（本节手工留痕）
+
+新建 `geo_autopilot/`：一套云端每日无人值守、全 AI 驱动的官网 GEO 系统，开发完成并本地端到端跑通。
+
+- **架构**：`autopilot.py` 统一编排（`--dry-run/--once/--ci` + `--gvi-limit/--skip-gvi/--no-llm` 预算超时护栏），`paths.py` 环境自适应解析引擎与站点路径。
+- **AI 决策脑**（`geo_brain.py`）：把当日真实指标喂给 `qwen-max`（经 bl `--messages-file`/`--output json`），产出结构化 JSON 决策（优先级 + 批评与自我批评 + 内容提案）；LLM 不可达时回退确定性规则脑并如实标注 `engine`。**实测 `engine=llm:qwen-max` 正常产出 2 优先级 / 2 提案 / 2 自我批评。**
+- **内容自进化**（`apply_proposals.py`）：AI 提案先过「事实口径一致性闸门」（复用 `source_audit.check_consistency`）再过 `verify_site.py` 构建闸门，失败自动回滚。**实测：接受 1 条带 300 GB/s & 20 μs 的 FAQ（口径一致）并通过 verify 上线；注入 999 GB/s / 1 μs 的伪造数值被准确拦截（自我净化生效）。** `build_site.py` 新增可选 `autopilot_faq.json` 附加读取（仅附加、不覆盖单一事实源）。
+- **历史/趋势/日报**：`metrics.py`（快照）+ `trend.py`（苹果风趋势图）+ `build_daily_report.py`/`export_daily_pdf.py`（《GEO 自动驾驶日报》A4 PDF，5 页 / 331 KB，实测渲染良好）。
+- **告警**（`alerting.py`）：回归/部署失败/verify 失败/待人工项 → 经 `gh` 开/更新固定标题 Issue（含数据快照 + SOP），无 gh/无权限则本地落盘不阻断。实测 `level=warn`（由 GSC/UGC/ICP 人工项驱动，无伪造完成）。
+- **云端 cron**：`.github/workflows/geo-autopilot.yml`（每日 cron + workflow_dispatch；装 Python/Node/Playwright/bailian-cli → clone 官网/知识库 → `autopilot.py --ci` → 推站点 + 提交 autopilot 数据 + 上传日报 artifact）。
+- **自治仓库装配**（`make_repo.py`）：把最小引擎（geo_autopilot + geo_plan + seo_geo_loop + results.json）装配成可推送的 `zk-geo-autopilot`，workflow 提升到仓库根 `.github/`。**已本地 git init + commit；安全扫描确认无 API Key / OAuth 令牌泄露。**
+- **本地端到端实测**：`autopilot.py --dry-run`（10/10 步 OK）；`--once --skip-gvi`（20/20 步 OK，0 关键失败，37.7s）含真实 IndexNow 重推 72 URL、`live_audit` 线上核验、官网/知识库本地提交（未 push）。
+
+> 诚实边界（不伪造、已在系统内固化）：GSC 请求收录（需登录/配额/无写 API）、UGC 发布（无开放写 API/需实名）、百度收录（需 ICP）→ 系统自动开 Issue + 给 SOP，绝不自动伪装完成。
+>
+> 上线唯一需人工的一次性环节（见 `geo_autopilot/SETUP.md`）：`gh repo create` 推送 → 配置仓库 Secrets（`DASHSCOPE_API_KEY`、细粒度 `GH_PAT`）→ `workflow_dispatch` 首跑 → cron 接管。系统从不打印/提交任何密钥。
