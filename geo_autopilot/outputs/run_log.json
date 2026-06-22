@@ -1,7 +1,7 @@
 {
-  "mode": "once",
-  "started": "2026-06-23T00:16:00",
-  "elapsed": 37.7,
+  "mode": "dry-run",
+  "started": "2026-06-23T00:22:15",
+  "elapsed": 15.4,
   "paths": {
     "ROOT": "D:\\project\\cursor\\bp\\microai",
     "GEO_PLAN": "D:\\project\\cursor\\bp\\microai\\geo_plan",
@@ -27,16 +27,16 @@
     {
       "name": "geo_autopilot/geo_brain.py",
       "ok": true,
-      "note": "  priorities=3 proposals=2",
+      "note": "  priorities=2 proposals=2",
       "critical": false,
       "elapsed": 9.7
     },
     {
-      "name": "geo_autopilot/apply_proposals.py",
+      "name": "geo_autopilot/apply_proposals.py --dry-run",
       "ok": true,
-      "note": "  已应用 1 条提案并通过 verify_site 闸门",
+      "note": "  dry-run：仅校验提案，不写盘不构建",
       "critical": false,
-      "elapsed": 0.5
+      "elapsed": 0.1
     },
     {
       "name": "seo_geo_loop/build_offsite_site.py",
@@ -67,86 +67,16 @@
       "elapsed": 1.1
     },
     {
-      "name": "seo_geo_loop/indexnow_submit.py",
-      "ok": true,
-      "note": "[OK] 72 URLs; written D:\\project\\cursor\\bp\\microai\\seo_geo_loop\\outputs\\indexnow_submit.json",
-      "critical": false,
-      "elapsed": 15.2
-    },
-    {
-      "name": "seo_geo_loop/live_audit.py",
-      "ok": true,
-      "note": "  写出 -> D:\\project\\cursor\\bp\\microai\\seo_geo_loop\\outputs\\live_status.json",
-      "critical": false,
-      "elapsed": 6.1
-    },
-    {
-      "name": "git -C official_website add -A",
-      "ok": true,
-      "note": "warning: in the working copy of 'build_site.py', LF will be replaced by CRLF the next time Git touches it",
-      "critical": false,
-      "elapsed": null
-    },
-    {
-      "name": "git -C official_website status --porcelain",
-      "ok": true,
-      "note": "M  zh/validation.html",
-      "critical": false,
-      "elapsed": null
-    },
-    {
-      "name": "git -C official_website commit -m",
-      "ok": true,
-      "note": " create mode 100644 autopilot_faq.json.bak.1782144970",
-      "critical": false,
-      "elapsed": null
-    },
-    {
-      "name": "deploy official_website",
-      "ok": true,
-      "note": "已提交（本地，未推送）",
-      "critical": false,
-      "elapsed": null
-    },
-    {
-      "name": "git -C offsite_github add -A",
-      "ok": true,
-      "note": "",
-      "critical": false,
-      "elapsed": null
-    },
-    {
-      "name": "git -C offsite_github status --porcelain",
-      "ok": true,
-      "note": "M  docs/ws5000.html",
-      "critical": false,
-      "elapsed": null
-    },
-    {
-      "name": "git -C offsite_github commit -m",
-      "ok": true,
-      "note": " 9 files changed, 16 insertions(+), 16 deletions(-)",
-      "critical": false,
-      "elapsed": null
-    },
-    {
-      "name": "deploy offsite_github",
-      "ok": true,
-      "note": "已提交（本地，未推送）",
-      "critical": false,
-      "elapsed": null
-    },
-    {
       "name": "geo_autopilot/build_daily_report.py",
       "ok": true,
       "note": "Saved: D:\\project\\cursor\\bp\\microai\\geo_autopilot\\reports\\中科存储-GEO自动驾驶日报.html",
       "critical": true,
-      "elapsed": 0.6
+      "elapsed": 0.7
     },
     {
       "name": "geo_autopilot/export_daily_pdf.py",
       "ok": true,
-      "note": "Saved: D:\\project\\cursor\\bp\\microai\\geo_autopilot\\reports\\中科存储-GEO自动驾驶日报-2026-06-23.pdf  (0.34 MB)",
+      "note": "Saved: D:\\project\\cursor\\bp\\microai\\geo_autopilot\\reports\\中科存储-GEO自动驾驶日报-2026-06-23.pdf  (0.33 MB)",
       "critical": false,
       "elapsed": 2.9
     },

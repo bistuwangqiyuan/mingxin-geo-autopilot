@@ -60,7 +60,10 @@ def assemble(dest, do_git=True):
     if os.path.isfile(paths.RESULTS_JSON):
         shutil.copy2(paths.RESULTS_JSON, os.path.join(rj_dst, "results.json"))
 
-    # 5. 根 README + .gitignore
+    # 5. 根 README + .gitignore + SETUP.md（提升到根，供 README 链接）
+    setup_src = os.path.join(paths.AUTOPILOT_DIR, "SETUP.md")
+    if os.path.isfile(setup_src):
+        shutil.copy2(setup_src, os.path.join(dest, "SETUP.md"))
     _write_root_readme(dest)
     _write_root_gitignore(dest)
 

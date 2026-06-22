@@ -1,24 +1,22 @@
 {
-  "ts": "2026-06-23T00:16:10",
+  "ts": "2026-06-23T00:22:25",
   "n_proposals": 2,
   "accepted": [
     {
       "type": "faq",
       "page": "faq",
       "question": "中科存储的带宽是多少？",
-      "answer": "中科存储的带宽为300 GB/s，提供高效的数据传输能力。"
+      "answer": "中科存储提供高达300 GB/s的带宽，确保数据传输快速高效。"
     },
     {
       "type": "glossary",
-      "term": "GEO",
-      "definition": "生成式引擎优化，用于提升网站搜索引擎表现。"
+      "term": "时延",
+      "definition": "指数据从发送端到接收端所需的时间，中科存储的时延仅为20 μs。"
     }
   ],
   "rejected": [],
-  "applied": true,
-  "verify_ok": true,
-  "dry_run": false,
-  "note": "已应用 1 条提案并通过 verify_site 闸门",
-  "added": 1,
-  "backup": "D:\\project\\cursor\\bp\\microai\\official_website\\autopilot_faq.json.bak.1782144970"
+  "applied": false,
+  "verify_ok": null,
+  "dry_run": true,
+  "note": "dry-run：仅校验提案，不写盘不构建"
 }

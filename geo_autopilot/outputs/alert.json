@@ -1,7 +1,7 @@
 {
   "title": "[GEO Autopilot] 每日运行告警与待人工事项",
   "level": "warn",
-  "body": "自动生成于 2026-06-23T00:16:38（GEO Autopilot 每日运行）。\n\n- 当日 GVI: **5.01**（gvi_compare.end(real_remeasure)），Δ=-0.2\n- 品牌被提及率: 0.0786\n- DeepSeek/通义 信源覆盖: 0.2462 / 0.0167\n- Google 已收录页: None\n\n## 告警级别: `warn`\n\n### 受客观约束、需人工处理（不伪造）\n- [ ] GSC 请求收录(配额/登录)\n- [ ] UGC 人工发布\n- [ ] 百度收录(ICP)\n\n### 人工 SOP\n- UGC 发布：见 `geo_plan/offsite/SOP_manual_publish.md`\n- GSC 请求收录：见 `seo_geo_loop/outputs/live_status.json` 的 `gsc_url_inspection.pending_next_day`\n- 百度收录：需 ICP 备案，见 `seo_geo_loop/outputs/external_actions_status.json`\n\n决策引擎：llm:qwen-max · 摘要：今日需重点优化内容质量与外链建设，以提升搜索可见性和提及率。",
+  "body": "自动生成于 2026-06-23T00:22:31（GEO Autopilot 每日运行）。\n\n- 当日 GVI: **5.01**（gvi_compare.end(real_remeasure)），Δ=-0.2\n- 品牌被提及率: 0.0786\n- DeepSeek/通义 信源覆盖: 0.2462 / 0.0167\n- Google 已收录页: None\n\n## 告警级别: `warn`\n\n### 受客观约束、需人工处理（不伪造）\n- [ ] GSC 请求收录(配额/登录)\n- [ ] UGC 人工发布\n- [ ] 百度收录(ICP)\n\n### 人工 SOP\n- UGC 发布：见 `geo_plan/offsite/SOP_manual_publish.md`\n- GSC 请求收录：见 `seo_geo_loop/outputs/live_status.json` 的 `gsc_url_inspection.pending_next_day`\n- 百度收录：需 ICP 备案，见 `seo_geo_loop/outputs/external_actions_status.json`\n\n决策引擎：llm:qwen-max · 摘要：今日需重点关注内容优化及建立更多高质量外链，以提升提及率和引用率。",
   "alerts": [],
   "blocked_manual": [
     "GSC 请求收录(配额/登录)",
