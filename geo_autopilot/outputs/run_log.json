@@ -1,13 +1,13 @@
 {
-  "mode": "once",
-  "started": "2026-06-28T02:52:32",
-  "elapsed": 17.3,
+  "mode": "ci",
+  "started": "2026-06-28T02:11:59",
+  "elapsed": 1432.5,
   "paths": {
-    "ROOT": "D:\\project\\cursor\\dev\\google\\zk-geo-autopilot",
-    "GEO_PLAN": "D:\\project\\cursor\\dev\\google\\zk-geo-autopilot\\geo_plan",
-    "LOOP": "D:\\project\\cursor\\dev\\google\\zk-geo-autopilot\\seo_geo_loop",
-    "OFFICIAL_WEBSITE": "D:\\project\\cursor\\dev\\google\\zk-geo-autopilot\\official_website",
-    "KB_REPO": "D:\\project\\cursor\\dev\\google\\zk-geo-autopilot\\offsite_github",
+    "ROOT": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot",
+    "GEO_PLAN": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_plan",
+    "LOOP": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop",
+    "OFFICIAL_WEBSITE": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/official_website",
+    "KB_REPO": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/offsite_github",
     "exists": {
       "geo_plan": true,
       "seo_geo_loop": true,
@@ -18,67 +18,67 @@
   },
   "steps": [
     {
-      "name": "gvi_measure",
+      "name": "seo_geo_loop/gvi_measure.py --force",
       "ok": true,
-      "note": "dry-run/skip：沿用上次真实重测（如实标注）",
+      "note": "写出：/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/gvi_compare.json",
       "critical": false,
-      "elapsed": null
+      "elapsed": 1398.3
     },
     {
       "name": "geo_autopilot/geo_brain.py",
       "ok": true,
-      "note": "  priorities=3 proposals=0",
+      "note": "  priorities=3 proposals=2",
       "critical": false,
-      "elapsed": 0.1
+      "elapsed": 18.8
     },
     {
       "name": "geo_autopilot/apply_proposals.py",
       "ok": true,
-      "note": "  无可接受提案（或全部被一致性/schema 拦截）",
+      "note": "  verify 失败，已回滚并重建干净站点（自我净化，未部署）",
       "critical": false,
       "elapsed": 0.1
     },
     {
       "name": "seo_geo_loop/build_offsite_site.py",
       "ok": true,
-      "note": "[offsite_site] 生成 6 页 + robots/sitemap/llms -> D:\\project\\cursor\\dev\\google\\zk-geo-autopilot\\offsite_site",
+      "note": "[offsite_site] 生成 6 页 + robots/sitemap/llms -> /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/offsite_site",
       "critical": false,
-      "elapsed": 0.1
+      "elapsed": 0.0
     },
     {
       "name": "seo_geo_loop/build_offsite_github.py",
       "ok": true,
-      "note": "[offsite_github] 组装完成 -> D:\\project\\cursor\\dev\\google\\zk-geo-autopilot\\offsite_github  (docs 文件 13 个)",
+      "note": "[offsite_github] 组装完成 -> /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/offsite_github  (docs 文件 13 个)",
       "critical": false,
-      "elapsed": 0.1
+      "elapsed": 0.0
     },
     {
       "name": "geo_plan/source_audit.py",
       "ok": true,
-      "note": "  实体事实表 -> outputs/entity_facts.json",
+      "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 0.9
+      "elapsed": 1.2
     },
     {
       "name": "geo_plan/geo_scoring.py",
       "ok": true,
-      "note": "  图表 -> outputs/figures/  数据 -> outputs/geo_baseline.json",
+      "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 1.4
+      "elapsed": 1.6
     },
     {
       "name": "seo_geo_loop/indexnow_submit.py",
       "ok": true,
-      "note": "[OK] 72 URLs; written D:\\project\\cursor\\dev\\google\\zk-geo-autopilot\\seo_geo_loop\\outputs\\indexnow_submit.json",
+      "note": "[OK] 72 URLs; written /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/indexnow_submit.json",
       "critical": false,
-      "elapsed": 8.5
+      "elapsed": 6.6
     },
     {
       "name": "seo_geo_loop/live_audit.py",
       "ok": true,
-      "note": "  写出 -> D:\\project\\cursor\\dev\\google\\zk-geo-autopilot\\seo_geo_loop\\outputs\\live_status.json",
+      "note": "  写出 -> /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/live_status.json",
       "critical": false,
-      "elapsed": 1.8
+      "elapsed": 1.0
     },
     {
       "name": "git -C official_website add -A",
@@ -123,32 +123,39 @@
       "elapsed": null
     },
     {
-      "name": "deploy offsite_github",
+      "name": "git -C offsite_github push origin",
       "ok": true,
-      "note": "已提交（本地，未推送）",
-      "critical": false,
+      "note": "   bdfec70..3b8b301  HEAD -> main",
+      "critical": true,
+      "elapsed": null
+    },
+    {
+      "name": "push offsite_github",
+      "ok": true,
+      "note": "已推送触发部署",
+      "critical": true,
       "elapsed": null
     },
     {
       "name": "geo_autopilot/build_daily_report.py",
       "ok": true,
-      "note": "Saved: D:\\project\\cursor\\dev\\google\\zk-geo-autopilot\\geo_autopilot\\reports\\中科存储-GEO自动驾驶日报.html",
+      "note": "  fig.tight_layout()",
       "critical": true,
-      "elapsed": 0.8
+      "elapsed": 0.9
     },
     {
       "name": "geo_autopilot/export_daily_pdf.py",
       "ok": true,
-      "note": "Saved: D:\\project\\cursor\\dev\\google\\zk-geo-autopilot\\geo_autopilot\\reports\\中科存储-GEO自动驾驶日报-2026-06-28.pdf  (0.35 MB)",
+      "note": "Saved: /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_autopilot/reports/中科存储-GEO自动驾驶日报-2026-06-28.pdf  (0.80 MB)",
       "critical": false,
-      "elapsed": 2.7
+      "elapsed": 1.5
     },
     {
       "name": "geo_autopilot/alerting.py",
       "ok": true,
-      "note": "[alerting] level=warn delivery=local_file_only(无 ZK_ALERT_REPO 或 dry-run) alerts=0 blocked=3",
+      "note": "[alerting] level=error delivery=created_issue alerts=1 blocked=3",
       "critical": false,
-      "elapsed": 0.1
+      "elapsed": 1.4
     }
   ]
 }
