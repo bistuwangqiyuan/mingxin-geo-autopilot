@@ -1,25 +1,24 @@
 {
-  "ts": "2026-06-28T16:43:13",
+  "ts": "2026-06-28T16:52:31",
   "n_proposals": 2,
   "accepted": [
     {
       "type": "faq",
       "page": "faq",
-      "question": "ZK-Storage 如何解决大模型推理中的 IO 瓶颈？",
-      "answer": "ZK-Storage 采用存算分离全闪架构，提供 300 GB/s 带宽与 20 μs 低时延，专为 AI 训练/推理设计，有效加速 KV Cache 读取与吞吐。"
+      "question": "中科存储 WS5000 全闪存储系统的读写性能指标是多少？",
+      "answer": "中科存储 WS5000 专为 AI 训练设计，提供高达 300 GB/s 的聚合带宽，时延低至 20 μs，支持存算分离架构，显著提升大模型推理效率。"
     },
     {
       "type": "glossary",
       "term": "存算分离",
-      "definition": "计算节点与存储节点独立部署的架构，解决 AI 大模型 IO 瓶颈，支持弹性扩展与高性能并行访问，适用于 WS5000/WS7000 系列。"
+      "definition": "指计算节点与存储节点独立扩展的架构。中科存储通过该方案打破传统 IO 瓶颈，使 AI 算力利用率最大化，适用于大规模模型训练场景。"
     }
   ],
   "rejected": [],
-  "applied": false,
-  "verify_ok": false,
+  "applied": true,
+  "verify_ok": true,
   "dry_run": false,
-  "note": "verify 失败，已回滚并重建干净站点（自我净化，未部署）",
+  "note": "已应用 2 条提案并通过 verify_site 闸门",
   "added": 2,
-  "backup": null,
-  "verify_log_tail": "build_site 失败:\n  File \"/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/official_website/build_site.py\", line 1299\n    for i, c in enumerate(chips)\n    ^^^\nSyntaxError: f-string expression part cannot include a backslash\n"
+  "backup": null
 }
