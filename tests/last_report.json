@@ -1,0 +1,76 @@
+{
+  "computed_at": "2026-06-28T02:50:23",
+  "site": "https://goni.top",
+  "repo": "bistuwangqiyuan/zk-geo-autopilot",
+  "today": "2026-06-28",
+  "fresh_days": 2,
+  "suites": [
+    {
+      "name": "live",
+      "passed": false,
+      "checks": [
+        {
+          "key": "sitemap_reachable",
+          "ok": true,
+          "detail": "status=200, url_count=71",
+          "required": true
+        },
+        {
+          "key": "robots_ok",
+          "ok": true,
+          "detail": "status=200, refs_sitemap=True, allows_googlebot=True, allows_gptbot=True",
+          "required": true
+        },
+        {
+          "key": "llms_txt_ok",
+          "ok": true,
+          "detail": "status=200, len=1648",
+          "required": true
+        },
+        {
+          "key": "indexnow_key_ok",
+          "ok": true,
+          "detail": "status=200, matches=True (https://goni.top/REDACTED_INDEXNOW_KEY.txt)",
+          "required": true
+        },
+        {
+          "key": "sitemap_links_reachable",
+          "ok": true,
+          "detail": "checked=71, broken=0",
+          "required": true
+        },
+        {
+          "key": "page_ok::https://goni.top/zh/index.html",
+          "ok": true,
+          "detail": "jsonld_blocks=4,parse_errs=0,types=['BreadcrumbList', 'Organization', 'WebPage', 'WebSite'],canonical=True,hreflang=3,desc=True,h1=1,og=True,twitter=True,theme=True,search_action=True",
+          "required": true
+        },
+        {
+          "key": "page_ok::https://goni.top/zh/product.html",
+          "ok": true,
+          "detail": "jsonld_blocks=4,parse_errs=0,types=['BreadcrumbList', 'Organization', 'WebPage', 'WebSite'],canonical=True,hreflang=3,desc=True,h1=1,og=True,twitter=True,theme=True,search_action=True",
+          "required": true
+        },
+        {
+          "key": "product_structured_data_valid",
+          "ok": true,
+          "detail": "无孤立 Product 富结果缺失",
+          "required": true
+        },
+        {
+          "key": "page_ok::https://goni.top/en/index.html",
+          "ok": true,
+          "detail": "jsonld_blocks=4,parse_errs=0,types=['BreadcrumbList', 'Organization', 'WebPage', 'WebSite'],canonical=True,hreflang=3,desc=True,h1=1,og=True,twitter=True,theme=True,search_action=True",
+          "required": true
+        },
+        {
+          "key": "content_freshness",
+          "ok": false,
+          "detail": "newest_page_date=2026-06-23, age_days=5, threshold=2 (>阈值=每日自动化已停摆)",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "all_passed": false
+}
