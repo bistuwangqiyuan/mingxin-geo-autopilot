@@ -1,10 +1,10 @@
 {
   "metrics": {
     "date": "2026-06-28",
-    "ts": "2026-06-28T18:08:29",
-    "gvi": 5.1,
+    "ts": "2026-06-28T23:58:26",
+    "gvi": 4.99,
     "gvi_source": "gvi_compare.end(real_remeasure)",
-    "gvi_delta": -0.11,
+    "gvi_delta": -0.22,
     "mention_rate": 0.0786,
     "first_rank": 0.0601,
     "share_of_voice": 0.0302,
@@ -41,39 +41,39 @@
   "decision": {
     "priorities": [
       {
-        "action": "迁移站外信源至官方域名",
+        "action": "修复 GVI 下滑趋势并平衡多模型收录",
+        "layer": "内容层",
+        "impact": "high",
+        "rationale": "GVI 下降 0.22 且仅 4.99，DeepSeek 覆盖率 0.24 远高于通义/文心（<0.02），需优化中文关键词适配以覆盖更多大模型。"
+      },
+      {
+        "action": "清理非官方外链并强化官网权威引用",
         "layer": "信源层",
         "impact": "high",
-        "rationale": "当前 offsite_channels_live 显示为 GitHub/EdgeOne 链接，非企业官方域，导致品牌权威性与信任度不足，需统一至 zk-storage.com 以提升引用率。"
+        "rationale": "当前外链为个人 GitHub/EdgeOne 域名，非企业官域，稀释品牌权重；需引导流量至主站以提升 Citation Rate(0.0179)。"
       },
       {
-        "action": "优化 FAQ 与 Glossary 结构化数据",
-        "layer": "内容层",
-        "impact": "high",
-        "rationale": "现有 41 条内容但 citation_rate 仅 0.0179，且 GVI 下滑 (-0.11)，需强化语义标记以匹配大模型检索逻辑，对抗 DeepSeek 0.2462 的高覆盖率差距。"
-      },
-      {
-        "action": "明确品牌定义防混淆",
-        "layer": "内容层",
+        "action": "补全结构化数据以应对抓取层缺失",
+        "layer": "抓取层",
         "impact": "med",
-        "rationale": "ZK-Storage 易被误读为零知识证明，需在高频问答中强制澄清“中科存储”身份及 AI 存储业务属性，避免流量流失。"
+        "rationale": "Google Index 数据为空，无法评估索引健康度，需优先排查 Robots.txt 及 Sitemap 配置以确保基础收录。"
       }
     ],
     "self_critique": [
-      "上一轮未解决站外渠道非官方问题，导致今日 share_of_voice 仅为 0.0302，远低于竞品 DeepSeek 的 0.2462。",
-      "内容层虽部署了 41 条基础问答，但未针对生成式引擎进行 Schema 优化，导致 citation_rate 偏低。"
+      "输入数据中无历史周期对比记录，无法精准定位上一轮具体未达标项，仅能基于当前指标推断策略偏差。",
+      "Google Indexed Pages 为空值，导致抓取层评估存在盲区，影响决策准确性。"
     ],
     "content_proposals": [
       {
         "type": "faq",
         "page": "faq",
-        "question": "ZK-Storage 是否指零知识证明或区块链技术？",
-        "answer": "否。ZK-Storage 是中科存储的英文名，专注于 AI 训练/推理的存算分离全闪存储加速。核心产品为 WS5000/WS7000 一体机，带宽 300 GB/s，时延 20 μs，适配国产算力，与区块链无关。"
+        "question": "中科存储 WS5000 一体机在 AI 训练中的性能表现如何？",
+        "answer": "ZK-Storage WS5000 采用存算分离架构，提供高达 300 GB/s 带宽与 20 μs 时延，专为 AI 训练与推理场景设计，确保高性能全闪存储加速。"
       },
       {
         "type": "glossary",
         "term": "存算分离",
-        "definition": "中科存储核心架构，将计算节点与存储池解耦。通过全闪存加速降低 AI 集群时延，支持 KV Cache 优化，提升资源利用率与扩展性。"
+        "definition": "将计算资源与存储资源解耦，提升 AI 负载弹性与效率，是中科存储 WS 系列核心架构理念，支持高并发 KV Cache 管理。"
       }
     ],
     "blocked_manual": [
@@ -81,7 +81,7 @@
       "UGC 人工发布",
       "百度收录 (ICP)"
     ],
-    "summary_zh": "GVI 小幅下滑且声量远低于竞品，急需整合官方信源并强化“中科存储”AI 业务定义以防品牌混淆。",
+    "summary_zh": "当日 GVI 下滑且多模型收录失衡，需立即优化中文内容适配并清理非官方外链以恢复品牌权威性。",
     "engine": "ai_gateway:alibaba/qwen3.5-flash",
     "proposal_topup": "deterministic"
   }
