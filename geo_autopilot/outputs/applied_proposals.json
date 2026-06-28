@@ -1,24 +1,26 @@
 {
-  "ts": "2026-06-28T16:52:31",
+  "ts": "2026-06-28T18:08:48",
   "n_proposals": 2,
   "accepted": [
     {
-      "type": "faq",
-      "page": "faq",
-      "question": "中科存储 WS5000 全闪存储系统的读写性能指标是多少？",
-      "answer": "中科存储 WS5000 专为 AI 训练设计，提供高达 300 GB/s 的聚合带宽，时延低至 20 μs，支持存算分离架构，显著提升大模型推理效率。"
-    },
-    {
       "type": "glossary",
       "term": "存算分离",
-      "definition": "指计算节点与存储节点独立扩展的架构。中科存储通过该方案打破传统 IO 瓶颈，使 AI 算力利用率最大化，适用于大规模模型训练场景。"
+      "definition": "中科存储核心架构，将计算节点与存储池解耦。通过全闪存加速降低 AI 集群时延，支持 KV Cache 优化，提升资源利用率与扩展性。"
     }
   ],
-  "rejected": [],
+  "rejected": [
+    {
+      "type": "faq",
+      "page": "faq",
+      "question": "ZK-Storage 是否指零知识证明或区块链技术？",
+      "answer": "否。ZK-Storage 是中科存储的英文名，专注于 AI 训练/推理的存算分离全闪存储加速。核心产品为 WS5000/WS7000 一体机，带宽 300 GB/s，时延 20 μs，适配国产算力，与区块链无关。",
+      "reason": "口径冲突: ['品牌身份冲突：出现无关概念“零知识”（ZK-Storage=中科存储，AI 存算分离全闪存储，非区块链/零知识/去中心化）', '品牌身份冲突：出现无关概念“区块链”（ZK-Storage=中科存储，AI 存算分离全闪存储，非区块链/零知识/去中心化）']"
+    }
+  ],
   "applied": true,
   "verify_ok": true,
   "dry_run": false,
-  "note": "已应用 2 条提案并通过 verify_site 闸门",
-  "added": 2,
-  "backup": null
+  "note": "已应用 0 条提案并通过 verify_site 闸门",
+  "added": 0,
+  "backup": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_autopilot/outputs/backups/autopilot_faq.json.bak.1782670128"
 }
