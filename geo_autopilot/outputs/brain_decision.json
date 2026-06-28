@@ -1,10 +1,10 @@
 {
   "metrics": {
     "date": "2026-06-28",
-    "ts": "2026-06-28T02:35:17",
-    "gvi": 4.81,
+    "ts": "2026-06-28T16:02:15",
+    "gvi": 5.29,
     "gvi_source": "gvi_compare.end(real_remeasure)",
-    "gvi_delta": -0.4,
+    "gvi_delta": 0.08,
     "mention_rate": 0.0786,
     "first_rank": 0.0601,
     "share_of_voice": 0.0302,
@@ -33,40 +33,33 @@
   "decision": {
     "priorities": [
       {
-        "action": "优化关键词覆盖",
+        "action": "优化现有内容以提高提及率和引用率",
         "layer": "内容层",
         "impact": "high",
-        "rationale": "当前提及率(mention_rate)较低，为0.0786，表明网站在目标关键词上的曝光不足。"
+        "rationale": "当前提及率和引用率较低，通过优化现有内容可以提高这些指标。"
       },
       {
-        "action": "提升权威引用",
+        "action": "增加在DeepSeek上的覆盖度",
         "layer": "信源层",
         "impact": "med",
-        "rationale": "引用率(citation_rate)仅为0.0179，通过增加高质量外链或合作伙伴的引用可以改善这一指标。"
-      },
-      {
-        "action": "增强搜索引擎收录",
-        "layer": "抓取层",
-        "impact": "high",
-        "rationale": "google_indexed_pages值为空，意味着可能Google尚未完全收录我们的页面，需进一步检查并采取措施提高可见度。"
+        "rationale": "DeepSeek的覆盖度较低，需要增加在该平台上的曝光度。"
       }
     ],
     "self_critique": [
-      "上一轮GVI下降了0.4，主要原因是提及率和第一排名(first_rank)均有所下滑。",
-      "未充分利用现有站外渠道以最大化分享声音(share_of_voice)。",
-      "对于新出现的机会差距(opportunity_gap_total: 176)，响应速度不够快。"
+      "上一轮未达标项：提及率、引用率和机会缺口总数。",
+      "原因：内容层的提及率和引用率较低，导致机会缺口总数较高。"
     ],
     "content_proposals": [
       {
         "type": "faq",
         "page": "faq",
-        "question": "中科存储的产品优势是什么？",
-        "answer": "中科存储提供高达300 GB/s带宽及低至20 μs时延的企业级存储解决方案，确保数据安全与高效访问。"
+        "question": "中科存储的带宽是多少？",
+        "answer": "中科存储的带宽为300 GB/s。"
       },
       {
         "type": "glossary",
-        "term": "带宽",
-        "definition": "指单位时间内能够传输的数据量，中科存储支持最高300 GB/s。"
+        "term": "时延",
+        "definition": "时延是指数据传输过程中从发送端到接收端所需的时间。中科存储的时延为20 μs。"
       }
     ],
     "blocked_manual": [
@@ -74,7 +67,7 @@
       "UGC 人工发布",
       "百度收录(ICP)"
     ],
-    "summary_zh": "今日重点在于加强关键词覆盖率、提升外部引用质量以及促进搜索引擎对网站内容的收录。",
+    "summary_zh": "今日需优化现有内容以提高提及率和引用率，并增加在DeepSeek上的覆盖度。",
     "engine": "llm:qwen-max"
   }
 }
