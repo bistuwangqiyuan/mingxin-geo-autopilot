@@ -2,7 +2,7 @@
   "host": "goni.top",
   "key": "REDACTED_INDEXNOW_KEY",
   "key_location": "https://goni.top/REDACTED_INDEXNOW_KEY.txt",
-  "submitted_at": "2026-06-23T00:16:12+08:00",
+  "submitted_at": "2026-06-28T02:52:35+08:00",
   "key_file_check": {
     "status": 200,
     "matches": true
@@ -89,17 +89,17 @@
     "indexnow.org": {
       "status": 200,
       "body": "",
-      "elapsed": 2.6
+      "elapsed": 1.23
     },
     "bing": {
       "status": 200,
       "body": "",
-      "elapsed": 1.32
+      "elapsed": 0.89
     },
     "yandex": {
-      "status": 200,
+      "status": 202,
       "body": "{\n  \"success\":true\n}",
-      "elapsed": 1.55
+      "elapsed": 1.18
     }
   },
   "sitemap_ping": {

@@ -1,5 +1,5 @@
 {
-  "computed_at": "2026-06-23T00:16:34",
+  "computed_at": "2026-06-28T02:52:45",
   "method_note": "收录/排名为 agent web_search 实查(无付费 SERP API);在线技术 SEO 为线上 HTML 确定性核对;性能见 lighthouse.json(method=psi/lab)。",
   "indexing": {
     "google_site": "partial_indexed(2026-06-22 经 GSC 网址检查实证:zh/index、zh/product、zh/kv-cache-offload 显示『网页已编入索引』;概述『编制索引』报告滞后仍显示 0 已收录)",
@@ -42,7 +42,7 @@
       "notes": "百度需备案后复核(ICP 依赖)"
     }
   ],
-  "serp_rows_appended": 4,
+  "serp_rows_appended": 0,
   "live_onpage": [
     {
       "url": "https://goni.top/zh/index.html",
@@ -66,7 +66,7 @@
         "search_action": true,
         "key_facts_block": true,
         "last_updated_time": true,
-        "html_len": 18712
+        "html_len": 18883
       }
     },
     {
@@ -91,7 +91,7 @@
         "search_action": true,
         "key_facts_block": true,
         "last_updated_time": true,
-        "html_len": 19697
+        "html_len": 19859
       }
     },
     {
@@ -116,7 +116,7 @@
         "search_action": true,
         "key_facts_block": true,
         "last_updated_time": true,
-        "html_len": 22980
+        "html_len": 23151
       }
     }
   ],
@@ -128,24 +128,24 @@
   },
   "cri_local_best": 96.44,
   "lighthouse": {
-    "computed_at": "2026-06-22T18:31:10",
+    "computed_at": "2026-06-28T02:51:55",
     "results": [
       {
         "method": "lab",
         "ok": true,
         "url": "https://goni.top/zh/index.html",
-        "collected_at": "2026-06-22T18:30:44",
+        "collected_at": "2026-06-28T02:49:51",
         "metrics": {
-          "ttfb": 1253.7999999523163,
-          "domContentLoaded": 3514.7999999523163,
-          "load": 5773.199999928474,
-          "fcp": 3556,
-          "lcp": 4564,
+          "ttfb": 492.10000014305115,
+          "domContentLoaded": 1078.1000001430511,
+          "load": 1617,
+          "fcp": 1092,
+          "lcp": 1452,
           "cls": 0.0006800161721434829,
           "resourceCount": 10,
-          "transferBytes": 399157
+          "transferBytes": 399740
         },
-        "html_len": 19007,
+        "html_len": 19159,
         "onpage": {
           "title": true,
           "meta_description": true,
@@ -160,24 +160,25 @@
             "WebSite"
           ],
           "viewport": true
-        }
+        },
+        "psi_error": "HTTP Error 429: Too Many Requests"
       },
       {
         "method": "lab",
         "ok": true,
         "url": "https://goni.top/zh/product.html",
-        "collected_at": "2026-06-22T18:30:53",
+        "collected_at": "2026-06-28T02:50:50",
         "metrics": {
-          "ttfb": 1217.6000000238419,
-          "domContentLoaded": 3166.9000000953674,
-          "load": 5133.700000047684,
-          "fcp": 3184,
-          "lcp": 4192,
+          "ttfb": 461.7999999523163,
+          "domContentLoaded": 1073.3999998569489,
+          "load": 1539.5999999046326,
+          "fcp": 1080,
+          "lcp": 1484,
           "cls": 0.0006800161721434829,
           "resourceCount": 10,
-          "transferBytes": 398737
+          "transferBytes": 399120
         },
-        "html_len": 20029,
+        "html_len": 20181,
         "onpage": {
           "title": true,
           "meta_description": true,
@@ -192,24 +193,25 @@
             "WebSite"
           ],
           "viewport": true
-        }
+        },
+        "psi_error": "HTTP Error 429: Too Many Requests"
       },
       {
         "method": "lab",
         "ok": true,
         "url": "https://goni.top/en/index.html",
-        "collected_at": "2026-06-22T18:31:02",
+        "collected_at": "2026-06-28T02:51:50",
         "metrics": {
-          "ttfb": 1655.3999999761581,
-          "domContentLoaded": 3565.2000000476837,
-          "load": 5131.600000023842,
-          "fcp": 3588,
-          "lcp": 4580,
-          "cls": 0.0008520571775153357,
+          "ttfb": 476,
+          "domContentLoaded": 1032.7000000476837,
+          "load": 1526.4000000953674,
+          "fcp": 1048,
+          "lcp": 1492,
+          "cls": 0.0008446021889554858,
           "resourceCount": 10,
-          "transferBytes": 399145
+          "transferBytes": 399347
         },
-        "html_len": 23226,
+        "html_len": 23428,
         "onpage": {
           "title": true,
           "meta_description": true,
@@ -224,17 +226,18 @@
             "WebSite"
           ],
           "viewport": true
-        }
+        },
+        "psi_error": "HTTP Error 429: Too Many Requests"
       }
     ]
   },
   "indexnow": {
-    "submitted_at": "2026-06-23T00:16:12+08:00",
+    "submitted_at": "2026-06-28T02:52:35+08:00",
     "url_count": 72,
     "endpoints": {
       "indexnow.org": 200,
       "bing": 200,
-      "yandex": 200
+      "yandex": 202
     }
   },
   "index_acceleration_checklist": [

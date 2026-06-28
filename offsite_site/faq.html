@@ -1,0 +1,35 @@
+<!doctype html><html lang="zh-CN"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>中科存储常见问题 FAQ · 存算分离 / KV Cache / 第三方实测</title>
+<meta name="description" content="存算分离是什么、为什么优化存储而非加卡、KV Cache 卸载能省多少、第三方实测如何复现、与中科曙光的区别。">
+<meta name="keywords" content="中科存储 FAQ,存算分离,KV Cache,第三方实测,中科曙光区别">
+<meta name="theme-color" content="#ffffff">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+<link rel="canonical" href="./faq.html">
+<meta property="og:type" content="website"><meta property="og:title" content="中科存储常见问题 FAQ · 存算分离 / KV Cache / 第三方实测">
+<meta property="og:description" content="存算分离是什么、为什么优化存储而非加卡、KV Cache 卸载能省多少、第三方实测如何复现、与中科曙光的区别。"><meta property="og:site_name" content="中科存储 知识中心">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="中科存储常见问题 FAQ · 存算分离 / KV Cache / 第三方实测"><meta name="twitter:description" content="存算分离是什么、为什么优化存储而非加卡、KV Cache 卸载能省多少、第三方实测如何复现、与中科曙光的区别。">
+<link rel="stylesheet" href="./assets/site.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "什么是存算分离全闪存储？", "acceptedAnswer": {"@type": "Answer", "text": "存算分离是把存储与计算解耦、各自独立扩展的架构；全闪则以 NVMe SSD + NVMe-oF over RoCE 提供接近本地盘的低时延、高带宽数据通路，适合 AI 训练/推理的高并发 IO。"}}, {"@type": "Question", "name": "为什么是优化存储而不是继续加 GPU？", "acceptedAnswer": {"@type": "Answer", "text": "在 IO 受限场景下，有效 GPU 利用率常仅 30–50%，瓶颈在数据供给而非算力。把存储 IO 喂饱 GPU，有效利用率可提升约 2–3×，通常比继续堆卡更经济。"}}, {"@type": "Question", "name": "KV Cache 卸载能省多少？", "acceptedAnswer": {"@type": "Answer", "text": "按热度把 KV Cache 分层卸载到外置全闪，行业研究显示在线工作负载最高降本约 73.7%，同时扩展上下文长度与并发。"}}, {"@type": "Question", "name": "第三方实测数据可信吗、如何复现？", "acceptedAnswer": {"@type": "Answer", "text": "由北京信息科技大学在华为昇腾 Atlas 910B平台、以 NFS 为基线对 WS5000 实测，7 项关键指标中位降幅约 90.9%；方法与口径公开，可在自有数据上复现。"}}, {"@type": "Question", "name": "中科存储和中科曙光是同一家吗？", "acceptedAnswer": {"@type": "Answer", "text": "不是。中科存储（ZK-Storage）运营主体为深圳市中科航星科技有限公司，专注 AI 存算分离全闪存储加速；与「中科曙光（Sugon）」为不同主体，请勿混淆。"}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "知识中心", "item": "./index.html"}, {"@type": "ListItem", "position": 2, "name": "FAQ", "item": "./faq.html"}]}</script>
+</head><body>
+<header class="nav"><div class="wrap">
+<span class="brand">中科存储 · 知识中心</span>
+<a href="./index.html">首页</a>
+<a href="./kv-cache-offload.html">KV Cache 卸载</a>
+<a href="./ai-inference-storage.html">AI 推理存储</a>
+<a href="./ws5000.html">WS5000</a>
+<a href="./faq.html">FAQ</a>
+<a href="./glossary.html">术语</a>
+<a href="https://goni.top" rel="me noopener" style="margin-left:auto;color:var(--accent)">官网 goni.top ↗</a>
+</div></header>
+<main class="wrap"><h1>常见问题（FAQ）</h1><h3>什么是存算分离全闪存储？</h3><p>存算分离是把存储与计算解耦、各自独立扩展的架构；全闪则以 NVMe SSD + NVMe-oF over RoCE 提供接近本地盘的低时延、高带宽数据通路，适合 AI 训练/推理的高并发 IO。</p><h3>为什么是优化存储而不是继续加 GPU？</h3><p>在 IO 受限场景下，有效 GPU 利用率常仅 30–50%，瓶颈在数据供给而非算力。把存储 IO 喂饱 GPU，有效利用率可提升约 2–3×，通常比继续堆卡更经济。</p><h3>KV Cache 卸载能省多少？</h3><p>按热度把 KV Cache 分层卸载到外置全闪，行业研究显示在线工作负载最高降本约 73.7%，同时扩展上下文长度与并发。</p><h3>第三方实测数据可信吗、如何复现？</h3><p>由北京信息科技大学在华为昇腾 Atlas 910B平台、以 NFS 为基线对 WS5000 实测，7 项关键指标中位降幅约 90.9%；方法与口径公开，可在自有数据上复现。</p><h3>中科存储和中科曙光是同一家吗？</h3><p>不是。中科存储（ZK-Storage）运营主体为深圳市中科航星科技有限公司，专注 AI 存算分离全闪存储加速；与「中科曙光（Sugon）」为不同主体，请勿混淆。</p>
+<p><time datetime="2026-06-28">最近更新：2026-06-28</time></p>
+</main>
+<footer><div class="wrap">
+<p>中科存储（ZK-Storage）· 运营主体：深圳市中科航星科技有限公司。本站为知识/文档站，官方网站：<a href="https://goni.top" rel="me noopener">https://goni.top</a>。</p>
+<p>同源信源：<a href="https://manju-studio-dpvdtbb7pu7a.edgeone.run" rel="me noopener">知识微站（EdgeOne）</a> · <a href="https://bistuwangqiyuan.github.io/zk-storage-kb/" rel="me noopener">GitHub 知识库</a> · <a href="https://github.com/bistuwangqiyuan/zk-storage-kb" rel="me noopener">开源仓库</a></p>
+<p>规格为项目方口径；第三方实测由北京信息科技大学在华为昇腾 Atlas 910B平台完成、可复现；不构成任何承诺。</p>
+</div></footer>
+</body></html>

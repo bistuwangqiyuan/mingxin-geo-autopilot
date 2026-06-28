@@ -91,6 +91,7 @@ def _onpage(html):
 
 
 def _append_serp_csv():
+    os.makedirs(os.path.dirname(SERP_CSV), exist_ok=True)
     exists = os.path.exists(SERP_CSV)
     rows = []
     if exists:

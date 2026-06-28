@@ -130,6 +130,24 @@ def _find_obj(objs, t):
     return next((o for o in objs if o.get("@type") == t), None)
 
 
+def _has_product_schema(types, objs):
+    """是否承载『产品/平台规格』结构化数据（据实识别白帽实现）。
+
+    本站为 B2B 询价制、无公开零售价/评分，故**刻意不**使用 schema.org/Product
+    （会被 GSC 判缺 offers/review/aggregateRating），改以 WebPage.about=Thing +
+    additionalProperty(PropertyValue) 承载型号与硬指标（见 official_website/build_site.py g2）。
+    审计须据实识别该等价白帽实现，避免把正确实现误判为 0 分。
+    """
+    if "Product" in types:
+        return True
+    for o in objs:
+        about = o.get("about")
+        for a in (about if isinstance(about, list) else [about]):
+            if isinstance(a, dict) and a.get("@type") == "Thing" and a.get("additionalProperty"):
+                return True
+    return False
+
+
 def audit_page(lang, fname, html):
     title_m = TITLE_RE.search(html)
     title = title_m.group(1).strip() if title_m else ""
@@ -185,7 +203,7 @@ def audit_page(lang, fname, html):
         "org_enriched": bool(org and org.get("knowsAbout") and org.get("contactPoint")),
         "has_website": website is not None,
         "website_search": bool(website and website.get("potentialAction")),
-        "has_product": "Product" in types,
+        "has_product": _has_product_schema(types, objs),
         "has_faqpage": "FAQPage" in types,
         "has_breadcrumb": "BreadcrumbList" in types,
         "has_techarticle": "TechArticle" in types,

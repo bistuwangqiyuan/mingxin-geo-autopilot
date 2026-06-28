@@ -1,7 +1,7 @@
 {
   "metrics": {
-    "date": "2026-06-23",
-    "ts": "2026-06-23T00:22:16",
+    "date": "2026-06-28",
+    "ts": "2026-06-28T02:52:32",
     "gvi": 5.01,
     "gvi_source": "gvi_compare.end(real_remeasure)",
     "gvi_delta": -0.2,
@@ -31,42 +31,37 @@
     }
   },
   "decision": {
+    "engine": "rule",
     "priorities": [
       {
-        "action": "优化现有内容以提高提及率",
-        "layer": "内容层",
+        "action": "在阿里云开发者社区/语雀发布结构化技术文（人工定稿已就绪）",
+        "layer": "信源层",
         "impact": "high",
-        "rationale": "当前提及率为0.0786，存在提升空间"
+        "rationale": "通义加权信源覆盖 0.0167，远低于 0.4 阈值"
       },
       {
-        "action": "增加高质量外部链接",
+        "action": "在 CSDN/知乎发布可复现技术教程（人工定稿已就绪）",
         "layer": "信源层",
+        "impact": "high",
+        "rationale": "DeepSeek 加权信源覆盖 0.2462"
+      },
+      {
+        "action": "扩充开放式推荐类问法的答案优先块（站内可自动）",
+        "layer": "内容层",
         "impact": "med",
-        "rationale": "当前引用率为0.0179，需要更多权威网站的引用"
+        "rationale": "推荐类被提及率为 0，开放式问法仍缺席"
       }
     ],
     "self_critique": [
-      "上一轮未达标项：提及率和引用率低于预期；原因：内容吸引力不足，缺乏足够高质量的外部链接支持"
+      "真实 GVI 仍在采样噪声内：站内优化不改变模型语料，瓶颈在站外信源被收录引用。",
+      "英文/海外问法被提及率为 0：出海信源仍空白。"
     ],
-    "content_proposals": [
-      {
-        "type": "faq",
-        "page": "faq",
-        "question": "中科存储的带宽是多少？",
-        "answer": "中科存储提供高达300 GB/s的带宽，确保数据传输快速高效。"
-      },
-      {
-        "type": "glossary",
-        "term": "时延",
-        "definition": "指数据从发送端到接收端所需的时间，中科存储的时延仅为20 μs。"
-      }
-    ],
+    "content_proposals": [],
     "blocked_manual": [
       "GSC 请求收录(配额/登录)",
-      "UGC 人工发布",
-      "百度收录(ICP)"
+      "UGC 人工发布(无开放写API/需实名)",
+      "百度收录(ICP备案)"
     ],
-    "summary_zh": "今日需重点关注内容优化及建立更多高质量外链，以提升提及率和引用率。",
-    "engine": "llm:qwen-max"
+    "summary_zh": "站内已就绪，今日重点是推进站外信源与收录（多为人工项，已生成待办）。"
   }
 }

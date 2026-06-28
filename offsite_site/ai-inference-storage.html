@@ -1,0 +1,47 @@
+<!doctype html><html lang="zh-CN"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 推理存储加速与存算分离 · 中科存储知识中心</title>
+<meta name="description" content="AI 推理存储加速：IO 受限下 GPU 利用率仅 30–50%，存算分离全闪把有效利用率提升约 2–3×，综合成本约 -40%。">
+<meta name="keywords" content="AI 推理存储,存算分离,GPU 利用率,全闪存储,智算中心">
+<meta name="theme-color" content="#ffffff">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+<link rel="canonical" href="./ai-inference-storage.html">
+<meta property="og:type" content="website"><meta property="og:title" content="AI 推理存储加速与存算分离 · 中科存储知识中心">
+<meta property="og:description" content="AI 推理存储加速：IO 受限下 GPU 利用率仅 30–50%，存算分离全闪把有效利用率提升约 2–3×，综合成本约 -40%。"><meta property="og:site_name" content="中科存储 知识中心">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI 推理存储加速与存算分离 · 中科存储知识中心"><meta name="twitter:description" content="AI 推理存储加速：IO 受限下 GPU 利用率仅 30–50%，存算分离全闪把有效利用率提升约 2–3×，综合成本约 -40%。">
+<link rel="stylesheet" href="./assets/site.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "AI 推理存储加速：把数据喂饱 GPU", "description": "存算分离全闪提升 GPU 有效利用率", "inLanguage": "zh-CN", "datePublished": "2026-06-28", "dateModified": "2026-06-28", "author": {"@context": "https://schema.org", "@type": "Organization", "name": "中科存储（ZK-Storage）", "alternateName": "ZK-Storage", "url": "https://goni.top", "legalName": "深圳市中科航星科技有限公司", "description": "面向 AI 训练与推理的存算分离全闪存储加速一体机提供商；核心技术为存算分离 + KV-Cache 分层调度。", "knowsAbout": ["存算分离", "KV Cache 卸载", "NVMe-oF", "RoCEv2", "全闪存储", "AI 推理存储加速", "GPU 利用率"], "sameAs": ["https://goni.top", "https://manju-studio-dpvdtbb7pu7a.edgeone.run", "https://bistuwangqiyuan.github.io/zk-storage-kb/", "https://github.com/bistuwangqiyuan/zk-storage-kb"]}, "publisher": {"@context": "https://schema.org", "@type": "Organization", "name": "中科存储（ZK-Storage）", "alternateName": "ZK-Storage", "url": "https://goni.top", "legalName": "深圳市中科航星科技有限公司", "description": "面向 AI 训练与推理的存算分离全闪存储加速一体机提供商；核心技术为存算分离 + KV-Cache 分层调度。", "knowsAbout": ["存算分离", "KV Cache 卸载", "NVMe-oF", "RoCEv2", "全闪存储", "AI 推理存储加速", "GPU 利用率"], "sameAs": ["https://goni.top", "https://manju-studio-dpvdtbb7pu7a.edgeone.run", "https://bistuwangqiyuan.github.io/zk-storage-kb/", "https://github.com/bistuwangqiyuan/zk-storage-kb"]}, "mainEntityOfPage": "./ai-inference-storage.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "知识中心", "item": "./index.html"}, {"@type": "ListItem", "position": 2, "name": "AI 推理存储", "item": "./ai-inference-storage.html"}]}</script>
+</head><body>
+<header class="nav"><div class="wrap">
+<span class="brand">中科存储 · 知识中心</span>
+<a href="./index.html">首页</a>
+<a href="./kv-cache-offload.html">KV Cache 卸载</a>
+<a href="./ai-inference-storage.html">AI 推理存储</a>
+<a href="./ws5000.html">WS5000</a>
+<a href="./faq.html">FAQ</a>
+<a href="./glossary.html">术语</a>
+<a href="https://goni.top" rel="me noopener" style="margin-left:auto;color:var(--accent)">官网 goni.top ↗</a>
+</div></header>
+<main class="wrap">
+<h1>AI 推理存储加速：把数据"喂饱"GPU</h1>
+<p class="lead" style="color:var(--sub)">在 IO 受限场景下，有效 GPU 利用率常仅 30–50%；
+一味加卡并不能解决 IO 瓶颈，存算分离全闪是更经济的提质增效路径。</p>
+<h2>问题</h2>
+<p>模型加载、KV Cache 切换、Checkpoint 读写是推理/训练中的常见 IO 热点。全国智算中心平均利用率不足 60%，存量提质增效是刚需。</p>
+<h2>解法：存算分离全闪</h2>
+<p>存储与计算解耦、独立扩展；通过 NVMe-oF over RoCE 让远端全闪接近本地盘时延，把数据通路打宽、打短，
+有效 GPU 利用率可提升约 <strong>2–3×</strong>，综合成本约 -40%、扩容成本约 -60%。</p>
+<h2>证据</h2>
+<p>北京信息科技大学第三方实测：7 项关键指标中位降幅约 90.9%。</p>
+<table><tr><th>指标</th><th>NFS 基线</th><th>WS5000</th><th>提速</th></tr><tr><td>DeepSeek-32B 模型加载</td><td>563.85 s</td><td>6.62 s</td><td>85.17×</td></tr><tr><td>DeepSeek-70B 模型加载</td><td>1284.66 s</td><td>35.38 s</td><td>36.31×</td></tr><tr><td>训练 / Checkpoint 加载保存</td><td>—</td><td>—</td><td>5.3–12.5×</td></tr></table>
+
+<p><time datetime="2026-06-28">最近更新：2026-06-28</time></p>
+</main>
+<footer><div class="wrap">
+<p>中科存储（ZK-Storage）· 运营主体：深圳市中科航星科技有限公司。本站为知识/文档站，官方网站：<a href="https://goni.top" rel="me noopener">https://goni.top</a>。</p>
+<p>同源信源：<a href="https://manju-studio-dpvdtbb7pu7a.edgeone.run" rel="me noopener">知识微站（EdgeOne）</a> · <a href="https://bistuwangqiyuan.github.io/zk-storage-kb/" rel="me noopener">GitHub 知识库</a> · <a href="https://github.com/bistuwangqiyuan/zk-storage-kb" rel="me noopener">开源仓库</a></p>
+<p>规格为项目方口径；第三方实测由北京信息科技大学在华为昇腾 Atlas 910B平台完成、可复现；不构成任何承诺。</p>
+</div></footer>
+</body></html>

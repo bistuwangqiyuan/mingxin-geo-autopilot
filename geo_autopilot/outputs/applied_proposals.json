@@ -1,22 +1,10 @@
 {
-  "ts": "2026-06-23T00:22:25",
-  "n_proposals": 2,
-  "accepted": [
-    {
-      "type": "faq",
-      "page": "faq",
-      "question": "中科存储的带宽是多少？",
-      "answer": "中科存储提供高达300 GB/s的带宽，确保数据传输快速高效。"
-    },
-    {
-      "type": "glossary",
-      "term": "时延",
-      "definition": "指数据从发送端到接收端所需的时间，中科存储的时延仅为20 μs。"
-    }
-  ],
+  "ts": "2026-06-28T02:52:32",
+  "n_proposals": 0,
+  "accepted": [],
   "rejected": [],
   "applied": false,
   "verify_ok": null,
-  "dry_run": true,
-  "note": "dry-run：仅校验提案，不写盘不构建"
+  "dry_run": false,
+  "note": "无可接受提案（或全部被一致性/schema 拦截）"
 }
