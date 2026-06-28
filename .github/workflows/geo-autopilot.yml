@@ -1,14 +1,18 @@
-name: GEO Autopilot (daily)
+name: GEO Autopilot (every 6h)
 
-# 中科存储官网全自动 GEO 系统 · 云端每日无人值守运行。
-# 触发：每日定时 cron + 手动 workflow_dispatch。
+# 中科存储官网全自动 GEO 系统 · 云端无人值守运行。
+# 触发：每 6 小时定时 cron（每天 4 次）+ 手动 workflow_dispatch。
+# 每次运行都做完整流水线（含付费 GVI 真实重测 + 内容自进化 + IndexNow + 线上审计 + 部署）。
 # 仓库布局（zk-geo-autopilot）：geo_autopilot/ + geo_plan/ + seo_geo_loop/ + business_plan/outputs/results.json
 # CI 把官网/知识库仓库 clone 为同级目录，paths.py 零改动即可解析。
 
 on:
   schedule:
-    # 每日 UTC 22:30 = 北京时间次日 06:30
+    # 每 6 小时一次（UTC）= 北京时间 06:30 / 12:30 / 18:30 / 00:30
     - cron: "30 22 * * *"
+    - cron: "30 4 * * *"
+    - cron: "30 10 * * *"
+    - cron: "30 16 * * *"
   workflow_dispatch:
     inputs:
       mode:
@@ -80,8 +84,10 @@ jobs:
           git config --global user.name  "geo-autopilot[bot]"
           git config --global user.email "geo-autopilot@users.noreply.github.com"
           git add geo_autopilot/history geo_autopilot/reports geo_autopilot/outputs 2>/dev/null || true
-          git commit -m "chore(autopilot): daily run $(date -u +%F) data & report" || echo "no changes"
-          git push || echo "push skipped"
+          git commit -m "chore(autopilot): run $(date -u +%FT%TZ) data & report" || echo "no changes"
+          # 高频运行下远端可能已被上一次运行推进：先 rebase 再推，避免 non-fast-forward
+          git pull --rebase origin "${GITHUB_REF_NAME}" || git rebase --abort || true
+          git push origin "HEAD:${GITHUB_REF_NAME}" || echo "push skipped"
 
       - name: Upload daily report artifact
         if: always()
