@@ -121,8 +121,19 @@ def entity_facts():
     return facts
 
 
+# 品牌身份红线：ZK-Storage = 中科存储（面向 AI 训练/推理的存算分离全闪存储企业）。
+# LLM 易把 "ZK" 误展开为 zero-knowledge / 区块链 / 去中心化 等无关概念，这类内容若自动发布将损害品牌。
+# 任何提案文本命中以下词条即判为口径冲突并拒绝（无人值守发布的安全闸门）。
+_OFF_BRAND_TERMS = (
+    "零知识", "零知識", "zero-knowledge", "zero knowledge", "zkp",
+    "区块链", "區塊鏈", "blockchain", "去中心化", "decentralized", "decentralised",
+    "加密货币", "加密貨幣", "cryptocurrency", "crypto", "代币", "挖矿", "矿工",
+    "web3", "公链", "链上", "鏈上", "nft", "智能合约",
+)
+
+
 def check_consistency(text, facts):
-    """简单矛盾检查器：扫描文本中是否出现与事实表关键数值冲突的表述（启发式）。"""
+    """矛盾检查器：扫描文本中与事实表关键数值/品牌身份冲突的表述（启发式，用于无人值守闸门）。"""
     import re
     issues = []
     t = text
@@ -134,6 +145,11 @@ def check_consistency(text, facts):
     for m in re.finditer(r"(\d{1,4})\s*[μu]s", t):
         if m.group(1) not in ("20",):
             issues.append(f"时延出现非唯一口径值：{m.group(0)}（应为 20 μs）")
+    # 品牌身份红线（大小写不敏感）
+    low = t.lower()
+    for term in _OFF_BRAND_TERMS:
+        if term in low:
+            issues.append(f"品牌身份冲突：出现无关概念“{term}”（ZK-Storage=中科存储，AI 存算分离全闪存储，非区块链/零知识/去中心化）")
     # 中位降幅
     for m in re.finditer(r"(\d{1,3}(?:\.\d)?)\s*%[^。]{0,8}(降幅|中位)", t):
         pass

@@ -22,6 +22,41 @@ def _load(path):
         return {}
 
 
+def _count_in_html(path, pattern):
+    """统计已部署 HTML 中模式出现次数；文件缺失返回 None（如实标注，不臆造）。"""
+    import re
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            return len(re.findall(pattern, f.read()))
+    except Exception:
+        return None
+
+
+def answerable_coverage():
+    """从**已部署 HTML**统计 answer-first 单元数（诚实的"可被回答"覆盖度）。
+
+    口径：仅统计权威答案页 faq.html / glossary.html 中的结构化单元
+      - FAQ：FAQPage 的 "@type": "Question" 条数
+      - 术语：DefinedTermSet 的 "@type": "DefinedTerm" 条数
+    这是真正由站内内容自进化驱动、可逐日累计且可现场核验的指标，
+    不同于 GVI(站外语料/时间驱动) 与 CRI(站内就绪度，已收敛)。
+    """
+    base = paths.OFFICIAL_WEBSITE
+    q_pat = r'"@type"\s*:\s*"Question"'
+    t_pat = r'"@type"\s*:\s*"DefinedTerm"'
+    faq_zh = _count_in_html(os.path.join(base, "zh", "faq.html"), q_pat)
+    faq_en = _count_in_html(os.path.join(base, "en", "faq.html"), q_pat)
+    gl_zh = _count_in_html(os.path.join(base, "zh", "glossary.html"), t_pat)
+    gl_en = _count_in_html(os.path.join(base, "en", "glossary.html"), t_pat)
+    parts = [x for x in (faq_zh, faq_en, gl_zh, gl_en) if isinstance(x, int)]
+    return {
+        "faq_zh": faq_zh, "faq_en": faq_en,
+        "glossary_zh": gl_zh, "glossary_en": gl_en,
+        "total": sum(parts) if parts else None,
+        "source": "deployed_html(official_website/{zh,en}/{faq,glossary}.html)",
+    }
+
+
 def collect_snapshot(extra=None):
     """汇总当日指标快照（不写盘）。"""
     baseline = _load(paths.GEO_BASELINE)
@@ -79,6 +114,7 @@ def collect_snapshot(extra=None):
         "google_indexed_pages": indexed,
         "offsite_channels_live": channels_live,
         "best_cri": live.get("best_cri") or live.get("cri"),
+        "answerable_coverage": answerable_coverage(),
         "sources": {
             "geo_baseline": os.path.isfile(paths.GEO_BASELINE),
             "gvi_compare": os.path.isfile(paths.GVI_COMPARE),

@@ -104,6 +104,30 @@ def make_figures():
         plt.close(fig)
         out.append(p)
 
+    # 4. 站内可回答单元（FAQ+术语，部署实测，内容自进化逐日累计）——真正的"每日提升"曲线
+    ac_x, ac_y = [], []
+    for h in hist:
+        t = (h.get("answerable_coverage") or {}).get("total")
+        if isinstance(t, int):
+            ac_x.append(h["date"][5:])
+            ac_y.append(t)
+    if ac_x:
+        fig, ax = plt.subplots(figsize=(8.4, 3.8), dpi=160)
+        ax.plot(ac_x, ac_y, "-o", color=GREEN, lw=2.4, ms=6, zorder=3)
+        for x, y in zip(ac_x, ac_y):
+            ax.annotate(str(y), (x, y), textcoords="offset points",
+                        xytext=(0, 8), ha="center", fontsize=8, color="#1D1D1F")
+        ax.set_title("站内可回答单元趋势（FAQ+术语 · 部署实测 · 内容自进化每日累计）",
+                     fontsize=12.5, fontweight="bold")
+        ax.set_ylabel("单元数")
+        ax.set_ylim(0, max(6, max(ac_y) * 1.3))
+        ax.grid(axis="x", visible=False)
+        fig.tight_layout()
+        p = os.path.join(paths.FIGURES, "trend_answerable.png")
+        fig.savefig(p)
+        plt.close(fig)
+        out.append(p)
+
     return out
 
 

@@ -82,6 +82,21 @@ def build():
     delta = snap.get("gvi_delta")
     delta_cls = "red" if (delta or 0) < 0 else "green"
 
+    # 站内"可回答覆盖度"：真正由内容自进化驱动、可逐日累计、可现场核验。
+    ac = snap.get("answerable_coverage") or {}
+    ac_total = ac.get("total")
+    ac_prev = None
+    for h in reversed(hist):
+        if h.get("date") == today:
+            continue
+        pac = (h.get("answerable_coverage") or {}).get("total")
+        if isinstance(pac, int):
+            ac_prev = pac
+            break
+    ac_delta = (ac_total - ac_prev) if (isinstance(ac_total, int) and isinstance(ac_prev, int)) else None
+    ac_cls = "green" if (ac_delta or 0) > 0 else ""
+    ac_delta_txt = ("+" + str(ac_delta)) if (ac_delta or 0) > 0 else (str(ac_delta) if ac_delta is not None else "—")
+
     html = f"""<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>中科存储 · GEO 自动驾驶日报 {today}</title>
@@ -131,6 +146,12 @@ figcaption{{font-size:12px;color:var(--mut);margin-top:6px;}}
     <div class="kpi"><div class="v">{pct(snap.get('citation_rate'))}</div><div class="k">带来源引用率</div></div>
   </div>
   <div class="kpis">
+    <div class="kpi"><div class="v {ac_cls}">{ac_total if ac_total is not None else '—'}</div><div class="k">站内可回答单元 · 部署实测（FAQ+术语）</div></div>
+    <div class="kpi"><div class="v {ac_cls}">{ac_delta_txt}</div><div class="k">较上次净增 · 内容自进化（每日增长）</div></div>
+    <div class="kpi"><div class="v">{num(snap.get('best_cri'))}</div><div class="k">CRI 站内就绪度（已收敛=满分维持）</div></div>
+    <div class="kpi"><div class="v">{pct(snap.get('recommendation_mention'))}</div><div class="k">推荐类问法被提及</div></div>
+  </div>
+  <div class="kpis">
     <div class="kpi"><div class="v">{pct((snap.get('coverage') or {}).get('DeepSeek'))}</div><div class="k">DeepSeek 信源覆盖</div></div>
     <div class="kpi"><div class="v">{pct((snap.get('coverage') or {}).get('通义千问'))}</div><div class="k">通义 信源覆盖</div></div>
     <div class="kpi"><div class="v">{snap.get('google_indexed_pages') if snap.get('google_indexed_pages') is not None else '—'}</div><div class="k">Google 已收录页</div></div>
@@ -141,6 +162,7 @@ figcaption{{font-size:12px;color:var(--mut);margin-top:6px;}}
 <section class="section"><div class="wrap">
   <div class="eyebrow">趋势看板（可复盘）</div>
   <h2>关键指标随时间变化</h2>
+  {_fig_tag('trend_answerable.png','站内可回答单元趋势（内容自进化·每日累计）')}
   {_fig_tag('trend_gvi.png','总体 GVI 趋势')}
   {_fig_tag('trend_mention.png','被提及率趋势')}
   {_fig_tag('trend_coverage.png','站外信源加权覆盖趋势')}
@@ -171,9 +193,11 @@ figcaption{{font-size:12px;color:var(--mut);margin-top:6px;}}
 
 <section class="section"><div class="wrap">
   <div class="eyebrow">数据纪律</div>
-  <h2>可复现 · 单一事实源</h2>
-  <p class="mut">GVI 由 4 个国产大模型 × 查询集真实 API 采样(grade A)按公开权重合成；信源覆盖仅计实测 HTTP 200 渠道；
-  预测标注「规划假设、非承诺」。复现：autopilot.py（dry-run/once/ci）。</p>
+  <h2>可复现 · 单一事实源 · 三类指标如实区分</h2>
+  <p class="mut"><b>站内可回答单元（answerable coverage）</b>：每日由内容自进化净增、从已部署 faq.html / glossary.html 现场统计，是本系统"每日自动提升"的真实落点（题库与 LLM 新题用尽时如实收敛，不堆砌）。</p>
+  <p class="mut"><b>CRI（站内 GEO/SEO 就绪度）</b>：站内结构化/可抽取就绪度，已达满分并维持——属"已收敛"，不应也不会逐日上涨，持平即健康。</p>
+  <p class="mut"><b>GVI（生成式可见性）</b>：由 4 个国产大模型 × 查询集真实 API 采样(grade A)按公开权重合成，主要由<b>站外语料被收录引用</b>与时间驱动，存在采样噪声；站内优化不直接改变模型语料，故 GVI 短期波动属正常，不等于系统未工作。</p>
+  <p class="mut">信源覆盖仅计实测 HTTP 200 渠道；预测标注「规划假设、非承诺」。复现：autopilot.py（dry-run/once/ci）。</p>
 </div></section>
 </body></html>"""
 

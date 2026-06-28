@@ -50,7 +50,26 @@ def evaluate(snap, runlog, applied, decision):
         if level == "ok":
             level = "warn"
 
-    # 4. 待人工项（始终如实列出）
+    # 4. 站内可回答覆盖度回归（仅"下降"才告警；持平=已收敛/健康，增长=达成目标，均不告警）
+    try:
+        import metrics as M
+        cur = (snap.get("answerable_coverage") or {}).get("total")
+        prev = None
+        for h in reversed(M.load_history()):
+            if h.get("date") == snap.get("date"):
+                continue
+            p = (h.get("answerable_coverage") or {}).get("total")
+            if isinstance(p, int):
+                prev = p
+                break
+        if isinstance(cur, int) and isinstance(prev, int) and cur < prev:
+            alerts.append(f"站内可回答单元下降：{prev}→{cur}（疑似内容回滚或构建异常，需核查 build/verify）。")
+            if level == "ok":
+                level = "warn"
+    except Exception:  # noqa: BLE001
+        pass
+
+    # 5. 待人工项（始终如实列出）
     blocked = decision.get("blocked_manual", [])
     if blocked:
         if level == "ok":
@@ -63,7 +82,8 @@ def _issue_body(snap, ev, decision):
     lines = [
         f"自动生成于 {snap.get('ts','')}（GEO Autopilot 每日运行）。",
         "",
-        f"- 当日 GVI: **{snap.get('gvi')}**（{snap.get('gvi_source','')}），Δ={snap.get('gvi_delta')}",
+        f"- 站内可回答单元(部署实测 FAQ+术语): **{(snap.get('answerable_coverage') or {}).get('total')}**（每日内容自进化净增；持平=收敛）",
+        f"- 当日 GVI: **{snap.get('gvi')}**（{snap.get('gvi_source','')}），Δ={snap.get('gvi_delta')}（站外/时间驱动，短期波动属噪声）",
         f"- 品牌被提及率: {snap.get('mention_rate')}",
         f"- DeepSeek/通义 信源覆盖: {(snap.get('coverage') or {}).get('DeepSeek')} / {(snap.get('coverage') or {}).get('通义千问')}",
         f"- Google 已收录页: {snap.get('google_indexed_pages')}",
