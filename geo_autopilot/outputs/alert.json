@@ -1,14 +1,15 @@
 {
   "title": "[GEO Autopilot] 每日运行告警与待人工事项",
   "level": "error",
-  "body": "自动生成于 2026-06-28T16:02:37（GEO Autopilot 每日运行）。\n\n- 当日 GVI: **5.29**（gvi_compare.end(real_remeasure)），Δ=0.08\n- 品牌被提及率: 0.0786\n- DeepSeek/通义 信源覆盖: 0.2462 / 0.0167\n- Google 已收录页: None\n\n## 告警级别: `error`\n### 触发项\n- 内容提案未通过 verify_site 闸门，已自动回滚（站点未带病部署）。\n\n### 受客观约束、需人工处理（不伪造）\n- [ ] GSC 请求收录(配额/登录)\n- [ ] UGC 人工发布\n- [ ] 百度收录(ICP)\n\n### 人工 SOP\n- UGC 发布：见 `geo_plan/offsite/SOP_manual_publish.md`\n- GSC 请求收录：见 `seo_geo_loop/outputs/live_status.json` 的 `gsc_url_inspection.pending_next_day`\n- 百度收录：需 ICP 备案，见 `seo_geo_loop/outputs/external_actions_status.json`\n\n决策引擎：llm:qwen-max · 摘要：今日需优化现有内容以提高提及率和引用率，并增加在DeepSeek上的覆盖度。",
+  "body": "自动生成于 2026-06-28T16:43:26（GEO Autopilot 每日运行）。\n\n- 站内可回答单元(部署实测 FAQ+术语): **40**（每日内容自进化净增；持平=收敛）\n- 当日 GVI: **0.0**（gvi_compare.end(real_remeasure)），Δ=-5.21（站外/时间驱动，短期波动属噪声）\n- 品牌被提及率: 0.0786\n- DeepSeek/通义 信源覆盖: 0.2462 / 0.0167\n- Google 已收录页: None\n\n## 告警级别: `error`\n### 触发项\n- 内容提案未通过 verify_site 闸门，已自动回滚（站点未带病部署）。\n- GVI 回归：Δ=-5.21（阈值 -1.0）。注：站内改动不改变模型语料，多为采样噪声，需结合趋势判断。\n\n### 受客观约束、需人工处理（不伪造）\n- [ ] GSC 请求收录 (配额/登录)\n- [ ] UGC 人工发布\n- [ ] 百度收录 (ICP)\n\n### 人工 SOP\n- UGC 发布：见 `geo_plan/offsite/SOP_manual_publish.md`\n- GSC 请求收录：见 `seo_geo_loop/outputs/live_status.json` 的 `gsc_url_inspection.pending_next_day`\n- 百度收录：需 ICP 备案，见 `seo_geo_loop/outputs/external_actions_status.json`\n\n决策引擎：ai_gateway:alibaba/qwen3.5-flash · 摘要：GVI 为零表明品牌在生成式引擎中完全不可见，需立即优化结构化数据并强化主站权威信源以修复实体关联。",
   "alerts": [
-    "内容提案未通过 verify_site 闸门，已自动回滚（站点未带病部署）。"
+    "内容提案未通过 verify_site 闸门，已自动回滚（站点未带病部署）。",
+    "GVI 回归：Δ=-5.21（阈值 -1.0）。注：站内改动不改变模型语料，多为采样噪声，需结合趋势判断。"
   ],
   "blocked_manual": [
-    "GSC 请求收录(配额/登录)",
+    "GSC 请求收录 (配额/登录)",
     "UGC 人工发布",
-    "百度收录(ICP)"
+    "百度收录 (ICP)"
   ],
   "delivery": "commented_issue_1"
 }

@@ -1,9 +1,9 @@
 {
   "date": "2026-06-28",
-  "ts": "2026-06-28T16:02:33",
-  "gvi": 5.29,
+  "ts": "2026-06-28T16:43:23",
+  "gvi": 0.0,
   "gvi_source": "gvi_compare.end(real_remeasure)",
-  "gvi_delta": 0.08,
+  "gvi_delta": -5.21,
   "mention_rate": 0.0786,
   "first_rank": 0.0601,
   "share_of_voice": 0.0302,
@@ -22,6 +22,14 @@
     "https://bistuwangqiyuan.github.io/zk-storage-kb/"
   ],
   "best_cri": null,
+  "answerable_coverage": {
+    "faq_zh": 8,
+    "faq_en": 8,
+    "glossary_zh": 12,
+    "glossary_en": 12,
+    "total": 40,
+    "source": "deployed_html(official_website/{zh,en}/{faq,glossary}.html)"
+  },
   "sources": {
     "geo_baseline": true,
     "gvi_compare": true,
