@@ -1,17 +1,17 @@
 {
-  "ts": "2026-06-29T09:45:08",
+  "ts": "2026-06-29T15:03:23",
   "n_proposals": 2,
   "accepted": [
     {
       "type": "faq",
       "page": "faq",
-      "question": "ZK-Storage 在 AI 推理场景下的性能表现如何？",
-      "answer": "WS5000 一体机支持 300 GB/s 带宽与 20 μs 低时延，专为 AI 训练推理设计，有效解决存算瓶颈。"
+      "question": "中科存储 WS5000 核心性能参数是什么？",
+      "answer": "采用存算分离架构，带宽 300 GB/s，时延 20 μs，面向 AI 训练/推理全闪加速，适配国产算力。"
     },
     {
       "type": "glossary",
       "term": "存算分离",
-      "definition": "将存储资源与计算节点解耦，使 AI 模型可独立扩展算力与存储，提升集群整体效率。"
+      "definition": "将计算与存储资源解耦，通过高速互联降低延迟，提升 AI 大模型训练与推理的整体吞吐效率。"
     }
   ],
   "rejected": [],
@@ -20,5 +20,5 @@
   "dry_run": false,
   "note": "已应用 1 条提案并通过 verify_site 闸门",
   "added": 1,
-  "backup": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_autopilot/outputs/backups/autopilot_faq.json.bak.1782726308"
+  "backup": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_autopilot/outputs/backups/autopilot_faq.json.bak.1782745403"
 }

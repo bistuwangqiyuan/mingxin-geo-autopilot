@@ -1,10 +1,10 @@
 {
   "metrics": {
     "date": "2026-06-29",
-    "ts": "2026-06-29T09:44:43",
-    "gvi": 4.91,
+    "ts": "2026-06-29T15:02:59",
+    "gvi": 5.14,
     "gvi_source": "gvi_compare.end(real_remeasure)",
-    "gvi_delta": -0.3,
+    "gvi_delta": -0.07,
     "mention_rate": 0.0786,
     "first_rank": 0.0601,
     "share_of_voice": 0.0302,
@@ -24,11 +24,11 @@
     ],
     "best_cri": null,
     "answerable_coverage": {
-      "faq_zh": 10,
+      "faq_zh": 11,
       "faq_en": 8,
       "glossary_zh": 12,
       "glossary_en": 12,
-      "total": 42,
+      "total": 43,
       "source": "deployed_html(official_website/{zh,en}/{faq,glossary}.html)"
     },
     "sources": {
@@ -41,33 +41,39 @@
   "decision": {
     "priorities": [
       {
-        "action": "优化 FAQ 与术语表以适配大模型摘要抓取",
+        "action": "优化通义千问与文心一言内容覆盖",
         "layer": "内容层",
         "impact": "high",
-        "rationale": "Citation rate 仅 0.0179 且 recommendation_mention 为 0，需增强技术细节（如 300 GB/s、20 μs）的结构化呈现以提升 AI 引用率；Google 索引数据缺失暂无法评估。"
+        "rationale": "当前通义/文心覆盖率仅 0.02，远低于 DeepSeek(0.24)，存在显著国内 AI 搜索流量流失风险"
       },
       {
-        "action": "建立站外知识库与官网的主域反向链接",
+        "action": "提升生成式推荐提及率",
         "layer": "信源层",
         "impact": "med",
-        "rationale": "现有 offsite_channels_live 为 GitHub/EdgeOne，需确保其通过 Canonical 或链接指向官网，避免权重分散。"
+        "rationale": "recommendation_mention 为 0.0，缺乏权威信源触发大模型主动推荐"
+      },
+      {
+        "action": "监控 GVI 下滑趋势",
+        "layer": "抓取层",
+        "impact": "low",
+        "rationale": "GVI 环比下降 0.07，需持续监测是否因索引波动导致"
       }
     ],
     "self_critique": [
-      "上一轮未针对 LLM 摘要偏好调整 Schema 标记策略",
-      "对 DeepSeek 渠道的高覆盖率（0.2462）利用不足"
+      "Google indexed pages 数据为 null，无法评估抓取层深度覆盖情况",
+      "无上一轮决策日志，无法对比具体未达标项，暂按当前数据缺口分析"
     ],
     "content_proposals": [
       {
         "type": "faq",
         "page": "faq",
-        "question": "ZK-Storage 在 AI 推理场景下的性能表现如何？",
-        "answer": "WS5000 一体机支持 300 GB/s 带宽与 20 μs 低时延，专为 AI 训练推理设计，有效解决存算瓶颈。"
+        "question": "中科存储 WS5000 核心性能参数是什么？",
+        "answer": "采用存算分离架构，带宽 300 GB/s，时延 20 μs，面向 AI 训练/推理全闪加速，适配国产算力。"
       },
       {
         "type": "glossary",
         "term": "存算分离",
-        "definition": "将存储资源与计算节点解耦，使 AI 模型可独立扩展算力与存储，提升集群整体效率。"
+        "definition": "将计算与存储资源解耦，通过高速互联降低延迟，提升 AI 大模型训练与推理的整体吞吐效率。"
       }
     ],
     "blocked_manual": [
@@ -75,7 +81,7 @@
       "UGC 人工发布",
       "百度收录 (ICP)"
     ],
-    "summary_zh": "GVI 微跌且无推荐引用，建议利用 DeepSeek 高覆盖率优势，强化 AI 存储技术参数文档的生成式引擎可见性。",
+    "summary_zh": "中文大模型覆盖严重不足且无推荐提及，需优先优化通义/文心内容适配以挽回流量。",
     "engine": "ai_gateway:alibaba/qwen3.5-flash",
     "proposal_topup": "deterministic"
   }
