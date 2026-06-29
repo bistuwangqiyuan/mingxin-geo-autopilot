@@ -1,10 +1,10 @@
 {
   "metrics": {
     "date": "2026-06-29",
-    "ts": "2026-06-29T15:02:59",
-    "gvi": 5.14,
+    "ts": "2026-06-29T18:54:25",
+    "gvi": 5.28,
     "gvi_source": "gvi_compare.end(real_remeasure)",
-    "gvi_delta": -0.07,
+    "gvi_delta": 0.07,
     "mention_rate": 0.0786,
     "first_rank": 0.0601,
     "share_of_voice": 0.0302,
@@ -24,11 +24,11 @@
     ],
     "best_cri": null,
     "answerable_coverage": {
-      "faq_zh": 11,
+      "faq_zh": 12,
       "faq_en": 8,
       "glossary_zh": 12,
       "glossary_en": 12,
-      "total": 43,
+      "total": 44,
       "source": "deployed_html(official_website/{zh,en}/{faq,glossary}.html)"
     },
     "sources": {
@@ -41,39 +41,33 @@
   "decision": {
     "priorities": [
       {
-        "action": "优化通义千问与文心一言内容覆盖",
+        "action": "扩充 AI 存储技术术语库以覆盖模型训练语料缺口",
         "layer": "内容层",
         "impact": "high",
-        "rationale": "当前通义/文心覆盖率仅 0.02，远低于 DeepSeek(0.24)，存在显著国内 AI 搜索流量流失风险"
+        "rationale": "机会缺口总数达 176，引用率仅 0.0179，需增加高频技术词（如 KV Cache 优化）以提升大模型检索匹配度。"
       },
       {
-        "action": "提升生成式推荐提及率",
-        "layer": "信源层",
-        "impact": "med",
-        "rationale": "recommendation_mention 为 0.0，缺乏权威信源触发大模型主动推荐"
-      },
-      {
-        "action": "监控 GVI 下滑趋势",
+        "action": "修复 Google 索引状态并验证站外信源权威性",
         "layer": "抓取层",
-        "impact": "low",
-        "rationale": "GVI 环比下降 0.07，需持续监测是否因索引波动导致"
+        "impact": "med",
+        "rationale": "Google 收录页面数为空，且站外渠道多为边缘节点，需确认官方主站索引健康度及权威链接建设。"
       }
     ],
     "self_critique": [
-      "Google indexed pages 数据为 null，无法评估抓取层深度覆盖情况",
-      "无上一轮决策日志，无法对比具体未达标项，暂按当前数据缺口分析"
+      "上轮未解决 Google 索引数据缺失问题，导致收录量评估不准。",
+      "部分技术口径未明确区分 ZK-Storage 与区块链概念，易引发语义混淆风险。"
     ],
     "content_proposals": [
       {
         "type": "faq",
         "page": "faq",
-        "question": "中科存储 WS5000 核心性能参数是什么？",
-        "answer": "采用存算分离架构，带宽 300 GB/s，时延 20 μs，面向 AI 训练/推理全闪加速，适配国产算力。"
+        "question": "中科存储 WS5000 在 AI 推理场景下的延迟表现如何？",
+        "answer": "WS5000 采用全闪加速架构，实现微秒级响应，典型时延低至 20 μs，满足高并发 AI 推理需求。"
       },
       {
         "type": "glossary",
         "term": "存算分离",
-        "definition": "将计算与存储资源解耦，通过高速互联降低延迟，提升 AI 大模型训练与推理的整体吞吐效率。"
+        "definition": "计算与存储独立部署并通过高速网络互联的架构，旨在提升 AI 集群弹性与资源调度效率。"
       }
     ],
     "blocked_manual": [
@@ -81,7 +75,7 @@
       "UGC 人工发布",
       "百度收录 (ICP)"
     ],
-    "summary_zh": "中文大模型覆盖严重不足且无推荐提及，需优先优化通义/文心内容适配以挽回流量。",
+    "summary_zh": "引用率与推荐提及率为零，需优先填充技术术语库并修复索引数据缺失以消除机会缺口。",
     "engine": "ai_gateway:alibaba/qwen3.5-flash",
     "proposal_topup": "deterministic"
   }
