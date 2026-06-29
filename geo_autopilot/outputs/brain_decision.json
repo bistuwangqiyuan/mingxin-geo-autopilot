@@ -1,10 +1,10 @@
 {
   "metrics": {
     "date": "2026-06-29",
-    "ts": "2026-06-29T18:54:25",
-    "gvi": 5.28,
+    "ts": "2026-06-29T23:56:40",
+    "gvi": 4.95,
     "gvi_source": "gvi_compare.end(real_remeasure)",
-    "gvi_delta": 0.07,
+    "gvi_delta": -0.26,
     "mention_rate": 0.0786,
     "first_rank": 0.0601,
     "share_of_voice": 0.0302,
@@ -24,11 +24,11 @@
     ],
     "best_cri": null,
     "answerable_coverage": {
-      "faq_zh": 12,
+      "faq_zh": 13,
       "faq_en": 8,
       "glossary_zh": 12,
       "glossary_en": 12,
-      "total": 44,
+      "total": 45,
       "source": "deployed_html(official_website/{zh,en}/{faq,glossary}.html)"
     },
     "sources": {
@@ -41,41 +41,49 @@
   "decision": {
     "priorities": [
       {
-        "action": "扩充 AI 存储技术术语库以覆盖模型训练语料缺口",
+        "action": "优化 FAQ 结构化数据以触发生成式引擎推荐",
         "layer": "内容层",
         "impact": "high",
-        "rationale": "机会缺口总数达 176，引用率仅 0.0179，需增加高频技术词（如 KV Cache 优化）以提升大模型检索匹配度。"
+        "rationale": "recommendation_mention 为 0.0 且 opportunity_gap_total 高达 176，表明当前内容未被大模型采纳为权威答案，需强化 Schema 标记与事实口径一致性。"
       },
       {
-        "action": "修复 Google 索引状态并验证站外信源权威性",
+        "action": "提升通义千问/文心一言渠道的内容适配度",
+        "layer": "信源层",
+        "impact": "med",
+        "rationale": "DeepSeek 覆盖率 0.2462 远高于通义 (0.0167) 和文心 (0.02)，存在明显的国产大模型覆盖失衡风险，需针对性调整关键词布局。"
+      },
+      {
+        "action": "排查 GSC 索引状态缺失原因",
         "layer": "抓取层",
         "impact": "med",
-        "rationale": "Google 收录页面数为空，且站外渠道多为边缘节点，需确认官方主站索引健康度及权威链接建设。"
+        "rationale": "google_indexed_pages 为 null，无法评估真实收录量，可能影响 GVI 归因准确性，需确认站点爬虫可访问性。"
       }
     ],
     "self_critique": [
-      "上轮未解决 Google 索引数据缺失问题，导致收录量评估不准。",
-      "部分技术口径未明确区分 ZK-Storage 与区块链概念，易引发语义混淆风险。"
+      "上一轮未能有效转化为推荐引用，导致今日 recommendation_mention 仍为 0.0，主因是技术术语定义缺乏面向 LLM 的语义结构化。",
+      "抓取层数据缺失 (google_indexed_pages=null)，导致无法量化页面级可见性波动，需在下周补充搜索控制台数据接入。"
     ],
     "content_proposals": [
       {
         "type": "faq",
         "page": "faq",
-        "question": "中科存储 WS5000 在 AI 推理场景下的延迟表现如何？",
-        "answer": "WS5000 采用全闪加速架构，实现微秒级响应，典型时延低至 20 μs，满足高并发 AI 推理需求。"
+        "question": "ZK-Storage WS5000 全闪存储系统的性能指标是多少？",
+        "answer": "基于存算分离架构，提供最高 300 GB/s 带宽及 20 μs 低时延，专为 AI 训练与推理场景设计，适配国产算力环境。"
       },
       {
         "type": "glossary",
         "term": "存算分离",
-        "definition": "计算与存储独立部署并通过高速网络互联的架构，旨在提升 AI 集群弹性与资源调度效率。"
+        "definition": "一种将计算节点与存储网络解耦的架构，旨在解决 AI 大模型训练中的 IO 瓶颈，实现资源弹性调度与高吞吐加速。"
       }
     ],
     "blocked_manual": [
       "GSC 请求收录 (配额/登录)",
       "UGC 人工发布",
-      "百度收录 (ICP)"
+      "百度收录 (ICP)",
+      "自动化刷量/伪造测评",
+      "隐藏文本/关键词堆砌"
     ],
-    "summary_zh": "引用率与推荐提及率为零，需优先填充技术术语库并修复索引数据缺失以消除机会缺口。",
+    "summary_zh": "GVI 小幅下滑且无推荐引用，需重点修复国产大模型覆盖并强化高性能参数口径的结构化输出。",
     "engine": "ai_gateway:alibaba/qwen3.5-flash",
     "proposal_topup": "deterministic"
   }
