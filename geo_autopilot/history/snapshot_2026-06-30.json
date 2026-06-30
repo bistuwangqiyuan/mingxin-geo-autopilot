@@ -1,9 +1,9 @@
 {
   "date": "2026-06-30",
-  "ts": "2026-06-30T12:57:44",
-  "gvi": 5.24,
+  "ts": "2026-06-30T18:46:14",
+  "gvi": 4.89,
   "gvi_source": "gvi_compare.end(real_remeasure)",
-  "gvi_delta": 0.03,
+  "gvi_delta": -0.32,
   "mention_rate": 0.0786,
   "first_rank": 0.0601,
   "share_of_voice": 0.0302,
@@ -23,11 +23,11 @@
   ],
   "best_cri": null,
   "answerable_coverage": {
-    "faq_zh": 16,
+    "faq_zh": 17,
     "faq_en": 8,
     "glossary_zh": 12,
     "glossary_en": 12,
-    "total": 48,
+    "total": 49,
     "source": "deployed_html(official_website/{zh,en}/{faq,glossary}.html)"
   },
   "sources": {
