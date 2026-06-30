@@ -1,7 +1,7 @@
 {
   "mode": "ci",
-  "started": "2026-06-30T08:05:41",
-  "elapsed": 1993.4,
+  "started": "2026-06-30T12:30:45",
+  "elapsed": 1623.3,
   "paths": {
     "ROOT": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot",
     "GEO_PLAN": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_plan",
@@ -22,14 +22,14 @@
       "ok": true,
       "note": "写出：/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/gvi_compare.json",
       "critical": false,
-      "elapsed": 1953.6
+      "elapsed": 1584.2
     },
     {
       "name": "geo_autopilot/geo_brain.py",
       "ok": true,
-      "note": "  priorities=3 proposals=2",
+      "note": "  priorities=2 proposals=2",
       "critical": false,
-      "elapsed": 22.9
+      "elapsed": 23.6
     },
     {
       "name": "geo_autopilot/apply_proposals.py",
@@ -57,28 +57,28 @@
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 2.1
+      "elapsed": 1.5
     },
     {
       "name": "geo_plan/geo_scoring.py",
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 1.6
+      "elapsed": 1.2
     },
     {
       "name": "seo_geo_loop/indexnow_submit.py",
       "ok": true,
       "note": "[OK] 72 URLs; written /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/indexnow_submit.json",
       "critical": false,
-      "elapsed": 5.6
+      "elapsed": 5.5
     },
     {
       "name": "seo_geo_loop/live_audit.py",
       "ok": true,
       "note": "  写出 -> /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/live_status.json",
       "critical": false,
-      "elapsed": 0.6
+      "elapsed": 0.8
     },
     {
       "name": "git -C official_website add -A",
@@ -90,21 +90,21 @@
     {
       "name": "git -C official_website status --porcelain",
       "ok": true,
-      "note": "M  zh/validation.html",
+      "note": "M  zh/faq.html",
       "critical": false,
       "elapsed": null
     },
     {
       "name": "git -C official_website commit -m",
       "ok": true,
-      "note": " 49 files changed, 273 insertions(+), 347 deletions(-)",
+      "note": " 3 files changed, 9 insertions(+), 3 deletions(-)",
       "critical": false,
       "elapsed": null
     },
     {
       "name": "git -C official_website push origin",
       "ok": true,
-      "note": "   68be2ac..eea59fc  HEAD -> main",
+      "note": "   eea59fc..e658ac9  HEAD -> main",
       "critical": true,
       "elapsed": null
     },
@@ -125,21 +125,21 @@
     {
       "name": "git -C offsite_github status --porcelain",
       "ok": true,
-      "note": "M  docs/ws5000.html",
+      "note": "M  docs/_manifest.json",
       "critical": false,
       "elapsed": null
     },
     {
       "name": "git -C offsite_github commit -m",
       "ok": true,
-      "note": " 9 files changed, 16 insertions(+), 16 deletions(-)",
+      "note": " 1 file changed, 1 insertion(+), 1 deletion(-)",
       "critical": false,
       "elapsed": null
     },
     {
       "name": "git -C offsite_github push origin",
       "ok": true,
-      "note": "   d70ad06..45a54cc  HEAD -> main",
+      "note": "   45a54cc..d2745cf  HEAD -> main",
       "critical": true,
       "elapsed": null
     },
@@ -155,21 +155,21 @@
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": true,
-      "elapsed": 0.9
+      "elapsed": 0.7
     },
     {
       "name": "geo_autopilot/export_daily_pdf.py",
       "ok": true,
-      "note": "Saved: /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_autopilot/reports/中科存储-GEO自动驾驶日报-2026-06-30.pdf  (0.91 MB)",
+      "note": "Saved: /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_autopilot/reports/中科存储-GEO自动驾驶日报-2026-06-30.pdf  (0.89 MB)",
       "critical": false,
-      "elapsed": 2.5
+      "elapsed": 1.6
     },
     {
       "name": "geo_autopilot/alerting.py",
       "ok": true,
       "note": "[alerting] level=warn delivery=commented_issue_1 alerts=0 blocked=3",
       "critical": false,
-      "elapsed": 1.4
+      "elapsed": 1.7
     }
   ]
 }
