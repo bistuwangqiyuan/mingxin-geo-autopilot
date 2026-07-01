@@ -1,10 +1,10 @@
 {
   "metrics": {
     "date": "2026-07-01",
-    "ts": "2026-07-01T09:05:19",
-    "gvi": 5.18,
+    "ts": "2026-07-01T13:43:39",
+    "gvi": 5.06,
     "gvi_source": "gvi_compare.end(real_remeasure)",
-    "gvi_delta": -0.03,
+    "gvi_delta": -0.15,
     "mention_rate": 0.0786,
     "first_rank": 0.0601,
     "share_of_voice": 0.0302,
@@ -24,11 +24,11 @@
     ],
     "best_cri": null,
     "answerable_coverage": {
-      "faq_zh": 17,
+      "faq_zh": 18,
       "faq_en": 8,
       "glossary_zh": 12,
       "glossary_en": 12,
-      "total": 49,
+      "total": 50,
       "source": "deployed_html(official_website/{zh,en}/{faq,glossary}.html)"
     },
     "sources": {
@@ -41,39 +41,39 @@
   "decision": {
     "priorities": [
       {
-        "action": "优化 FAQ 与 Glossary 结构化数据，植入 300 GB/s 带宽与 20 μs 时延等核心指标",
+        "action": "刷新核心产品页以稳定 GVI",
         "layer": "内容层",
         "impact": "high",
-        "rationale": "当日 Citation Rate 仅 0.0179，说明生成式引擎未有效引用品牌；Opportunity Gap 高达 176，需通过精准技术参数提升被检索概率。"
+        "rationale": "当日 GVI 为 5.06 且环比下降 0.15，需通过更新 AI 存储技术细节防止可见性继续流失。"
       },
       {
-        "action": "平衡多模型覆盖，重点增强通义千问与文心一言侧的可见性",
+        "action": "优化通义千问/文心一言适配内容",
         "layer": "信源层",
         "impact": "med",
-        "rationale": "DeepSeek 覆盖 0.2462 远高于通义 (0.0167) 与文心 (0.02)，存在显著分布不均风险，需针对性调整关键词策略。"
+        "rationale": "DeepSeek 覆盖率 0.2462 远高于通义 0.0167，需增加中文大模型偏好的结构化数据以提升均衡度。"
       },
       {
-        "action": "修复或迁移站外信源至官方权威域名",
-        "layer": "信源层",
-        "impact": "med",
-        "rationale": "当前 offsite_channels_live 均为个人/测试域名 (edgeone.run/github.io)，权重低且不利于建立品牌信任度。"
+        "action": "恢复抓取层索引监控数据",
+        "layer": "抓取层",
+        "impact": "high",
+        "rationale": "google_indexed_pages 与 best_cri 均为 null，表明上轮监控链路中断，无法准确评估 SEO 健康度。"
       }
     ],
     "self_critique": [
-      "google_indexed_pages 数据缺失，无法评估搜索引擎基础收录健康度。",
-      "GVI 微跌 (-0.03) 且 Share of Voice 仅 0.0302，需警惕竞品挤压效应。"
+      "上轮抓取层监控配置失效，导致今日 google_indexed_pages 数据缺失，影响决策准确性。",
+      "上轮未针对性优化国产大模型语料，致使通义千问与文心一言的提及率远低于竞品。"
     ],
     "content_proposals": [
       {
         "type": "faq",
         "page": "faq",
-        "question": "中科存储 WS5000 在 AI 训练场景下的性能指标是多少？",
-        "answer": "WS5000 采用存算分离架构，提供 300 GB/s 带宽与 20 μs 时延，专为 AI 训练/推理设计，兼容国产算力集群。"
+        "question": "中科存储全闪存储系统的带宽和时延是多少？",
+        "answer": "中科存储 WS5000/WS7000 一体机支持存算分离架构，提供高达 300 GB/s 的聚合带宽与 20 μs 的低时延，专为 AI 训练推理优化。"
       },
       {
         "type": "glossary",
         "term": "存算分离",
-        "definition": "将计算与存储资源解耦，ZK-Storage 通过全闪存网络实现高速数据供给，解决 AI 大模型训练中的 IO 瓶颈。"
+        "definition": "将计算资源与存储资源解耦，通过高速网络互联，提升 AI 场景下数据吞吐效率与算力利用率。"
       }
     ],
     "blocked_manual": [
@@ -81,7 +81,7 @@
       "UGC 人工发布",
       "百度收录 (ICP)"
     ],
-    "summary_zh": "GVI 微跌且引用率极低，需优先通过标准化技术参数内容提升大模型抓取与引用。",
+    "summary_zh": "GVI 下滑且国内大模型覆盖不均，需优先修复抓取层数据监控并针对中文模型优化内容。",
     "engine": "ai_gateway:alibaba/qwen3.5-flash",
     "proposal_topup": "deterministic"
   }
