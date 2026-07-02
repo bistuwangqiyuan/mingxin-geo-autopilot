@@ -1,9 +1,9 @@
 {
   "date": "2026-07-02",
-  "ts": "2026-07-02T00:16:27",
-  "gvi": 5.22,
+  "ts": "2026-07-02T08:21:48",
+  "gvi": 5.12,
   "gvi_source": "gvi_compare.end(real_remeasure)",
-  "gvi_delta": 0.01,
+  "gvi_delta": -0.09,
   "mention_rate": 0.0786,
   "first_rank": 0.0601,
   "share_of_voice": 0.0302,
