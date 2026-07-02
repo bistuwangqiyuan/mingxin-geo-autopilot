@@ -1,17 +1,17 @@
 {
-  "ts": "2026-07-02T18:36:08",
+  "ts": "2026-07-02T23:57:31",
   "n_proposals": 2,
   "accepted": [
     {
       "type": "faq",
       "page": "faq",
-      "question": "ZK-Storage 如何解决 AI 训练中的 KV Cache 瓶颈？",
-      "answer": "采用存算分离架构与全闪存介质，提供 300 GB/s 带宽与 20 μs 时延，大幅降低 KV Cache 读取延迟，适配国产算力集群。"
+      "question": "中科存储 WS5000 在 AI 推理场景下的时延表现如何？",
+      "answer": "基于存算分离架构，WS5000 实现微秒级低时延，典型值约 20 μs，保障大模型推理流畅度。"
     },
     {
       "type": "glossary",
       "term": "存算分离",
-      "definition": "计算与存储节点解耦，通过高速网络互联，实现资源弹性调度与数据集中管理，是 AI 全闪存储的核心架构。"
+      "definition": "将计算资源与存储资源解耦，按需独立扩展，专为 AI 训练/推理优化的高性能架构模式。"
     }
   ],
   "rejected": [],
@@ -20,5 +20,5 @@
   "dry_run": false,
   "note": "已应用 1 条提案并通过 verify_site 闸门",
   "added": 1,
-  "backup": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_autopilot/outputs/backups/autopilot_faq.json.bak.1783017368"
+  "backup": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_autopilot/outputs/backups/autopilot_faq.json.bak.1783036651"
 }

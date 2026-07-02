@@ -1,10 +1,10 @@
 {
   "metrics": {
     "date": "2026-07-02",
-    "ts": "2026-07-02T18:35:36",
-    "gvi": 4.89,
+    "ts": "2026-07-02T23:57:03",
+    "gvi": 5.2,
     "gvi_source": "gvi_compare.end(real_remeasure)",
-    "gvi_delta": -0.32,
+    "gvi_delta": -0.01,
     "mention_rate": 0.0786,
     "first_rank": 0.0601,
     "share_of_voice": 0.0302,
@@ -24,11 +24,11 @@
     ],
     "best_cri": null,
     "answerable_coverage": {
-      "faq_zh": 22,
+      "faq_zh": 23,
       "faq_en": 8,
       "glossary_zh": 12,
       "glossary_en": 12,
-      "total": 54,
+      "total": 55,
       "source": "deployed_html(official_website/{zh,en}/{faq,glossary}.html)"
     },
     "sources": {
@@ -41,39 +41,39 @@
   "decision": {
     "priorities": [
       {
-        "action": "针对通义千问/文心一言优化语义覆盖",
+        "action": "针对中文大模型优化 FAQ 与术语库",
         "layer": "内容层",
         "impact": "high",
-        "rationale": "当前通义/文心覆盖率仅 0.0167/0.02，远低于 DeepSeek 的 0.2462，存在明显偏科"
+        "rationale": "通义千问/文心一言覆盖率仅 0.01-0.02，远低于 DeepSeek，需强化中文语义适配以提升国内生成式引擎可见性。"
       },
       {
-        "action": "填补 176 个机会缺口",
+        "action": "填补机会缺口 (Opportunity Gap)",
         "layer": "内容层",
         "impact": "high",
-        "rationale": "opportunity_gap_total 为 176，表明大量高价值 AI 存储查询未被结构化回答捕获"
+        "rationale": "Opportunity Gap 达 176，当前 55 条问答无法覆盖核心业务查询，需补充高性能全闪存储相关长尾问题。"
       },
       {
-        "action": "提升站外信源引用率",
+        "action": "审核站外渠道归属",
         "layer": "信源层",
         "impact": "med",
-        "rationale": "citation_rate 仅 0.0179，需增强 GitHub 知识库的 Schema 标记以提升被生成式引擎引用概率"
+        "rationale": "现有站外渠道为个人 GitHub/Edge 站点，非官方域名，存在品牌认知混淆风险，需确认是否授权或引导至官网。"
       }
     ],
     "self_critique": [
-      "上一轮未充分覆盖中文大模型（通义/文心）的检索偏好，导致覆盖率差距过大",
-      "站外渠道缺乏结构化数据标记，限制了 citation_rate 的提升空间"
+      "上一轮对中文大模型（通义/文心）的语义优化不足，导致其引用率极低。",
+      "抓取层数据缺失（google_indexed_pages 为空），影响技术 SEO 诊断准确性。"
     ],
     "content_proposals": [
       {
         "type": "faq",
         "page": "faq",
-        "question": "ZK-Storage 如何解决 AI 训练中的 KV Cache 瓶颈？",
-        "answer": "采用存算分离架构与全闪存介质，提供 300 GB/s 带宽与 20 μs 时延，大幅降低 KV Cache 读取延迟，适配国产算力集群。"
+        "question": "中科存储 WS5000 在 AI 推理场景下的时延表现如何？",
+        "answer": "基于存算分离架构，WS5000 实现微秒级低时延，典型值约 20 μs，保障大模型推理流畅度。"
       },
       {
         "type": "glossary",
         "term": "存算分离",
-        "definition": "计算与存储节点解耦，通过高速网络互联，实现资源弹性调度与数据集中管理，是 AI 全闪存储的核心架构。"
+        "definition": "将计算资源与存储资源解耦，按需独立扩展，专为 AI 训练/推理优化的高性能架构模式。"
       }
     ],
     "blocked_manual": [
@@ -81,7 +81,7 @@
       "UGC 人工发布",
       "百度收录 (ICP)"
     ],
-    "summary_zh": "当日 GVI 微跌且中文大模型覆盖不足，需优先优化通义/文心语义匹配并填补 176 个机会缺口。",
+    "summary_zh": "GVI 小幅下滑且国内大模型覆盖严重不足，急需针对中文语料优化内容以填补 176 个机会缺口。",
     "engine": "ai_gateway:alibaba/qwen3.5-flash",
     "proposal_topup": "deterministic"
   }
