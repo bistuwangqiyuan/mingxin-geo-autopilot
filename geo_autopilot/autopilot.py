@@ -93,8 +93,14 @@ def deploy_repo(repo_dir, message, push):
         return False
     git(["commit", "-m", message], repo_dir)
     if push:
-        ok, _ = git(["push", "origin", "HEAD"], repo_dir, critical=True)
-        record(f"push {os.path.basename(repo_dir)}", ok, "已推送触发部署" if ok else "推送失败", True)
+        ok, _ = git(["push", "origin", "HEAD"], repo_dir, critical=False)
+        if not ok:
+            # 高频运行护栏：远端可能在本次运行期间被推进（人工/其它任务），rebase 后重试一次
+            git(["fetch", "origin"], repo_dir)
+            git(["rebase", "origin/main"], repo_dir)
+            ok, _ = git(["push", "origin", "HEAD:main"], repo_dir, critical=True)
+        record(f"push {os.path.basename(repo_dir)}", ok,
+               "已推送触发部署" if ok else "推送失败(rebase 重试后仍失败)", True)
         return ok
     record(f"deploy {os.path.basename(repo_dir)}", True, "已提交（本地，未推送）", False)
     return True
