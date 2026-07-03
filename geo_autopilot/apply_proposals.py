@@ -45,8 +45,10 @@ def validate_proposals(proposals):
             if not q or not a:
                 rejected.append({**p, "reason": "faq 缺 question/answer"})
                 continue
-            if len(a) > 200:
-                rejected.append({**p, "reason": "answer 过长(>200)"})
+            # 长度闸门按语言：zh ≤200 字符（≈120 字）；en ≤700 字符（≈90-110 词）
+            max_len = 700 if p.get("lang") == "en" else 200
+            if len(a) > max_len:
+                rejected.append({**p, "reason": f"answer 过长(>{max_len})"})
                 continue
             issues = _consistency_issues(q + " " + a)
             if issues:
@@ -93,13 +95,15 @@ def _write_extra_faq(accepted):
     seen_t = {x.get("term") for x in existing.get("glossary", [])}
     added = 0
     for p in accepted:
+        # lang 必须保留：build_site._load_autopilot_extra 依据 lang 分流 zh/en 页面。
+        lang = "en" if p.get("lang") == "en" else "zh"
         if p["type"] == "faq" and p.get("question") not in seen_q:
             existing.setdefault("faq", []).append(
-                {"question": p["question"], "answer": p["answer"]})
+                {"question": p["question"], "answer": p["answer"], "lang": lang})
             added += 1
         elif p["type"] == "glossary" and p.get("term") not in seen_t:
             existing.setdefault("glossary", []).append(
-                {"term": p["term"], "definition": p["definition"]})
+                {"term": p["term"], "definition": p["definition"], "lang": lang})
             added += 1
     existing["updated_at"] = time.strftime("%Y-%m-%dT%H:%M:%S")
     bak = _backup(EXTRA_FAQ)
@@ -159,6 +163,14 @@ def apply(decision, dry_run=False):
     if ok:
         result["applied"] = True
         result["note"] = f"已应用 {added} 条提案并通过 verify_site 闸门"
+        # 热词闭环：已成文并通过闸门的英文问题，回写 keyword_bank 标记 done（收敛）
+        try:
+            import keyword_miner
+            done_qs = [p.get("question") for p in accepted
+                       if p.get("type") == "faq" and p.get("lang") == "en"]
+            result["keywords_marked_done"] = keyword_miner.mark_done(done_qs)
+        except Exception:
+            result["keywords_marked_done"] = 0
     else:
         # 回滚
         if bak and os.path.isfile(bak):

@@ -97,6 +97,24 @@ def build():
     ac_cls = "green" if (ac_delta or 0) > 0 else ""
     ac_delta_txt = ("+" + str(ac_delta)) if (ac_delta or 0) > 0 else (str(ac_delta) if ac_delta is not None else "—")
 
+    # 四步法信号：热词台账 + GA4 流量信号（未配置/未出现如实说明）
+    kb = snap.get("keyword_bank") or {}
+    sig = snap.get("geo_referral_signals") or {}
+    sig_status = sig.get("status")
+    if sig_status == "ok":
+        ai_src = sig.get("ai_engine_sources") or {}
+        sig_v = "已出现" if sig.get("geo_signal_present") else "未出现"
+        sig_k = (f"GEO 流量信号（reddit={sig.get('reddit_referral')} · AI来源={len(ai_src)}）")
+        sig_note = ("GA4 实测（近 7 天）：GEO 生效信号已出现。" if sig.get("geo_signal_present")
+                    else "GA4 实测（近 7 天）：信号尚未出现——GEO 是信号积累过程，继续按四步法迭代，非失效。")
+    elif sig_status == "ga4_not_configured":
+        sig_v, sig_k = "未配置", "GEO 流量信号（GA4 未配置）"
+        sig_note = ("GA4 未配置：提供 ZK_GA4_ID（埋码）与 GA4_PROPERTY_ID + GA4_SA_JSON（读数）"
+                    "三个 Secrets 后自动激活；未配置前如实报告，绝不编造流量信号。")
+    else:
+        sig_v, sig_k = "—", f"GEO 流量信号（{sig_status or 'not_run'}）"
+        sig_note = f"流量信号检测状态：{sig_status or 'not_run'}（如实记录）。"
+
     html = f"""<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>中科存储 · GEO 自动驾驶日报 {today}</title>
@@ -157,6 +175,13 @@ figcaption{{font-size:12px;color:var(--mut);margin-top:6px;}}
     <div class="kpi"><div class="v">{snap.get('google_indexed_pages') if snap.get('google_indexed_pages') is not None else '—'}</div><div class="k">Google 已收录页</div></div>
     <div class="kpi"><div class="v">{len(snap.get('offsite_channels_live') or [])}</div><div class="k">站外信源（实测 200）</div></div>
   </div>
+  <div class="kpis">
+    <div class="kpi"><div class="v">{kb.get('total') if kb.get('total') is not None else '—'}</div><div class="k">热词台账累计（四步法·第1步）</div></div>
+    <div class="kpi"><div class="v">{kb.get('done') if kb.get('done') is not None else '—'}</div><div class="k">热词已成文（过 verify 闸门）</div></div>
+    <div class="kpi"><div class="v">{kb.get('pending') if kb.get('pending') is not None else '—'}</div><div class="k">热词待成文</div></div>
+    <div class="kpi"><div class="v">{sig_v}</div><div class="k">{sig_k}</div></div>
+  </div>
+  <p class="mut">{sig_note}</p>
 </div></section>
 
 <section class="section"><div class="wrap">

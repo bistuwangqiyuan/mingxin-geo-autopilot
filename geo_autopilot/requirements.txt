@@ -3,6 +3,8 @@ matplotlib>=3.7
 playwright>=1.40
 pypdf>=4.0
 requests>=2.31
+# GA4 Data API 流量信号检测（traffic_check.py；无 GA4 secrets 时不使用）
+google-auth>=2.30
 
 # 说明：
 # - bl(bailian-cli) 经 npm 安装：npm i -g bailian-cli（见 .github/workflows 与 SETUP.md）

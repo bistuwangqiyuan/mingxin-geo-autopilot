@@ -1,0 +1,128 @@
+{
+  "keywords": [
+    {
+      "en": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
+      "zh": "有哪些最佳的全闪存存储加速器可以减少 AI 训练中的数据瓶颈？",
+      "intent": "recommendation",
+      "status": "done",
+      "source": "llm",
+      "added_at": "2026-07-03T19:53:58",
+      "done_at": "2026-07-03T20:30:45"
+    },
+    {
+      "en": "Who are the top providers of storage compute separation hardware for AI data centers?",
+      "zh": "哪些供应商是面向 AI 数据中心的最领先存储计算分离硬件提供商？",
+      "intent": "ranking",
+      "status": "done",
+      "source": "llm",
+      "added_at": "2026-07-03T19:53:58",
+      "done_at": "2026-07-03T20:30:45"
+    },
+    {
+      "en": "How to eliminate GPU idle time caused by slow storage I/O in distributed training?",
+      "zh": "如何消除分布式训练中因存储 I/O 缓慢导致的 GPU 空闲时间？",
+      "intent": "problem_solution",
+      "status": "done",
+      "source": "llm",
+      "added_at": "2026-07-03T19:53:58",
+      "done_at": "2026-07-03T20:30:45"
+    },
+    {
+      "en": "Does separating storage from compute improve performance more than increasing GPU count for AI?",
+      "zh": "对于 AI 而言，分离存储与计算是否比增加 GPU 数量更能提升性能？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-03T19:53:58"
+    },
+    {
+      "en": "What key features define the optimal storage solution for enterprise LLM inference?",
+      "zh": "哪些关键功能定义了企业级大语言模型推理的最佳存储解决方案？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-03T19:53:58"
+    },
+    {
+      "en": "What is the best KV cache offload storage for LLM inference?",
+      "zh": "LLM 推理场景最好的 KV Cache 卸载存储是什么？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "seed_bank",
+      "added_at": "2026-07-03T19:54:21"
+    },
+    {
+      "en": "Which disaggregated all-flash storage vendor should an AI OEM choose?",
+      "zh": "AI OEM 应该选择哪家存算分离全闪存储供应商？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "seed_bank",
+      "added_at": "2026-07-03T19:54:21"
+    },
+    {
+      "en": "Disaggregated all-flash storage vs local NVMe for AI training: which is better?",
+      "zh": "AI 训练用存算分离全闪存储还是本地 NVMe 更好？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "seed_bank",
+      "added_at": "2026-07-03T19:54:21"
+    },
+    {
+      "en": "How to fix low GPU utilization caused by storage IO bottlenecks?",
+      "zh": "如何解决存储 IO 瓶颈导致的 GPU 利用率低？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "seed_bank",
+      "added_at": "2026-07-03T19:54:21"
+    },
+    {
+      "en": "Best storage appliance for AI inference acceleration in a private data center?",
+      "zh": "私有数据中心 AI 推理加速最好的存储一体机是什么？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "seed_bank",
+      "added_at": "2026-07-03T19:54:21"
+    },
+    {
+      "en": "Key criteria to evaluate AI storage acceleration appliances for OEM procurement?",
+      "zh": "OEM 采购评估 AI 存储加速一体机的关键标准有哪些？",
+      "intent": "ranking",
+      "status": "new",
+      "source": "seed_bank",
+      "added_at": "2026-07-03T19:54:21"
+    },
+    {
+      "en": "NVMe-oF over RoCE vs NFS for feeding GPU clusters: what is the latency difference?",
+      "zh": "为 GPU 集群供数，NVMe-oF over RoCE 与 NFS 的时延差异？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "seed_bank",
+      "added_at": "2026-07-03T19:54:21"
+    },
+    {
+      "en": "How to reduce LLM long-context inference cost with KV cache tiering?",
+      "zh": "如何用 KV Cache 分层降低 LLM 长上下文推理成本？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "seed_bank",
+      "added_at": "2026-07-03T19:54:21"
+    },
+    {
+      "en": "Which storage supports Huawei Ascend GPU clusters for large model training?",
+      "zh": "哪家存储支持华为昇腾 GPU 集群的大模型训练？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "seed_bank",
+      "added_at": "2026-07-03T19:54:21"
+    },
+    {
+      "en": "How to speed up slow model checkpoint save and load in AI training?",
+      "zh": "如何加速 AI 训练中缓慢的 Checkpoint 保存与加载？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "seed_bank",
+      "added_at": "2026-07-03T19:54:21"
+    }
+  ],
+  "updated_at": "2026-07-03T20:30:45"
+}

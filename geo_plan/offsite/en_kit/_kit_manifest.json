@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-07-03T20:27:04",
+  "items": [
+    {
+      "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
+      "file": "geo_plan/offsite/en_kit/what-are-the-best-all-flash-storage-accelerators-for-reducing-ai-training-data-b.md"
+    },
+    {
+      "question": "Who are the top providers of storage compute separation hardware for AI data centers?",
+      "file": "geo_plan/offsite/en_kit/who-are-the-top-providers-of-storage-compute-separation-hardware-for-ai-data-cen.md"
+    },
+    {
+      "question": "How to eliminate GPU idle time caused by slow storage I/O in distributed training?",
+      "file": "geo_plan/offsite/en_kit/how-to-eliminate-gpu-idle-time-caused-by-slow-storage-i-o-in-distributed-trainin.md"
+    }
+  ]
+}

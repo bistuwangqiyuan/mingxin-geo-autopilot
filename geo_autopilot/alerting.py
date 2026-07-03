@@ -78,6 +78,25 @@ def evaluate(snap, runlog, applied, decision):
     return {"level": level, "alerts": alerts, "blocked_manual": blocked}
 
 
+def _publish_kit_lines():
+    """英文成品包（Medium/Quora/LinkedIn）一键发布清单——唯一残留人工点，如实列出。"""
+    manifest = os.path.join(paths.GEO_PLAN, "offsite", "en_kit", "_kit_manifest.json")
+    try:
+        with open(manifest, "r", encoding="utf-8") as f:
+            items = json.load(f).get("items", [])
+    except Exception:
+        return []
+    if not items:
+        return []
+    repo = ALERT_REPO or "bistuwangqiyuan/zk-geo-autopilot"
+    lines = ["", "### 英文成品包待一键发布（Medium/Quora/LinkedIn·复制粘贴即可）",
+             "平台无开放写 API，机器人代发违反 ToS——这是全流程唯一残留人工点："]
+    for it in items[-6:]:
+        url = f"https://github.com/{repo}/blob/main/{it['file']}"
+        lines.append(f"- [ ] [{it['question']}]({url})")
+    return lines
+
+
 def _issue_body(snap, ev, decision):
     lines = [
         f"自动生成于 {snap.get('ts','')}（GEO Autopilot 每日运行）。",
@@ -96,6 +115,7 @@ def _issue_body(snap, ev, decision):
     lines.append("")
     lines.append("### 受客观约束、需人工处理（不伪造）")
     lines += [f"- [ ] {b}" for b in ev.get("blocked_manual", [])] or ["- 无"]
+    lines += _publish_kit_lines()
     lines += [
         "",
         "### 人工 SOP",

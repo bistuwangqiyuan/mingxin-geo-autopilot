@@ -57,6 +57,27 @@ def answerable_coverage():
     }
 
 
+def keyword_bank_stats():
+    """热词台账统计（四步法第 1 步产物；缺失记 None，不臆造）。"""
+    bank = _load(os.path.join(paths.HISTORY, "keyword_bank.json"))
+    kws = bank.get("keywords")
+    if not isinstance(kws, list):
+        return {"total": None, "done": None, "pending": None}
+    done = sum(1 for k in kws if k.get("status") == "done")
+    return {"total": len(kws), "done": done, "pending": len(kws) - done}
+
+
+def geo_referral_signals():
+    """GA4 流量信号（四步法第 4 步产物；未配置/未运行如实标注）。"""
+    doc = _load(os.path.join(paths.OUTPUTS, "traffic_signals.json"))
+    if not doc:
+        return {"status": "not_run"}
+    return {"status": doc.get("status"),
+            "reddit_referral": doc.get("reddit_referral"),
+            "ai_engine_sources": doc.get("ai_engine_sources"),
+            "geo_signal_present": doc.get("geo_signal_present")}
+
+
 def collect_snapshot(extra=None):
     """汇总当日指标快照（不写盘）。"""
     baseline = _load(paths.GEO_BASELINE)
@@ -115,6 +136,8 @@ def collect_snapshot(extra=None):
         "offsite_channels_live": channels_live,
         "best_cri": live.get("best_cri") or live.get("cri"),
         "answerable_coverage": answerable_coverage(),
+        "keyword_bank": keyword_bank_stats(),
+        "geo_referral_signals": geo_referral_signals(),
         "sources": {
             "geo_baseline": os.path.isfile(paths.GEO_BASELINE),
             "gvi_compare": os.path.isfile(paths.GVI_COMPARE),

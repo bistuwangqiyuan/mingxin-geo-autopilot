@@ -136,6 +136,9 @@ def main():
 
     GEO, LOOP, OW = paths.GEO_PLAN, paths.LOOP, paths.OFFICIAL_WEBSITE
 
+    # 0. 行业热词挖掘（四步法第 1 步；台账去重限量，LLM 失败种子库兜底，纯本地写盘）
+    run_py("keyword_miner.py", paths.AUTOPILOT_DIR, [], timeout=300, critical=False)
+
     # 1. 真实 GVI 重测（护栏：limit/timeout；dry-run 或 skip 则沿用上次）
     if dry or args.skip_gvi:
         record("gvi_measure", True, "dry-run/skip：沿用上次真实重测（如实标注）", False)
@@ -152,16 +155,18 @@ def main():
     apply_args = ["--dry-run"] if dry else []
     run_py("apply_proposals.py", paths.AUTOPILOT_DIR, apply_args, timeout=600, critical=False)
 
-    # 4. 重建站外目录 + 信源覆盖诚实更新 + 评分
+    # 4. 重建站外目录 + 信源覆盖诚实更新 + 评分 + 英文成品包（Medium/Quora/LinkedIn）
     run_py("build_offsite_site.py", LOOP, [], timeout=300)
     run_py("build_offsite_github.py", LOOP, [], timeout=300)
+    run_py("make_geo_kit_en.py", LOOP, [], timeout=300, critical=False)
     run_py("source_audit.py", GEO, [], timeout=300)
     run_py("geo_scoring.py", GEO, [], timeout=600)
 
-    # 5. 联网真测（仅 once/ci）
+    # 5. 联网真测（仅 once/ci）+ 流量信号检测（四步法第 4 步；GA4 未配置如实跳过）
     if do_net:
         run_py("indexnow_submit.py", LOOP, [], timeout=300, critical=False)
         run_py("live_audit.py", LOOP, [], timeout=600, critical=False)
+        run_py("traffic_check.py", paths.AUTOPILOT_DIR, [], timeout=180, critical=False)
 
     # 6. 部署（仅 ci push；once 本地提交不推）
     if do_net:
