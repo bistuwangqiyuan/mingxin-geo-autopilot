@@ -1,17 +1,17 @@
 {
-  "ts": "2026-07-02T23:57:31",
+  "ts": "2026-07-03T08:14:24",
   "n_proposals": 2,
   "accepted": [
     {
       "type": "faq",
       "page": "faq",
-      "question": "中科存储 WS5000 在 AI 推理场景下的时延表现如何？",
-      "answer": "基于存算分离架构，WS5000 实现微秒级低时延，典型值约 20 μs，保障大模型推理流畅度。"
+      "question": "中科存储 WS5000 核心性能指标是什么？",
+      "answer": "具备 300 GB/s 带宽与 20 μs 时延，面向 AI 训练推理的存算分离全闪存储加速方案。"
     },
     {
       "type": "glossary",
       "term": "存算分离",
-      "definition": "将计算资源与存储资源解耦，按需独立扩展，专为 AI 训练/推理优化的高性能架构模式。"
+      "definition": "计算与存储独立部署架构，通过高速互联解决 AI 大模型 KV Cache 显存瓶颈，提升集群效率。"
     }
   ],
   "rejected": [],
@@ -20,5 +20,5 @@
   "dry_run": false,
   "note": "已应用 1 条提案并通过 verify_site 闸门",
   "added": 1,
-  "backup": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_autopilot/outputs/backups/autopilot_faq.json.bak.1783036651"
+  "backup": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_autopilot/outputs/backups/autopilot_faq.json.bak.1783066464"
 }

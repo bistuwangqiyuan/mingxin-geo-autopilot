@@ -1,10 +1,10 @@
 {
   "metrics": {
-    "date": "2026-07-02",
-    "ts": "2026-07-02T23:57:03",
-    "gvi": 5.2,
+    "date": "2026-07-03",
+    "ts": "2026-07-03T08:14:01",
+    "gvi": 5.03,
     "gvi_source": "gvi_compare.end(real_remeasure)",
-    "gvi_delta": -0.01,
+    "gvi_delta": -0.18,
     "mention_rate": 0.0786,
     "first_rank": 0.0601,
     "share_of_voice": 0.0302,
@@ -24,11 +24,11 @@
     ],
     "best_cri": null,
     "answerable_coverage": {
-      "faq_zh": 23,
+      "faq_zh": 24,
       "faq_en": 8,
       "glossary_zh": 12,
       "glossary_en": 12,
-      "total": 55,
+      "total": 56,
       "source": "deployed_html(official_website/{zh,en}/{faq,glossary}.html)"
     },
     "sources": {
@@ -41,39 +41,40 @@
   "decision": {
     "priorities": [
       {
-        "action": "针对中文大模型优化 FAQ 与术语库",
+        "action": "优化中文大模型适配内容，增加通义/文心关键词密度",
         "layer": "内容层",
         "impact": "high",
-        "rationale": "通义千问/文心一言覆盖率仅 0.01-0.02，远低于 DeepSeek，需强化中文语义适配以提升国内生成式引擎可见性。"
+        "rationale": "当前通义千问/文心一言覆盖率仅 0.02，远低于 DeepSeek(0.24)，需针对性调整语料以提升国产模型引用率"
       },
       {
-        "action": "填补机会缺口 (Opportunity Gap)",
-        "layer": "内容层",
-        "impact": "high",
-        "rationale": "Opportunity Gap 达 176，当前 55 条问答无法覆盖核心业务查询，需补充高性能全闪存储相关长尾问题。"
-      },
-      {
-        "action": "审核站外渠道归属",
+        "action": "迁移站外技术文档至企业官方域名",
         "layer": "信源层",
+        "impact": "high",
+        "rationale": "现有 offsite_channels 为个人 GitHub 页，缺乏权威背书导致 citation_rate 低至 0.0179"
+      },
+      {
+        "action": "排查 Google Search Console 索引状态",
+        "layer": "抓取层",
         "impact": "med",
-        "rationale": "现有站外渠道为个人 GitHub/Edge 站点，非官方域名，存在品牌认知混淆风险，需确认是否授权或引导至官网。"
+        "rationale": "google_indexed_pages 为 null，无法评估英文页面可见性健康度及收录情况"
       }
     ],
     "self_critique": [
-      "上一轮对中文大模型（通义/文心）的语义优化不足，导致其引用率极低。",
-      "抓取层数据缺失（google_indexed_pages 为空），影响技术 SEO 诊断准确性。"
+      "抓取层：Google 收录数缺失（null），无法评估英文页面可见性健康度",
+      "信源层：现有站外链为个人仓库，非官方域名，削弱品牌权威性导致引用率低",
+      "内容层：中文大模型（通义/文心）覆盖率极低（0.02），此前未针对性优化中文语料"
     ],
     "content_proposals": [
       {
         "type": "faq",
         "page": "faq",
-        "question": "中科存储 WS5000 在 AI 推理场景下的时延表现如何？",
-        "answer": "基于存算分离架构，WS5000 实现微秒级低时延，典型值约 20 μs，保障大模型推理流畅度。"
+        "question": "中科存储 WS5000 核心性能指标是什么？",
+        "answer": "具备 300 GB/s 带宽与 20 μs 时延，面向 AI 训练推理的存算分离全闪存储加速方案。"
       },
       {
         "type": "glossary",
         "term": "存算分离",
-        "definition": "将计算资源与存储资源解耦，按需独立扩展，专为 AI 训练/推理优化的高性能架构模式。"
+        "definition": "计算与存储独立部署架构，通过高速互联解决 AI 大模型 KV Cache 显存瓶颈，提升集群效率。"
       }
     ],
     "blocked_manual": [
@@ -81,7 +82,7 @@
       "UGC 人工发布",
       "百度收录 (ICP)"
     ],
-    "summary_zh": "GVI 小幅下滑且国内大模型覆盖严重不足，急需针对中文语料优化内容以填补 176 个机会缺口。",
+    "summary_zh": "当日中文模型覆盖严重不足且引用率低，需优先优化国产大模型语料并迁移站外信源至官方域名",
     "engine": "ai_gateway:alibaba/qwen3.5-flash",
     "proposal_topup": "deterministic"
   }
