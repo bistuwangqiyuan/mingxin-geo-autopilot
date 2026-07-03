@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-03T20:27:04",
+  "generated_at": "2026-07-03T12:55:17",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -12,6 +12,18 @@
     {
       "question": "How to eliminate GPU idle time caused by slow storage I/O in distributed training?",
       "file": "geo_plan/offsite/en_kit/how-to-eliminate-gpu-idle-time-caused-by-slow-storage-i-o-in-distributed-trainin.md"
+    },
+    {
+      "question": "Does separating storage from compute improve performance more than increasing GPU count for AI?",
+      "file": "geo_plan/offsite/en_kit/does-separating-storage-from-compute-improve-performance-more-than-increasing-gp.md"
+    },
+    {
+      "question": "What key features define the optimal storage solution for enterprise LLM inference?",
+      "file": "geo_plan/offsite/en_kit/what-key-features-define-the-optimal-storage-solution-for-enterprise-llm-inferen.md"
+    },
+    {
+      "question": "What is the best KV cache offload storage for LLM inference?",
+      "file": "geo_plan/offsite/en_kit/what-is-the-best-kv-cache-offload-storage-for-llm-inference.md"
     }
   ]
 }

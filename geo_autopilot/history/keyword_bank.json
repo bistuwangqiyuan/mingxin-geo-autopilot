@@ -31,25 +31,28 @@
       "en": "Does separating storage from compute improve performance more than increasing GPU count for AI?",
       "zh": "对于 AI 而言，分离存储与计算是否比增加 GPU 数量更能提升性能？",
       "intent": "comparison",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-03T19:53:58"
+      "added_at": "2026-07-03T19:53:58",
+      "done_at": "2026-07-03T12:55:17"
     },
     {
       "en": "What key features define the optimal storage solution for enterprise LLM inference?",
       "zh": "哪些关键功能定义了企业级大语言模型推理的最佳存储解决方案？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-03T19:53:58"
+      "added_at": "2026-07-03T19:53:58",
+      "done_at": "2026-07-03T12:55:17"
     },
     {
       "en": "What is the best KV cache offload storage for LLM inference?",
       "zh": "LLM 推理场景最好的 KV Cache 卸载存储是什么？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "seed_bank",
-      "added_at": "2026-07-03T19:54:21"
+      "added_at": "2026-07-03T19:54:21",
+      "done_at": "2026-07-03T12:55:17"
     },
     {
       "en": "Which disaggregated all-flash storage vendor should an AI OEM choose?",
@@ -124,5 +127,5 @@
       "added_at": "2026-07-03T19:54:21"
     }
   ],
-  "updated_at": "2026-07-03T20:30:45"
+  "updated_at": "2026-07-03T12:55:17"
 }

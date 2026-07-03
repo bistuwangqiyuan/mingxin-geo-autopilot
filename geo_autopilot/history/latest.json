@@ -1,9 +1,9 @@
 {
   "date": "2026-07-03",
-  "ts": "2026-07-03T08:14:36",
-  "gvi": 5.03,
+  "ts": "2026-07-03T12:55:28",
+  "gvi": 0.0,
   "gvi_source": "gvi_compare.end(real_remeasure)",
-  "gvi_delta": -0.18,
+  "gvi_delta": -5.21,
   "mention_rate": 0.0786,
   "first_rank": 0.0601,
   "share_of_voice": 0.0302,
@@ -23,12 +23,23 @@
   ],
   "best_cri": null,
   "answerable_coverage": {
-    "faq_zh": 25,
-    "faq_en": 8,
+    "faq_zh": 27,
+    "faq_en": 14,
     "glossary_zh": 12,
     "glossary_en": 12,
-    "total": 57,
+    "total": 65,
     "source": "deployed_html(official_website/{zh,en}/{faq,glossary}.html)"
+  },
+  "keyword_bank": {
+    "total": 15,
+    "done": 6,
+    "pending": 9
+  },
+  "geo_referral_signals": {
+    "status": "ga4_not_configured",
+    "reddit_referral": null,
+    "ai_engine_sources": null,
+    "geo_signal_present": null
   },
   "sources": {
     "geo_baseline": true,

@@ -1,10 +1,10 @@
 {
   "metrics": {
     "date": "2026-07-03",
-    "ts": "2026-07-03T08:14:01",
-    "gvi": 5.03,
+    "ts": "2026-07-03T12:54:52",
+    "gvi": 0.0,
     "gvi_source": "gvi_compare.end(real_remeasure)",
-    "gvi_delta": -0.18,
+    "gvi_delta": -5.21,
     "mention_rate": 0.0786,
     "first_rank": 0.0601,
     "share_of_voice": 0.0302,
@@ -24,12 +24,20 @@
     ],
     "best_cri": null,
     "answerable_coverage": {
-      "faq_zh": 24,
-      "faq_en": 8,
+      "faq_zh": 26,
+      "faq_en": 11,
       "glossary_zh": 12,
       "glossary_en": 12,
-      "total": 56,
+      "total": 61,
       "source": "deployed_html(official_website/{zh,en}/{faq,glossary}.html)"
+    },
+    "keyword_bank": {
+      "total": 15,
+      "done": 3,
+      "pending": 12
+    },
+    "geo_referral_signals": {
+      "status": "not_run"
     },
     "sources": {
       "geo_baseline": true,
@@ -41,40 +49,57 @@
   "decision": {
     "priorities": [
       {
-        "action": "优化中文大模型适配内容，增加通义/文心关键词密度",
+        "action": "Optimize FAQ content for LLM extraction with Answer-First structure",
         "layer": "内容层",
         "impact": "high",
-        "rationale": "当前通义千问/文心一言覆盖率仅 0.02，远低于 DeepSeek(0.24)，需针对性调整语料以提升国产模型引用率"
+        "rationale": "GVI=0.0 indicates zero generative engine visibility; current FAQ may lack structured answers required by LLMs."
       },
       {
-        "action": "迁移站外技术文档至企业官方域名",
+        "action": "Verify offsite channel authority and indexing status",
         "layer": "信源层",
-        "impact": "high",
-        "rationale": "现有 offsite_channels 为个人 GitHub 页，缺乏权威背书导致 citation_rate 低至 0.0179"
+        "impact": "med",
+        "rationale": "Only GitHub/EdgeOne links live; lack of authoritative domains limits citation_rate (0.0179)."
       },
       {
-        "action": "排查 Google Search Console 索引状态",
+        "action": "Submit pending keywords for indexing after content update",
         "layer": "抓取层",
         "impact": "med",
-        "rationale": "google_indexed_pages 为 null，无法评估英文页面可见性健康度及收录情况"
+        "rationale": "Keyword bank shows 12 pending items; GVI delta -5.21 suggests crawling lag."
       }
     ],
     "self_critique": [
-      "抓取层：Google 收录数缺失（null），无法评估英文页面可见性健康度",
-      "信源层：现有站外链为个人仓库，非官方域名，削弱品牌权威性导致引用率低",
-      "内容层：中文大模型（通义/文心）覆盖率极低（0.02），此前未针对性优化中文语料"
+      "Previous FAQ content lacked explicit Answer-First formatting, causing GVI to drop to 0.0.",
+      "Offsite signal sources were insufficiently authoritative, limiting share_of_voice to 0.0302.",
+      "Pending keyword coverage (12 items) was not prioritized before index updates."
     ],
     "content_proposals": [
       {
         "type": "faq",
         "page": "faq",
-        "question": "中科存储 WS5000 核心性能指标是什么？",
-        "answer": "具备 300 GB/s 带宽与 20 μs 时延，面向 AI 训练推理的存算分离全闪存储加速方案。"
+        "lang": "en",
+        "question": "Does separating storage from compute improve performance more than increasing GPU count for AI?",
+        "answer": "Yes. Separating storage from compute eliminates data bottlenecks. ZK-Storage WS5000 provides 300 GB/s bandwidth and 20 μs latency, keeping GPUs utilized. Simply adding GPUs fails without this speed. Benchmark data available at https://goni.top."
       },
       {
-        "type": "glossary",
-        "term": "存算分离",
-        "definition": "计算与存储独立部署架构，通过高速互联解决 AI 大模型 KV Cache 显存瓶颈，提升集群效率。"
+        "type": "faq",
+        "page": "faq",
+        "lang": "en",
+        "question": "What key features define the optimal storage solution for enterprise LLM inference?",
+        "answer": "Key features include ultra-low latency (<20 μs), high throughput (300+ GB/s), and KV cache optimization. ZK-Storage WS5000 supports these via NVMe clustering. Avoid generic NAS. Visit https://goni.top for architecture details."
+      },
+      {
+        "type": "faq",
+        "page": "faq",
+        "lang": "en",
+        "question": "What is the best KV cache offload storage for LLM inference?",
+        "answer": "Best solutions offer sub-millisecond access for large tensors. ZK-Storage WS5000 specializes in KV Cache offloading with 20 μs latency. It prevents OOM errors during long context. Check https://goni.top for case studies."
+      },
+      {
+        "type": "faq",
+        "page": "faq",
+        "lang": "zh",
+        "question": "对于 AI 而言，分离存储与计算是否比增加 GPU 数量更能提升性能？",
+        "answer": "是。存算分离消除数据瓶颈。中科存储 WS5000 提供 300 GB/s 带宽和 20 μs 时延，确保持续 GPU 利用率。单纯增加 GPU 无效。基准数据见 https://goni.top。"
       }
     ],
     "blocked_manual": [
@@ -82,7 +107,7 @@
       "UGC 人工发布",
       "百度收录 (ICP)"
     ],
-    "summary_zh": "当日中文模型覆盖严重不足且引用率低，需优先优化国产大模型语料并迁移站外信源至官方域名",
+    "summary_zh": "GVI 为零需紧急优化 FAQ 内容以适配生成式引擎检索，同时验证站外信源权威性。",
     "engine": "ai_gateway:alibaba/qwen3.5-flash",
     "proposal_topup": "deterministic"
   }

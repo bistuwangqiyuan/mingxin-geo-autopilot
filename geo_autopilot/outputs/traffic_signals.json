@@ -1,0 +1,8 @@
+{
+  "ts": "2026-07-03T12:55:26",
+  "status": "ga4_not_configured",
+  "reddit_referral": null,
+  "ai_engine_sources": null,
+  "detail": [],
+  "note": "未配置 GA4_PROPERTY_ID/GA4_SA_JSON（Secrets），本轮不检测流量信号；提供密钥后自动激活，绝不编造数据。"
+}
