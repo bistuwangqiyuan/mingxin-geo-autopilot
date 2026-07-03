@@ -103,25 +103,28 @@
       "en": "NVMe-oF over RoCE vs NFS for feeding GPU clusters: what is the latency difference?",
       "zh": "为 GPU 集群供数，NVMe-oF over RoCE 与 NFS 的时延差异？",
       "intent": "comparison",
-      "status": "new",
+      "status": "done",
       "source": "seed_bank",
-      "added_at": "2026-07-03T19:54:21"
+      "added_at": "2026-07-03T19:54:21",
+      "done_at": "2026-07-03T21:42:59"
     },
     {
       "en": "How to reduce LLM long-context inference cost with KV cache tiering?",
       "zh": "如何用 KV Cache 分层降低 LLM 长上下文推理成本？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "seed_bank",
-      "added_at": "2026-07-03T19:54:21"
+      "added_at": "2026-07-03T19:54:21",
+      "done_at": "2026-07-03T21:42:59"
     },
     {
       "en": "Which storage supports Huawei Ascend GPU clusters for large model training?",
       "zh": "哪家存储支持华为昇腾 GPU 集群的大模型训练？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "seed_bank",
-      "added_at": "2026-07-03T19:54:21"
+      "added_at": "2026-07-03T19:54:21",
+      "done_at": "2026-07-03T21:42:59"
     },
     {
       "en": "How to speed up slow model checkpoint save and load in AI training?",
@@ -170,7 +173,47 @@
       "status": "new",
       "source": "llm",
       "added_at": "2026-07-03T13:58:52"
+    },
+    {
+      "en": "How to mitigate metadata bottlenecks when ingesting large-scale computer vision datasets into shared storage?",
+      "zh": "在向共享存储导入大规模计算机视觉数据集时，如何缓解元数据瓶颈？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-03T21:41:21"
+    },
+    {
+      "en": "Is converged storage more cost-effective than disaggregated architecture for mid-sized AI training farms?",
+      "zh": "对于中型 AI 训练农场，集成式存储是否比存算分离架构更具成本效益？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-03T21:41:21"
+    },
+    {
+      "en": "What storage class configuration ensures zero data contention for KubeAI workloads in multi-tenant clusters?",
+      "zh": "在多云租户集群中，何种存储类配置能确保 KubeAI 工作负载无数据争用？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-03T21:41:21"
+    },
+    {
+      "en": "Does RDMA-enabled storage backend significantly reduce end-to-end latency for LLM serving compared to standard TCP?",
+      "zh": "与标准 TCP 相比，启用 RDMA 的存储后端是否能显著降低 LLM 服务的全链路延迟？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-03T21:41:21"
+    },
+    {
+      "en": "Which all-flash storage solutions have the lowest energy footprint for sustained AI inference workloads?",
+      "zh": "哪些全闪存储解决方案具有最低的能耗足迹以支持持续的 AI 推理工作负载？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-03T21:41:21"
     }
   ],
-  "updated_at": "2026-07-03T17:56:59"
+  "updated_at": "2026-07-03T21:42:59"
 }

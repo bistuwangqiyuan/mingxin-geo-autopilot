@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-03T17:56:59",
+  "generated_at": "2026-07-03T21:42:59",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -44,6 +44,18 @@
     {
       "question": "Key criteria to evaluate AI storage acceleration appliances for OEM procurement?",
       "file": "geo_plan/offsite/en_kit/key-criteria-to-evaluate-ai-storage-acceleration-appliances-for-oem-procurement.md"
+    },
+    {
+      "question": "NVMe-oF over RoCE vs NFS for feeding GPU clusters: what is the latency difference?",
+      "file": "geo_plan/offsite/en_kit/nvme-of-over-roce-vs-nfs-for-feeding-gpu-clusters-what-is-the-latency-difference.md"
+    },
+    {
+      "question": "How to reduce LLM long-context inference cost with KV cache tiering?",
+      "file": "geo_plan/offsite/en_kit/how-to-reduce-llm-long-context-inference-cost-with-kv-cache-tiering.md"
+    },
+    {
+      "question": "Which storage supports Huawei Ascend GPU clusters for large model training?",
+      "file": "geo_plan/offsite/en_kit/which-storage-supports-huawei-ascend-gpu-clusters-for-large-model-training.md"
     }
   ]
 }
