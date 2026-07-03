@@ -90,15 +90,22 @@ def collect_snapshot(extra=None):
     by_intent = baseline.get("by_intent", {})
     opp = baseline.get("opportunity_gap", {})
 
-    # GVI：优先用最近真实重测 end，否则用基线
+    # GVI：优先用最近真实重测 end，否则用基线。
+    # 质量闸门：小样本重测（如 --gvi-limit 控成本时 n 仅为个位数）噪声极大、
+    # 会产出 0.0 之类的假信号污染趋势与告警——样本不足时如实回退基线并标注。
     gvi_now = None
     gvi_source = None
-    if gvi.get("end", {}).get("gvi") is not None:
-        gvi_now = gvi["end"]["gvi"]
-        gvi_source = "gvi_compare.end(real_remeasure)"
+    end = gvi.get("end") or {}
+    start_n = (gvi.get("start") or {}).get("n_records_ok") or 0
+    end_n = end.get("n_records_ok") or 0
+    min_n = max(30, int(start_n * 0.5)) if start_n else 30
+    if end.get("gvi") is not None and end_n >= min_n:
+        gvi_now = end["gvi"]
+        gvi_source = f"gvi_compare.end(real_remeasure, n={end_n})"
     elif ov.get("gvi") is not None:
         gvi_now = ov["gvi"]
-        gvi_source = "geo_baseline.overall"
+        gvi_source = ("geo_baseline.overall"
+                      + (f"(重测样本不足 n={end_n}<{min_n}，已忽略)" if end.get("gvi") is not None else ""))
 
     def _cov(vendor):
         return gap.get("by_model", {}).get(vendor, {}).get("weighted_coverage")
@@ -119,7 +126,8 @@ def collect_snapshot(extra=None):
         "ts": dt.datetime.now().isoformat(timespec="seconds"),
         "gvi": gvi_now,
         "gvi_source": gvi_source,
-        "gvi_delta": gvi.get("delta_gvi"),
+        # 小样本重测的 delta 同样是噪声，不足额时记 None（告警/日报只看可信 delta）
+        "gvi_delta": gvi.get("delta_gvi") if end_n >= min_n else None,
         "mention_rate": ov.get("mention_rate"),
         "first_rank": ov.get("first_rank"),
         "share_of_voice": ov.get("share_of_voice"),
