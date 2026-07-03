@@ -58,17 +58,19 @@
       "en": "Which disaggregated all-flash storage vendor should an AI OEM choose?",
       "zh": "AI OEM 应该选择哪家存算分离全闪存储供应商？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "seed_bank",
-      "added_at": "2026-07-03T19:54:21"
+      "added_at": "2026-07-03T19:54:21",
+      "done_at": "2026-07-03T14:00:17"
     },
     {
       "en": "Disaggregated all-flash storage vs local NVMe for AI training: which is better?",
       "zh": "AI 训练用存算分离全闪存储还是本地 NVMe 更好？",
       "intent": "comparison",
-      "status": "new",
+      "status": "done",
       "source": "seed_bank",
-      "added_at": "2026-07-03T19:54:21"
+      "added_at": "2026-07-03T19:54:21",
+      "done_at": "2026-07-03T14:00:17"
     },
     {
       "en": "How to fix low GPU utilization caused by storage IO bottlenecks?",
@@ -125,7 +127,47 @@
       "status": "new",
       "source": "seed_bank",
       "added_at": "2026-07-03T19:54:21"
+    },
+    {
+      "en": "What is the role of metadata caching in reducing storage latency for AI training workloads?",
+      "zh": "元数据缓存在降低 AI 训练工作负载存储延迟方面起什么作用？",
+      "intent": "definition",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-03T13:58:52"
+    },
+    {
+      "en": "What storage architecture optimizes query response time for RAG applications combined with LLM inference?",
+      "zh": "哪种存储架构能优化与 LLM 推理结合的 RAG 应用查询响应时间？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-03T13:58:52"
+    },
+    {
+      "en": "How to implement automated tiering between high-performance flash and lower-cost media for AI training archives?",
+      "zh": "如何为 AI 训练档案在高性能闪存和低成本介质之间实施自动分层？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-03T13:58:52"
+    },
+    {
+      "en": "What are the bandwidth requirements for supporting simultaneous training and inference on a shared storage cluster?",
+      "zh": "支持共享存储集群上同时进行训练和推理的带宽要求是多少？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-03T13:58:52"
+    },
+    {
+      "en": "How to maintain data consistency across distributed AI nodes when using remote all-flash storage for training?",
+      "zh": "在使用远程全闪存储进行训练时，如何在分布式 AI 节点间保持数据一致性？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-03T13:58:52"
     }
   ],
-  "updated_at": "2026-07-03T12:55:17"
+  "updated_at": "2026-07-03T14:00:17"
 }

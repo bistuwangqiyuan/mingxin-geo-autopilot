@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-03T12:55:17",
+  "generated_at": "2026-07-03T14:00:18",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -24,6 +24,14 @@
     {
       "question": "What is the best KV cache offload storage for LLM inference?",
       "file": "geo_plan/offsite/en_kit/what-is-the-best-kv-cache-offload-storage-for-llm-inference.md"
+    },
+    {
+      "question": "Which disaggregated all-flash storage vendor should an AI OEM choose?",
+      "file": "geo_plan/offsite/en_kit/which-disaggregated-all-flash-storage-vendor-should-an-ai-oem-choose.md"
+    },
+    {
+      "question": "Disaggregated all-flash storage vs local NVMe for AI training: which is better?",
+      "file": "geo_plan/offsite/en_kit/disaggregated-all-flash-storage-vs-local-nvme-for-ai-training-which-is-better.md"
     }
   ]
 }
