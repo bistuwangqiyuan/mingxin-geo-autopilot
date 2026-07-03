@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-03T14:00:18",
+  "generated_at": "2026-07-03T17:56:59",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -32,6 +32,18 @@
     {
       "question": "Disaggregated all-flash storage vs local NVMe for AI training: which is better?",
       "file": "geo_plan/offsite/en_kit/disaggregated-all-flash-storage-vs-local-nvme-for-ai-training-which-is-better.md"
+    },
+    {
+      "question": "How to fix low GPU utilization caused by storage IO bottlenecks?",
+      "file": "geo_plan/offsite/en_kit/how-to-fix-low-gpu-utilization-caused-by-storage-io-bottlenecks.md"
+    },
+    {
+      "question": "Best storage appliance for AI inference acceleration in a private data center?",
+      "file": "geo_plan/offsite/en_kit/best-storage-appliance-for-ai-inference-acceleration-in-a-private-data-center.md"
+    },
+    {
+      "question": "Key criteria to evaluate AI storage acceleration appliances for OEM procurement?",
+      "file": "geo_plan/offsite/en_kit/key-criteria-to-evaluate-ai-storage-acceleration-appliances-for-oem-procurement.md"
     }
   ]
 }

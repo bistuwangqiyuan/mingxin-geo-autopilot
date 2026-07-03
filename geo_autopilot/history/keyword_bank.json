@@ -76,25 +76,28 @@
       "en": "How to fix low GPU utilization caused by storage IO bottlenecks?",
       "zh": "如何解决存储 IO 瓶颈导致的 GPU 利用率低？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "seed_bank",
-      "added_at": "2026-07-03T19:54:21"
+      "added_at": "2026-07-03T19:54:21",
+      "done_at": "2026-07-03T17:56:59"
     },
     {
       "en": "Best storage appliance for AI inference acceleration in a private data center?",
       "zh": "私有数据中心 AI 推理加速最好的存储一体机是什么？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "seed_bank",
-      "added_at": "2026-07-03T19:54:21"
+      "added_at": "2026-07-03T19:54:21",
+      "done_at": "2026-07-03T17:56:59"
     },
     {
       "en": "Key criteria to evaluate AI storage acceleration appliances for OEM procurement?",
       "zh": "OEM 采购评估 AI 存储加速一体机的关键标准有哪些？",
       "intent": "ranking",
-      "status": "new",
+      "status": "done",
       "source": "seed_bank",
-      "added_at": "2026-07-03T19:54:21"
+      "added_at": "2026-07-03T19:54:21",
+      "done_at": "2026-07-03T17:56:59"
     },
     {
       "en": "NVMe-oF over RoCE vs NFS for feeding GPU clusters: what is the latency difference?",
@@ -169,5 +172,5 @@
       "added_at": "2026-07-03T13:58:52"
     }
   ],
-  "updated_at": "2026-07-03T14:00:17"
+  "updated_at": "2026-07-03T17:56:59"
 }

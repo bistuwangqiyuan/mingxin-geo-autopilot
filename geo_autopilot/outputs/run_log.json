@@ -1,7 +1,7 @@
 {
   "mode": "ci",
-  "started": "2026-07-03T13:58:21",
-  "elapsed": 134.6,
+  "started": "2026-07-03T17:55:11",
+  "elapsed": 124.9,
   "paths": {
     "ROOT": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot",
     "GEO_PLAN": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_plan",
@@ -20,30 +20,30 @@
     {
       "name": "geo_autopilot/keyword_miner.py",
       "ok": true,
-      "note": "  + [problem_solution] How to maintain data consistency across distributed AI nodes when using remote all-flash storage for training?",
+      "note": "[keyword_miner] source=skipped_backpressure added=0 bank_total=20 pending=12",
       "critical": false,
-      "elapsed": 31.8
+      "elapsed": 0.0
     },
     {
-      "name": "seo_geo_loop/gvi_measure.py --force --limit 2",
+      "name": "seo_geo_loop/gvi_measure.py --force --limit 4",
       "ok": true,
       "note": "写出：/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/gvi_compare.json",
       "critical": false,
-      "elapsed": 55.0
+      "elapsed": 76.6
     },
     {
       "name": "geo_autopilot/geo_brain.py",
       "ok": true,
       "note": "  priorities=3 proposals=4",
       "critical": false,
-      "elapsed": 29.8
+      "elapsed": 31.1
     },
     {
       "name": "geo_autopilot/apply_proposals.py",
       "ok": true,
-      "note": "  已应用 3 条提案并通过 verify_site 闸门",
+      "note": "  已应用 4 条提案并通过 verify_site 闸门",
       "critical": false,
-      "elapsed": 0.2
+      "elapsed": 0.3
     },
     {
       "name": "seo_geo_loop/build_offsite_site.py",
@@ -62,7 +62,7 @@
     {
       "name": "seo_geo_loop/make_geo_kit_en.py",
       "ok": true,
-      "note": "[geo_kit_en] 生成 8 个成品包 -> /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_plan/offsite/en_kit",
+      "note": "[geo_kit_en] 生成 11 个成品包 -> /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_plan/offsite/en_kit",
       "critical": false,
       "elapsed": 0.0
     },
@@ -71,21 +71,21 @@
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 1.4
+      "elapsed": 1.7
     },
     {
       "name": "geo_plan/geo_scoring.py",
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 1.6
+      "elapsed": 1.7
     },
     {
       "name": "seo_geo_loop/indexnow_submit.py",
       "ok": true,
-      "note": "[OK] 80 URLs; written /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/indexnow_submit.json",
+      "note": "[OK] 85 URLs; written /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/indexnow_submit.json",
       "critical": false,
-      "elapsed": 5.4
+      "elapsed": 5.5
     },
     {
       "name": "seo_geo_loop/live_audit.py",
@@ -118,36 +118,15 @@
     {
       "name": "git -C official_website commit -m",
       "ok": true,
-      "note": " 70 files changed, 158 insertions(+), 5 deletions(-)",
-      "critical": false,
-      "elapsed": null
-    },
-    {
-      "name": "git -C official_website push origin",
-      "ok": false,
-      "note": "hint: See the 'Note about fast-forwards' in 'git push --help' for details.",
-      "critical": false,
-      "elapsed": null
-    },
-    {
-      "name": "git -C official_website fetch origin",
-      "ok": true,
-      "note": "   7ffb058..b7b94cb  main       -> origin/main",
-      "critical": false,
-      "elapsed": null
-    },
-    {
-      "name": "git -C official_website rebase origin/main",
-      "ok": true,
-      "note": "Successfully rebased and updated refs/heads/main.",
+      "note": " 65 files changed, 2196 insertions(+), 2411 deletions(-)",
       "critical": false,
       "elapsed": null
     },
     {
       "name": "git -C official_website push origin",
       "ok": true,
-      "note": "   b7b94cb..44d4b9a  HEAD -> main",
-      "critical": true,
+      "note": "   768a132..26b59cd  HEAD -> main",
+      "critical": false,
       "elapsed": null
     },
     {
@@ -174,14 +153,14 @@
     {
       "name": "git -C offsite_github commit -m",
       "ok": true,
-      "note": " create mode 100644 docs/articles/which-disaggregated-all-flash-storage-vendor-should-an-ai-oem-choose.html",
+      "note": " create mode 100644 docs/articles/key-criteria-to-evaluate-ai-storage-acceleration-appliances-for-oem-procurement.html",
       "critical": false,
       "elapsed": null
     },
     {
       "name": "git -C offsite_github push origin",
       "ok": true,
-      "note": "   8c7f977..4ae8522  HEAD -> main",
+      "note": "   4ae8522..9806e1d  HEAD -> main",
       "critical": false,
       "elapsed": null
     },
@@ -204,14 +183,14 @@
       "ok": true,
       "note": "Saved: /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_autopilot/reports/中科存储-GEO自动驾驶日报-2026-07-03.pdf  (0.93 MB)",
       "critical": false,
-      "elapsed": 1.7
+      "elapsed": 2.0
     },
     {
       "name": "geo_autopilot/alerting.py",
       "ok": true,
-      "note": "[alerting] level=warn delivery=commented_issue_1 alerts=1 blocked=3",
+      "note": "[alerting] level=warn delivery=commented_issue_1 alerts=0 blocked=4",
       "critical": false,
-      "elapsed": 1.9
+      "elapsed": 1.6
     }
   ]
 }
