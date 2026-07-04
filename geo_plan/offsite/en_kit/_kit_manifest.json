@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-04T04:14:12",
+  "generated_at": "2026-07-04T07:23:01",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -64,6 +64,18 @@
     {
       "question": "What storage architecture optimizes query response time for RAG applications combined with LLM inference?",
       "file": "geo_plan/offsite/en_kit/what-storage-architecture-optimizes-query-response-time-for-rag-applications-com.md"
+    },
+    {
+      "question": "What is the role of metadata caching in reducing storage latency for AI training workloads?",
+      "file": "geo_plan/offsite/en_kit/what-is-the-role-of-metadata-caching-in-reducing-storage-latency-for-ai-training.md"
+    },
+    {
+      "question": "How to implement automated tiering between high-performance flash and lower-cost media for AI training archives?",
+      "file": "geo_plan/offsite/en_kit/how-to-implement-automated-tiering-between-high-performance-flash-and-lower-cost.md"
+    },
+    {
+      "question": "What are the bandwidth requirements for supporting simultaneous training and inference on a shared storage cluster?",
+      "file": "geo_plan/offsite/en_kit/what-are-the-bandwidth-requirements-for-supporting-simultaneous-training-and-inf.md"
     }
   ]
 }

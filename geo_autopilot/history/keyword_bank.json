@@ -139,9 +139,10 @@
       "en": "What is the role of metadata caching in reducing storage latency for AI training workloads?",
       "zh": "元数据缓存在降低 AI 训练工作负载存储延迟方面起什么作用？",
       "intent": "definition",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-03T13:58:52"
+      "added_at": "2026-07-03T13:58:52",
+      "done_at": "2026-07-04T07:23:01"
     },
     {
       "en": "What storage architecture optimizes query response time for RAG applications combined with LLM inference?",
@@ -156,17 +157,19 @@
       "en": "How to implement automated tiering between high-performance flash and lower-cost media for AI training archives?",
       "zh": "如何为 AI 训练档案在高性能闪存和低成本介质之间实施自动分层？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-03T13:58:52"
+      "added_at": "2026-07-03T13:58:52",
+      "done_at": "2026-07-04T07:23:01"
     },
     {
       "en": "What are the bandwidth requirements for supporting simultaneous training and inference on a shared storage cluster?",
       "zh": "支持共享存储集群上同时进行训练和推理的带宽要求是多少？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-03T13:58:52"
+      "added_at": "2026-07-03T13:58:52",
+      "done_at": "2026-07-04T07:23:01"
     },
     {
       "en": "How to maintain data consistency across distributed AI nodes when using remote all-flash storage for training?",
@@ -257,5 +260,5 @@
       "added_at": "2026-07-04T04:12:05"
     }
   ],
-  "updated_at": "2026-07-04T04:14:12"
+  "updated_at": "2026-07-04T07:23:01"
 }
