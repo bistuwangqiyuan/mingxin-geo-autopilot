@@ -175,25 +175,28 @@
       "en": "How to maintain data consistency across distributed AI nodes when using remote all-flash storage for training?",
       "zh": "在使用远程全闪存储进行训练时，如何在分布式 AI 节点间保持数据一致性？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-03T13:58:52"
+      "added_at": "2026-07-03T13:58:52",
+      "done_at": "2026-07-04T10:36:32"
     },
     {
       "en": "How to mitigate metadata bottlenecks when ingesting large-scale computer vision datasets into shared storage?",
       "zh": "在向共享存储导入大规模计算机视觉数据集时，如何缓解元数据瓶颈？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-03T21:41:21"
+      "added_at": "2026-07-03T21:41:21",
+      "done_at": "2026-07-04T10:36:32"
     },
     {
       "en": "Is converged storage more cost-effective than disaggregated architecture for mid-sized AI training farms?",
       "zh": "对于中型 AI 训练农场，集成式存储是否比存算分离架构更具成本效益？",
       "intent": "comparison",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-03T21:41:21"
+      "added_at": "2026-07-03T21:41:21",
+      "done_at": "2026-07-04T10:36:32"
     },
     {
       "en": "What storage class configuration ensures zero data contention for KubeAI workloads in multi-tenant clusters?",
@@ -258,7 +261,47 @@
       "status": "new",
       "source": "llm",
       "added_at": "2026-07-04T04:12:05"
+    },
+    {
+      "en": "What is the industry standard for quantifying IOPS per Watt in all-flash AI storage arrays?",
+      "zh": "行业衡量全闪存 AI 存储阵列能效的标准指标是否为每瓦特 IOPS？",
+      "intent": "definition",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-04T10:34:39"
+    },
+    {
+      "en": "How does the packet fragmentation rate in RoCE networks affect storage reliability for distributed training?",
+      "zh": "RoCE 网络中的包碎片率如何影响分布式训练的存储可靠性？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-04T10:34:39"
+    },
+    {
+      "en": "What defines the hot path optimization requirements for storage in RAG pipeline implementations?",
+      "zh": "定义 RAG 管道实现中存储热路径优化的要求是什么？",
+      "intent": "definition",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-04T10:34:39"
+    },
+    {
+      "en": "How to identify and isolate storage-related thread stalls in TensorFlow data pipelines?",
+      "zh": "如何在 TensorFlow 数据管道中识别和隔离与存储相关的线程停滞问题？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-04T10:34:39"
+    },
+    {
+      "en": "Is there a recommended cache eviction policy for multi-tenant AI storage clusters to prevent noisy neighbor effects?",
+      "zh": "为防止邻居干扰效应，多租户 AI 存储集群是否有推荐的缓存淘汰策略？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-04T10:34:39"
     }
   ],
-  "updated_at": "2026-07-04T07:23:01"
+  "updated_at": "2026-07-04T10:36:32"
 }

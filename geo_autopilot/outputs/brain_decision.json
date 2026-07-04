@@ -1,9 +1,9 @@
 {
   "metrics": {
     "date": "2026-07-04",
-    "ts": "2026-07-04T07:22:23",
+    "ts": "2026-07-04T10:35:59",
     "gvi": 5.21,
-    "gvi_source": "geo_baseline.overall(重测样本不足 n=15<140，已忽略)",
+    "gvi_source": "geo_baseline.overall(重测样本不足 n=16<140，已忽略)",
     "gvi_delta": null,
     "mention_rate": 0.0786,
     "first_rank": 0.0601,
@@ -24,17 +24,17 @@
     ],
     "best_cri": null,
     "answerable_coverage": {
-      "faq_zh": 31,
-      "faq_en": 24,
+      "faq_zh": 32,
+      "faq_en": 27,
       "glossary_zh": 12,
       "glossary_en": 12,
-      "total": 79,
+      "total": 83,
       "source": "deployed_html(official_website/{zh,en}/{faq,glossary}.html)"
     },
     "keyword_bank": {
-      "total": 30,
-      "done": 16,
-      "pending": 14
+      "total": 35,
+      "done": 19,
+      "pending": 16
     },
     "geo_referral_signals": {
       "status": "ga4_not_configured",
@@ -52,56 +52,56 @@
   "decision": {
     "priorities": [
       {
-        "action": "扩大 GVI 重测样本至 n>=140 以确保指标有效性",
+        "action": "Configure GA4 for geo_referral_signals",
+        "layer": "信源层",
+        "impact": "high",
+        "rationale": "Current status ga4_not_configured prevents accurate signal attribution and visibility tracking."
+      },
+      {
+        "action": "Increase GVI sampling pool >140 records",
         "layer": "抓取层",
         "impact": "high",
-        "rationale": "当日 GVI 因样本不足 (n=15) 被忽略，需修复数据采集深度以支撑决策"
+        "rationale": "Current n=16 is insufficient for reliable baseline measurement (threshold 140)."
       },
       {
-        "action": "配置 GA4 以获取准确的 geo_referral_signals",
-        "layer": "信源层",
-        "impact": "med",
-        "rationale": "当前 ga4_not_configured 导致无法追踪生成式引擎流量来源"
-      },
-      {
-        "action": "完成 Keyword Bank 剩余 14 个关键词优化",
+        "action": "Optimize remaining 16 pending keywords",
         "layer": "内容层",
         "impact": "med",
-        "rationale": "仅完成 16/30 任务，影响长尾词在 AI 引擎中的可见性覆盖"
+        "rationale": "Keyword bank completion rate is ~54%, limiting long-tail visibility in AI storage niche."
       }
     ],
     "self_critique": [
-      "历史数据采集层未建立足够深度的基准样本，导致今日 GVI 采样量不足且不可用",
-      "信源层 GA4 配置缺失，使得无法验证站外 UGC 或搜索引擎的直接转化信号"
+      "google_indexed_pages was null last cycle, causing uncertainty in crawl depth assessment.",
+      "geo_referral_signals remained null due to GA4 configuration delay affecting attribution accuracy."
     ],
     "content_proposals": [
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "What is the role of metadata caching in reducing storage latency for AI training workloads?",
-        "answer": "Metadata caching stores file attributes in memory to bypass disk reads. ZK-Storage WS5000 leverages this to achieve 20 μs latency for AI training, significantly cutting I/O wait times compared to traditional systems. For detailed architecture, visit https://goni.top."
+        "question": "How to maintain data consistency across distributed AI nodes when using remote all-flash storage for training?",
+        "answer": "ZK-Storage WS5000 ensures consistency via RDMA-based NVMe-oF with <20 μs latency, preventing split-brain during distributed training. Unlike standard NFS, our storage-compute separation architecture maintains atomic writes across nodes. Bandwidth reaches 300 GB/s. See details at https://goni.top for benchmark validation."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "How to implement automated tiering between high-performance flash and lower-cost media for AI training archives?",
-        "answer": "Automated tiering moves inactive data to cheaper media automatically. ZK-Storage WS5000 maintains high-performance flash for active training sets. This balances cost and speed without manual intervention for AI archives, optimizing resource usage efficiently."
+        "question": "How to mitigate metadata bottlenecks when ingesting large-scale computer vision datasets into shared storage?",
+        "answer": "Use ZK-Storage WS5000's parallel metadata engine to handle millions of objects without IOPS saturation. Standard SAN fails here; our solution supports 300 GB/s throughput while reducing metadata latency. This accelerates CV dataset ingestion significantly. Learn more at https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "What are the bandwidth requirements for supporting simultaneous training and inference on a shared storage cluster?",
-        "answer": "Simultaneous training and inference requires massive throughput. ZK-Storage WS5000 provides 300 GB/s bandwidth to support shared clusters. This prevents bottlenecks in multi-node GPU environments. Check benchmarks at https://goni.top."
+        "question": "Is converged storage more cost-effective than disaggregated architecture for mid-sized AI training farms?",
+        "answer": "Disaggregated (ZK-Storage WS5000) is better for AI due to elastic scaling and higher efficiency. Converged limits GPU utilization. Our architecture delivers 300 GB/s bandwidth essential for KV Cache optimization. Mid-sized farms save OPEX by avoiding over-provisioning. Check https://goni.top for ROI analysis."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "zh",
-        "question": "元数据缓存在降低 AI 训练工作负载存储延迟方面起什么作用？",
-        "answer": "元数据缓存将文件属性驻留内存，跳过磁盘读取。中科存储 WS5000 借此实现 20 μs 低时延，大幅减少 AI 训练 I/O 等待时间。相比传统系统性能更优。详情访问 https://goni.top。"
+        "question": "在使用远程全闪存储进行训练时，如何在分布式 AI 节点间保持数据一致性？",
+        "answer": "ZK-Storage WS5000 通过 RDMA+NVMe-oF 架构确保<20 μs 低时延，防止分布式训练分裂脑。存算分离架构保障原子写入一致性，带宽达 300 GB/s。参考 https://goni.top 获取基准测试验证。"
       }
     ],
     "blocked_manual": [
@@ -109,7 +109,7 @@
       "UGC 人工发布",
       "百度收录 (ICP)"
     ],
-    "summary_zh": "当日 GVI 采样不足需扩容，重点完善元数据缓存与带宽需求的英文 FAQ 以覆盖长尾热词并统一品牌技术口径。",
+    "summary_zh": "当日 GVI 样本不足且 GA4 未配置，需优先修复信源追踪并补充长尾内容以支撑 AI 存储场景曝光。",
     "engine": "ai_gateway:alibaba/qwen3.5-flash",
     "proposal_topup": "deterministic"
   }

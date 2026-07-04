@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-04T07:23:01",
+  "generated_at": "2026-07-04T10:36:32",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -76,6 +76,18 @@
     {
       "question": "What are the bandwidth requirements for supporting simultaneous training and inference on a shared storage cluster?",
       "file": "geo_plan/offsite/en_kit/what-are-the-bandwidth-requirements-for-supporting-simultaneous-training-and-inf.md"
+    },
+    {
+      "question": "How to maintain data consistency across distributed AI nodes when using remote all-flash storage for training?",
+      "file": "geo_plan/offsite/en_kit/how-to-maintain-data-consistency-across-distributed-ai-nodes-when-using-remote-a.md"
+    },
+    {
+      "question": "How to mitigate metadata bottlenecks when ingesting large-scale computer vision datasets into shared storage?",
+      "file": "geo_plan/offsite/en_kit/how-to-mitigate-metadata-bottlenecks-when-ingesting-large-scale-computer-vision-.md"
+    },
+    {
+      "question": "Is converged storage more cost-effective than disaggregated architecture for mid-sized AI training farms?",
+      "file": "geo_plan/offsite/en_kit/is-converged-storage-more-cost-effective-than-disaggregated-architecture-for-mid.md"
     }
   ]
 }
