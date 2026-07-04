@@ -1,7 +1,7 @@
 {
   "metrics": {
     "date": "2026-07-04",
-    "ts": "2026-07-04T14:07:25",
+    "ts": "2026-07-04T17:35:00",
     "gvi": 5.21,
     "gvi_source": "geo_baseline.overall(重测样本不足 n=16<140，已忽略)",
     "gvi_delta": null,
@@ -24,17 +24,17 @@
     ],
     "best_cri": null,
     "answerable_coverage": {
-      "faq_zh": 33,
-      "faq_en": 30,
+      "faq_zh": 34,
+      "faq_en": 32,
       "glossary_zh": 12,
       "glossary_en": 12,
-      "total": 87,
+      "total": 90,
       "source": "deployed_html(official_website/{zh,en}/{faq,glossary}.html)"
     },
     "keyword_bank": {
-      "total": 35,
-      "done": 22,
-      "pending": 13
+      "total": 40,
+      "done": 24,
+      "pending": 16
     },
     "geo_referral_signals": {
       "status": "ga4_not_configured",
@@ -52,27 +52,28 @@
   "decision": {
     "priorities": [
       {
-        "action": "Fix GVI sampling logic to ensure n>=140 for reliable baseline",
-        "layer": "抓取层",
-        "impact": "high",
-        "rationale": "Current GVI source indicates sample n=16<140, rendering delta null and metric unreliable."
-      },
-      {
-        "action": "Integrate GA4 for geo_referral_signals tracking",
-        "layer": "信源层",
-        "impact": "high",
-        "rationale": "geo_referral_signals status is ga4_not_configured, blocking AI engine source attribution."
-      },
-      {
-        "action": "Publish pending keyword FAQs to capture long-tail intent",
+        "action": "生成基于欧美买家长尾问题的英文 FAQ 页面内容",
         "layer": "内容层",
+        "impact": "high",
+        "rationale": "当前关键词库剩余 16 个待完成，且存在高价值长尾问题未覆盖，需优先产出可验证的技术问答以提升 GVI 引用率。"
+      },
+      {
+        "action": "配置 GA4 并修复 geo_referral_signals",
+        "layer": "抓取层",
         "impact": "med",
-        "rationale": "Keyword bank shows 13 pending; hot words indicate high-value technical queries needing immediate coverage."
+        "rationale": "当前 ga4_not_configured 导致无法获取精准流量信号，影响后续 GEO 策略调整准确性。"
+      },
+      {
+        "action": "复核站外信源链接有效性",
+        "layer": "信源层",
+        "impact": "low",
+        "rationale": "现有 offsite_channels_live 包含两个边缘站点，需确认是否承载核心业务指标以优化引用权重。"
       }
     ],
     "self_critique": [
-      "Previous GVI calculation failed validation due to insufficient sample size (n=16).",
-      "Offsite signal tracking (Reddit/AI engines) remained null due to missing GA4 configuration."
+      "当日 GVI 样本量 n=16 低于基准阈值 140，导致 delta 计算不可用，需扩大采样范围。",
+      "GA4 未配置导致 geo_signal_present 为空，无法归因具体 AI 引擎来源。",
+      "关键词库仍有 16 项 pending，未完成闭环可能影响长尾词覆盖率。"
     ],
     "content_proposals": [
       {
@@ -80,28 +81,28 @@
         "page": "faq",
         "lang": "en",
         "question": "What storage class configuration ensures zero data contention for KubeAI workloads in multi-tenant clusters?",
-        "answer": "ZK-Storage WS5000 uses dedicated NVMe-oF namespaces with RDMA to isolate I/O paths, ensuring zero contention. Its 300 GB/s bandwidth prevents queueing delays in multi-tenant KubeAI setups. For detailed architecture, visit https://goni.top."
+        "answer": "ZK-Storage WS5000 utilizes isolated storage classes with 300 GB/s bandwidth to guarantee zero contention. Our storage-compute separation architecture ensures multi-tenant safety with 20 μs latency. For detailed KubeAI configurations, visit https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "Does RDMA-enabled storage backend significantly reduce end-to-end latency for LLM serving compared to standard TCP?",
-        "answer": "Yes. RDMA bypasses OS kernel, reducing latency to ~20 μs versus TCP overhead. ZK-Storage WS5000 leverages this for LLM serving, maintaining consistent throughput at 300 GB/s. Learn more at https://goni.top."
+        "question": "Does leveraging GPUDirect Storage reduce host CPU utilization during large model loading compared to standard DMA transfers?",
+        "answer": "Yes. GPUDirect Storage bypasses CPU memory copies, reducing host utilization significantly. ZK-Storage WS5000 accelerates this with 20 μs latency. Compared to standard DMA, efficiency improves for large models. Details at https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "Which all-flash storage solutions have the lowest energy footprint for sustained AI inference workloads?",
-        "answer": "ZK-Storage WS5000 optimizes power-per-IOPS for inference. Unlike generic arrays, it minimizes idle power while sustaining 300 GB/s. Ideal for low-footprint AI inference. See specs at https://goni.top."
+        "question": "At what cluster scale does disaggregated storage provide better linear scaling than local NVMe for distributed training?",
+        "answer": "Beyond 100 nodes, local NVMe bottlenecks occur. ZK-Storage WS5000 offers linear scaling via disaggregation. With 300 GB/s throughput, it outperforms local NVMe in large clusters. Learn more at https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "zh",
         "question": "在多云租户集群中，何种存储类配置能确保 KubeAI 工作负载无数据争用？",
-        "answer": "中科存储 WS5000 采用独立 NVMe-oF 命名空间与 RDMA 隔离 I/O 路径，确保多租户 KubeAI 无争用。其 300 GB/s 带宽避免队列延迟。详情见 https://goni.top。"
+        "answer": "中科存储 WS5000 采用隔离存储类与 300 GB/s 带宽，确保多租户无争用。存算分离架构保障 20 μs 低时延。详细配置请见 https://goni.top。"
       }
     ],
     "blocked_manual": [
@@ -109,7 +110,7 @@
       "UGC 人工发布",
       "百度收录 (ICP)"
     ],
-    "summary_zh": "当日 GVI 样本不足导致指标不可靠，需优先修复采样逻辑并部署 GA4；内容侧应紧急上线 3 组针对 KubeAI/RDMA/能效的热词 FAQ 以覆盖长尾需求。",
+    "summary_zh": "GVI 数据因采样不足暂不可靠，建议优先完成 3 条技术 FAQ 内容生产并修复 GA4 配置。",
     "engine": "ai_gateway:alibaba/qwen3.5-flash",
     "proposal_topup": "deterministic"
   }

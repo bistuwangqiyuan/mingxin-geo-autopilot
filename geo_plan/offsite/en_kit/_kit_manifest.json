@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-04T14:07:57",
+  "generated_at": "2026-07-04T17:35:34",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -96,6 +96,18 @@
     {
       "question": "Which all-flash storage solutions have the lowest energy footprint for sustained AI inference workloads?",
       "file": "geo_plan/offsite/en_kit/which-all-flash-storage-solutions-have-the-lowest-energy-footprint-for-sustained.md"
+    },
+    {
+      "question": "What storage class configuration ensures zero data contention for KubeAI workloads in multi-tenant clusters?",
+      "file": "geo_plan/offsite/en_kit/what-storage-class-configuration-ensures-zero-data-contention-for-kubeai-workloa.md"
+    },
+    {
+      "question": "Does leveraging GPUDirect Storage reduce host CPU utilization during large model loading compared to standard DMA transfers?",
+      "file": "geo_plan/offsite/en_kit/does-leveraging-gpudirect-storage-reduce-host-cpu-utilization-during-large-model.md"
+    },
+    {
+      "question": "At what cluster scale does disaggregated storage provide better linear scaling than local NVMe for distributed training?",
+      "file": "geo_plan/offsite/en_kit/at-what-cluster-scale-does-disaggregated-storage-provide-better-linear-scaling-t.md"
     }
   ]
 }

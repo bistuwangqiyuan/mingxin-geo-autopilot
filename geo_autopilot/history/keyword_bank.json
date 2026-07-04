@@ -202,9 +202,10 @@
       "en": "What storage class configuration ensures zero data contention for KubeAI workloads in multi-tenant clusters?",
       "zh": "在多云租户集群中，何种存储类配置能确保 KubeAI 工作负载无数据争用？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-03T21:41:21"
+      "added_at": "2026-07-03T21:41:21",
+      "done_at": "2026-07-04T17:35:34"
     },
     {
       "en": "Does RDMA-enabled storage backend significantly reduce end-to-end latency for LLM serving compared to standard TCP?",
@@ -228,17 +229,19 @@
       "en": "Does leveraging GPUDirect Storage reduce host CPU utilization during large model loading compared to standard DMA transfers?",
       "zh": "利用 GPUDirect Storage 是否比标准 DMA 传输更能降低大型模型加载时的主机 CPU 利用率？",
       "intent": "comparison",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-04T04:12:05"
+      "added_at": "2026-07-04T04:12:05",
+      "done_at": "2026-07-04T17:35:34"
     },
     {
       "en": "At what cluster scale does disaggregated storage provide better linear scaling than local NVMe for distributed training?",
       "zh": "在什么集群规模下，分离式存储比本地 NVMe 为分布式训练提供更好的线性扩展性？",
       "intent": "comparison",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-04T04:12:05"
+      "added_at": "2026-07-04T04:12:05",
+      "done_at": "2026-07-04T17:35:34"
     },
     {
       "en": "Which file system protocol offers the lowest latency for small object writes during distributed AI hyperparameter tuning?",
@@ -303,7 +306,47 @@
       "status": "new",
       "source": "llm",
       "added_at": "2026-07-04T10:34:39"
+    },
+    {
+      "en": "What is the accepted industry definition of 'storage-induced tail latency' within AI inference service level agreements?",
+      "zh": "在 AI 推理服务等级协议中，什么是被接受的“存储诱导尾部延迟”的行业标准定义？",
+      "intent": "definition",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-04T17:33:43"
+    },
+    {
+      "en": "Do distributed file systems like Lustre or GPFS outperform object stores for feeding high-frequency AI training data streams?",
+      "zh": "像 Lustre 或 GPFS 这样的分布式文件系统是否优于对象存储，用于为高频 AI 训练数据流提供数据？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-04T17:33:43"
+    },
+    {
+      "en": "How to resolve storage deadlocks occurring during parallel checkpoint writes in Slurm-managed AI clusters?",
+      "zh": "如何解决在 Slurm 管理的 AI 集群中进行并行检查点写入时发生的存储死锁问题？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-04T17:33:43"
+    },
+    {
+      "en": "What are the essential features of a storage appliance designed specifically for edge AI inference deployment?",
+      "zh": "专为边缘 AI 推理部署设计的存储一体机应具备哪些关键功能？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-04T17:33:43"
+    },
+    {
+      "en": "How to enable FIPS-compliant encryption on all-flash storage without degrading GPU training throughput?",
+      "zh": "如何在全闪存存储上启用符合 FIPS 标准的加密而不会降低 GPU 训练吞吐量？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-04T17:33:43"
     }
   ],
-  "updated_at": "2026-07-04T14:07:57"
+  "updated_at": "2026-07-04T17:35:34"
 }
