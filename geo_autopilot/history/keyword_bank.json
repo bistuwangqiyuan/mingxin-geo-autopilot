@@ -210,17 +210,19 @@
       "en": "Does RDMA-enabled storage backend significantly reduce end-to-end latency for LLM serving compared to standard TCP?",
       "zh": "与标准 TCP 相比，启用 RDMA 的存储后端是否能显著降低 LLM 服务的全链路延迟？",
       "intent": "comparison",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-03T21:41:21"
+      "added_at": "2026-07-03T21:41:21",
+      "done_at": "2026-07-04T14:07:57"
     },
     {
       "en": "Which all-flash storage solutions have the lowest energy footprint for sustained AI inference workloads?",
       "zh": "哪些全闪存储解决方案具有最低的能耗足迹以支持持续的 AI 推理工作负载？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-03T21:41:21"
+      "added_at": "2026-07-03T21:41:21",
+      "done_at": "2026-07-04T14:07:57"
     },
     {
       "en": "Does leveraging GPUDirect Storage reduce host CPU utilization during large model loading compared to standard DMA transfers?",
@@ -303,5 +305,5 @@
       "added_at": "2026-07-04T10:34:39"
     }
   ],
-  "updated_at": "2026-07-04T10:36:32"
+  "updated_at": "2026-07-04T14:07:57"
 }

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-04T10:36:32",
+  "generated_at": "2026-07-04T14:07:57",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -88,6 +88,14 @@
     {
       "question": "Is converged storage more cost-effective than disaggregated architecture for mid-sized AI training farms?",
       "file": "geo_plan/offsite/en_kit/is-converged-storage-more-cost-effective-than-disaggregated-architecture-for-mid.md"
+    },
+    {
+      "question": "Does RDMA-enabled storage backend significantly reduce end-to-end latency for LLM serving compared to standard TCP?",
+      "file": "geo_plan/offsite/en_kit/does-rdma-enabled-storage-backend-significantly-reduce-end-to-end-latency-for-ll.md"
+    },
+    {
+      "question": "Which all-flash storage solutions have the lowest energy footprint for sustained AI inference workloads?",
+      "file": "geo_plan/offsite/en_kit/which-all-flash-storage-solutions-have-the-lowest-energy-footprint-for-sustained.md"
     }
   ]
 }
