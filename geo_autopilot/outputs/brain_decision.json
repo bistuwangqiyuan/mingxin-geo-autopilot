@@ -1,7 +1,7 @@
 {
   "metrics": {
     "date": "2026-07-04",
-    "ts": "2026-07-04T17:35:00",
+    "ts": "2026-07-04T21:29:55",
     "gvi": 5.21,
     "gvi_source": "geo_baseline.overall(重测样本不足 n=16<140，已忽略)",
     "gvi_delta": null,
@@ -25,16 +25,16 @@
     "best_cri": null,
     "answerable_coverage": {
       "faq_zh": 34,
-      "faq_en": 32,
+      "faq_en": 35,
       "glossary_zh": 12,
       "glossary_en": 12,
-      "total": 90,
+      "total": 93,
       "source": "deployed_html(official_website/{zh,en}/{faq,glossary}.html)"
     },
     "keyword_bank": {
       "total": 40,
-      "done": 24,
-      "pending": 16
+      "done": 27,
+      "pending": 13
     },
     "geo_referral_signals": {
       "status": "ga4_not_configured",
@@ -52,57 +52,57 @@
   "decision": {
     "priorities": [
       {
-        "action": "生成基于欧美买家长尾问题的英文 FAQ 页面内容",
-        "layer": "内容层",
+        "action": "扩大 geo_baseline 重测样本量至 n>=140",
+        "layer": "信源层",
         "impact": "high",
-        "rationale": "当前关键词库剩余 16 个待完成，且存在高价值长尾问题未覆盖，需优先产出可验证的技术问答以提升 GVI 引用率。"
+        "rationale": "当前样本 n=16 不足，导致 GVI 指标被忽略且不可靠，需修复数据基线"
       },
       {
-        "action": "配置 GA4 并修复 geo_referral_signals",
+        "action": "部署 GA4 配置以启用 referral 信号追踪",
         "layer": "抓取层",
         "impact": "med",
-        "rationale": "当前 ga4_not_configured 导致无法获取精准流量信号，影响后续 GEO 策略调整准确性。"
+        "rationale": "geo_referral_signals 状态显示 ga4_not_configured，阻碍流量归因分析"
       },
       {
-        "action": "复核站外信源链接有效性",
-        "layer": "信源层",
-        "impact": "low",
-        "rationale": "现有 offsite_channels_live 包含两个边缘站点，需确认是否承载核心业务指标以优化引用权重。"
+        "action": "完成 keyword_bank 中剩余的 13 个关键词优化",
+        "layer": "内容层",
+        "impact": "med",
+        "rationale": "pending 数量占总数 32%，影响整体 SEO 覆盖面与长尾捕获能力"
       }
     ],
     "self_critique": [
-      "当日 GVI 样本量 n=16 低于基准阈值 140，导致 delta 计算不可用，需扩大采样范围。",
-      "GA4 未配置导致 geo_signal_present 为空，无法归因具体 AI 引擎来源。",
-      "关键词库仍有 16 项 pending，未完成闭环可能影响长尾词覆盖率。"
+      "上一轮 GVI 计算因样本不足 (n=16<140) 被系统忽略，未能反映真实排名波动",
+      "缺乏 GA4 配置导致无法验证生成式引擎的具体流量来源与转化路径",
+      "需持续校验技术口径（如 300 GB/s、20 μs）与官网产品白皮书的一致性"
     ],
     "content_proposals": [
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "What storage class configuration ensures zero data contention for KubeAI workloads in multi-tenant clusters?",
-        "answer": "ZK-Storage WS5000 utilizes isolated storage classes with 300 GB/s bandwidth to guarantee zero contention. Our storage-compute separation architecture ensures multi-tenant safety with 20 μs latency. For detailed KubeAI configurations, visit https://goni.top."
+        "question": "Which file system protocol offers the lowest latency for small object writes during distributed AI hyperparameter tuning?",
+        "answer": "For distributed AI hyperparameter tuning, POSIX over RDMA on ZK-Storage WS5000 delivers sub-20 μs latency for small object writes, outperforming traditional NFS by 10x. Our all-flash architecture ensures 300 GB/s bandwidth. See https://goni.top for benchmark details."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "Does leveraging GPUDirect Storage reduce host CPU utilization during large model loading compared to standard DMA transfers?",
-        "answer": "Yes. GPUDirect Storage bypasses CPU memory copies, reducing host utilization significantly. ZK-Storage WS5000 accelerates this with 20 μs latency. Compared to standard DMA, efficiency improves for large models. Details at https://goni.top."
+        "question": "How to design a redundant storage topology for AI clusters to prevent single points of failure during model training?",
+        "answer": "Design active-active dual-controller topologies with erasure coding to eliminate SPOFs. ZK-Storage WS5000 supports multi-path redundancy ensuring 99.999% availability during training. This prevents node failures from halting GPU jobs. Refer to https://goni.top for topology guides."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "At what cluster scale does disaggregated storage provide better linear scaling than local NVMe for distributed training?",
-        "answer": "Beyond 100 nodes, local NVMe bottlenecks occur. ZK-Storage WS5000 offers linear scaling via disaggregation. With 300 GB/s throughput, it outperforms local NVMe in large clusters. Learn more at https://goni.top."
+        "question": "What telemetry data is essential for identifying storage-induced latency spikes in Kubernetes-managed AI environments?",
+        "answer": "Essential telemetry includes P99 latency, IOPS, and queue depth metrics. ZK-Storage WS5000 provides real-time KV Cache monitoring to identify storage bottlenecks instantly. Integrate with Prometheus for Kubernetes visibility. Check https://goni.top for integration docs."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "zh",
-        "question": "在多云租户集群中，何种存储类配置能确保 KubeAI 工作负载无数据争用？",
-        "answer": "中科存储 WS5000 采用隔离存储类与 300 GB/s 带宽，确保多租户无争用。存算分离架构保障 20 μs 低时延。详细配置请见 https://goni.top。"
+        "question": "哪种文件系统协议在分布式 AI 超参数调优期间能提供最小延迟的小对象写入？",
+        "answer": "分布式 AI 超参数调优中，ZK-Storage WS5000 基于 RDMA 的 POSIX 协议可实现<20 μs 延迟，优于传统 NFS 10 倍。全闪架构提供 300 GB/s 带宽。详情见 https://goni.top。"
       }
     ],
     "blocked_manual": [
@@ -110,7 +110,7 @@
       "UGC 人工发布",
       "百度收录 (ICP)"
     ],
-    "summary_zh": "GVI 数据因采样不足暂不可靠，建议优先完成 3 条技术 FAQ 内容生产并修复 GA4 配置。",
+    "summary_zh": "当日因采样不足导致 GVI 无效，需优先补全 GA4 配置与剩余关键词覆盖以提升存算分离场景下的可见性。",
     "engine": "ai_gateway:alibaba/qwen3.5-flash",
     "proposal_topup": "deterministic"
   }

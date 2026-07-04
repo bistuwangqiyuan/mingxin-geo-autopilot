@@ -247,25 +247,28 @@
       "en": "Which file system protocol offers the lowest latency for small object writes during distributed AI hyperparameter tuning?",
       "zh": "哪种文件系统协议在分布式 AI 超参数调优期间能提供最小延迟的小对象写入？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-04T04:12:05"
+      "added_at": "2026-07-04T04:12:05",
+      "done_at": "2026-07-04T21:30:29"
     },
     {
       "en": "How to design a redundant storage topology for AI clusters to prevent single points of failure during model training?",
       "zh": "如何设计高冗余的 AI 集群存储拓扑以防止模型训练期间的单点故障？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-04T04:12:05"
+      "added_at": "2026-07-04T04:12:05",
+      "done_at": "2026-07-04T21:30:29"
     },
     {
       "en": "What telemetry data is essential for identifying storage-induced latency spikes in Kubernetes-managed AI environments?",
       "zh": "在 Kubernetes 管理的 AI 环境中，哪些遥测数据对于识别存储导致的延迟尖峰至关重要？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-04T04:12:05"
+      "added_at": "2026-07-04T04:12:05",
+      "done_at": "2026-07-04T21:30:29"
     },
     {
       "en": "What is the industry standard for quantifying IOPS per Watt in all-flash AI storage arrays?",
@@ -348,5 +351,5 @@
       "added_at": "2026-07-04T17:33:43"
     }
   ],
-  "updated_at": "2026-07-04T17:35:34"
+  "updated_at": "2026-07-04T21:30:29"
 }

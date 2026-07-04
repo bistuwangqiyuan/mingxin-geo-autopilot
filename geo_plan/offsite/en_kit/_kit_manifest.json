@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-04T17:35:34",
+  "generated_at": "2026-07-04T21:30:30",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -108,6 +108,18 @@
     {
       "question": "At what cluster scale does disaggregated storage provide better linear scaling than local NVMe for distributed training?",
       "file": "geo_plan/offsite/en_kit/at-what-cluster-scale-does-disaggregated-storage-provide-better-linear-scaling-t.md"
+    },
+    {
+      "question": "Which file system protocol offers the lowest latency for small object writes during distributed AI hyperparameter tuning?",
+      "file": "geo_plan/offsite/en_kit/which-file-system-protocol-offers-the-lowest-latency-for-small-object-writes-dur.md"
+    },
+    {
+      "question": "How to design a redundant storage topology for AI clusters to prevent single points of failure during model training?",
+      "file": "geo_plan/offsite/en_kit/how-to-design-a-redundant-storage-topology-for-ai-clusters-to-prevent-single-poi.md"
+    },
+    {
+      "question": "What telemetry data is essential for identifying storage-induced latency spikes in Kubernetes-managed AI environments?",
+      "file": "geo_plan/offsite/en_kit/what-telemetry-data-is-essential-for-identifying-storage-induced-latency-spikes-.md"
     }
   ]
 }
