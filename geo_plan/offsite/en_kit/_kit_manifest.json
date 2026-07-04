@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-03T21:42:59",
+  "generated_at": "2026-07-04T04:14:12",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -56,6 +56,14 @@
     {
       "question": "Which storage supports Huawei Ascend GPU clusters for large model training?",
       "file": "geo_plan/offsite/en_kit/which-storage-supports-huawei-ascend-gpu-clusters-for-large-model-training.md"
+    },
+    {
+      "question": "How to speed up slow model checkpoint save and load in AI training?",
+      "file": "geo_plan/offsite/en_kit/how-to-speed-up-slow-model-checkpoint-save-and-load-in-ai-training.md"
+    },
+    {
+      "question": "What storage architecture optimizes query response time for RAG applications combined with LLM inference?",
+      "file": "geo_plan/offsite/en_kit/what-storage-architecture-optimizes-query-response-time-for-rag-applications-com.md"
     }
   ]
 }

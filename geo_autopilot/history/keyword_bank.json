@@ -130,9 +130,10 @@
       "en": "How to speed up slow model checkpoint save and load in AI training?",
       "zh": "如何加速 AI 训练中缓慢的 Checkpoint 保存与加载？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "seed_bank",
-      "added_at": "2026-07-03T19:54:21"
+      "added_at": "2026-07-03T19:54:21",
+      "done_at": "2026-07-04T04:14:12"
     },
     {
       "en": "What is the role of metadata caching in reducing storage latency for AI training workloads?",
@@ -146,9 +147,10 @@
       "en": "What storage architecture optimizes query response time for RAG applications combined with LLM inference?",
       "zh": "哪种存储架构能优化与 LLM 推理结合的 RAG 应用查询响应时间？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-03T13:58:52"
+      "added_at": "2026-07-03T13:58:52",
+      "done_at": "2026-07-04T04:14:12"
     },
     {
       "en": "How to implement automated tiering between high-performance flash and lower-cost media for AI training archives?",
@@ -213,7 +215,47 @@
       "status": "new",
       "source": "llm",
       "added_at": "2026-07-03T21:41:21"
+    },
+    {
+      "en": "Does leveraging GPUDirect Storage reduce host CPU utilization during large model loading compared to standard DMA transfers?",
+      "zh": "利用 GPUDirect Storage 是否比标准 DMA 传输更能降低大型模型加载时的主机 CPU 利用率？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-04T04:12:05"
+    },
+    {
+      "en": "At what cluster scale does disaggregated storage provide better linear scaling than local NVMe for distributed training?",
+      "zh": "在什么集群规模下，分离式存储比本地 NVMe 为分布式训练提供更好的线性扩展性？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-04T04:12:05"
+    },
+    {
+      "en": "Which file system protocol offers the lowest latency for small object writes during distributed AI hyperparameter tuning?",
+      "zh": "哪种文件系统协议在分布式 AI 超参数调优期间能提供最小延迟的小对象写入？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-04T04:12:05"
+    },
+    {
+      "en": "How to design a redundant storage topology for AI clusters to prevent single points of failure during model training?",
+      "zh": "如何设计高冗余的 AI 集群存储拓扑以防止模型训练期间的单点故障？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-04T04:12:05"
+    },
+    {
+      "en": "What telemetry data is essential for identifying storage-induced latency spikes in Kubernetes-managed AI environments?",
+      "zh": "在 Kubernetes 管理的 AI 环境中，哪些遥测数据对于识别存储导致的延迟尖峰至关重要？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-04T04:12:05"
     }
   ],
-  "updated_at": "2026-07-03T21:42:59"
+  "updated_at": "2026-07-04T04:14:12"
 }

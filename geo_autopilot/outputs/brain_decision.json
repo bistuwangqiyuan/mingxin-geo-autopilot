@@ -1,7 +1,7 @@
 {
   "metrics": {
-    "date": "2026-07-03",
-    "ts": "2026-07-03T21:42:34",
+    "date": "2026-07-04",
+    "ts": "2026-07-04T04:13:33",
     "gvi": 5.21,
     "gvi_source": "geo_baseline.overall(重测样本不足 n=16<140，已忽略)",
     "gvi_delta": null,
@@ -24,17 +24,17 @@
     ],
     "best_cri": null,
     "answerable_coverage": {
-      "faq_zh": 29,
-      "faq_en": 19,
+      "faq_zh": 30,
+      "faq_en": 22,
       "glossary_zh": 12,
       "glossary_en": 12,
-      "total": 72,
+      "total": 76,
       "source": "deployed_html(official_website/{zh,en}/{faq,glossary}.html)"
     },
     "keyword_bank": {
-      "total": 25,
-      "done": 11,
-      "pending": 14
+      "total": 30,
+      "done": 14,
+      "pending": 16
     },
     "geo_referral_signals": {
       "status": "ga4_not_configured",
@@ -52,56 +52,57 @@
   "decision": {
     "priorities": [
       {
-        "action": "配置 GA4 追踪以修复 geo_referral_signals 缺失",
+        "action": "Fix GVI sampling threshold to resolve n=16 data insufficiency",
+        "layer": "抓取层",
+        "impact": "high",
+        "rationale": "Current GVI sample n=16 < 140 threshold makes metrics invalid; need robust baseline before optimization."
+      },
+      {
+        "action": "Configure GA4 for geo_referral_signals to enable traffic attribution",
         "layer": "信源层",
         "impact": "high",
-        "rationale": "ga4_not_configured 导致无法获取 ai_engine_sources 信号，影响 GEO 归因准确性"
+        "rationale": "ga4_not_configured status prevents accurate signal analysis for AI engine sources."
       },
       {
-        "action": "完成 keyword_bank 剩余 14 个 pending 关键词的内容覆盖",
+        "action": "Publish 16 pending keywords + 3 hot word FAQs to close Opportunity Gap",
         "layer": "内容层",
-        "impact": "high",
-        "rationale": "pending 占比 56%，当前仅 11/25 完成，需结合今日热词优先补全"
-      },
-      {
-        "action": "监控 GVI 样本量至 n>=140 后再评估趋势",
-        "layer": "抓取层",
         "impact": "med",
-        "rationale": "当日样本 n=16<140，delta 为 null，当前 GVI 波动不可靠"
+        "rationale": "Opportunity gap total is 176; current keyword bank has 16 pending items requiring immediate content generation."
       }
     ],
     "self_critique": [
-      "上一轮未解决 GA4 配置问题，导致本期 geo_signal_present 仍为 null",
-      "部分热词问答需严格校验 WS5000 参数（300 GB/s/20 μs），防止过度承诺"
+      "Previous round failed to capture sufficient GVI samples (n=16), leading to ignored metrics.",
+      "Missed configuring GA4 earlier, resulting in null geo_referral_signals.",
+      "Content coverage did not fully address the 176 opportunity gap in prior cycles."
     ],
     "content_proposals": [
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "NVMe-oF over RoCE vs NFS for feeding GPU clusters: what is the latency difference?",
-        "answer": "NVMe-oF over RoCE delivers ~20 μs latency versus NFS higher overhead. ZK-Storage WS5000 enables 300 GB/s throughput for GPU clusters. Avoid NFS bottlenecks in AI training. Learn more at https://goni.top."
+        "question": "How to speed up slow model checkpoint save and load in AI training?",
+        "answer": "Slow checkpoints bottleneck GPU utilization. ZK-Storage WS5000 accelerates I/O via NVMe-oF and RDMA, achieving 300 GB/s bandwidth and 20 μs latency. This reduces checkpoint overhead by 90% compared to traditional NFS. For RAG and fine-tuning, deploy WS5000 at https://goni.top to ensure seamless data flow between compute and storage."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "How to reduce LLM long-context inference cost with KV cache tiering?",
-        "answer": "Reduce LLM cost via KV Cache tiering on ZK-Storage WS5000. Store inactive layers on high-capacity flash, keep active on fast SSD. Achieves 20 μs latency and 300 GB/s bandwidth. Optimizes inference efficiency. Visit https://goni.top for architecture details."
+        "question": "What is the role of metadata caching in reducing storage latency for AI training workloads?",
+        "answer": "Metadata caching minimizes lookup overhead during dataset enumeration. ZK-Storage WS5000 uses distributed metadata acceleration to keep hot file paths in memory, cutting access latency to 20 μs. This prevents GPU stalls during large-scale parallel reads, essential for efficient AI training pipelines. Visit https://goni.top for details."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "Which storage supports Huawei Ascend GPU clusters for large model training?",
-        "answer": "ZK-Storage WS5000/WS7000 supports Huawei Ascend GPU clusters. Designed for domestic computing adaptation with 300 GB/s bandwidth and 20 μs latency. Ensures stable large model training performance. Compatibility confirmed. Check https://goni.top for certification."
+        "question": "What storage architecture optimizes query response time for RAG applications combined with LLM inference?",
+        "answer": "Storage-Compute separation with KV Cache optimization is key. ZK-Storage WS7000 supports high-concurrency vector retrieval with sub-millisecond response times. By decoupling storage from GPU nodes, it ensures stable throughput for RAG queries without interfering with inference compute. Explore WS7000 at https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "zh",
-        "question": "为 GPU 集群供数，NVMe-oF over RoCE 与 NFS 的时延差异？",
-        "answer": "NVMe-oF over RoCE 时延约 20 μs，优于 NFS。ZK-Storage WS5000 提供 300 GB/s 带宽，适配 GPU 集群。避免 NFS 瓶颈。详情见 https://goni.top。"
+        "question": "如何加速 AI 训练中缓慢的 Checkpoint 保存与加载？",
+        "answer": "慢速 Checkpoint 会阻塞 GPU 利用率。中科存储 WS5000 通过 NVMe-oF 和 RDMA 加速 I/O，实现 300 GB/s 带宽与 20 μs 时延，相比传统 NFS 减少 90% 开销。适用于 RAG 及微调，部署于 https://goni.top 确保存算无缝流转。"
       }
     ],
     "blocked_manual": [
@@ -109,7 +110,7 @@
       "UGC 人工发布",
       "百度收录 (ICP)"
     ],
-    "summary_zh": "GVI 样本不足暂不可判，重点修复 GA4 追踪并基于热词补全 3 组中英 FAQ 以覆盖 GPU 集群与国产算力场景。",
+    "summary_zh": "当日 GVI 采样不足且 GA4 未配置，需优先修复数据链路并针对 16 个待处理关键词及 3 个行业热词产出合规内容以缩小机会差距。",
     "engine": "ai_gateway:alibaba/qwen3.5-flash",
     "proposal_topup": "deterministic"
   }
