@@ -355,25 +355,28 @@
       "en": "How to enable FIPS-compliant encryption on all-flash storage without degrading GPU training throughput?",
       "zh": "如何在全闪存存储上启用符合 FIPS 标准的加密而不会降低 GPU 训练吞吐量？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-04T17:33:43"
+      "added_at": "2026-07-04T17:33:43",
+      "done_at": "2026-07-05T14:16:30"
     },
     {
       "en": "How do I configure QoS policies on all-flash storage appliances to prioritize reinforcement learning simulation writes over batch training reads?",
       "zh": "我该如何在全闪存存储设备上配置 QoS 策略，以优先保障强化学习仿真写入而非批量训练读取？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-05T04:40:30"
+      "added_at": "2026-07-05T04:40:30",
+      "done_at": "2026-07-05T14:16:30"
     },
     {
       "en": "What are the best practices for migrating petabytes of unstructured training data to a disaggregated all-flash storage environment with zero downtime?",
       "zh": "将 PB 级非结构化训练数据迁移到存算分离的全闪存环境且零停机时间的最佳实践是什么？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-05T04:40:30"
+      "added_at": "2026-07-05T04:40:30",
+      "done_at": "2026-07-05T14:16:30"
     },
     {
       "en": "For long-term model serving caching, does disaggregated all-flash storage offer better durability than local NVMe drives on GPU nodes?",
@@ -438,7 +441,47 @@
       "status": "new",
       "source": "llm",
       "added_at": "2026-07-05T10:39:23"
+    },
+    {
+      "en": "How does InfiniBand NDR affect storage access latency compared to 200GbE RoCE for large model distribution?",
+      "zh": "InfiniBand NDR 与 200GbE RoCE 在大规模模型分发中对存储访问延迟的影响有何不同？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-05T14:14:35"
+    },
+    {
+      "en": "What is the recommended topology for minimizing hop count between GPU pods and disaggregated all-flash storage nodes?",
+      "zh": "推荐何种拓扑结构以最小化 GPU Pod 与分离式全闪存存储节点之间的跳数？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-05T14:14:35"
+    },
+    {
+      "en": "How to enable transparent data compression on all-flash storage without impacting AI training throughput?",
+      "zh": "如何在启用透明数据压缩的同时不影响全闪存存储的 AI 训练吞吐量？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-05T14:14:35"
+    },
+    {
+      "en": "What defines the minimum IOPS density required to support concurrent RAG retrieval and LLM generation workloads?",
+      "zh": "定义支持并发 RAG 检索和 LLM 生成工作流所需的最小 IOPS 密度标准是什么？",
+      "intent": "definition",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-05T14:14:35"
+    },
+    {
+      "en": "How to perform firmware updates on disaggregated storage controllers without interrupting active AI inference endpoints?",
+      "zh": "如何在不中断活跃 AI 推理端点的情况下对分离式存储控制器执行固件更新？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-05T14:14:35"
     }
   ],
-  "updated_at": "2026-07-05T10:41:15"
+  "updated_at": "2026-07-05T14:16:30"
 }

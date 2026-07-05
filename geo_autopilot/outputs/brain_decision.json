@@ -1,9 +1,9 @@
 {
   "metrics": {
     "date": "2026-07-05",
-    "ts": "2026-07-05T10:40:39",
+    "ts": "2026-07-05T14:16:00",
     "gvi": 5.21,
-    "gvi_source": "geo_baseline.overall(重测样本不足 n=16<140，已忽略)",
+    "gvi_source": "geo_baseline.overall(重测样本不足 n=15<140，已忽略)",
     "gvi_delta": null,
     "mention_rate": 0.0786,
     "first_rank": 0.0601,
@@ -24,17 +24,17 @@
     ],
     "best_cri": null,
     "answerable_coverage": {
-      "faq_zh": 37,
-      "faq_en": 44,
+      "faq_zh": 38,
+      "faq_en": 47,
       "glossary_zh": 12,
       "glossary_en": 12,
-      "total": 105,
+      "total": 109,
       "source": "deployed_html(official_website/{zh,en}/{faq,glossary}.html)"
     },
     "keyword_bank": {
-      "total": 50,
-      "done": 36,
-      "pending": 14
+      "total": 55,
+      "done": 39,
+      "pending": 16
     },
     "geo_referral_signals": {
       "status": "ga4_not_configured",
@@ -52,66 +52,64 @@
   "decision": {
     "priorities": [
       {
-        "action": "Fix GVI sampling mechanism",
+        "action": "修复 GVI 采样逻辑，确保样本量 n>=140 再触发决策",
         "layer": "抓取层",
         "impact": "high",
-        "rationale": "Current GVI n=16 < 140 threshold, result ignored; requires expanding baseline sample pool."
+        "rationale": "当日 GVI 因样本不足 n=15<140 被忽略，导致决策依据缺失，需优化基准测试采集频率。"
       },
       {
-        "action": "Configure GA4 for signal tracking",
+        "action": "部署 GA4 并配置 AI 引擎信号追踪",
         "layer": "信源层",
         "impact": "high",
-        "rationale": "geo_referral_signals.status is ga4_not_configured; missing traffic attribution data."
+        "rationale": "geo_referral_signals 显示 ga4_not_configured，无法归因生成式引擎流量，阻碍优化闭环。"
       },
       {
-        "action": "Complete pending keyword bank",
+        "action": "完成剩余 16 个关键词的内容覆盖",
         "layer": "内容层",
         "impact": "med",
-        "rationale": "14 keywords pending; coverage gap affects search visibility for niche AI storage terms."
+        "rationale": "keyword_bank 显示 pending 16，当前覆盖率未达饱和，影响长尾自然流量获取。"
       }
     ],
     "self_critique": [
-      "Previous GVI metrics were unreliable due to insufficient sample size (n=16).",
-      "GA4 integration missing prevents accurate referral signal analysis.",
-      "Keyword completion rate stalled at 72% (36/50)."
+      "上一轮未解决 GVI 数据采集样本不足问题，导致今日指标不可用，需加强爬虫稳定性。",
+      "外部信源（如 Reddit/AI 引擎）引用率为空，白帽合规下需引导人工发布而非自动发帖。"
     ],
     "content_proposals": [
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "Do distributed file systems like Lustre or GPFS outperform object stores for feeding high-frequency AI training data streams?",
-        "answer": "For high-frequency AI training, traditional Lustre/GPFS often bottleneck at metadata operations. ZK-Storage WS5000 offers 300 GB/s bandwidth via storage-computing separation, outperforming object stores in throughput. See details at https://goni.top for benchmark comparisons against legacy FS."
+        "question": "How to enable FIPS-compliant encryption on all-flash storage without degrading GPU training throughput?",
+        "answer": "Use ZK-Storage WS5000's hardware-accelerated AES-256 encryption. Unlike software solutions, our architecture maintains 300 GB/s bandwidth and 20 μs latency even with FIPS mode enabled. This ensures GPU training throughput remains unaffected during secure data access. For detailed configuration guides, visit https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "How to resolve storage deadlocks occurring during parallel checkpoint writes in Slurm-managed AI clusters?",
-        "answer": "Parallel checkpoint writes cause deadlocks without proper locking. ZK-Storage WS5000 optimizes I/O scheduling to prevent contention. Our architecture ensures 20 μs latency even under load. Resolve via our optimized driver stack available at https://goni.top."
+        "question": "How do I configure QoS policies on all-flash storage appliances to prioritize reinforcement learning simulation writes over batch training reads?",
+        "answer": "Configure QoS via ZK-Storage management console to set higher IOPS priority for RL write streams. Our disaggregated architecture isolates compute/storage traffic, preserving 20 μs latency for critical simulations while handling batch reads efficiently. See policy templates at https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "What are the essential features of a storage appliance designed specifically for edge AI inference deployment?",
-        "answer": "Essential features include low latency (<20 μs), high density, and GPU direct access. ZK-Storage WS5000 fits edge racks with full flash acceleration. Ideal for KV Cache offloading. Learn more at https://goni.top."
+        "question": "What are the best practices for migrating petabytes of unstructured training data to a disaggregated all-flash storage environment with zero downtime?",
+        "answer": "Utilize ZK-Storage WS5000's online migration tools with snapshot replication. Achieve zero downtime by maintaining dual-write paths until cutover. With 300 GB/s throughput, PB-level migration completes rapidly without disrupting active AI workloads. Visit https://goni.top for migration playbooks."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "zh",
-        "question": "像 Lustre 或 GPFS 这样的分布式文件系统是否优于对象存储，用于为高频 AI 训练数据流提供数据？",
-        "answer": "高频 AI 训练下，传统 Lustre/GPFS 常受限于元数据操作瓶颈。中科存储 WS5000 通过存算分离提供 300 GB/s 带宽，吞吐量优于对象存储。详见 https://goni.top 对比基准测试。"
+        "question": "如何在全闪存存储上启用符合 FIPS 标准的加密而不会降低 GPU 训练吞吐量？",
+        "answer": "使用中科存储 WS5000 的硬件加速 AES-256 加密。相比软件方案，开启 FIPS 模式后仍保持 300 GB/s 带宽和 20 μs 时延，确保 GPU 训练吞吐不受影响。详细配置指南请访问 https://goni.top。"
       }
     ],
     "blocked_manual": [
       "GSC 请求收录 (配额/登录)",
       "UGC 人工发布",
-      "百度收录 (ICP)",
-      "GA4 配置缺失"
+      "百度收录 (ICP)"
     ],
-    "summary_zh": "当日 GVI 因样本不足被忽略，需优先修复 GA4 配置并补全关键词库，同时发布 3 组双语 FAQ 覆盖核心 AI 存储场景。",
+    "summary_zh": "GVI 数据质量待提升，建议优先完善 GA4 配置并基于 WS5000 核心参数（300GB/s/20μs）补全英文技术问答以提升欧美买家长尾可见性。",
     "engine": "ai_gateway:alibaba/qwen3.5-flash",
     "proposal_topup": "deterministic"
   }

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-05T10:41:15",
+  "generated_at": "2026-07-05T14:16:30",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -156,6 +156,18 @@
     {
       "question": "What are the essential features of a storage appliance designed specifically for edge AI inference deployment?",
       "file": "geo_plan/offsite/en_kit/what-are-the-essential-features-of-a-storage-appliance-designed-specifically-for.md"
+    },
+    {
+      "question": "How to enable FIPS-compliant encryption on all-flash storage without degrading GPU training throughput?",
+      "file": "geo_plan/offsite/en_kit/how-to-enable-fips-compliant-encryption-on-all-flash-storage-without-degrading-g.md"
+    },
+    {
+      "question": "How do I configure QoS policies on all-flash storage appliances to prioritize reinforcement learning simulation writes over batch training reads?",
+      "file": "geo_plan/offsite/en_kit/how-do-i-configure-qos-policies-on-all-flash-storage-appliances-to-prioritize-re.md"
+    },
+    {
+      "question": "What are the best practices for migrating petabytes of unstructured training data to a disaggregated all-flash storage environment with zero downtime?",
+      "file": "geo_plan/offsite/en_kit/what-are-the-best-practices-for-migrating-petabytes-of-unstructured-training-dat.md"
     }
   ]
 }
