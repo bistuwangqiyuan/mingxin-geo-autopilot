@@ -301,25 +301,28 @@
       "en": "How to identify and isolate storage-related thread stalls in TensorFlow data pipelines?",
       "zh": "如何在 TensorFlow 数据管道中识别和隔离与存储相关的线程停滞问题？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-04T10:34:39"
+      "added_at": "2026-07-04T10:34:39",
+      "done_at": "2026-07-05T07:45:38"
     },
     {
       "en": "Is there a recommended cache eviction policy for multi-tenant AI storage clusters to prevent noisy neighbor effects?",
       "zh": "为防止邻居干扰效应，多租户 AI 存储集群是否有推荐的缓存淘汰策略？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-04T10:34:39"
+      "added_at": "2026-07-04T10:34:39",
+      "done_at": "2026-07-05T07:45:38"
     },
     {
       "en": "What is the accepted industry definition of 'storage-induced tail latency' within AI inference service level agreements?",
       "zh": "在 AI 推理服务等级协议中，什么是被接受的“存储诱导尾部延迟”的行业标准定义？",
       "intent": "definition",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-04T17:33:43"
+      "added_at": "2026-07-04T17:33:43",
+      "done_at": "2026-07-05T07:45:38"
     },
     {
       "en": "Do distributed file systems like Lustre or GPFS outperform object stores for feeding high-frequency AI training data streams?",
@@ -394,5 +397,5 @@
       "added_at": "2026-07-05T04:40:30"
     }
   ],
-  "updated_at": "2026-07-05T04:42:14"
+  "updated_at": "2026-07-05T07:45:38"
 }

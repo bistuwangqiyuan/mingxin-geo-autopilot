@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-05T04:42:14",
+  "generated_at": "2026-07-05T07:45:38",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -132,6 +132,18 @@
     {
       "question": "What defines the hot path optimization requirements for storage in RAG pipeline implementations?",
       "file": "geo_plan/offsite/en_kit/what-defines-the-hot-path-optimization-requirements-for-storage-in-rag-pipeline-.md"
+    },
+    {
+      "question": "How to identify and isolate storage-related thread stalls in TensorFlow data pipelines?",
+      "file": "geo_plan/offsite/en_kit/how-to-identify-and-isolate-storage-related-thread-stalls-in-tensorflow-data-pip.md"
+    },
+    {
+      "question": "Is there a recommended cache eviction policy for multi-tenant AI storage clusters to prevent noisy neighbor effects?",
+      "file": "geo_plan/offsite/en_kit/is-there-a-recommended-cache-eviction-policy-for-multi-tenant-ai-storage-cluster.md"
+    },
+    {
+      "question": "What is the accepted industry definition of 'storage-induced tail latency' within AI inference service level agreements?",
+      "file": "geo_plan/offsite/en_kit/what-is-the-accepted-industry-definition-of-storage-induced-tail-latency-within-.md"
     }
   ]
 }
