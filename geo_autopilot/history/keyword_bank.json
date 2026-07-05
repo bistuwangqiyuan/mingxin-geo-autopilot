@@ -274,25 +274,28 @@
       "en": "What is the industry standard for quantifying IOPS per Watt in all-flash AI storage arrays?",
       "zh": "行业衡量全闪存 AI 存储阵列能效的标准指标是否为每瓦特 IOPS？",
       "intent": "definition",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-04T10:34:39"
+      "added_at": "2026-07-04T10:34:39",
+      "done_at": "2026-07-05T04:42:14"
     },
     {
       "en": "How does the packet fragmentation rate in RoCE networks affect storage reliability for distributed training?",
       "zh": "RoCE 网络中的包碎片率如何影响分布式训练的存储可靠性？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-04T10:34:39"
+      "added_at": "2026-07-04T10:34:39",
+      "done_at": "2026-07-05T04:42:14"
     },
     {
       "en": "What defines the hot path optimization requirements for storage in RAG pipeline implementations?",
       "zh": "定义 RAG 管道实现中存储热路径优化的要求是什么？",
       "intent": "definition",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-04T10:34:39"
+      "added_at": "2026-07-04T10:34:39",
+      "done_at": "2026-07-05T04:42:14"
     },
     {
       "en": "How to identify and isolate storage-related thread stalls in TensorFlow data pipelines?",
@@ -349,7 +352,47 @@
       "status": "new",
       "source": "llm",
       "added_at": "2026-07-04T17:33:43"
+    },
+    {
+      "en": "How do I configure QoS policies on all-flash storage appliances to prioritize reinforcement learning simulation writes over batch training reads?",
+      "zh": "我该如何在全闪存存储设备上配置 QoS 策略，以优先保障强化学习仿真写入而非批量训练读取？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-05T04:40:30"
+    },
+    {
+      "en": "What are the best practices for migrating petabytes of unstructured training data to a disaggregated all-flash storage environment with zero downtime?",
+      "zh": "将 PB 级非结构化训练数据迁移到存算分离的全闪存环境且零停机时间的最佳实践是什么？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-05T04:40:30"
+    },
+    {
+      "en": "For long-term model serving caching, does disaggregated all-flash storage offer better durability than local NVMe drives on GPU nodes?",
+      "zh": "对于长期模型服务缓存，存算分离的全闪存存储是否比 GPU 节点上的本地 NVMe 盘提供更好的耐用性？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-05T04:40:30"
+    },
+    {
+      "en": "What is the acceptable end-to-end storage latency budget for optimizing transformer model token generation speed during inference?",
+      "zh": "优化推理期间 Transformer 模型令牌生成速度的可接受端到端存储延迟预算是多少？",
+      "intent": "definition",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-05T04:40:30"
+    },
+    {
+      "en": "What compliance measures are needed for cross-border AI model training using centralized all-flash storage to meet data sovereignty laws?",
+      "zh": "使用集中式全闪存存储进行跨境 AI 模型培训以满足数据主权法律需要哪些合规措施？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-05T04:40:30"
     }
   ],
-  "updated_at": "2026-07-04T21:30:29"
+  "updated_at": "2026-07-05T04:42:14"
 }

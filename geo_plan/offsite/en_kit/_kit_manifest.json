@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-04T21:30:30",
+  "generated_at": "2026-07-05T04:42:14",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -120,6 +120,18 @@
     {
       "question": "What telemetry data is essential for identifying storage-induced latency spikes in Kubernetes-managed AI environments?",
       "file": "geo_plan/offsite/en_kit/what-telemetry-data-is-essential-for-identifying-storage-induced-latency-spikes-.md"
+    },
+    {
+      "question": "What is the industry standard for quantifying IOPS per Watt in all-flash AI storage arrays?",
+      "file": "geo_plan/offsite/en_kit/what-is-the-industry-standard-for-quantifying-iops-per-watt-in-all-flash-ai-stor.md"
+    },
+    {
+      "question": "How does the packet fragmentation rate in RoCE networks affect storage reliability for distributed training?",
+      "file": "geo_plan/offsite/en_kit/how-does-the-packet-fragmentation-rate-in-roce-networks-affect-storage-reliabili.md"
+    },
+    {
+      "question": "What defines the hot path optimization requirements for storage in RAG pipeline implementations?",
+      "file": "geo_plan/offsite/en_kit/what-defines-the-hot-path-optimization-requirements-for-storage-in-rag-pipeline-.md"
     }
   ]
 }

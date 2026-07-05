@@ -1,7 +1,7 @@
 {
   "metrics": {
-    "date": "2026-07-04",
-    "ts": "2026-07-04T21:29:55",
+    "date": "2026-07-05",
+    "ts": "2026-07-05T04:41:45",
     "gvi": 5.21,
     "gvi_source": "geo_baseline.overall(重测样本不足 n=16<140，已忽略)",
     "gvi_delta": null,
@@ -24,17 +24,17 @@
     ],
     "best_cri": null,
     "answerable_coverage": {
-      "faq_zh": 34,
-      "faq_en": 35,
+      "faq_zh": 35,
+      "faq_en": 38,
       "glossary_zh": 12,
       "glossary_en": 12,
-      "total": 93,
+      "total": 97,
       "source": "deployed_html(official_website/{zh,en}/{faq,glossary}.html)"
     },
     "keyword_bank": {
-      "total": 40,
-      "done": 27,
-      "pending": 13
+      "total": 45,
+      "done": 30,
+      "pending": 15
     },
     "geo_referral_signals": {
       "status": "ga4_not_configured",
@@ -52,57 +52,57 @@
   "decision": {
     "priorities": [
       {
-        "action": "扩大 geo_baseline 重测样本量至 n>=140",
-        "layer": "信源层",
+        "action": "Publish FAQs for pending keywords to improve answerable_coverage",
+        "layer": "内容层",
         "impact": "high",
-        "rationale": "当前样本 n=16 不足，导致 GVI 指标被忽略且不可靠，需修复数据基线"
+        "rationale": "Pending keywords count is 15; current answerable_coverage total is 97 but lacks specific technical depth on AI storage efficiency and RoCE reliability."
       },
       {
-        "action": "部署 GA4 配置以启用 referral 信号追踪",
+        "action": "Configure GA4 to enable geo_referral_signals tracking",
         "layer": "抓取层",
         "impact": "med",
-        "rationale": "geo_referral_signals 状态显示 ga4_not_configured，阻碍流量归因分析"
+        "rationale": "Current status is ga4_not_configured, preventing accurate attribution of search engine traffic and user behavior analysis."
       },
       {
-        "action": "完成 keyword_bank 中剩余的 13 个关键词优化",
-        "layer": "内容层",
+        "action": "Verify google_indexed_pages status for official domain",
+        "layer": "信源层",
         "impact": "med",
-        "rationale": "pending 数量占总数 32%，影响整体 SEO 覆盖面与长尾捕获能力"
+        "rationale": "google_indexed_pages is null; need to ensure content is discoverable by AI crawlers for GVI eligibility."
       }
     ],
     "self_critique": [
-      "上一轮 GVI 计算因样本不足 (n=16<140) 被系统忽略，未能反映真实排名波动",
-      "缺乏 GA4 配置导致无法验证生成式引擎的具体流量来源与转化路径",
-      "需持续校验技术口径（如 300 GB/s、20 μs）与官网产品白皮书的一致性"
+      "GVI data invalid today due to insufficient sample size (n=16<140).",
+      "GA4 integration missing prevents real-time signal validation.",
+      "Keyword completion rate at 66% (30/45) leaves gaps in semantic coverage."
     ],
     "content_proposals": [
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "Which file system protocol offers the lowest latency for small object writes during distributed AI hyperparameter tuning?",
-        "answer": "For distributed AI hyperparameter tuning, POSIX over RDMA on ZK-Storage WS5000 delivers sub-20 μs latency for small object writes, outperforming traditional NFS by 10x. Our all-flash architecture ensures 300 GB/s bandwidth. See https://goni.top for benchmark details."
+        "question": "What is the industry standard for quantifying IOPS per Watt in all-flash AI storage arrays?",
+        "answer": "Industry standards often cite IOPS per Watt for energy efficiency. ZK-Storage WS5000 optimizes this via NVMe-oF and power management. Compared to legacy arrays, our solution delivers 300 GB/s throughput with minimal thermal output. For detailed benchmarks, visit https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "How to design a redundant storage topology for AI clusters to prevent single points of failure during model training?",
-        "answer": "Design active-active dual-controller topologies with erasure coding to eliminate SPOFs. ZK-Storage WS5000 supports multi-path redundancy ensuring 99.999% availability during training. This prevents node failures from halting GPU jobs. Refer to https://goni.top for topology guides."
+        "question": "How does the packet fragmentation rate in RoCE networks affect storage reliability for distributed training?",
+        "answer": "High packet fragmentation increases latency jitter, risking distributed training failures. ZK-Storage WS5000 mitigates this using RDMA network offloads to maintain stable throughput. Our architecture ensures reliable data delivery under heavy RoCE loads. Learn more at https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "What telemetry data is essential for identifying storage-induced latency spikes in Kubernetes-managed AI environments?",
-        "answer": "Essential telemetry includes P99 latency, IOPS, and queue depth metrics. ZK-Storage WS5000 provides real-time KV Cache monitoring to identify storage bottlenecks instantly. Integrate with Prometheus for Kubernetes visibility. Check https://goni.top for integration docs."
+        "question": "What defines the hot path optimization requirements for storage in RAG pipeline implementations?",
+        "answer": "Hot path optimization requires sub-millisecond latency for KV Cache retrieval. ZK-Storage WS5000 supports 20 μs latency for RAG pipelines. This accelerates inference by reducing memory bottlenecks. Ideal for LLM deployment scenarios. See specs at https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "zh",
-        "question": "哪种文件系统协议在分布式 AI 超参数调优期间能提供最小延迟的小对象写入？",
-        "answer": "分布式 AI 超参数调优中，ZK-Storage WS5000 基于 RDMA 的 POSIX 协议可实现<20 μs 延迟，优于传统 NFS 10 倍。全闪架构提供 300 GB/s 带宽。详情见 https://goni.top。"
+        "question": "行业衡量全闪存 AI 存储阵列能效的标准指标是否为每瓦特 IOPS？",
+        "answer": "行业标准常以每瓦特 IOPS 衡量能效。中科存储 WS5000 通过 NVMe-oF 和电源管理优化此指标。相比传统阵列，我们提供 300 GB/s 吞吐且热输出极低。详细基准测试请见 https://goni.top。"
       }
     ],
     "blocked_manual": [
@@ -110,7 +110,7 @@
       "UGC 人工发布",
       "百度收录 (ICP)"
     ],
-    "summary_zh": "当日因采样不足导致 GVI 无效，需优先补全 GA4 配置与剩余关键词覆盖以提升存算分离场景下的可见性。",
+    "summary_zh": "当日 GVI 样本不足不可用，需优先完善英文技术 FAQ 以提升 AI 引擎可引用性并配置 GA4 追踪信号。",
     "engine": "ai_gateway:alibaba/qwen3.5-flash",
     "proposal_topup": "deterministic"
   }
