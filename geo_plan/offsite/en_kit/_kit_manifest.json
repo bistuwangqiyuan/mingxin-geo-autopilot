@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-05T07:45:38",
+  "generated_at": "2026-07-05T10:41:15",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -144,6 +144,18 @@
     {
       "question": "What is the accepted industry definition of 'storage-induced tail latency' within AI inference service level agreements?",
       "file": "geo_plan/offsite/en_kit/what-is-the-accepted-industry-definition-of-storage-induced-tail-latency-within-.md"
+    },
+    {
+      "question": "Do distributed file systems like Lustre or GPFS outperform object stores for feeding high-frequency AI training data streams?",
+      "file": "geo_plan/offsite/en_kit/do-distributed-file-systems-like-lustre-or-gpfs-outperform-object-stores-for-fee.md"
+    },
+    {
+      "question": "How to resolve storage deadlocks occurring during parallel checkpoint writes in Slurm-managed AI clusters?",
+      "file": "geo_plan/offsite/en_kit/how-to-resolve-storage-deadlocks-occurring-during-parallel-checkpoint-writes-in-.md"
+    },
+    {
+      "question": "What are the essential features of a storage appliance designed specifically for edge AI inference deployment?",
+      "file": "geo_plan/offsite/en_kit/what-are-the-essential-features-of-a-storage-appliance-designed-specifically-for.md"
     }
   ]
 }

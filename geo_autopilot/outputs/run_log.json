@@ -1,7 +1,7 @@
 {
   "mode": "ci",
-  "started": "2026-07-05T07:43:27",
-  "elapsed": 151.5,
+  "started": "2026-07-05T10:38:56",
+  "elapsed": 155.2,
   "paths": {
     "ROOT": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot",
     "GEO_PLAN": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_plan",
@@ -20,30 +20,30 @@
     {
       "name": "geo_autopilot/keyword_miner.py",
       "ok": true,
-      "note": "[keyword_miner] source=skipped_backpressure added=0 bank_total=45 pending=12",
+      "note": "  + [problem_solution] How to manage encryption key rotation schedules without interrupting active AI model serving sessions?",
       "critical": false,
-      "elapsed": 0.0
+      "elapsed": 27.2
     },
     {
       "name": "seo_geo_loop/gvi_measure.py --force --limit 4",
       "ok": true,
       "note": "写出：/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/gvi_compare.json",
       "critical": false,
-      "elapsed": 96.8
+      "elapsed": 76.0
     },
     {
       "name": "geo_autopilot/geo_brain.py",
       "ok": true,
       "note": "  priorities=3 proposals=4",
       "critical": false,
-      "elapsed": 33.8
+      "elapsed": 35.4
     },
     {
       "name": "geo_autopilot/apply_proposals.py",
       "ok": true,
       "note": "  已应用 4 条提案并通过 verify_site 闸门",
       "critical": false,
-      "elapsed": 0.3
+      "elapsed": 0.2
     },
     {
       "name": "seo_geo_loop/build_offsite_site.py",
@@ -62,7 +62,7 @@
     {
       "name": "seo_geo_loop/make_geo_kit_en.py",
       "ok": true,
-      "note": "[geo_kit_en] 生成 36 个成品包 -> /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_plan/offsite/en_kit",
+      "note": "[geo_kit_en] 生成 39 个成品包 -> /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_plan/offsite/en_kit",
       "critical": false,
       "elapsed": 0.0
     },
@@ -71,28 +71,28 @@
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 2.2
+      "elapsed": 2.3
     },
     {
       "name": "geo_plan/geo_scoring.py",
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 1.6
+      "elapsed": 1.2
     },
     {
       "name": "seo_geo_loop/indexnow_submit.py",
       "ok": true,
-      "note": "[OK] 105 URLs; written /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/indexnow_submit.json",
+      "note": "[OK] 107 URLs; written /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/indexnow_submit.json",
       "critical": false,
-      "elapsed": 6.0
+      "elapsed": 5.7
     },
     {
       "name": "seo_geo_loop/live_audit.py",
       "ok": true,
       "note": "  写出 -> /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/live_status.json",
       "critical": false,
-      "elapsed": 0.8
+      "elapsed": 0.7
     },
     {
       "name": "geo_autopilot/traffic_check.py",
@@ -125,7 +125,7 @@
     {
       "name": "git -C official_website push origin",
       "ok": true,
-      "note": "   a972c3a..b9b1d46  HEAD -> main",
+      "note": "   6882205..296e7b2  HEAD -> main",
       "critical": false,
       "elapsed": null
     },
@@ -153,14 +153,14 @@
     {
       "name": "git -C offsite_github commit -m",
       "ok": true,
-      "note": " create mode 100644 docs/articles/what-is-the-accepted-industry-definition-of-storage-induced-tail-latency-within-.html",
+      "note": " create mode 100644 docs/articles/what-are-the-essential-features-of-a-storage-appliance-designed-specifically-for.html",
       "critical": false,
       "elapsed": null
     },
     {
       "name": "git -C offsite_github push origin",
       "ok": true,
-      "note": "   65c2897..75a939a  HEAD -> main",
+      "note": "   75a939a..56983c6  HEAD -> main",
       "critical": false,
       "elapsed": null
     },
@@ -176,21 +176,21 @@
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": true,
-      "elapsed": 1.1
+      "elapsed": 0.8
     },
     {
       "name": "geo_autopilot/export_daily_pdf.py",
       "ok": true,
       "note": "Saved: /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_autopilot/reports/中科存储-GEO自动驾驶日报-2026-07-05.pdf  (0.92 MB)",
       "critical": false,
-      "elapsed": 2.7
+      "elapsed": 1.7
     },
     {
       "name": "geo_autopilot/alerting.py",
       "ok": true,
-      "note": "[alerting] level=warn delivery=commented_issue_1 alerts=0 blocked=3",
+      "note": "[alerting] level=warn delivery=commented_issue_1 alerts=0 blocked=4",
       "critical": false,
-      "elapsed": 3.7
+      "elapsed": 1.7
     }
   ]
 }

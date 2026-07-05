@@ -328,25 +328,28 @@
       "en": "Do distributed file systems like Lustre or GPFS outperform object stores for feeding high-frequency AI training data streams?",
       "zh": "像 Lustre 或 GPFS 这样的分布式文件系统是否优于对象存储，用于为高频 AI 训练数据流提供数据？",
       "intent": "comparison",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-04T17:33:43"
+      "added_at": "2026-07-04T17:33:43",
+      "done_at": "2026-07-05T10:41:15"
     },
     {
       "en": "How to resolve storage deadlocks occurring during parallel checkpoint writes in Slurm-managed AI clusters?",
       "zh": "如何解决在 Slurm 管理的 AI 集群中进行并行检查点写入时发生的存储死锁问题？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-04T17:33:43"
+      "added_at": "2026-07-04T17:33:43",
+      "done_at": "2026-07-05T10:41:15"
     },
     {
       "en": "What are the essential features of a storage appliance designed specifically for edge AI inference deployment?",
       "zh": "专为边缘 AI 推理部署设计的存储一体机应具备哪些关键功能？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-04T17:33:43"
+      "added_at": "2026-07-04T17:33:43",
+      "done_at": "2026-07-05T10:41:15"
     },
     {
       "en": "How to enable FIPS-compliant encryption on all-flash storage without degrading GPU training throughput?",
@@ -395,7 +398,47 @@
       "status": "new",
       "source": "llm",
       "added_at": "2026-07-05T04:40:30"
+    },
+    {
+      "en": "How does the write amplification ratio of enterprise all-flash arrays affect total cost of ownership during iterative AI model fine-tuning?",
+      "zh": "企业级全闪存阵列的写放大比率如何影响迭代式 AI 模型微调过程中的总体拥有成本？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-05T10:39:23"
+    },
+    {
+      "en": "How to prevent storage subsystem locking during automated snapshot operations on live GPU training nodes?",
+      "zh": "如何在活动的 GPU 训练节点上防止自动化快照操作期间存储子系统锁定？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-05T10:39:23"
+    },
+    {
+      "en": "What is the minimum sustained bandwidth per GPU node required to saturate NVIDIA H100 B200 memory bandwidth via disaggregated storage?",
+      "zh": "通过存算分离存储饱和 NVIDIA H100 B200 显存带宽所需的每个 GPU 节点最低持续带宽是多少？",
+      "intent": "definition",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-05T10:39:23"
+    },
+    {
+      "en": "Does using Ceph-based distributed storage offer lower latency than proprietary block storage for real-time reinforcement learning simulations?",
+      "zh": "对于实时强化学习模拟，使用基于 Ceph 的分布式存储是否比专有块存储提供更低延迟？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-05T10:39:23"
+    },
+    {
+      "en": "How to manage encryption key rotation schedules without interrupting active AI model serving sessions?",
+      "zh": "如何在不断开活动 AI 模型服务会话的情况下管理加密密钥轮换计划？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-05T10:39:23"
     }
   ],
-  "updated_at": "2026-07-05T07:45:38"
+  "updated_at": "2026-07-05T10:41:15"
 }
