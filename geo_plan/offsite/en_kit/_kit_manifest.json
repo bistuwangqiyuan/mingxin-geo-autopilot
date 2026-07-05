@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-05T14:16:30",
+  "generated_at": "2026-07-05T17:37:26",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -168,6 +168,18 @@
     {
       "question": "What are the best practices for migrating petabytes of unstructured training data to a disaggregated all-flash storage environment with zero downtime?",
       "file": "geo_plan/offsite/en_kit/what-are-the-best-practices-for-migrating-petabytes-of-unstructured-training-dat.md"
+    },
+    {
+      "question": "For long-term model serving caching, does disaggregated all-flash storage offer better durability than local NVMe drives on GPU nodes?",
+      "file": "geo_plan/offsite/en_kit/for-long-term-model-serving-caching-does-disaggregated-all-flash-storage-offer-b.md"
+    },
+    {
+      "question": "What is the acceptable end-to-end storage latency budget for optimizing transformer model token generation speed during inference?",
+      "file": "geo_plan/offsite/en_kit/what-is-the-acceptable-end-to-end-storage-latency-budget-for-optimizing-transfor.md"
+    },
+    {
+      "question": "What compliance measures are needed for cross-border AI model training using centralized all-flash storage to meet data sovereignty laws?",
+      "file": "geo_plan/offsite/en_kit/what-compliance-measures-are-needed-for-cross-border-ai-model-training-using-cen.md"
     }
   ]
 }
