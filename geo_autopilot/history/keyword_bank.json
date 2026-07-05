@@ -409,25 +409,28 @@
       "en": "How does the write amplification ratio of enterprise all-flash arrays affect total cost of ownership during iterative AI model fine-tuning?",
       "zh": "企业级全闪存阵列的写放大比率如何影响迭代式 AI 模型微调过程中的总体拥有成本？",
       "intent": "comparison",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-05T10:39:23"
+      "added_at": "2026-07-05T10:39:23",
+      "done_at": "2026-07-05T21:37:35"
     },
     {
       "en": "How to prevent storage subsystem locking during automated snapshot operations on live GPU training nodes?",
       "zh": "如何在活动的 GPU 训练节点上防止自动化快照操作期间存储子系统锁定？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-05T10:39:23"
+      "added_at": "2026-07-05T10:39:23",
+      "done_at": "2026-07-05T21:37:35"
     },
     {
       "en": "What is the minimum sustained bandwidth per GPU node required to saturate NVIDIA H100 B200 memory bandwidth via disaggregated storage?",
       "zh": "通过存算分离存储饱和 NVIDIA H100 B200 显存带宽所需的每个 GPU 节点最低持续带宽是多少？",
       "intent": "definition",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-05T10:39:23"
+      "added_at": "2026-07-05T10:39:23",
+      "done_at": "2026-07-05T21:37:35"
     },
     {
       "en": "Does using Ceph-based distributed storage offer lower latency than proprietary block storage for real-time reinforcement learning simulations?",
@@ -484,7 +487,47 @@
       "status": "new",
       "source": "llm",
       "added_at": "2026-07-05T14:14:35"
+    },
+    {
+      "en": "What is the industry definition of 'cold start' latency threshold acceptable for cold storage retrieval in AI archival workflows?",
+      "zh": "在 AI 归档工作流中，冷存储检索可接受的‘冷启动’延迟阈值行业标准定义是什么？",
+      "intent": "definition",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-05T21:35:40"
+    },
+    {
+      "en": "Shard-based storage vs centralized namespace for managing large-scale model checkpoints: what are the trade-offs?",
+      "zh": "用于管理大规模模型检查点的分片存储与集中式命名空间相比：各自的权衡点是什么？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-05T21:35:40"
+    },
+    {
+      "en": "How to resolve storage lock contention when multiple AI agents attempt simultaneous writes to shared metadata directories?",
+      "zh": "当多个 AI 代理尝试同时写入共享元数据目录时，如何解决存储锁竞争问题？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-05T21:35:40"
+    },
+    {
+      "en": "How is 'effective bandwidth' calculated for AI storage systems accounting for protocol overhead and queuing delays?",
+      "zh": "考虑到协议开销和排队延迟，如何计算 AI 存储系统的‘有效带宽’？",
+      "intent": "definition",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-05T21:35:40"
+    },
+    {
+      "en": "Block storage vs file system access patterns for feeding high-dimensional vector databases in retrieval-augmented generation?",
+      "zh": "在为检索增强生成系统提供高维向量数据库时，块存储与文件系统访问模式有何区别？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-05T21:35:40"
     }
   ],
-  "updated_at": "2026-07-05T17:37:26"
+  "updated_at": "2026-07-05T21:37:35"
 }

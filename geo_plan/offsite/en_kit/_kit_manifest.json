@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-05T17:37:26",
+  "generated_at": "2026-07-05T21:37:35",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -180,6 +180,18 @@
     {
       "question": "What compliance measures are needed for cross-border AI model training using centralized all-flash storage to meet data sovereignty laws?",
       "file": "geo_plan/offsite/en_kit/what-compliance-measures-are-needed-for-cross-border-ai-model-training-using-cen.md"
+    },
+    {
+      "question": "How does the write amplification ratio of enterprise all-flash arrays affect total cost of ownership during iterative AI model fine-tuning?",
+      "file": "geo_plan/offsite/en_kit/how-does-the-write-amplification-ratio-of-enterprise-all-flash-arrays-affect-tot.md"
+    },
+    {
+      "question": "How to prevent storage subsystem locking during automated snapshot operations on live GPU training nodes?",
+      "file": "geo_plan/offsite/en_kit/how-to-prevent-storage-subsystem-locking-during-automated-snapshot-operations-on.md"
+    },
+    {
+      "question": "What is the minimum sustained bandwidth per GPU node required to saturate NVIDIA H100 B200 memory bandwidth via disaggregated storage?",
+      "file": "geo_plan/offsite/en_kit/what-is-the-minimum-sustained-bandwidth-per-gpu-node-required-to-saturate-nvidia.md"
     }
   ]
 }
