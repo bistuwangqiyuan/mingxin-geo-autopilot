@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-06T16:00:59",
+  "generated_at": "2026-07-06T18:26:40",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -228,6 +228,10 @@
     {
       "question": "How to resolve storage lock contention when multiple AI agents attempt simultaneous writes to shared metadata directories?",
       "file": "geo_plan/offsite/en_kit/how-to-resolve-storage-lock-contention-when-multiple-ai-agents-attempt-simultane.md"
+    },
+    {
+      "question": "Block storage vs file system access patterns for feeding high-dimensional vector databases in retrieval-augmented generation?",
+      "file": "geo_plan/offsite/en_kit/block-storage-vs-file-system-access-patterns-for-feeding-high-dimensional-vector.md"
     }
   ]
 }

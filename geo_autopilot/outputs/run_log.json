@@ -1,7 +1,7 @@
 {
   "mode": "ci",
-  "started": "2026-07-06T15:58:41",
-  "elapsed": 157.7,
+  "started": "2026-07-06T18:24:43",
+  "elapsed": 134.2,
   "paths": {
     "ROOT": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot",
     "GEO_PLAN": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_plan",
@@ -20,28 +20,28 @@
     {
       "name": "geo_autopilot/keyword_miner.py",
       "ok": true,
-      "note": "  + [comparison] How does MTU configuration affect vector similarity search latency in AI retrieval pipelines?",
+      "note": "[keyword_miner] source=skipped_backpressure added=0 bank_total=70 pending=13",
       "critical": false,
-      "elapsed": 29.6
+      "elapsed": 0.0
     },
     {
       "name": "seo_geo_loop/gvi_measure.py --force --limit 4",
       "ok": true,
       "note": "写出：/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/gvi_compare.json",
       "critical": false,
-      "elapsed": 74.7
+      "elapsed": 91.1
     },
     {
       "name": "geo_autopilot/geo_brain.py",
       "ok": true,
       "note": "  priorities=3 proposals=4",
       "critical": false,
-      "elapsed": 33.1
+      "elapsed": 26.2
     },
     {
       "name": "geo_autopilot/apply_proposals.py",
       "ok": true,
-      "note": "  已应用 3 条提案并通过 verify_site 闸门",
+      "note": "  已应用 2 条提案并通过 verify_site 闸门",
       "critical": false,
       "elapsed": 0.3
     },
@@ -62,7 +62,7 @@
     {
       "name": "seo_geo_loop/make_geo_kit_en.py",
       "ok": true,
-      "note": "[geo_kit_en] 生成 57 个成品包 -> /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_plan/offsite/en_kit",
+      "note": "[geo_kit_en] 生成 58 个成品包 -> /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_plan/offsite/en_kit",
       "critical": false,
       "elapsed": 0.0
     },
@@ -71,21 +71,21 @@
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 1.7
+      "elapsed": 1.2
     },
     {
       "name": "geo_plan/geo_scoring.py",
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 1.7
+      "elapsed": 1.6
     },
     {
       "name": "seo_geo_loop/indexnow_submit.py",
       "ok": true,
-      "note": "[OK] 120 URLs; written /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/indexnow_submit.json",
+      "note": "[OK] 122 URLs; written /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/indexnow_submit.json",
       "critical": false,
-      "elapsed": 6.0
+      "elapsed": 5.7
     },
     {
       "name": "seo_geo_loop/live_audit.py",
@@ -118,14 +118,14 @@
     {
       "name": "git -C official_website commit -m",
       "ok": true,
-      "note": " 6 files changed, 38 insertions(+), 30 deletions(-)",
+      "note": " 6 files changed, 33 insertions(+), 30 deletions(-)",
       "critical": false,
       "elapsed": null
     },
     {
       "name": "git -C official_website push origin",
       "ok": true,
-      "note": "   97118c9..6b5d668  HEAD -> main",
+      "note": "   2547228..978d13b  HEAD -> main",
       "critical": false,
       "elapsed": null
     },
@@ -153,14 +153,14 @@
     {
       "name": "git -C offsite_github commit -m",
       "ok": true,
-      "note": " create mode 100644 docs/articles/what-is-the-industry-definition-of-cold-start-latency-threshold-acceptable-for-c.html",
+      "note": " create mode 100644 docs/articles/block-storage-vs-file-system-access-patterns-for-feeding-high-dimensional-vector.html",
       "critical": false,
       "elapsed": null
     },
     {
       "name": "git -C offsite_github push origin",
       "ok": true,
-      "note": "   73d1218..c3a9e5d  HEAD -> main",
+      "note": "   c3a9e5d..d399879  HEAD -> main",
       "critical": false,
       "elapsed": null
     },
@@ -183,14 +183,14 @@
       "ok": true,
       "note": "Saved: /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_autopilot/reports/中科存储-GEO自动驾驶日报-2026-07-06.pdf  (0.91 MB)",
       "critical": false,
-      "elapsed": 2.0
+      "elapsed": 1.6
     },
     {
       "name": "geo_autopilot/alerting.py",
       "ok": true,
       "note": "[alerting] level=warn delivery=commented_issue_1 alerts=0 blocked=3",
       "critical": false,
-      "elapsed": 4.0
+      "elapsed": 1.8
     }
   ]
 }

@@ -533,9 +533,10 @@
       "en": "Block storage vs file system access patterns for feeding high-dimensional vector databases in retrieval-augmented generation?",
       "zh": "在为检索增强生成系统提供高维向量数据库时，块存储与文件系统访问模式有何区别？",
       "intent": "comparison",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-05T21:35:40"
+      "added_at": "2026-07-05T21:35:40",
+      "done_at": "2026-07-06T18:26:40"
     },
     {
       "en": "How is 'storage-induced stalling' technically distinguished from network-induced latency in AI cluster profiling tools?",
@@ -618,5 +619,5 @@
       "added_at": "2026-07-06T15:59:11"
     }
   ],
-  "updated_at": "2026-07-06T16:00:59"
+  "updated_at": "2026-07-06T18:26:40"
 }
