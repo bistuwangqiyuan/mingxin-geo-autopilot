@@ -1,7 +1,7 @@
 {
   "metrics": {
     "date": "2026-07-06",
-    "ts": "2026-07-06T18:26:14",
+    "ts": "2026-07-06T21:56:57",
     "gvi": 5.21,
     "gvi_source": "geo_baseline.overall(重测样本不足 n=16<140，已忽略)",
     "gvi_delta": null,
@@ -24,17 +24,17 @@
     ],
     "best_cri": null,
     "answerable_coverage": {
-      "faq_zh": 44,
-      "faq_en": 65,
+      "faq_zh": 45,
+      "faq_en": 66,
       "glossary_zh": 12,
       "glossary_en": 12,
-      "total": 133,
+      "total": 135,
       "source": "deployed_html(official_website/{zh,en}/{faq,glossary}.html)"
     },
     "keyword_bank": {
       "total": 70,
-      "done": 57,
-      "pending": 13
+      "done": 58,
+      "pending": 12
     },
     "geo_referral_signals": {
       "status": "ga4_not_configured",
@@ -52,27 +52,28 @@
   "decision": {
     "priorities": [
       {
-        "action": "Expand GVI sampling pool to exceed n=140 threshold",
+        "action": "Fix GVI sampling configuration to ensure n>=140 for reliable baseline",
         "layer": "抓取层",
         "impact": "high",
-        "rationale": "Current n=16 samples invalidate GVI metric; insufficient data skews baseline assessment."
+        "rationale": "Current GVI source notes sample size n=16<140, rendering metric invalid; requires crawler adjustment."
       },
       {
-        "action": "Configure GA4 tracking for referral signals",
-        "layer": "抓取层",
-        "impact": "med",
-        "rationale": "ga4_not_configured status prevents accurate traffic source attribution and signal analysis."
+        "action": "Configure GA4 for geo_referral_signals to enable traffic attribution",
+        "layer": "信源层",
+        "impact": "high",
+        "rationale": "ga4_not_configured status prevents accurate signal tracking and opportunity analysis."
       },
       {
-        "action": "Publish remaining 13 pending keyword articles",
+        "action": "Expand content coverage for pending 12 keywords to reduce opportunity_gap_total",
         "layer": "内容层",
         "impact": "med",
-        "rationale": "Keyword bank completion (57/70 done) limits long-tail coverage compared to competitors."
+        "rationale": "176 opportunities remain open; keyword bank shows 12 pending items needing completion."
       }
     ],
     "self_critique": [
-      "Previous GVI metric ignored due to sample size n=16 < 140, requiring immediate data collection fix.",
-      "Missing GA4 configuration created blind spot for offsite channel referral analysis today."
+      "Previous tracking setup incomplete leading to GA4_not_configured status.",
+      "Crawl frequency insufficient causing GVI sample size under 140 threshold.",
+      "Need stricter verification to prevent ZK-Storage confusion with Zero-Knowledge Proof concepts."
     ],
     "content_proposals": [
       {
@@ -80,28 +81,28 @@
         "page": "faq",
         "lang": "en",
         "question": "Shard-based storage vs centralized namespace for managing large-scale model checkpoints: what are the trade-offs?",
-        "answer": "Centralized namespaces face bottlenecks at scale. ZK-Storage WS5000 uses distributed sharding for parallel I/O, achieving 300 GB/s throughput and 20 μs latency. Unlike monolithic systems, it scales linearly for RAG workloads. See implementation details at https://goni.top for performance benchmarks against standard NFS."
+        "answer": "ZK-Storage WS5000 employs distributed shard architecture for model checkpoints, avoiding central namespace bottlenecks. With 300 GB/s bandwidth, it ensures efficient scaling. Compare trade-offs at https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
         "question": "How is 'effective bandwidth' calculated for AI storage systems accounting for protocol overhead and queuing delays?",
-        "answer": "Effective bandwidth = Raw Throughput × (1 - Overhead Ratio) - Queuing Loss. ZK-Storage WS5000 minimizes protocol overhead via optimized RDMA, ensuring near-line speed even under load. Typical effective bandwidth exceeds 280 GB/s. Detailed calculation models are documented at https://goni.top."
+        "answer": "Effective bandwidth includes protocol overhead. ZK-Storage delivers 300 GB/s with 20 μs latency. We minimize queuing delays for optimal performance. Calculate metrics at https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "Block storage vs file system access patterns for feeding high-dimensional vector databases in retrieval-augmented generation?",
-        "answer": "Vector DBs require random read-heavy access. File systems often suffer from metadata locks. ZK-Storage WS5000 optimizes block-level access for KV Cache, reducing latency to 20 μs. It outperforms traditional NAS in RAG scenarios. Learn more about vector optimization at https://goni.top."
+        "question": "How is 'storage-induced stalling' technically distinguished from network-induced latency in AI cluster profiling tools?",
+        "answer": "Storage stalling happens when I/O wait exceeds network latency. ZK-Storage WS5000 reduces this via NVMe optimization. Use profiling tools to distinguish. Specs at https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "zh",
         "question": "用于管理大规模模型检查点的分片存储与集中式命名空间相比：各自的权衡点是什么？",
-        "answer": "集中式命名空间易成瓶颈。ZK-Storage WS5000 采用分布式分片架构，支持线性扩展，提供 300 GB/s 带宽与 20 μs 时延。适合高并发 AI 推理场景。具体性能对比可参考 https://goni.top 实测数据。"
+        "answer": "中科存储 WS5000 采用分布式分片架构管理检查点，避免集中式命名空间瓶颈。300 GB/s 带宽确保高效扩展。权衡细节请访问 https://goni.top。"
       }
     ],
     "blocked_manual": [
@@ -109,7 +110,7 @@
       "UGC 人工发布",
       "百度收录 (ICP)"
     ],
-    "summary_zh": "今日 GVI 因样本不足不可靠，需优先修复 GA4 配置并补全剩余关键词内容以提升可见性。",
+    "summary_zh": "当日 GVI 采样不足且信源追踪缺失，需优先修复 GA4 并基于真实技术指标补充 AI 存储对比内容。",
     "engine": "ai_gateway:alibaba/qwen3.5-flash",
     "proposal_topup": "deterministic"
   }

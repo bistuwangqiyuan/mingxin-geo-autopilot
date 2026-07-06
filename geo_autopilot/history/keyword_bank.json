@@ -508,9 +508,10 @@
       "en": "Shard-based storage vs centralized namespace for managing large-scale model checkpoints: what are the trade-offs?",
       "zh": "用于管理大规模模型检查点的分片存储与集中式命名空间相比：各自的权衡点是什么？",
       "intent": "comparison",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-05T21:35:40"
+      "added_at": "2026-07-05T21:35:40",
+      "done_at": "2026-07-06T21:57:25"
     },
     {
       "en": "How to resolve storage lock contention when multiple AI agents attempt simultaneous writes to shared metadata directories?",
@@ -525,9 +526,10 @@
       "en": "How is 'effective bandwidth' calculated for AI storage systems accounting for protocol overhead and queuing delays?",
       "zh": "考虑到协议开销和排队延迟，如何计算 AI 存储系统的‘有效带宽’？",
       "intent": "definition",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-05T21:35:40"
+      "added_at": "2026-07-05T21:35:40",
+      "done_at": "2026-07-06T21:57:25"
     },
     {
       "en": "Block storage vs file system access patterns for feeding high-dimensional vector databases in retrieval-augmented generation?",
@@ -542,9 +544,10 @@
       "en": "How is 'storage-induced stalling' technically distinguished from network-induced latency in AI cluster profiling tools?",
       "zh": "在 AI 集群分析工具中，如何从技术上区分‘存储导致的停滞’与网络引起的延迟？",
       "intent": "definition",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-06T08:46:45"
+      "added_at": "2026-07-06T08:46:45",
+      "done_at": "2026-07-06T21:57:25"
     },
     {
       "en": "Does hardware-accelerated deduplication reduce effective IOPS throughput on all-flash arrays during dense checkpoint saves?",
@@ -619,5 +622,5 @@
       "added_at": "2026-07-06T15:59:11"
     }
   ],
-  "updated_at": "2026-07-06T18:26:40"
+  "updated_at": "2026-07-06T21:57:25"
 }

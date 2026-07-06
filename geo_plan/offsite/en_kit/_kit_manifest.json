@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-06T18:26:40",
+  "generated_at": "2026-07-06T21:57:25",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -232,6 +232,18 @@
     {
       "question": "Block storage vs file system access patterns for feeding high-dimensional vector databases in retrieval-augmented generation?",
       "file": "geo_plan/offsite/en_kit/block-storage-vs-file-system-access-patterns-for-feeding-high-dimensional-vector.md"
+    },
+    {
+      "question": "Shard-based storage vs centralized namespace for managing large-scale model checkpoints: what are the trade-offs?",
+      "file": "geo_plan/offsite/en_kit/shard-based-storage-vs-centralized-namespace-for-managing-large-scale-model-chec.md"
+    },
+    {
+      "question": "How is 'effective bandwidth' calculated for AI storage systems accounting for protocol overhead and queuing delays?",
+      "file": "geo_plan/offsite/en_kit/how-is-effective-bandwidth-calculated-for-ai-storage-systems-accounting-for-prot.md"
+    },
+    {
+      "question": "How is 'storage-induced stalling' technically distinguished from network-induced latency in AI cluster profiling tools?",
+      "file": "geo_plan/offsite/en_kit/how-is-storage-induced-stalling-technically-distinguished-from-network-induced-l.md"
     }
   ]
 }
