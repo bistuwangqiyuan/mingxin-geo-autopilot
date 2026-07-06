@@ -1,6 +1,6 @@
 {
   "date": "2026-07-06",
-  "ts": "2026-07-06T04:54:11",
+  "ts": "2026-07-06T08:49:08",
   "gvi": 5.21,
   "gvi_source": "geo_baseline.overall(重测样本不足 n=16<140，已忽略)",
   "gvi_delta": null,
@@ -23,17 +23,17 @@
   ],
   "best_cri": null,
   "answerable_coverage": {
-    "faq_zh": 42,
-    "faq_en": 58,
+    "faq_zh": 43,
+    "faq_en": 60,
     "glossary_zh": 12,
     "glossary_en": 12,
-    "total": 124,
+    "total": 127,
     "source": "deployed_html(official_website/{zh,en}/{faq,glossary}.html)"
   },
   "keyword_bank": {
-    "total": 60,
-    "done": 50,
-    "pending": 10
+    "total": 65,
+    "done": 52,
+    "pending": 13
   },
   "geo_referral_signals": {
     "status": "ga4_not_configured",

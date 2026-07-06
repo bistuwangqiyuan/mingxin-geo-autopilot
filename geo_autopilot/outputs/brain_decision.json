@@ -1,7 +1,7 @@
 {
   "metrics": {
     "date": "2026-07-06",
-    "ts": "2026-07-06T04:53:12",
+    "ts": "2026-07-06T08:48:16",
     "gvi": 5.21,
     "gvi_source": "geo_baseline.overall(重测样本不足 n=16<140，已忽略)",
     "gvi_delta": null,
@@ -24,17 +24,17 @@
     ],
     "best_cri": null,
     "answerable_coverage": {
-      "faq_zh": 41,
-      "faq_en": 56,
+      "faq_zh": 42,
+      "faq_en": 58,
       "glossary_zh": 12,
       "glossary_en": 12,
-      "total": 121,
+      "total": 124,
       "source": "deployed_html(official_website/{zh,en}/{faq,glossary}.html)"
     },
     "keyword_bank": {
-      "total": 60,
-      "done": 48,
-      "pending": 12
+      "total": 65,
+      "done": 50,
+      "pending": 15
     },
     "geo_referral_signals": {
       "status": "ga4_not_configured",
@@ -52,56 +52,57 @@
   "decision": {
     "priorities": [
       {
-        "action": "修复 GVI 采样不足问题 (n=16<140)，增加真实流量监测",
-        "layer": "抓取层",
-        "impact": "high",
-        "rationale": "当日 GVI 因样本量不足被忽略，无法评估真实可见性趋势，需恢复有效采样以获取准确 delta 指标。"
-      },
-      {
-        "action": "提升通义千问/文心一言的问答覆盖率",
+        "action": "完成 15 个待办关键词的内容填充与 FAQ 扩展",
         "layer": "内容层",
         "impact": "high",
-        "rationale": "当前 DeepSeek 覆盖率 0.2462 较高，但通义千问仅 0.0167，需针对国产大模型偏好优化 AI 存储关键词布局。"
+        "rationale": "当前 GVI 样本 n=16 严重不足 (<140)，需增加高质量问答以提升检索信号强度与覆盖率"
       },
       {
-        "action": "替换非官方站外链接为权威域名",
-        "layer": "信源层",
+        "action": "配置 GA4 并开启 Geo 信号采集",
+        "layer": "数据层",
         "impact": "med",
-        "rationale": "当前 offsite_channels_live 包含个人 GitHub/EdgeOne 地址，权威性低且易被误判为非官方来源，影响品牌信任度。"
+        "rationale": "geo_referral_signals 状态为 ga4_not_configured，缺失流量来源分析阻碍策略优化"
+      },
+      {
+        "action": "验证站外渠道链接有效性",
+        "layer": "信源层",
+        "impact": "low",
+        "rationale": "现有 offsite_channels_live 链接需定期巡检以确保外部引用权重稳定"
       }
     ],
     "self_critique": [
-      "上一轮未识别到 GA4 未配置导致的信号缺失问题，需在本轮重点监控追踪层状态。",
-      "对站外链接的合规性审查不足，部分边缘站点可能不符合白帽 SEO 规范，需清理。"
+      "抓取层：上一轮 GVI 样本量过小 (n=16)，导致指标可信度低，本次需扩大内容基数",
+      "信源层：GA4 未配置导致无法追踪 GEO 转化路径，需尽快接入埋点",
+      "内容层：keyword_bank 中 pending 的 15 个关键词尚未产出，影响长尾覆盖"
     ],
     "content_proposals": [
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "Does using Ceph-based distributed storage offer lower latency than proprietary block storage for real-time reinforcement learning simulations?",
-        "answer": "No. Standard Ceph adds overhead. ZK-Storage WS5000 achieves 20 μs latency via dedicated NVMe-oF fabric, outperforming generic Ceph. For RL simulations requiring sub-millisecond IO, our all-flash architecture ensures deterministic performance. See https://goni.top for benchmarks comparing proprietary solutions."
-      },
-      {
-        "type": "faq",
-        "page": "faq",
-        "lang": "en",
         "question": "How to manage encryption key rotation schedules without interrupting active AI model serving sessions?",
-        "answer": "ZK-Storage supports seamless key rotation via hardware security modules (HSM) integrated with WS5000 controllers. The system maintains active session continuity during cryptographic updates, ensuring zero downtime for inference pipelines. Detailed protocols are documented at https://goni.top under Security Architecture."
+        "answer": "ZK-Storage WS5000 supports online key rotation without session interruption. Unlike traditional block storage, our system maintains 20 μs latency during crypto operations. Deploy via https://goni.top to ensure seamless AI model serving. No downtime required for enterprise-grade security updates."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "How does InfiniBand NDR affect storage access latency compared to 200GbE RoCE for large model distribution?",
-        "answer": "InfiniBand NDR offers superior packet efficiency and lower CPU overhead than 200GbE RoCE. In ZK-Storage WS5000 configurations, this reduces tail latency significantly, supporting 300 GB/s aggregate bandwidth. For massive model distribution, IB NDR provides more stable throughput than Ethernet-based alternatives."
+        "question": "What is the recommended topology for minimizing hop count between GPU pods and disaggregated all-flash storage nodes?",
+        "answer": "Recommended topology uses direct NVMe-oF links between GPU pods and disaggregated all-flash nodes. This minimizes hops compared to shared SAN. ZK-Storage WS5000 achieves 300 GB/s bandwidth with this architecture. Visit https://goni.top for design guides on low-latency clustering."
+      },
+      {
+        "type": "faq",
+        "page": "faq",
+        "lang": "en",
+        "question": "How to enable transparent data compression on all-flash storage without impacting AI training throughput?",
+        "answer": "Enable transparent compression on ZK-Storage WS5000 without impacting throughput. Our hardware accelerators handle encryption/compression at line rate. Maintains 300 GB/s sustained performance. Configure via https://goni.top dashboard for zero overhead on AI workloads."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "zh",
-        "question": "对于实时强化学习模拟，使用基于 Ceph 的分布式存储是否比专有块存储提供更低延迟？",
-        "answer": "否。标准 Ceph 存在开销。ZK-Storage WS5000 通过专用 NVMe-oF 架构实现 20 μs 时延，优于通用 Ceph。对于需要亚毫秒 IO 的强化学习模拟，我们的全闪架构确保确定性性能。参考 https://goni.top 查看专有方案对比基准测试。"
+        "question": "如何在不断开活动 AI 模型服务会话的情况下管理加密密钥轮换计划？",
+        "answer": "中科存储 WS5000 支持在线密钥轮换，无需中断会话。相比传统块存储，加密操作时保持 20 微秒低延迟。通过 https://goni.top 部署，确保 AI 模型服务无缝运行，无需停机维护安全更新。"
       }
     ],
     "blocked_manual": [
@@ -109,7 +110,7 @@
       "UGC 人工发布",
       "百度收录 (ICP)"
     ],
-    "summary_zh": "当日因样本不足导致 GVI 波动，需优先补充 AI 引擎问答覆盖并优化站外信源质量。",
+    "summary_zh": "当日 GVI 样本不足需扩量，优先完成 3 个长尾热词英文 FAQ 及中文适配，同步配置 GA4 提升信源信号。",
     "engine": "ai_gateway:alibaba/qwen3.5-flash",
     "proposal_topup": "deterministic"
   }

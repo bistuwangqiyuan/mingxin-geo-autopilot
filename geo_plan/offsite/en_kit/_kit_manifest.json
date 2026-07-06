@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-06T04:53:58",
+  "generated_at": "2026-07-06T08:48:57",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -200,6 +200,14 @@
     {
       "question": "How does InfiniBand NDR affect storage access latency compared to 200GbE RoCE for large model distribution?",
       "file": "geo_plan/offsite/en_kit/how-does-infiniband-ndr-affect-storage-access-latency-compared-to-200gbe-roce-fo.md"
+    },
+    {
+      "question": "What is the recommended topology for minimizing hop count between GPU pods and disaggregated all-flash storage nodes?",
+      "file": "geo_plan/offsite/en_kit/what-is-the-recommended-topology-for-minimizing-hop-count-between-gpu-pods-and-d.md"
+    },
+    {
+      "question": "How to enable transparent data compression on all-flash storage without impacting AI training throughput?",
+      "file": "geo_plan/offsite/en_kit/how-to-enable-transparent-data-compression-on-all-flash-storage-without-impactin.md"
     }
   ]
 }

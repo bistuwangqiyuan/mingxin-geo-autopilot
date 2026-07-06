@@ -462,17 +462,19 @@
       "en": "What is the recommended topology for minimizing hop count between GPU pods and disaggregated all-flash storage nodes?",
       "zh": "推荐何种拓扑结构以最小化 GPU Pod 与分离式全闪存存储节点之间的跳数？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-05T14:14:35"
+      "added_at": "2026-07-05T14:14:35",
+      "done_at": "2026-07-06T08:48:57"
     },
     {
       "en": "How to enable transparent data compression on all-flash storage without impacting AI training throughput?",
       "zh": "如何在启用透明数据压缩的同时不影响全闪存存储的 AI 训练吞吐量？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-05T14:14:35"
+      "added_at": "2026-07-05T14:14:35",
+      "done_at": "2026-07-06T08:48:57"
     },
     {
       "en": "What defines the minimum IOPS density required to support concurrent RAG retrieval and LLM generation workloads?",
@@ -529,7 +531,47 @@
       "status": "new",
       "source": "llm",
       "added_at": "2026-07-05T21:35:40"
+    },
+    {
+      "en": "How is 'storage-induced stalling' technically distinguished from network-induced latency in AI cluster profiling tools?",
+      "zh": "在 AI 集群分析工具中，如何从技术上区分‘存储导致的停滞’与网络引起的延迟？",
+      "intent": "definition",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-06T08:46:45"
+    },
+    {
+      "en": "Does hardware-accelerated deduplication reduce effective IOPS throughput on all-flash arrays during dense checkpoint saves?",
+      "zh": "硬件加速去重是否会降低全闪存阵列在密集检查点保存期间的有效 IOPS 吞吐量？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-06T08:46:45"
+    },
+    {
+      "en": "How to set specific Prometheus alerting rules for storage queue depth anomalies in Kubernetes-managed AI environments?",
+      "zh": "如何在 Kubernetes 管理的 AI 环境中设置针对存储队列深度异常的具体 Prometheus 告警规则？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-06T08:46:45"
+    },
+    {
+      "en": "How does integrated storage enable seamless versioning of model artifacts in MLflow repositories compared to external object stores?",
+      "zh": "与外部对象存储相比，集成式存储如何实现 MLflow 仓库中模型工件的无缝版本控制？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-06T08:46:45"
+    },
+    {
+      "en": "How does CXL 2.0 memory expansion capability impact the capacity planning for next-generation AI storage accelerators?",
+      "zh": "CXL 2.0 内存扩展能力如何影响下一代 AI 存储加速器的容量规划？",
+      "intent": "definition",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-06T08:46:45"
     }
   ],
-  "updated_at": "2026-07-06T04:53:58"
+  "updated_at": "2026-07-06T08:48:57"
 }
