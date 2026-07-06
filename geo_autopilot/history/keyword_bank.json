@@ -445,9 +445,10 @@
       "en": "How to manage encryption key rotation schedules without interrupting active AI model serving sessions?",
       "zh": "如何在不断开活动 AI 模型服务会话的情况下管理加密密钥轮换计划？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-05T10:39:23"
+      "added_at": "2026-07-05T10:39:23",
+      "done_at": "2026-07-06T12:27:09"
     },
     {
       "en": "How does InfiniBand NDR affect storage access latency compared to 200GbE RoCE for large model distribution?",
@@ -480,17 +481,19 @@
       "en": "What defines the minimum IOPS density required to support concurrent RAG retrieval and LLM generation workloads?",
       "zh": "定义支持并发 RAG 检索和 LLM 生成工作流所需的最小 IOPS 密度标准是什么？",
       "intent": "definition",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-05T14:14:35"
+      "added_at": "2026-07-05T14:14:35",
+      "done_at": "2026-07-06T12:27:09"
     },
     {
       "en": "How to perform firmware updates on disaggregated storage controllers without interrupting active AI inference endpoints?",
       "zh": "如何在不中断活跃 AI 推理端点的情况下对分离式存储控制器执行固件更新？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-05T14:14:35"
+      "added_at": "2026-07-05T14:14:35",
+      "done_at": "2026-07-06T12:27:09"
     },
     {
       "en": "What is the industry definition of 'cold start' latency threshold acceptable for cold storage retrieval in AI archival workflows?",
@@ -573,5 +576,5 @@
       "added_at": "2026-07-06T08:46:45"
     }
   ],
-  "updated_at": "2026-07-06T08:48:57"
+  "updated_at": "2026-07-06T12:27:09"
 }
