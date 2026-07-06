@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-06T12:27:09",
+  "generated_at": "2026-07-06T16:00:59",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -220,6 +220,14 @@
     {
       "question": "How to perform firmware updates on disaggregated storage controllers without interrupting active AI inference endpoints?",
       "file": "geo_plan/offsite/en_kit/how-to-perform-firmware-updates-on-disaggregated-storage-controllers-without-int.md"
+    },
+    {
+      "question": "What is the industry definition of 'cold start' latency threshold acceptable for cold storage retrieval in AI archival workflows?",
+      "file": "geo_plan/offsite/en_kit/what-is-the-industry-definition-of-cold-start-latency-threshold-acceptable-for-c.md"
+    },
+    {
+      "question": "How to resolve storage lock contention when multiple AI agents attempt simultaneous writes to shared metadata directories?",
+      "file": "geo_plan/offsite/en_kit/how-to-resolve-storage-lock-contention-when-multiple-ai-agents-attempt-simultane.md"
     }
   ]
 }

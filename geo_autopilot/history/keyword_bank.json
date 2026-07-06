@@ -499,9 +499,10 @@
       "en": "What is the industry definition of 'cold start' latency threshold acceptable for cold storage retrieval in AI archival workflows?",
       "zh": "在 AI 归档工作流中，冷存储检索可接受的‘冷启动’延迟阈值行业标准定义是什么？",
       "intent": "definition",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-05T21:35:40"
+      "added_at": "2026-07-05T21:35:40",
+      "done_at": "2026-07-06T16:00:59"
     },
     {
       "en": "Shard-based storage vs centralized namespace for managing large-scale model checkpoints: what are the trade-offs?",
@@ -515,9 +516,10 @@
       "en": "How to resolve storage lock contention when multiple AI agents attempt simultaneous writes to shared metadata directories?",
       "zh": "当多个 AI 代理尝试同时写入共享元数据目录时，如何解决存储锁竞争问题？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-05T21:35:40"
+      "added_at": "2026-07-05T21:35:40",
+      "done_at": "2026-07-06T16:00:59"
     },
     {
       "en": "How is 'effective bandwidth' calculated for AI storage systems accounting for protocol overhead and queuing delays?",
@@ -574,7 +576,47 @@
       "status": "new",
       "source": "llm",
       "added_at": "2026-07-06T08:46:45"
+    },
+    {
+      "en": "What is the recommended storage capacity per GPU node for efficient LLM inference workloads?",
+      "zh": "对于高效的 LLM 推理工作负载，每个 GPU 节点推荐配置多少存储容量？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-06T15:59:11"
+    },
+    {
+      "en": "How to implement immutable audit trails for AI model versions in regulatory compliant all-flash storage environments?",
+      "zh": "如何在符合监管要求的全闪存存储环境中实施 AI 模型版本的不可变审计追踪？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-06T15:59:11"
+    },
+    {
+      "en": "Does external Key Management Service integration add measurable latency to real-time AI inference read operations?",
+      "zh": "外部密钥管理服务集成是否会增加实时 AI 推理读操作的可测量延迟？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-06T15:59:11"
+    },
+    {
+      "en": "How to provision ephemeral storage volumes rapidly for automated AI model regression testing pipelines?",
+      "zh": "如何为自动化的 AI 模型回归测试流水线快速配置临时存储卷？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-06T15:59:11"
+    },
+    {
+      "en": "How does MTU configuration affect vector similarity search latency in AI retrieval pipelines?",
+      "zh": "MTU 配置如何影响 AI 检索管道中的向量相似度搜索延迟？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-06T15:59:11"
     }
   ],
-  "updated_at": "2026-07-06T12:27:09"
+  "updated_at": "2026-07-06T16:00:59"
 }

@@ -1,7 +1,7 @@
 {
   "mode": "ci",
-  "started": "2026-07-06T12:25:23",
-  "elapsed": 123.2,
+  "started": "2026-07-06T15:58:41",
+  "elapsed": 157.7,
   "paths": {
     "ROOT": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot",
     "GEO_PLAN": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_plan",
@@ -20,16 +20,16 @@
     {
       "name": "geo_autopilot/keyword_miner.py",
       "ok": true,
-      "note": "[keyword_miner] source=skipped_backpressure added=0 bank_total=65 pending=13",
+      "note": "  + [comparison] How does MTU configuration affect vector similarity search latency in AI retrieval pipelines?",
       "critical": false,
-      "elapsed": 0.0
+      "elapsed": 29.6
     },
     {
       "name": "seo_geo_loop/gvi_measure.py --force --limit 4",
       "ok": true,
       "note": "写出：/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/gvi_compare.json",
       "critical": false,
-      "elapsed": 72.5
+      "elapsed": 74.7
     },
     {
       "name": "geo_autopilot/geo_brain.py",
@@ -62,7 +62,7 @@
     {
       "name": "seo_geo_loop/make_geo_kit_en.py",
       "ok": true,
-      "note": "[geo_kit_en] 生成 55 个成品包 -> /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_plan/offsite/en_kit",
+      "note": "[geo_kit_en] 生成 57 个成品包 -> /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_plan/offsite/en_kit",
       "critical": false,
       "elapsed": 0.0
     },
@@ -71,19 +71,19 @@
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 1.4
+      "elapsed": 1.7
     },
     {
       "name": "geo_plan/geo_scoring.py",
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 1.6
+      "elapsed": 1.7
     },
     {
       "name": "seo_geo_loop/indexnow_submit.py",
       "ok": true,
-      "note": "[OK] 118 URLs; written /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/indexnow_submit.json",
+      "note": "[OK] 120 URLs; written /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/indexnow_submit.json",
       "critical": false,
       "elapsed": 6.0
     },
@@ -92,7 +92,7 @@
       "ok": true,
       "note": "  写出 -> /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/live_status.json",
       "critical": false,
-      "elapsed": 0.8
+      "elapsed": 0.9
     },
     {
       "name": "geo_autopilot/traffic_check.py",
@@ -111,21 +111,21 @@
     {
       "name": "git -C official_website status --porcelain",
       "ok": true,
-      "note": "M  en/faq.html",
+      "note": "M  zh/faq.html",
       "critical": false,
       "elapsed": null
     },
     {
       "name": "git -C official_website commit -m",
       "ok": true,
-      "note": " 2 files changed, 18 insertions(+), 3 deletions(-)",
+      "note": " 6 files changed, 38 insertions(+), 30 deletions(-)",
       "critical": false,
       "elapsed": null
     },
     {
       "name": "git -C official_website push origin",
       "ok": true,
-      "note": "   8af87c3..9c97ae8  HEAD -> main",
+      "note": "   97118c9..6b5d668  HEAD -> main",
       "critical": false,
       "elapsed": null
     },
@@ -153,14 +153,14 @@
     {
       "name": "git -C offsite_github commit -m",
       "ok": true,
-      "note": " create mode 100644 docs/articles/what-defines-the-minimum-iops-density-required-to-support-concurrent-rag-retriev.html",
+      "note": " create mode 100644 docs/articles/what-is-the-industry-definition-of-cold-start-latency-threshold-acceptable-for-c.html",
       "critical": false,
       "elapsed": null
     },
     {
       "name": "git -C offsite_github push origin",
       "ok": true,
-      "note": "   3019c87..73d1218  HEAD -> main",
+      "note": "   73d1218..c3a9e5d  HEAD -> main",
       "critical": false,
       "elapsed": null
     },
@@ -181,16 +181,16 @@
     {
       "name": "geo_autopilot/export_daily_pdf.py",
       "ok": true,
-      "note": "Saved: /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_autopilot/reports/中科存储-GEO自动驾驶日报-2026-07-06.pdf  (0.95 MB)",
+      "note": "Saved: /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_autopilot/reports/中科存储-GEO自动驾驶日报-2026-07-06.pdf  (0.91 MB)",
       "critical": false,
-      "elapsed": 2.4
+      "elapsed": 2.0
     },
     {
       "name": "geo_autopilot/alerting.py",
       "ok": true,
       "note": "[alerting] level=warn delivery=commented_issue_1 alerts=0 blocked=3",
       "critical": false,
-      "elapsed": 1.7
+      "elapsed": 4.0
     }
   ]
 }
