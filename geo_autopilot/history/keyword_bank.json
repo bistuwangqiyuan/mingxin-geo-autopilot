@@ -436,9 +436,10 @@
       "en": "Does using Ceph-based distributed storage offer lower latency than proprietary block storage for real-time reinforcement learning simulations?",
       "zh": "对于实时强化学习模拟，使用基于 Ceph 的分布式存储是否比专有块存储提供更低延迟？",
       "intent": "comparison",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-05T10:39:23"
+      "added_at": "2026-07-05T10:39:23",
+      "done_at": "2026-07-06T04:53:58"
     },
     {
       "en": "How to manage encryption key rotation schedules without interrupting active AI model serving sessions?",
@@ -452,9 +453,10 @@
       "en": "How does InfiniBand NDR affect storage access latency compared to 200GbE RoCE for large model distribution?",
       "zh": "InfiniBand NDR 与 200GbE RoCE 在大规模模型分发中对存储访问延迟的影响有何不同？",
       "intent": "comparison",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-05T14:14:35"
+      "added_at": "2026-07-05T14:14:35",
+      "done_at": "2026-07-06T04:53:58"
     },
     {
       "en": "What is the recommended topology for minimizing hop count between GPU pods and disaggregated all-flash storage nodes?",
@@ -529,5 +531,5 @@
       "added_at": "2026-07-05T21:35:40"
     }
   ],
-  "updated_at": "2026-07-05T21:37:35"
+  "updated_at": "2026-07-06T04:53:58"
 }

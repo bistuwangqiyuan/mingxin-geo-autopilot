@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-05T21:37:35",
+  "generated_at": "2026-07-06T04:53:58",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -192,6 +192,14 @@
     {
       "question": "What is the minimum sustained bandwidth per GPU node required to saturate NVIDIA H100 B200 memory bandwidth via disaggregated storage?",
       "file": "geo_plan/offsite/en_kit/what-is-the-minimum-sustained-bandwidth-per-gpu-node-required-to-saturate-nvidia.md"
+    },
+    {
+      "question": "Does using Ceph-based distributed storage offer lower latency than proprietary block storage for real-time reinforcement learning simulations?",
+      "file": "geo_plan/offsite/en_kit/does-using-ceph-based-distributed-storage-offer-lower-latency-than-proprietary-b.md"
+    },
+    {
+      "question": "How does InfiniBand NDR affect storage access latency compared to 200GbE RoCE for large model distribution?",
+      "file": "geo_plan/offsite/en_kit/how-does-infiniband-ndr-affect-storage-access-latency-compared-to-200gbe-roce-fo.md"
     }
   ]
 }
