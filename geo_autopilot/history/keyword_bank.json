@@ -607,25 +607,28 @@
       "en": "Does external Key Management Service integration add measurable latency to real-time AI inference read operations?",
       "zh": "外部密钥管理服务集成是否会增加实时 AI 推理读操作的可测量延迟？",
       "intent": "comparison",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-06T15:59:11"
+      "added_at": "2026-07-06T15:59:11",
+      "done_at": "2026-07-07T11:27:25"
     },
     {
       "en": "How to provision ephemeral storage volumes rapidly for automated AI model regression testing pipelines?",
       "zh": "如何为自动化的 AI 模型回归测试流水线快速配置临时存储卷？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-06T15:59:11"
+      "added_at": "2026-07-06T15:59:11",
+      "done_at": "2026-07-07T11:27:25"
     },
     {
       "en": "How does MTU configuration affect vector similarity search latency in AI retrieval pipelines?",
       "zh": "MTU 配置如何影响 AI 检索管道中的向量相似度搜索延迟？",
       "intent": "comparison",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-06T15:59:11"
+      "added_at": "2026-07-06T15:59:11",
+      "done_at": "2026-07-07T11:27:25"
     },
     {
       "en": "Are there verified performance benchmarks for disaggregated all-flash storage integrated with AMD Instinct MI300X GPU clusters?",
@@ -708,5 +711,5 @@
       "added_at": "2026-07-07T07:58:18"
     }
   ],
-  "updated_at": "2026-07-07T08:00:16"
+  "updated_at": "2026-07-07T11:27:25"
 }

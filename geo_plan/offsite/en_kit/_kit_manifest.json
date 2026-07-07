@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-07T08:00:17",
+  "generated_at": "2026-07-07T11:27:26",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -268,6 +268,18 @@
     {
       "question": "How to implement immutable audit trails for AI model versions in regulatory compliant all-flash storage environments?",
       "file": "geo_plan/offsite/en_kit/how-to-implement-immutable-audit-trails-for-ai-model-versions-in-regulatory-comp.md"
+    },
+    {
+      "question": "Does external Key Management Service integration add measurable latency to real-time AI inference read operations?",
+      "file": "geo_plan/offsite/en_kit/does-external-key-management-service-integration-add-measurable-latency-to-real-.md"
+    },
+    {
+      "question": "How to provision ephemeral storage volumes rapidly for automated AI model regression testing pipelines?",
+      "file": "geo_plan/offsite/en_kit/how-to-provision-ephemeral-storage-volumes-rapidly-for-automated-ai-model-regres.md"
+    },
+    {
+      "question": "How does MTU configuration affect vector similarity search latency in AI retrieval pipelines?",
+      "file": "geo_plan/offsite/en_kit/how-does-mtu-configuration-affect-vector-similarity-search-latency-in-ai-retriev.md"
     }
   ]
 }
