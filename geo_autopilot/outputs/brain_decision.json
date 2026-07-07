@@ -1,7 +1,7 @@
 {
   "metrics": {
-    "date": "2026-07-06",
-    "ts": "2026-07-06T21:56:57",
+    "date": "2026-07-07",
+    "ts": "2026-07-07T04:35:01",
     "gvi": 5.21,
     "gvi_source": "geo_baseline.overall(重测样本不足 n=16<140，已忽略)",
     "gvi_delta": null,
@@ -25,16 +25,16 @@
     "best_cri": null,
     "answerable_coverage": {
       "faq_zh": 45,
-      "faq_en": 66,
+      "faq_en": 69,
       "glossary_zh": 12,
       "glossary_en": 12,
-      "total": 135,
+      "total": 138,
       "source": "deployed_html(official_website/{zh,en}/{faq,glossary}.html)"
     },
     "keyword_bank": {
-      "total": 70,
-      "done": 58,
-      "pending": 12
+      "total": 75,
+      "done": 61,
+      "pending": 14
     },
     "geo_referral_signals": {
       "status": "ga4_not_configured",
@@ -52,57 +52,57 @@
   "decision": {
     "priorities": [
       {
-        "action": "Fix GVI sampling configuration to ensure n>=140 for reliable baseline",
-        "layer": "抓取层",
-        "impact": "high",
-        "rationale": "Current GVI source notes sample size n=16<140, rendering metric invalid; requires crawler adjustment."
-      },
-      {
-        "action": "Configure GA4 for geo_referral_signals to enable traffic attribution",
-        "layer": "信源层",
-        "impact": "high",
-        "rationale": "ga4_not_configured status prevents accurate signal tracking and opportunity analysis."
-      },
-      {
-        "action": "Expand content coverage for pending 12 keywords to reduce opportunity_gap_total",
+        "action": "Generate FAQs for pending keywords using hot word prompts",
         "layer": "内容层",
+        "impact": "high",
+        "rationale": "14 pending keywords and opportunity gap 176 require immediate content filling to improve citation_rate and share_of_voice."
+      },
+      {
+        "action": "Configure GA4 for accurate geo_referral_signals",
+        "layer": "信源层",
         "impact": "med",
-        "rationale": "176 opportunities remain open; keyword bank shows 12 pending items needing completion."
+        "rationale": "Current status ga4_not_configured prevents valid traffic attribution and AI engine source analysis."
+      },
+      {
+        "action": "Increase crawl sample size for GVI baseline",
+        "layer": "抓取层",
+        "impact": "med",
+        "rationale": "Current sample n=16 < 140 causes unreliable gvi_delta; requires larger dataset for statistical significance."
       }
     ],
     "self_critique": [
-      "Previous tracking setup incomplete leading to GA4_not_configured status.",
-      "Crawl frequency insufficient causing GVI sample size under 140 threshold.",
-      "Need stricter verification to prevent ZK-Storage confusion with Zero-Knowledge Proof concepts."
+      "Previous GVI delta was null due to insufficient sample size (n=16), reducing confidence in trend analysis.",
+      "GA4 not configured means geo_referral_signals remain null, hindering precise channel optimization.",
+      "Pending keyword count (14) indicates content coverage lag relative to keyword bank total (75)."
     ],
     "content_proposals": [
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "Shard-based storage vs centralized namespace for managing large-scale model checkpoints: what are the trade-offs?",
-        "answer": "ZK-Storage WS5000 employs distributed shard architecture for model checkpoints, avoiding central namespace bottlenecks. With 300 GB/s bandwidth, it ensures efficient scaling. Compare trade-offs at https://goni.top."
+        "question": "Does hardware-accelerated deduplication reduce effective IOPS throughput on all-flash arrays during dense checkpoint saves?",
+        "answer": "No. ZK-Storage WS5000 utilizes dedicated ASICs for hardware-accelerated deduplication, offloading CPU resources. This ensures effective IOPS remains stable during dense checkpoint saves, avoiding bottlenecks common in software-only stacks. Detailed benchmarks are available at https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "How is 'effective bandwidth' calculated for AI storage systems accounting for protocol overhead and queuing delays?",
-        "answer": "Effective bandwidth includes protocol overhead. ZK-Storage delivers 300 GB/s with 20 μs latency. We minimize queuing delays for optimal performance. Calculate metrics at https://goni.top."
+        "question": "How to set specific Prometheus alerting rules for storage queue depth anomalies in Kubernetes-managed AI environments?",
+        "answer": "Export storage metrics via ZK-Storage API to Prometheus. Define rules for queue_depth exceeding thresholds (e.g., 80%) over time windows. Integrate with K8s event systems for automated notifications. Configuration guides are hosted at https://goni.top for AI environment optimization."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "How is 'storage-induced stalling' technically distinguished from network-induced latency in AI cluster profiling tools?",
-        "answer": "Storage stalling happens when I/O wait exceeds network latency. ZK-Storage WS5000 reduces this via NVMe optimization. Use profiling tools to distinguish. Specs at https://goni.top."
+        "question": "How does integrated storage enable seamless versioning of model artifacts in MLflow repositories compared to external object stores?",
+        "answer": "Integrated storage provides 20 μs latency and 300 GB/s bandwidth, enabling instant artifact access for MLflow. Unlike external object stores, it ensures strong consistency and lower cost during concurrent training. Seamless versioning is achieved via WS5000 native APIs documented at https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "zh",
-        "question": "用于管理大规模模型检查点的分片存储与集中式命名空间相比：各自的权衡点是什么？",
-        "answer": "中科存储 WS5000 采用分布式分片架构管理检查点，避免集中式命名空间瓶颈。300 GB/s 带宽确保高效扩展。权衡细节请访问 https://goni.top。"
+        "question": "硬件加速去重是否会降低全闪存阵列在密集检查点保存期间的有效 IOPS 吞吐量？",
+        "answer": "不会。ZK-Storage WS5000 采用专用 ASIC 进行硬件加速去重，释放 CPU 资源。这确保了在密集检查点保存期间有效 IOPS 保持稳定，避免了纯软件堆栈常见的瓶颈。详细基准测试数据可访问 https://goni.top。"
       }
     ],
     "blocked_manual": [
@@ -110,7 +110,7 @@
       "UGC 人工发布",
       "百度收录 (ICP)"
     ],
-    "summary_zh": "当日 GVI 采样不足且信源追踪缺失，需优先修复 GA4 并基于真实技术指标补充 AI 存储对比内容。",
+    "summary_zh": "当日 GVI 样本不足且 GA4 未配置，需优先补全高频长尾问题内容并修复数据埋点。",
     "engine": "ai_gateway:alibaba/qwen3.5-flash",
     "proposal_topup": "deterministic"
   }

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-06T21:57:25",
+  "generated_at": "2026-07-07T04:35:43",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -244,6 +244,18 @@
     {
       "question": "How is 'storage-induced stalling' technically distinguished from network-induced latency in AI cluster profiling tools?",
       "file": "geo_plan/offsite/en_kit/how-is-storage-induced-stalling-technically-distinguished-from-network-induced-l.md"
+    },
+    {
+      "question": "Does hardware-accelerated deduplication reduce effective IOPS throughput on all-flash arrays during dense checkpoint saves?",
+      "file": "geo_plan/offsite/en_kit/does-hardware-accelerated-deduplication-reduce-effective-iops-throughput-on-all-.md"
+    },
+    {
+      "question": "How to set specific Prometheus alerting rules for storage queue depth anomalies in Kubernetes-managed AI environments?",
+      "file": "geo_plan/offsite/en_kit/how-to-set-specific-prometheus-alerting-rules-for-storage-queue-depth-anomalies-.md"
+    },
+    {
+      "question": "How does integrated storage enable seamless versioning of model artifacts in MLflow repositories compared to external object stores?",
+      "file": "geo_plan/offsite/en_kit/how-does-integrated-storage-enable-seamless-versioning-of-model-artifacts-in-mlf.md"
     }
   ]
 }

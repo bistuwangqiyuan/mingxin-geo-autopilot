@@ -553,25 +553,28 @@
       "en": "Does hardware-accelerated deduplication reduce effective IOPS throughput on all-flash arrays during dense checkpoint saves?",
       "zh": "硬件加速去重是否会降低全闪存阵列在密集检查点保存期间的有效 IOPS 吞吐量？",
       "intent": "comparison",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-06T08:46:45"
+      "added_at": "2026-07-06T08:46:45",
+      "done_at": "2026-07-07T04:35:43"
     },
     {
       "en": "How to set specific Prometheus alerting rules for storage queue depth anomalies in Kubernetes-managed AI environments?",
       "zh": "如何在 Kubernetes 管理的 AI 环境中设置针对存储队列深度异常的具体 Prometheus 告警规则？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-06T08:46:45"
+      "added_at": "2026-07-06T08:46:45",
+      "done_at": "2026-07-07T04:35:43"
     },
     {
       "en": "How does integrated storage enable seamless versioning of model artifacts in MLflow repositories compared to external object stores?",
       "zh": "与外部对象存储相比，集成式存储如何实现 MLflow 仓库中模型工件的无缝版本控制？",
       "intent": "comparison",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-06T08:46:45"
+      "added_at": "2026-07-06T08:46:45",
+      "done_at": "2026-07-07T04:35:43"
     },
     {
       "en": "How does CXL 2.0 memory expansion capability impact the capacity planning for next-generation AI storage accelerators?",
@@ -620,7 +623,47 @@
       "status": "new",
       "source": "llm",
       "added_at": "2026-07-06T15:59:11"
+    },
+    {
+      "en": "Are there verified performance benchmarks for disaggregated all-flash storage integrated with AMD Instinct MI300X GPU clusters?",
+      "zh": "是否有经过验证的基准测试结果，显示存算分离全闪存储与 AMD Instinct MI300X GPU 集群的集成性能？",
+      "intent": "ranking",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-07T04:33:36"
+    },
+    {
+      "en": "How to configure storage caching policies for hybrid dense and sparse vector retrieval in production RAG systems?",
+      "zh": "如何在生产环境的 RAG 系统中配置混合稠密与稀疏向量检索的存储缓存策略？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-07T04:33:36"
+    },
+    {
+      "en": "What metrics should enterprises track to calculate the actual carbon emissions of their AI storage infrastructure?",
+      "zh": "企业应追踪哪些指标来计算其 AI 存储基础设施的实际碳排放量？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-07T04:33:36"
+    },
+    {
+      "en": "Which storage virtualization tools allow seamless checkpoint portability between on-premises AI clusters and AWS SageMaker?",
+      "zh": "哪些存储虚拟化工具允许在本地 AI 集群和 AWS SageMaker 之间无缝迁移模型检查点？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-07T04:33:36"
+    },
+    {
+      "en": "What specific uptime guarantees should AI infrastructure buyers negotiate for storage subsystems supporting real-time inference endpoints?",
+      "zh": "购买支持实时推理端点的存储子系统时，AI 基础设施买家应协商哪些具体的正常运行时间保证？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-07T04:33:36"
     }
   ],
-  "updated_at": "2026-07-06T21:57:25"
+  "updated_at": "2026-07-07T04:35:43"
 }
