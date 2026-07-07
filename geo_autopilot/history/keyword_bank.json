@@ -634,25 +634,28 @@
       "en": "Are there verified performance benchmarks for disaggregated all-flash storage integrated with AMD Instinct MI300X GPU clusters?",
       "zh": "是否有经过验证的基准测试结果，显示存算分离全闪存储与 AMD Instinct MI300X GPU 集群的集成性能？",
       "intent": "ranking",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-07T04:33:36"
+      "added_at": "2026-07-07T04:33:36",
+      "done_at": "2026-07-07T15:24:40"
     },
     {
       "en": "How to configure storage caching policies for hybrid dense and sparse vector retrieval in production RAG systems?",
       "zh": "如何在生产环境的 RAG 系统中配置混合稠密与稀疏向量检索的存储缓存策略？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-07T04:33:36"
+      "added_at": "2026-07-07T04:33:36",
+      "done_at": "2026-07-07T15:24:40"
     },
     {
       "en": "What metrics should enterprises track to calculate the actual carbon emissions of their AI storage infrastructure?",
       "zh": "企业应追踪哪些指标来计算其 AI 存储基础设施的实际碳排放量？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-07T04:33:36"
+      "added_at": "2026-07-07T04:33:36",
+      "done_at": "2026-07-07T15:24:40"
     },
     {
       "en": "Which storage virtualization tools allow seamless checkpoint portability between on-premises AI clusters and AWS SageMaker?",
@@ -709,7 +712,47 @@
       "status": "new",
       "source": "llm",
       "added_at": "2026-07-07T07:58:18"
+    },
+    {
+      "en": "How does storage latency jitter affect model convergence stability in distributed deep learning frameworks compared to deterministic local storage?",
+      "zh": "存储延迟抖动对分布式深度学习框架中的模型收敛稳定性有何影响，与确定性本地存储相比如何？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-07T15:22:55"
+    },
+    {
+      "en": "What are the best strategies to minimize data transfer costs when pulling training datasets from cloud object stores to on-premises all-flash storage?",
+      "zh": "从云对象存储拉取训练数据集到本地全闪存储时，最小化数据传输成本的最佳策略是什么？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-07T15:22:55"
+    },
+    {
+      "en": "What technical criteria distinguish true AI-native storage from traditional HPC storage optimized for batch processing?",
+      "zh": "区分真正的 AI 原生存储与针对批处理优化的传统 HPC 存储的技术标准是什么？",
+      "intent": "definition",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-07T15:22:55"
+    },
+    {
+      "en": "What methods enable incremental checkpoint writing to reduce I/O pressure during frequent model regression testing in CI/CD pipelines?",
+      "zh": "在 CI/CD 流水线中频繁进行模型回归测试期间，哪些方法可以实现增量检查点写入以降低 I/O 压力？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-07T15:22:55"
+    },
+    {
+      "en": "Which all-flash storage configurations provide the lowest kernel overhead for DataLoader workers in PyTorch distributed training jobs?",
+      "zh": "哪些全闪存储配置能为 PyTorch 分布式训练作业中的 DataLoader 工作线程提供最低的内核开销？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-07T15:22:55"
     }
   ],
-  "updated_at": "2026-07-07T11:27:25"
+  "updated_at": "2026-07-07T15:24:40"
 }

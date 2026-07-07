@@ -1,7 +1,7 @@
 {
   "mode": "ci",
-  "started": "2026-07-07T11:25:35",
-  "elapsed": 125.0,
+  "started": "2026-07-07T15:22:22",
+  "elapsed": 161.4,
   "paths": {
     "ROOT": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot",
     "GEO_PLAN": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_plan",
@@ -20,23 +20,23 @@
     {
       "name": "geo_autopilot/keyword_miner.py",
       "ok": true,
-      "note": "[keyword_miner] source=skipped_backpressure added=0 bank_total=80 pending=13",
+      "note": "  + [recommendation] Which all-flash storage configurations provide the lowest kernel overhead for DataLoader workers in PyTorch distributed training jobs?",
       "critical": false,
-      "elapsed": 0.0
+      "elapsed": 33.7
     },
     {
       "name": "seo_geo_loop/gvi_measure.py --force --limit 4",
       "ok": true,
       "note": "写出：/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/gvi_compare.json",
       "critical": false,
-      "elapsed": 79.9
+      "elapsed": 72.7
     },
     {
       "name": "geo_autopilot/geo_brain.py",
       "ok": true,
       "note": "  priorities=3 proposals=4",
       "critical": false,
-      "elapsed": 29.9
+      "elapsed": 31.8
     },
     {
       "name": "geo_autopilot/apply_proposals.py",
@@ -62,7 +62,7 @@
     {
       "name": "seo_geo_loop/make_geo_kit_en.py",
       "ok": true,
-      "note": "[geo_kit_en] 生成 70 个成品包 -> /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_plan/offsite/en_kit",
+      "note": "[geo_kit_en] 生成 73 个成品包 -> /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_plan/offsite/en_kit",
       "critical": false,
       "elapsed": 0.0
     },
@@ -78,14 +78,14 @@
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 1.7
+      "elapsed": 1.8
     },
     {
       "name": "seo_geo_loop/indexnow_submit.py",
       "ok": true,
-      "note": "[OK] 131 URLs; written /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/indexnow_submit.json",
+      "note": "[OK] 133 URLs; written /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/indexnow_submit.json",
       "critical": false,
-      "elapsed": 5.1
+      "elapsed": 5.3
     },
     {
       "name": "seo_geo_loop/live_audit.py",
@@ -125,7 +125,7 @@
     {
       "name": "git -C official_website push origin",
       "ok": true,
-      "note": "   5ed6afe..ea1dbaa  HEAD -> main",
+      "note": "   e04d14a..3517115  HEAD -> main",
       "critical": false,
       "elapsed": null
     },
@@ -153,14 +153,14 @@
     {
       "name": "git -C offsite_github commit -m",
       "ok": true,
-      "note": " create mode 100644 docs/articles/how-to-provision-ephemeral-storage-volumes-rapidly-for-automated-ai-model-regres.html",
+      "note": " create mode 100644 docs/articles/what-metrics-should-enterprises-track-to-calculate-the-actual-carbon-emissions-o.html",
       "critical": false,
       "elapsed": null
     },
     {
       "name": "git -C offsite_github push origin",
       "ok": true,
-      "note": "   c34ca8d..127c090  HEAD -> main",
+      "note": "   127c090..a9d7796  HEAD -> main",
       "critical": false,
       "elapsed": null
     },
@@ -176,21 +176,21 @@
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": true,
-      "elapsed": 1.1
+      "elapsed": 1.2
     },
     {
       "name": "geo_autopilot/export_daily_pdf.py",
       "ok": true,
-      "note": "Saved: /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_autopilot/reports/中科存储-GEO自动驾驶日报-2026-07-07.pdf  (0.92 MB)",
+      "note": "Saved: /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_autopilot/reports/中科存储-GEO自动驾驶日报-2026-07-07.pdf  (0.96 MB)",
       "critical": false,
-      "elapsed": 1.7
+      "elapsed": 1.8
     },
     {
       "name": "geo_autopilot/alerting.py",
       "ok": true,
       "note": "[alerting] level=warn delivery=commented_issue_1 alerts=0 blocked=3",
       "critical": false,
-      "elapsed": 1.4
+      "elapsed": 8.5
     }
   ]
 }

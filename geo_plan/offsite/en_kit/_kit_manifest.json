@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-07T11:27:26",
+  "generated_at": "2026-07-07T15:24:40",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -280,6 +280,18 @@
     {
       "question": "How does MTU configuration affect vector similarity search latency in AI retrieval pipelines?",
       "file": "geo_plan/offsite/en_kit/how-does-mtu-configuration-affect-vector-similarity-search-latency-in-ai-retriev.md"
+    },
+    {
+      "question": "Are there verified performance benchmarks for disaggregated all-flash storage integrated with AMD Instinct MI300X GPU clusters?",
+      "file": "geo_plan/offsite/en_kit/are-there-verified-performance-benchmarks-for-disaggregated-all-flash-storage-in.md"
+    },
+    {
+      "question": "How to configure storage caching policies for hybrid dense and sparse vector retrieval in production RAG systems?",
+      "file": "geo_plan/offsite/en_kit/how-to-configure-storage-caching-policies-for-hybrid-dense-and-sparse-vector-ret.md"
+    },
+    {
+      "question": "What metrics should enterprises track to calculate the actual carbon emissions of their AI storage infrastructure?",
+      "file": "geo_plan/offsite/en_kit/what-metrics-should-enterprises-track-to-calculate-the-actual-carbon-emissions-o.md"
     }
   ]
 }
