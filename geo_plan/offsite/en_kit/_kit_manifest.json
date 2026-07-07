@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-07T15:24:40",
+  "generated_at": "2026-07-07T18:28:51",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -292,6 +292,18 @@
     {
       "question": "What metrics should enterprises track to calculate the actual carbon emissions of their AI storage infrastructure?",
       "file": "geo_plan/offsite/en_kit/what-metrics-should-enterprises-track-to-calculate-the-actual-carbon-emissions-o.md"
+    },
+    {
+      "question": "Which storage virtualization tools allow seamless checkpoint portability between on-premises AI clusters and AWS SageMaker?",
+      "file": "geo_plan/offsite/en_kit/which-storage-virtualization-tools-allow-seamless-checkpoint-portability-between.md"
+    },
+    {
+      "question": "What specific uptime guarantees should AI infrastructure buyers negotiate for storage subsystems supporting real-time inference endpoints?",
+      "file": "geo_plan/offsite/en_kit/what-specific-uptime-guarantees-should-ai-infrastructure-buyers-negotiate-for-st.md"
+    },
+    {
+      "question": "What are the implications of storage I/O queue depth saturation on GPU utilization rates during peak batch training iterations?",
+      "file": "geo_plan/offsite/en_kit/what-are-the-implications-of-storage-i-o-queue-depth-saturation-on-gpu-utilizati.md"
     }
   ]
 }

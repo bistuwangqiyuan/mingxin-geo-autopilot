@@ -661,25 +661,28 @@
       "en": "Which storage virtualization tools allow seamless checkpoint portability between on-premises AI clusters and AWS SageMaker?",
       "zh": "哪些存储虚拟化工具允许在本地 AI 集群和 AWS SageMaker 之间无缝迁移模型检查点？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-07T04:33:36"
+      "added_at": "2026-07-07T04:33:36",
+      "done_at": "2026-07-07T18:28:51"
     },
     {
       "en": "What specific uptime guarantees should AI infrastructure buyers negotiate for storage subsystems supporting real-time inference endpoints?",
       "zh": "购买支持实时推理端点的存储子系统时，AI 基础设施买家应协商哪些具体的正常运行时间保证？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-07T04:33:36"
+      "added_at": "2026-07-07T04:33:36",
+      "done_at": "2026-07-07T18:28:51"
     },
     {
       "en": "What are the implications of storage I/O queue depth saturation on GPU utilization rates during peak batch training iterations?",
       "zh": "存储 I/O 队列深度饱和对峰值批次训练迭代期间的 GPU 利用率有何影响？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-07T07:58:18"
+      "added_at": "2026-07-07T07:58:18",
+      "done_at": "2026-07-07T18:28:51"
     },
     {
       "en": "What are the security benefits of using hardware-trusted root-of-trust modules in all-flash storage appliances for enterprise AI data protection?",
@@ -754,5 +757,5 @@
       "added_at": "2026-07-07T15:22:55"
     }
   ],
-  "updated_at": "2026-07-07T15:24:40"
+  "updated_at": "2026-07-07T18:28:51"
 }
