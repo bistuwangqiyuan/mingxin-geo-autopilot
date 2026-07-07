@@ -688,25 +688,28 @@
       "en": "What are the security benefits of using hardware-trusted root-of-trust modules in all-flash storage appliances for enterprise AI data protection?",
       "zh": "在企业 AI 数据保护中，在所有闪存储一体机中使用硬件信任根模块有哪些安全优势？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-07T07:58:18"
+      "added_at": "2026-07-07T07:58:18",
+      "done_at": "2026-07-07T21:55:51"
     },
     {
       "en": "How does the power delivery efficiency of 48V DC storage racks compare to standard AC power configurations in modern AI data centers?",
       "zh": "在现代 AI 数据中心中，48V 直流存储机架的供电效率与标准交流电源配置相比如何？",
       "intent": "comparison",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-07T07:58:18"
+      "added_at": "2026-07-07T07:58:18",
+      "done_at": "2026-07-07T21:55:51"
     },
     {
       "en": "What is the optimal number of storage controller nodes required to maintain availability during a single node failure in a large-scale AI cluster?",
       "zh": "在大规模 AI 集群中，单节点故障期间保持高可用性所需的最优存储控制器节点数量是多少？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-07T07:58:18"
+      "added_at": "2026-07-07T07:58:18",
+      "done_at": "2026-07-07T21:55:51"
     },
     {
       "en": "How does the adoption of PCIe Gen5 interfaces change the expected lifespan of all-flash storage components compared to Gen4 in high-write AI workloads?",
@@ -755,7 +758,47 @@
       "status": "new",
       "source": "llm",
       "added_at": "2026-07-07T15:22:55"
+    },
+    {
+      "en": "For petabyte-scale foundation model training clusters, how is 'data locality awareness' defined within modern storage schedulers?",
+      "zh": "对于 PB 级基础模型训练集群，现代存储调度器中如何定义‘数据本地感知’？",
+      "intent": "definition",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-07T21:54:14"
+    },
+    {
+      "en": "Does NVMe-oF TCP offer comparable reliability to RDMA for asynchronous checkpointing in geographically distributed AI training environments?",
+      "zh": "NVMe-oF TCP 是否为地理分布的 AI 训练环境中的异步检查点提供了与 RDMA 相当的可靠性？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-07T21:54:14"
+    },
+    {
+      "en": "How is 'storage efficiency' technically defined regarding usable capacity versus raw capacity ratios for AI-specific compression algorithms?",
+      "zh": "针对 AI 特定压缩算法，‘存储效率’在可用容量与原始容量比率方面是如何技术定义的？",
+      "intent": "definition",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-07T21:54:14"
+    },
+    {
+      "en": "How to mitigate storage controller CPU bottlenecks when handling millions of small metadata operations during vector database indexing?",
+      "zh": "在处理向量数据库索引期间的数百万次小型元数据操作时，如何缓解存储控制器的 CPU 瓶颈？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-07T21:54:14"
+    },
+    {
+      "en": "Which all-flash storage tiering strategy best supports mixed workload isolation between real-time inference and batch training jobs?",
+      "zh": "哪种全闪存存储分层策略最能支持实时推理和批处理训练作业之间的混合工作负载隔离？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-07T21:54:14"
     }
   ],
-  "updated_at": "2026-07-07T18:28:51"
+  "updated_at": "2026-07-07T21:55:51"
 }

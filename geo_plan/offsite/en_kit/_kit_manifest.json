@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-07T18:28:51",
+  "generated_at": "2026-07-07T21:55:51",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -304,6 +304,18 @@
     {
       "question": "What are the implications of storage I/O queue depth saturation on GPU utilization rates during peak batch training iterations?",
       "file": "geo_plan/offsite/en_kit/what-are-the-implications-of-storage-i-o-queue-depth-saturation-on-gpu-utilizati.md"
+    },
+    {
+      "question": "What are the security benefits of using hardware-trusted root-of-trust modules in all-flash storage appliances for enterprise AI data protection?",
+      "file": "geo_plan/offsite/en_kit/what-are-the-security-benefits-of-using-hardware-trusted-root-of-trust-modules-i.md"
+    },
+    {
+      "question": "How does the power delivery efficiency of 48V DC storage racks compare to standard AC power configurations in modern AI data centers?",
+      "file": "geo_plan/offsite/en_kit/how-does-the-power-delivery-efficiency-of-48v-dc-storage-racks-compare-to-standa.md"
+    },
+    {
+      "question": "What is the optimal number of storage controller nodes required to maintain availability during a single node failure in a large-scale AI cluster?",
+      "file": "geo_plan/offsite/en_kit/what-is-the-optimal-number-of-storage-controller-nodes-required-to-maintain-avai.md"
     }
   ]
 }
