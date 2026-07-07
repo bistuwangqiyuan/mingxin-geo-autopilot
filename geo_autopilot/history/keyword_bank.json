@@ -580,25 +580,28 @@
       "en": "How does CXL 2.0 memory expansion capability impact the capacity planning for next-generation AI storage accelerators?",
       "zh": "CXL 2.0 内存扩展能力如何影响下一代 AI 存储加速器的容量规划？",
       "intent": "definition",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-06T08:46:45"
+      "added_at": "2026-07-06T08:46:45",
+      "done_at": "2026-07-07T08:00:16"
     },
     {
       "en": "What is the recommended storage capacity per GPU node for efficient LLM inference workloads?",
       "zh": "对于高效的 LLM 推理工作负载，每个 GPU 节点推荐配置多少存储容量？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-06T15:59:11"
+      "added_at": "2026-07-06T15:59:11",
+      "done_at": "2026-07-07T08:00:16"
     },
     {
       "en": "How to implement immutable audit trails for AI model versions in regulatory compliant all-flash storage environments?",
       "zh": "如何在符合监管要求的全闪存存储环境中实施 AI 模型版本的不可变审计追踪？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-06T15:59:11"
+      "added_at": "2026-07-06T15:59:11",
+      "done_at": "2026-07-07T08:00:16"
     },
     {
       "en": "Does external Key Management Service integration add measurable latency to real-time AI inference read operations?",
@@ -663,7 +666,47 @@
       "status": "new",
       "source": "llm",
       "added_at": "2026-07-07T04:33:36"
+    },
+    {
+      "en": "What are the implications of storage I/O queue depth saturation on GPU utilization rates during peak batch training iterations?",
+      "zh": "存储 I/O 队列深度饱和对峰值批次训练迭代期间的 GPU 利用率有何影响？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-07T07:58:18"
+    },
+    {
+      "en": "What are the security benefits of using hardware-trusted root-of-trust modules in all-flash storage appliances for enterprise AI data protection?",
+      "zh": "在企业 AI 数据保护中，在所有闪存储一体机中使用硬件信任根模块有哪些安全优势？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-07T07:58:18"
+    },
+    {
+      "en": "How does the power delivery efficiency of 48V DC storage racks compare to standard AC power configurations in modern AI data centers?",
+      "zh": "在现代 AI 数据中心中，48V 直流存储机架的供电效率与标准交流电源配置相比如何？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-07T07:58:18"
+    },
+    {
+      "en": "What is the optimal number of storage controller nodes required to maintain availability during a single node failure in a large-scale AI cluster?",
+      "zh": "在大规模 AI 集群中，单节点故障期间保持高可用性所需的最优存储控制器节点数量是多少？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-07T07:58:18"
+    },
+    {
+      "en": "How does the adoption of PCIe Gen5 interfaces change the expected lifespan of all-flash storage components compared to Gen4 in high-write AI workloads?",
+      "zh": "在高写入 AI 工作负载中，采用 PCIe Gen5 接口相较于 Gen4 如何改变全闪存储组件的预期使用寿命？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-07T07:58:18"
     }
   ],
-  "updated_at": "2026-07-07T04:35:43"
+  "updated_at": "2026-07-07T08:00:16"
 }

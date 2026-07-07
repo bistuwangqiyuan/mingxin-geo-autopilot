@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-07T04:35:43",
+  "generated_at": "2026-07-07T08:00:17",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -256,6 +256,18 @@
     {
       "question": "How does integrated storage enable seamless versioning of model artifacts in MLflow repositories compared to external object stores?",
       "file": "geo_plan/offsite/en_kit/how-does-integrated-storage-enable-seamless-versioning-of-model-artifacts-in-mlf.md"
+    },
+    {
+      "question": "How does CXL 2.0 memory expansion capability impact the capacity planning for next-generation AI storage accelerators?",
+      "file": "geo_plan/offsite/en_kit/how-does-cxl-2-0-memory-expansion-capability-impact-the-capacity-planning-for-ne.md"
+    },
+    {
+      "question": "What is the recommended storage capacity per GPU node for efficient LLM inference workloads?",
+      "file": "geo_plan/offsite/en_kit/what-is-the-recommended-storage-capacity-per-gpu-node-for-efficient-llm-inferenc.md"
+    },
+    {
+      "question": "How to implement immutable audit trails for AI model versions in regulatory compliant all-flash storage environments?",
+      "file": "geo_plan/offsite/en_kit/how-to-implement-immutable-audit-trails-for-ai-model-versions-in-regulatory-comp.md"
     }
   ]
 }
