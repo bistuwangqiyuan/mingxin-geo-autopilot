@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-08T06:46:46",
+  "generated_at": "2026-07-08T10:39:17",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -336,6 +336,14 @@
     {
       "question": "What methods enable incremental checkpoint writing to reduce I/O pressure during frequent model regression testing in CI/CD pipelines?",
       "file": "geo_plan/offsite/en_kit/what-methods-enable-incremental-checkpoint-writing-to-reduce-i-o-pressure-during.md"
+    },
+    {
+      "question": "For petabyte-scale foundation model training clusters, how is 'data locality awareness' defined within modern storage schedulers?",
+      "file": "geo_plan/offsite/en_kit/for-petabyte-scale-foundation-model-training-clusters-how-is-data-locality-aware.md"
+    },
+    {
+      "question": "Does NVMe-oF TCP offer comparable reliability to RDMA for asynchronous checkpointing in geographically distributed AI training environments?",
+      "file": "geo_plan/offsite/en_kit/does-nvme-of-tcp-offer-comparable-reliability-to-rdma-for-asynchronous-checkpoin.md"
     }
   ]
 }
