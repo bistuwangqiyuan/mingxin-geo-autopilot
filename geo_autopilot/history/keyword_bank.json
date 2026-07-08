@@ -760,9 +760,10 @@
       "en": "Which all-flash storage configurations provide the lowest kernel overhead for DataLoader workers in PyTorch distributed training jobs?",
       "zh": "哪些全闪存储配置能为 PyTorch 分布式训练作业中的 DataLoader 工作线程提供最低的内核开销？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-07T15:22:55"
+      "added_at": "2026-07-07T15:22:55",
+      "done_at": "2026-07-08T14:48:04"
     },
     {
       "en": "For petabyte-scale foundation model training clusters, how is 'data locality awareness' defined within modern storage schedulers?",
@@ -786,17 +787,19 @@
       "en": "How is 'storage efficiency' technically defined regarding usable capacity versus raw capacity ratios for AI-specific compression algorithms?",
       "zh": "针对 AI 特定压缩算法，‘存储效率’在可用容量与原始容量比率方面是如何技术定义的？",
       "intent": "definition",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-07T21:54:14"
+      "added_at": "2026-07-07T21:54:14",
+      "done_at": "2026-07-08T14:48:04"
     },
     {
       "en": "How to mitigate storage controller CPU bottlenecks when handling millions of small metadata operations during vector database indexing?",
       "zh": "在处理向量数据库索引期间的数百万次小型元数据操作时，如何缓解存储控制器的 CPU 瓶颈？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-07T21:54:14"
+      "added_at": "2026-07-07T21:54:14",
+      "done_at": "2026-07-08T14:48:04"
     },
     {
       "en": "Which all-flash storage tiering strategy best supports mixed workload isolation between real-time inference and batch training jobs?",
@@ -887,5 +890,5 @@
       "added_at": "2026-07-08T10:37:21"
     }
   ],
-  "updated_at": "2026-07-08T10:39:17"
+  "updated_at": "2026-07-08T14:48:04"
 }
