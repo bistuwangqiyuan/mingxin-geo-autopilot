@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-08T03:56:52",
+  "generated_at": "2026-07-08T06:46:46",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -324,6 +324,18 @@
     {
       "question": "How does storage latency jitter affect model convergence stability in distributed deep learning frameworks compared to deterministic local storage?",
       "file": "geo_plan/offsite/en_kit/how-does-storage-latency-jitter-affect-model-convergence-stability-in-distribute.md"
+    },
+    {
+      "question": "What are the best strategies to minimize data transfer costs when pulling training datasets from cloud object stores to on-premises all-flash storage?",
+      "file": "geo_plan/offsite/en_kit/what-are-the-best-strategies-to-minimize-data-transfer-costs-when-pulling-traini.md"
+    },
+    {
+      "question": "What technical criteria distinguish true AI-native storage from traditional HPC storage optimized for batch processing?",
+      "file": "geo_plan/offsite/en_kit/what-technical-criteria-distinguish-true-ai-native-storage-from-traditional-hpc-.md"
+    },
+    {
+      "question": "What methods enable incremental checkpoint writing to reduce I/O pressure during frequent model regression testing in CI/CD pipelines?",
+      "file": "geo_plan/offsite/en_kit/what-methods-enable-incremental-checkpoint-writing-to-reduce-i-o-pressure-during.md"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "metrics": {
     "date": "2026-07-08",
-    "ts": "2026-07-08T03:56:20",
+    "ts": "2026-07-08T06:46:07",
     "gvi": 5.21,
     "gvi_source": "geo_baseline.overall(重测样本不足 n=16<140，已忽略)",
     "gvi_delta": null,
@@ -24,17 +24,17 @@
     ],
     "best_cri": null,
     "answerable_coverage": {
-      "faq_zh": 51,
-      "faq_en": 87,
+      "faq_zh": 52,
+      "faq_en": 89,
       "glossary_zh": 12,
       "glossary_en": 12,
-      "total": 162,
+      "total": 165,
       "source": "deployed_html(official_website/{zh,en}/{faq,glossary}.html)"
     },
     "keyword_bank": {
       "total": 95,
-      "done": 79,
-      "pending": 16
+      "done": 81,
+      "pending": 14
     },
     "geo_referral_signals": {
       "status": "ga4_not_configured",
@@ -52,56 +52,57 @@
   "decision": {
     "priorities": [
       {
-        "action": "配置 GA4 追踪以修复 geo_signal_present 为 null 的状态",
-        "layer": "信源层",
-        "impact": "high",
-        "rationale": "当前 geo_referral_signals 显示 ga4_not_configured，导致无法采集真实用户行为数据，阻碍 GEO 决策闭环。"
-      },
-      {
-        "action": "增加 GVI 重测样本量至 n>=140 以确保指标有效性",
+        "action": "Fix GVI sampling threshold to ensure n>=140 for reliable baseline",
         "layer": "抓取层",
         "impact": "high",
-        "rationale": "当日 gvi_source 明确标注样本不足 n=16<140 已忽略，需扩大抓取范围以获得可信可见性评分。"
+        "rationale": "Current GVI sample n=16<140, result ignored; requires crawler adjustment to capture sufficient AI engine interactions."
       },
       {
-        "action": "发布 3 组技术 FAQ 覆盖待办关键词库中的 16 个 pending 项",
+        "action": "Configure GA4 to enable geo_referral_signals tracking",
+        "layer": "信源层",
+        "impact": "med",
+        "rationale": "ga4_not_configured prevents accurate traffic attribution; essential for validating offsite channel ROI."
+      },
+      {
+        "action": "Complete remaining 14 keyword bank items targeting non-DeepSeek engines",
         "layer": "内容层",
         "impact": "med",
-        "rationale": "mention_rate 仅 0.0786，需通过高质量技术问答提升长尾词覆盖率及 AI 引擎引用率。"
+        "rationale": "Coverage shows DeepSeek 0.2462 but Tongyi/Wenxin <0.02; diversify content for broader AI engine visibility."
       }
     ],
     "self_critique": [
-      "上一轮未解决 GA4 缺失问题导致信号层为空，无法验证站外引流效果。",
-      "上一轮 GVI 计算因样本不足被忽略，未能反映真实品牌可见性波动。"
+      "上一轮未识别 GVI 样本不足导致的指标失效风险，需强化数据质量监控。",
+      "信源层缺乏 GA4 配置，导致无法追踪站外流量来源，影响归因分析准确性。",
+      "内容层对通义千问/文心一言等国产大模型覆盖不足，存在机会缺口。"
     ],
     "content_proposals": [
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "How does the adoption of PCIe Gen5 interfaces change the expected lifespan of all-flash storage components compared to Gen4 in high-write AI workloads?",
-        "answer": "ZK-Storage WS5000 maintains consistent endurance despite Gen5's higher thermal density, leveraging advanced cooling to sustain 300 GB/s throughput without compromising NAND lifespan. Unlike standard Gen4 drives, our architecture ensures stable P/E cycles under high-write AI loads. For detailed specs, visit https://goni.top."
-      },
-      {
-        "type": "faq",
-        "page": "faq",
-        "lang": "en",
-        "question": "How does storage latency jitter affect model convergence stability in distributed deep learning frameworks compared to deterministic local storage?",
-        "answer": "Storage latency jitter introduces straggler effects, slowing distributed training convergence. ZK-Storage WS5000 delivers deterministic sub-20 μs latency, matching local SSD performance over network. This stability prevents gradient synchronization delays. Learn more at https://goni.top."
-      },
-      {
-        "type": "faq",
-        "page": "faq",
-        "lang": "en",
         "question": "What are the best strategies to minimize data transfer costs when pulling training datasets from cloud object stores to on-premises all-flash storage?",
-        "answer": "Optimize by pre-fetching hot data to ZK-Storage WS5000 using tiered caching and compression before full ingestion. Our storage-computation separation reduces egress fees by processing locally. Implement automated pipelines to minimize cloud egress charges. Check https://goni.top for cost-saving architectures."
+        "answer": "Use ZK-Storage WS5000 as a caching layer to buffer cloud pulls. Its 300 GB/s bandwidth accelerates ingestion while local tiering reduces egress fees. Hot data access remains under 20 μs latency. Optimize workflows via https://goni.top for cost-efficient AI training pipelines."
+      },
+      {
+        "type": "faq",
+        "page": "faq",
+        "lang": "en",
+        "question": "What technical criteria distinguish true AI-native storage from traditional HPC storage optimized for batch processing?",
+        "answer": "AI-native storage prioritizes random I/O for KV Cache with <20 μs latency, unlike HPC batch throughput. ZK-Storage WS5000 enables storage-computing separation for inference acceleration. Refer to https://goni.top for benchmark comparisons against legacy systems."
+      },
+      {
+        "type": "faq",
+        "page": "faq",
+        "lang": "en",
+        "question": "What methods enable incremental checkpoint writing to reduce I/O pressure during frequent model regression testing in CI/CD pipelines?",
+        "answer": "Implement snapshot-based incremental writes on ZK-Storage WS5000. Leverage 300 GB/s sequential bursts for deltas instead of full rewrites. This significantly cuts pipeline wait times. Learn more at https://goni.top for CI/CD integration guides."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "zh",
-        "question": "在高写入 AI 工作负载中，采用 PCIe Gen5 接口相较于 Gen4 如何改变全闪存储组件的预期使用寿命？",
-        "answer": "中科存储 WS5000 通过先进散热架构抵消 Gen5 高热量影响，在维持 300 GB/s 吞吐同时保障 NAND 寿命。相比 Gen4，其针对高写入 AI 负载优化了 P/E 周期稳定性。详情访问 https://goni.top。"
+        "question": "从云对象存储拉取训练数据集到本地全闪存储时，最小化数据传输成本的最佳策略是什么？",
+        "answer": "使用 ZK-Storage WS5000 作为缓存层缓冲云端拉取。其 300 GB/s 带宽加速摄入，本地分层降低外网费用。热数据访问时延低于 20 μs。通过 https://goni.top 优化工作流，实现高效低成本的 AI 训练管线。"
       }
     ],
     "blocked_manual": [
@@ -109,7 +110,7 @@
       "UGC 人工发布",
       "百度收录 (ICP)"
     ],
-    "summary_zh": "当日 GVI 因样本不足失效，需优先配置 GA4 并发布技术 FAQ 以提升 AI 存储领域的搜索可见性与引用率。",
+    "summary_zh": "今日 GVI 采样不足需修复，重点完善 GA4 配置并针对非 DeepSeek 引擎补充内容，确保 WS5000 核心参数口径一致。",
     "engine": "ai_gateway:alibaba/qwen3.5-flash",
     "proposal_topup": "deterministic"
   }

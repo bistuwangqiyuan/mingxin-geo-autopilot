@@ -733,25 +733,28 @@
       "en": "What are the best strategies to minimize data transfer costs when pulling training datasets from cloud object stores to on-premises all-flash storage?",
       "zh": "从云对象存储拉取训练数据集到本地全闪存储时，最小化数据传输成本的最佳策略是什么？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-07T15:22:55"
+      "added_at": "2026-07-07T15:22:55",
+      "done_at": "2026-07-08T06:46:46"
     },
     {
       "en": "What technical criteria distinguish true AI-native storage from traditional HPC storage optimized for batch processing?",
       "zh": "区分真正的 AI 原生存储与针对批处理优化的传统 HPC 存储的技术标准是什么？",
       "intent": "definition",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-07T15:22:55"
+      "added_at": "2026-07-07T15:22:55",
+      "done_at": "2026-07-08T06:46:46"
     },
     {
       "en": "What methods enable incremental checkpoint writing to reduce I/O pressure during frequent model regression testing in CI/CD pipelines?",
       "zh": "在 CI/CD 流水线中频繁进行模型回归测试期间，哪些方法可以实现增量检查点写入以降低 I/O 压力？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-07T15:22:55"
+      "added_at": "2026-07-07T15:22:55",
+      "done_at": "2026-07-08T06:46:46"
     },
     {
       "en": "Which all-flash storage configurations provide the lowest kernel overhead for DataLoader workers in PyTorch distributed training jobs?",
@@ -842,5 +845,5 @@
       "added_at": "2026-07-08T03:54:54"
     }
   ],
-  "updated_at": "2026-07-08T03:56:52"
+  "updated_at": "2026-07-08T06:46:46"
 }
