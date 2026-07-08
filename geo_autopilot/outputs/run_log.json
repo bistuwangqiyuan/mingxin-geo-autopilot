@@ -1,7 +1,7 @@
 {
   "mode": "ci",
-  "started": "2026-07-08T17:56:35",
-  "elapsed": 162.3,
+  "started": "2026-07-08T21:41:49",
+  "elapsed": 121.6,
   "paths": {
     "ROOT": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot",
     "GEO_PLAN": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_plan",
@@ -20,23 +20,23 @@
     {
       "name": "geo_autopilot/keyword_miner.py",
       "ok": true,
-      "note": "  + [comparison] Which file system protocols provide the most efficient path for mixed text and binary asset loading in multimodal foundation model training?",
+      "note": "[keyword_miner] source=skipped_backpressure added=0 bank_total=105 pending=14",
       "critical": false,
-      "elapsed": 39.3
+      "elapsed": 0.0
     },
     {
       "name": "seo_geo_loop/gvi_measure.py --force --limit 4",
       "ok": true,
       "note": "写出：/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/gvi_compare.json",
       "critical": false,
-      "elapsed": 72.7
+      "elapsed": 70.0
     },
     {
       "name": "geo_autopilot/geo_brain.py",
       "ok": true,
       "note": "  priorities=3 proposals=4",
       "critical": false,
-      "elapsed": 35.2
+      "elapsed": 33.8
     },
     {
       "name": "geo_autopilot/apply_proposals.py",
@@ -62,7 +62,7 @@
     {
       "name": "seo_geo_loop/make_geo_kit_en.py",
       "ok": true,
-      "note": "[geo_kit_en] 生成 91 个成品包 -> /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_plan/offsite/en_kit",
+      "note": "[geo_kit_en] 生成 94 个成品包 -> /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_plan/offsite/en_kit",
       "critical": false,
       "elapsed": 0.0
     },
@@ -71,21 +71,21 @@
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 1.2
+      "elapsed": 2.2
     },
     {
       "name": "geo_plan/geo_scoring.py",
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 1.6
+      "elapsed": 1.5
     },
     {
       "name": "seo_geo_loop/indexnow_submit.py",
       "ok": true,
-      "note": "[OK] 148 URLs; written /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/indexnow_submit.json",
+      "note": "[OK] 150 URLs; written /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/indexnow_submit.json",
       "critical": false,
-      "elapsed": 5.2
+      "elapsed": 5.7
     },
     {
       "name": "seo_geo_loop/live_audit.py",
@@ -111,21 +111,21 @@
     {
       "name": "git -C official_website status --porcelain",
       "ok": true,
-      "note": "M  zh/faq.html",
+      "note": "M  sitemap.xml",
       "critical": false,
       "elapsed": null
     },
     {
       "name": "git -C official_website commit -m",
       "ok": true,
-      "note": " 6 files changed, 38 insertions(+), 30 deletions(-)",
+      "note": " 5 files changed, 34 insertions(+), 28 deletions(-)",
       "critical": false,
       "elapsed": null
     },
     {
       "name": "git -C official_website push origin",
       "ok": true,
-      "note": "   40e6cbf..d93f4d6  HEAD -> main",
+      "note": "   33fdcc9..ea265c8  HEAD -> main",
       "critical": false,
       "elapsed": null
     },
@@ -153,14 +153,14 @@
     {
       "name": "git -C offsite_github commit -m",
       "ok": true,
-      "note": " create mode 100644 docs/articles/what-storage-throughput-thresholds-are-necessary-to-sustain-real-time-video-inge.html",
+      "note": " create mode 100644 docs/articles/which-all-flash-storage-tiering-strategy-best-supports-mixed-workload-isolation-.html",
       "critical": false,
       "elapsed": null
     },
     {
       "name": "git -C offsite_github push origin",
       "ok": true,
-      "note": "   9efd6a6..305dac9  HEAD -> main",
+      "note": "   305dac9..1735a5b  HEAD -> main",
       "critical": false,
       "elapsed": null
     },
@@ -176,14 +176,14 @@
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": true,
-      "elapsed": 1.1
+      "elapsed": 1.0
     },
     {
       "name": "geo_autopilot/export_daily_pdf.py",
       "ok": true,
-      "note": "Saved: /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_autopilot/reports/中科存储-GEO自动驾驶日报-2026-07-08.pdf  (0.92 MB)",
+      "note": "Saved: /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_autopilot/reports/中科存储-GEO自动驾驶日报-2026-07-08.pdf  (0.94 MB)",
       "critical": false,
-      "elapsed": 1.7
+      "elapsed": 3.0
     },
     {
       "name": "geo_autopilot/alerting.py",

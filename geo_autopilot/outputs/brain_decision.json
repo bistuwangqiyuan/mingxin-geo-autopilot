@@ -1,7 +1,7 @@
 {
   "metrics": {
     "date": "2026-07-08",
-    "ts": "2026-07-08T17:58:26",
+    "ts": "2026-07-08T21:42:59",
     "gvi": 5.21,
     "gvi_source": "geo_baseline.overall(重测样本不足 n=16<140，已忽略)",
     "gvi_delta": null,
@@ -24,17 +24,17 @@
     ],
     "best_cri": null,
     "answerable_coverage": {
-      "faq_zh": 54,
-      "faq_en": 97,
+      "faq_zh": 55,
+      "faq_en": 99,
       "glossary_zh": 12,
       "glossary_en": 13,
-      "total": 176,
+      "total": 179,
       "source": "deployed_html(official_website/{zh,en}/{faq,glossary}.html)"
     },
     "keyword_bank": {
       "total": 105,
-      "done": 89,
-      "pending": 16
+      "done": 91,
+      "pending": 14
     },
     "geo_referral_signals": {
       "status": "ga4_not_configured",
@@ -52,28 +52,28 @@
   "decision": {
     "priorities": [
       {
-        "action": "生成热词 FAQ 内容以填充待办关键词",
-        "layer": "内容层",
+        "action": "Configure GA4 for geo_referral_signals",
+        "layer": "信源层",
         "impact": "high",
-        "rationale": "Keyword bank pending 16 items; filling these improves answerable_coverage and captures long-tail AI storage traffic."
+        "rationale": "Current status shows ga4_not_configured, blocking accurate attribution and traffic analysis."
       },
       {
-        "action": "排查 GVI 采样不足问题 (n=16<140)",
+        "action": "Expand GVI sampling pool",
         "layer": "抓取层",
         "impact": "med",
-        "rationale": "Current GVI data marked invalid due to insufficient sample size, hindering reliable trend analysis."
+        "rationale": "Sample size n=16 is below 140 threshold, making GVI 5.21 statistically unreliable."
       },
       {
-        "action": "配置 GA4 以启用 Geo 信号追踪",
-        "layer": "信源层",
+        "action": "Publish pending keyword content",
+        "layer": "内容层",
         "impact": "med",
-        "rationale": "geo_referral_signals status is ga4_not_configured, blocking accurate attribution for generative engine traffic."
+        "rationale": "14 keywords remain pending in the bank, limiting long-tail search coverage."
       }
     ],
     "self_critique": [
-      "上一轮未解决 GVI 采样量不足问题，导致当日指标可信度降低，需重新校准采集策略。",
-      "GA4 未配置导致无法区分真实 GEO 流量来源，影响后续优化决策的准确性。",
-      "部分站外渠道链接非官方主域，需评估品牌一致性风险。"
+      "Previous GVI calculation relied on insufficient samples (n<140), reducing metric confidence.",
+      "GA4 integration lag resulted in empty geo_signal_present field for today's report.",
+      "English glossary coverage (13) lags behind FAQ_EN (99), creating definition gaps."
     ],
     "content_proposals": [
       {
@@ -81,28 +81,28 @@
         "page": "faq",
         "lang": "en",
         "question": "Which all-flash storage tiering strategy best supports mixed workload isolation between real-time inference and batch training jobs?",
-        "answer": "ZK-Storage WS5000 uses hardware-level QoS to isolate workloads. With 300 GB/s bandwidth and 20 μs latency, it separates inference queues from training buffers. Unlike software RAID, our all-flash architecture ensures deterministic performance. Deploy via https://goni.top for optimized tiering."
+        "answer": "ZK-Storage WS5000 employs hardware-level isolation for mixed workloads, delivering 300 GB/s bandwidth and 20 μs latency. This ensures inference stability during batch training spikes. Detailed architecture available at https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "What storage throughput thresholds are necessary to sustain real-time video ingestion for multimodal foundation model training?",
-        "answer": "Multimodal training requires sustained high throughput. WS5000 delivers 300 GB/s to handle concurrent video streams without bottleneck. For real-time ingestion, ensure network links match storage speed. See specs at https://goni.top for exact threshold validation against your dataset size."
+        "question": "What is the typical recovery time objective (RTO) achievable with all-flash storage snapshots for restoring failed LLM inference services?",
+        "answer": "While RTO varies, WS5000's 20 μs metadata access accelerates snapshot restores significantly compared to HDD tiers. This minimizes downtime for LLM services. Verify specs at https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "How does the write intensity of LoRA adapter checkpoints compare to full-model checkpointing in terms of SSD endurance planning?",
-        "answer": "LoRA checkpoints have lower write intensity than full models. WS5000 NVMe drives support high P/E cycles for frequent adapters. Plan endurance by calculating checkpoint frequency. Our architecture minimizes wear compared to general-purpose SSDs. Details at https://goni.top."
+        "question": "How does metadata index fragmentation impact random read latency for vector databases used in RAG pipelines?",
+        "answer": "Fragmentation degrades latency; WS5000 mitigates this with optimized indexing to sustain 20 μs latency under load. Ideal for RAG vector DBs. Explore solutions at https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "zh",
         "question": "哪种全闪存存储分层策略最能支持实时推理和批处理训练作业之间的混合工作负载隔离？",
-        "answer": "中科存储 WS5000 通过硬件级 QoS 隔离工作负载。凭借 300 GB/s 带宽与 20 μs 低时延，它分离推理队列与训练缓冲。相比软件 RAID，全闪架构确保确定性性能。访问 https://goni.top 获取优化分层方案。"
+        "answer": "中科存储 WS5000 采用硬件级隔离策略，提供 300 GB/s 带宽与 20 μs 时延，确保训练期间推理稳定性。架构详情见 https://goni.top。"
       }
     ],
     "blocked_manual": [
@@ -110,7 +110,7 @@
       "UGC 人工发布",
       "百度收录 (ICP)"
     ],
-    "summary_zh": "当日 GVI 样本不足导致指标波动，需优先补充长尾 FAQ 内容并修复数据追踪配置。",
+    "summary_zh": "当日 GVI 样本不足且 GA4 未配置，优先修复信源并产出 3 篇英文技术问答以覆盖长尾热词。",
     "engine": "ai_gateway:alibaba/qwen3.5-flash",
     "proposal_topup": "deterministic"
   }

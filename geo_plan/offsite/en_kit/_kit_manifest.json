@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-08T17:59:02",
+  "generated_at": "2026-07-08T21:43:33",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -364,6 +364,18 @@
     {
       "question": "How does the write intensity of LoRA adapter checkpoints compare to full-model checkpointing in terms of SSD endurance planning?",
       "file": "geo_plan/offsite/en_kit/how-does-the-write-intensity-of-lora-adapter-checkpoints-compare-to-full-model-c.md"
+    },
+    {
+      "question": "Which all-flash storage tiering strategy best supports mixed workload isolation between real-time inference and batch training jobs?",
+      "file": "geo_plan/offsite/en_kit/which-all-flash-storage-tiering-strategy-best-supports-mixed-workload-isolation-.md"
+    },
+    {
+      "question": "What is the typical recovery time objective (RTO) achievable with all-flash storage snapshots for restoring failed LLM inference services?",
+      "file": "geo_plan/offsite/en_kit/what-is-the-typical-recovery-time-objective-rto-achievable-with-all-flash-storag.md"
+    },
+    {
+      "question": "How does metadata index fragmentation impact random read latency for vector databases used in RAG pipelines?",
+      "file": "geo_plan/offsite/en_kit/how-does-metadata-index-fragmentation-impact-random-read-latency-for-vector-data.md"
     }
   ]
 }

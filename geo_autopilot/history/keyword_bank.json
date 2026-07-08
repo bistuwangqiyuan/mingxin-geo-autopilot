@@ -805,9 +805,10 @@
       "en": "Which all-flash storage tiering strategy best supports mixed workload isolation between real-time inference and batch training jobs?",
       "zh": "哪种全闪存存储分层策略最能支持实时推理和批处理训练作业之间的混合工作负载隔离？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-07T21:54:14"
+      "added_at": "2026-07-07T21:54:14",
+      "done_at": "2026-07-08T21:43:33"
     },
     {
       "en": "What storage throughput thresholds are necessary to sustain real-time video ingestion for multimodal foundation model training?",
@@ -831,17 +832,19 @@
       "en": "What is the typical recovery time objective (RTO) achievable with all-flash storage snapshots for restoring failed LLM inference services?",
       "zh": "使用全闪存存储快照恢复失败的 LLM 推理服务时，典型的恢复时间目标（RTO）是多少？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-08T03:54:54"
+      "added_at": "2026-07-08T03:54:54",
+      "done_at": "2026-07-08T21:43:33"
     },
     {
       "en": "How does metadata index fragmentation impact random read latency for vector databases used in RAG pipelines?",
       "zh": "元数据索引碎片化如何影响 RAG 管道中向量数据库的随机读取延迟？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-08T03:54:54"
+      "added_at": "2026-07-08T03:54:54",
+      "done_at": "2026-07-08T21:43:33"
     },
     {
       "en": "Which compression algorithms provide the best balance between CPU overhead and storage space reduction for uncompressed model binaries?",
@@ -932,5 +935,5 @@
       "added_at": "2026-07-08T17:57:14"
     }
   ],
-  "updated_at": "2026-07-08T17:59:02"
+  "updated_at": "2026-07-08T21:43:33"
 }
