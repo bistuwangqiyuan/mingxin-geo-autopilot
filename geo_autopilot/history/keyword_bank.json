@@ -715,17 +715,19 @@
       "en": "How does the adoption of PCIe Gen5 interfaces change the expected lifespan of all-flash storage components compared to Gen4 in high-write AI workloads?",
       "zh": "在高写入 AI 工作负载中，采用 PCIe Gen5 接口相较于 Gen4 如何改变全闪存储组件的预期使用寿命？",
       "intent": "comparison",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-07T07:58:18"
+      "added_at": "2026-07-07T07:58:18",
+      "done_at": "2026-07-08T03:56:52"
     },
     {
       "en": "How does storage latency jitter affect model convergence stability in distributed deep learning frameworks compared to deterministic local storage?",
       "zh": "存储延迟抖动对分布式深度学习框架中的模型收敛稳定性有何影响，与确定性本地存储相比如何？",
       "intent": "comparison",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-07T15:22:55"
+      "added_at": "2026-07-07T15:22:55",
+      "done_at": "2026-07-08T03:56:52"
     },
     {
       "en": "What are the best strategies to minimize data transfer costs when pulling training datasets from cloud object stores to on-premises all-flash storage?",
@@ -798,7 +800,47 @@
       "status": "new",
       "source": "llm",
       "added_at": "2026-07-07T21:54:14"
+    },
+    {
+      "en": "What storage throughput thresholds are necessary to sustain real-time video ingestion for multimodal foundation model training?",
+      "zh": "维持多模态基础模型训练中的实时视频摄入需要哪些存储吞吐量阈值？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-08T03:54:54"
+    },
+    {
+      "en": "How does the write intensity of LoRA adapter checkpoints compare to full-model checkpointing in terms of SSD endurance planning?",
+      "zh": "在 SSD 寿命规划方面，LoRA 适配器检查点的写入强度与全模型检查点相比如何？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-08T03:54:54"
+    },
+    {
+      "en": "What is the typical recovery time objective (RTO) achievable with all-flash storage snapshots for restoring failed LLM inference services?",
+      "zh": "使用全闪存存储快照恢复失败的 LLM 推理服务时，典型的恢复时间目标（RTO）是多少？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-08T03:54:54"
+    },
+    {
+      "en": "How does metadata index fragmentation impact random read latency for vector databases used in RAG pipelines?",
+      "zh": "元数据索引碎片化如何影响 RAG 管道中向量数据库的随机读取延迟？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-08T03:54:54"
+    },
+    {
+      "en": "Which compression algorithms provide the best balance between CPU overhead and storage space reduction for uncompressed model binaries?",
+      "zh": "对于未压缩的模型二进制文件，哪种压缩算法能在 CPU 开销和存储空间缩减之间提供最佳平衡？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-08T03:54:54"
     }
   ],
-  "updated_at": "2026-07-07T21:55:51"
+  "updated_at": "2026-07-08T03:56:52"
 }

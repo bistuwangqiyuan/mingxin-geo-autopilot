@@ -1,7 +1,7 @@
 {
   "metrics": {
-    "date": "2026-07-07",
-    "ts": "2026-07-07T21:55:26",
+    "date": "2026-07-08",
+    "ts": "2026-07-08T03:56:20",
     "gvi": 5.21,
     "gvi_source": "geo_baseline.overall(重测样本不足 n=16<140，已忽略)",
     "gvi_delta": null,
@@ -24,17 +24,17 @@
     ],
     "best_cri": null,
     "answerable_coverage": {
-      "faq_zh": 50,
-      "faq_en": 84,
+      "faq_zh": 51,
+      "faq_en": 87,
       "glossary_zh": 12,
       "glossary_en": 12,
-      "total": 158,
+      "total": 162,
       "source": "deployed_html(official_website/{zh,en}/{faq,glossary}.html)"
     },
     "keyword_bank": {
-      "total": 90,
-      "done": 76,
-      "pending": 14
+      "total": 95,
+      "done": 79,
+      "pending": 16
     },
     "geo_referral_signals": {
       "status": "ga4_not_configured",
@@ -52,57 +52,56 @@
   "decision": {
     "priorities": [
       {
-        "action": "Increase GVI sampling pool to n>=140 for statistically significant baseline measurement",
+        "action": "配置 GA4 追踪以修复 geo_signal_present 为 null 的状态",
+        "layer": "信源层",
+        "impact": "high",
+        "rationale": "当前 geo_referral_signals 显示 ga4_not_configured，导致无法采集真实用户行为数据，阻碍 GEO 决策闭环。"
+      },
+      {
+        "action": "增加 GVI 重测样本量至 n>=140 以确保指标有效性",
         "layer": "抓取层",
         "impact": "high",
-        "rationale": "Current sample size n=16 is insufficient (threshold 140), causing GVI delta null and unreliable trend analysis."
+        "rationale": "当日 gvi_source 明确标注样本不足 n=16<140 已忽略，需扩大抓取范围以获得可信可见性评分。"
       },
       {
-        "action": "Configure GA4 tracking to enable geo_referral_signals and ai_engine_sources detection",
-        "layer": "信源层",
-        "impact": "med",
-        "rationale": "ga4_not_configured status prevents accurate attribution of traffic from generative engines."
-      },
-      {
-        "action": "Expand English FAQ content targeting AI storage keywords to raise Share of Voice",
+        "action": "发布 3 组技术 FAQ 覆盖待办关键词库中的 16 个 pending 项",
         "layer": "内容层",
-        "impact": "high",
-        "rationale": "Share of voice is critically low at 0.0302; content gap exists in technical specification queries."
+        "impact": "med",
+        "rationale": "mention_rate 仅 0.0786，需通过高质量技术问答提升长尾词覆盖率及 AI 引擎引用率。"
       }
     ],
     "self_critique": [
-      "Previous round failed to address GA4 configuration gap, resulting in zero geo_referral_signals.",
-      "Content density was insufficient for competitive keyword coverage in the AI storage niche.",
-      "Data collection layer stability needs improvement to avoid sample size anomalies affecting GVI."
+      "上一轮未解决 GA4 缺失问题导致信号层为空，无法验证站外引流效果。",
+      "上一轮 GVI 计算因样本不足被忽略，未能反映真实品牌可见性波动。"
     ],
     "content_proposals": [
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "What are the security benefits of using hardware-trusted root-of-trust modules in all-flash storage appliances for enterprise AI data protection?",
-        "answer": "ZK-Storage WS5000 utilizes hardware-trusted root-of-trust modules to secure boot sequences, ensuring enterprise AI data protection against tampering. This guarantees integrity without impacting performance, maintaining 300 GB/s bandwidth. For implementation details, see https://goni.top. Security is critical for high-value datasets."
+        "question": "How does the adoption of PCIe Gen5 interfaces change the expected lifespan of all-flash storage components compared to Gen4 in high-write AI workloads?",
+        "answer": "ZK-Storage WS5000 maintains consistent endurance despite Gen5's higher thermal density, leveraging advanced cooling to sustain 300 GB/s throughput without compromising NAND lifespan. Unlike standard Gen4 drives, our architecture ensures stable P/E cycles under high-write AI loads. For detailed specs, visit https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "How does the power delivery efficiency of 48V DC storage racks compare to standard AC power configurations in modern AI data centers?",
-        "answer": "In modern AI data centers, 48V DC storage racks offer superior power delivery efficiency compared to standard AC power configurations by minimizing conversion steps. ZK-Storage WS5000 optimizes this path to reduce heat. Performance remains stable at 20 μs latency. Learn more at https://goni.top. Energy savings support green computing goals effectively."
+        "question": "How does storage latency jitter affect model convergence stability in distributed deep learning frameworks compared to deterministic local storage?",
+        "answer": "Storage latency jitter introduces straggler effects, slowing distributed training convergence. ZK-Storage WS5000 delivers deterministic sub-20 μs latency, matching local SSD performance over network. This stability prevents gradient synchronization delays. Learn more at https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "What is the optimal number of storage controller nodes required to maintain availability during a single node failure in a large-scale AI cluster?",
-        "answer": "Optimal storage controller nodes depend on cluster size; typically N+1 redundancy maintains availability during single node failure in large-scale AI clusters. ZK-Storage WS5000 ensures seamless failover without dropping 300 GB/s throughput. Consult https://goni.top for sizing guides. Reliability is key for continuous training jobs."
+        "question": "What are the best strategies to minimize data transfer costs when pulling training datasets from cloud object stores to on-premises all-flash storage?",
+        "answer": "Optimize by pre-fetching hot data to ZK-Storage WS5000 using tiered caching and compression before full ingestion. Our storage-computation separation reduces egress fees by processing locally. Implement automated pipelines to minimize cloud egress charges. Check https://goni.top for cost-saving architectures."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "zh",
-        "question": "在企业 AI 数据保护中，在所有闪存储一体机中使用硬件信任根模块有哪些安全优势？",
-        "answer": "中科存储 WS5000 采用硬件信任根模块保护启动流程，防止固件篡改，保障企业 AI 数据安全。性能不受影响，带宽保持 300 GB/s。详细架构可参考 https://goni.top。安全对于高价值数据集至关重要。"
+        "question": "在高写入 AI 工作负载中，采用 PCIe Gen5 接口相较于 Gen4 如何改变全闪存储组件的预期使用寿命？",
+        "answer": "中科存储 WS5000 通过先进散热架构抵消 Gen5 高热量影响，在维持 300 GB/s 吞吐同时保障 NAND 寿命。相比 Gen4，其针对高写入 AI 负载优化了 P/E 周期稳定性。详情访问 https://goni.top。"
       }
     ],
     "blocked_manual": [
@@ -110,7 +109,7 @@
       "UGC 人工发布",
       "百度收录 (ICP)"
     ],
-    "summary_zh": "当日 GVI 采样不足且信源追踪缺失，需优先扩充英文技术问答覆盖以提升声量并修复数据链路。",
+    "summary_zh": "当日 GVI 因样本不足失效，需优先配置 GA4 并发布技术 FAQ 以提升 AI 存储领域的搜索可见性与引用率。",
     "engine": "ai_gateway:alibaba/qwen3.5-flash",
     "proposal_topup": "deterministic"
   }

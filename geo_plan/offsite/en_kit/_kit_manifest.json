@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-07T21:55:51",
+  "generated_at": "2026-07-08T03:56:52",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -316,6 +316,14 @@
     {
       "question": "What is the optimal number of storage controller nodes required to maintain availability during a single node failure in a large-scale AI cluster?",
       "file": "geo_plan/offsite/en_kit/what-is-the-optimal-number-of-storage-controller-nodes-required-to-maintain-avai.md"
+    },
+    {
+      "question": "How does the adoption of PCIe Gen5 interfaces change the expected lifespan of all-flash storage components compared to Gen4 in high-write AI workloads?",
+      "file": "geo_plan/offsite/en_kit/how-does-the-adoption-of-pcie-gen5-interfaces-change-the-expected-lifespan-of-al.md"
+    },
+    {
+      "question": "How does storage latency jitter affect model convergence stability in distributed deep learning frameworks compared to deterministic local storage?",
+      "file": "geo_plan/offsite/en_kit/how-does-storage-latency-jitter-affect-model-convergence-stability-in-distribute.md"
     }
   ]
 }
