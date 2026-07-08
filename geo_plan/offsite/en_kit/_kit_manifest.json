@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-08T14:48:04",
+  "generated_at": "2026-07-08T17:59:02",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -356,6 +356,14 @@
     {
       "question": "How to mitigate storage controller CPU bottlenecks when handling millions of small metadata operations during vector database indexing?",
       "file": "geo_plan/offsite/en_kit/how-to-mitigate-storage-controller-cpu-bottlenecks-when-handling-millions-of-sma.md"
+    },
+    {
+      "question": "What storage throughput thresholds are necessary to sustain real-time video ingestion for multimodal foundation model training?",
+      "file": "geo_plan/offsite/en_kit/what-storage-throughput-thresholds-are-necessary-to-sustain-real-time-video-inge.md"
+    },
+    {
+      "question": "How does the write intensity of LoRA adapter checkpoints compare to full-model checkpointing in terms of SSD endurance planning?",
+      "file": "geo_plan/offsite/en_kit/how-does-the-write-intensity-of-lora-adapter-checkpoints-compare-to-full-model-c.md"
     }
   ]
 }

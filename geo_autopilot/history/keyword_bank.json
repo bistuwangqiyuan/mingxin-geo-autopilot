@@ -813,17 +813,19 @@
       "en": "What storage throughput thresholds are necessary to sustain real-time video ingestion for multimodal foundation model training?",
       "zh": "维持多模态基础模型训练中的实时视频摄入需要哪些存储吞吐量阈值？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-08T03:54:54"
+      "added_at": "2026-07-08T03:54:54",
+      "done_at": "2026-07-08T17:59:02"
     },
     {
       "en": "How does the write intensity of LoRA adapter checkpoints compare to full-model checkpointing in terms of SSD endurance planning?",
       "zh": "在 SSD 寿命规划方面，LoRA 适配器检查点的写入强度与全模型检查点相比如何？",
       "intent": "comparison",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-08T03:54:54"
+      "added_at": "2026-07-08T03:54:54",
+      "done_at": "2026-07-08T17:59:02"
     },
     {
       "en": "What is the typical recovery time objective (RTO) achievable with all-flash storage snapshots for restoring failed LLM inference services?",
@@ -888,7 +890,47 @@
       "status": "new",
       "source": "llm",
       "added_at": "2026-07-08T10:37:21"
+    },
+    {
+      "en": "What is the precise technical definition of 'compute-storage affinity' in optimized AI training architectures?",
+      "zh": "什么是优化后的 AI 训练架构中‘计算存储亲和性’的精确技术定义？",
+      "intent": "definition",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-08T17:57:14"
+    },
+    {
+      "en": "How does the CPU overhead of software-defined storage containers compare to bare-metal storage controllers for AI workloads?",
+      "zh": "对于 AI 工作负载，软件定义存储容器的 CPU 开销与裸机存储控制器相比如何？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-08T17:57:14"
+    },
+    {
+      "en": "How to detect silent data corruption in long-term archived training models stored on enterprise all-flash arrays?",
+      "zh": "如何检测企业全闪存阵列中长期归档的训练模型中的静默数据损坏？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-08T17:57:14"
+    },
+    {
+      "en": "What is the recommended host bus adapter configuration for connecting all-flash storage to NVIDIA GH200 Grace-Hopper Superchip clusters?",
+      "zh": "连接全闪存存储到 NVIDIA GH200 Grace-Hopper 超级芯片集群时，推荐的主机总线适配器配置是什么？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-08T17:57:14"
+    },
+    {
+      "en": "Which file system protocols provide the most efficient path for mixed text and binary asset loading in multimodal foundation model training?",
+      "zh": "哪些文件系统协议为多模态基础模型训练中的混合文本和二进制资源加载提供了最高效的路径？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-08T17:57:14"
     }
   ],
-  "updated_at": "2026-07-08T14:48:04"
+  "updated_at": "2026-07-08T17:59:02"
 }
