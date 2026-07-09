@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-09T11:30:06",
+  "generated_at": "2026-07-09T15:42:06",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -408,6 +408,18 @@
     {
       "question": "How to detect silent data corruption in long-term archived training models stored on enterprise all-flash arrays?",
       "file": "geo_plan/offsite/en_kit/how-to-detect-silent-data-corruption-in-long-term-archived-training-models-store.md"
+    },
+    {
+      "question": "How does the CPU overhead of software-defined storage containers compare to bare-metal storage controllers for AI workloads?",
+      "file": "geo_plan/offsite/en_kit/how-does-the-cpu-overhead-of-software-defined-storage-containers-compare-to-bare.md"
+    },
+    {
+      "question": "What is the recommended host bus adapter configuration for connecting all-flash storage to NVIDIA GH200 Grace-Hopper Superchip clusters?",
+      "file": "geo_plan/offsite/en_kit/what-is-the-recommended-host-bus-adapter-configuration-for-connecting-all-flash-.md"
+    },
+    {
+      "question": "Which file system protocols provide the most efficient path for mixed text and binary asset loading in multimodal foundation model training?",
+      "file": "geo_plan/offsite/en_kit/which-file-system-protocols-provide-the-most-efficient-path-for-mixed-text-and-b.md"
     }
   ]
 }

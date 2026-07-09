@@ -913,9 +913,10 @@
       "en": "How does the CPU overhead of software-defined storage containers compare to bare-metal storage controllers for AI workloads?",
       "zh": "对于 AI 工作负载，软件定义存储容器的 CPU 开销与裸机存储控制器相比如何？",
       "intent": "comparison",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-08T17:57:14"
+      "added_at": "2026-07-08T17:57:14",
+      "done_at": "2026-07-09T15:42:06"
     },
     {
       "en": "How to detect silent data corruption in long-term archived training models stored on enterprise all-flash arrays?",
@@ -930,17 +931,19 @@
       "en": "What is the recommended host bus adapter configuration for connecting all-flash storage to NVIDIA GH200 Grace-Hopper Superchip clusters?",
       "zh": "连接全闪存存储到 NVIDIA GH200 Grace-Hopper 超级芯片集群时，推荐的主机总线适配器配置是什么？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-08T17:57:14"
+      "added_at": "2026-07-08T17:57:14",
+      "done_at": "2026-07-09T15:42:06"
     },
     {
       "en": "Which file system protocols provide the most efficient path for mixed text and binary asset loading in multimodal foundation model training?",
       "zh": "哪些文件系统协议为多模态基础模型训练中的混合文本和二进制资源加载提供了最高效的路径？",
       "intent": "comparison",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-08T17:57:14"
+      "added_at": "2026-07-08T17:57:14",
+      "done_at": "2026-07-09T15:42:06"
     },
     {
       "en": "What storage protocol configurations optimize zero-copy data loading for Apache Arrow in Spark-based AI training pipelines?",
@@ -1023,5 +1026,5 @@
       "added_at": "2026-07-09T11:28:09"
     }
   ],
-  "updated_at": "2026-07-09T11:30:06"
+  "updated_at": "2026-07-09T15:42:06"
 }
