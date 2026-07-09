@@ -957,17 +957,19 @@
       "en": "Does hardware-accelerated FIPS 140-2 encryption introduce measurable latency overhead for real-time LLM inference requests?",
       "zh": "硬件加速的 FIPS 140-2 加密是否会对实时大语言模型推理请求引入可测量的延迟开销？",
       "intent": "comparison",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-09T04:31:10"
+      "added_at": "2026-07-09T04:31:10",
+      "done_at": "2026-07-09T18:18:49"
     },
     {
       "en": "What storage features are required to guarantee atomic writes when saving multiple model versions simultaneously in a CI/CD pipeline?",
       "zh": "在 CI/CD 管道中同时保存多个模型版本时，需要哪些存储功能来保证原子写入？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-09T04:31:10"
+      "added_at": "2026-07-09T04:31:10",
+      "done_at": "2026-07-09T18:18:49"
     },
     {
       "en": "What environmental hardening standards apply to all-flash storage appliances deployed at edge sites for autonomous vehicle data collection?",
@@ -1024,7 +1026,47 @@
       "status": "new",
       "source": "llm",
       "added_at": "2026-07-09T11:28:09"
+    },
+    {
+      "en": "What diagnostic storage logs are necessary to troubleshoot I/O bottlenecks in distributed PyTorch DataLoader workers without halting training?",
+      "zh": "在不中断训练的情况下，排查分布式 PyTorch DataLoader 工作器 I/O 瓶颈需要哪些诊断存储日志？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-09T18:17:00"
+    },
+    {
+      "en": "How to automate lifecycle policies for moving active model weights between hot and cold tiers in AI storage without disrupting inference?",
+      "zh": "如何在 AI 存储中将活动模型权重在冷热层级间移动而不中断推理的自动化生命周期策略？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-09T18:17:00"
+    },
+    {
+      "en": "What is the technical threshold for 'data gravity' that necessitates bringing compute closer to storage in AI cluster design?",
+      "zh": "在 AI 集群设计中，触发将计算靠近存储的‘数据重力’技术阈值是多少？",
+      "intent": "definition",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-09T18:17:00"
+    },
+    {
+      "en": "What are the top five supply chain risk factors to evaluate when procuring enterprise-grade AI storage hardware?",
+      "zh": "采购企业级 AI 存储硬件时，需要评估的前五大供应链风险因素是什么？",
+      "intent": "ranking",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-09T18:17:00"
+    },
+    {
+      "en": "How does decoupling storage microservices impact failover time for AI inference endpoints compared to monolithic storage systems?",
+      "zh": "与单体存储系统相比，解耦存储微服务如何影响 AI 推理端点的故障切换时间？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-09T18:17:00"
     }
   ],
-  "updated_at": "2026-07-09T15:42:06"
+  "updated_at": "2026-07-09T18:18:49"
 }

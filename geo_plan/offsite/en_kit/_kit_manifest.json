@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-09T15:42:06",
+  "generated_at": "2026-07-09T18:18:49",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -420,6 +420,14 @@
     {
       "question": "Which file system protocols provide the most efficient path for mixed text and binary asset loading in multimodal foundation model training?",
       "file": "geo_plan/offsite/en_kit/which-file-system-protocols-provide-the-most-efficient-path-for-mixed-text-and-b.md"
+    },
+    {
+      "question": "Does hardware-accelerated FIPS 140-2 encryption introduce measurable latency overhead for real-time LLM inference requests?",
+      "file": "geo_plan/offsite/en_kit/does-hardware-accelerated-fips-140-2-encryption-introduce-measurable-latency-ove.md"
+    },
+    {
+      "question": "What storage features are required to guarantee atomic writes when saving multiple model versions simultaneously in a CI/CD pipeline?",
+      "file": "geo_plan/offsite/en_kit/what-storage-features-are-required-to-guarantee-atomic-writes-when-saving-multip.md"
     }
   ]
 }

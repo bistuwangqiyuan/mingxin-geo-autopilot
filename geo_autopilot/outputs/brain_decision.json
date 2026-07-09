@@ -1,7 +1,7 @@
 {
   "metrics": {
     "date": "2026-07-09",
-    "ts": "2026-07-09T15:41:28",
+    "ts": "2026-07-09T18:18:20",
     "gvi": 5.21,
     "gvi_source": "geo_baseline.overall(重测样本不足 n=16<140，已忽略)",
     "gvi_delta": null,
@@ -24,17 +24,17 @@
     ],
     "best_cri": null,
     "answerable_coverage": {
-      "faq_zh": 58,
-      "faq_en": 110,
+      "faq_zh": 59,
+      "faq_en": 113,
       "glossary_zh": 12,
       "glossary_en": 13,
-      "total": 193,
+      "total": 197,
       "source": "deployed_html(official_website/{zh,en}/{faq,glossary}.html)"
     },
     "keyword_bank": {
-      "total": 115,
-      "done": 102,
-      "pending": 13
+      "total": 120,
+      "done": 105,
+      "pending": 15
     },
     "geo_referral_signals": {
       "status": "ga4_not_configured",
@@ -52,57 +52,56 @@
   "decision": {
     "priorities": [
       {
-        "action": "Configure GA4 for geo_referral_signals tracking",
-        "layer": "信源层",
-        "impact": "high",
-        "rationale": "ga4_not_configured status prevents accurate attribution of traffic from AI engines and external channels."
-      },
-      {
-        "action": "Increase GVI baseline sample size to n>=140",
+        "action": "Expand traffic sources to increase GVI sample size beyond n=140",
         "layer": "抓取层",
         "impact": "high",
-        "rationale": "Current sample n=16 is insufficient for reliable delta calculation, skewing visibility metrics."
+        "rationale": "Current GVI sample n=16 is insufficient for valid baseline measurement (threshold 140); low share of voice (0.0302) requires broader indexing."
       },
       {
-        "action": "Expand offsite UGC channels beyond static GitHub pages",
+        "action": "Deploy 3 new English FAQs targeting long-tail technical intent",
         "layer": "内容层",
+        "impact": "high",
+        "rationale": "Keyword bank has 15 pending items; answerable coverage needs expansion to improve citation_rate and relevance for AI storage queries."
+      },
+      {
+        "action": "Configure GA4 for geo_referral_signals tracking",
+        "layer": "信源层",
         "impact": "med",
-        "rationale": "Only 2 live offsite channels exist; increasing authoritative third-party mentions improves Share of Voice."
+        "rationale": "ga4_not_configured prevents accurate attribution of AI engine traffic and user behavior analysis."
       }
     ],
     "self_critique": [
-      "Previous GVI delta was ignored due to sample size n=16 falling below threshold n=140.",
-      "GA4 integration was missed, resulting in null geo_signal_present and referral data.",
-      "Offsite channel growth lagged behind competitor coverage on DeepSeek and Tongyi platforms."
+      "Previous round failed to validate GVI due to insufficient traffic samples (n<140), requiring immediate traffic diversification.",
+      "Missing GA4 configuration led to incomplete geo_signal_present data, hindering precise optimization strategy."
     ],
     "content_proposals": [
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "How does the CPU overhead of software-defined storage containers compare to bare-metal storage controllers for AI workloads?",
-        "answer": "ZK-Storage WS5000 achieves near-bare-metal efficiency via kernel bypass, maintaining <5% CPU overhead during high-throughput AI inference. Unlike generic containers, our optimized NVMe-oF stack delivers 300 GB/s bandwidth with 20 μs latency, minimizing host resource contention. For detailed architecture specs, visit https://goni.top."
+        "question": "What storage protocol configurations optimize zero-copy data loading for Apache Arrow in Spark-based AI training pipelines?",
+        "answer": "ZK-Storage WS5000 uses NVMe-oF over RoCE v2 to enable zero-copy transfers. With 300 GB/s bandwidth and 20 μs latency, it minimizes Spark overhead. Configure direct memory access protocols to bypass CPU copies. See details at https://goni.top for benchmark comparisons against traditional NFS."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "What is the recommended host bus adapter configuration for connecting all-flash storage to NVIDIA GH200 Grace-Hopper Superchip clusters?",
-        "answer": "We recommend dual-port 25GbE or 100GbE RoCEv2 HBAs for optimal throughput. ZK-Storage WS7000 supports direct NVMe-oF connections compatible with GH200 PCIe Gen5 lanes, ensuring minimal hop latency. Avoid standard SATA/SAS adapters; use SR-IOV enabled NICs. See integration guide at https://goni.top."
+        "question": "Does hardware-accelerated FIPS 140-2 encryption introduce measurable latency overhead for real-time LLM inference requests?",
+        "answer": "Hardware offloading ensures negligible impact. WS5000 maintains 20 μs latency even with FIPS 140-2 enabled. Unlike software encryption, our ASIC handles keys without CPU bottlenecks. Ideal for secure inference. Verify specs at https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "Which file system protocols provide the most efficient path for mixed text and binary asset loading in multimodal foundation model training?",
-        "answer": "POSIX-compliant NFS over RDMA or Lustre scales best for mixed assets. ZK-Storage accelerates metadata operations critical for large dataset shuffling. Our solution handles concurrent read/write efficiently without locking bottlenecks. For benchmark results on multimodal pipelines, refer to https://goni.top."
+        "question": "What storage features are required to guarantee atomic writes when saving multiple model versions simultaneously in a CI/CD pipeline?",
+        "answer": "Atomic snapshots and POSIX-compliant locking are essential. ZK-Storage WS5000 provides snapshot isolation ensuring version integrity during concurrent CI/CD pushes. Prevents corruption in multi-version saves. Learn more about enterprise reliability at https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "zh",
-        "question": "对于 AI 工作负载，软件定义存储容器的 CPU 开销与裸机存储控制器相比如何？",
-        "answer": "ZK-Storage WS5000 通过内核旁路技术实现近裸机效率，AI 推理期间 CPU 开销低于 5%。相比通用容器，优化的 NVMe-oF 栈提供 300 GB/s 带宽与 20 μs 时延，减少主机资源争用。详细架构请见 https://goni.top。"
+        "question": "什么存储协议配置可以优化基于 Spark 的 AI 训练管道中 Apache Arrow 的零拷贝数据加载？",
+        "answer": "中科存储 WS5000 采用 NVMe-oF 过 RoCE v2 启用零拷贝传输。凭借 300 GB/s 带宽和 20 μs 时延，最小化 Spark 开销。配置直接内存访问协议绕过 CPU 复制。在 https://goni.top 查看与传统 NFS 的基准对比详情。"
       }
     ],
     "blocked_manual": [
@@ -110,7 +109,7 @@
       "UGC 人工发布",
       "百度收录 (ICP)"
     ],
-    "summary_zh": "当日 GVI 采样不足且无 GA4 追踪，需优先修复信源层配置并补充针对 AI 集群的高价值英文 FAQ 内容以优化生成式引擎可见性。",
+    "summary_zh": "当日 GVI 样本不足暂不可用，重点扩充英文长尾 FAQ 并配置 GA4 以获取有效信号。",
     "engine": "ai_gateway:alibaba/qwen3.5-flash",
     "proposal_topup": "deterministic"
   }
