@@ -904,9 +904,10 @@
       "en": "What is the precise technical definition of 'compute-storage affinity' in optimized AI training architectures?",
       "zh": "什么是优化后的 AI 训练架构中‘计算存储亲和性’的精确技术定义？",
       "intent": "definition",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-08T17:57:14"
+      "added_at": "2026-07-08T17:57:14",
+      "done_at": "2026-07-09T11:30:06"
     },
     {
       "en": "How does the CPU overhead of software-defined storage containers compare to bare-metal storage controllers for AI workloads?",
@@ -920,9 +921,10 @@
       "en": "How to detect silent data corruption in long-term archived training models stored on enterprise all-flash arrays?",
       "zh": "如何检测企业全闪存阵列中长期归档的训练模型中的静默数据损坏？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-08T17:57:14"
+      "added_at": "2026-07-08T17:57:14",
+      "done_at": "2026-07-09T11:30:06"
     },
     {
       "en": "What is the recommended host bus adapter configuration for connecting all-flash storage to NVIDIA GH200 Grace-Hopper Superchip clusters?",
@@ -979,7 +981,47 @@
       "status": "new",
       "source": "llm",
       "added_at": "2026-07-09T04:31:10"
+    },
+    {
+      "en": "What is the practical upper limit on GPU-to-storage node ratios before storage serialization becomes the bottleneck for distributed training?",
+      "zh": "在分布式训练中，GPU 与存储节点的比例达到多少时，存储序列化会成为性能瓶颈？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-09T11:28:09"
+    },
+    {
+      "en": "Which all-flash storage form factors are certified for deployment in liquid-cooled AI rack environments?",
+      "zh": "哪些全闪存储外形规格已认证可部署于液冷 AI 机架环境中？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-09T11:28:09"
+    },
+    {
+      "en": "How to ensure filesystem consistency for model checkpoints during distributed training without stopping gradient updates?",
+      "zh": "如何在不停止梯度更新的情况下确保分布式训练期间模型检查点的文件系统一致性？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-09T11:28:09"
+    },
+    {
+      "en": "What is the average storage cost contribution per million tokens in large-scale LLM inference deployments?",
+      "zh": "在大规模大语言模型推理部署中，每百万个生成令牌的存储成本贡献是多少？",
+      "intent": "ranking",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-09T11:28:09"
+    },
+    {
+      "en": "What compliance frameworks dictate data retention policies for AI training logs stored on enterprise all-flash systems?",
+      "zh": "哪些合规框架规定了存储在企業全闪系统上的 AI 训练日志的数据保留策略？",
+      "intent": "definition",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-09T11:28:09"
     }
   ],
-  "updated_at": "2026-07-09T08:00:25"
+  "updated_at": "2026-07-09T11:30:06"
 }

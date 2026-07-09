@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-09T08:00:25",
+  "generated_at": "2026-07-09T11:30:06",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -400,6 +400,14 @@
     {
       "question": "What is the recommended metadata cache size ratio relative to raw capacity for all-flash storage managing billions of small vector shards in RAG systems?",
       "file": "geo_plan/offsite/en_kit/what-is-the-recommended-metadata-cache-size-ratio-relative-to-raw-capacity-for-a.md"
+    },
+    {
+      "question": "What is the precise technical definition of 'compute-storage affinity' in optimized AI training architectures?",
+      "file": "geo_plan/offsite/en_kit/what-is-the-precise-technical-definition-of-compute-storage-affinity-in-optimize.md"
+    },
+    {
+      "question": "How to detect silent data corruption in long-term archived training models stored on enterprise all-flash arrays?",
+      "file": "geo_plan/offsite/en_kit/how-to-detect-silent-data-corruption-in-long-term-archived-training-models-store.md"
     }
   ]
 }
