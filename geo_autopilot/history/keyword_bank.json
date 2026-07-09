@@ -877,25 +877,28 @@
       "en": "How does packet loss tolerance in NVMe-oF compare to iSCSI when transferring large model weights over congested Ethernet networks?",
       "zh": "在通过拥塞以太网传输大型模型权重时，NVMe-oF 与 iSCSI 的丢包容忍度有何对比？",
       "intent": "comparison",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-08T10:37:21"
+      "added_at": "2026-07-08T10:37:21",
+      "done_at": "2026-07-09T08:00:25"
     },
     {
       "en": "What storage driver configurations are necessary to prevent kernel instability during high-frequency checkpoint commits in TensorFlow Extended pipelines?",
       "zh": "为了防止在 TensorFlow Extended 管道中高频提交检查点期间出现内核不稳定，需要哪些存储驱动配置？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-08T10:37:21"
+      "added_at": "2026-07-08T10:37:21",
+      "done_at": "2026-07-09T08:00:25"
     },
     {
       "en": "What is the recommended metadata cache size ratio relative to raw capacity for all-flash storage managing billions of small vector shards in RAG systems?",
       "zh": "对于管理 RAG 系统中数十亿个小向量分片的闪存存储，元数据缓存大小相对于原始容量的推荐比率是多少？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-08T10:37:21"
+      "added_at": "2026-07-08T10:37:21",
+      "done_at": "2026-07-09T08:00:25"
     },
     {
       "en": "What is the precise technical definition of 'compute-storage affinity' in optimized AI training architectures?",
@@ -978,5 +981,5 @@
       "added_at": "2026-07-09T04:31:10"
     }
   ],
-  "updated_at": "2026-07-09T04:32:56"
+  "updated_at": "2026-07-09T08:00:25"
 }

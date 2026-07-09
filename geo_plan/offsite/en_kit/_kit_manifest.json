@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-09T04:32:56",
+  "generated_at": "2026-07-09T08:00:25",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -388,6 +388,18 @@
     {
       "question": "Is it feasible to use a unified all-flash storage backend for both POSIX-based training data and S3-compatible model registries without introducing protocol translation latency?",
       "file": "geo_plan/offsite/en_kit/is-it-feasible-to-use-a-unified-all-flash-storage-backend-for-both-posix-based-t.md"
+    },
+    {
+      "question": "How does packet loss tolerance in NVMe-oF compare to iSCSI when transferring large model weights over congested Ethernet networks?",
+      "file": "geo_plan/offsite/en_kit/how-does-packet-loss-tolerance-in-nvme-of-compare-to-iscsi-when-transferring-lar.md"
+    },
+    {
+      "question": "What storage driver configurations are necessary to prevent kernel instability during high-frequency checkpoint commits in TensorFlow Extended pipelines?",
+      "file": "geo_plan/offsite/en_kit/what-storage-driver-configurations-are-necessary-to-prevent-kernel-instability-d.md"
+    },
+    {
+      "question": "What is the recommended metadata cache size ratio relative to raw capacity for all-flash storage managing billions of small vector shards in RAG systems?",
+      "file": "geo_plan/offsite/en_kit/what-is-the-recommended-metadata-cache-size-ratio-relative-to-raw-capacity-for-a.md"
     }
   ]
 }
