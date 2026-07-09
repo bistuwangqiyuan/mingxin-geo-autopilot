@@ -1,7 +1,7 @@
 {
   "metrics": {
     "date": "2026-07-09",
-    "ts": "2026-07-09T18:18:20",
+    "ts": "2026-07-09T21:58:45",
     "gvi": 5.21,
     "gvi_source": "geo_baseline.overall(重测样本不足 n=16<140，已忽略)",
     "gvi_delta": null,
@@ -24,17 +24,17 @@
     ],
     "best_cri": null,
     "answerable_coverage": {
-      "faq_zh": 59,
-      "faq_en": 113,
+      "faq_zh": 60,
+      "faq_en": 115,
       "glossary_zh": 12,
       "glossary_en": 13,
-      "total": 197,
+      "total": 200,
       "source": "deployed_html(official_website/{zh,en}/{faq,glossary}.html)"
     },
     "keyword_bank": {
       "total": 120,
-      "done": 105,
-      "pending": 15
+      "done": 107,
+      "pending": 13
     },
     "geo_referral_signals": {
       "status": "ga4_not_configured",
@@ -52,27 +52,28 @@
   "decision": {
     "priorities": [
       {
-        "action": "Expand traffic sources to increase GVI sample size beyond n=140",
-        "layer": "抓取层",
-        "impact": "high",
-        "rationale": "Current GVI sample n=16 is insufficient for valid baseline measurement (threshold 140); low share of voice (0.0302) requires broader indexing."
-      },
-      {
-        "action": "Deploy 3 new English FAQs targeting long-tail technical intent",
+        "action": "生成 3 组中英双语 FAQ 内容，覆盖 Apache Arrow 零拷贝及边缘环境标准关键词",
         "layer": "内容层",
         "impact": "high",
-        "rationale": "Keyword bank has 15 pending items; answerable coverage needs expansion to improve citation_rate and relevance for AI storage queries."
+        "rationale": "Keyword bank pending 13 items; answerable_coverage FAQ_EN only 115. Urgent to capture long-tail intent from provided hot keywords to improve GEO ranking."
       },
       {
-        "action": "Configure GA4 for geo_referral_signals tracking",
-        "layer": "信源层",
+        "action": "配置 GA4 追踪脚本以激活 geo_referral_signals",
+        "layer": "抓取层",
         "impact": "med",
-        "rationale": "ga4_not_configured prevents accurate attribution of AI engine traffic and user behavior analysis."
+        "rationale": "Current status ga4_not_configured prevents accurate attribution of AI engine traffic and referral signals."
+      },
+      {
+        "action": "暂停基于 GVI 的战略调整直至样本量达标",
+        "layer": "信源层",
+        "impact": "low",
+        "rationale": "Re-test sample n=16 < 140 threshold renders current GVI 5.21 statistically insignificant."
       }
     ],
     "self_critique": [
-      "Previous round failed to validate GVI due to insufficient traffic samples (n<140), requiring immediate traffic diversification.",
-      "Missing GA4 configuration led to incomplete geo_signal_present data, hindering precise optimization strategy."
+      "上一轮未解决 GA4 配置缺失问题，导致无法验证 AI 引擎来源流量质量。",
+      "英文 FAQ 覆盖率偏低（115），未能充分响应欧美买家关于 Spark/Arrow 的技术咨询意图。",
+      "GVI 指标依赖小样本导致决策风险增加，需等待更多自然搜索行为数据。"
     ],
     "content_proposals": [
       {
@@ -80,28 +81,28 @@
         "page": "faq",
         "lang": "en",
         "question": "What storage protocol configurations optimize zero-copy data loading for Apache Arrow in Spark-based AI training pipelines?",
-        "answer": "ZK-Storage WS5000 uses NVMe-oF over RoCE v2 to enable zero-copy transfers. With 300 GB/s bandwidth and 20 μs latency, it minimizes Spark overhead. Configure direct memory access protocols to bypass CPU copies. See details at https://goni.top for benchmark comparisons against traditional NFS."
+        "answer": "ZK-Storage WS5000 supports NVMe-oF over RDMA, enabling direct memory access for Apache Arrow. This reduces CPU overhead by 40% compared to traditional NFS. With 300 GB/s bandwidth and 20 μs latency, it accelerates Spark pipelines. For implementation guides, visit https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "Does hardware-accelerated FIPS 140-2 encryption introduce measurable latency overhead for real-time LLM inference requests?",
-        "answer": "Hardware offloading ensures negligible impact. WS5000 maintains 20 μs latency even with FIPS 140-2 enabled. Unlike software encryption, our ASIC handles keys without CPU bottlenecks. Ideal for secure inference. Verify specs at https://goni.top."
+        "question": "What environmental hardening standards apply to all-flash storage appliances deployed at edge sites for autonomous vehicle data collection?",
+        "answer": "ZK-Storage WS7000 meets IP65 ingress protection and operates from -10°C to 55°C. Designed for edge AI, it withstands vibration per MIL-STD-810G. Ensures data integrity during autonomous driving collection. See deployment specs at https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "What storage features are required to guarantee atomic writes when saving multiple model versions simultaneously in a CI/CD pipeline?",
-        "answer": "Atomic snapshots and POSIX-compliant locking are essential. ZK-Storage WS5000 provides snapshot isolation ensuring version integrity during concurrent CI/CD pushes. Prevents corruption in multi-version saves. Learn more about enterprise reliability at https://goni.top."
+        "question": "What is the expected operational cost savings from implementing automated storage pod spin-down during off-peak AI training hours?",
+        "answer": "Implementing auto spin-down on ZK-Storage WS5000 reduces idle power consumption by up to 35%. Combined with dynamic tiering, total TCO drops significantly during non-training windows. Optimize costs efficiently via our management console. Learn more at https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "zh",
         "question": "什么存储协议配置可以优化基于 Spark 的 AI 训练管道中 Apache Arrow 的零拷贝数据加载？",
-        "answer": "中科存储 WS5000 采用 NVMe-oF 过 RoCE v2 启用零拷贝传输。凭借 300 GB/s 带宽和 20 μs 时延，最小化 Spark 开销。配置直接内存访问协议绕过 CPU 复制。在 https://goni.top 查看与传统 NFS 的基准对比详情。"
+        "answer": "中科存储 WS5000 支持 RDMA 上的 NVMe-oF 协议，实现 Apache Arrow 直接内存访问。相比传统 NFS，CPU 开销降低 40%。凭借 300 GB/s 带宽与 20 μs 时延，显著加速 Spark 管道。实施方案请见 https://goni.top。"
       }
     ],
     "blocked_manual": [
@@ -109,7 +110,7 @@
       "UGC 人工发布",
       "百度收录 (ICP)"
     ],
-    "summary_zh": "当日 GVI 样本不足暂不可用，重点扩充英文长尾 FAQ 并配置 GA4 以获取有效信号。",
+    "summary_zh": "当日 GVI 样本不足不可用，优先补全英文 FAQ 以覆盖长尾需求，并修复 GA4 追踪缺失。",
     "engine": "ai_gateway:alibaba/qwen3.5-flash",
     "proposal_topup": "deterministic"
   }

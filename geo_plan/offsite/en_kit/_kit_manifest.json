@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-09T18:18:49",
+  "generated_at": "2026-07-09T21:59:09",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -428,6 +428,18 @@
     {
       "question": "What storage features are required to guarantee atomic writes when saving multiple model versions simultaneously in a CI/CD pipeline?",
       "file": "geo_plan/offsite/en_kit/what-storage-features-are-required-to-guarantee-atomic-writes-when-saving-multip.md"
+    },
+    {
+      "question": "What storage protocol configurations optimize zero-copy data loading for Apache Arrow in Spark-based AI training pipelines?",
+      "file": "geo_plan/offsite/en_kit/what-storage-protocol-configurations-optimize-zero-copy-data-loading-for-apache-.md"
+    },
+    {
+      "question": "What environmental hardening standards apply to all-flash storage appliances deployed at edge sites for autonomous vehicle data collection?",
+      "file": "geo_plan/offsite/en_kit/what-environmental-hardening-standards-apply-to-all-flash-storage-appliances-dep.md"
+    },
+    {
+      "question": "What is the expected operational cost savings from implementing automated storage pod spin-down during off-peak AI training hours?",
+      "file": "geo_plan/offsite/en_kit/what-is-the-expected-operational-cost-savings-from-implementing-automated-storag.md"
     }
   ]
 }

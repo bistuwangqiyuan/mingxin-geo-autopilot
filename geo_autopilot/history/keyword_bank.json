@@ -949,9 +949,10 @@
       "en": "What storage protocol configurations optimize zero-copy data loading for Apache Arrow in Spark-based AI training pipelines?",
       "zh": "什么存储协议配置可以优化基于 Spark 的 AI 训练管道中 Apache Arrow 的零拷贝数据加载？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-09T04:31:10"
+      "added_at": "2026-07-09T04:31:10",
+      "done_at": "2026-07-09T21:59:09"
     },
     {
       "en": "Does hardware-accelerated FIPS 140-2 encryption introduce measurable latency overhead for real-time LLM inference requests?",
@@ -975,17 +976,19 @@
       "en": "What environmental hardening standards apply to all-flash storage appliances deployed at edge sites for autonomous vehicle data collection?",
       "zh": "部署在自动驾驶车辆数据采集边缘站点的闪存存储一体机适用哪些环境加固标准？",
       "intent": "definition",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-09T04:31:10"
+      "added_at": "2026-07-09T04:31:10",
+      "done_at": "2026-07-09T21:59:09"
     },
     {
       "en": "What is the expected operational cost savings from implementing automated storage pod spin-down during off-peak AI training hours?",
       "zh": "在 AI 训练非高峰期实施自动化存储 Pod 自动关机预计能节省多少运营成本？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-09T04:31:10"
+      "added_at": "2026-07-09T04:31:10",
+      "done_at": "2026-07-09T21:59:09"
     },
     {
       "en": "What is the practical upper limit on GPU-to-storage node ratios before storage serialization becomes the bottleneck for distributed training?",
@@ -1068,5 +1071,5 @@
       "added_at": "2026-07-09T18:17:00"
     }
   ],
-  "updated_at": "2026-07-09T18:18:49"
+  "updated_at": "2026-07-09T21:59:09"
 }
