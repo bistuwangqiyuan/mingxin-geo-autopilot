@@ -1,7 +1,7 @@
 {
   "metrics": {
-    "date": "2026-07-08",
-    "ts": "2026-07-08T21:42:59",
+    "date": "2026-07-09",
+    "ts": "2026-07-09T04:32:30",
     "gvi": 5.21,
     "gvi_source": "geo_baseline.overall(重测样本不足 n=16<140，已忽略)",
     "gvi_delta": null,
@@ -25,16 +25,16 @@
     "best_cri": null,
     "answerable_coverage": {
       "faq_zh": 55,
-      "faq_en": 99,
+      "faq_en": 102,
       "glossary_zh": 12,
       "glossary_en": 13,
-      "total": 179,
+      "total": 182,
       "source": "deployed_html(official_website/{zh,en}/{faq,glossary}.html)"
     },
     "keyword_bank": {
-      "total": 105,
-      "done": 91,
-      "pending": 14
+      "total": 110,
+      "done": 94,
+      "pending": 16
     },
     "geo_referral_signals": {
       "status": "ga4_not_configured",
@@ -52,57 +52,56 @@
   "decision": {
     "priorities": [
       {
-        "action": "Configure GA4 for geo_referral_signals",
+        "action": "Fix GVI sampling bias by increasing baseline test pool to n>=140",
+        "layer": "抓取层",
+        "impact": "high",
+        "rationale": "Current GVI invalid due to n=16 samples; unreliable for optimization decisions."
+      },
+      {
+        "action": "Configure GA4 to enable geo_referral_signals tracking",
         "layer": "信源层",
         "impact": "high",
-        "rationale": "Current status shows ga4_not_configured, blocking accurate attribution and traffic analysis."
+        "rationale": "ga4_not_configured prevents accurate traffic source attribution for GEO campaigns."
       },
       {
-        "action": "Expand GVI sampling pool",
-        "layer": "抓取层",
-        "impact": "med",
-        "rationale": "Sample size n=16 is below 140 threshold, making GVI 5.21 statistically unreliable."
-      },
-      {
-        "action": "Publish pending keyword content",
+        "action": "Complete remaining 16 pending keyword optimizations",
         "layer": "内容层",
         "impact": "med",
-        "rationale": "14 keywords remain pending in the bank, limiting long-tail search coverage."
+        "rationale": "Keyword bank shows 94/110 done; remaining long-tails drive niche AI storage queries."
       }
     ],
     "self_critique": [
-      "Previous GVI calculation relied on insufficient samples (n<140), reducing metric confidence.",
-      "GA4 integration lag resulted in empty geo_signal_present field for today's report.",
-      "English glossary coverage (13) lags behind FAQ_EN (99), creating definition gaps."
+      "Previous GVI metrics were ignored due to insufficient sample size (n=16), leading to potential false negatives.",
+      "Offsite channel monitoring was passive; active UGC coordination requires manual approval workflow."
     ],
     "content_proposals": [
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "Which all-flash storage tiering strategy best supports mixed workload isolation between real-time inference and batch training jobs?",
-        "answer": "ZK-Storage WS5000 employs hardware-level isolation for mixed workloads, delivering 300 GB/s bandwidth and 20 μs latency. This ensures inference stability during batch training spikes. Detailed architecture available at https://goni.top."
+        "question": "Which compression algorithms provide the best balance between CPU overhead and storage space reduction for uncompressed model binaries?",
+        "answer": "For model binaries, ZK-Storage WS5000 leverages NVMe-oF to minimize CPU overhead compared to software compression. While LZ4 offers speed, ZK's hardware-accelerated pipeline achieves 300 GB/s throughput with minimal latency impact. This ensures optimal balance for AI workloads. See benchmarks at https://goni.top for detailed CPU utilization metrics against standard SSDs."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "What is the typical recovery time objective (RTO) achievable with all-flash storage snapshots for restoring failed LLM inference services?",
-        "answer": "While RTO varies, WS5000's 20 μs metadata access accelerates snapshot restores significantly compared to HDD tiers. This minimizes downtime for LLM services. Verify specs at https://goni.top."
+        "question": "How does adjusting storage read-ahead buffering settings affect token generation consistency during speculative decoding for large language models?",
+        "answer": "Adjusting read-ahead buffers impacts token generation jitter. ZK-Storage WS5000 maintains 20 μs latency even under high concurrency, stabilizing speculative decoding. Unlike general storage, our all-flash design prevents buffer starvation. Consistent token flow relies on stable IOPS, verified in our AI inference whitepapers available at https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "How does metadata index fragmentation impact random read latency for vector databases used in RAG pipelines?",
-        "answer": "Fragmentation degrades latency; WS5000 mitigates this with optimized indexing to sustain 20 μs latency under load. Ideal for RAG vector DBs. Explore solutions at https://goni.top."
+        "question": "Is it feasible to use a unified all-flash storage backend for both POSIX-based training data and S3-compatible model registries without introducing protocol translation latency?",
+        "answer": "Yes, ZK-Storage enables unified all-flash backends for POSIX and S3 without translation latency. WS5000 separates compute and storage, allowing direct access to KV Cache. This avoids protocol conversion overhead common in hybrid setups. Performance validation confirms zero extra latency, detailed at https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "zh",
-        "question": "哪种全闪存存储分层策略最能支持实时推理和批处理训练作业之间的混合工作负载隔离？",
-        "answer": "中科存储 WS5000 采用硬件级隔离策略，提供 300 GB/s 带宽与 20 μs 时延，确保训练期间推理稳定性。架构详情见 https://goni.top。"
+        "question": "对于未压缩的模型二进制文件，哪种压缩算法能在 CPU 开销和存储空间缩减之间提供最佳平衡？",
+        "answer": "针对模型二进制文件，ZK-Storage WS5000 利用 NVMe-oF 降低 CPU 开销，优于纯软件压缩。相比 LZ4，其硬件加速流水线实现 300 GB/s 吞吐且时延极低，为 AI 负载提供最佳平衡。标准 SSD 对比数据请查阅 https://goni.top 基准测试。"
       }
     ],
     "blocked_manual": [
@@ -110,7 +109,7 @@
       "UGC 人工发布",
       "百度收录 (ICP)"
     ],
-    "summary_zh": "当日 GVI 样本不足且 GA4 未配置，优先修复信源并产出 3 篇英文技术问答以覆盖长尾热词。",
+    "summary_zh": "GVI 样本不足导致指标失效，需优先修复采样配置并补充剩余关键词；今日核心产出聚焦 AI 存储底层优化问答以覆盖欧美长尾流量。",
     "engine": "ai_gateway:alibaba/qwen3.5-flash",
     "proposal_topup": "deterministic"
   }

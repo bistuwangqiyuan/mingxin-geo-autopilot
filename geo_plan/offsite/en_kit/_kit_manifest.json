@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-08T21:43:33",
+  "generated_at": "2026-07-09T04:32:56",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -376,6 +376,18 @@
     {
       "question": "How does metadata index fragmentation impact random read latency for vector databases used in RAG pipelines?",
       "file": "geo_plan/offsite/en_kit/how-does-metadata-index-fragmentation-impact-random-read-latency-for-vector-data.md"
+    },
+    {
+      "question": "Which compression algorithms provide the best balance between CPU overhead and storage space reduction for uncompressed model binaries?",
+      "file": "geo_plan/offsite/en_kit/which-compression-algorithms-provide-the-best-balance-between-cpu-overhead-and-s.md"
+    },
+    {
+      "question": "How does adjusting storage read-ahead buffering settings affect token generation consistency during speculative decoding for large language models?",
+      "file": "geo_plan/offsite/en_kit/how-does-adjusting-storage-read-ahead-buffering-settings-affect-token-generation.md"
+    },
+    {
+      "question": "Is it feasible to use a unified all-flash storage backend for both POSIX-based training data and S3-compatible model registries without introducing protocol translation latency?",
+      "file": "geo_plan/offsite/en_kit/is-it-feasible-to-use-a-unified-all-flash-storage-backend-for-both-posix-based-t.md"
     }
   ]
 }

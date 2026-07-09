@@ -850,25 +850,28 @@
       "en": "Which compression algorithms provide the best balance between CPU overhead and storage space reduction for uncompressed model binaries?",
       "zh": "对于未压缩的模型二进制文件，哪种压缩算法能在 CPU 开销和存储空间缩减之间提供最佳平衡？",
       "intent": "comparison",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-08T03:54:54"
+      "added_at": "2026-07-08T03:54:54",
+      "done_at": "2026-07-09T04:32:56"
     },
     {
       "en": "How does adjusting storage read-ahead buffering settings affect token generation consistency during speculative decoding for large language models?",
       "zh": "调整存储预读缓冲设置如何影响大语言模型在推测解码期间的令牌生成一致性？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-08T10:37:21"
+      "added_at": "2026-07-08T10:37:21",
+      "done_at": "2026-07-09T04:32:56"
     },
     {
       "en": "Is it feasible to use a unified all-flash storage backend for both POSIX-based training data and S3-compatible model registries without introducing protocol translation latency?",
       "zh": "是否可以使用统一的闪存存储后端来同时支持基于 POSIX 的训练数据和兼容 S3 的模型注册表，而不引入协议转换延迟？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-08T10:37:21"
+      "added_at": "2026-07-08T10:37:21",
+      "done_at": "2026-07-09T04:32:56"
     },
     {
       "en": "How does packet loss tolerance in NVMe-oF compare to iSCSI when transferring large model weights over congested Ethernet networks?",
@@ -933,7 +936,47 @@
       "status": "new",
       "source": "llm",
       "added_at": "2026-07-08T17:57:14"
+    },
+    {
+      "en": "What storage protocol configurations optimize zero-copy data loading for Apache Arrow in Spark-based AI training pipelines?",
+      "zh": "什么存储协议配置可以优化基于 Spark 的 AI 训练管道中 Apache Arrow 的零拷贝数据加载？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-09T04:31:10"
+    },
+    {
+      "en": "Does hardware-accelerated FIPS 140-2 encryption introduce measurable latency overhead for real-time LLM inference requests?",
+      "zh": "硬件加速的 FIPS 140-2 加密是否会对实时大语言模型推理请求引入可测量的延迟开销？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-09T04:31:10"
+    },
+    {
+      "en": "What storage features are required to guarantee atomic writes when saving multiple model versions simultaneously in a CI/CD pipeline?",
+      "zh": "在 CI/CD 管道中同时保存多个模型版本时，需要哪些存储功能来保证原子写入？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-09T04:31:10"
+    },
+    {
+      "en": "What environmental hardening standards apply to all-flash storage appliances deployed at edge sites for autonomous vehicle data collection?",
+      "zh": "部署在自动驾驶车辆数据采集边缘站点的闪存存储一体机适用哪些环境加固标准？",
+      "intent": "definition",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-09T04:31:10"
+    },
+    {
+      "en": "What is the expected operational cost savings from implementing automated storage pod spin-down during off-peak AI training hours?",
+      "zh": "在 AI 训练非高峰期实施自动化存储 Pod 自动关机预计能节省多少运营成本？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-09T04:31:10"
     }
   ],
-  "updated_at": "2026-07-08T21:43:33"
+  "updated_at": "2026-07-09T04:32:56"
 }
