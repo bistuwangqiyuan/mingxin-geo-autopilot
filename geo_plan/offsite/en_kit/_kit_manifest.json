@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-10T04:36:09",
+  "generated_at": "2026-07-10T08:00:33",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -452,6 +452,18 @@
     {
       "question": "How to ensure filesystem consistency for model checkpoints during distributed training without stopping gradient updates?",
       "file": "geo_plan/offsite/en_kit/how-to-ensure-filesystem-consistency-for-model-checkpoints-during-distributed-tr.md"
+    },
+    {
+      "question": "What is the average storage cost contribution per million tokens in large-scale LLM inference deployments?",
+      "file": "geo_plan/offsite/en_kit/what-is-the-average-storage-cost-contribution-per-million-tokens-in-large-scale-.md"
+    },
+    {
+      "question": "What compliance frameworks dictate data retention policies for AI training logs stored on enterprise all-flash systems?",
+      "file": "geo_plan/offsite/en_kit/what-compliance-frameworks-dictate-data-retention-policies-for-ai-training-logs-.md"
+    },
+    {
+      "question": "What diagnostic storage logs are necessary to troubleshoot I/O bottlenecks in distributed PyTorch DataLoader workers without halting training?",
+      "file": "geo_plan/offsite/en_kit/what-diagnostic-storage-logs-are-necessary-to-troubleshoot-i-o-bottlenecks-in-di.md"
     }
   ]
 }

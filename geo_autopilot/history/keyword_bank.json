@@ -1021,25 +1021,28 @@
       "en": "What is the average storage cost contribution per million tokens in large-scale LLM inference deployments?",
       "zh": "在大规模大语言模型推理部署中，每百万个生成令牌的存储成本贡献是多少？",
       "intent": "ranking",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-09T11:28:09"
+      "added_at": "2026-07-09T11:28:09",
+      "done_at": "2026-07-10T08:00:33"
     },
     {
       "en": "What compliance frameworks dictate data retention policies for AI training logs stored on enterprise all-flash systems?",
       "zh": "哪些合规框架规定了存储在企業全闪系统上的 AI 训练日志的数据保留策略？",
       "intent": "definition",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-09T11:28:09"
+      "added_at": "2026-07-09T11:28:09",
+      "done_at": "2026-07-10T08:00:33"
     },
     {
       "en": "What diagnostic storage logs are necessary to troubleshoot I/O bottlenecks in distributed PyTorch DataLoader workers without halting training?",
       "zh": "在不中断训练的情况下，排查分布式 PyTorch DataLoader 工作器 I/O 瓶颈需要哪些诊断存储日志？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-09T18:17:00"
+      "added_at": "2026-07-09T18:17:00",
+      "done_at": "2026-07-10T08:00:33"
     },
     {
       "en": "How to automate lifecycle policies for moving active model weights between hot and cold tiers in AI storage without disrupting inference?",
@@ -1114,5 +1117,5 @@
       "added_at": "2026-07-10T04:34:15"
     }
   ],
-  "updated_at": "2026-07-10T04:36:09"
+  "updated_at": "2026-07-10T08:00:33"
 }
