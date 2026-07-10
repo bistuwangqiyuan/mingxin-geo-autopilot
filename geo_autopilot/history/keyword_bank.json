@@ -1102,25 +1102,28 @@
       "en": "What storage resilience features are necessary for autonomous robot fleets storing sensor data in disconnected edge locations?",
       "zh": "用于在离线边缘位置存储传感器数据的自主机器人车队，需要哪些存储弹性功能？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-10T04:34:15"
+      "added_at": "2026-07-10T04:34:15",
+      "done_at": "2026-07-10T18:10:30"
     },
     {
       "en": "How does the GDPR right to erasure apply to immutable snapshots used for AI model lineage tracking?",
       "zh": "GDPR 删除权如何应用于用于 AI 模型血缘追踪的不可变快照？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-10T04:34:15"
+      "added_at": "2026-07-10T04:34:15",
+      "done_at": "2026-07-10T18:10:30"
     },
     {
       "en": "Can the storage system seamlessly ingest data directly from vector databases without intermediate ETL pipelines for retrieval-augmented generation?",
       "zh": "存储系统能否在不经过中间 ETL 管道的情况下，直接从向量数据库无缝摄取数据以进行检索增强生成？",
       "intent": "comparison",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-10T04:34:15"
+      "added_at": "2026-07-10T04:34:15",
+      "done_at": "2026-07-10T18:10:30"
     },
     {
       "en": "What is disaggregated storage architecture and why does it matter for AI?",
@@ -1203,5 +1206,5 @@
       "added_at": "2026-07-10T15:08:24"
     }
   ],
-  "updated_at": "2026-07-10T15:10:14"
+  "updated_at": "2026-07-10T18:10:30"
 }

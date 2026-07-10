@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-10T15:10:14",
+  "generated_at": "2026-07-10T18:10:31",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -488,6 +488,18 @@
     {
       "question": "What is the estimated return on investment period for adopting specialized AI storage appliances versus cloud-hosted storage for mid-sized training runs?",
       "file": "geo_plan/offsite/en_kit/what-is-the-estimated-return-on-investment-period-for-adopting-specialized-ai-st.md"
+    },
+    {
+      "question": "What storage resilience features are necessary for autonomous robot fleets storing sensor data in disconnected edge locations?",
+      "file": "geo_plan/offsite/en_kit/what-storage-resilience-features-are-necessary-for-autonomous-robot-fleets-stori.md"
+    },
+    {
+      "question": "How does the GDPR right to erasure apply to immutable snapshots used for AI model lineage tracking?",
+      "file": "geo_plan/offsite/en_kit/how-does-the-gdpr-right-to-erasure-apply-to-immutable-snapshots-used-for-ai-mode.md"
+    },
+    {
+      "question": "Can the storage system seamlessly ingest data directly from vector databases without intermediate ETL pipelines for retrieval-augmented generation?",
+      "file": "geo_plan/offsite/en_kit/can-the-storage-system-seamlessly-ingest-data-directly-from-vector-databases-wit.md"
     }
   ]
 }
