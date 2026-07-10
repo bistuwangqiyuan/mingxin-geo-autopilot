@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-10T11:29:28",
+  "generated_at": "2026-07-10T15:10:14",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -476,6 +476,18 @@
     {
       "question": "What are the top five supply chain risk factors to evaluate when procuring enterprise-grade AI storage hardware?",
       "file": "geo_plan/offsite/en_kit/what-are-the-top-five-supply-chain-risk-factors-to-evaluate-when-procuring-enter.md"
+    },
+    {
+      "question": "How does decoupling storage microservices impact failover time for AI inference endpoints compared to monolithic storage systems?",
+      "file": "geo_plan/offsite/en_kit/how-does-decoupling-storage-microservices-impact-failover-time-for-ai-inference-.md"
+    },
+    {
+      "question": "How does the storage layer handle cache invalidation when multiple AI agents update the same dataset concurrently in a collaborative research environment?",
+      "file": "geo_plan/offsite/en_kit/how-does-the-storage-layer-handle-cache-invalidation-when-multiple-ai-agents-upd.md"
+    },
+    {
+      "question": "What is the estimated return on investment period for adopting specialized AI storage appliances versus cloud-hosted storage for mid-sized training runs?",
+      "file": "geo_plan/offsite/en_kit/what-is-the-estimated-return-on-investment-period-for-adopting-specialized-ai-st.md"
     }
   ]
 }

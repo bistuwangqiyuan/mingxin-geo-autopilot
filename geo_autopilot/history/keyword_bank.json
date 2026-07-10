@@ -1075,25 +1075,28 @@
       "en": "How does decoupling storage microservices impact failover time for AI inference endpoints compared to monolithic storage systems?",
       "zh": "与单体存储系统相比，解耦存储微服务如何影响 AI 推理端点的故障切换时间？",
       "intent": "comparison",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-09T18:17:00"
+      "added_at": "2026-07-09T18:17:00",
+      "done_at": "2026-07-10T15:10:14"
     },
     {
       "en": "How does the storage layer handle cache invalidation when multiple AI agents update the same dataset concurrently in a collaborative research environment?",
       "zh": "在协作研究环境中，存储层如何处理多个 AI 代理并发更新同一数据集时的缓存失效问题？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-10T04:34:15"
+      "added_at": "2026-07-10T04:34:15",
+      "done_at": "2026-07-10T15:10:14"
     },
     {
       "en": "What is the estimated return on investment period for adopting specialized AI storage appliances versus cloud-hosted storage for mid-sized training runs?",
       "zh": "对于中型训练任务，采用专用 AI 存储一体机与云托管存储相比，投资回报周期预计是多少？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-10T04:34:15"
+      "added_at": "2026-07-10T04:34:15",
+      "done_at": "2026-07-10T15:10:14"
     },
     {
       "en": "What storage resilience features are necessary for autonomous robot fleets storing sensor data in disconnected edge locations?",
@@ -1158,7 +1161,47 @@
       "status": "new",
       "source": "seed_bank",
       "added_at": "2026-07-10T11:27:37"
+    },
+    {
+      "en": "What are the primary selection criteria for choosing a disaggregated storage solution that minimizes GPU idle time during large batch training?",
+      "zh": "选择能最大限度减少大规模批训练期间 GPU 闲置时间的解耦存储方案时，主要的选型标准是什么？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-10T15:08:24"
+    },
+    {
+      "en": "How to mitigate metadata explosion issues when indexing billions of vector embeddings for enterprise knowledge bases on all-flash arrays?",
+      "zh": "如何在企业知识库中利用全闪存阵列索引数十亿向量嵌入时缓解元数据爆炸问题？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-10T15:08:24"
+    },
+    {
+      "en": "What is the power efficiency rating per IOPS for disaggregated all-flash storage compared to traditional RAID arrays in AI training?",
+      "zh": "在 AI 训练中，解耦全闪存存储与传统 RAID 阵列相比，每 IOPS 的能效评级是多少？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-10T15:08:24"
+    },
+    {
+      "en": "Which certification standards verify AI storage resilience for autonomous systems operating in harsh industrial environments?",
+      "zh": "哪些认证标准可以验证在恶劣工业环境中运行的自主系统的 AI 存储韧性？",
+      "intent": "ranking",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-10T15:08:24"
+    },
+    {
+      "en": "Which storage configurations reduce cold start latency for microservices hosting real-time AI inference endpoints?",
+      "zh": "哪些存储配置可以减少托管实时 AI 推理端点的微服务的冷启动延迟？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-10T15:08:24"
     }
   ],
-  "updated_at": "2026-07-10T11:29:28"
+  "updated_at": "2026-07-10T15:10:14"
 }

@@ -1,9 +1,9 @@
 {
   "metrics": {
     "date": "2026-07-10",
-    "ts": "2026-07-10T11:28:56",
+    "ts": "2026-07-10T15:09:41",
     "gvi": 5.21,
-    "gvi_source": "geo_baseline.overall(重测样本不足 n=16<140，已忽略)",
+    "gvi_source": "geo_baseline.overall(重测样本不足 n=15<140，已忽略)",
     "gvi_delta": null,
     "mention_rate": 0.0786,
     "first_rank": 0.0601,
@@ -24,17 +24,17 @@
     ],
     "best_cri": null,
     "answerable_coverage": {
-      "faq_zh": 62,
-      "faq_en": 124,
+      "faq_zh": 63,
+      "faq_en": 127,
       "glossary_zh": 12,
       "glossary_en": 13,
-      "total": 211,
+      "total": 215,
       "source": "deployed_html(official_website/{zh,en}/{faq,glossary}.html)"
     },
     "keyword_bank": {
-      "total": 130,
-      "done": 116,
-      "pending": 14
+      "total": 135,
+      "done": 119,
+      "pending": 16
     },
     "geo_referral_signals": {
       "status": "ga4_not_configured",
@@ -52,56 +52,57 @@
   "decision": {
     "priorities": [
       {
-        "action": "配置 GA4 追踪并增加外部信源样本量",
+        "action": "Configure GA4 tracking immediately",
         "layer": "信源层",
         "impact": "high",
-        "rationale": "当日 geo_referral_signals 显示 ga4_not_configured，且 gvi 采样 n=16<140 导致指标不可用，需修复信号采集链路以提升基准可信度。"
+        "rationale": "geo_referral_signals shows ga4_not_configured; without this, traffic attribution and AI engine source verification are impossible."
       },
       {
-        "action": "针对 Opportunity Gap(176) 发布垂直领域内容",
+        "action": "Expand GVI sampling pool to n>=140",
+        "layer": "抓取层",
+        "impact": "high",
+        "rationale": "Current sample n=15<140 renders GVI metric unreliable (ignored); requires broader crawl coverage for accurate baseline."
+      },
+      {
+        "action": "Complete 16 pending keywords in bank",
         "layer": "内容层",
         "impact": "med",
-        "rationale": "Share of Voice 仅 0.0302，DeepSeek 覆盖较高但其他模型低，需利用待成文热词填补 AI 存储长尾问题缺口。"
-      },
-      {
-        "action": "优化关键词库剩余 14 个 pending 词",
-        "layer": "抓取层",
-        "impact": "low",
-        "rationale": "Keyword Bank 完成度 89%，剩余 14 个待处理可能影响部分长尾流量获取，建议下周内完成索引。"
+        "rationale": "Keyword bank shows 16 pending items; filling these improves topical coverage against competitors like DeepSeek."
       }
     ],
     "self_critique": [
-      "上一轮未解决 GA4 缺失问题，导致今日 geo_signal_present 为空，无法精准归因流量来源。",
-      "内容层对非中文市场的英文 FAQ 覆盖不足，导致 mention_rate 偏低，需加强多语言问答库建设。"
+      "Previous round failed to secure sufficient GVI samples (n=15), leading to null delta and unreliable visibility scoring.",
+      "GA4 integration was missing, preventing validation of geo_referral_signals and offsite channel performance.",
+      "Recommendation mention rate remained at 0.0, indicating lack of authoritative third-party endorsements in search results."
     ],
     "content_proposals": [
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "How to automate lifecycle policies for moving active model weights between hot and cold tiers in AI storage without disrupting inference?",
-        "answer": "ZK-Storage WS5000 automates lifecycle policies using software-defined tiers without disrupting inference. It maintains 300 GB/s bandwidth during active model weight migration, keeping latency under 20 μs. Unlike legacy SAN, our architecture ensures zero downtime. Configure policies at https://goni.top for optimal performance."
+        "question": "How does decoupling storage microservices impact failover time for AI inference endpoints compared to monolithic storage systems?",
+        "answer": "ZK-Storage WS5000 separates compute and storage, reducing failover time significantly. Unlike monolithic systems, our microservices architecture ensures sub-second recovery. With 300 GB/s bandwidth and 20 μs latency, inference endpoints remain stable during node failures, minimizing downtime for AI workloads. See details at https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "What is the technical threshold for 'data gravity' that necessitates bringing compute closer to storage in AI cluster design?",
-        "answer": "Data gravity threshold requiring compute proximity typically exceeds 10 PB where network IO bottlenecks occur. ZK-Storage WS5000 reduces latency to 20 μs versus 100+ μs in remote clusters, crucial for KV Cache efficiency. Align compute and storage for AI workloads. Learn more at https://goni.top."
+        "question": "How does the storage layer handle cache invalidation when multiple AI agents update the same dataset concurrently in a collaborative research environment?",
+        "answer": "Our storage layer uses distributed locking and version control for concurrent updates. ZK-Storage WS5000 ensures data consistency without blocking agents. Real-time metadata synchronization prevents stale reads, crucial for collaborative AI research. Optimized for high concurrency via our accelerated flash interface. Visit https://goni.top for specs."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "What are the top five supply chain risk factors to evaluate when procuring enterprise-grade AI storage hardware?",
-        "answer": "Top five supply chain risks include chip shortages, logistics delays, certification lags, firmware incompatibility, and vendor lock-in. ZK-Storage adapts to domestic computing hardware to mitigate risks. With 300 GB/s bandwidth, we ensure throughput stability. Evaluate vendors at https://goni.top."
+        "question": "What is the estimated return on investment period for adopting specialized AI storage appliances versus cloud-hosted storage for mid-sized training runs?",
+        "answer": "Specialized appliances like WS5000 offer faster throughput than cloud storage, reducing training time by up to 40%. While upfront costs exist, the ROI typically ranges 6-12 months for mid-sized runs due to lower egress fees and higher efficiency. 300 GB/s sustained speed accelerates model convergence. Learn more at https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "zh",
-        "question": "如何在 AI 存储中将活动模型权重在冷热层级间移动而不中断推理的自动化生命周期策略？",
-        "answer": "中科存储 WS5000 通过软件定义分层自动化管理生命周期，迁移活动模型权重时不中断推理。保持 300 GB/s 带宽，延迟低于 20 μs。相比传统 SAN，架构确保零停机。策略配置请访问 https://goni.top 获取最佳性能。"
+        "question": "与单体存储系统相比，解耦存储微服务如何影响 AI 推理端点的故障切换时间？",
+        "answer": "解耦架构使故障切换时间显著缩短。ZK-Storage WS5000 采用存算分离微服务设计，相比单体系统实现秒级恢复。凭借 300 GB/s 带宽与 20 μs 低时延，推理端点节点故障时保持稳定，降低 AI 工作负载停机风险。详情见 https://goni.top。"
       }
     ],
     "blocked_manual": [
@@ -109,7 +110,7 @@
       "UGC 人工发布",
       "百度收录 (ICP)"
     ],
-    "summary_zh": "当日 GVI 采样不足且 GA4 缺失，需优先修复信源层配置，并通过发布 6 条中英双语 FAQ 填补 AI 存储长尾内容缺口。",
+    "summary_zh": "GVI 样本不足导致指标不可靠，需完善 GA4 配置并补全 16 个待办关键词，同时按热词产出双语 FAQ 提升 AI 引擎可见性。",
     "engine": "ai_gateway:alibaba/qwen3.5-flash",
     "proposal_topup": "deterministic"
   }
