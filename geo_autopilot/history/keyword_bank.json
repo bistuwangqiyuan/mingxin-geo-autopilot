@@ -994,25 +994,28 @@
       "en": "What is the practical upper limit on GPU-to-storage node ratios before storage serialization becomes the bottleneck for distributed training?",
       "zh": "在分布式训练中，GPU 与存储节点的比例达到多少时，存储序列化会成为性能瓶颈？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-09T11:28:09"
+      "added_at": "2026-07-09T11:28:09",
+      "done_at": "2026-07-10T04:36:09"
     },
     {
       "en": "Which all-flash storage form factors are certified for deployment in liquid-cooled AI rack environments?",
       "zh": "哪些全闪存储外形规格已认证可部署于液冷 AI 机架环境中？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-09T11:28:09"
+      "added_at": "2026-07-09T11:28:09",
+      "done_at": "2026-07-10T04:36:09"
     },
     {
       "en": "How to ensure filesystem consistency for model checkpoints during distributed training without stopping gradient updates?",
       "zh": "如何在不停止梯度更新的情况下确保分布式训练期间模型检查点的文件系统一致性？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-09T11:28:09"
+      "added_at": "2026-07-09T11:28:09",
+      "done_at": "2026-07-10T04:36:09"
     },
     {
       "en": "What is the average storage cost contribution per million tokens in large-scale LLM inference deployments?",
@@ -1069,7 +1072,47 @@
       "status": "new",
       "source": "llm",
       "added_at": "2026-07-09T18:17:00"
+    },
+    {
+      "en": "How does the storage layer handle cache invalidation when multiple AI agents update the same dataset concurrently in a collaborative research environment?",
+      "zh": "在协作研究环境中，存储层如何处理多个 AI 代理并发更新同一数据集时的缓存失效问题？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-10T04:34:15"
+    },
+    {
+      "en": "What is the estimated return on investment period for adopting specialized AI storage appliances versus cloud-hosted storage for mid-sized training runs?",
+      "zh": "对于中型训练任务，采用专用 AI 存储一体机与云托管存储相比，投资回报周期预计是多少？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-10T04:34:15"
+    },
+    {
+      "en": "What storage resilience features are necessary for autonomous robot fleets storing sensor data in disconnected edge locations?",
+      "zh": "用于在离线边缘位置存储传感器数据的自主机器人车队，需要哪些存储弹性功能？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-10T04:34:15"
+    },
+    {
+      "en": "How does the GDPR right to erasure apply to immutable snapshots used for AI model lineage tracking?",
+      "zh": "GDPR 删除权如何应用于用于 AI 模型血缘追踪的不可变快照？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-10T04:34:15"
+    },
+    {
+      "en": "Can the storage system seamlessly ingest data directly from vector databases without intermediate ETL pipelines for retrieval-augmented generation?",
+      "zh": "存储系统能否在不经过中间 ETL 管道的情况下，直接从向量数据库无缝摄取数据以进行检索增强生成？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-10T04:34:15"
     }
   ],
-  "updated_at": "2026-07-09T21:59:09"
+  "updated_at": "2026-07-10T04:36:09"
 }

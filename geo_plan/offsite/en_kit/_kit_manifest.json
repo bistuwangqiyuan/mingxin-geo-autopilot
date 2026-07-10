@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-09T21:59:09",
+  "generated_at": "2026-07-10T04:36:09",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -440,6 +440,18 @@
     {
       "question": "What is the expected operational cost savings from implementing automated storage pod spin-down during off-peak AI training hours?",
       "file": "geo_plan/offsite/en_kit/what-is-the-expected-operational-cost-savings-from-implementing-automated-storag.md"
+    },
+    {
+      "question": "What is the practical upper limit on GPU-to-storage node ratios before storage serialization becomes the bottleneck for distributed training?",
+      "file": "geo_plan/offsite/en_kit/what-is-the-practical-upper-limit-on-gpu-to-storage-node-ratios-before-storage-s.md"
+    },
+    {
+      "question": "Which all-flash storage form factors are certified for deployment in liquid-cooled AI rack environments?",
+      "file": "geo_plan/offsite/en_kit/which-all-flash-storage-form-factors-are-certified-for-deployment-in-liquid-cool.md"
+    },
+    {
+      "question": "How to ensure filesystem consistency for model checkpoints during distributed training without stopping gradient updates?",
+      "file": "geo_plan/offsite/en_kit/how-to-ensure-filesystem-consistency-for-model-checkpoints-during-distributed-tr.md"
     }
   ]
 }

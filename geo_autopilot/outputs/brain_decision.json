@@ -1,7 +1,7 @@
 {
   "metrics": {
-    "date": "2026-07-09",
-    "ts": "2026-07-09T21:58:45",
+    "date": "2026-07-10",
+    "ts": "2026-07-10T04:35:37",
     "gvi": 5.21,
     "gvi_source": "geo_baseline.overall(重测样本不足 n=16<140，已忽略)",
     "gvi_delta": null,
@@ -25,16 +25,16 @@
     "best_cri": null,
     "answerable_coverage": {
       "faq_zh": 60,
-      "faq_en": 115,
+      "faq_en": 118,
       "glossary_zh": 12,
       "glossary_en": 13,
-      "total": 200,
+      "total": 203,
       "source": "deployed_html(official_website/{zh,en}/{faq,glossary}.html)"
     },
     "keyword_bank": {
-      "total": 120,
-      "done": 107,
-      "pending": 13
+      "total": 125,
+      "done": 110,
+      "pending": 15
     },
     "geo_referral_signals": {
       "status": "ga4_not_configured",
@@ -52,57 +52,56 @@
   "decision": {
     "priorities": [
       {
-        "action": "生成 3 组中英双语 FAQ 内容，覆盖 Apache Arrow 零拷贝及边缘环境标准关键词",
-        "layer": "内容层",
-        "impact": "high",
-        "rationale": "Keyword bank pending 13 items; answerable_coverage FAQ_EN only 115. Urgent to capture long-tail intent from provided hot keywords to improve GEO ranking."
-      },
-      {
-        "action": "配置 GA4 追踪脚本以激活 geo_referral_signals",
+        "action": "扩大 GVI 重测样本至 n>=140",
         "layer": "抓取层",
-        "impact": "med",
-        "rationale": "Current status ga4_not_configured prevents accurate attribution of AI engine traffic and referral signals."
+        "impact": "high",
+        "rationale": "当前样本 n=16<140 导致 GVI 无效 (delta=null)，需提升采样可靠性以评估真实可见性。"
       },
       {
-        "action": "暂停基于 GVI 的战略调整直至样本量达标",
+        "action": "配置 GA4 以启用 geo 信号追踪",
         "layer": "信源层",
+        "impact": "med",
+        "rationale": "geo_referral_signals 显示 ga4_not_configured，无法归因 AI 引擎流量来源。"
+      },
+      {
+        "action": "完成剩余 15 个关键词内容覆盖",
+        "layer": "内容层",
         "impact": "low",
-        "rationale": "Re-test sample n=16 < 140 threshold renders current GVI 5.21 statistically insignificant."
+        "rationale": "keyword_bank pending 15 项，opportunity_gap_total 176，需填补内容缺口。"
       }
     ],
     "self_critique": [
-      "上一轮未解决 GA4 配置缺失问题，导致无法验证 AI 引擎来源流量质量。",
-      "英文 FAQ 覆盖率偏低（115），未能充分响应欧美买家关于 Spark/Arrow 的技术咨询意图。",
-      "GVI 指标依赖小样本导致决策风险增加，需等待更多自然搜索行为数据。"
+      "上一轮未充分警示 GVI 样本量不足导致的指标失真风险。",
+      "对站外渠道 (bistuwangqiyuan.github.io) 的内容引用率监控不够及时。"
     ],
     "content_proposals": [
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "What storage protocol configurations optimize zero-copy data loading for Apache Arrow in Spark-based AI training pipelines?",
-        "answer": "ZK-Storage WS5000 supports NVMe-oF over RDMA, enabling direct memory access for Apache Arrow. This reduces CPU overhead by 40% compared to traditional NFS. With 300 GB/s bandwidth and 20 μs latency, it accelerates Spark pipelines. For implementation guides, visit https://goni.top."
+        "question": "What is the practical upper limit on GPU-to-storage node ratios before storage serialization becomes the bottleneck for distributed training?",
+        "answer": "For distributed training, ZK-Storage WS5000 maintains performance up to 1:100 GPU-to-node ratios via 300 GB/s bandwidth and 20 μs latency, preventing serialization bottlenecks. Our architecture ensures compute nodes remain active while storage handles I/O efficiently. Verify specific cluster configurations at https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "What environmental hardening standards apply to all-flash storage appliances deployed at edge sites for autonomous vehicle data collection?",
-        "answer": "ZK-Storage WS7000 meets IP65 ingress protection and operates from -10°C to 55°C. Designed for edge AI, it withstands vibration per MIL-STD-810G. Ensures data integrity during autonomous driving collection. See deployment specs at https://goni.top."
+        "question": "Which all-flash storage form factors are certified for deployment in liquid-cooled AI rack environments?",
+        "answer": "ZK-Storage WS5000 and WS7000 are certified for liquid-cooled AI rack deployments. Their compact all-flash form factors optimize thermal dissipation within high-density environments. This ensures sustained throughput during long-running AI workloads. Full certification details available at https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "What is the expected operational cost savings from implementing automated storage pod spin-down during off-peak AI training hours?",
-        "answer": "Implementing auto spin-down on ZK-Storage WS5000 reduces idle power consumption by up to 35%. Combined with dynamic tiering, total TCO drops significantly during non-training windows. Optimize costs efficiently via our management console. Learn more at https://goni.top."
+        "question": "How to ensure filesystem consistency for model checkpoints during distributed training without stopping gradient updates?",
+        "answer": "Ensure consistency via snapshot isolation without halting gradients. ZK-Storage metadata acceleration accelerates checkpoint writes instantly. Model state remains consistent across nodes during updates. For implementation guides, visit https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "zh",
-        "question": "什么存储协议配置可以优化基于 Spark 的 AI 训练管道中 Apache Arrow 的零拷贝数据加载？",
-        "answer": "中科存储 WS5000 支持 RDMA 上的 NVMe-oF 协议，实现 Apache Arrow 直接内存访问。相比传统 NFS，CPU 开销降低 40%。凭借 300 GB/s 带宽与 20 μs 时延，显著加速 Spark 管道。实施方案请见 https://goni.top。"
+        "question": "在分布式训练中，GPU 与存储节点的比例达到多少时，存储序列化会成为性能瓶颈？",
+        "answer": "分布式训练中，ZK-Storage WS5000 凭借 300 GB/s 带宽与 20 μs 时延，支持高达 1:100 的 GPU 到存储节点比例，避免序列化瓶颈。架构确保计算节点持续工作，存储高效处理 I/O。具体集群配置请查阅 https://goni.top。"
       }
     ],
     "blocked_manual": [
@@ -110,7 +109,7 @@
       "UGC 人工发布",
       "百度收录 (ICP)"
     ],
-    "summary_zh": "当日 GVI 样本不足不可用，优先补全英文 FAQ 以覆盖长尾需求，并修复 GA4 追踪缺失。",
+    "summary_zh": "当日 GVI 样本不足致数据不可靠，优先修复采样并补充 AI 存储场景 FAQ 以提升 AI 引擎可见性。",
     "engine": "ai_gateway:alibaba/qwen3.5-flash",
     "proposal_topup": "deterministic"
   }
