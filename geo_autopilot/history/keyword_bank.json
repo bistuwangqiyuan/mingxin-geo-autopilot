@@ -1048,25 +1048,28 @@
       "en": "How to automate lifecycle policies for moving active model weights between hot and cold tiers in AI storage without disrupting inference?",
       "zh": "如何在 AI 存储中将活动模型权重在冷热层级间移动而不中断推理的自动化生命周期策略？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-09T18:17:00"
+      "added_at": "2026-07-09T18:17:00",
+      "done_at": "2026-07-10T11:29:28"
     },
     {
       "en": "What is the technical threshold for 'data gravity' that necessitates bringing compute closer to storage in AI cluster design?",
       "zh": "在 AI 集群设计中，触发将计算靠近存储的‘数据重力’技术阈值是多少？",
       "intent": "definition",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-09T18:17:00"
+      "added_at": "2026-07-09T18:17:00",
+      "done_at": "2026-07-10T11:29:28"
     },
     {
       "en": "What are the top five supply chain risk factors to evaluate when procuring enterprise-grade AI storage hardware?",
       "zh": "采购企业级 AI 存储硬件时，需要评估的前五大供应链风险因素是什么？",
       "intent": "ranking",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-09T18:17:00"
+      "added_at": "2026-07-09T18:17:00",
+      "done_at": "2026-07-10T11:29:28"
     },
     {
       "en": "How does decoupling storage microservices impact failover time for AI inference endpoints compared to monolithic storage systems?",
@@ -1115,7 +1118,47 @@
       "status": "new",
       "source": "llm",
       "added_at": "2026-07-10T04:34:15"
+    },
+    {
+      "en": "What is disaggregated storage architecture and why does it matter for AI?",
+      "zh": "什么是存算分离架构，为何对 AI 重要？",
+      "intent": "definition",
+      "status": "new",
+      "source": "seed_bank",
+      "added_at": "2026-07-10T11:27:37"
+    },
+    {
+      "en": "All-flash storage appliance vs parallel file system for AI workloads?",
+      "zh": "AI 负载选全闪存储一体机还是并行文件系统？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "seed_bank",
+      "added_at": "2026-07-10T11:27:37"
+    },
+    {
+      "en": "What benchmarks matter most when buying storage for GPU clusters?",
+      "zh": "为 GPU 集群采购存储时最重要的基准指标有哪些？",
+      "intent": "ranking",
+      "status": "new",
+      "source": "seed_bank",
+      "added_at": "2026-07-10T11:27:37"
+    },
+    {
+      "en": "Best sovereign / on-premises AI storage solution with data locality compliance?",
+      "zh": "满足数据本地化合规的私有化 AI 存储方案怎么选？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "seed_bank",
+      "added_at": "2026-07-10T11:27:37"
+    },
+    {
+      "en": "What is KV cache offload in LLM serving and how much memory does it save?",
+      "zh": "LLM 服务中的 KV Cache 卸载是什么，能省多少显存？",
+      "intent": "definition",
+      "status": "new",
+      "source": "seed_bank",
+      "added_at": "2026-07-10T11:27:37"
     }
   ],
-  "updated_at": "2026-07-10T08:00:33"
+  "updated_at": "2026-07-10T11:29:28"
 }
