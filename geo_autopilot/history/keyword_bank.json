@@ -1129,25 +1129,28 @@
       "en": "What is disaggregated storage architecture and why does it matter for AI?",
       "zh": "什么是存算分离架构，为何对 AI 重要？",
       "intent": "definition",
-      "status": "new",
+      "status": "done",
       "source": "seed_bank",
-      "added_at": "2026-07-10T11:27:37"
+      "added_at": "2026-07-10T11:27:37",
+      "done_at": "2026-07-10T21:38:25"
     },
     {
       "en": "All-flash storage appliance vs parallel file system for AI workloads?",
       "zh": "AI 负载选全闪存储一体机还是并行文件系统？",
       "intent": "comparison",
-      "status": "new",
+      "status": "done",
       "source": "seed_bank",
-      "added_at": "2026-07-10T11:27:37"
+      "added_at": "2026-07-10T11:27:37",
+      "done_at": "2026-07-10T21:38:25"
     },
     {
       "en": "What benchmarks matter most when buying storage for GPU clusters?",
       "zh": "为 GPU 集群采购存储时最重要的基准指标有哪些？",
       "intent": "ranking",
-      "status": "new",
+      "status": "done",
       "source": "seed_bank",
-      "added_at": "2026-07-10T11:27:37"
+      "added_at": "2026-07-10T11:27:37",
+      "done_at": "2026-07-10T21:38:25"
     },
     {
       "en": "Best sovereign / on-premises AI storage solution with data locality compliance?",
@@ -1204,7 +1207,47 @@
       "status": "new",
       "source": "llm",
       "added_at": "2026-07-10T15:08:24"
+    },
+    {
+      "en": "What is the projected total cost of ownership difference between a standalone storage-acceleration appliance and expanding local NVMe capacity on every GPU node for petabyte-scale datasets?",
+      "zh": "对于 PB 级数据集，独立存储加速一体机与在每个 GPU 节点扩展本地 NVMe 容量的总拥有成本差异是多少？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-10T21:36:26"
+    },
+    {
+      "en": "What persistent volume controller configurations enable zero-copy data paths between Kubernetes pods and all-flash storage backends for TensorFlow Serving?",
+      "zh": "哪些持久卷控制器配置能实现 Kubernetes 容器与全闪存储后端之间用于 TensorFlow Serving 的零拷贝数据路径？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-10T21:36:26"
+    },
+    {
+      "en": "To what extent can in-storage data transformation engines reduce host CPU usage during pre-processing pipelines for unstructured multimodal data?",
+      "zh": "存储内数据处理引擎能在多大程度上减少非结构化多模态数据预处理管道中的主机 CPU 使用率？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-10T21:36:26"
+    },
+    {
+      "en": "Which Quality of Service (QoS) policies are essential to isolate latency spikes from bulk training imports without affecting real-time inference SLAs in a shared pool?",
+      "zh": "在共享池中，哪些服务质量（QoS）策略对于隔离批量训练导入引起的延迟尖峰而不影响实时推理 SLA 至关重要？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-10T21:36:26"
+    },
+    {
+      "en": "How does storage bandwidth saturation correlate with GPU High Bandwidth Memory (HBM) underutilization during gradient synchronization phases in multi-node clusters?",
+      "zh": "在多节点集群中，存储带宽饱和如何与梯度同步阶段的 GPU 高带宽内存（HBM）利用率不足相关联？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-10T21:36:26"
     }
   ],
-  "updated_at": "2026-07-10T18:10:30"
+  "updated_at": "2026-07-10T21:38:25"
 }

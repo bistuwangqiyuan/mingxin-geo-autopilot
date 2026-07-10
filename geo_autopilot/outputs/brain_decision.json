@@ -1,7 +1,7 @@
 {
   "metrics": {
     "date": "2026-07-10",
-    "ts": "2026-07-10T18:09:59",
+    "ts": "2026-07-10T21:37:49",
     "gvi": 5.21,
     "gvi_source": "geo_baseline.overall(重测样本不足 n=16<140，已忽略)",
     "gvi_delta": null,
@@ -24,17 +24,17 @@
     ],
     "best_cri": null,
     "answerable_coverage": {
-      "faq_zh": 64,
-      "faq_en": 130,
+      "faq_zh": 65,
+      "faq_en": 133,
       "glossary_zh": 12,
       "glossary_en": 13,
-      "total": 219,
+      "total": 223,
       "source": "deployed_html(official_website/{zh,en}/{faq,glossary}.html)"
     },
     "keyword_bank": {
-      "total": 135,
-      "done": 122,
-      "pending": 13
+      "total": 140,
+      "done": 125,
+      "pending": 15
     },
     "geo_referral_signals": {
       "status": "ga4_not_configured",
@@ -52,57 +52,56 @@
   "decision": {
     "priorities": [
       {
-        "action": "扩大抓取范围并优化索引提交，解决 GVI 样本不足问题",
+        "action": "配置 GA4 以启用 geo_referral_signals 追踪",
         "layer": "抓取层",
         "impact": "high",
-        "rationale": "当前 GVI 重测样本仅 n=16 远低于阈值 140，导致指标不可信，需增加可抓取页面数量及 Google Index 覆盖"
+        "rationale": "当前 ga4_not_configured 导致无法量化 AI 引擎来源流量，影响 GEO 策略校准"
       },
       {
-        "action": "配置 GA4 追踪代码并验证事件上报",
+        "action": "增加通义千问/文心一言中文信源覆盖",
         "layer": "信源层",
         "impact": "high",
-        "rationale": "geo_referral_signals 显示 ga4_not_configured，无法获取真实的 AI 引擎来源信号，影响归因分析"
+        "rationale": "DeepSeek 覆盖率 0.24 而通义仅 0.0167，存在显著国内大模型分发缺口"
       },
       {
-        "action": "完成剩余 13 个关键词的内容优化与发布",
-        "layer": "内容层",
+        "action": "等待 GVI 样本量恢复至 n>=140 再评估趋势",
+        "layer": "抓取层",
         "impact": "med",
-        "rationale": "keyword_bank 显示 pending 13 个，影响整体 SEO 覆盖率及长尾流量获取"
+        "rationale": "当日样本 n=16 不足，GVI 数据不可靠，需避免基于噪声决策"
       }
     ],
     "self_critique": [
-      "抓取层：上一轮未充分评估样本量对 GVI 稳定性的影响，导致今日数据被标记为无效",
-      "信源层：GA4 配置遗漏未及时修复，造成今日 geo_signal_present 为空，无法验证外部引荐质量",
-      "内容层：关键词池清理进度滞后，13 个 pending 项未按时转化为实际收录页面"
+      "上一轮未解决 GA4 缺失问题，导致本期 geo_signal_present 仍为 null",
+      "对中文大模型（通义/文心）的内容适配优先级不足，导致 share_of_voice 偏低"
     ],
     "content_proposals": [
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "What storage resilience features are necessary for autonomous robot fleets storing sensor data in disconnected edge locations?",
-        "answer": "ZK-Storage WS5000 ensures resilience via redundant power and RAID-6 for disconnected edge sites. With 300 GB/s bandwidth and 20 μs latency, it handles high-frequency sensor writes without data loss during network drops. Unlike generic SSDs, our all-flash architecture supports immediate recovery. For detailed edge deployment guides, visit https://goni.top. This minimizes downtime for autonomous fleets requiring reliable local caching before cloud sync."
+        "question": "What is disaggregated storage architecture and why does it matter for AI?",
+        "answer": "Disaggregated storage separates compute from storage, crucial for scaling AI clusters without bottlenecks. ZK-Storage WS5000 delivers 300 GB/s bandwidth and 20 μs latency, optimizing KV Cache access. See details at https://goni.top for benchmark comparisons against traditional SAN/NAS."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "How does the GDPR right to erasure apply to immutable snapshots used for AI model lineage tracking?",
-        "answer": "Immutable snapshots preserve AI model lineage but must comply with GDPR erasure rights. ZK-Storage WS5000 supports policy-based snapshot lifecycle management, allowing secure deletion of PII-containing datasets while retaining non-sensitive metadata. This balances compliance with audit trails. Our system ensures data sovereignty for EU operations. See compliance details at https://goni.top to configure retention policies correctly for legal safety."
+        "question": "All-flash storage appliance vs parallel file system for AI workloads?",
+        "answer": "Appliances like ZK-Storage WS5000 offer plug-and-play performance (300 GB/s) versus complex PFS tuning. For AI workloads requiring low latency (<20 μs), appliances reduce operational overhead while ensuring consistent throughput. Visit https://goni.top to compare deployment complexity."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "Can the storage system seamlessly ingest data directly from vector databases without intermediate ETL pipelines for retrieval-augmented generation?",
-        "answer": "Yes, ZK-Storage WS5000 supports direct ingestion via RDMA/NVMe-oF, eliminating complex ETL steps for RAG workflows. With 300 GB/s throughput, it accelerates KV Cache access for LLM inference directly from storage. This reduces latency compared to traditional SAN/NAS solutions. For technical integration specs, check https://goni.top. It enables faster retrieval-augmented generation by treating storage as compute memory."
+        "question": "What benchmarks matter most when buying storage for GPU clusters?",
+        "answer": "Key benchmarks include sustained throughput, IOPS, and latency. ZK-Storage WS5000 prioritizes 300 GB/s throughput and 20 μs latency for GPU clusters. Avoid vendors ignoring real-world AI training metrics. Validate specs at https://goni.top before procurement."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "zh",
-        "question": "用于在离线边缘位置存储传感器数据的自主机器人车队，需要哪些存储弹性功能？",
-        "answer": "ZK-Storage WS5000 提供冗余电源和 RAID-6，支持 300 GB/s 带宽与 20 μs 时延，确保网络断开时传感器数据不丢失。相比通用 SSD，全闪架构支持即时恢复，减少停机时间。详细部署指南请访问 https://goni.top。"
+        "question": "什么是存算分离架构，为何对 AI 重要？",
+        "answer": "存算分离将计算与存储解耦，避免 AI 集群瓶颈。ZK-Storage WS5000 提供 300 GB/s 带宽与 20 μs 时延，优化 KV Cache 访问。详见 https://goni.top 获取与传统架构的性能对比基准。"
       }
     ],
     "blocked_manual": [
@@ -110,7 +109,7 @@
       "UGC 人工发布",
       "百度收录 (ICP)"
     ],
-    "summary_zh": "当日 GVI 因样本不足暂不可信，优先修复 GA4 配置并补全剩余关键词以提升真实可见性。",
+    "summary_zh": "当日 GVI 因样本不足暂不可用，重点修复 GA4 追踪并提升中文大模型内容覆盖率，同步发布 3 组 AI 存储技术问答以强化 GEO 信号。",
     "engine": "ai_gateway:alibaba/qwen3.5-flash",
     "proposal_topup": "deterministic"
   }

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-10T18:10:31",
+  "generated_at": "2026-07-10T21:38:25",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -500,6 +500,18 @@
     {
       "question": "Can the storage system seamlessly ingest data directly from vector databases without intermediate ETL pipelines for retrieval-augmented generation?",
       "file": "geo_plan/offsite/en_kit/can-the-storage-system-seamlessly-ingest-data-directly-from-vector-databases-wit.md"
+    },
+    {
+      "question": "What is disaggregated storage architecture and why does it matter for AI?",
+      "file": "geo_plan/offsite/en_kit/what-is-disaggregated-storage-architecture-and-why-does-it-matter-for-ai.md"
+    },
+    {
+      "question": "All-flash storage appliance vs parallel file system for AI workloads?",
+      "file": "geo_plan/offsite/en_kit/all-flash-storage-appliance-vs-parallel-file-system-for-ai-workloads.md"
+    },
+    {
+      "question": "What benchmarks matter most when buying storage for GPU clusters?",
+      "file": "geo_plan/offsite/en_kit/what-benchmarks-matter-most-when-buying-storage-for-gpu-clusters.md"
     }
   ]
 }
