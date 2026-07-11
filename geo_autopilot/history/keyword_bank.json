@@ -1299,17 +1299,19 @@
       "en": "Are there pre-certified AI storage solutions available for NVIDIA DGX SuperPOD environments that guarantee interoperability out-of-the-box?",
       "zh": "是否有针对 NVIDIA DGX SuperPOD 环境的预认证 AI 存储解决方案，可保证开箱即用的互操作性？",
       "intent": "ranking",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-11T06:33:19"
+      "added_at": "2026-07-11T06:33:19",
+      "done_at": "2026-07-11T21:25:13"
     },
     {
       "en": "What storage caching mechanisms effectively reduce cold start latency for serverless AI functions accessing large model repositories?",
       "zh": "哪些存储缓存机制能有效降低访问大型模型仓库的服务端 AI 函数冷启动延迟？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-11T10:00:07"
+      "added_at": "2026-07-11T10:00:07",
+      "done_at": "2026-07-11T21:25:13"
     },
     {
       "en": "Which immutability features in all-flash arrays best protect AI training datasets from accidental deletion or ransomware encryption?",
@@ -1384,5 +1386,5 @@
       "added_at": "2026-07-11T17:29:05"
     }
   ],
-  "updated_at": "2026-07-11T17:30:59"
+  "updated_at": "2026-07-11T21:25:13"
 }

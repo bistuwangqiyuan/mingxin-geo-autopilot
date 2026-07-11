@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-11T17:30:59",
+  "generated_at": "2026-07-11T21:25:13",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -572,6 +572,14 @@
     {
       "question": "How does versioned snapshot management in all-flash storage simplify rollback procedures for failed AI model deployments compared to Git-based workflows?",
       "file": "geo_plan/offsite/en_kit/how-does-versioned-snapshot-management-in-all-flash-storage-simplify-rollback-pr.md"
+    },
+    {
+      "question": "Are there pre-certified AI storage solutions available for NVIDIA DGX SuperPOD environments that guarantee interoperability out-of-the-box?",
+      "file": "geo_plan/offsite/en_kit/are-there-pre-certified-ai-storage-solutions-available-for-nvidia-dgx-superpod-e.md"
+    },
+    {
+      "question": "What storage caching mechanisms effectively reduce cold start latency for serverless AI functions accessing large model repositories?",
+      "file": "geo_plan/offsite/en_kit/what-storage-caching-mechanisms-effectively-reduce-cold-start-latency-for-server.md"
     }
   ]
 }
