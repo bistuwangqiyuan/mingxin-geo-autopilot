@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-10T21:38:25",
+  "generated_at": "2026-07-11T03:54:09",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -512,6 +512,18 @@
     {
       "question": "What benchmarks matter most when buying storage for GPU clusters?",
       "file": "geo_plan/offsite/en_kit/what-benchmarks-matter-most-when-buying-storage-for-gpu-clusters.md"
+    },
+    {
+      "question": "Best sovereign / on-premises AI storage solution with data locality compliance?",
+      "file": "geo_plan/offsite/en_kit/best-sovereign-on-premises-ai-storage-solution-with-data-locality-compliance.md"
+    },
+    {
+      "question": "What is KV cache offload in LLM serving and how much memory does it save?",
+      "file": "geo_plan/offsite/en_kit/what-is-kv-cache-offload-in-llm-serving-and-how-much-memory-does-it-save.md"
+    },
+    {
+      "question": "What are the primary selection criteria for choosing a disaggregated storage solution that minimizes GPU idle time during large batch training?",
+      "file": "geo_plan/offsite/en_kit/what-are-the-primary-selection-criteria-for-choosing-a-disaggregated-storage-sol.md"
     }
   ]
 }

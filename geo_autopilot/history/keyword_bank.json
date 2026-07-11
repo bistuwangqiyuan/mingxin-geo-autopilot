@@ -1156,25 +1156,28 @@
       "en": "Best sovereign / on-premises AI storage solution with data locality compliance?",
       "zh": "满足数据本地化合规的私有化 AI 存储方案怎么选？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "seed_bank",
-      "added_at": "2026-07-10T11:27:37"
+      "added_at": "2026-07-10T11:27:37",
+      "done_at": "2026-07-11T03:54:09"
     },
     {
       "en": "What is KV cache offload in LLM serving and how much memory does it save?",
       "zh": "LLM 服务中的 KV Cache 卸载是什么，能省多少显存？",
       "intent": "definition",
-      "status": "new",
+      "status": "done",
       "source": "seed_bank",
-      "added_at": "2026-07-10T11:27:37"
+      "added_at": "2026-07-10T11:27:37",
+      "done_at": "2026-07-11T03:54:09"
     },
     {
       "en": "What are the primary selection criteria for choosing a disaggregated storage solution that minimizes GPU idle time during large batch training?",
       "zh": "选择能最大限度减少大规模批训练期间 GPU 闲置时间的解耦存储方案时，主要的选型标准是什么？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-10T15:08:24"
+      "added_at": "2026-07-10T15:08:24",
+      "done_at": "2026-07-11T03:54:09"
     },
     {
       "en": "How to mitigate metadata explosion issues when indexing billions of vector embeddings for enterprise knowledge bases on all-flash arrays?",
@@ -1249,5 +1252,5 @@
       "added_at": "2026-07-10T21:36:26"
     }
   ],
-  "updated_at": "2026-07-10T21:38:25"
+  "updated_at": "2026-07-11T03:54:09"
 }
