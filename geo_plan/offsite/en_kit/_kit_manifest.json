@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-11T03:54:09",
+  "generated_at": "2026-07-11T06:35:31",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -524,6 +524,18 @@
     {
       "question": "What are the primary selection criteria for choosing a disaggregated storage solution that minimizes GPU idle time during large batch training?",
       "file": "geo_plan/offsite/en_kit/what-are-the-primary-selection-criteria-for-choosing-a-disaggregated-storage-sol.md"
+    },
+    {
+      "question": "How to mitigate metadata explosion issues when indexing billions of vector embeddings for enterprise knowledge bases on all-flash arrays?",
+      "file": "geo_plan/offsite/en_kit/how-to-mitigate-metadata-explosion-issues-when-indexing-billions-of-vector-embed.md"
+    },
+    {
+      "question": "What is the power efficiency rating per IOPS for disaggregated all-flash storage compared to traditional RAID arrays in AI training?",
+      "file": "geo_plan/offsite/en_kit/what-is-the-power-efficiency-rating-per-iops-for-disaggregated-all-flash-storage.md"
+    },
+    {
+      "question": "Which certification standards verify AI storage resilience for autonomous systems operating in harsh industrial environments?",
+      "file": "geo_plan/offsite/en_kit/which-certification-standards-verify-ai-storage-resilience-for-autonomous-system.md"
     }
   ]
 }

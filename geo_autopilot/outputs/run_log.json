@@ -1,7 +1,7 @@
 {
   "mode": "ci",
-  "started": "2026-07-11T03:52:01",
-  "elapsed": 147.3,
+  "started": "2026-07-11T06:32:34",
+  "elapsed": 196.1,
   "paths": {
     "ROOT": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot",
     "GEO_PLAN": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_plan",
@@ -20,30 +20,30 @@
     {
       "name": "geo_autopilot/keyword_miner.py",
       "ok": true,
-      "note": "[keyword_miner] source=skipped_backpressure added=0 bank_total=140 pending=12",
+      "note": "  + [ranking] Are there pre-certified AI storage solutions available for NVIDIA DGX SuperPOD environments that guarantee interoperability out-of-the-box?",
       "critical": false,
-      "elapsed": 0.0
+      "elapsed": 45.1
     },
     {
       "name": "seo_geo_loop/gvi_measure.py --force --limit 4",
       "ok": true,
       "note": "写出：/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/gvi_compare.json",
       "critical": false,
-      "elapsed": 90.2
+      "elapsed": 85.3
     },
     {
       "name": "geo_autopilot/geo_brain.py",
       "ok": true,
-      "note": "  priorities=2 proposals=4",
+      "note": "  priorities=3 proposals=4",
       "critical": false,
-      "elapsed": 37.1
+      "elapsed": 46.8
     },
     {
       "name": "geo_autopilot/apply_proposals.py",
       "ok": true,
       "note": "  已应用 4 条提案并通过 verify_site 闸门",
       "critical": false,
-      "elapsed": 0.3
+      "elapsed": 0.2
     },
     {
       "name": "seo_geo_loop/build_offsite_site.py",
@@ -62,7 +62,7 @@
     {
       "name": "seo_geo_loop/make_geo_kit_en.py",
       "ok": true,
-      "note": "[geo_kit_en] 生成 131 个成品包 -> /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_plan/offsite/en_kit",
+      "note": "[geo_kit_en] 生成 134 个成品包 -> /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_plan/offsite/en_kit",
       "critical": false,
       "elapsed": 0.0
     },
@@ -71,28 +71,28 @@
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 1.9
+      "elapsed": 1.7
     },
     {
       "name": "geo_plan/geo_scoring.py",
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 1.6
+      "elapsed": 1.5
     },
     {
       "name": "seo_geo_loop/indexnow_submit.py",
       "ok": true,
-      "note": "[OK] 179 URLs; written /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/indexnow_submit.json",
+      "note": "[OK] 181 URLs; written /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/indexnow_submit.json",
       "critical": false,
-      "elapsed": 6.2
+      "elapsed": 6.3
     },
     {
       "name": "seo_geo_loop/live_audit.py",
       "ok": true,
       "note": "  写出 -> /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/live_status.json",
       "critical": false,
-      "elapsed": 0.7
+      "elapsed": 0.9
     },
     {
       "name": "geo_autopilot/traffic_check.py",
@@ -111,21 +111,21 @@
     {
       "name": "git -C official_website status --porcelain",
       "ok": true,
-      "note": "M  zh/validation.html",
+      "note": "M  zh/faq.html",
       "critical": false,
       "elapsed": null
     },
     {
       "name": "git -C official_website commit -m",
       "ok": true,
-      "note": " 48 files changed, 399 insertions(+), 470 deletions(-)",
+      "note": " 6 files changed, 43 insertions(+), 30 deletions(-)",
       "critical": false,
       "elapsed": null
     },
     {
       "name": "git -C official_website push origin",
       "ok": true,
-      "note": "   4dfc437..c3fefc6  HEAD -> main",
+      "note": "   ffe39ce..554bf10  HEAD -> main",
       "critical": false,
       "elapsed": null
     },
@@ -146,21 +146,21 @@
     {
       "name": "git -C offsite_github status --porcelain",
       "ok": true,
-      "note": "M  docs/ws5000.html",
+      "note": "M  docs/sitemap.xml",
       "critical": false,
       "elapsed": null
     },
     {
       "name": "git -C offsite_github commit -m",
       "ok": true,
-      "note": " create mode 100644 docs/articles/what-is-kv-cache-offload-in-llm-serving-and-how-much-memory-does-it-save.html",
+      "note": " create mode 100644 docs/articles/which-certification-standards-verify-ai-storage-resilience-for-autonomous-system.html",
       "critical": false,
       "elapsed": null
     },
     {
       "name": "git -C offsite_github push origin",
       "ok": true,
-      "note": "   4bd0a82..4b4ee9d  HEAD -> main",
+      "note": "   4b4ee9d..babd464  HEAD -> main",
       "critical": false,
       "elapsed": null
     },
@@ -176,21 +176,21 @@
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": true,
-      "elapsed": 1.2
+      "elapsed": 1.1
     },
     {
       "name": "geo_autopilot/export_daily_pdf.py",
       "ok": true,
-      "note": "Saved: /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_autopilot/reports/中科存储-GEO自动驾驶日报-2026-07-11.pdf  (0.91 MB)",
+      "note": "Saved: /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_autopilot/reports/中科存储-GEO自动驾驶日报-2026-07-11.pdf  (0.95 MB)",
       "critical": false,
-      "elapsed": 2.4
+      "elapsed": 3.3
     },
     {
       "name": "geo_autopilot/alerting.py",
       "ok": true,
       "note": "[alerting] level=warn delivery=commented_issue_1 alerts=0 blocked=3",
       "critical": false,
-      "elapsed": 2.8
+      "elapsed": 1.5
     }
   ]
 }

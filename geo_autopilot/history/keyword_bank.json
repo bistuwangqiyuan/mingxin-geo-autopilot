@@ -1183,25 +1183,28 @@
       "en": "How to mitigate metadata explosion issues when indexing billions of vector embeddings for enterprise knowledge bases on all-flash arrays?",
       "zh": "如何在企业知识库中利用全闪存阵列索引数十亿向量嵌入时缓解元数据爆炸问题？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-10T15:08:24"
+      "added_at": "2026-07-10T15:08:24",
+      "done_at": "2026-07-11T06:35:31"
     },
     {
       "en": "What is the power efficiency rating per IOPS for disaggregated all-flash storage compared to traditional RAID arrays in AI training?",
       "zh": "在 AI 训练中，解耦全闪存存储与传统 RAID 阵列相比，每 IOPS 的能效评级是多少？",
       "intent": "comparison",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-10T15:08:24"
+      "added_at": "2026-07-10T15:08:24",
+      "done_at": "2026-07-11T06:35:31"
     },
     {
       "en": "Which certification standards verify AI storage resilience for autonomous systems operating in harsh industrial environments?",
       "zh": "哪些认证标准可以验证在恶劣工业环境中运行的自主系统的 AI 存储韧性？",
       "intent": "ranking",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-10T15:08:24"
+      "added_at": "2026-07-10T15:08:24",
+      "done_at": "2026-07-11T06:35:31"
     },
     {
       "en": "Which storage configurations reduce cold start latency for microservices hosting real-time AI inference endpoints?",
@@ -1250,7 +1253,47 @@
       "status": "new",
       "source": "llm",
       "added_at": "2026-07-10T21:36:26"
+    },
+    {
+      "en": "How does metadata fragmentation specifically impact reinforcement learning from human feedback (RLHF) workflows that rely on small text samples compared to large model binary transfers?",
+      "zh": "元数据碎片化如何具体影响依赖小文本样本而非大模型二进制传输的人类反馈强化学习（RLHF）工作流？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-11T06:33:19"
+    },
+    {
+      "en": "Which Kubernetes storage operators offer the best compatibility with high-performance all-flash appliances for seamless GPU pod scheduling?",
+      "zh": "哪些 Kubernetes 存储运算符与高性能全闪存一体机兼容性最佳，可实现无缝 GPU Pod 调度？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-11T06:33:19"
+    },
+    {
+      "en": "How does versioned snapshot management in all-flash storage simplify rollback procedures for failed AI model deployments compared to Git-based workflows?",
+      "zh": "与基于 Git 的工作流相比，全闪存的版本快照管理如何简化失败 AI 模型部署的回滚流程？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-11T06:33:19"
+    },
+    {
+      "en": "Does relying on proprietary storage controllers limit the ability to switch underlying GPU vendors in future AI infrastructure refresh cycles?",
+      "zh": "依赖专有存储控制器是否会限制在 AI 基础设施更新周期中切换底层 GPU 供应商的能力？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-11T06:33:19"
+    },
+    {
+      "en": "Are there pre-certified AI storage solutions available for NVIDIA DGX SuperPOD environments that guarantee interoperability out-of-the-box?",
+      "zh": "是否有针对 NVIDIA DGX SuperPOD 环境的预认证 AI 存储解决方案，可保证开箱即用的互操作性？",
+      "intent": "ranking",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-11T06:33:19"
     }
   ],
-  "updated_at": "2026-07-11T03:54:09"
+  "updated_at": "2026-07-11T06:35:31"
 }
