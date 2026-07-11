@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-11T06:35:31",
+  "generated_at": "2026-07-11T10:01:59",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -536,6 +536,18 @@
     {
       "question": "Which certification standards verify AI storage resilience for autonomous systems operating in harsh industrial environments?",
       "file": "geo_plan/offsite/en_kit/which-certification-standards-verify-ai-storage-resilience-for-autonomous-system.md"
+    },
+    {
+      "question": "Which storage configurations reduce cold start latency for microservices hosting real-time AI inference endpoints?",
+      "file": "geo_plan/offsite/en_kit/which-storage-configurations-reduce-cold-start-latency-for-microservices-hosting.md"
+    },
+    {
+      "question": "What is the projected total cost of ownership difference between a standalone storage-acceleration appliance and expanding local NVMe capacity on every GPU node for petabyte-scale datasets?",
+      "file": "geo_plan/offsite/en_kit/what-is-the-projected-total-cost-of-ownership-difference-between-a-standalone-st.md"
+    },
+    {
+      "question": "What persistent volume controller configurations enable zero-copy data paths between Kubernetes pods and all-flash storage backends for TensorFlow Serving?",
+      "file": "geo_plan/offsite/en_kit/what-persistent-volume-controller-configurations-enable-zero-copy-data-paths-bet.md"
     }
   ]
 }

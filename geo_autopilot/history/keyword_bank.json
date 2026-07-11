@@ -1210,25 +1210,28 @@
       "en": "Which storage configurations reduce cold start latency for microservices hosting real-time AI inference endpoints?",
       "zh": "哪些存储配置可以减少托管实时 AI 推理端点的微服务的冷启动延迟？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-10T15:08:24"
+      "added_at": "2026-07-10T15:08:24",
+      "done_at": "2026-07-11T10:01:59"
     },
     {
       "en": "What is the projected total cost of ownership difference between a standalone storage-acceleration appliance and expanding local NVMe capacity on every GPU node for petabyte-scale datasets?",
       "zh": "对于 PB 级数据集，独立存储加速一体机与在每个 GPU 节点扩展本地 NVMe 容量的总拥有成本差异是多少？",
       "intent": "comparison",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-10T21:36:26"
+      "added_at": "2026-07-10T21:36:26",
+      "done_at": "2026-07-11T10:01:59"
     },
     {
       "en": "What persistent volume controller configurations enable zero-copy data paths between Kubernetes pods and all-flash storage backends for TensorFlow Serving?",
       "zh": "哪些持久卷控制器配置能实现 Kubernetes 容器与全闪存储后端之间用于 TensorFlow Serving 的零拷贝数据路径？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-10T21:36:26"
+      "added_at": "2026-07-10T21:36:26",
+      "done_at": "2026-07-11T10:01:59"
     },
     {
       "en": "To what extent can in-storage data transformation engines reduce host CPU usage during pre-processing pipelines for unstructured multimodal data?",
@@ -1293,7 +1296,47 @@
       "status": "new",
       "source": "llm",
       "added_at": "2026-07-11T06:33:19"
+    },
+    {
+      "en": "What storage caching mechanisms effectively reduce cold start latency for serverless AI functions accessing large model repositories?",
+      "zh": "哪些存储缓存机制能有效降低访问大型模型仓库的服务端 AI 函数冷启动延迟？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-11T10:00:07"
+    },
+    {
+      "en": "Which immutability features in all-flash arrays best protect AI training datasets from accidental deletion or ransomware encryption?",
+      "zh": "全闪阵列中的哪些不可变特性最能保护 AI 训练数据集免受意外删除或勒索软件加密的影响？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-11T10:00:07"
+    },
+    {
+      "en": "How should storage be configured for remote edge sites collecting sensor data where internet connectivity is intermittent for AI training synchronization?",
+      "zh": "对于收集传感器数据的远程边缘站点，在 Internet 连接间歇性中断的情况下，应如何配置存储以进行 AI 训练同步？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-11T10:00:07"
+    },
+    {
+      "en": "What is the optimal chunk size for storing transformer model weights to maximize parallel read performance across multiple GPU nodes?",
+      "zh": "存储 Transformer 模型权重的最佳块大小是多少，以最大化多个 GPU 节点上的并行读取性能？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-11T10:00:07"
+    },
+    {
+      "en": "How does storage throughput scale when handling context windows exceeding 100k tokens during continuous LLM inference?",
+      "zh": "在处理连续 LLM 推理期间超过 10 万 token 的上下文窗口时，存储吞吐量如何扩展？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-11T10:00:07"
     }
   ],
-  "updated_at": "2026-07-11T06:35:31"
+  "updated_at": "2026-07-11T10:01:59"
 }

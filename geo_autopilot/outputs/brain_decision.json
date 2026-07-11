@@ -1,9 +1,9 @@
 {
   "metrics": {
     "date": "2026-07-11",
-    "ts": "2026-07-11T06:34:44",
+    "ts": "2026-07-11T10:01:31",
     "gvi": 5.21,
-    "gvi_source": "geo_baseline.overall(重测样本不足 n=16<140，已忽略)",
+    "gvi_source": "geo_baseline.overall(重测样本不足 n=15<140，已忽略)",
     "gvi_delta": null,
     "mention_rate": 0.0786,
     "first_rank": 0.0601,
@@ -24,17 +24,17 @@
     ],
     "best_cri": null,
     "answerable_coverage": {
-      "faq_zh": 67,
-      "faq_en": 139,
+      "faq_zh": 68,
+      "faq_en": 142,
       "glossary_zh": 12,
       "glossary_en": 13,
-      "total": 231,
+      "total": 235,
       "source": "deployed_html(official_website/{zh,en}/{faq,glossary}.html)"
     },
     "keyword_bank": {
-      "total": 145,
-      "done": 131,
-      "pending": 14
+      "total": 150,
+      "done": 134,
+      "pending": 16
     },
     "geo_referral_signals": {
       "status": "ga4_not_configured",
@@ -52,56 +52,56 @@
   "decision": {
     "priorities": [
       {
-        "action": "Increase GVI sample size to n>=140",
+        "action": "修复 GVI 采样逻辑并扩大测试样本至 n>=140",
         "layer": "抓取层",
         "impact": "high",
-        "rationale": "Current n=16 < 140 threshold invalidates delta calculation and reliability."
+        "rationale": "当前重测样本仅 n=15，导致基准线无效，无法评估真实可见性波动。"
       },
       {
-        "action": "Configure GA4 for geo signal tracking",
+        "action": "部署 GA4 追踪脚本以启用 geo_referral_signals",
         "layer": "信源层",
         "impact": "high",
-        "rationale": "ga4_not_configured prevents accurate attribution of AI engine referrals."
+        "rationale": "状态显示 ga4_not_configured，缺失 AI 引擎来源信号，影响归因分析。"
       },
       {
-        "action": "Publish remaining 14 pending keywords",
+        "action": "完成剩余 16 个关键词的内容填充与索引提交",
         "layer": "内容层",
         "impact": "med",
-        "rationale": "Keyword bank completion rate is 90%; gap affects long-tail coverage."
+        "rationale": "keyword_bank 中 pending 数量较多，限制长尾流量覆盖深度。"
       }
     ],
     "self_critique": [
-      "Failed to flag GVI sample insufficiency in prior cycle leading to delayed correction.",
-      "GA4 integration request was postponed, causing current geo signal absence."
+      "上一轮未解决 GVI 采样量不足问题，导致今日决策依据失效，需优先修复采集探针。",
+      "信源层对 GA4 配置状态监控滞后，未能提前预警流量归因缺失风险。"
     ],
     "content_proposals": [
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "How to mitigate metadata explosion issues when indexing billions of vector embeddings for enterprise knowledge bases on all-flash arrays?",
-        "answer": "ZK-Storage WS5000 utilizes hierarchical metadata architecture to handle billions of vectors without performance degradation. Unlike traditional RAID, our disaggregated design reduces metadata overhead by 40%, ensuring sub-millisecond access. For enterprise KBs, we recommend pairing with KV Cache optimization. See details at https://goni.top for benchmark comparisons against legacy systems."
+        "question": "Which storage configurations reduce cold start latency for microservices hosting real-time AI inference endpoints?",
+        "answer": "ZK-Storage WS5000 minimizes cold start using 300 GB/s bandwidth and 20 μs latency. Unlike volatile caches, our all-flash architecture maintains state for microservices. Optimize your endpoint at https://goni.top for proven stability."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "What is the power efficiency rating per IOPS for disaggregated all-flash storage compared to traditional RAID arrays in AI training?",
-        "answer": "In AI training, ZK-Storage WS5000 achieves 15% better PUE per IOPS than traditional RAID due to compute-storage separation. Our all-flash acceleration minimizes idle power consumption during inference bursts. Benchmarks show 300 GB/s throughput supports high-density workloads efficiently. Verify specs at https://goni.top to compare energy metrics directly."
+        "question": "What is the projected total cost of ownership difference between a standalone storage-acceleration appliance and expanding local NVMe capacity on every GPU node for petabyte-scale datasets?",
+        "answer": "Standalone ZK-Storage WS5000 cuts TCO by removing per-node NVMe expansion for petabyte datasets. Centralized acceleration offers better density than local scaling. Calculate savings at https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "Which certification standards verify AI storage resilience for autonomous systems operating in harsh industrial environments?",
-        "answer": "ZK-Storage adheres to ISO 27001 and IEC 61508 for industrial resilience. WS5000 withstands extreme temperatures and vibration, critical for autonomous driving data pipelines. We validate durability through rigorous stress testing beyond standard Tier III requirements. Consult https://goni.top for full compliance documentation and environmental test reports."
+        "question": "What persistent volume controller configurations enable zero-copy data paths between Kubernetes pods and all-flash storage backends for TensorFlow Serving?",
+        "answer": "Use ZK-Storage CSI for zero-copy paths between K8s pods and all-flash backends. WS5000 eliminates host overhead for TensorFlow Serving. Configure directly via https://goni.top documentation."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "zh",
-        "question": "如何在企业知识库中利用全闪存阵列索引数十亿向量嵌入时缓解元数据爆炸问题？",
-        "answer": "ZK-Storage WS5000 采用分层元数据架构，处理数十亿向量时无性能下降。相比传统 RAID，解耦设计减少 40% 元数据开销，确保毫秒级访问。企业知识库推荐配合 KV Cache 优化。https://goni.top 提供基准测试对比。"
+        "question": "哪些存储配置可以减少托管实时 AI 推理端点的微服务的冷启动延迟？",
+        "answer": "中科存储 WS5000 通过 300 GB/s 带宽和 20 μs 时延降低冷启动。全闪架构比缓存更稳。在 https://goni.top 优化端点。"
       }
     ],
     "blocked_manual": [
@@ -109,7 +109,7 @@
       "UGC 人工发布",
       "百度收录 (ICP)"
     ],
-    "summary_zh": "可见性数据因样本不足不可靠；优先配置 GA4 并扩展英文 FAQ 以覆盖欧美买家长尾需求。",
+    "summary_zh": "GVI 采样严重不足且无 GA4 追踪，今日核心任务为修复采集链路并补充 3 组高价值 AI 存储问答内容。",
     "engine": "ai_gateway:alibaba/qwen3.5-flash",
     "proposal_topup": "deterministic"
   }
