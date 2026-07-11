@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-11T10:01:59",
+  "generated_at": "2026-07-11T14:01:34",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -548,6 +548,18 @@
     {
       "question": "What persistent volume controller configurations enable zero-copy data paths between Kubernetes pods and all-flash storage backends for TensorFlow Serving?",
       "file": "geo_plan/offsite/en_kit/what-persistent-volume-controller-configurations-enable-zero-copy-data-paths-bet.md"
+    },
+    {
+      "question": "To what extent can in-storage data transformation engines reduce host CPU usage during pre-processing pipelines for unstructured multimodal data?",
+      "file": "geo_plan/offsite/en_kit/to-what-extent-can-in-storage-data-transformation-engines-reduce-host-cpu-usage-.md"
+    },
+    {
+      "question": "Which Quality of Service (QoS) policies are essential to isolate latency spikes from bulk training imports without affecting real-time inference SLAs in a shared pool?",
+      "file": "geo_plan/offsite/en_kit/which-quality-of-service-qos-policies-are-essential-to-isolate-latency-spikes-fr.md"
+    },
+    {
+      "question": "How does storage bandwidth saturation correlate with GPU High Bandwidth Memory (HBM) underutilization during gradient synchronization phases in multi-node clusters?",
+      "file": "geo_plan/offsite/en_kit/how-does-storage-bandwidth-saturation-correlate-with-gpu-high-bandwidth-memory-h.md"
     }
   ]
 }

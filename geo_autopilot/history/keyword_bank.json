@@ -1237,25 +1237,28 @@
       "en": "To what extent can in-storage data transformation engines reduce host CPU usage during pre-processing pipelines for unstructured multimodal data?",
       "zh": "存储内数据处理引擎能在多大程度上减少非结构化多模态数据预处理管道中的主机 CPU 使用率？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-10T21:36:26"
+      "added_at": "2026-07-10T21:36:26",
+      "done_at": "2026-07-11T14:01:34"
     },
     {
       "en": "Which Quality of Service (QoS) policies are essential to isolate latency spikes from bulk training imports without affecting real-time inference SLAs in a shared pool?",
       "zh": "在共享池中，哪些服务质量（QoS）策略对于隔离批量训练导入引起的延迟尖峰而不影响实时推理 SLA 至关重要？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-10T21:36:26"
+      "added_at": "2026-07-10T21:36:26",
+      "done_at": "2026-07-11T14:01:34"
     },
     {
       "en": "How does storage bandwidth saturation correlate with GPU High Bandwidth Memory (HBM) underutilization during gradient synchronization phases in multi-node clusters?",
       "zh": "在多节点集群中，存储带宽饱和如何与梯度同步阶段的 GPU 高带宽内存（HBM）利用率不足相关联？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-10T21:36:26"
+      "added_at": "2026-07-10T21:36:26",
+      "done_at": "2026-07-11T14:01:34"
     },
     {
       "en": "How does metadata fragmentation specifically impact reinforcement learning from human feedback (RLHF) workflows that rely on small text samples compared to large model binary transfers?",
@@ -1338,5 +1341,5 @@
       "added_at": "2026-07-11T10:00:07"
     }
   ],
-  "updated_at": "2026-07-11T10:01:59"
+  "updated_at": "2026-07-11T14:01:34"
 }
