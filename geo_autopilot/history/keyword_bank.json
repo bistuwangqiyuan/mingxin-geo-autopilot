@@ -1264,25 +1264,28 @@
       "en": "How does metadata fragmentation specifically impact reinforcement learning from human feedback (RLHF) workflows that rely on small text samples compared to large model binary transfers?",
       "zh": "元数据碎片化如何具体影响依赖小文本样本而非大模型二进制传输的人类反馈强化学习（RLHF）工作流？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-11T06:33:19"
+      "added_at": "2026-07-11T06:33:19",
+      "done_at": "2026-07-11T17:30:59"
     },
     {
       "en": "Which Kubernetes storage operators offer the best compatibility with high-performance all-flash appliances for seamless GPU pod scheduling?",
       "zh": "哪些 Kubernetes 存储运算符与高性能全闪存一体机兼容性最佳，可实现无缝 GPU Pod 调度？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-11T06:33:19"
+      "added_at": "2026-07-11T06:33:19",
+      "done_at": "2026-07-11T17:30:59"
     },
     {
       "en": "How does versioned snapshot management in all-flash storage simplify rollback procedures for failed AI model deployments compared to Git-based workflows?",
       "zh": "与基于 Git 的工作流相比，全闪存的版本快照管理如何简化失败 AI 模型部署的回滚流程？",
       "intent": "comparison",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-11T06:33:19"
+      "added_at": "2026-07-11T06:33:19",
+      "done_at": "2026-07-11T17:30:59"
     },
     {
       "en": "Does relying on proprietary storage controllers limit the ability to switch underlying GPU vendors in future AI infrastructure refresh cycles?",
@@ -1339,7 +1342,47 @@
       "status": "new",
       "source": "llm",
       "added_at": "2026-07-11T10:00:07"
+    },
+    {
+      "en": "Does the storage controller firmware support direct PCIe pass-through for AMD Instinct MI300X accelerators to minimize data copy overhead?",
+      "zh": "存储控制器固件是否支持对 AMD Instinct MI300X 加速器的直接 PCIe 直通以减少数据复制开销？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-11T17:29:05"
+    },
+    {
+      "en": "Does implementing fine-grained role-based access control on all-flash storage pools introduce measurable latency overhead for concurrent data scientists?",
+      "zh": "在全部闪存存储池上实施细粒度基于角色的访问控制是否为并发数据科学家引入了可测量的延迟开销？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-11T17:29:05"
+    },
+    {
+      "en": "How does network latency jitter in RDMA-over-Converged-Ethernet affect the consistency of distributed training checkpoints across storage nodes?",
+      "zh": "RDMA over Converged Ethernet 的网络延迟抖动如何影响跨存储节点分布式训练检查点的一致性？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-11T17:29:05"
+    },
+    {
+      "en": "How does the optimal block size for storing FAISS vector indexes on all-flash storage impact random query latency in high-concurrency scenarios?",
+      "zh": "在全部闪存存储上存储 FAISS 向量索引的最佳块大小如何影响高并发场景下的随机查询延迟？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-11T17:29:05"
+    },
+    {
+      "en": "What is the safest strategy to migrate active training datasets to a new all-flash appliance without corrupting model weights during transfer?",
+      "zh": "在不损坏传输过程中模型权重的情况下，将活动训练数据集迁移到新全部闪存一体机最安全的策略是什么？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-11T17:29:05"
     }
   ],
-  "updated_at": "2026-07-11T14:01:34"
+  "updated_at": "2026-07-11T17:30:59"
 }

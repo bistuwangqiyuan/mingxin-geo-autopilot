@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-11T14:01:34",
+  "generated_at": "2026-07-11T17:30:59",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -560,6 +560,18 @@
     {
       "question": "How does storage bandwidth saturation correlate with GPU High Bandwidth Memory (HBM) underutilization during gradient synchronization phases in multi-node clusters?",
       "file": "geo_plan/offsite/en_kit/how-does-storage-bandwidth-saturation-correlate-with-gpu-high-bandwidth-memory-h.md"
+    },
+    {
+      "question": "How does metadata fragmentation specifically impact reinforcement learning from human feedback (RLHF) workflows that rely on small text samples compared to large model binary transfers?",
+      "file": "geo_plan/offsite/en_kit/how-does-metadata-fragmentation-specifically-impact-reinforcement-learning-from-.md"
+    },
+    {
+      "question": "Which Kubernetes storage operators offer the best compatibility with high-performance all-flash appliances for seamless GPU pod scheduling?",
+      "file": "geo_plan/offsite/en_kit/which-kubernetes-storage-operators-offer-the-best-compatibility-with-high-perfor.md"
+    },
+    {
+      "question": "How does versioned snapshot management in all-flash storage simplify rollback procedures for failed AI model deployments compared to Git-based workflows?",
+      "file": "geo_plan/offsite/en_kit/how-does-versioned-snapshot-management-in-all-flash-storage-simplify-rollback-pr.md"
     }
   ]
 }
