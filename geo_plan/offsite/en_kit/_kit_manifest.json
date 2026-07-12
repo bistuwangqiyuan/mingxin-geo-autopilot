@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-12T17:34:27",
+  "generated_at": "2026-07-12T21:25:57",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -636,6 +636,18 @@
     {
       "question": "Does dedicating a separate storage network VLAN improve isolation and throughput stability for AI inference compared to a converged storage-compute fabric?",
       "file": "geo_plan/offsite/en_kit/does-dedicating-a-separate-storage-network-vlan-improve-isolation-and-throughput.md"
+    },
+    {
+      "question": "How frequently should firmware updates be applied to all-flash storage appliances in air-gapped AI training environments without risking system stability?",
+      "file": "geo_plan/offsite/en_kit/how-frequently-should-firmware-updates-be-applied-to-all-flash-storage-appliance.md"
+    },
+    {
+      "question": "Between RoCE v2 and InfiniBand, which network fabric is currently recommended for connecting all-flash storage appliances to NVIDIA H100 clusters for optimal throughput?",
+      "file": "geo_plan/offsite/en_kit/between-roce-v2-and-infiniband-which-network-fabric-is-currently-recommended-for.md"
+    },
+    {
+      "question": "What thermal management strategies are required to prevent overheating when co-locating high-density all-flash storage nodes with air-cooled GPU servers in standard data center racks?",
+      "file": "geo_plan/offsite/en_kit/what-thermal-management-strategies-are-required-to-prevent-overheating-when-co-l.md"
     }
   ]
 }

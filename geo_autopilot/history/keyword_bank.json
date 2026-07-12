@@ -1435,25 +1435,28 @@
       "en": "How frequently should firmware updates be applied to all-flash storage appliances in air-gapped AI training environments without risking system stability?",
       "zh": "在无空气连接的 AI 训练环境中，应在多频繁地对全闪存存储设备应用固件更新而不危及系统稳定性？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-12T04:07:54"
+      "added_at": "2026-07-12T04:07:54",
+      "done_at": "2026-07-12T21:25:57"
     },
     {
       "en": "Between RoCE v2 and InfiniBand, which network fabric is currently recommended for connecting all-flash storage appliances to NVIDIA H100 clusters for optimal throughput?",
       "zh": "RoCE v2 和 InfiniBand 之间，哪种网络架构目前推荐用于连接全闪存储加速器和 NVIDIA H100 集群以获得最佳吞吐量？",
       "intent": "comparison",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-12T10:09:05"
+      "added_at": "2026-07-12T10:09:05",
+      "done_at": "2026-07-12T21:25:57"
     },
     {
       "en": "What thermal management strategies are required to prevent overheating when co-locating high-density all-flash storage nodes with air-cooled GPU servers in standard data center racks?",
       "zh": "在标准数据中心机架中将高密度全闪存存储节点与空冷 GPU 服务器共置时，需要哪些热管理策略来防止过热？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-12T10:09:05"
+      "added_at": "2026-07-12T10:09:05",
+      "done_at": "2026-07-12T21:25:57"
     },
     {
       "en": "How should all-flash storage be configured to maximize throughput when using Ray Train for large-scale distributed deep learning tasks?",
@@ -1518,7 +1521,47 @@
       "status": "new",
       "source": "llm",
       "added_at": "2026-07-12T17:32:28"
+    },
+    {
+      "en": "Where should encryption keys for model weights be managed to ensure security without adding decryption latency to inference requests?",
+      "zh": "应如何管理模型权重的加密密钥，以确保在不增加推理请求解密延迟的情况下保障安全性？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-12T21:24:02"
+    },
+    {
+      "en": "Is it feasible to burst on-prem AI storage capacity to public cloud object storage during peak training periods without reformatting data?",
+      "zh": "在峰值训练期间，是否可以在不重新格式化数据的情况下将本地 AI 存储容量突发到公共云对象存储中？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-12T21:24:02"
+    },
+    {
+      "en": "What drive endurance levels are necessary for all-flash storage sustaining frequent incremental checkpoint writes during extended LLM pre-training cycles?",
+      "zh": "在扩展的 LLM 预训练周期中，全闪存存储需要多大的驱动器耐用性等级才能持续支持频繁的微增检查点写入？",
+      "intent": "ranking",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-12T21:24:02"
+    },
+    {
+      "en": "What storage adapter configurations enable seamless job scheduling between Slurm-managed training tasks and Kubernetes-based inference services on the same all-flash pool?",
+      "zh": "哪些存储适配器配置能够在同一全闪存池上实现 Slurm 管理的训练任务与基于 Kubernetes 的推理服务之间的无缝作业调度？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-12T21:24:02"
+    },
+    {
+      "en": "How often should background scrubbing run on all-flash storage containing active training datasets to prevent silent corruption without impacting IOPS?",
+      "zh": "为了在不影响 IOPS 的情况下防止静默数据损坏，包含活跃训练数据集的全闪存存储应该多久运行一次后台清理？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-12T21:24:02"
     }
   ],
-  "updated_at": "2026-07-12T17:34:27"
+  "updated_at": "2026-07-12T21:25:57"
 }
