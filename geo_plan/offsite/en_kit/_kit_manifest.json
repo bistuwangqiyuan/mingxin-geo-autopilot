@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-12T10:10:53",
+  "generated_at": "2026-07-12T14:03:05",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -612,6 +612,18 @@
     {
       "question": "How does the optimal block size for storing FAISS vector indexes on all-flash storage impact random query latency in high-concurrency scenarios?",
       "file": "geo_plan/offsite/en_kit/how-does-the-optimal-block-size-for-storing-faiss-vector-indexes-on-all-flash-st.md"
+    },
+    {
+      "question": "Does implementing fine-grained role-based access control on all-flash storage pools introduce measurable latency overhead for concurrent data scientists?",
+      "file": "geo_plan/offsite/en_kit/does-implementing-fine-grained-role-based-access-control-on-all-flash-storage-po.md"
+    },
+    {
+      "question": "What is the safest strategy to migrate active training datasets to a new all-flash appliance without corrupting model weights during transfer?",
+      "file": "geo_plan/offsite/en_kit/what-is-the-safest-strategy-to-migrate-active-training-datasets-to-a-new-all-fla.md"
+    },
+    {
+      "question": "How can automated alerting thresholds be configured to detect storage queue depth anomalies before they trigger GPU timeout errors in production AI environments?",
+      "file": "geo_plan/offsite/en_kit/how-can-automated-alerting-thresholds-be-configured-to-detect-storage-queue-dept.md"
     }
   ]
 }

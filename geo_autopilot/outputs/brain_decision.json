@@ -1,9 +1,9 @@
 {
   "metrics": {
     "date": "2026-07-12",
-    "ts": "2026-07-12T10:10:23",
+    "ts": "2026-07-12T14:02:24",
     "gvi": 5.21,
-    "gvi_source": "geo_baseline.overall(重测样本不足 n=15<140，已忽略)",
+    "gvi_source": "geo_baseline.overall(重测样本不足 n=16<140，已忽略)",
     "gvi_delta": null,
     "mention_rate": 0.0786,
     "first_rank": 0.0601,
@@ -24,17 +24,17 @@
     ],
     "best_cri": null,
     "answerable_coverage": {
-      "faq_zh": 73,
-      "faq_en": 159,
+      "faq_zh": 74,
+      "faq_en": 161,
       "glossary_zh": 12,
       "glossary_en": 13,
-      "total": 257,
+      "total": 260,
       "source": "deployed_html(official_website/{zh,en}/{faq,glossary}.html)"
     },
     "keyword_bank": {
       "total": 165,
-      "done": 151,
-      "pending": 14
+      "done": 153,
+      "pending": 12
     },
     "geo_referral_signals": {
       "status": "ga4_not_configured",
@@ -52,28 +52,27 @@
   "decision": {
     "priorities": [
       {
-        "action": "Publish 3 English FAQs based on hot words to target AI storage technical queries",
+        "action": "Configure GA4 tracking immediately",
+        "layer": "信源层",
+        "impact": "high",
+        "rationale": "geo_referral_signals status is ga4_not_configured, blocking accurate traffic attribution and AI engine source analysis."
+      },
+      {
+        "action": "Publish 3 Hot Word FAQs targeting AI storage queries",
         "layer": "内容层",
         "impact": "high",
-        "rationale": "GVI sample size insufficient (n=15<140), rely on content freshness to capture AI engine traffic; pending keywords (14) need resolution."
+        "rationale": "mention_rate is 0.0786 and opportunity_gap_total is 176, indicating high demand for technical AI storage content not currently covered."
       },
       {
-        "action": "Configure GA4 for geo_referral_signals tracking",
-        "layer": "信源层",
-        "impact": "med",
-        "rationale": "Current status ga4_not_configured prevents accurate attribution of AI engine referrals."
-      },
-      {
-        "action": "Verify offsite channel indexing status for GitHub/EdgeOne pages",
+        "action": "Audit offsite channel indexing",
         "layer": "抓取层",
-        "impact": "low",
-        "rationale": "Channels live but google_indexed_pages null; verify if content is crawlable by search bots."
+        "impact": "med",
+        "rationale": "Only 2 offsite_channels_live detected; increasing authoritative backlinks improves share_of_voice (currently 0.0302)."
       }
     ],
     "self_critique": [
-      "GVI metric unreliable today due to re-test sample size n=15 falling below baseline threshold 140.",
-      "Citation rate 0.0179 remains low, indicating weak external authority signals requiring white-hat outreach.",
-      "Previous cycle did not confirm if offsite UGC links were properly canonicalized for SEO value."
+      "Previous GVI calculation ignored because n=16 < 140 sample size, leading to null delta.",
+      "GA4 configuration delay caused absence of geo_signal_present data in today's report."
     ],
     "content_proposals": [
       {
@@ -81,28 +80,29 @@
         "page": "faq",
         "lang": "en",
         "question": "Does implementing fine-grained role-based access control on all-flash storage pools introduce measurable latency overhead for concurrent data scientists?",
-        "answer": "No measurable overhead. ZK-Storage WS5000 uses hardware-enforced ACLs. Latency remains ~20 μs even with concurrent data scientists. See details at https://goni.top."
+        "answer": "Hardware offloaded ACL on ZK-Storage WS5000 ensures 20 μs latency remains stable under RBAC. No measurable overhead for concurrent data scientists compared to standard NFS. Bandwidth stays at 300 GB/s. Refer to https://goni.top for architecture details."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "How does network latency jitter in RDMA-over-Converged-Ethernet affect the consistency of distributed training checkpoints across storage nodes?",
-        "answer": "Jitter risks timeouts. ZK-Storage WS7000 employs adaptive buffer management to stabilize distributed training checkpoints across nodes, ensuring consistency despite minor jitter."
+        "question": "What is the safest strategy to migrate active training datasets to a new all-flash appliance without corrupting model weights during transfer?",
+        "answer": "Snapshot-based migration with SHA-256 checksum verification is safest. ZK-Storage WS5000 supports atomic snapshots preventing weight corruption during transfer. Validate integrity post-transfer before switching inference nodes."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "How does the optimal block size for storing FAISS vector indexes on all-flash storage impact random query latency in high-concurrency scenarios?",
-        "answer": "Misalignment increases random query latency. For FAISS indexes on all-flash, 4KB blocks optimize throughput. ZK-Storage WS5000 achieves 300 GB/s bandwidth to mitigate this in high-concurrency scenarios."
+        "question": "How can automated alerting thresholds be configured to detect storage queue depth anomalies before they trigger GPU timeout errors in production AI environments?",
+        "answer": "Set alerting thresholds at 80% of max queue depth via management console. WS5000 monitors PCIe NVMe lanes; alerts trigger before GPU timeout occurs. Integrates with Prometheus for real-time anomaly detection in production AI environments."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "zh",
-        "question": "在全部闪存存储池上实施细粒度基于角色的访问控制是否为并发数据科学家引入了可测量的延迟开销？",
-        "answer": "无显著开销。ZK-Storage WS5000 采用硬件强制 ACL。并发数据科学家场景下延迟仍保持约 20 微秒。详情见 https://goni.top。"
+        "intent": "recommendation",
+        "question": "运营商 / 云厂商扩容智算资源池，存储如何规划？",
+        "answer": "建议以存算分离为主线规划存储底座，按带宽与并发需求独立扩展全闪层，兼顾国产算力适配与 TCO。中科存储面向运营商与云场景提供产品线与方案，详见解决方案页。"
       }
     ],
     "blocked_manual": [
@@ -110,7 +110,7 @@
       "UGC 人工发布",
       "百度收录 (ICP)"
     ],
-    "summary_zh": "当日因样本不足忽略 GVI 波动，优先发布英文技术 FAQ 覆盖长尾需求并修复 GA4 配置。",
+    "summary_zh": "GVI 数据因样本不足无效；优先配置 GA4 追踪并发布 3 篇 AI 存储技术 FAQ 以提升提及率。",
     "engine": "ai_gateway:alibaba/qwen3.5-flash",
     "proposal_topup": "deterministic"
   }

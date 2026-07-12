@@ -1363,9 +1363,10 @@
       "en": "Does implementing fine-grained role-based access control on all-flash storage pools introduce measurable latency overhead for concurrent data scientists?",
       "zh": "在全部闪存存储池上实施细粒度基于角色的访问控制是否为并发数据科学家引入了可测量的延迟开销？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-11T17:29:05"
+      "added_at": "2026-07-11T17:29:05",
+      "done_at": "2026-07-12T14:03:05"
     },
     {
       "en": "How does network latency jitter in RDMA-over-Converged-Ethernet affect the consistency of distributed training checkpoints across storage nodes?",
@@ -1389,17 +1390,19 @@
       "en": "What is the safest strategy to migrate active training datasets to a new all-flash appliance without corrupting model weights during transfer?",
       "zh": "在不损坏传输过程中模型权重的情况下，将活动训练数据集迁移到新全部闪存一体机最安全的策略是什么？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-11T17:29:05"
+      "added_at": "2026-07-11T17:29:05",
+      "done_at": "2026-07-12T14:03:05"
     },
     {
       "en": "How can automated alerting thresholds be configured to detect storage queue depth anomalies before they trigger GPU timeout errors in production AI environments?",
       "zh": "如何在生产级 AI 环境中配置自动警报阈值，以在存储队列深度异常引发 GPU 超时错误之前进行检测？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-12T04:07:54"
+      "added_at": "2026-07-12T04:07:54",
+      "done_at": "2026-07-12T14:03:05"
     },
     {
       "en": "What is the recommended snapshot retention policy for model registry storage to balance recovery time objectives with disk space consumption in MLOps pipelines?",
@@ -1474,5 +1477,5 @@
       "added_at": "2026-07-12T10:09:05"
     }
   ],
-  "updated_at": "2026-07-12T10:10:53"
+  "updated_at": "2026-07-12T14:03:05"
 }
