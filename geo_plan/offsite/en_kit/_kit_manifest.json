@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-12T04:09:40",
+  "generated_at": "2026-07-12T07:08:51",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -592,6 +592,18 @@
     {
       "question": "How should storage be configured for remote edge sites collecting sensor data where internet connectivity is intermittent for AI training synchronization?",
       "file": "geo_plan/offsite/en_kit/how-should-storage-be-configured-for-remote-edge-sites-collecting-sensor-data-wh.md"
+    },
+    {
+      "question": "What is the optimal chunk size for storing transformer model weights to maximize parallel read performance across multiple GPU nodes?",
+      "file": "geo_plan/offsite/en_kit/what-is-the-optimal-chunk-size-for-storing-transformer-model-weights-to-maximize.md"
+    },
+    {
+      "question": "How does storage throughput scale when handling context windows exceeding 100k tokens during continuous LLM inference?",
+      "file": "geo_plan/offsite/en_kit/how-does-storage-throughput-scale-when-handling-context-windows-exceeding-100k-t.md"
+    },
+    {
+      "question": "Does the storage controller firmware support direct PCIe pass-through for AMD Instinct MI300X accelerators to minimize data copy overhead?",
+      "file": "geo_plan/offsite/en_kit/does-the-storage-controller-firmware-support-direct-pcie-pass-through-for-amd-in.md"
     }
   ]
 }

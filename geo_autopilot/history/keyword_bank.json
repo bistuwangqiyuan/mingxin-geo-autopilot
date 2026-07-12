@@ -1336,25 +1336,28 @@
       "en": "What is the optimal chunk size for storing transformer model weights to maximize parallel read performance across multiple GPU nodes?",
       "zh": "存储 Transformer 模型权重的最佳块大小是多少，以最大化多个 GPU 节点上的并行读取性能？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-11T10:00:07"
+      "added_at": "2026-07-11T10:00:07",
+      "done_at": "2026-07-12T07:08:50"
     },
     {
       "en": "How does storage throughput scale when handling context windows exceeding 100k tokens during continuous LLM inference?",
       "zh": "在处理连续 LLM 推理期间超过 10 万 token 的上下文窗口时，存储吞吐量如何扩展？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-11T10:00:07"
+      "added_at": "2026-07-11T10:00:07",
+      "done_at": "2026-07-12T07:08:50"
     },
     {
       "en": "Does the storage controller firmware support direct PCIe pass-through for AMD Instinct MI300X accelerators to minimize data copy overhead?",
       "zh": "存储控制器固件是否支持对 AMD Instinct MI300X 加速器的直接 PCIe 直通以减少数据复制开销？",
       "intent": "comparison",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-11T17:29:05"
+      "added_at": "2026-07-11T17:29:05",
+      "done_at": "2026-07-12T07:08:50"
     },
     {
       "en": "Does implementing fine-grained role-based access control on all-flash storage pools introduce measurable latency overhead for concurrent data scientists?",
@@ -1429,5 +1432,5 @@
       "added_at": "2026-07-12T04:07:54"
     }
   ],
-  "updated_at": "2026-07-12T04:09:40"
+  "updated_at": "2026-07-12T07:08:50"
 }
