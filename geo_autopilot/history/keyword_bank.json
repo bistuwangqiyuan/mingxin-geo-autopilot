@@ -1291,9 +1291,10 @@
       "en": "Does relying on proprietary storage controllers limit the ability to switch underlying GPU vendors in future AI infrastructure refresh cycles?",
       "zh": "依赖专有存储控制器是否会限制在 AI 基础设施更新周期中切换底层 GPU 供应商的能力？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-11T06:33:19"
+      "added_at": "2026-07-11T06:33:19",
+      "done_at": "2026-07-12T04:09:40"
     },
     {
       "en": "Are there pre-certified AI storage solutions available for NVIDIA DGX SuperPOD environments that guarantee interoperability out-of-the-box?",
@@ -1317,17 +1318,19 @@
       "en": "Which immutability features in all-flash arrays best protect AI training datasets from accidental deletion or ransomware encryption?",
       "zh": "全闪阵列中的哪些不可变特性最能保护 AI 训练数据集免受意外删除或勒索软件加密的影响？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-11T10:00:07"
+      "added_at": "2026-07-11T10:00:07",
+      "done_at": "2026-07-12T04:09:40"
     },
     {
       "en": "How should storage be configured for remote edge sites collecting sensor data where internet connectivity is intermittent for AI training synchronization?",
       "zh": "对于收集传感器数据的远程边缘站点，在 Internet 连接间歇性中断的情况下，应如何配置存储以进行 AI 训练同步？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-11T10:00:07"
+      "added_at": "2026-07-11T10:00:07",
+      "done_at": "2026-07-12T04:09:40"
     },
     {
       "en": "What is the optimal chunk size for storing transformer model weights to maximize parallel read performance across multiple GPU nodes?",
@@ -1384,7 +1387,47 @@
       "status": "new",
       "source": "llm",
       "added_at": "2026-07-11T17:29:05"
+    },
+    {
+      "en": "How can automated alerting thresholds be configured to detect storage queue depth anomalies before they trigger GPU timeout errors in production AI environments?",
+      "zh": "如何在生产级 AI 环境中配置自动警报阈值，以在存储队列深度异常引发 GPU 超时错误之前进行检测？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-12T04:07:54"
+    },
+    {
+      "en": "What is the recommended snapshot retention policy for model registry storage to balance recovery time objectives with disk space consumption in MLOps pipelines?",
+      "zh": "为了在 MLOps 管道中平衡恢复时间目标与磁盘空间消耗，模型注册表存储的快照保留策略推荐是什么？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-12T04:07:54"
+    },
+    {
+      "en": "How does centralizing metadata services on a dedicated all-flash node impact overall cluster scalability when managing billions of dataset fragments?",
+      "zh": "当管理数十亿个数据集片段时，将元数据服务集中到专用全闪存节点上如何影响整体集群的可扩展性？",
+      "intent": "definition",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-12T04:07:54"
+    },
+    {
+      "en": "Does dedicating a separate storage network VLAN improve isolation and throughput stability for AI inference compared to a converged storage-compute fabric?",
+      "zh": "与收敛的存算一体网络相比，为 AI 推理分配独立的存储网络 VLAN 是否能提高隔离性和吞吐量稳定性？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-12T04:07:54"
+    },
+    {
+      "en": "How frequently should firmware updates be applied to all-flash storage appliances in air-gapped AI training environments without risking system stability?",
+      "zh": "在无空气连接的 AI 训练环境中，应在多频繁地对全闪存存储设备应用固件更新而不危及系统稳定性？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-12T04:07:54"
     }
   ],
-  "updated_at": "2026-07-11T21:25:13"
+  "updated_at": "2026-07-12T04:09:40"
 }

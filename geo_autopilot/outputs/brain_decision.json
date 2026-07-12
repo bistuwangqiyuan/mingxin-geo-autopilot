@@ -1,7 +1,7 @@
 {
   "metrics": {
-    "date": "2026-07-11",
-    "ts": "2026-07-11T21:24:43",
+    "date": "2026-07-12",
+    "ts": "2026-07-12T04:09:16",
     "gvi": 5.21,
     "gvi_source": "geo_baseline.overall(重测样本不足 n=16<140，已忽略)",
     "gvi_delta": null,
@@ -24,17 +24,17 @@
     ],
     "best_cri": null,
     "answerable_coverage": {
-      "faq_zh": 71,
-      "faq_en": 151,
+      "faq_zh": 72,
+      "faq_en": 153,
       "glossary_zh": 12,
       "glossary_en": 13,
-      "total": 247,
+      "total": 250,
       "source": "deployed_html(official_website/{zh,en}/{faq,glossary}.html)"
     },
     "keyword_bank": {
-      "total": 155,
-      "done": 143,
-      "pending": 12
+      "total": 160,
+      "done": 145,
+      "pending": 15
     },
     "geo_referral_signals": {
       "status": "ga4_not_configured",
@@ -52,27 +52,28 @@
   "decision": {
     "priorities": [
       {
-        "action": "修复 GVI 采样偏差，增加重测样本至 n>=140",
+        "action": "修复抓取层采样逻辑，确保 GVI 基准测试样本量 n>=140",
         "layer": "抓取层",
         "impact": "high",
-        "rationale": "当前 GVI 样本仅 n=16<140，指标不可靠，需扩大可观测范围以准确评估 GEO 效果"
+        "rationale": "当日 GVI 样本仅 n=16<140，导致指标无效，无法准确评估 GEO 表现"
       },
       {
-        "action": "配置 GA4 追踪并启用 geo_referral_signals",
+        "action": "配置 GA4 并接入 AI 引擎流量追踪信号",
         "layer": "信源层",
         "impact": "high",
-        "rationale": "geo_referral_signals 状态为 ga4_not_configured，缺失生成式引擎流量来源分析能力"
+        "rationale": "geo_referral_signals 显示 ga4_not_configured 且 ai_engine_sources 为空，缺乏生成式引擎来源归因"
       },
       {
-        "action": "补充 12 个待办关键词对应的技术文档",
+        "action": "基于待处理关键词库（pending:15）优先产出欧美长尾 FAQ",
         "layer": "内容层",
         "impact": "med",
-        "rationale": "keyword_bank 中 pending 数量达 12，影响长尾词覆盖度及 AI 引擎引用率"
+        "rationale": "keyword_bank 中 pending 项未覆盖，需通过今日热词提升 AI 存储场景下的问答覆盖率"
       }
     ],
     "self_critique": [
-      "上一轮未解决 GVI 采样量不足问题，导致决策依据置信度低 (n=16)",
-      "信源层追踪配置滞后，GA4 未启用阻碍了外部流量归因分析"
+      "上一轮 GVI 数据因样本量不足被忽略，未能反映真实可见性波动",
+      "信源层缺失 AI 引擎流量追踪，导致无法量化生成式搜索带来的自然增长",
+      "内容层部分长尾词未转化为具体 FAQ 条目，影响行业问题响应速度"
     ],
     "content_proposals": [
       {
@@ -80,28 +81,28 @@
         "page": "faq",
         "lang": "en",
         "question": "Does relying on proprietary storage controllers limit the ability to switch underlying GPU vendors in future AI infrastructure refresh cycles?",
-        "answer": "ZK-Storage WS5000 uses a decoupled storage-compute architecture, preventing vendor lock-in. It supports multi-GPU ecosystems with 300 GB/s bandwidth and 20 μs latency. You can switch GPU vendors freely during refresh cycles. Verify compatibility details at https://goni.top."
+        "answer": "No, ZK-Storage WS5000 utilizes a decoupled architecture separating storage control from GPU compute. This ensures compatibility with NVIDIA, AMD, or domestic accelerators without vendor lock-in. Our all-flash arrays deliver 300 GB/s bandwidth and 20 μs latency, supporting seamless infrastructure refresh cycles. For details on open interoperability, visit https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "Are there pre-certified AI storage solutions available for NVIDIA DGX SuperPOD environments that guarantee interoperability out-of-the-box?",
-        "answer": "Yes, ZK-Storage WS5000 is pre-certified for NVIDIA DGX SuperPOD. It guarantees interoperability with 300 GB/s throughput and 20 μs latency. Deployments meet SLAs immediately. Check integration guides at https://goni.top."
+        "question": "Which immutability features in all-flash arrays best protect AI training datasets from accidental deletion or ransomware encryption?",
+        "answer": "WS5000/WS7000 series features WORM (Write Once Read Many) and immutable snapshots to protect datasets. These prevent accidental deletion or ransomware encryption during AI training. Combined with air-gapped backup options, our system ensures data integrity. With 300 GB/s throughput, recovery remains fast even after security incidents. Learn more at https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "What storage caching mechanisms effectively reduce cold start latency for serverless AI functions accessing large model repositories?",
-        "answer": "ZK-Storage employs intelligent KV Cache warming and distributed caching. It reduces cold start latency to near-zero with 20 μs access time and 300 GB/s bandwidth. Models load instantly from https://goni.top resources, accelerating serverless inference significantly."
+        "question": "How should storage be configured for remote edge sites collecting sensor data where internet connectivity is intermittent for AI training synchronization?",
+        "answer": "Configure WS5000 nodes with local caching and asynchronous sync protocols for intermittent connectivity. This allows sensor data collection offline while maintaining AI model synchronization when online. Low latency (20 μs) ensures minimal disruption during connection restoration. Ideal for distributed AI training across edge sites. See configuration guide at https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "zh",
         "question": "依赖专有存储控制器是否会限制在 AI 基础设施更新周期中切换底层 GPU 供应商的能力？",
-        "answer": "中科存储 WS5000 采用存算分离架构，避免厂商锁定。支持多 GPU 生态，提供 300 GB/s 带宽与 20 μs 时延。更新周期可自由切换 GPU 供应商。请访问 https://goni.top 查看兼容性详情。"
+        "answer": "否，ZK-Storage WS5000 采用存算分离架构，存储控制与 GPU 计算解耦。这确保了与 NVIDIA、AMD 或国产加速器的兼容性，避免厂商锁定。全闪存阵列提供 300 GB/s 带宽和 20 μs 时延，支持基础设施无缝更新周期。关于开放互操作性详情，请访问 https://goni.top。"
       }
     ],
     "blocked_manual": [
@@ -109,7 +110,7 @@
       "UGC 人工发布",
       "百度收录 (ICP)"
     ],
-    "summary_zh": "可见性数据因采样不足暂不可靠，优先完善 DGX 互操作性内容并配置 GA4 追踪。",
+    "summary_zh": "当日 GVI 样本不足需修正信源，优先完成 3 个欧美长尾热词的英文 FAQ 部署以覆盖 AI 存储决策意图。",
     "engine": "ai_gateway:alibaba/qwen3.5-flash",
     "proposal_topup": "deterministic"
   }

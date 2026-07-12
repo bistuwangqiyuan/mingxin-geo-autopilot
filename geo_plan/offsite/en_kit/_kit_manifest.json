@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-11T21:25:13",
+  "generated_at": "2026-07-12T04:09:40",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -580,6 +580,18 @@
     {
       "question": "What storage caching mechanisms effectively reduce cold start latency for serverless AI functions accessing large model repositories?",
       "file": "geo_plan/offsite/en_kit/what-storage-caching-mechanisms-effectively-reduce-cold-start-latency-for-server.md"
+    },
+    {
+      "question": "Does relying on proprietary storage controllers limit the ability to switch underlying GPU vendors in future AI infrastructure refresh cycles?",
+      "file": "geo_plan/offsite/en_kit/does-relying-on-proprietary-storage-controllers-limit-the-ability-to-switch-unde.md"
+    },
+    {
+      "question": "Which immutability features in all-flash arrays best protect AI training datasets from accidental deletion or ransomware encryption?",
+      "file": "geo_plan/offsite/en_kit/which-immutability-features-in-all-flash-arrays-best-protect-ai-training-dataset.md"
+    },
+    {
+      "question": "How should storage be configured for remote edge sites collecting sensor data where internet connectivity is intermittent for AI training synchronization?",
+      "file": "geo_plan/offsite/en_kit/how-should-storage-be-configured-for-remote-edge-sites-collecting-sensor-data-wh.md"
     }
   ]
 }
