@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-12T07:08:51",
+  "generated_at": "2026-07-12T10:10:53",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -604,6 +604,14 @@
     {
       "question": "Does the storage controller firmware support direct PCIe pass-through for AMD Instinct MI300X accelerators to minimize data copy overhead?",
       "file": "geo_plan/offsite/en_kit/does-the-storage-controller-firmware-support-direct-pcie-pass-through-for-amd-in.md"
+    },
+    {
+      "question": "How does network latency jitter in RDMA-over-Converged-Ethernet affect the consistency of distributed training checkpoints across storage nodes?",
+      "file": "geo_plan/offsite/en_kit/how-does-network-latency-jitter-in-rdma-over-converged-ethernet-affect-the-consi.md"
+    },
+    {
+      "question": "How does the optimal block size for storing FAISS vector indexes on all-flash storage impact random query latency in high-concurrency scenarios?",
+      "file": "geo_plan/offsite/en_kit/how-does-the-optimal-block-size-for-storing-faiss-vector-indexes-on-all-flash-st.md"
     }
   ]
 }

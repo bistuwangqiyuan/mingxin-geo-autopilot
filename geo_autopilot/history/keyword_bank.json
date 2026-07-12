@@ -1371,17 +1371,19 @@
       "en": "How does network latency jitter in RDMA-over-Converged-Ethernet affect the consistency of distributed training checkpoints across storage nodes?",
       "zh": "RDMA over Converged Ethernet 的网络延迟抖动如何影响跨存储节点分布式训练检查点的一致性？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-11T17:29:05"
+      "added_at": "2026-07-11T17:29:05",
+      "done_at": "2026-07-12T10:10:53"
     },
     {
       "en": "How does the optimal block size for storing FAISS vector indexes on all-flash storage impact random query latency in high-concurrency scenarios?",
       "zh": "在全部闪存存储上存储 FAISS 向量索引的最佳块大小如何影响高并发场景下的随机查询延迟？",
       "intent": "comparison",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-11T17:29:05"
+      "added_at": "2026-07-11T17:29:05",
+      "done_at": "2026-07-12T10:10:53"
     },
     {
       "en": "What is the safest strategy to migrate active training datasets to a new all-flash appliance without corrupting model weights during transfer?",
@@ -1430,7 +1432,47 @@
       "status": "new",
       "source": "llm",
       "added_at": "2026-07-12T04:07:54"
+    },
+    {
+      "en": "Between RoCE v2 and InfiniBand, which network fabric is currently recommended for connecting all-flash storage appliances to NVIDIA H100 clusters for optimal throughput?",
+      "zh": "RoCE v2 和 InfiniBand 之间，哪种网络架构目前推荐用于连接全闪存储加速器和 NVIDIA H100 集群以获得最佳吞吐量？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-12T10:09:05"
+    },
+    {
+      "en": "What thermal management strategies are required to prevent overheating when co-locating high-density all-flash storage nodes with air-cooled GPU servers in standard data center racks?",
+      "zh": "在标准数据中心机架中将高密度全闪存存储节点与空冷 GPU 服务器共置时，需要哪些热管理策略来防止过热？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-12T10:09:05"
+    },
+    {
+      "en": "How should all-flash storage be configured to maximize throughput when using Ray Train for large-scale distributed deep learning tasks?",
+      "zh": "当使用 Ray Train 进行大规模分布式深度学习任务时，应如何配置全闪存存储以最大化吞吐量？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-12T10:09:05"
+    },
+    {
+      "en": "What metadata logging features in enterprise all-flash storage are needed to demonstrate dataset provenance for EU AI Act regulatory audits?",
+      "zh": "企业级全闪存存储需要具备哪些元数据日志功能，才能满足欧盟 AI 法案监管审计中的数据溯源要求？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-12T10:09:05"
+    },
+    {
+      "en": "What carbon emission reporting metrics are supported by modern all-flash storage appliances to assist in calculating the sustainability score of AI training runs?",
+      "zh": "现代全闪存存储加速器支持哪些碳排放报告指标，以协助计算 AI 训练运行的可持续性评分？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-12T10:09:05"
     }
   ],
-  "updated_at": "2026-07-12T07:08:50"
+  "updated_at": "2026-07-12T10:10:53"
 }

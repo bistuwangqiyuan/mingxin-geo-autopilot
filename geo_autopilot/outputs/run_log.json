@@ -1,7 +1,7 @@
 {
   "mode": "ci",
-  "started": "2026-07-12T07:06:42",
-  "elapsed": 148.7,
+  "started": "2026-07-12T10:08:26",
+  "elapsed": 167.2,
   "paths": {
     "ROOT": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot",
     "GEO_PLAN": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_plan",
@@ -20,28 +20,28 @@
     {
       "name": "geo_autopilot/keyword_miner.py",
       "ok": true,
-      "note": "[keyword_miner] source=skipped_backpressure added=0 bank_total=160 pending=12",
+      "note": "  + [recommendation] What carbon emission reporting metrics are supported by modern all-flash storage appliances to assist in calculating the sustainability score of AI training runs?",
       "critical": false,
-      "elapsed": 0.0
+      "elapsed": 38.7
     },
     {
       "name": "seo_geo_loop/gvi_measure.py --force --limit 4",
       "ok": true,
       "note": "写出：/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/gvi_compare.json",
       "critical": false,
-      "elapsed": 86.9
+      "elapsed": 77.6
     },
     {
       "name": "geo_autopilot/geo_brain.py",
       "ok": true,
-      "note": "  priorities=2 proposals=4",
+      "note": "  priorities=3 proposals=4",
       "critical": false,
-      "elapsed": 40.9
+      "elapsed": 30.5
     },
     {
       "name": "geo_autopilot/apply_proposals.py",
       "ok": true,
-      "note": "  已应用 4 条提案并通过 verify_site 闸门",
+      "note": "  已应用 3 条提案并通过 verify_site 闸门",
       "critical": false,
       "elapsed": 0.3
     },
@@ -62,7 +62,7 @@
     {
       "name": "seo_geo_loop/make_geo_kit_en.py",
       "ok": true,
-      "note": "[geo_kit_en] 生成 151 个成品包 -> /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_plan/offsite/en_kit",
+      "note": "[geo_kit_en] 生成 153 个成品包 -> /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_plan/offsite/en_kit",
       "critical": false,
       "elapsed": 0.0
     },
@@ -71,7 +71,7 @@
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 2.5
+      "elapsed": 1.6
     },
     {
       "name": "geo_plan/geo_scoring.py",
@@ -83,16 +83,16 @@
     {
       "name": "seo_geo_loop/indexnow_submit.py",
       "ok": true,
-      "note": "[OK] 194 URLs; written /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/indexnow_submit.json",
+      "note": "[OK] 196 URLs; written /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/indexnow_submit.json",
       "critical": false,
-      "elapsed": 5.6
+      "elapsed": 6.3
     },
     {
       "name": "seo_geo_loop/live_audit.py",
       "ok": true,
       "note": "  写出 -> /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/live_status.json",
       "critical": false,
-      "elapsed": 0.7
+      "elapsed": 1.1
     },
     {
       "name": "geo_autopilot/traffic_check.py",
@@ -118,14 +118,14 @@
     {
       "name": "git -C official_website commit -m",
       "ok": true,
-      "note": " 6 files changed, 43 insertions(+), 30 deletions(-)",
+      "note": " 6 files changed, 38 insertions(+), 30 deletions(-)",
       "critical": false,
       "elapsed": null
     },
     {
       "name": "git -C official_website push origin",
       "ok": true,
-      "note": "   30fb533..3a6c76c  HEAD -> main",
+      "note": "   be78d6b..47c542f  HEAD -> main",
       "critical": false,
       "elapsed": null
     },
@@ -153,14 +153,14 @@
     {
       "name": "git -C offsite_github commit -m",
       "ok": true,
-      "note": " create mode 100644 docs/articles/what-is-the-optimal-chunk-size-for-storing-transformer-model-weights-to-maximize.html",
+      "note": " create mode 100644 docs/articles/how-does-the-optimal-block-size-for-storing-faiss-vector-indexes-on-all-flash-st.html",
       "critical": false,
       "elapsed": null
     },
     {
       "name": "git -C offsite_github push origin",
       "ok": true,
-      "note": "   6573cf3..84db8b4  HEAD -> main",
+      "note": "   84db8b4..b75474c  HEAD -> main",
       "critical": false,
       "elapsed": null
     },
@@ -181,9 +181,9 @@
     {
       "name": "geo_autopilot/export_daily_pdf.py",
       "ok": true,
-      "note": "Saved: /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_autopilot/reports/中科存储-GEO自动驾驶日报-2026-07-12.pdf  (0.92 MB)",
+      "note": "Saved: /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_autopilot/reports/中科存储-GEO自动驾驶日报-2026-07-12.pdf  (0.95 MB)",
       "critical": false,
-      "elapsed": 2.9
+      "elapsed": 2.6
     },
     {
       "name": "geo_autopilot/alerting.py",
