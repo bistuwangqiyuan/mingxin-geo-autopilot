@@ -1408,25 +1408,28 @@
       "en": "What is the recommended snapshot retention policy for model registry storage to balance recovery time objectives with disk space consumption in MLOps pipelines?",
       "zh": "为了在 MLOps 管道中平衡恢复时间目标与磁盘空间消耗，模型注册表存储的快照保留策略推荐是什么？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-12T04:07:54"
+      "added_at": "2026-07-12T04:07:54",
+      "done_at": "2026-07-12T17:34:27"
     },
     {
       "en": "How does centralizing metadata services on a dedicated all-flash node impact overall cluster scalability when managing billions of dataset fragments?",
       "zh": "当管理数十亿个数据集片段时，将元数据服务集中到专用全闪存节点上如何影响整体集群的可扩展性？",
       "intent": "definition",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-12T04:07:54"
+      "added_at": "2026-07-12T04:07:54",
+      "done_at": "2026-07-12T17:34:27"
     },
     {
       "en": "Does dedicating a separate storage network VLAN improve isolation and throughput stability for AI inference compared to a converged storage-compute fabric?",
       "zh": "与收敛的存算一体网络相比，为 AI 推理分配独立的存储网络 VLAN 是否能提高隔离性和吞吐量稳定性？",
       "intent": "comparison",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-12T04:07:54"
+      "added_at": "2026-07-12T04:07:54",
+      "done_at": "2026-07-12T17:34:27"
     },
     {
       "en": "How frequently should firmware updates be applied to all-flash storage appliances in air-gapped AI training environments without risking system stability?",
@@ -1475,7 +1478,47 @@
       "status": "new",
       "source": "llm",
       "added_at": "2026-07-12T10:09:05"
+    },
+    {
+      "en": "What is the expected latency difference between NVMe-oF TCP and RDMA for streaming large model weights during inference?",
+      "zh": "在推理过程中流式传输大型模型权重时，NVMe-oF TCP 与 RDMA 之间的预期延迟差异是多少？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-12T17:32:28"
+    },
+    {
+      "en": "Which all-flash storage solutions support native integration with open-source model registries like MLflow without proprietary SDKs?",
+      "zh": "哪些全闪存存储解决方案支持原生集成像 MLflow 这样的开源模型注册表，而无需专有 SDK？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-12T17:32:28"
+    },
+    {
+      "en": "What automated checksum validation processes are recommended for verifying data integrity of petabyte-scale AI training datasets before model deployment?",
+      "zh": "在模型部署之前，推荐哪些自动校验和验证流程来验证 PB 级 AI 训练数据集的数据完整性？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-12T17:32:28"
+    },
+    {
+      "en": "What defines a 'storage-bottlenecked' job in the context of GPU utilization monitoring dashboards?",
+      "zh": "在 GPU 利用率监控仪表板上下文中，什么定义了‘存储瓶颈’作业？",
+      "intent": "definition",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-12T17:32:28"
+    },
+    {
+      "en": "Which all-flash storage vendors provide certified support for AMD ROCm stack optimization on their acceleration appliances?",
+      "zh": "哪些全闪存存储供应商在其加速设备上提供针对 AMD ROCm 堆栈优化的认证支持？",
+      "intent": "ranking",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-12T17:32:28"
     }
   ],
-  "updated_at": "2026-07-12T14:03:05"
+  "updated_at": "2026-07-12T17:34:27"
 }

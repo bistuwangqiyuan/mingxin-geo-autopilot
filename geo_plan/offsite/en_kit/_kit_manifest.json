@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-12T14:03:05",
+  "generated_at": "2026-07-12T17:34:27",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -624,6 +624,18 @@
     {
       "question": "How can automated alerting thresholds be configured to detect storage queue depth anomalies before they trigger GPU timeout errors in production AI environments?",
       "file": "geo_plan/offsite/en_kit/how-can-automated-alerting-thresholds-be-configured-to-detect-storage-queue-dept.md"
+    },
+    {
+      "question": "What is the recommended snapshot retention policy for model registry storage to balance recovery time objectives with disk space consumption in MLOps pipelines?",
+      "file": "geo_plan/offsite/en_kit/what-is-the-recommended-snapshot-retention-policy-for-model-registry-storage-to-.md"
+    },
+    {
+      "question": "How does centralizing metadata services on a dedicated all-flash node impact overall cluster scalability when managing billions of dataset fragments?",
+      "file": "geo_plan/offsite/en_kit/how-does-centralizing-metadata-services-on-a-dedicated-all-flash-node-impact-ove.md"
+    },
+    {
+      "question": "Does dedicating a separate storage network VLAN improve isolation and throughput stability for AI inference compared to a converged storage-compute fabric?",
+      "file": "geo_plan/offsite/en_kit/does-dedicating-a-separate-storage-network-vlan-improve-isolation-and-throughput.md"
     }
   ]
 }

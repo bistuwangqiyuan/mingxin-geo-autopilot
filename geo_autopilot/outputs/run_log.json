@@ -1,7 +1,7 @@
 {
   "mode": "ci",
-  "started": "2026-07-12T14:00:54",
-  "elapsed": 148.9,
+  "started": "2026-07-12T17:31:22",
+  "elapsed": 200.6,
   "paths": {
     "ROOT": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot",
     "GEO_PLAN": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_plan",
@@ -20,23 +20,23 @@
     {
       "name": "geo_autopilot/keyword_miner.py",
       "ok": true,
-      "note": "[keyword_miner] source=skipped_backpressure added=0 bank_total=165 pending=12",
+      "note": "  + [ranking] Which all-flash storage vendors provide certified support for AMD ROCm stack optimization on their acceleration appliances?",
       "critical": false,
-      "elapsed": 0.0
+      "elapsed": 66.4
     },
     {
       "name": "seo_geo_loop/gvi_measure.py --force --limit 4",
       "ok": true,
       "note": "写出：/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/gvi_compare.json",
       "critical": false,
-      "elapsed": 89.9
+      "elapsed": 84.2
     },
     {
       "name": "geo_autopilot/geo_brain.py",
       "ok": true,
       "note": "  priorities=3 proposals=4",
       "critical": false,
-      "elapsed": 40.7
+      "elapsed": 34.0
     },
     {
       "name": "geo_autopilot/apply_proposals.py",
@@ -62,7 +62,7 @@
     {
       "name": "seo_geo_loop/make_geo_kit_en.py",
       "ok": true,
-      "note": "[geo_kit_en] 生成 156 个成品包 -> /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_plan/offsite/en_kit",
+      "note": "[geo_kit_en] 生成 159 个成品包 -> /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_plan/offsite/en_kit",
       "critical": false,
       "elapsed": 0.0
     },
@@ -71,21 +71,21 @@
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 1.5
+      "elapsed": 1.3
     },
     {
       "name": "geo_plan/geo_scoring.py",
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 1.7
+      "elapsed": 1.6
     },
     {
       "name": "seo_geo_loop/indexnow_submit.py",
       "ok": true,
-      "note": "[OK] 198 URLs; written /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/indexnow_submit.json",
+      "note": "[OK] 200 URLs; written /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/indexnow_submit.json",
       "critical": false,
-      "elapsed": 6.4
+      "elapsed": 5.5
     },
     {
       "name": "seo_geo_loop/live_audit.py",
@@ -125,7 +125,7 @@
     {
       "name": "git -C official_website push origin",
       "ok": true,
-      "note": "   df812ff..08c350d  HEAD -> main",
+      "note": "   69e901d..75f1ec9  HEAD -> main",
       "critical": false,
       "elapsed": null
     },
@@ -153,14 +153,14 @@
     {
       "name": "git -C offsite_github commit -m",
       "ok": true,
-      "note": " create mode 100644 docs/articles/what-is-the-safest-strategy-to-migrate-active-training-datasets-to-a-new-all-fla.html",
+      "note": " create mode 100644 docs/articles/what-is-the-recommended-snapshot-retention-policy-for-model-registry-storage-to-.html",
       "critical": false,
       "elapsed": null
     },
     {
       "name": "git -C offsite_github push origin",
       "ok": true,
-      "note": "   b75474c..28264d4  HEAD -> main",
+      "note": "   28264d4..e010d25  HEAD -> main",
       "critical": false,
       "elapsed": null
     },
@@ -176,21 +176,21 @@
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": true,
-      "elapsed": 1.2
+      "elapsed": 1.1
     },
     {
       "name": "geo_autopilot/export_daily_pdf.py",
       "ok": true,
-      "note": "Saved: /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_autopilot/reports/中科存储-GEO自动驾驶日报-2026-07-12.pdf  (0.95 MB)",
+      "note": "Saved: /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_autopilot/reports/中科存储-GEO自动驾驶日报-2026-07-12.pdf  (0.96 MB)",
       "critical": false,
-      "elapsed": 1.8
+      "elapsed": 1.7
     },
     {
       "name": "geo_autopilot/alerting.py",
       "ok": true,
       "note": "[alerting] level=warn delivery=commented_issue_1 alerts=0 blocked=3",
       "critical": false,
-      "elapsed": 1.7
+      "elapsed": 1.3
     }
   ]
 }

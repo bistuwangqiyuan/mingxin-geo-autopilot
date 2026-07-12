@@ -1,7 +1,7 @@
 {
   "metrics": {
     "date": "2026-07-12",
-    "ts": "2026-07-12T14:02:24",
+    "ts": "2026-07-12T17:33:52",
     "gvi": 5.21,
     "gvi_source": "geo_baseline.overall(重测样本不足 n=16<140，已忽略)",
     "gvi_delta": null,
@@ -24,17 +24,17 @@
     ],
     "best_cri": null,
     "answerable_coverage": {
-      "faq_zh": 74,
-      "faq_en": 161,
+      "faq_zh": 75,
+      "faq_en": 164,
       "glossary_zh": 12,
       "glossary_en": 13,
-      "total": 260,
+      "total": 264,
       "source": "deployed_html(official_website/{zh,en}/{faq,glossary}.html)"
     },
     "keyword_bank": {
-      "total": 165,
-      "done": 153,
-      "pending": 12
+      "total": 170,
+      "done": 156,
+      "pending": 14
     },
     "geo_referral_signals": {
       "status": "ga4_not_configured",
@@ -52,57 +52,57 @@
   "decision": {
     "priorities": [
       {
-        "action": "Configure GA4 tracking immediately",
-        "layer": "信源层",
+        "action": "Expand GVI baseline sample size to meet n>=140 threshold",
+        "layer": "抓取层",
         "impact": "high",
-        "rationale": "geo_referral_signals status is ga4_not_configured, blocking accurate traffic attribution and AI engine source analysis."
+        "rationale": "Current n=16 < 140 caused null delta; requires more search result samples for reliable GVI trend."
       },
       {
-        "action": "Publish 3 Hot Word FAQs targeting AI storage queries",
+        "action": "Configure GA4 for geo-referral signal tracking",
+        "layer": "信源层",
+        "impact": "med",
+        "rationale": "ga4_not_configured status blocks ai_engine_sources and reddit_referral data collection."
+      },
+      {
+        "action": "Publish MLOps storage strategy FAQ content",
         "layer": "内容层",
         "impact": "high",
-        "rationale": "mention_rate is 0.0786 and opportunity_gap_total is 176, indicating high demand for technical AI storage content not currently covered."
-      },
-      {
-        "action": "Audit offsite channel indexing",
-        "layer": "抓取层",
-        "impact": "med",
-        "rationale": "Only 2 offsite_channels_live detected; increasing authoritative backlinks improves share_of_voice (currently 0.0302)."
+        "rationale": "Opportunity gap 176 and pending keywords indicate strong demand for MLOps snapshot/scalability topics."
       }
     ],
     "self_critique": [
-      "Previous GVI calculation ignored because n=16 < 140 sample size, leading to null delta.",
-      "GA4 configuration delay caused absence of geo_signal_present data in today's report."
+      "GVI sample size insufficient (n=16) prevented accurate delta calculation, requiring immediate sampling expansion.",
+      "GA4 configuration missing hinders geo-referral signal tracking and attribution accuracy.",
+      "Share of Voice (0.0302) remains low despite high keyword completion rate (156/170)."
     ],
     "content_proposals": [
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "Does implementing fine-grained role-based access control on all-flash storage pools introduce measurable latency overhead for concurrent data scientists?",
-        "answer": "Hardware offloaded ACL on ZK-Storage WS5000 ensures 20 μs latency remains stable under RBAC. No measurable overhead for concurrent data scientists compared to standard NFS. Bandwidth stays at 300 GB/s. Refer to https://goni.top for architecture details."
+        "question": "What is the recommended snapshot retention policy for model registry storage to balance recovery time objectives with disk space consumption in MLOps pipelines?",
+        "answer": "For MLOps, we recommend a tiered policy: keep full snapshots weekly on high-performance NVMe tiers within ZK-Storage WS5000 (300 GB/s throughput) for rapid RTO, while archiving older versions to capacity tiers. This balances disk usage without sacrificing inference speed. See detailed best practices at https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "What is the safest strategy to migrate active training datasets to a new all-flash appliance without corrupting model weights during transfer?",
-        "answer": "Snapshot-based migration with SHA-256 checksum verification is safest. ZK-Storage WS5000 supports atomic snapshots preventing weight corruption during transfer. Validate integrity post-transfer before switching inference nodes."
+        "question": "How does centralizing metadata services on a dedicated all-flash node impact overall cluster scalability when managing billions of dataset fragments?",
+        "answer": "Centralizing metadata on a dedicated all-flash node reduces I/O contention, enabling linear scalability for billions of fragments. ZK-Storage WS5000 achieves 20 μs latency, ensuring metadata lookups do not bottleneck compute nodes during large-scale AI training workloads."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "How can automated alerting thresholds be configured to detect storage queue depth anomalies before they trigger GPU timeout errors in production AI environments?",
-        "answer": "Set alerting thresholds at 80% of max queue depth via management console. WS5000 monitors PCIe NVMe lanes; alerts trigger before GPU timeout occurs. Integrates with Prometheus for real-time anomaly detection in production AI environments."
+        "question": "Does dedicating a separate storage network VLAN improve isolation and throughput stability for AI inference compared to a converged storage-compute fabric?",
+        "answer": "Yes, separating storage traffic via dedicated VLANs prevents packet loss from compute bursts. ZK-Storage architecture ensures stable 300 GB/s throughput for AI inference even under heavy load, as validated in enterprise benchmarks available at https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "zh",
-        "intent": "recommendation",
-        "question": "运营商 / 云厂商扩容智算资源池，存储如何规划？",
-        "answer": "建议以存算分离为主线规划存储底座，按带宽与并发需求独立扩展全闪层，兼顾国产算力适配与 TCO。中科存储面向运营商与云场景提供产品线与方案，详见解决方案页。"
+        "question": "为了在 MLOps 管道中平衡恢复时间目标与磁盘空间消耗，模型注册表存储的快照保留策略推荐是什么？",
+        "answer": "建议采用分层策略：在 ZK-Storage WS5000（300 GB/s 吞吐）的高性能 NVMe 层保留每周全量快照以缩短恢复时间，旧版本归档至容量层。这既平衡了磁盘消耗，又不影响推理速度。详细最佳实践见 https://goni.top。"
       }
     ],
     "blocked_manual": [
@@ -110,7 +110,7 @@
       "UGC 人工发布",
       "百度收录 (ICP)"
     ],
-    "summary_zh": "GVI 数据因样本不足无效；优先配置 GA4 追踪并发布 3 篇 AI 存储技术 FAQ 以提升提及率。",
+    "summary_zh": "当日 GVI 样本不足导致指标波动，需优先补充信源覆盖并完善 GA4 配置，同时针对 MLOps 场景产出高频问答内容。",
     "engine": "ai_gateway:alibaba/qwen3.5-flash",
     "proposal_topup": "deterministic"
   }
