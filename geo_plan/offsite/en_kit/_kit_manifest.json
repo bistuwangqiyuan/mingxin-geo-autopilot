@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-13T11:41:35",
+  "generated_at": "2026-07-13T15:20:50",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -680,6 +680,14 @@
     {
       "question": "Where should encryption keys for model weights be managed to ensure security without adding decryption latency to inference requests?",
       "file": "geo_plan/offsite/en_kit/where-should-encryption-keys-for-model-weights-be-managed-to-ensure-security-wit.md"
+    },
+    {
+      "question": "What defines a 'storage-bottlenecked' job in the context of GPU utilization monitoring dashboards?",
+      "file": "geo_plan/offsite/en_kit/what-defines-a-storage-bottlenecked-job-in-the-context-of-gpu-utilization-monito.md"
+    },
+    {
+      "question": "Is it feasible to burst on-prem AI storage capacity to public cloud object storage during peak training periods without reformatting data?",
+      "file": "geo_plan/offsite/en_kit/is-it-feasible-to-burst-on-prem-ai-storage-capacity-to-public-cloud-object-stora.md"
     }
   ]
 }

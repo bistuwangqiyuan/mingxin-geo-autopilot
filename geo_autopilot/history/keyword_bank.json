@@ -1516,9 +1516,10 @@
       "en": "What defines a 'storage-bottlenecked' job in the context of GPU utilization monitoring dashboards?",
       "zh": "在 GPU 利用率监控仪表板上下文中，什么定义了‘存储瓶颈’作业？",
       "intent": "definition",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-12T17:32:28"
+      "added_at": "2026-07-12T17:32:28",
+      "done_at": "2026-07-13T15:20:50"
     },
     {
       "en": "Which all-flash storage vendors provide certified support for AMD ROCm stack optimization on their acceleration appliances?",
@@ -1542,9 +1543,10 @@
       "en": "Is it feasible to burst on-prem AI storage capacity to public cloud object storage during peak training periods without reformatting data?",
       "zh": "在峰值训练期间，是否可以在不重新格式化数据的情况下将本地 AI 存储容量突发到公共云对象存储中？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-12T21:24:02"
+      "added_at": "2026-07-12T21:24:02",
+      "done_at": "2026-07-13T15:20:50"
     },
     {
       "en": "What drive endurance levels are necessary for all-flash storage sustaining frequent incremental checkpoint writes during extended LLM pre-training cycles?",
@@ -1609,7 +1611,47 @@
       "status": "new",
       "source": "llm",
       "added_at": "2026-07-13T07:47:57"
+    },
+    {
+      "en": "What minimum sequential write throughput is required to sustain 100% GPU utilization during full fine-tuning of 70-billion parameter models?",
+      "zh": "在进行 700 亿参数模型的全量微调时，需要多大的顺序写入吞吐量才能保持 100% 的 GPU 利用率？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-13T15:18:41"
+    },
+    {
+      "en": "How do MTU configuration mismatches affect RDMA packet loss rates when connecting all-flash appliances to NVIDIA HGX servers?",
+      "zh": "当全闪存储一体机连接至 NVIDIA HGX 服务器时，MTU 配置不匹配如何影响 RDMA 丢包率？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-13T15:18:41"
+    },
+    {
+      "en": "Should organizations choose erasure coding over traditional RAID 6 for petabyte-scale AI datasets subject to frequent incremental updates?",
+      "zh": "对于经常进行增量更新的高达 PB 级的 AI 数据集，组织是否应该选择纠删码而非传统的 RAID 6？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-13T15:18:41"
+    },
+    {
+      "en": "Which Prometheus metrics best predict storage-induced GPU idle time during PyTorch DistributedDataParallel training runs?",
+      "zh": "哪些 Prometheus 监控指标能最好地预测在 PyTorch 分布式数据并行训练期间由存储导致的 GPU 空闲时间？",
+      "intent": "ranking",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-13T15:18:41"
+    },
+    {
+      "en": "Can compute and storage node counts be scaled independently in a disaggregated architecture without rebalancing data during live AI operations?",
+      "zh": "在存算分离架构中，是否可以在不重新平衡数据的情况下独立扩展计算和存储节点数量以支持在线 AI 操作？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-13T15:18:41"
     }
   ],
-  "updated_at": "2026-07-13T11:41:35"
+  "updated_at": "2026-07-13T15:20:50"
 }

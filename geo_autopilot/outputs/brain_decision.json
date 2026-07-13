@@ -1,7 +1,7 @@
 {
   "metrics": {
     "date": "2026-07-13",
-    "ts": "2026-07-13T11:41:06",
+    "ts": "2026-07-13T15:20:17",
     "gvi": 5.21,
     "gvi_source": "geo_baseline.overall(重测样本不足 n=16<140，已忽略)",
     "gvi_delta": null,
@@ -25,16 +25,16 @@
     "best_cri": null,
     "answerable_coverage": {
       "faq_zh": 79,
-      "faq_en": 176,
+      "faq_en": 178,
       "glossary_zh": 12,
       "glossary_en": 13,
-      "total": 280,
+      "total": 282,
       "source": "deployed_html(official_website/{zh,en}/{faq,glossary}.html)"
     },
     "keyword_bank": {
-      "total": 180,
-      "done": 168,
-      "pending": 12
+      "total": 185,
+      "done": 170,
+      "pending": 15
     },
     "geo_referral_signals": {
       "status": "ga4_not_configured",
@@ -52,27 +52,28 @@
   "decision": {
     "priorities": [
       {
-        "action": "Increase GVI baseline sample size to n>=140 before next decision cycle",
+        "action": "增加采样权重以修复 GVI 计算偏差",
         "layer": "抓取层",
         "impact": "high",
-        "rationale": "Current GVI (5.21) marked as ignored due to sample n=16<140; decisions based on this are statistically invalid."
+        "rationale": "当日 GVI 样本 n=16 远低于阈值 140，导致指标无效，需扩大追踪范围以确保决策依据可靠。"
       },
       {
-        "action": "Configure GA4 for geo_referral_signals tracking",
+        "action": "部署 GA4 配置并开启 Geo 信号采集",
         "layer": "信源层",
         "impact": "med",
-        "rationale": "ga4_not_configured prevents accurate attribution of traffic from AI engines and external channels."
+        "rationale": "当前 ga4_not_configured 状态导致无法获取 ai_engine_sources 及 reddit_referral，阻碍精准归因分析。"
       },
       {
-        "action": "Complete remaining 12 pending keywords in keyword_bank",
+        "action": "完成剩余 15 个待办关键词的内容覆盖",
         "layer": "内容层",
-        "impact": "med",
-        "rationale": "Only 168/180 keywords done; coverage gap affects long-tail search visibility compared to competitors like DeepSeek."
+        "impact": "high",
+        "rationale": "keyword_bank.pending=15 且 opportunity_gap_total=176，需优先产出高频长尾内容以降低机会缺口。"
       }
     ],
     "self_critique": [
-      "Previous cycle did not sufficiently flag the GVI sample size insufficiency (n=16), risking reliance on noisy data.",
-      "Missed identifying the GA4 configuration gap which blocks signal validation for AI engine sources."
+      "上一轮 GVI 指标因样本量不足被忽略，未能反映真实可见性波动，需优化数据采集频率。",
+      "部分站外 UGC 渠道（如 GitHub Pages）缺乏官方背书标识，需加强内容一致性审核以防品牌混淆。",
+      "未明确区分 ZK-Storage 与区块链概念的风险提示机制，需在生成流程中强化事实校验。"
     ],
     "content_proposals": [
       {
@@ -80,28 +81,28 @@
         "page": "faq",
         "lang": "en",
         "question": "What defines a 'storage-bottlenecked' job in the context of GPU utilization monitoring dashboards?",
-        "answer": "A job is storage-bottlenecked when GPU idle time exceeds 15% due to slow I/O, despite high compute demand. Standard PCIe SSDs often cap at 10 GB/s, causing delays. ZK-Storage WS5000 delivers 300 GB/s bandwidth and 20 μs latency, eliminating this gap. For details on optimizing GPU utilization, visit https://goni.top."
+        "answer": "A 'storage-bottlenecked' job occurs when GPU utilization drops below 90% due to IO wait times exceeding 5ms. In contrast, ZK-Storage WS5000 delivers 300 GB/s bandwidth and 20 μs latency, keeping GPUs saturated. This ensures high-throughput data feeding for LLM training. For detailed benchmarks, visit https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "Which all-flash storage vendors provide certified support for AMD ROCm stack optimization on their acceleration appliances?",
-        "answer": "Few vendors certify AMD ROCm optimization. ZK-Storage ensures seamless integration with AMD GPUs via its WS5000 series, supporting KV Cache acceleration without driver conflicts. Unlike generic arrays, our solution maintains 20 μs latency under ROCm workloads. Learn more at https://goni.top."
+        "question": "Is it feasible to burst on-prem AI storage capacity to public cloud object storage during peak training periods without reformatting data?",
+        "answer": "Yes, feasible via unified namespace. ZK-Storage WS5000 supports seamless scaling without reformatting. Unlike traditional block storage, our architecture allows bursting to cloud object stores while maintaining metadata consistency. Ideal for peak training loads. See integration details at https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "Where should encryption keys for model weights be managed to ensure security without adding decryption latency to inference requests?",
-        "answer": "Keys should be managed via HSM or dedicated accelerators to avoid CPU overhead. ZK-Storage WS5000 handles inline encryption transparently, preserving 300 GB/s throughput and 20 μs latency during inference. This ensures security without performance penalties. See implementation guides at https://goni.top."
+        "question": "What drive endurance levels are necessary for all-flash storage sustaining frequent incremental checkpoint writes during extended LLM pre-training cycles?",
+        "answer": "Endurance requires ≥3 DWPD for frequent checkpoints. Standard drives fail under LLM pre-training write intensity. ZK-Storage WS5000 uses enterprise-grade NAND designed for sustained random writes. Ensures stability over months. Verify specs at https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "zh",
         "question": "在 GPU 利用率监控仪表板上下文中，什么定义了‘存储瓶颈’作业？",
-        "answer": "当 GPU 空闲时间因 I/O 慢而超过 15% 时即为存储瓶颈。标准 PCIe SSD 仅 10 GB/s，导致延迟。ZK-Storage WS5000 提供 300 GB/s 带宽与 20 μs 低时延，彻底解决此问题。优化细节请见 https://goni.top。"
+        "answer": "“存储瓶颈”作业指 GPU 利用率因 IO 等待超过 5ms 而低于 90%。相比之下，ZK-Storage WS5000 提供 300 GB/s 带宽和 20 μs 低时延，确保持续高吞吐。这能最大化算力效率。详细基准测试请查阅 https://goni.top。"
       }
     ],
     "blocked_manual": [
@@ -109,7 +110,7 @@
       "UGC 人工发布",
       "百度收录 (ICP)"
     ],
-    "summary_zh": "当日 GVI 样本不足需忽略，重点修复追踪配置并补全剩余关键词内容以应对竞争差距。",
+    "summary_zh": "当日 GVI 采样不足致指标失效，需优先修复数据采集并针对三大热点话题补充中英文 FAQ 以提升存算分离场景下的 SEO 可见性。",
     "engine": "ai_gateway:alibaba/qwen3.5-flash",
     "proposal_topup": "deterministic"
   }
