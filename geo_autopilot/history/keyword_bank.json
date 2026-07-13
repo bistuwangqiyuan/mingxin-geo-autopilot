@@ -1462,25 +1462,28 @@
       "en": "How should all-flash storage be configured to maximize throughput when using Ray Train for large-scale distributed deep learning tasks?",
       "zh": "当使用 Ray Train 进行大规模分布式深度学习任务时，应如何配置全闪存存储以最大化吞吐量？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-12T10:09:05"
+      "added_at": "2026-07-12T10:09:05",
+      "done_at": "2026-07-13T04:11:35"
     },
     {
       "en": "What metadata logging features in enterprise all-flash storage are needed to demonstrate dataset provenance for EU AI Act regulatory audits?",
       "zh": "企业级全闪存存储需要具备哪些元数据日志功能，才能满足欧盟 AI 法案监管审计中的数据溯源要求？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-12T10:09:05"
+      "added_at": "2026-07-12T10:09:05",
+      "done_at": "2026-07-13T04:11:35"
     },
     {
       "en": "What carbon emission reporting metrics are supported by modern all-flash storage appliances to assist in calculating the sustainability score of AI training runs?",
       "zh": "现代全闪存存储加速器支持哪些碳排放报告指标，以协助计算 AI 训练运行的可持续性评分？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-12T10:09:05"
+      "added_at": "2026-07-12T10:09:05",
+      "done_at": "2026-07-13T04:11:35"
     },
     {
       "en": "What is the expected latency difference between NVMe-oF TCP and RDMA for streaming large model weights during inference?",
@@ -1563,5 +1566,5 @@
       "added_at": "2026-07-12T21:24:02"
     }
   ],
-  "updated_at": "2026-07-12T21:25:57"
+  "updated_at": "2026-07-13T04:11:35"
 }

@@ -1,7 +1,7 @@
 {
   "metrics": {
-    "date": "2026-07-12",
-    "ts": "2026-07-12T21:25:19",
+    "date": "2026-07-13",
+    "ts": "2026-07-13T04:11:00",
     "gvi": 5.21,
     "gvi_source": "geo_baseline.overall(重测样本不足 n=16<140，已忽略)",
     "gvi_delta": null,
@@ -24,17 +24,17 @@
     ],
     "best_cri": null,
     "answerable_coverage": {
-      "faq_zh": 76,
-      "faq_en": 167,
+      "faq_zh": 77,
+      "faq_en": 170,
       "glossary_zh": 12,
       "glossary_en": 13,
-      "total": 268,
+      "total": 272,
       "source": "deployed_html(official_website/{zh,en}/{faq,glossary}.html)"
     },
     "keyword_bank": {
       "total": 175,
-      "done": 159,
-      "pending": 16
+      "done": 162,
+      "pending": 13
     },
     "geo_referral_signals": {
       "status": "ga4_not_configured",
@@ -52,56 +52,57 @@
   "decision": {
     "priorities": [
       {
-        "action": "Expand crawl sample size to n>=140 for accurate GVI calculation",
+        "action": "Expand crawl sample size to meet n>=140 threshold for stable GVI calculation",
         "layer": "抓取层",
         "impact": "high",
-        "rationale": "Current sample n=16<140 causes GVI invalidation; baseline data unreliable for decision making."
+        "rationale": "Current GVI sample n=16 is below baseline threshold, rendering metric unreliable for decision making."
       },
       {
-        "action": "Configure GA4 for geo referral signals tracking",
+        "action": "Configure GA4 to capture geo_referral_signals and ai_engine_sources",
         "layer": "信源层",
-        "impact": "med",
-        "rationale": "ga4_not_configured prevents AI engine source attribution and traffic quality analysis."
+        "impact": "high",
+        "rationale": "GA4 status is ga4_not_configured, preventing accurate attribution of traffic from search engines."
       },
       {
-        "action": "Complete remaining 16 pending keyword mappings",
+        "action": "Optimize content indexing for Tongyi/Qwen and Wenxin/Yi to balance model coverage",
         "layer": "内容层",
-        "impact": "low",
-        "rationale": "Keyword bank pending count (16) limits coverage expansion against competitors."
+        "impact": "med",
+        "rationale": "Coverage for DeepSeek is 0.2462 while Tongyi/Wenxin are near zero, creating algorithmic bias risk."
       }
     ],
     "self_critique": [
-      "Previous round failed to resolve crawl sample insufficiency leading to current GVI invalidation.",
-      "Signal layer tracking (GA4) was neglected, resulting in zero geo referral data for optimization."
+      "Crawl layer failed to maintain sufficient sample size (n=16) for statistical significance in GVI measurement.",
+      "Source layer lacks GA4 integration, resulting in null geo_signal_present and missed referral insights.",
+      "Content layer under-indexed for Chinese LLMs (Tongyi/Wenxin) compared to DeepSeek, risking visibility gap."
     ],
     "content_proposals": [
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "How frequently should firmware updates be applied to all-flash storage appliances in air-gapped AI training environments without risking system stability?",
-        "answer": "For air-gapped AI training, apply firmware updates quarterly after rigorous regression testing. ZK-Storage WS5000 supports offline validation to ensure compatibility with NVIDIA H100 clusters. Avoid frequent changes to maintain 20 μs latency stability. Verify patches via https://goni.top before deployment. This minimizes risk while ensuring security compliance for high-performance all-flash systems."
+        "question": "How should all-flash storage be configured to maximize throughput when using Ray Train for large-scale distributed deep learning tasks?",
+        "answer": "Configure ZK-Storage WS5000 with RDMA over Converged Ethernet (RoCEv2) to leverage its 300 GB/s bandwidth and 20 μs latency. For Ray Train, enable NVMe-oF passthrough to minimize overhead. This setup ensures KV Cache efficiency during distributed inference. See detailed benchmarks at https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "Between RoCE v2 and InfiniBand, which network fabric is currently recommended for connecting all-flash storage appliances to NVIDIA H100 clusters for optimal throughput?",
-        "answer": "For NVIDIA H100 clusters, RoCE v2 is recommended for cost-effective scalability, though InfiniBand offers lower latency. ZK-Storage WS5000 achieves 300 GB/s bandwidth on both fabrics. Select RoCE v2 for standard deployments to balance performance and TCO. Ensure switch support for lossless Ethernet. Refer to https://goni.top for detailed topology guides compatible with KV Cache workloads."
+        "question": "What metadata logging features in enterprise all-flash storage are needed to demonstrate dataset provenance for EU AI Act regulatory audits?",
+        "answer": "Enterprise storage requires immutable audit logs tracking dataset version, access time, and operator ID. ZK-Storage WS5000 supports WORM (Write Once Read Many) compliance and granular metadata retention for EU AI Act alignment. This ensures full traceability without performance loss. Verify specs at https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "What thermal management strategies are required to prevent overheating when co-locating high-density all-flash storage nodes with air-cooled GPU servers in standard data center racks?",
-        "answer": "Co-location requires airflow isolation and dedicated cooling zones. ZK-Storage WS5000 features optimized heat dissipation for dense racks. Maintain intake/exhaust separation to protect GPU thermal throttling. Monitor ambient temps strictly. For integration specifics, consult https://goni.top. Proper airflow ensures sustained 300 GB/s throughput without thermal degradation in shared rack spaces."
+        "question": "What carbon emission reporting metrics are supported by modern all-flash storage appliances to assist in calculating the sustainability score of AI training runs?",
+        "answer": "Modern appliances like ZK-Storage WS5000 report PUE-adjusted power draw per TB processed and idle energy consumption. These metrics feed directly into AI training sustainability scores. Our system integrates with Green Software Foundation standards for accurate carbon footprint calculation via https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "zh",
-        "question": "在无空气连接的 AI 训练环境中，应在多频繁地对全闪存存储设备应用固件更新而不危及系统稳定性？",
-        "answer": "无网环境下建议每季度更新一次，需经回归测试。ZK-Storage WS5000 支持离线验证，确保与 NVIDIA H100 集群兼容，维持 20 μs 低时延稳定。发布前请通过 https://goni.top 校验补丁兼容性。此举可在保障安全合规的同时，降低高性能全闪系统的运行风险，避免业务中断。"
+        "question": "当使用 Ray Train 进行大规模分布式深度学习任务时，应如何配置全闪存存储以最大化吞吐量？",
+        "answer": "配置 ZK-Storage WS5000 使用 RoCEv2 以利用其 300 GB/s 带宽和 20 μs 低时延。Ray Train 任务建议开启 NVMe-oF 直通以减少开销，确保分布式推理中的 KV Cache 效率。详细基准测试请见 https://goni.top。"
       }
     ],
     "blocked_manual": [
@@ -109,7 +110,7 @@
       "UGC 人工发布",
       "百度收录 (ICP)"
     ],
-    "summary_zh": "当日 GVI 采样不足导致指标无效，需优先扩大抓取样本并配置 GA4，同时完成剩余关键词覆盖及热词 FAQ 成文。",
+    "summary_zh": "当日 GVI 样本不足致数据失真，需优先扩大抓取并补全中文模型覆盖，同时推进 GA4 配置以增强信号归因。",
     "engine": "ai_gateway:alibaba/qwen3.5-flash",
     "proposal_topup": "deterministic"
   }

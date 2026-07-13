@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-12T21:25:57",
+  "generated_at": "2026-07-13T04:11:35",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -648,6 +648,18 @@
     {
       "question": "What thermal management strategies are required to prevent overheating when co-locating high-density all-flash storage nodes with air-cooled GPU servers in standard data center racks?",
       "file": "geo_plan/offsite/en_kit/what-thermal-management-strategies-are-required-to-prevent-overheating-when-co-l.md"
+    },
+    {
+      "question": "How should all-flash storage be configured to maximize throughput when using Ray Train for large-scale distributed deep learning tasks?",
+      "file": "geo_plan/offsite/en_kit/how-should-all-flash-storage-be-configured-to-maximize-throughput-when-using-ray.md"
+    },
+    {
+      "question": "What metadata logging features in enterprise all-flash storage are needed to demonstrate dataset provenance for EU AI Act regulatory audits?",
+      "file": "geo_plan/offsite/en_kit/what-metadata-logging-features-in-enterprise-all-flash-storage-are-needed-to-dem.md"
+    },
+    {
+      "question": "What carbon emission reporting metrics are supported by modern all-flash storage appliances to assist in calculating the sustainability score of AI training runs?",
+      "file": "geo_plan/offsite/en_kit/what-carbon-emission-reporting-metrics-are-supported-by-modern-all-flash-storage.md"
     }
   ]
 }
