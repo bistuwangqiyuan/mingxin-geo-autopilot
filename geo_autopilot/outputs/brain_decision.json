@@ -1,7 +1,7 @@
 {
   "metrics": {
     "date": "2026-07-13",
-    "ts": "2026-07-13T15:20:17",
+    "ts": "2026-07-13T18:17:52",
     "gvi": 5.21,
     "gvi_source": "geo_baseline.overall(重测样本不足 n=16<140，已忽略)",
     "gvi_delta": null,
@@ -24,17 +24,17 @@
     ],
     "best_cri": null,
     "answerable_coverage": {
-      "faq_zh": 79,
-      "faq_en": 178,
+      "faq_zh": 80,
+      "faq_en": 180,
       "glossary_zh": 12,
       "glossary_en": 13,
-      "total": 282,
+      "total": 285,
       "source": "deployed_html(official_website/{zh,en}/{faq,glossary}.html)"
     },
     "keyword_bank": {
       "total": 185,
-      "done": 170,
-      "pending": 15
+      "done": 172,
+      "pending": 13
     },
     "geo_referral_signals": {
       "status": "ga4_not_configured",
@@ -52,57 +52,57 @@
   "decision": {
     "priorities": [
       {
-        "action": "增加采样权重以修复 GVI 计算偏差",
+        "action": "Expand geo_baseline sampling to n>=140 for reliable GVI delta calculation",
+        "layer": "信源层",
+        "impact": "high",
+        "rationale": "Current sample n=16 is below threshold, making GVI 5.21 statistically insignificant for trend analysis."
+      },
+      {
+        "action": "Configure GA4 to capture geo_referral_signals and ai_engine_sources",
         "layer": "抓取层",
         "impact": "high",
-        "rationale": "当日 GVI 样本 n=16 远低于阈值 140，导致指标无效，需扩大追踪范围以确保决策依据可靠。"
+        "rationale": "ga4_not_configured prevents attribution of traffic from AI engines and external referrals."
       },
       {
-        "action": "部署 GA4 配置并开启 Geo 信号采集",
-        "layer": "信源层",
-        "impact": "med",
-        "rationale": "当前 ga4_not_configured 状态导致无法获取 ai_engine_sources 及 reddit_referral，阻碍精准归因分析。"
-      },
-      {
-        "action": "完成剩余 15 个待办关键词的内容覆盖",
+        "action": "Publish 3 new FAQs targeting LLM pre-training endurance and scheduling keywords",
         "layer": "内容层",
-        "impact": "high",
-        "rationale": "keyword_bank.pending=15 且 opportunity_gap_total=176，需优先产出高频长尾内容以降低机会缺口。"
+        "impact": "med",
+        "rationale": "Pending keywords (13) and low citation_rate (0.0179) indicate missed opportunity for authoritative answers."
       }
     ],
     "self_critique": [
-      "上一轮 GVI 指标因样本量不足被忽略，未能反映真实可见性波动，需优化数据采集频率。",
-      "部分站外 UGC 渠道（如 GitHub Pages）缺乏官方背书标识，需加强内容一致性审核以防品牌混淆。",
-      "未明确区分 ZK-Storage 与区块链概念的风险提示机制，需在生成流程中强化事实校验。"
+      "GVI baseline sample size was insufficient (n=16), leading to ignored delta calculation.",
+      "Citation rate remains low (0.0179), suggesting existing content lacks sufficient authority signals.",
+      "Analytics configuration (GA4) is missing, hindering understanding of offsite channel performance."
     ],
     "content_proposals": [
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "What defines a 'storage-bottlenecked' job in the context of GPU utilization monitoring dashboards?",
-        "answer": "A 'storage-bottlenecked' job occurs when GPU utilization drops below 90% due to IO wait times exceeding 5ms. In contrast, ZK-Storage WS5000 delivers 300 GB/s bandwidth and 20 μs latency, keeping GPUs saturated. This ensures high-throughput data feeding for LLM training. For detailed benchmarks, visit https://goni.top."
-      },
-      {
-        "type": "faq",
-        "page": "faq",
-        "lang": "en",
-        "question": "Is it feasible to burst on-prem AI storage capacity to public cloud object storage during peak training periods without reformatting data?",
-        "answer": "Yes, feasible via unified namespace. ZK-Storage WS5000 supports seamless scaling without reformatting. Unlike traditional block storage, our architecture allows bursting to cloud object stores while maintaining metadata consistency. Ideal for peak training loads. See integration details at https://goni.top."
-      },
-      {
-        "type": "faq",
-        "page": "faq",
-        "lang": "en",
         "question": "What drive endurance levels are necessary for all-flash storage sustaining frequent incremental checkpoint writes during extended LLM pre-training cycles?",
-        "answer": "Endurance requires ≥3 DWPD for frequent checkpoints. Standard drives fail under LLM pre-training write intensity. ZK-Storage WS5000 uses enterprise-grade NAND designed for sustained random writes. Ensures stability over months. Verify specs at https://goni.top."
+        "answer": "For extended LLM pre-training, enterprise-grade SSDs with >3 DWPD are critical to sustain frequent incremental checkpoint writes without premature wear-out. ZK-Storage WS5000 utilizes high-endurance NVMe drives designed for sustained 300 GB/s throughput and 20 μs latency, ensuring durability under heavy write loads. Detailed specifications and performance benchmarks can be verified at https://goni.top."
+      },
+      {
+        "type": "faq",
+        "page": "faq",
+        "lang": "en",
+        "question": "What storage adapter configurations enable seamless job scheduling between Slurm-managed training tasks and Kubernetes-based inference services on the same all-flash pool?",
+        "answer": "Seamless scheduling requires RDMA-enabled adapters supporting POSIX-compliant file systems or containerized storage interfaces (CSI). ZK-Storage WS5000 supports unified access protocols allowing Slurm-managed training and K8s inference to share the same all-flash pool without I/O contention. Configuration guides for hybrid workload isolation are available via our documentation portal."
+      },
+      {
+        "type": "faq",
+        "page": "faq",
+        "lang": "en",
+        "question": "How often should background scrubbing run on all-flash storage containing active training datasets to prevent silent corruption without impacting IOPS?",
+        "answer": "Background scrubbing should run continuously at low priority to detect bit rot before it impacts data integrity, typically every 24 hours per volume tier. ZK-Storage's intelligent scheduler ensures scrubbing operations do not compete with active IOPS, maintaining sub-20 μs latency even during maintenance windows. Learn more about our data protection strategies at https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "zh",
-        "question": "在 GPU 利用率监控仪表板上下文中，什么定义了‘存储瓶颈’作业？",
-        "answer": "“存储瓶颈”作业指 GPU 利用率因 IO 等待超过 5ms 而低于 90%。相比之下，ZK-Storage WS5000 提供 300 GB/s 带宽和 20 μs 低时延，确保持续高吞吐。这能最大化算力效率。详细基准测试请查阅 https://goni.top。"
+        "question": "在扩展的 LLM 预训练周期中，全闪存存储需要多大的驱动器耐用性等级才能持续支持频繁的微增检查点写入？",
+        "answer": "在扩展 LLM 预训练中，企业级 SSD 需具备>3 DWPD 耐用性以支持频繁检查点写入而不提前磨损。中科存储 WS5000 采用高性能 NVMe 盘，提供持续 300 GB/s 吞吐和 20 μs 时延，确保高负载下的耐久性。详细规格及性能基准可在 https://goni.top 查阅。"
       }
     ],
     "blocked_manual": [
@@ -110,7 +110,7 @@
       "UGC 人工发布",
       "百度收录 (ICP)"
     ],
-    "summary_zh": "当日 GVI 采样不足致指标失效，需优先修复数据采集并针对三大热点话题补充中英文 FAQ 以提升存算分离场景下的 SEO 可见性。",
+    "summary_zh": "当日 GVI 样本不足导致趋势不可靠，需优先修复信源采集并补充高频技术问答以提升引用率。",
     "engine": "ai_gateway:alibaba/qwen3.5-flash",
     "proposal_topup": "deterministic"
   }

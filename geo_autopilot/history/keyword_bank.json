@@ -1552,25 +1552,28 @@
       "en": "What drive endurance levels are necessary for all-flash storage sustaining frequent incremental checkpoint writes during extended LLM pre-training cycles?",
       "zh": "在扩展的 LLM 预训练周期中，全闪存存储需要多大的驱动器耐用性等级才能持续支持频繁的微增检查点写入？",
       "intent": "ranking",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-12T21:24:02"
+      "added_at": "2026-07-12T21:24:02",
+      "done_at": "2026-07-13T18:18:23"
     },
     {
       "en": "What storage adapter configurations enable seamless job scheduling between Slurm-managed training tasks and Kubernetes-based inference services on the same all-flash pool?",
       "zh": "哪些存储适配器配置能够在同一全闪存池上实现 Slurm 管理的训练任务与基于 Kubernetes 的推理服务之间的无缝作业调度？",
       "intent": "comparison",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-12T21:24:02"
+      "added_at": "2026-07-12T21:24:02",
+      "done_at": "2026-07-13T18:18:23"
     },
     {
       "en": "How often should background scrubbing run on all-flash storage containing active training datasets to prevent silent corruption without impacting IOPS?",
       "zh": "为了在不影响 IOPS 的情况下防止静默数据损坏，包含活跃训练数据集的全闪存存储应该多久运行一次后台清理？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-12T21:24:02"
+      "added_at": "2026-07-12T21:24:02",
+      "done_at": "2026-07-13T18:18:23"
     },
     {
       "en": "What technical criteria define a 'latency-sensitive' AI inference workload suitable for all-flash acceleration?",
@@ -1653,5 +1656,5 @@
       "added_at": "2026-07-13T15:18:41"
     }
   ],
-  "updated_at": "2026-07-13T15:20:50"
+  "updated_at": "2026-07-13T18:18:23"
 }

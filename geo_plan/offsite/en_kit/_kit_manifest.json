@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-13T15:20:50",
+  "generated_at": "2026-07-13T18:18:23",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -688,6 +688,18 @@
     {
       "question": "Is it feasible to burst on-prem AI storage capacity to public cloud object storage during peak training periods without reformatting data?",
       "file": "geo_plan/offsite/en_kit/is-it-feasible-to-burst-on-prem-ai-storage-capacity-to-public-cloud-object-stora.md"
+    },
+    {
+      "question": "What drive endurance levels are necessary for all-flash storage sustaining frequent incremental checkpoint writes during extended LLM pre-training cycles?",
+      "file": "geo_plan/offsite/en_kit/what-drive-endurance-levels-are-necessary-for-all-flash-storage-sustaining-frequ.md"
+    },
+    {
+      "question": "What storage adapter configurations enable seamless job scheduling between Slurm-managed training tasks and Kubernetes-based inference services on the same all-flash pool?",
+      "file": "geo_plan/offsite/en_kit/what-storage-adapter-configurations-enable-seamless-job-scheduling-between-slurm.md"
+    },
+    {
+      "question": "How often should background scrubbing run on all-flash storage containing active training datasets to prevent silent corruption without impacting IOPS?",
+      "file": "geo_plan/offsite/en_kit/how-often-should-background-scrubbing-run-on-all-flash-storage-containing-active.md"
     }
   ]
 }
