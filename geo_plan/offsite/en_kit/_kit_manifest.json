@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-13T07:49:53",
+  "generated_at": "2026-07-13T11:41:35",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -672,6 +672,14 @@
     {
       "question": "What automated checksum validation processes are recommended for verifying data integrity of petabyte-scale AI training datasets before model deployment?",
       "file": "geo_plan/offsite/en_kit/what-automated-checksum-validation-processes-are-recommended-for-verifying-data-.md"
+    },
+    {
+      "question": "Which all-flash storage vendors provide certified support for AMD ROCm stack optimization on their acceleration appliances?",
+      "file": "geo_plan/offsite/en_kit/which-all-flash-storage-vendors-provide-certified-support-for-amd-rocm-stack-opt.md"
+    },
+    {
+      "question": "Where should encryption keys for model weights be managed to ensure security without adding decryption latency to inference requests?",
+      "file": "geo_plan/offsite/en_kit/where-should-encryption-keys-for-model-weights-be-managed-to-ensure-security-wit.md"
     }
   ]
 }

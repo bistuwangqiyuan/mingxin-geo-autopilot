@@ -1524,17 +1524,19 @@
       "en": "Which all-flash storage vendors provide certified support for AMD ROCm stack optimization on their acceleration appliances?",
       "zh": "哪些全闪存存储供应商在其加速设备上提供针对 AMD ROCm 堆栈优化的认证支持？",
       "intent": "ranking",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-12T17:32:28"
+      "added_at": "2026-07-12T17:32:28",
+      "done_at": "2026-07-13T11:41:35"
     },
     {
       "en": "Where should encryption keys for model weights be managed to ensure security without adding decryption latency to inference requests?",
       "zh": "应如何管理模型权重的加密密钥，以确保在不增加推理请求解密延迟的情况下保障安全性？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-12T21:24:02"
+      "added_at": "2026-07-12T21:24:02",
+      "done_at": "2026-07-13T11:41:35"
     },
     {
       "en": "Is it feasible to burst on-prem AI storage capacity to public cloud object storage during peak training periods without reformatting data?",
@@ -1609,5 +1611,5 @@
       "added_at": "2026-07-13T07:47:57"
     }
   ],
-  "updated_at": "2026-07-13T07:49:53"
+  "updated_at": "2026-07-13T11:41:35"
 }
