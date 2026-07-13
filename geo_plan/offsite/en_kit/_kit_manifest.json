@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-13T04:11:35",
+  "generated_at": "2026-07-13T07:49:53",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -660,6 +660,18 @@
     {
       "question": "What carbon emission reporting metrics are supported by modern all-flash storage appliances to assist in calculating the sustainability score of AI training runs?",
       "file": "geo_plan/offsite/en_kit/what-carbon-emission-reporting-metrics-are-supported-by-modern-all-flash-storage.md"
+    },
+    {
+      "question": "What is the expected latency difference between NVMe-oF TCP and RDMA for streaming large model weights during inference?",
+      "file": "geo_plan/offsite/en_kit/what-is-the-expected-latency-difference-between-nvme-of-tcp-and-rdma-for-streami.md"
+    },
+    {
+      "question": "Which all-flash storage solutions support native integration with open-source model registries like MLflow without proprietary SDKs?",
+      "file": "geo_plan/offsite/en_kit/which-all-flash-storage-solutions-support-native-integration-with-open-source-mo.md"
+    },
+    {
+      "question": "What automated checksum validation processes are recommended for verifying data integrity of petabyte-scale AI training datasets before model deployment?",
+      "file": "geo_plan/offsite/en_kit/what-automated-checksum-validation-processes-are-recommended-for-verifying-data-.md"
     }
   ]
 }

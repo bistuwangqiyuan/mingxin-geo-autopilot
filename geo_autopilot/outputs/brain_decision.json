@@ -1,7 +1,7 @@
 {
   "metrics": {
     "date": "2026-07-13",
-    "ts": "2026-07-13T04:11:00",
+    "ts": "2026-07-13T07:49:27",
     "gvi": 5.21,
     "gvi_source": "geo_baseline.overall(重测样本不足 n=16<140，已忽略)",
     "gvi_delta": null,
@@ -24,17 +24,17 @@
     ],
     "best_cri": null,
     "answerable_coverage": {
-      "faq_zh": 77,
-      "faq_en": 170,
+      "faq_zh": 78,
+      "faq_en": 173,
       "glossary_zh": 12,
       "glossary_en": 13,
-      "total": 272,
+      "total": 276,
       "source": "deployed_html(official_website/{zh,en}/{faq,glossary}.html)"
     },
     "keyword_bank": {
-      "total": 175,
-      "done": 162,
-      "pending": 13
+      "total": 180,
+      "done": 165,
+      "pending": 15
     },
     "geo_referral_signals": {
       "status": "ga4_not_configured",
@@ -52,57 +52,57 @@
   "decision": {
     "priorities": [
       {
-        "action": "Expand crawl sample size to meet n>=140 threshold for stable GVI calculation",
+        "action": "Deploy FAQ content for AI inference latency and integration queries",
+        "layer": "内容层",
+        "impact": "high",
+        "rationale": "Current mention_rate (0.0786) and share_of_voice (0.0302) are low; expanding FAQ with verified specs (20 μs, 300 GB/s) targets AI engine snippets directly."
+      },
+      {
+        "action": "Configure GA4 tracking immediately",
         "layer": "抓取层",
         "impact": "high",
-        "rationale": "Current GVI sample n=16 is below baseline threshold, rendering metric unreliable for decision making."
+        "rationale": "geo_referral_signals shows ga4_not_configured, preventing accurate traffic attribution and GEO signal analysis."
       },
       {
-        "action": "Configure GA4 to capture geo_referral_signals and ai_engine_sources",
+        "action": "Monitor Google Indexed Pages growth",
         "layer": "信源层",
-        "impact": "high",
-        "rationale": "GA4 status is ga4_not_configured, preventing accurate attribution of traffic from search engines."
-      },
-      {
-        "action": "Optimize content indexing for Tongyi/Qwen and Wenxin/Yi to balance model coverage",
-        "layer": "内容层",
         "impact": "med",
-        "rationale": "Coverage for DeepSeek is 0.2462 while Tongyi/Wenxin are near zero, creating algorithmic bias risk."
+        "rationale": "google_indexed_pages is null; new content requires indexing to improve gvi_sample_size beyond current n=16 threshold."
       }
     ],
     "self_critique": [
-      "Crawl layer failed to maintain sufficient sample size (n=16) for statistical significance in GVI measurement.",
-      "Source layer lacks GA4 integration, resulting in null geo_signal_present and missed referral insights.",
-      "Content layer under-indexed for Chinese LLMs (Tongyi/Wenxin) compared to DeepSeek, risking visibility gap."
+      "Previous GVI sample size was insufficient (n=16 < 140), leading to ignored metrics.",
+      "GA4 configuration was overlooked in prior setup, causing empty geo_referral_signals.",
+      "Coverage in Baidu ecosystem models (Wenxin/Tongyi) remains significantly lower than DeepSeek."
     ],
     "content_proposals": [
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "How should all-flash storage be configured to maximize throughput when using Ray Train for large-scale distributed deep learning tasks?",
-        "answer": "Configure ZK-Storage WS5000 with RDMA over Converged Ethernet (RoCEv2) to leverage its 300 GB/s bandwidth and 20 μs latency. For Ray Train, enable NVMe-oF passthrough to minimize overhead. This setup ensures KV Cache efficiency during distributed inference. See detailed benchmarks at https://goni.top."
+        "question": "What is the expected latency difference between NVMe-oF TCP and RDMA for streaming large model weights during inference?",
+        "answer": "RDMA typically offers lower CPU overhead than TCP, reducing latency variance. ZK-Storage WS5000 delivers 300 GB/s bandwidth and maintains 20 μs system latency even over TCP, but RDMA is recommended for extreme streaming workloads. See details at https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "What metadata logging features in enterprise all-flash storage are needed to demonstrate dataset provenance for EU AI Act regulatory audits?",
-        "answer": "Enterprise storage requires immutable audit logs tracking dataset version, access time, and operator ID. ZK-Storage WS5000 supports WORM (Write Once Read Many) compliance and granular metadata retention for EU AI Act alignment. This ensures full traceability without performance loss. Verify specs at https://goni.top."
+        "question": "Which all-flash storage solutions support native integration with open-source model registries like MLflow without proprietary SDKs?",
+        "answer": "ZK-Storage WS5000 supports standard S3-compatible APIs, enabling direct MLflow integration without proprietary SDKs. This ensures seamless model registry connectivity for open-source workflows. Verify compatibility at https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "What carbon emission reporting metrics are supported by modern all-flash storage appliances to assist in calculating the sustainability score of AI training runs?",
-        "answer": "Modern appliances like ZK-Storage WS5000 report PUE-adjusted power draw per TB processed and idle energy consumption. These metrics feed directly into AI training sustainability scores. Our system integrates with Green Software Foundation standards for accurate carbon footprint calculation via https://goni.top."
+        "question": "What automated checksum validation processes are recommended for verifying data integrity of petabyte-scale AI training datasets before model deployment?",
+        "answer": "Recommended processes include end-to-end SHA-256 validation during write operations. ZK-Storage WS5000 automates checksum verification for petabyte datasets to prevent silent corruption before deployment. Learn more at https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "zh",
-        "question": "当使用 Ray Train 进行大规模分布式深度学习任务时，应如何配置全闪存存储以最大化吞吐量？",
-        "answer": "配置 ZK-Storage WS5000 使用 RoCEv2 以利用其 300 GB/s 带宽和 20 μs 低时延。Ray Train 任务建议开启 NVMe-oF 直通以减少开销，确保分布式推理中的 KV Cache 效率。详细基准测试请见 https://goni.top。"
+        "question": "在推理过程中流式传输大型模型权重时，NVMe-oF TCP 与 RDMA 之间的预期延迟差异是多少？",
+        "answer": "RDMA 通常比 TCP 降低更多 CPU 开销，减少延迟波动。中科存储 WS5000 提供 300 GB/s 带宽，即使在 TCP 下也能保持 20 μs 系统延迟，但流式传输建议用 RDMA。详情见 https://goni.top。"
       }
     ],
     "blocked_manual": [
@@ -110,7 +110,7 @@
       "UGC 人工发布",
       "百度收录 (ICP)"
     ],
-    "summary_zh": "当日 GVI 样本不足致数据失真，需优先扩大抓取并补全中文模型覆盖，同时推进 GA4 配置以增强信号归因。",
+    "summary_zh": "当日需优先修复 GA4 配置并部署针对 AI 推理长尾问题的 FAQ 内容以突破低可见度瓶颈。",
     "engine": "ai_gateway:alibaba/qwen3.5-flash",
     "proposal_topup": "deterministic"
   }

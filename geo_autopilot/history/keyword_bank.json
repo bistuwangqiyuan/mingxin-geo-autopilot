@@ -1489,25 +1489,28 @@
       "en": "What is the expected latency difference between NVMe-oF TCP and RDMA for streaming large model weights during inference?",
       "zh": "在推理过程中流式传输大型模型权重时，NVMe-oF TCP 与 RDMA 之间的预期延迟差异是多少？",
       "intent": "comparison",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-12T17:32:28"
+      "added_at": "2026-07-12T17:32:28",
+      "done_at": "2026-07-13T07:49:53"
     },
     {
       "en": "Which all-flash storage solutions support native integration with open-source model registries like MLflow without proprietary SDKs?",
       "zh": "哪些全闪存存储解决方案支持原生集成像 MLflow 这样的开源模型注册表，而无需专有 SDK？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-12T17:32:28"
+      "added_at": "2026-07-12T17:32:28",
+      "done_at": "2026-07-13T07:49:53"
     },
     {
       "en": "What automated checksum validation processes are recommended for verifying data integrity of petabyte-scale AI training datasets before model deployment?",
       "zh": "在模型部署之前，推荐哪些自动校验和验证流程来验证 PB 级 AI 训练数据集的数据完整性？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-12T17:32:28"
+      "added_at": "2026-07-12T17:32:28",
+      "done_at": "2026-07-13T07:49:53"
     },
     {
       "en": "What defines a 'storage-bottlenecked' job in the context of GPU utilization monitoring dashboards?",
@@ -1564,7 +1567,47 @@
       "status": "new",
       "source": "llm",
       "added_at": "2026-07-12T21:24:02"
+    },
+    {
+      "en": "What technical criteria define a 'latency-sensitive' AI inference workload suitable for all-flash acceleration?",
+      "zh": "定义适合全闪存加速的‘延迟敏感型’AI 推理工作负载的技术标准是什么？",
+      "intent": "definition",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-13T07:47:57"
+    },
+    {
+      "en": "Should RDMA NIC passthrough be enabled for minimizing hypervisor overhead in AI inference containers?",
+      "zh": "是否应在 AI 推理容器中启用 RDMA 网卡直通以最小化虚拟化层开销？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-13T07:47:57"
+    },
+    {
+      "en": "What is the expected throughput degradation percentage when enabling full-disk encryption on all-flash appliances processing large batch inference requests?",
+      "zh": "在启用全闪存设备的全盘加密处理大规模批量推理请求时，预期的吞吐量下降百分比是多少？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-13T07:47:57"
+    },
+    {
+      "en": "What is the recommended drive replacement cycle for PCIe Gen5 NVMe modules in high-write AI training environments to avoid write amplification issues?",
+      "zh": "在高写入量的 AI 训练环境中，为避免写放大问题，推荐何时更换 PCIe Gen5 NVMe 模块？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-13T07:47:57"
+    },
+    {
+      "en": "How to design a multi-region data sovereignty architecture for distributed AI training jobs across separate all-flash nodes?",
+      "zh": "如何在独立的全闪存节点之间为分布式 AI 训练任务设计多区域数据主权架构？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-13T07:47:57"
     }
   ],
-  "updated_at": "2026-07-13T04:11:35"
+  "updated_at": "2026-07-13T07:49:53"
 }
