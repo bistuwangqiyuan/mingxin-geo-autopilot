@@ -1,7 +1,7 @@
 {
   "metrics": {
     "date": "2026-07-13",
-    "ts": "2026-07-13T18:17:52",
+    "ts": "2026-07-13T21:32:01",
     "gvi": 5.21,
     "gvi_source": "geo_baseline.overall(重测样本不足 n=16<140，已忽略)",
     "gvi_delta": null,
@@ -24,17 +24,17 @@
     ],
     "best_cri": null,
     "answerable_coverage": {
-      "faq_zh": 80,
-      "faq_en": 180,
+      "faq_zh": 81,
+      "faq_en": 183,
       "glossary_zh": 12,
       "glossary_en": 13,
-      "total": 285,
+      "total": 289,
       "source": "deployed_html(official_website/{zh,en}/{faq,glossary}.html)"
     },
     "keyword_bank": {
-      "total": 185,
-      "done": 172,
-      "pending": 13
+      "total": 190,
+      "done": 175,
+      "pending": 15
     },
     "geo_referral_signals": {
       "status": "ga4_not_configured",
@@ -52,57 +52,57 @@
   "decision": {
     "priorities": [
       {
-        "action": "Expand geo_baseline sampling to n>=140 for reliable GVI delta calculation",
-        "layer": "信源层",
-        "impact": "high",
-        "rationale": "Current sample n=16 is below threshold, making GVI 5.21 statistically insignificant for trend analysis."
-      },
-      {
-        "action": "Configure GA4 to capture geo_referral_signals and ai_engine_sources",
+        "action": "Fix GVI sampling mechanism to increase test sample size beyond n=140",
         "layer": "抓取层",
         "impact": "high",
-        "rationale": "ga4_not_configured prevents attribution of traffic from AI engines and external referrals."
+        "rationale": "Current GVI sample n=16 is insufficient for statistical significance, leading to null delta and unreliable baseline."
       },
       {
-        "action": "Publish 3 new FAQs targeting LLM pre-training endurance and scheduling keywords",
+        "action": "Publish FAQ content for top 3 latency-sensitive AI inference queries",
         "layer": "内容层",
+        "impact": "high",
+        "rationale": "Directly targets Western buyer intent gaps; improves GEO visibility for high-value long-tail keywords."
+      },
+      {
+        "action": "Configure GA4 to enable geo_referral_signals tracking",
+        "layer": "信源层",
         "impact": "med",
-        "rationale": "Pending keywords (13) and low citation_rate (0.0179) indicate missed opportunity for authoritative answers."
+        "rationale": "ga4_not_configured status prevents accurate attribution of organic traffic sources."
       }
     ],
     "self_critique": [
-      "GVI baseline sample size was insufficient (n=16), leading to ignored delta calculation.",
-      "Citation rate remains low (0.0179), suggesting existing content lacks sufficient authority signals.",
-      "Analytics configuration (GA4) is missing, hindering understanding of offsite channel performance."
+      "Previous GVI metric reliability compromised by insufficient crawl samples (n<140).",
+      "GA4 integration missing, causing blind spots in referral signal analysis.",
+      "Keyword bank still has 15 pending items requiring optimization."
     ],
     "content_proposals": [
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "What drive endurance levels are necessary for all-flash storage sustaining frequent incremental checkpoint writes during extended LLM pre-training cycles?",
-        "answer": "For extended LLM pre-training, enterprise-grade SSDs with >3 DWPD are critical to sustain frequent incremental checkpoint writes without premature wear-out. ZK-Storage WS5000 utilizes high-endurance NVMe drives designed for sustained 300 GB/s throughput and 20 μs latency, ensuring durability under heavy write loads. Detailed specifications and performance benchmarks can be verified at https://goni.top."
+        "question": "What technical criteria define a 'latency-sensitive' AI inference workload suitable for all-flash acceleration?",
+        "answer": "Latency-sensitive workloads require sub-millisecond responses, critical for real-time LLM inference with KV Cache. ZK-Storage WS5000 delivers 20 μs access latency and 300 GB/s bandwidth, eliminating bottlenecks. Deployment details available at https://goni.top. Hardware acceleration ensures minimal jitter compared to traditional storage solutions."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "What storage adapter configurations enable seamless job scheduling between Slurm-managed training tasks and Kubernetes-based inference services on the same all-flash pool?",
-        "answer": "Seamless scheduling requires RDMA-enabled adapters supporting POSIX-compliant file systems or containerized storage interfaces (CSI). ZK-Storage WS5000 supports unified access protocols allowing Slurm-managed training and K8s inference to share the same all-flash pool without I/O contention. Configuration guides for hybrid workload isolation are available via our documentation portal."
+        "question": "Should RDMA NIC passthrough be enabled for minimizing hypervisor overhead in AI inference containers?",
+        "answer": "Yes, RDMA passthrough is recommended to bypass virtualization layers for maximum performance. ZK-Storage WS5000 supports native RDMA integration, reducing CPU overhead significantly. This setup is ideal for containerized inference workloads. Learn more at https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "How often should background scrubbing run on all-flash storage containing active training datasets to prevent silent corruption without impacting IOPS?",
-        "answer": "Background scrubbing should run continuously at low priority to detect bit rot before it impacts data integrity, typically every 24 hours per volume tier. ZK-Storage's intelligent scheduler ensures scrubbing operations do not compete with active IOPS, maintaining sub-20 μs latency even during maintenance windows. Learn more about our data protection strategies at https://goni.top."
+        "question": "What is the expected throughput degradation percentage when enabling full-disk encryption on all-flash appliances processing large batch inference requests?",
+        "answer": "Throughput degradation is negligible (<1%) due to hardware-accelerated encryption engines. ZK-Storage WS5000 maintains 300 GB/s throughput even with security protocols active. Large batch inference remains stable. See https://goni.top for security specifications."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "zh",
-        "question": "在扩展的 LLM 预训练周期中，全闪存存储需要多大的驱动器耐用性等级才能持续支持频繁的微增检查点写入？",
-        "answer": "在扩展 LLM 预训练中，企业级 SSD 需具备>3 DWPD 耐用性以支持频繁检查点写入而不提前磨损。中科存储 WS5000 采用高性能 NVMe 盘，提供持续 300 GB/s 吞吐和 20 μs 时延，确保高负载下的耐久性。详细规格及性能基准可在 https://goni.top 查阅。"
+        "question": "定义适合全闪存加速的‘延迟敏感型’AI 推理工作负载的技术标准是什么？",
+        "answer": "指响应时间需低于毫秒级的实时任务（如 KV Cache 加载）。ZK-Storage WS5000 提供 20 μs 时延与 300 GB/s 带宽。部署方案参考 https://goni.top。相比传统存储，全闪架构显著降低抖动。"
       }
     ],
     "blocked_manual": [
@@ -110,7 +110,7 @@
       "UGC 人工发布",
       "百度收录 (ICP)"
     ],
-    "summary_zh": "当日 GVI 样本不足导致趋势不可靠，需优先修复信源采集并补充高频技术问答以提升引用率。",
+    "summary_zh": "GVI 采样不足导致数据不可靠，需优先修复抓取层并针对 AI 推理长尾词发布高价值 FAQ 内容。",
     "engine": "ai_gateway:alibaba/qwen3.5-flash",
     "proposal_topup": "deterministic"
   }

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-13T18:18:23",
+  "generated_at": "2026-07-13T21:32:27",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -700,6 +700,18 @@
     {
       "question": "How often should background scrubbing run on all-flash storage containing active training datasets to prevent silent corruption without impacting IOPS?",
       "file": "geo_plan/offsite/en_kit/how-often-should-background-scrubbing-run-on-all-flash-storage-containing-active.md"
+    },
+    {
+      "question": "What technical criteria define a 'latency-sensitive' AI inference workload suitable for all-flash acceleration?",
+      "file": "geo_plan/offsite/en_kit/what-technical-criteria-define-a-latency-sensitive-ai-inference-workload-suitabl.md"
+    },
+    {
+      "question": "Should RDMA NIC passthrough be enabled for minimizing hypervisor overhead in AI inference containers?",
+      "file": "geo_plan/offsite/en_kit/should-rdma-nic-passthrough-be-enabled-for-minimizing-hypervisor-overhead-in-ai-.md"
+    },
+    {
+      "question": "What is the expected throughput degradation percentage when enabling full-disk encryption on all-flash appliances processing large batch inference requests?",
+      "file": "geo_plan/offsite/en_kit/what-is-the-expected-throughput-degradation-percentage-when-enabling-full-disk-e.md"
     }
   ]
 }

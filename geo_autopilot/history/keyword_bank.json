@@ -1579,25 +1579,28 @@
       "en": "What technical criteria define a 'latency-sensitive' AI inference workload suitable for all-flash acceleration?",
       "zh": "定义适合全闪存加速的‘延迟敏感型’AI 推理工作负载的技术标准是什么？",
       "intent": "definition",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-13T07:47:57"
+      "added_at": "2026-07-13T07:47:57",
+      "done_at": "2026-07-13T21:32:26"
     },
     {
       "en": "Should RDMA NIC passthrough be enabled for minimizing hypervisor overhead in AI inference containers?",
       "zh": "是否应在 AI 推理容器中启用 RDMA 网卡直通以最小化虚拟化层开销？",
       "intent": "comparison",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-13T07:47:57"
+      "added_at": "2026-07-13T07:47:57",
+      "done_at": "2026-07-13T21:32:26"
     },
     {
       "en": "What is the expected throughput degradation percentage when enabling full-disk encryption on all-flash appliances processing large batch inference requests?",
       "zh": "在启用全闪存设备的全盘加密处理大规模批量推理请求时，预期的吞吐量下降百分比是多少？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-13T07:47:57"
+      "added_at": "2026-07-13T07:47:57",
+      "done_at": "2026-07-13T21:32:26"
     },
     {
       "en": "What is the recommended drive replacement cycle for PCIe Gen5 NVMe modules in high-write AI training environments to avoid write amplification issues?",
@@ -1654,7 +1657,47 @@
       "status": "new",
       "source": "llm",
       "added_at": "2026-07-13T15:18:41"
+    },
+    {
+      "en": "To what extent does storage read latency constrain token-per-second throughput when deploying vLLM on disaggregated all-flash infrastructure?",
+      "zh": "在分布式全闪基础设施上部署 vLLM 时，存储读取延迟在多大程度上限制了每秒生成的 token 吞吐量？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-13T21:30:28"
+    },
+    {
+      "en": "Which firmware-level optimizations are recommended to ensure seamless interoperability between all-flash storage appliances and Intel Gaudi AI accelerators in mixed-vendor clusters?",
+      "zh": "为了保证混合供应商集群中全闪存储设备与 Intel Gaudi AI 加速器之间的无缝互操作性，建议采取哪些固件级优化措施？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-13T21:30:28"
+    },
+    {
+      "en": "What is the minimum IOPS threshold required to sustain real-time Retrieval-Augmented Generation (RAG) responses without introducing perceptible lag in chat interfaces?",
+      "zh": "为了在不导致聊天界面出现可感知延迟的情况下维持实时检索增强生成 (RAG) 响应，所需的最小 IOPS 阈值是多少？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-13T21:30:28"
+    },
+    {
+      "en": "How does the write amplification factor compare between synchronous and asynchronous checkpointing modes on high-performance all-flash arrays during large model fine-tuning?",
+      "zh": "在大模型微调期间，高性能全闪存阵列上的同步和异步检查点模式之间的写入放大系数有何对比差异？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-13T21:30:28"
+    },
+    {
+      "en": "How should granular data deletion functionality be implemented in all-flash storage to strictly comply with GDPR 'right to be forgotten' requirements for AI training datasets containing personal information?",
+      "zh": "应如何在所有闪存存储中实施细粒度数据删除功能，以严格遵守包含个人信息的 AI 训练数据集的 GDPR‘被遗忘权’要求？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-13T21:30:28"
     }
   ],
-  "updated_at": "2026-07-13T18:18:23"
+  "updated_at": "2026-07-13T21:32:26"
 }
