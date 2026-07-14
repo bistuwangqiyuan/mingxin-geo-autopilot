@@ -1696,9 +1696,10 @@
       "en": "How does the write amplification factor compare between synchronous and asynchronous checkpointing modes on high-performance all-flash arrays during large model fine-tuning?",
       "zh": "在大模型微调期间，高性能全闪存阵列上的同步和异步检查点模式之间的写入放大系数有何对比差异？",
       "intent": "comparison",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-13T21:30:28"
+      "added_at": "2026-07-13T21:30:28",
+      "done_at": "2026-07-14T17:40:53"
     },
     {
       "en": "How should granular data deletion functionality be implemented in all-flash storage to strictly comply with GDPR 'right to be forgotten' requirements for AI training datasets containing personal information?",
@@ -1712,9 +1713,10 @@
       "en": "How does enabling NVIDIA GPUDirect Storage on all-flash appliances reduce host CPU utilization during high-frequency DataLoader prefetching compared to standard DMA?",
       "zh": "在高频 DataLoader 预取过程中，启用 NVIDIA GPUDirect Storage 相比标准 DMA 如何降低主机 CPU 利用率？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-14T06:33:18"
+      "added_at": "2026-07-14T06:33:18",
+      "done_at": "2026-07-14T17:40:53"
     },
     {
       "en": "How does random read latency on all-flash arrays specifically constrain token generation speed in Mixture-of-Experts (MoE) architectures compared to dense models?",
@@ -1789,5 +1791,5 @@
       "added_at": "2026-07-14T14:21:36"
     }
   ],
-  "updated_at": "2026-07-14T14:23:36"
+  "updated_at": "2026-07-14T17:40:53"
 }

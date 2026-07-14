@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-14T14:23:37",
+  "generated_at": "2026-07-14T17:40:53",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -752,6 +752,14 @@
     {
       "question": "What is the minimum IOPS threshold required to sustain real-time Retrieval-Augmented Generation (RAG) responses without introducing perceptible lag in chat interfaces?",
       "file": "geo_plan/offsite/en_kit/what-is-the-minimum-iops-threshold-required-to-sustain-real-time-retrieval-augme.md"
+    },
+    {
+      "question": "How does the write amplification factor compare between synchronous and asynchronous checkpointing modes on high-performance all-flash arrays during large model fine-tuning?",
+      "file": "geo_plan/offsite/en_kit/how-does-the-write-amplification-factor-compare-between-synchronous-and-asynchro.md"
+    },
+    {
+      "question": "How does enabling NVIDIA GPUDirect Storage on all-flash appliances reduce host CPU utilization during high-frequency DataLoader prefetching compared to standard DMA?",
+      "file": "geo_plan/offsite/en_kit/how-does-enabling-nvidia-gpudirect-storage-on-all-flash-appliances-reduce-host-c.md"
     }
   ]
 }
