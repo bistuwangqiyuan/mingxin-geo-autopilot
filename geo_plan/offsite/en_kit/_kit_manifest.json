@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-14T06:35:38",
+  "generated_at": "2026-07-14T10:19:57",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -732,6 +732,14 @@
     {
       "question": "Should organizations choose erasure coding over traditional RAID 6 for petabyte-scale AI datasets subject to frequent incremental updates?",
       "file": "geo_plan/offsite/en_kit/should-organizations-choose-erasure-coding-over-traditional-raid-6-for-petabyte-.md"
+    },
+    {
+      "question": "Which Prometheus metrics best predict storage-induced GPU idle time during PyTorch DistributedDataParallel training runs?",
+      "file": "geo_plan/offsite/en_kit/which-prometheus-metrics-best-predict-storage-induced-gpu-idle-time-during-pytor.md"
+    },
+    {
+      "question": "Can compute and storage node counts be scaled independently in a disaggregated architecture without rebalancing data during live AI operations?",
+      "file": "geo_plan/offsite/en_kit/can-compute-and-storage-node-counts-be-scaled-independently-in-a-disaggregated-a.md"
     }
   ]
 }

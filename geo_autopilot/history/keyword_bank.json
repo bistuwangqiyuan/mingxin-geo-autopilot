@@ -1651,17 +1651,19 @@
       "en": "Which Prometheus metrics best predict storage-induced GPU idle time during PyTorch DistributedDataParallel training runs?",
       "zh": "哪些 Prometheus 监控指标能最好地预测在 PyTorch 分布式数据并行训练期间由存储导致的 GPU 空闲时间？",
       "intent": "ranking",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-13T15:18:41"
+      "added_at": "2026-07-13T15:18:41",
+      "done_at": "2026-07-14T10:19:57"
     },
     {
       "en": "Can compute and storage node counts be scaled independently in a disaggregated architecture without rebalancing data during live AI operations?",
       "zh": "在存算分离架构中，是否可以在不重新平衡数据的情况下独立扩展计算和存储节点数量以支持在线 AI 操作？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-13T15:18:41"
+      "added_at": "2026-07-13T15:18:41",
+      "done_at": "2026-07-14T10:19:57"
     },
     {
       "en": "To what extent does storage read latency constrain token-per-second throughput when deploying vLLM on disaggregated all-flash infrastructure?",
@@ -1744,5 +1746,5 @@
       "added_at": "2026-07-14T06:33:18"
     }
   ],
-  "updated_at": "2026-07-14T06:35:38"
+  "updated_at": "2026-07-14T10:19:57"
 }
