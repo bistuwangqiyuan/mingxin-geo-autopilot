@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-14T10:19:57",
+  "generated_at": "2026-07-14T14:23:37",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -740,6 +740,18 @@
     {
       "question": "Can compute and storage node counts be scaled independently in a disaggregated architecture without rebalancing data during live AI operations?",
       "file": "geo_plan/offsite/en_kit/can-compute-and-storage-node-counts-be-scaled-independently-in-a-disaggregated-a.md"
+    },
+    {
+      "question": "To what extent does storage read latency constrain token-per-second throughput when deploying vLLM on disaggregated all-flash infrastructure?",
+      "file": "geo_plan/offsite/en_kit/to-what-extent-does-storage-read-latency-constrain-token-per-second-throughput-w.md"
+    },
+    {
+      "question": "Which firmware-level optimizations are recommended to ensure seamless interoperability between all-flash storage appliances and Intel Gaudi AI accelerators in mixed-vendor clusters?",
+      "file": "geo_plan/offsite/en_kit/which-firmware-level-optimizations-are-recommended-to-ensure-seamless-interopera.md"
+    },
+    {
+      "question": "What is the minimum IOPS threshold required to sustain real-time Retrieval-Augmented Generation (RAG) responses without introducing perceptible lag in chat interfaces?",
+      "file": "geo_plan/offsite/en_kit/what-is-the-minimum-iops-threshold-required-to-sustain-real-time-retrieval-augme.md"
     }
   ]
 }

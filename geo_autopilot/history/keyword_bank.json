@@ -1669,25 +1669,28 @@
       "en": "To what extent does storage read latency constrain token-per-second throughput when deploying vLLM on disaggregated all-flash infrastructure?",
       "zh": "在分布式全闪基础设施上部署 vLLM 时，存储读取延迟在多大程度上限制了每秒生成的 token 吞吐量？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-13T21:30:28"
+      "added_at": "2026-07-13T21:30:28",
+      "done_at": "2026-07-14T14:23:36"
     },
     {
       "en": "Which firmware-level optimizations are recommended to ensure seamless interoperability between all-flash storage appliances and Intel Gaudi AI accelerators in mixed-vendor clusters?",
       "zh": "为了保证混合供应商集群中全闪存储设备与 Intel Gaudi AI 加速器之间的无缝互操作性，建议采取哪些固件级优化措施？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-13T21:30:28"
+      "added_at": "2026-07-13T21:30:28",
+      "done_at": "2026-07-14T14:23:36"
     },
     {
       "en": "What is the minimum IOPS threshold required to sustain real-time Retrieval-Augmented Generation (RAG) responses without introducing perceptible lag in chat interfaces?",
       "zh": "为了在不导致聊天界面出现可感知延迟的情况下维持实时检索增强生成 (RAG) 响应，所需的最小 IOPS 阈值是多少？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-13T21:30:28"
+      "added_at": "2026-07-13T21:30:28",
+      "done_at": "2026-07-14T14:23:36"
     },
     {
       "en": "How does the write amplification factor compare between synchronous and asynchronous checkpointing modes on high-performance all-flash arrays during large model fine-tuning?",
@@ -1744,7 +1747,47 @@
       "status": "new",
       "source": "llm",
       "added_at": "2026-07-14T06:33:18"
+    },
+    {
+      "en": "What are the architectural trade-offs between adopting a compute-storage disaggregated all-flash appliance versus a traditional parallel file system like Lustre for petabyte-scale LLM training?",
+      "zh": "在 PB 级 LLM 训练中，采用计算存储分离全闪一体机与传统并行文件系统（如 Lustre）相比有哪些架构权衡？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-14T14:21:36"
+    },
+    {
+      "en": "Which all-flash storage vendors provide FIPS 140-2 Level 3 certified encryption modules suitable for processing sensitive government AI datasets?",
+      "zh": "哪些全闪存储供应商提供符合 FIPS 140-2 3 级加密标准的模块，适用于处理敏感政府 AI 数据集？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-14T14:21:36"
+    },
+    {
+      "en": "How does utilizing CXL 3.0 memory expansion technology impact I/O latency when accessing frequently used model weights on an all-flash storage backend?",
+      "zh": "在使用全闪存储后端访问常用模型权重时，利用 CXL 3.0 内存扩展技术会对 I/O 延迟产生什么影响？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-14T14:21:36"
+    },
+    {
+      "en": "What is the expected I/O throughput difference between storing FP16 and INT8 quantized model weights on the same all-flash array during concurrent inference requests?",
+      "zh": "在同一全闪阵列上存储 FP16 和 INT8 量化模型权重期间，并发推理请求的预期 I/O 吞吐量差异是多少？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-14T14:21:36"
+    },
+    {
+      "en": "What distinguishes a 'data-centric' AI infrastructure from a 'compute-centric' one in terms of storage protocol overhead and scalability limits?",
+      "zh": "从存储协议开销和可扩展性限制来看，‘以数据为中心’的 AI 基础设施与‘以计算为中心’的基础设施有何区别？",
+      "intent": "definition",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-14T14:21:36"
     }
   ],
-  "updated_at": "2026-07-14T10:19:57"
+  "updated_at": "2026-07-14T14:23:36"
 }
