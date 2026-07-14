@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-14T17:40:53",
+  "generated_at": "2026-07-14T21:33:49",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -760,6 +760,14 @@
     {
       "question": "How does enabling NVIDIA GPUDirect Storage on all-flash appliances reduce host CPU utilization during high-frequency DataLoader prefetching compared to standard DMA?",
       "file": "geo_plan/offsite/en_kit/how-does-enabling-nvidia-gpudirect-storage-on-all-flash-appliances-reduce-host-c.md"
+    },
+    {
+      "question": "How does random read latency on all-flash arrays specifically constrain token generation speed in Mixture-of-Experts (MoE) architectures compared to dense models?",
+      "file": "geo_plan/offsite/en_kit/how-does-random-read-latency-on-all-flash-arrays-specifically-constrain-token-ge.md"
+    },
+    {
+      "question": "Is it mandatory to connect all-flash storage appliances to the same Top-of-Rack switch as GPU servers to maintain sub-microsecond latency requirements for distributed training?",
+      "file": "geo_plan/offsite/en_kit/is-it-mandatory-to-connect-all-flash-storage-appliances-to-the-same-top-of-rack-.md"
     }
   ]
 }
