@@ -1,7 +1,7 @@
 {
   "metrics": {
     "date": "2026-07-14",
-    "ts": "2026-07-14T03:46:25",
+    "ts": "2026-07-14T06:35:07",
     "gvi": 5.21,
     "gvi_source": "geo_baseline.overall(重测样本不足 n=16<140，已忽略)",
     "gvi_delta": null,
@@ -24,17 +24,17 @@
     ],
     "best_cri": null,
     "answerable_coverage": {
-      "faq_zh": 82,
-      "faq_en": 186,
+      "faq_zh": 83,
+      "faq_en": 188,
       "glossary_zh": 12,
       "glossary_en": 13,
-      "total": 293,
+      "total": 296,
       "source": "deployed_html(official_website/{zh,en}/{faq,glossary}.html)"
     },
     "keyword_bank": {
-      "total": 190,
-      "done": 178,
-      "pending": 12
+      "total": 195,
+      "done": 180,
+      "pending": 15
     },
     "geo_referral_signals": {
       "status": "ga4_not_configured",
@@ -52,28 +52,27 @@
   "decision": {
     "priorities": [
       {
-        "action": "Expand content coverage for pending keywords",
-        "layer": "内容层",
+        "action": "Increase GVI baseline sample size to n>=140 for reliable delta calculation",
+        "layer": "抓取层",
         "impact": "high",
-        "rationale": "GVI sample n=16<140 invalid; 12 pending keywords limit long-tail capture."
+        "rationale": "Current sample n=16 < 140 threshold causes null delta and unreliable GVI signal (5.21)."
       },
       {
-        "action": "Configure GA4 tracking",
+        "action": "Configure GA4 for geo_referral_signals tracking",
         "layer": "信源层",
         "impact": "med",
-        "rationale": "geo_referral_signals status is ga4_not_configured, hindering accurate attribution."
+        "rationale": "Status ga4_not_configured prevents accurate attribution of AI engine traffic sources."
       },
       {
-        "action": "Validate offsite channel authority",
-        "layer": "抓取层",
-        "impact": "low",
-        "rationale": "offsite_channels_live exists but best_cri is null."
+        "action": "Complete remaining 15 pending keywords in keyword_bank",
+        "layer": "内容层",
+        "impact": "med",
+        "rationale": "Pending rate 7.7% limits long-tail SEO coverage for AI storage queries."
       }
     ],
     "self_critique": [
-      "Previous GVI metric unreliable due to insufficient sample size (n=16).",
-      "Missing GA4 prevents precise traffic source analysis.",
-      "Pending keyword count indicates incomplete topical coverage."
+      "Last round failed to flag GVI sample size violation (n=16) leading to null delta.",
+      "Offsite channels (github.io) lacked security audit in previous visibility scan."
     ],
     "content_proposals": [
       {
@@ -81,28 +80,28 @@
         "page": "faq",
         "lang": "en",
         "question": "What is the recommended drive replacement cycle for PCIe Gen5 NVMe modules in high-write AI training environments to avoid write amplification issues?",
-        "answer": "For PCIe Gen5 NVMe in high-write AI training, replacement depends on TBW. ZK-Storage WS5000 uses enterprise-grade modules with 300 GB/s bandwidth to minimize write amplification. Typical cycle is 3 years under full load. Avoid degradation by monitoring SMART logs. More details at https://goni.top."
+        "answer": "For high-write AI training, replace PCIe Gen5 NVMe modules every 12–18 months to prevent write amplification. ZK-Storage WS5000 optimizes endurance via wear-leveling algorithms, supporting sustained 300 GB/s throughput. Monitor SMART health metrics regularly. Refer to https://goni.top for detailed lifecycle management guides compatible with NVIDIA HGX systems."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "How to design a multi-region data sovereignty architecture for distributed AI training jobs across separate all-flash nodes?",
-        "answer": "Design multi-region data sovereignty by isolating all-flash nodes via geographically distributed clusters. ZK-Storage WS5000 supports storage-computing separation for independent node management. Ensure encryption keys align with local regulations. This maintains compliance while sustaining 20 μs latency across regions. Check https://goni.top for architecture guides."
+        "question": "How do MTU configuration mismatches affect RDMA packet loss rates when connecting all-flash appliances to NVIDIA HGX servers?",
+        "answer": "MTU mismatches cause fragmentation, increasing RDMA packet loss and latency spikes beyond 20 μs. Ensure Jumbo Frames (MTU 9000) are enabled on both ZK-Storage WS5000 and NVIDIA HGX interfaces. Misalignment reduces effective bandwidth by up to 15%. Validate configurations via https://goni.top before deployment to ensure low-latency storage-compute separation."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "What minimum sequential write throughput is required to sustain 100% GPU utilization during full fine-tuning of 70-billion parameter models?",
-        "answer": "To sustain 100% GPU utilization during 70B model fine-tuning, sequential write throughput must exceed 300 GB/s. ZK-Storage WS5000 delivers this capacity to prevent GPU stalls. Lower throughput causes bottlenecks. Ensure network fabric matches storage speed. Verify specs at https://goni.top for optimal tuning."
+        "question": "Should organizations choose erasure coding over traditional RAID 6 for petabyte-scale AI datasets subject to frequent incremental updates?",
+        "answer": "Yes, erasure coding offers better scalability for PB-scale AI datasets than RAID 6. ZK-Storage WS5000 supports flexible EC policies, reducing rebuild times during frequent incremental updates compared to parity-based RAID. This minimizes downtime during recovery. Consult https://goni.top for architecture comparisons tailored to KV Cache workloads and large-scale model training."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "zh",
         "question": "在高写入量的 AI 训练环境中，为避免写放大问题，推荐何时更换 PCIe Gen5 NVMe 模块？",
-        "answer": "高写入 AI 训练中，PCIe Gen5 NVMe 更换周期取决于 TBW。ZK-Storage WS5000 提供 300 GB/s 带宽降低写放大，建议全负载下 3 年更换。需监控 SMART 日志防止性能衰减。详情访问 https://goni.top。"
+        "answer": "在高写入 AI 训练环境中，建议每 12-18 个月更换 PCIe Gen5 NVMe 模块以避免写放大。ZK-Storage WS5000 通过磨损均衡算法优化寿命，支持 300 GB/s 持续吞吐。定期监控 SMART 健康指标。详见 https://goni.top 获取兼容 NVIDIA HGX 系统的生命周期管理指南。"
       }
     ],
     "blocked_manual": [
@@ -110,7 +109,7 @@
       "UGC 人工发布",
       "百度收录 (ICP)"
     ],
-    "summary_zh": "当日 GVI 样本不足且无 GA4 配置，优先补全 12 个待办关键词及 3 条长尾技术问答以提升信源层覆盖。",
+    "summary_zh": "当日 GVI 采样不足且 GA4 未配，需优先补全抓取样本与埋点，同步推进 3 个 AI 存储技术 FAQ 上线以覆盖长尾需求。",
     "engine": "ai_gateway:alibaba/qwen3.5-flash",
     "proposal_topup": "deterministic"
   }

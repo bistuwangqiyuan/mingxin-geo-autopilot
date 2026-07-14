@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-14T03:46:55",
+  "generated_at": "2026-07-14T06:35:38",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -720,6 +720,18 @@
     {
       "question": "What minimum sequential write throughput is required to sustain 100% GPU utilization during full fine-tuning of 70-billion parameter models?",
       "file": "geo_plan/offsite/en_kit/what-minimum-sequential-write-throughput-is-required-to-sustain-100-gpu-utilizat.md"
+    },
+    {
+      "question": "What is the recommended drive replacement cycle for PCIe Gen5 NVMe modules in high-write AI training environments to avoid write amplification issues?",
+      "file": "geo_plan/offsite/en_kit/what-is-the-recommended-drive-replacement-cycle-for-pcie-gen5-nvme-modules-in-hi.md"
+    },
+    {
+      "question": "How do MTU configuration mismatches affect RDMA packet loss rates when connecting all-flash appliances to NVIDIA HGX servers?",
+      "file": "geo_plan/offsite/en_kit/how-do-mtu-configuration-mismatches-affect-rdma-packet-loss-rates-when-connectin.md"
+    },
+    {
+      "question": "Should organizations choose erasure coding over traditional RAID 6 for petabyte-scale AI datasets subject to frequent incremental updates?",
+      "file": "geo_plan/offsite/en_kit/should-organizations-choose-erasure-coding-over-traditional-raid-6-for-petabyte-.md"
     }
   ]
 }
