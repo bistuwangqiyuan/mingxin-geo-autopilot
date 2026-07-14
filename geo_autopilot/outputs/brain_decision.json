@@ -1,7 +1,7 @@
 {
   "metrics": {
-    "date": "2026-07-13",
-    "ts": "2026-07-13T21:32:01",
+    "date": "2026-07-14",
+    "ts": "2026-07-14T03:46:25",
     "gvi": 5.21,
     "gvi_source": "geo_baseline.overall(重测样本不足 n=16<140，已忽略)",
     "gvi_delta": null,
@@ -24,17 +24,17 @@
     ],
     "best_cri": null,
     "answerable_coverage": {
-      "faq_zh": 81,
-      "faq_en": 183,
+      "faq_zh": 82,
+      "faq_en": 186,
       "glossary_zh": 12,
       "glossary_en": 13,
-      "total": 289,
+      "total": 293,
       "source": "deployed_html(official_website/{zh,en}/{faq,glossary}.html)"
     },
     "keyword_bank": {
       "total": 190,
-      "done": 175,
-      "pending": 15
+      "done": 178,
+      "pending": 12
     },
     "geo_referral_signals": {
       "status": "ga4_not_configured",
@@ -52,57 +52,57 @@
   "decision": {
     "priorities": [
       {
-        "action": "Fix GVI sampling mechanism to increase test sample size beyond n=140",
-        "layer": "抓取层",
-        "impact": "high",
-        "rationale": "Current GVI sample n=16 is insufficient for statistical significance, leading to null delta and unreliable baseline."
-      },
-      {
-        "action": "Publish FAQ content for top 3 latency-sensitive AI inference queries",
+        "action": "Expand content coverage for pending keywords",
         "layer": "内容层",
         "impact": "high",
-        "rationale": "Directly targets Western buyer intent gaps; improves GEO visibility for high-value long-tail keywords."
+        "rationale": "GVI sample n=16<140 invalid; 12 pending keywords limit long-tail capture."
       },
       {
-        "action": "Configure GA4 to enable geo_referral_signals tracking",
+        "action": "Configure GA4 tracking",
         "layer": "信源层",
         "impact": "med",
-        "rationale": "ga4_not_configured status prevents accurate attribution of organic traffic sources."
+        "rationale": "geo_referral_signals status is ga4_not_configured, hindering accurate attribution."
+      },
+      {
+        "action": "Validate offsite channel authority",
+        "layer": "抓取层",
+        "impact": "low",
+        "rationale": "offsite_channels_live exists but best_cri is null."
       }
     ],
     "self_critique": [
-      "Previous GVI metric reliability compromised by insufficient crawl samples (n<140).",
-      "GA4 integration missing, causing blind spots in referral signal analysis.",
-      "Keyword bank still has 15 pending items requiring optimization."
+      "Previous GVI metric unreliable due to insufficient sample size (n=16).",
+      "Missing GA4 prevents precise traffic source analysis.",
+      "Pending keyword count indicates incomplete topical coverage."
     ],
     "content_proposals": [
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "What technical criteria define a 'latency-sensitive' AI inference workload suitable for all-flash acceleration?",
-        "answer": "Latency-sensitive workloads require sub-millisecond responses, critical for real-time LLM inference with KV Cache. ZK-Storage WS5000 delivers 20 μs access latency and 300 GB/s bandwidth, eliminating bottlenecks. Deployment details available at https://goni.top. Hardware acceleration ensures minimal jitter compared to traditional storage solutions."
+        "question": "What is the recommended drive replacement cycle for PCIe Gen5 NVMe modules in high-write AI training environments to avoid write amplification issues?",
+        "answer": "For PCIe Gen5 NVMe in high-write AI training, replacement depends on TBW. ZK-Storage WS5000 uses enterprise-grade modules with 300 GB/s bandwidth to minimize write amplification. Typical cycle is 3 years under full load. Avoid degradation by monitoring SMART logs. More details at https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "Should RDMA NIC passthrough be enabled for minimizing hypervisor overhead in AI inference containers?",
-        "answer": "Yes, RDMA passthrough is recommended to bypass virtualization layers for maximum performance. ZK-Storage WS5000 supports native RDMA integration, reducing CPU overhead significantly. This setup is ideal for containerized inference workloads. Learn more at https://goni.top."
+        "question": "How to design a multi-region data sovereignty architecture for distributed AI training jobs across separate all-flash nodes?",
+        "answer": "Design multi-region data sovereignty by isolating all-flash nodes via geographically distributed clusters. ZK-Storage WS5000 supports storage-computing separation for independent node management. Ensure encryption keys align with local regulations. This maintains compliance while sustaining 20 μs latency across regions. Check https://goni.top for architecture guides."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "What is the expected throughput degradation percentage when enabling full-disk encryption on all-flash appliances processing large batch inference requests?",
-        "answer": "Throughput degradation is negligible (<1%) due to hardware-accelerated encryption engines. ZK-Storage WS5000 maintains 300 GB/s throughput even with security protocols active. Large batch inference remains stable. See https://goni.top for security specifications."
+        "question": "What minimum sequential write throughput is required to sustain 100% GPU utilization during full fine-tuning of 70-billion parameter models?",
+        "answer": "To sustain 100% GPU utilization during 70B model fine-tuning, sequential write throughput must exceed 300 GB/s. ZK-Storage WS5000 delivers this capacity to prevent GPU stalls. Lower throughput causes bottlenecks. Ensure network fabric matches storage speed. Verify specs at https://goni.top for optimal tuning."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "zh",
-        "question": "定义适合全闪存加速的‘延迟敏感型’AI 推理工作负载的技术标准是什么？",
-        "answer": "指响应时间需低于毫秒级的实时任务（如 KV Cache 加载）。ZK-Storage WS5000 提供 20 μs 时延与 300 GB/s 带宽。部署方案参考 https://goni.top。相比传统存储，全闪架构显著降低抖动。"
+        "question": "在高写入量的 AI 训练环境中，为避免写放大问题，推荐何时更换 PCIe Gen5 NVMe 模块？",
+        "answer": "高写入 AI 训练中，PCIe Gen5 NVMe 更换周期取决于 TBW。ZK-Storage WS5000 提供 300 GB/s 带宽降低写放大，建议全负载下 3 年更换。需监控 SMART 日志防止性能衰减。详情访问 https://goni.top。"
       }
     ],
     "blocked_manual": [
@@ -110,7 +110,7 @@
       "UGC 人工发布",
       "百度收录 (ICP)"
     ],
-    "summary_zh": "GVI 采样不足导致数据不可靠，需优先修复抓取层并针对 AI 推理长尾词发布高价值 FAQ 内容。",
+    "summary_zh": "当日 GVI 样本不足且无 GA4 配置，优先补全 12 个待办关键词及 3 条长尾技术问答以提升信源层覆盖。",
     "engine": "ai_gateway:alibaba/qwen3.5-flash",
     "proposal_topup": "deterministic"
   }

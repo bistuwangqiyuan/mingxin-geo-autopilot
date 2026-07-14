@@ -1,7 +1,7 @@
 {
   "mode": "ci",
-  "started": "2026-07-13T21:29:53",
-  "elapsed": 171.2,
+  "started": "2026-07-14T03:44:48",
+  "elapsed": 147.2,
   "paths": {
     "ROOT": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot",
     "GEO_PLAN": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_plan",
@@ -20,30 +20,30 @@
     {
       "name": "geo_autopilot/keyword_miner.py",
       "ok": true,
-      "note": "  + [problem_solution] How should granular data deletion functionality be implemented in all-flash storage to strictly comply with GDPR 'right to be forgotten' requirements for AI training datasets containing personal information?",
+      "note": "[keyword_miner] source=skipped_backpressure added=0 bank_total=190 pending=12",
       "critical": false,
-      "elapsed": 35.2
+      "elapsed": 0.0
     },
     {
       "name": "seo_geo_loop/gvi_measure.py --force --limit 4",
       "ok": true,
       "note": "写出：/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/gvi_compare.json",
       "critical": false,
-      "elapsed": 93.4
+      "elapsed": 96.9
     },
     {
       "name": "geo_autopilot/geo_brain.py",
       "ok": true,
       "note": "  priorities=3 proposals=4",
       "critical": false,
-      "elapsed": 24.9
+      "elapsed": 30.5
     },
     {
       "name": "geo_autopilot/apply_proposals.py",
       "ok": true,
-      "note": "  已应用 4 条提案并通过 verify_site 闸门",
+      "note": "  已应用 3 条提案并通过 verify_site 闸门",
       "critical": false,
-      "elapsed": 0.2
+      "elapsed": 0.3
     },
     {
       "name": "seo_geo_loop/build_offsite_site.py",
@@ -57,12 +57,12 @@
       "ok": true,
       "note": "[offsite_github] 组装完成 -> /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/offsite_github  (docs 文件 14 个)",
       "critical": false,
-      "elapsed": 0.0
+      "elapsed": 0.1
     },
     {
       "name": "seo_geo_loop/make_geo_kit_en.py",
       "ok": true,
-      "note": "[geo_kit_en] 生成 178 个成品包 -> /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_plan/offsite/en_kit",
+      "note": "[geo_kit_en] 生成 180 个成品包 -> /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_plan/offsite/en_kit",
       "critical": false,
       "elapsed": 0.0
     },
@@ -71,28 +71,28 @@
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 1.1
+      "elapsed": 1.3
     },
     {
       "name": "geo_plan/geo_scoring.py",
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 1.5
+      "elapsed": 1.6
     },
     {
       "name": "seo_geo_loop/indexnow_submit.py",
       "ok": true,
-      "note": "[OK] 213 URLs; written /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/indexnow_submit.json",
+      "note": "[OK] 216 URLs; written /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/indexnow_submit.json",
       "critical": false,
-      "elapsed": 6.0
+      "elapsed": 6.6
     },
     {
       "name": "seo_geo_loop/live_audit.py",
       "ok": true,
       "note": "  写出 -> /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/live_status.json",
       "critical": false,
-      "elapsed": 0.9
+      "elapsed": 1.1
     },
     {
       "name": "geo_autopilot/traffic_check.py",
@@ -111,22 +111,43 @@
     {
       "name": "git -C official_website status --porcelain",
       "ok": true,
-      "note": "M  zh/faq.html",
+      "note": "M  zh/validation.html",
       "critical": false,
       "elapsed": null
     },
     {
       "name": "git -C official_website commit -m",
       "ok": true,
-      "note": " 6 files changed, 43 insertions(+), 30 deletions(-)",
+      "note": " 44 files changed, 291 insertions(+), 287 deletions(-)",
+      "critical": false,
+      "elapsed": null
+    },
+    {
+      "name": "git -C official_website push origin",
+      "ok": false,
+      "note": "hint: See the 'Note about fast-forwards' in 'git push --help' for details.",
+      "critical": false,
+      "elapsed": null
+    },
+    {
+      "name": "git -C official_website fetch origin",
+      "ok": true,
+      "note": "   419bc9f..ca51073  main       -> origin/main",
+      "critical": false,
+      "elapsed": null
+    },
+    {
+      "name": "git -C official_website rebase origin/main",
+      "ok": true,
+      "note": "Successfully rebased and updated refs/heads/main.",
       "critical": false,
       "elapsed": null
     },
     {
       "name": "git -C official_website push origin",
       "ok": true,
-      "note": "   1f3c299..d6147b2  HEAD -> main",
-      "critical": false,
+      "note": "   ca51073..52a0a9f  HEAD -> main",
+      "critical": true,
       "elapsed": null
     },
     {
@@ -146,21 +167,21 @@
     {
       "name": "git -C offsite_github status --porcelain",
       "ok": true,
-      "note": "M  docs/sitemap.xml",
+      "note": "M  docs/ws5000.html",
       "critical": false,
       "elapsed": null
     },
     {
       "name": "git -C offsite_github commit -m",
       "ok": true,
-      "note": " create mode 100644 docs/articles/what-technical-criteria-define-a-latency-sensitive-ai-inference-workload-suitabl.html",
+      "note": " create mode 100644 docs/articles/what-minimum-sequential-write-throughput-is-required-to-sustain-100-gpu-utilizat.html",
       "critical": false,
       "elapsed": null
     },
     {
       "name": "git -C offsite_github push origin",
       "ok": true,
-      "note": "   c7a63a0..530eb3a  HEAD -> main",
+      "note": "   530eb3a..06b9922  HEAD -> main",
       "critical": false,
       "elapsed": null
     },
@@ -176,21 +197,21 @@
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": true,
-      "elapsed": 1.1
+      "elapsed": 1.3
     },
     {
       "name": "geo_autopilot/export_daily_pdf.py",
       "ok": true,
-      "note": "Saved: /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_autopilot/reports/中科存储-GEO自动驾驶日报-2026-07-13.pdf  (0.95 MB)",
+      "note": "Saved: /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_autopilot/reports/中科存储-GEO自动驾驶日报-2026-07-14.pdf  (0.95 MB)",
       "critical": false,
-      "elapsed": 1.5
+      "elapsed": 1.6
     },
     {
       "name": "geo_autopilot/alerting.py",
       "ok": true,
       "note": "[alerting] level=warn delivery=commented_issue_1 alerts=0 blocked=3",
       "critical": false,
-      "elapsed": 2.8
+      "elapsed": 1.8
     }
   ]
 }

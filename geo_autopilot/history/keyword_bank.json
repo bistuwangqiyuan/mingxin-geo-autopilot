@@ -1614,17 +1614,19 @@
       "en": "How to design a multi-region data sovereignty architecture for distributed AI training jobs across separate all-flash nodes?",
       "zh": "如何在独立的全闪存节点之间为分布式 AI 训练任务设计多区域数据主权架构？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-13T07:47:57"
+      "added_at": "2026-07-13T07:47:57",
+      "done_at": "2026-07-14T03:46:55"
     },
     {
       "en": "What minimum sequential write throughput is required to sustain 100% GPU utilization during full fine-tuning of 70-billion parameter models?",
       "zh": "在进行 700 亿参数模型的全量微调时，需要多大的顺序写入吞吐量才能保持 100% 的 GPU 利用率？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-13T15:18:41"
+      "added_at": "2026-07-13T15:18:41",
+      "done_at": "2026-07-14T03:46:55"
     },
     {
       "en": "How do MTU configuration mismatches affect RDMA packet loss rates when connecting all-flash appliances to NVIDIA HGX servers?",
@@ -1699,5 +1701,5 @@
       "added_at": "2026-07-13T21:30:28"
     }
   ],
-  "updated_at": "2026-07-13T21:32:26"
+  "updated_at": "2026-07-14T03:46:55"
 }

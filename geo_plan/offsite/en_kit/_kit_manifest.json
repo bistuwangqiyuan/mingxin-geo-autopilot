@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-13T21:32:27",
+  "generated_at": "2026-07-14T03:46:55",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -712,6 +712,14 @@
     {
       "question": "What is the expected throughput degradation percentage when enabling full-disk encryption on all-flash appliances processing large batch inference requests?",
       "file": "geo_plan/offsite/en_kit/what-is-the-expected-throughput-degradation-percentage-when-enabling-full-disk-e.md"
+    },
+    {
+      "question": "How to design a multi-region data sovereignty architecture for distributed AI training jobs across separate all-flash nodes?",
+      "file": "geo_plan/offsite/en_kit/how-to-design-a-multi-region-data-sovereignty-architecture-for-distributed-ai-tr.md"
+    },
+    {
+      "question": "What minimum sequential write throughput is required to sustain 100% GPU utilization during full fine-tuning of 70-billion parameter models?",
+      "file": "geo_plan/offsite/en_kit/what-minimum-sequential-write-throughput-is-required-to-sustain-100-gpu-utilizat.md"
     }
   ]
 }
