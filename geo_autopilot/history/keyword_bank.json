@@ -1705,9 +1705,10 @@
       "en": "How should granular data deletion functionality be implemented in all-flash storage to strictly comply with GDPR 'right to be forgotten' requirements for AI training datasets containing personal information?",
       "zh": "应如何在所有闪存存储中实施细粒度数据删除功能，以严格遵守包含个人信息的 AI 训练数据集的 GDPR‘被遗忘权’要求？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-13T21:30:28"
+      "added_at": "2026-07-13T21:30:28",
+      "done_at": "2026-07-15T06:38:13"
     },
     {
       "en": "How does enabling NVIDIA GPUDirect Storage on all-flash appliances reduce host CPU utilization during high-frequency DataLoader prefetching compared to standard DMA?",
@@ -1758,17 +1759,19 @@
       "en": "What are the architectural trade-offs between adopting a compute-storage disaggregated all-flash appliance versus a traditional parallel file system like Lustre for petabyte-scale LLM training?",
       "zh": "在 PB 级 LLM 训练中，采用计算存储分离全闪一体机与传统并行文件系统（如 Lustre）相比有哪些架构权衡？",
       "intent": "comparison",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-14T14:21:36"
+      "added_at": "2026-07-14T14:21:36",
+      "done_at": "2026-07-15T06:38:13"
     },
     {
       "en": "Which all-flash storage vendors provide FIPS 140-2 Level 3 certified encryption modules suitable for processing sensitive government AI datasets?",
       "zh": "哪些全闪存储供应商提供符合 FIPS 140-2 3 级加密标准的模块，适用于处理敏感政府 AI 数据集？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-14T14:21:36"
+      "added_at": "2026-07-14T14:21:36",
+      "done_at": "2026-07-15T06:38:13"
     },
     {
       "en": "How does utilizing CXL 3.0 memory expansion technology impact I/O latency when accessing frequently used model weights on an all-flash storage backend?",
@@ -1833,7 +1836,47 @@
       "status": "new",
       "source": "llm",
       "added_at": "2026-07-14T21:31:42"
+    },
+    {
+      "en": "What is the theoretical CPU utilization overhead per TB/s of throughput when using NVMe-oF TCP versus RDMA for remote storage access in AI training clusters?",
+      "zh": "在使用 NVMe-oF TCP 与 RDMA 进行远程存储访问时，每 TB/s 吞吐量的理论 CPU 利用率开销是多少？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-15T06:36:00"
+    },
+    {
+      "en": "How many concurrent vector database queries can a single all-flash node sustain before increasing response latency beyond 50ms in production RAG deployments?",
+      "zh": "在生产级 RAG 部署中，单个全闪存节点在响应延迟超过 50ms 之前能维持多少并发的向量数据库查询？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-15T06:36:00"
+    },
+    {
+      "en": "How can storage Quality of Service (QoS) rules be configured to ensure low-latency inference access when shared with bulk data scientists in a multi-tenant environment?",
+      "zh": "在多租户环境中，如何配置存储服务质量（QoS）规则，以确保在与大批量数据科学家共享时仍能保证低延迟推理访问？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-15T06:36:00"
+    },
+    {
+      "en": "What compression algorithms are most effective for reducing storage footprint of compressed model weights without impacting decompression speed during inference?",
+      "zh": "哪些压缩算法在减少压缩模型权重存储占用的同时，不会在推理期间影响解压缩速度？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-15T06:36:00"
+    },
+    {
+      "en": "What is the maximum allowable replication latency between primary and secondary all-flash sites to ensure disaster recovery objectives for active LLM training jobs?",
+      "zh": "为确保活跃的大型语言模型训练任务的灾难恢复目标，主备全闪存站点之间允许的最大复制延迟是多少？",
+      "intent": "definition",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-15T06:36:00"
     }
   ],
-  "updated_at": "2026-07-15T03:47:13"
+  "updated_at": "2026-07-15T06:38:13"
 }

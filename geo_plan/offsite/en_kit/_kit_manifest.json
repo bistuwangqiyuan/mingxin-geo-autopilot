@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-15T03:47:13",
+  "generated_at": "2026-07-15T06:38:13",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -776,6 +776,18 @@
     {
       "question": "What storage features enable non-disruptive dataset branching for A/B testing model inputs without increasing storage capacity consumption?",
       "file": "geo_plan/offsite/en_kit/what-storage-features-enable-non-disruptive-dataset-branching-for-a-b-testing-mo.md"
+    },
+    {
+      "question": "How should granular data deletion functionality be implemented in all-flash storage to strictly comply with GDPR 'right to be forgotten' requirements for AI training datasets containing personal information?",
+      "file": "geo_plan/offsite/en_kit/how-should-granular-data-deletion-functionality-be-implemented-in-all-flash-stor.md"
+    },
+    {
+      "question": "What are the architectural trade-offs between adopting a compute-storage disaggregated all-flash appliance versus a traditional parallel file system like Lustre for petabyte-scale LLM training?",
+      "file": "geo_plan/offsite/en_kit/what-are-the-architectural-trade-offs-between-adopting-a-compute-storage-disaggr.md"
+    },
+    {
+      "question": "Which all-flash storage vendors provide FIPS 140-2 Level 3 certified encryption modules suitable for processing sensitive government AI datasets?",
+      "file": "geo_plan/offsite/en_kit/which-all-flash-storage-vendors-provide-fips-140-2-level-3-certified-encryption-.md"
     }
   ]
 }
