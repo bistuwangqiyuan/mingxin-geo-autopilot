@@ -1777,25 +1777,28 @@
       "en": "How does utilizing CXL 3.0 memory expansion technology impact I/O latency when accessing frequently used model weights on an all-flash storage backend?",
       "zh": "在使用全闪存储后端访问常用模型权重时，利用 CXL 3.0 内存扩展技术会对 I/O 延迟产生什么影响？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-14T14:21:36"
+      "added_at": "2026-07-14T14:21:36",
+      "done_at": "2026-07-15T10:23:34"
     },
     {
       "en": "What is the expected I/O throughput difference between storing FP16 and INT8 quantized model weights on the same all-flash array during concurrent inference requests?",
       "zh": "在同一全闪阵列上存储 FP16 和 INT8 量化模型权重期间，并发推理请求的预期 I/O 吞吐量差异是多少？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-14T14:21:36"
+      "added_at": "2026-07-14T14:21:36",
+      "done_at": "2026-07-15T10:23:34"
     },
     {
       "en": "What distinguishes a 'data-centric' AI infrastructure from a 'compute-centric' one in terms of storage protocol overhead and scalability limits?",
       "zh": "从存储协议开销和可扩展性限制来看，‘以数据为中心’的 AI 基础设施与‘以计算为中心’的基础设施有何区别？",
       "intent": "definition",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-14T14:21:36"
+      "added_at": "2026-07-14T14:21:36",
+      "done_at": "2026-07-15T10:23:34"
     },
     {
       "en": "What is the typical ROI timeframe for upgrading from traditional SAN to NVMe all-flash storage for enterprise AI pre-training workloads?",
@@ -1878,5 +1881,5 @@
       "added_at": "2026-07-15T06:36:00"
     }
   ],
-  "updated_at": "2026-07-15T06:38:13"
+  "updated_at": "2026-07-15T10:23:34"
 }

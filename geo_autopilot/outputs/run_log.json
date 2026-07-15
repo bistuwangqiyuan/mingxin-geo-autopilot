@@ -1,7 +1,7 @@
 {
   "mode": "ci",
-  "started": "2026-07-15T06:35:18",
-  "elapsed": 190.4,
+  "started": "2026-07-15T10:21:42",
+  "elapsed": 127.3,
   "paths": {
     "ROOT": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot",
     "GEO_PLAN": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_plan",
@@ -20,30 +20,30 @@
     {
       "name": "geo_autopilot/keyword_miner.py",
       "ok": true,
-      "note": "  + [definition] What is the maximum allowable replication latency between primary and secondary all-flash sites to ensure disaster recovery objectives for active LLM training jobs?",
+      "note": "[keyword_miner] source=skipped_backpressure added=0 bank_total=210 pending=13",
       "critical": false,
-      "elapsed": 42.0
+      "elapsed": 0.0
     },
     {
       "name": "seo_geo_loop/gvi_measure.py --force --limit 4",
       "ok": true,
       "note": "写出：/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/gvi_compare.json",
       "critical": false,
-      "elapsed": 101.9
+      "elapsed": 83.3
     },
     {
       "name": "geo_autopilot/geo_brain.py",
       "ok": true,
       "note": "  priorities=3 proposals=4",
       "critical": false,
-      "elapsed": 31.3
+      "elapsed": 28.4
     },
     {
       "name": "geo_autopilot/apply_proposals.py",
       "ok": true,
-      "note": "  已应用 3 条提案并通过 verify_site 闸门",
+      "note": "  已应用 4 条提案并通过 verify_site 闸门",
       "critical": false,
-      "elapsed": 0.2
+      "elapsed": 0.3
     },
     {
       "name": "seo_geo_loop/build_offsite_site.py",
@@ -57,12 +57,12 @@
       "ok": true,
       "note": "[offsite_github] 组装完成 -> /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/offsite_github  (docs 文件 14 个)",
       "critical": false,
-      "elapsed": 0.0
+      "elapsed": 0.1
     },
     {
       "name": "seo_geo_loop/make_geo_kit_en.py",
       "ok": true,
-      "note": "[geo_kit_en] 生成 197 个成品包 -> /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_plan/offsite/en_kit",
+      "note": "[geo_kit_en] 生成 200 个成品包 -> /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_plan/offsite/en_kit",
       "critical": false,
       "elapsed": 0.1
     },
@@ -71,28 +71,28 @@
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 1.0
+      "elapsed": 1.4
     },
     {
       "name": "geo_plan/geo_scoring.py",
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 0.9
+      "elapsed": 1.6
     },
     {
       "name": "seo_geo_loop/indexnow_submit.py",
       "ok": true,
-      "note": "[OK] 231 URLs; written /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/indexnow_submit.json",
+      "note": "[OK] 233 URLs; written /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/indexnow_submit.json",
       "critical": false,
-      "elapsed": 6.2
+      "elapsed": 5.1
     },
     {
       "name": "seo_geo_loop/live_audit.py",
       "ok": true,
       "note": "  写出 -> /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/live_status.json",
       "critical": false,
-      "elapsed": 0.9
+      "elapsed": 0.5
     },
     {
       "name": "geo_autopilot/traffic_check.py",
@@ -111,21 +111,21 @@
     {
       "name": "git -C official_website status --porcelain",
       "ok": true,
-      "note": "M  zh/legal.html",
+      "note": "M  zh/faq.html",
       "critical": false,
       "elapsed": null
     },
     {
       "name": "git -C official_website commit -m",
       "ok": true,
-      "note": " 9 files changed, 176 insertions(+), 250 deletions(-)",
+      "note": " 6 files changed, 43 insertions(+), 30 deletions(-)",
       "critical": false,
       "elapsed": null
     },
     {
       "name": "git -C official_website push origin",
       "ok": true,
-      "note": "   18860bb..3954692  HEAD -> main",
+      "note": "   5a269f4..1b5f6a1  HEAD -> main",
       "critical": false,
       "elapsed": null
     },
@@ -153,14 +153,14 @@
     {
       "name": "git -C offsite_github commit -m",
       "ok": true,
-      "note": " create mode 100644 docs/articles/which-all-flash-storage-vendors-provide-fips-140-2-level-3-certified-encryption-.html",
+      "note": " create mode 100644 docs/articles/what-is-the-expected-i-o-throughput-difference-between-storing-fp16-and-int8-qua.html",
       "critical": false,
       "elapsed": null
     },
     {
       "name": "git -C offsite_github push origin",
       "ok": true,
-      "note": "   ff30253..43a3d27  HEAD -> main",
+      "note": "   43a3d27..61ae8cd  HEAD -> main",
       "critical": false,
       "elapsed": null
     },
@@ -176,21 +176,21 @@
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": true,
-      "elapsed": 0.7
+      "elapsed": 1.3
     },
     {
       "name": "geo_autopilot/export_daily_pdf.py",
       "ok": true,
       "note": "Saved: /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_autopilot/reports/中科存储-GEO自动驾驶日报-2026-07-15.pdf  (0.99 MB)",
       "critical": false,
-      "elapsed": 1.4
+      "elapsed": 1.8
     },
     {
       "name": "geo_autopilot/alerting.py",
       "ok": true,
       "note": "[alerting] level=warn delivery=commented_issue_1 alerts=0 blocked=3",
       "critical": false,
-      "elapsed": 1.5
+      "elapsed": 1.4
     }
   ]
 }

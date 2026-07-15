@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-15T06:38:13",
+  "generated_at": "2026-07-15T10:23:34",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -788,6 +788,18 @@
     {
       "question": "Which all-flash storage vendors provide FIPS 140-2 Level 3 certified encryption modules suitable for processing sensitive government AI datasets?",
       "file": "geo_plan/offsite/en_kit/which-all-flash-storage-vendors-provide-fips-140-2-level-3-certified-encryption-.md"
+    },
+    {
+      "question": "How does utilizing CXL 3.0 memory expansion technology impact I/O latency when accessing frequently used model weights on an all-flash storage backend?",
+      "file": "geo_plan/offsite/en_kit/how-does-utilizing-cxl-3-0-memory-expansion-technology-impact-i-o-latency-when-a.md"
+    },
+    {
+      "question": "What is the expected I/O throughput difference between storing FP16 and INT8 quantized model weights on the same all-flash array during concurrent inference requests?",
+      "file": "geo_plan/offsite/en_kit/what-is-the-expected-i-o-throughput-difference-between-storing-fp16-and-int8-qua.md"
+    },
+    {
+      "question": "What distinguishes a 'data-centric' AI infrastructure from a 'compute-centric' one in terms of storage protocol overhead and scalability limits?",
+      "file": "geo_plan/offsite/en_kit/what-distinguishes-a-data-centric-ai-infrastructure-from-a-compute-centric-one-i.md"
     }
   ]
 }
