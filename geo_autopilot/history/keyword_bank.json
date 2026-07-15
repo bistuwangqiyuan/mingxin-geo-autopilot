@@ -1830,17 +1830,19 @@
       "en": "Which indexing methods on all-flash arrays yield the lowest latency for high-dimensional vector searches in RAG applications?",
       "zh": "在全闪存阵列上，哪种索引方法能为 RAG 应用中的高维向量搜索提供最低的延迟？",
       "intent": "ranking",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-14T21:31:42"
+      "added_at": "2026-07-14T21:31:42",
+      "done_at": "2026-07-15T17:46:16"
     },
     {
       "en": "How does containerized storage management reduce operational overhead for DevOps teams managing AI inference endpoints compared to bare-metal configurations?",
       "zh": "与裸机配置相比，容器化存储管理如何降低负责管理 AI 推理端点的 DevOps 团队的操作开销？",
       "intent": "comparison",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-14T21:31:42"
+      "added_at": "2026-07-14T21:31:42",
+      "done_at": "2026-07-15T17:46:16"
     },
     {
       "en": "What is the theoretical CPU utilization overhead per TB/s of throughput when using NVMe-oF TCP versus RDMA for remote storage access in AI training clusters?",
@@ -1915,5 +1917,5 @@
       "added_at": "2026-07-15T14:17:49"
     }
   ],
-  "updated_at": "2026-07-15T14:20:06"
+  "updated_at": "2026-07-15T17:46:16"
 }

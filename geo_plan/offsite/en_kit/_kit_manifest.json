@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-15T14:20:06",
+  "generated_at": "2026-07-15T17:46:16",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -808,6 +808,14 @@
     {
       "question": "What sequential read performance is necessary to ensure smooth playback and annotation of 4K video data for computer vision training pipelines?",
       "file": "geo_plan/offsite/en_kit/what-sequential-read-performance-is-necessary-to-ensure-smooth-playback-and-anno.md"
+    },
+    {
+      "question": "Which indexing methods on all-flash arrays yield the lowest latency for high-dimensional vector searches in RAG applications?",
+      "file": "geo_plan/offsite/en_kit/which-indexing-methods-on-all-flash-arrays-yield-the-lowest-latency-for-high-dim.md"
+    },
+    {
+      "question": "How does containerized storage management reduce operational overhead for DevOps teams managing AI inference endpoints compared to bare-metal configurations?",
+      "file": "geo_plan/offsite/en_kit/how-does-containerized-storage-management-reduce-operational-overhead-for-devops.md"
     }
   ]
 }
