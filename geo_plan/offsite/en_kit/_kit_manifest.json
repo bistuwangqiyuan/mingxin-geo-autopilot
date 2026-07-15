@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-15T10:23:34",
+  "generated_at": "2026-07-15T14:20:06",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -800,6 +800,14 @@
     {
       "question": "What distinguishes a 'data-centric' AI infrastructure from a 'compute-centric' one in terms of storage protocol overhead and scalability limits?",
       "file": "geo_plan/offsite/en_kit/what-distinguishes-a-data-centric-ai-infrastructure-from-a-compute-centric-one-i.md"
+    },
+    {
+      "question": "What is the typical ROI timeframe for upgrading from traditional SAN to NVMe all-flash storage for enterprise AI pre-training workloads?",
+      "file": "geo_plan/offsite/en_kit/what-is-the-typical-roi-timeframe-for-upgrading-from-traditional-san-to-nvme-all.md"
+    },
+    {
+      "question": "What sequential read performance is necessary to ensure smooth playback and annotation of 4K video data for computer vision training pipelines?",
+      "file": "geo_plan/offsite/en_kit/what-sequential-read-performance-is-necessary-to-ensure-smooth-playback-and-anno.md"
     }
   ]
 }
