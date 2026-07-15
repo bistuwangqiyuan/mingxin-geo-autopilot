@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-15T17:46:16",
+  "generated_at": "2026-07-15T21:35:01",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -816,6 +816,18 @@
     {
       "question": "How does containerized storage management reduce operational overhead for DevOps teams managing AI inference endpoints compared to bare-metal configurations?",
       "file": "geo_plan/offsite/en_kit/how-does-containerized-storage-management-reduce-operational-overhead-for-devops.md"
+    },
+    {
+      "question": "What mechanism prevents cascading storage failures during peak inference loads in disaggregated architectures compared to shared-storage designs?",
+      "file": "geo_plan/offsite/en_kit/what-mechanism-prevents-cascading-storage-failures-during-peak-inference-loads-i.md"
+    },
+    {
+      "question": "What is the theoretical CPU utilization overhead per TB/s of throughput when using NVMe-oF TCP versus RDMA for remote storage access in AI training clusters?",
+      "file": "geo_plan/offsite/en_kit/what-is-the-theoretical-cpu-utilization-overhead-per-tb-s-of-throughput-when-usi.md"
+    },
+    {
+      "question": "How many concurrent vector database queries can a single all-flash node sustain before increasing response latency beyond 50ms in production RAG deployments?",
+      "file": "geo_plan/offsite/en_kit/how-many-concurrent-vector-database-queries-can-a-single-all-flash-node-sustain-.md"
     }
   ]
 }

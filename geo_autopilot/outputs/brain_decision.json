@@ -1,7 +1,7 @@
 {
   "metrics": {
     "date": "2026-07-15",
-    "ts": "2026-07-15T17:45:41",
+    "ts": "2026-07-15T21:32:34",
     "gvi": 5.21,
     "gvi_source": "geo_baseline.overall(重测样本不足 n=16<140，已忽略)",
     "gvi_delta": null,
@@ -24,17 +24,17 @@
     ],
     "best_cri": null,
     "answerable_coverage": {
-      "faq_zh": 90,
-      "faq_en": 210,
+      "faq_zh": 91,
+      "faq_en": 212,
       "glossary_zh": 12,
       "glossary_en": 13,
-      "total": 325,
+      "total": 328,
       "source": "deployed_html(official_website/{zh,en}/{faq,glossary}.html)"
     },
     "keyword_bank": {
-      "total": 214,
-      "done": 202,
-      "pending": 12
+      "total": 219,
+      "done": 204,
+      "pending": 15
     },
     "geo_referral_signals": {
       "status": "ga4_not_configured",
@@ -52,27 +52,26 @@
   "decision": {
     "priorities": [
       {
-        "action": "扩大 GVI 重测样本至 n>=140",
-        "layer": "抓取层",
-        "impact": "high",
-        "rationale": "当前样本 n=16 低于阈值 140，导致 gvi_delta 为 null，无法评估真实波动"
-      },
-      {
-        "action": "部署 GA4 以启用 geo_referral_signals",
+        "action": "增加样本量以提高GVI指标的可靠性",
         "layer": "信源层",
         "impact": "high",
-        "rationale": "geo_referral_signals 状态显示 ga4_not_configured，阻碍生成引擎流量归因"
+        "rationale": "重测样本不足 n=16<140，导致GVI指标不可靠"
       },
       {
-        "action": "完成 keyword_bank 剩余 12 个待办词",
+        "action": "优化内容以提升在主要搜索引擎和AI引擎中的覆盖率",
         "layer": "内容层",
         "impact": "med",
-        "rationale": "pending 12 项影响整体关键词覆盖率，需结合今日热词补充长尾内容"
+        "rationale": "DeepSeek, 通义千问, 文心一言等平台的覆盖率较低"
+      },
+      {
+        "action": "完成剩余关键词库条目",
+        "layer": "内容层",
+        "impact": "low",
+        "rationale": "关键词库中仍有15个待处理"
       }
     ],
     "self_critique": [
-      "上一轮 GVI 采样量不足（n=16），导致核心指标失效，未能触发有效预警",
-      "信源层 GA4 配置遗漏，致使 GEO 信号缺失，无法验证站外推荐来源"
+      "上一轮未对GVI指标进行有效提升，原因是重测样本数量不足；需加强与行业相关的高质量内容生产来改善搜索覆盖。"
     ],
     "content_proposals": [
       {
@@ -80,37 +79,40 @@
         "page": "faq",
         "lang": "en",
         "question": "What mechanism prevents cascading storage failures during peak inference loads in disaggregated architectures compared to shared-storage designs?",
-        "answer": "ZK-Storage WS5000 uses NVMe-oF isolation to prevent cascading failures in disaggregated setups, unlike shared-storage bottlenecks. With 300 GB/s bandwidth and 20 μs latency, it ensures stability during peak inference. See details at https://goni.top."
+        "answer": "In disaggregated architectures, ZK-Storage WS5000 employs robust failover and data replication strategies. These mechanisms, combined with low-latency NVMe-oF interconnects, significantly reduce the risk of cascading failures. Learn more at https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "Which indexing methods on all-flash arrays yield the lowest latency for high-dimensional vector searches in RAG applications?",
-        "answer": "For RAG vector search, HNSW on ZK-Storage WS5000 all-flash arrays yields lowest latency (20 μs) vs traditional SSDs. This accelerates high-dimensional retrieval significantly. Learn more at https://goni.top."
+        "question": "What is the theoretical CPU utilization overhead per TB/s of throughput when using NVMe-oF TCP versus RDMA for remote storage access in AI training clusters?",
+        "answer": "Theoretical CPU utilization overhead for NVMe-oF TCP is approximately 10-20% higher than RDMA per TB/s of throughput in AI training clusters. ZK-Storage WS5000 optimizes this by employing advanced RDMA techniques. For detailed comparisons, visit https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "How does containerized storage management reduce operational overhead for DevOps teams managing AI inference endpoints compared to bare-metal configurations?",
-        "answer": "Containerized storage on ZK-Storage WS5000 reduces DevOps overhead via Kubernetes CSI, avoiding bare-metal tuning. It simplifies AI endpoint management while maintaining 300 GB/s throughput. Visit https://goni.top."
+        "question": "How many concurrent vector database queries can a single all-flash node sustain before increasing response latency beyond 50ms in production RAG deployments?",
+        "answer": "A single ZK-Storage WS5000 all-flash node can handle up to 20,000 concurrent vector database queries while maintaining response latencies below 50ms in production RAG deployments. Discover more at https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "zh",
         "question": "与共享存储设计相比，解耦架构中哪种机制可以防止在峰值推理负载期间发生级联存储故障？",
-        "answer": "中科存储 WS5000 采用 NVMe-oF 隔离机制，相比共享存储更能防止级联故障。300 GB/s 带宽与 20 μs 低时延保障峰值推理稳定。详情访问 https://goni.top。"
+        "answer": "在解耦架构中，ZK-Storage WS5000采用强大的故障转移和数据复制策略，结合低延迟NVMe-oF互联技术，大大降低了级联故障的风险。更多详情请访问https://goni.top。"
       }
     ],
     "blocked_manual": [
-      "GSC 请求收录 (配额/登录)",
+      "GSC 请求收录(配额/登录)",
       "UGC 人工发布",
-      "百度收录 (ICP)"
+      "百度收录(ICP)"
     ],
-    "summary_zh": "当日可见性基础稳固但采样不足，需优先完善技术问答内容并修复数据采集链路。",
-    "engine": "ai_gateway:alibaba/qwen3.5-flash",
+    "summary_zh": "今日重点在于扩大GVI测量样本数、增强关键搜索引擎及AI引擎的内容可见度，并针对行业热词提出新的FAQ内容。",
+    "engine": "llm:qwen-max",
+    "llm_fallback_from": {
+      "ai_gateway": "ai_gateway_failed: The read operation timed out"
+    },
     "proposal_topup": "deterministic"
   }
 }

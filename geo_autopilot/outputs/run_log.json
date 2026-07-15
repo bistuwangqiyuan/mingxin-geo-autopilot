@@ -1,7 +1,7 @@
 {
   "mode": "ci",
-  "started": "2026-07-15T17:44:09",
-  "elapsed": 144.5,
+  "started": "2026-07-15T21:30:33",
+  "elapsed": 289.0,
   "paths": {
     "ROOT": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot",
     "GEO_PLAN": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_plan",
@@ -20,23 +20,23 @@
     {
       "name": "geo_autopilot/keyword_miner.py",
       "ok": true,
-      "note": "[keyword_miner] source=skipped_backpressure added=0 bank_total=214 pending=12",
+      "note": "  + [definition] How does data gravity influence latency and bandwidth costs when migrating petabyte-scale AI training datasets between on-prem and cloud regions?",
       "critical": false,
-      "elapsed": 0.0
+      "elapsed": 36.1
     },
     {
       "name": "seo_geo_loop/gvi_measure.py --force --limit 4",
       "ok": true,
       "note": "写出：/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/gvi_compare.json",
       "critical": false,
-      "elapsed": 91.8
+      "elapsed": 85.0
     },
     {
       "name": "geo_autopilot/geo_brain.py",
       "ok": true,
       "note": "  priorities=3 proposals=4",
       "critical": false,
-      "elapsed": 34.4
+      "elapsed": 146.6
     },
     {
       "name": "geo_autopilot/apply_proposals.py",
@@ -57,12 +57,12 @@
       "ok": true,
       "note": "[offsite_github] 组装完成 -> /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/offsite_github  (docs 文件 14 个)",
       "critical": false,
-      "elapsed": 0.1
+      "elapsed": 0.0
     },
     {
       "name": "seo_geo_loop/make_geo_kit_en.py",
       "ok": true,
-      "note": "[geo_kit_en] 生成 204 个成品包 -> /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_plan/offsite/en_kit",
+      "note": "[geo_kit_en] 生成 207 个成品包 -> /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_plan/offsite/en_kit",
       "critical": false,
       "elapsed": 0.1
     },
@@ -71,21 +71,21 @@
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 1.3
+      "elapsed": 2.0
     },
     {
       "name": "geo_plan/geo_scoring.py",
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 1.6
+      "elapsed": 1.4
     },
     {
       "name": "seo_geo_loop/indexnow_submit.py",
       "ok": true,
-      "note": "[OK] 237 URLs; written /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/indexnow_submit.json",
+      "note": "[OK] 238 URLs; written /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/indexnow_submit.json",
       "critical": false,
-      "elapsed": 5.9
+      "elapsed": 6.4
     },
     {
       "name": "seo_geo_loop/live_audit.py",
@@ -111,21 +111,21 @@
     {
       "name": "git -C official_website status --porcelain",
       "ok": true,
-      "note": "M  zh/faq.html",
+      "note": "M  sitemap.xml",
       "critical": false,
       "elapsed": null
     },
     {
       "name": "git -C official_website commit -m",
       "ok": true,
-      "note": " 6 files changed, 38 insertions(+), 30 deletions(-)",
+      "note": " 5 files changed, 32 insertions(+), 22 deletions(-)",
       "critical": false,
       "elapsed": null
     },
     {
       "name": "git -C official_website push origin",
       "ok": true,
-      "note": "   111f0f7..cc4d2ed  HEAD -> main",
+      "note": "   da251ad..bc841a1  HEAD -> main",
       "critical": false,
       "elapsed": null
     },
@@ -153,14 +153,14 @@
     {
       "name": "git -C offsite_github commit -m",
       "ok": true,
-      "note": " create mode 100644 docs/articles/which-indexing-methods-on-all-flash-arrays-yield-the-lowest-latency-for-high-dim.html",
+      "note": " create mode 100644 docs/articles/what-mechanism-prevents-cascading-storage-failures-during-peak-inference-loads-i.html",
       "critical": false,
       "elapsed": null
     },
     {
       "name": "git -C offsite_github push origin",
       "ok": true,
-      "note": "   7fc1f00..aa79165  HEAD -> main",
+      "note": "   aa79165..7b66ac7  HEAD -> main",
       "critical": false,
       "elapsed": null
     },
@@ -176,21 +176,21 @@
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": true,
-      "elapsed": 1.2
+      "elapsed": 1.1
     },
     {
       "name": "geo_autopilot/export_daily_pdf.py",
       "ok": true,
-      "note": "Saved: /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_autopilot/reports/中科存储-GEO自动驾驶日报-2026-07-15.pdf  (0.97 MB)",
+      "note": "Saved: /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_autopilot/reports/中科存储-GEO自动驾驶日报-2026-07-15.pdf  (0.99 MB)",
       "critical": false,
-      "elapsed": 1.8
+      "elapsed": 3.2
     },
     {
       "name": "geo_autopilot/alerting.py",
       "ok": true,
       "note": "[alerting] level=warn delivery=commented_issue_1 alerts=0 blocked=3",
       "critical": false,
-      "elapsed": 1.6
+      "elapsed": 3.2
     }
   ]
 }

@@ -1813,9 +1813,10 @@
       "en": "What mechanism prevents cascading storage failures during peak inference loads in disaggregated architectures compared to shared-storage designs?",
       "zh": "与共享存储设计相比，解耦架构中哪种机制可以防止在峰值推理负载期间发生级联存储故障？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-14T21:31:42"
+      "added_at": "2026-07-14T21:31:42",
+      "done_at": "2026-07-15T21:35:01"
     },
     {
       "en": "What sequential read performance is necessary to ensure smooth playback and annotation of 4K video data for computer vision training pipelines?",
@@ -1848,17 +1849,19 @@
       "en": "What is the theoretical CPU utilization overhead per TB/s of throughput when using NVMe-oF TCP versus RDMA for remote storage access in AI training clusters?",
       "zh": "在使用 NVMe-oF TCP 与 RDMA 进行远程存储访问时，每 TB/s 吞吐量的理论 CPU 利用率开销是多少？",
       "intent": "comparison",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-15T06:36:00"
+      "added_at": "2026-07-15T06:36:00",
+      "done_at": "2026-07-15T21:35:01"
     },
     {
       "en": "How many concurrent vector database queries can a single all-flash node sustain before increasing response latency beyond 50ms in production RAG deployments?",
       "zh": "在生产级 RAG 部署中，单个全闪存节点在响应延迟超过 50ms 之前能维持多少并发的向量数据库查询？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-15T06:36:00"
+      "added_at": "2026-07-15T06:36:00",
+      "done_at": "2026-07-15T21:35:01"
     },
     {
       "en": "How can storage Quality of Service (QoS) rules be configured to ensure low-latency inference access when shared with bulk data scientists in a multi-tenant environment?",
@@ -1915,7 +1918,47 @@
       "status": "new",
       "source": "llm",
       "added_at": "2026-07-15T14:17:49"
+    },
+    {
+      "en": "What automated failover mechanisms are available to restore corrupted model checkpoints without halting GPU training loops in all-flash environments?",
+      "zh": "在闪存储环境中，有哪些自动故障转移机制可以在不中断 GPU 训练循环的情况下恢复损坏的模型检查点？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-15T21:31:09"
+    },
+    {
+      "en": "Is S3-compatible object storage efficient enough to serve as a hot tier for active AI training datasets compared to native all-flash block interfaces?",
+      "zh": "与原生全闪存块接口相比，S3 兼容对象存储是否足以作为活跃 AI 训练数据集的热层？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-15T21:31:09"
+    },
+    {
+      "en": "What rollback procedures are recommended when upgrading all-flash controller firmware to maintain zero-downtime operations in production AI clusters?",
+      "zh": "在生产 AI 集群升级全闪存控制器固件时，推荐采用哪些回滚流程以保持零停机操作？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-15T21:31:09"
+    },
+    {
+      "en": "What is the minimum PCIe lane allocation per NVMe module required to sustain full line-rate throughput during continuous model checkpointing?",
+      "zh": "在进行连续模型检查点写入时，每块 NVMe 模块需要多少 PCIe 通道数才能维持满线速率吞吐量？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-15T21:31:09"
+    },
+    {
+      "en": "How does data gravity influence latency and bandwidth costs when migrating petabyte-scale AI training datasets between on-prem and cloud regions?",
+      "zh": "在将 PB 级 AI 训练数据集迁移到本地和云区域之间时，数据重力如何影响延迟和带宽成本？",
+      "intent": "definition",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-15T21:31:09"
     }
   ],
-  "updated_at": "2026-07-15T17:46:16"
+  "updated_at": "2026-07-15T21:35:01"
 }
