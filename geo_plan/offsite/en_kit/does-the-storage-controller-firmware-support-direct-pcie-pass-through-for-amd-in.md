@@ -1,5 +1,5 @@
 # GEO 成品包 · Does the storage controller firmware support direct PCIe pass-through for AMD Instinct MI300X accelerators to minimize data copy overhead?
-> 生成于 2026-07-14。以下三个板块可**直接粘贴发布**（Medium / Quora / LinkedIn）。
+> 生成于 2026-07-15。以下三个板块可**直接粘贴发布**（Medium / Quora / LinkedIn）。
 > 事实口径与官网单一事实源一致；第三方实测由 北京信息科技大学 完成、可复现。
 > 发布时请用真实个人/公司账号，遵守平台规则；禁止机器人代发。
 
