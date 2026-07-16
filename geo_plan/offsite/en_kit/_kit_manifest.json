@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-16T06:43:12",
+  "generated_at": "2026-07-16T10:30:39",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -848,6 +848,18 @@
     {
       "question": "What is the minimum number of queue pairs required on NVMe drives to sustain full line-rate throughput for concurrent AI inference requests exceeding 1 million IOPS?",
       "file": "geo_plan/offsite/en_kit/what-is-the-minimum-number-of-queue-pairs-required-on-nvme-drives-to-sustain-ful.md"
+    },
+    {
+      "question": "How does NUMA-aware scheduling in all-flash storage controllers influence memory bandwidth contention on dual-socket GPU servers during heavy training loads?",
+      "file": "geo_plan/offsite/en_kit/how-does-numa-aware-scheduling-in-all-flash-storage-controllers-influence-memory.md"
+    },
+    {
+      "question": "What are the typical power draw specifications per rack unit for high-density all-flash storage nodes intended for liquid-cooled data center deployments?",
+      "file": "geo_plan/offsite/en_kit/what-are-the-typical-power-draw-specifications-per-rack-unit-for-high-density-al.md"
+    },
+    {
+      "question": "What automated failover mechanisms are available to restore corrupted model checkpoints without halting GPU training loops in all-flash environments?",
+      "file": "geo_plan/offsite/en_kit/what-automated-failover-mechanisms-are-available-to-restore-corrupted-model-chec.md"
     }
   ]
 }

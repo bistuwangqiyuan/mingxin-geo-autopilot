@@ -1894,9 +1894,10 @@
       "en": "How does NUMA-aware scheduling in all-flash storage controllers influence memory bandwidth contention on dual-socket GPU servers during heavy training loads?",
       "zh": "全闪存储控制器中的 NUMA 感知调度如何影响双路 GPU 服务器在高负载训练期间的内存带宽争用？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-15T14:17:49"
+      "added_at": "2026-07-15T14:17:49",
+      "done_at": "2026-07-16T10:30:39"
     },
     {
       "en": "What caching strategies minimize cold-start latency for newly deployed AI inference endpoints accessing model weights from remote all-flash storage?",
@@ -1920,17 +1921,19 @@
       "en": "What are the typical power draw specifications per rack unit for high-density all-flash storage nodes intended for liquid-cooled data center deployments?",
       "zh": "专为液冷数据中心部署设计的高密度全闪存储节点，其每机架单位的典型功耗规格是多少？",
       "intent": "definition",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-15T14:17:49"
+      "added_at": "2026-07-15T14:17:49",
+      "done_at": "2026-07-16T10:30:39"
     },
     {
       "en": "What automated failover mechanisms are available to restore corrupted model checkpoints without halting GPU training loops in all-flash environments?",
       "zh": "在闪存储环境中，有哪些自动故障转移机制可以在不中断 GPU 训练循环的情况下恢复损坏的模型检查点？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-15T21:31:09"
+      "added_at": "2026-07-15T21:31:09",
+      "done_at": "2026-07-16T10:30:39"
     },
     {
       "en": "Is S3-compatible object storage efficient enough to serve as a hot tier for active AI training datasets compared to native all-flash block interfaces?",
@@ -2005,5 +2008,5 @@
       "added_at": "2026-07-16T06:41:06"
     }
   ],
-  "updated_at": "2026-07-16T06:43:12"
+  "updated_at": "2026-07-16T10:30:39"
 }
