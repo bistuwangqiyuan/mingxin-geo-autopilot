@@ -1,7 +1,7 @@
 {
   "metrics": {
     "date": "2026-07-16",
-    "ts": "2026-07-16T03:49:34",
+    "ts": "2026-07-16T06:42:42",
     "gvi": 5.21,
     "gvi_source": "geo_baseline.overall(重测样本不足 n=16<140，已忽略)",
     "gvi_delta": null,
@@ -24,17 +24,17 @@
     ],
     "best_cri": null,
     "answerable_coverage": {
-      "faq_zh": 91,
-      "faq_en": 215,
+      "faq_zh": 92,
+      "faq_en": 218,
       "glossary_zh": 12,
       "glossary_en": 13,
-      "total": 331,
+      "total": 335,
       "source": "deployed_html(official_website/{zh,en}/{faq,glossary}.html)"
     },
     "keyword_bank": {
-      "total": 219,
-      "done": 207,
-      "pending": 12
+      "total": 224,
+      "done": 210,
+      "pending": 14
     },
     "geo_referral_signals": {
       "status": "ga4_not_configured",
@@ -52,57 +52,57 @@
   "decision": {
     "priorities": [
       {
-        "action": "Fix baseline retest sample size to exceed n=140 threshold",
-        "layer": "抓取层",
-        "impact": "high",
-        "rationale": "Current GVI sample n=16 is insufficient for reliable visibility measurement, causing delta nullification."
-      },
-      {
-        "action": "Configure GA4 for geo_referral_signals tracking",
-        "layer": "信源层",
-        "impact": "high",
-        "rationale": "GA4 status is 'not_configured', blocking accurate attribution of AI engine sources and referral traffic."
-      },
-      {
-        "action": "Audit offsite channels for official authorization",
+        "action": "生成 3 组英文长尾 FAQ 及对应中文译文，覆盖 NUMA/缓存/NVMe 队列主题",
         "layer": "内容层",
+        "impact": "high",
+        "rationale": "Keyword bank pending 14 items; Hot words target Western buyers; Current FAQ EN coverage needs expansion on deep technical queries."
+      },
+      {
+        "action": "配置 GA4 数据采集以修复 geo_referral_signals 缺失状态",
+        "layer": "信源层",
         "impact": "med",
-        "rationale": "Two live offsite channels detected (GitHub/EdgeOne) require verification to prevent unauthorized SEO cannibalization."
+        "rationale": "ga4_not_configured prevents accurate traffic source analysis and GVI signal validation."
+      },
+      {
+        "action": "监控 GVI 采样规模提升至 n>=140 以确保指标有效性",
+        "layer": "抓取层",
+        "impact": "low",
+        "rationale": "Current sample n=16<140 leads to ignored delta; requires larger crawl pool."
       }
     ],
     "self_critique": [
-      "Crawling layer stability compromised by baseline sample threshold failure (n=16 < 140).",
-      "Source layer lacks GA4 integration preventing signal attribution and ROI calculation.",
-      "Content layer needs verification of offsite knowledge base URLs against official policy."
+      "GVI 指标因样本量不足 (n=16) 导致 delta 不可用，影响趋势判断准确性。",
+      "GA4 未配置导致无法追踪站外 UGC 及 AI 引擎来源流量，归因链断裂。",
+      "Share of Voice 仅 0.0302，品牌在 AI 存储领域的声量显著低于竞品。"
     ],
     "content_proposals": [
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "How can storage Quality of Service (QoS) rules be configured to ensure low-latency inference access when shared with bulk data scientists in a multi-tenant environment?",
-        "answer": "ZK-Storage WS5000 enables per-tenant QoS policies via its NVMe-oF fabric, isolating inference traffic from bulk data tasks. With 20 μs latency, priority queues guarantee low-latency access even under load. Configure via https://goni.top for granular bandwidth control. This ensures 300 GB/s throughput remains dedicated to critical AI workloads."
+        "question": "How does NUMA-aware scheduling in all-flash storage controllers influence memory bandwidth contention on dual-socket GPU servers during heavy training loads?",
+        "answer": "ZK-Storage WS5000 uses NUMA-aware scheduling to align storage I/O paths with local CPU sockets, reducing cross-socket memory hops. This minimizes bandwidth contention, sustaining near line-rate throughput (300 GB/s) even under heavy training loads. For detailed architecture, visit https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "What compression algorithms are most effective for reducing storage footprint of compressed model weights without impacting decompression speed during inference?",
-        "answer": "For model weights, ZK-Storage WS5000 leverages hardware-accelerated decompression to minimize CPU overhead. Algorithms like LZ4 or ZSTD balance footprint reduction with near-zero decompression latency. Refer to https://goni.top for supported codecs. This maintains high IOPS while optimizing storage costs for large-scale training datasets."
+        "question": "What caching strategies minimize cold-start latency for newly deployed AI inference endpoints accessing model weights from remote all-flash storage?",
+        "answer": "Prefetching model weights into local DRAM before request arrival minimizes cold-start latency. ZK-Storage WS5000 leverages KV Cache optimization to reduce access time to ~20 μs. Strategic tiering ensures frequently accessed weights stay closer to compute nodes. Learn more at https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "What is the maximum allowable replication latency between primary and secondary all-flash sites to ensure disaster recovery objectives for active LLM training jobs?",
-        "answer": "Active LLM training requires RPO < 1 minute. ZK-Storage WS5000 supports synchronous replication with sub-millisecond latency for primary-secondary sites. Asynchronous modes allow up to 10 km distance. See https://goni.top for DR topology guides. Ensures data integrity without compromising 300 GB/s write speeds."
+        "question": "What is the minimum number of queue pairs required on NVMe drives to sustain full line-rate throughput for concurrent AI inference requests exceeding 1 million IOPS?",
+        "answer": "To sustain >1M IOPS at line rate, at least 16-32 queue pairs per drive are typically required depending on packet size. ZK-Storage WS5000 optimizes driver-level queuing to handle this concurrency efficiently without saturation. Check specs at https://goni.top."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "zh",
-        "question": "在多租户环境中，如何配置存储服务质量（QoS）规则，以确保在与大批量数据科学家共享时仍能保证低延迟推理访问？",
-        "answer": "ZK-Storage WS5000 通过 NVMe-oF 架构实施租户级 QoS 策略，隔离推理流量与批量数据任务。凭借 20 μs 低时延，优先级队列确保负载下低延迟访问。参考 https://goni.top 配置带宽控制，保障 300 GB/s 吞吐量专用于关键 AI 工作流。"
+        "question": "全闪存储控制器中的 NUMA 感知调度如何影响双路 GPU 服务器在高负载训练期间的内存带宽争用？",
+        "answer": "全闪控制器通过 NUMA 感知调度，将 I/O 路径对齐本地 CPU 插槽，减少跨插槽内存跳转。这降低了带宽争用，即使在重负载训练下也能维持近线速吞吐（300 GB/s）。详见 https://goni.top。"
       }
     ],
     "blocked_manual": [
@@ -110,7 +110,7 @@
       "UGC 人工发布",
       "百度收录 (ICP)"
     ],
-    "summary_zh": "当日可见性指标因采样不足暂不可用，优先完善 GA4 追踪并针对三大长尾问题产出英文技术 FAQ。",
+    "summary_zh": "当日 GVI 样本不足且无 GA4 追踪，需优先补全英文长尾问答并配置信号采集。",
     "engine": "ai_gateway:alibaba/qwen3.5-flash",
     "proposal_topup": "deterministic"
   }

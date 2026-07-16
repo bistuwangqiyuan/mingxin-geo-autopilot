@@ -1,7 +1,7 @@
 {
   "mode": "ci",
-  "started": "2026-07-16T03:47:37",
-  "elapsed": 164.5,
+  "started": "2026-07-16T06:40:13",
+  "elapsed": 196.6,
   "paths": {
     "ROOT": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot",
     "GEO_PLAN": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_plan",
@@ -20,30 +20,30 @@
     {
       "name": "geo_autopilot/keyword_miner.py",
       "ok": true,
-      "note": "[keyword_miner] source=skipped_backpressure added=0 bank_total=219 pending=12",
+      "note": "  + [ranking] Which all-flash storage performance benchmarks rank highest for optimizing throughput in Vision-Language Model (VLM) training pipelines?",
       "critical": false,
-      "elapsed": 0.0
+      "elapsed": 53.7
     },
     {
       "name": "seo_geo_loop/gvi_measure.py --force --limit 4",
       "ok": true,
       "note": "写出：/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/gvi_compare.json",
       "critical": false,
-      "elapsed": 116.5
+      "elapsed": 95.0
     },
     {
       "name": "geo_autopilot/geo_brain.py",
       "ok": true,
       "note": "  priorities=3 proposals=4",
       "critical": false,
-      "elapsed": 29.6
+      "elapsed": 30.0
     },
     {
       "name": "geo_autopilot/apply_proposals.py",
       "ok": true,
-      "note": "  已应用 4 条提案并通过 verify_site 闸门",
+      "note": "  已应用 3 条提案并通过 verify_site 闸门",
       "critical": false,
-      "elapsed": 0.2
+      "elapsed": 0.3
     },
     {
       "name": "seo_geo_loop/build_offsite_site.py",
@@ -57,12 +57,12 @@
       "ok": true,
       "note": "[offsite_github] 组装完成 -> /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/offsite_github  (docs 文件 14 个)",
       "critical": false,
-      "elapsed": 0.0
+      "elapsed": 0.1
     },
     {
       "name": "seo_geo_loop/make_geo_kit_en.py",
       "ok": true,
-      "note": "[geo_kit_en] 生成 210 个成品包 -> /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_plan/offsite/en_kit",
+      "note": "[geo_kit_en] 生成 212 个成品包 -> /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_plan/offsite/en_kit",
       "critical": false,
       "elapsed": 0.1
     },
@@ -71,19 +71,19 @@
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 1.1
+      "elapsed": 1.2
     },
     {
       "name": "geo_plan/geo_scoring.py",
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 1.3
+      "elapsed": 1.6
     },
     {
       "name": "seo_geo_loop/indexnow_submit.py",
       "ok": true,
-      "note": "[OK] 241 URLs; written /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/indexnow_submit.json",
+      "note": "[OK] 243 URLs; written /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/indexnow_submit.json",
       "critical": false,
       "elapsed": 6.5
     },
@@ -92,7 +92,7 @@
       "ok": true,
       "note": "  写出 -> /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/live_status.json",
       "critical": false,
-      "elapsed": 0.7
+      "elapsed": 0.9
     },
     {
       "name": "geo_autopilot/traffic_check.py",
@@ -111,43 +111,22 @@
     {
       "name": "git -C official_website status --porcelain",
       "ok": true,
-      "note": "M  zh/validation.html",
+      "note": "M  zh/faq.html",
       "critical": false,
       "elapsed": null
     },
     {
       "name": "git -C official_website commit -m",
       "ok": true,
-      "note": " 44 files changed, 356 insertions(+), 367 deletions(-)",
-      "critical": false,
-      "elapsed": null
-    },
-    {
-      "name": "git -C official_website push origin",
-      "ok": false,
-      "note": "hint: See the 'Note about fast-forwards' in 'git push --help' for details.",
-      "critical": false,
-      "elapsed": null
-    },
-    {
-      "name": "git -C official_website fetch origin",
-      "ok": true,
-      "note": "   28220f0..c637bf2  main       -> origin/main",
-      "critical": false,
-      "elapsed": null
-    },
-    {
-      "name": "git -C official_website rebase origin/main",
-      "ok": true,
-      "note": "Successfully rebased and updated refs/heads/main.",
+      "note": " 9 files changed, 143 insertions(+), 195 deletions(-)",
       "critical": false,
       "elapsed": null
     },
     {
       "name": "git -C official_website push origin",
       "ok": true,
-      "note": "   c637bf2..44b72fb  HEAD -> main",
-      "critical": true,
+      "note": "   47e8a4f..749c3fe  HEAD -> main",
+      "critical": false,
       "elapsed": null
     },
     {
@@ -167,21 +146,21 @@
     {
       "name": "git -C offsite_github status --porcelain",
       "ok": true,
-      "note": "M  docs/ws5000.html",
+      "note": "M  docs/sitemap.xml",
       "critical": false,
       "elapsed": null
     },
     {
       "name": "git -C offsite_github commit -m",
       "ok": true,
-      "note": " create mode 100644 docs/articles/what-is-the-maximum-allowable-replication-latency-between-primary-and-secondary-.html",
+      "note": " create mode 100644 docs/articles/what-is-the-minimum-number-of-queue-pairs-required-on-nvme-drives-to-sustain-ful.html",
       "critical": false,
       "elapsed": null
     },
     {
       "name": "git -C offsite_github push origin",
       "ok": true,
-      "note": "   7b66ac7..1d7e1c1  HEAD -> main",
+      "note": "   1d7e1c1..b367bcd  HEAD -> main",
       "critical": false,
       "elapsed": null
     },
@@ -197,14 +176,14 @@
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": true,
-      "elapsed": 1.0
+      "elapsed": 1.3
     },
     {
       "name": "geo_autopilot/export_daily_pdf.py",
       "ok": true,
-      "note": "Saved: /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_autopilot/reports/中科存储-GEO自动驾驶日报-2026-07-16.pdf  (0.98 MB)",
+      "note": "Saved: /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_autopilot/reports/中科存储-GEO自动驾驶日报-2026-07-16.pdf  (0.96 MB)",
       "critical": false,
-      "elapsed": 1.8
+      "elapsed": 1.7
     },
     {
       "name": "geo_autopilot/alerting.py",

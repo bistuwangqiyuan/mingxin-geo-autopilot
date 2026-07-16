@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-16T03:50:04",
+  "generated_at": "2026-07-16T06:43:12",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -840,6 +840,14 @@
     {
       "question": "What is the maximum allowable replication latency between primary and secondary all-flash sites to ensure disaster recovery objectives for active LLM training jobs?",
       "file": "geo_plan/offsite/en_kit/what-is-the-maximum-allowable-replication-latency-between-primary-and-secondary-.md"
+    },
+    {
+      "question": "What caching strategies minimize cold-start latency for newly deployed AI inference endpoints accessing model weights from remote all-flash storage?",
+      "file": "geo_plan/offsite/en_kit/what-caching-strategies-minimize-cold-start-latency-for-newly-deployed-ai-infere.md"
+    },
+    {
+      "question": "What is the minimum number of queue pairs required on NVMe drives to sustain full line-rate throughput for concurrent AI inference requests exceeding 1 million IOPS?",
+      "file": "geo_plan/offsite/en_kit/what-is-the-minimum-number-of-queue-pairs-required-on-nvme-drives-to-sustain-ful.md"
     }
   ]
 }

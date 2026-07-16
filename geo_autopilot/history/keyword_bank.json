@@ -1902,17 +1902,19 @@
       "en": "What caching strategies minimize cold-start latency for newly deployed AI inference endpoints accessing model weights from remote all-flash storage?",
       "zh": "哪些缓存策略能最小化新部署的 AI 推理端点从远程全闪存储访问模型权重时的冷启动延迟？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-15T14:17:49"
+      "added_at": "2026-07-15T14:17:49",
+      "done_at": "2026-07-16T06:43:12"
     },
     {
       "en": "What is the minimum number of queue pairs required on NVMe drives to sustain full line-rate throughput for concurrent AI inference requests exceeding 1 million IOPS?",
       "zh": "为了维持超过 100 万 IOPS 的并发 AI 推理请求的全线速率吞吐量，NVMe 驱动上所需的最小队列对数量是多少？",
       "intent": "definition",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-15T14:17:49"
+      "added_at": "2026-07-15T14:17:49",
+      "done_at": "2026-07-16T06:43:12"
     },
     {
       "en": "What are the typical power draw specifications per rack unit for high-density all-flash storage nodes intended for liquid-cooled data center deployments?",
@@ -1961,7 +1963,47 @@
       "status": "new",
       "source": "llm",
       "added_at": "2026-07-15T21:31:09"
+    },
+    {
+      "en": "What technical criteria define a 'warm model cache' state in all-flash storage systems designed for transformer inference acceleration?",
+      "zh": "在专为 Transformer 推理加速设计的全闪存存储系统中，定义“热模型缓存”状态的技术标准是什么？",
+      "intent": "definition",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-16T06:41:06"
+    },
+    {
+      "en": "Is Fibre Channel SAN still viable for low-latency AI inference compared to NVMe-oF all-flash appliances in 2024 environments?",
+      "zh": "与 2024 年环境中的 NVMe-oF 全闪存设备相比，光纤通道 SAN 是否仍然适用于低延迟 AI 推理？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-16T06:41:06"
+    },
+    {
+      "en": "What mechanisms prevent I/O starvation for checkpoint writes when high-throughput vector search queries peak simultaneously on all-flash arrays?",
+      "zh": "当全闪存阵列上高吞吐量向量搜索查询同时达到峰值时，防止检查点写入出现 I/O 饥饿的机制有哪些？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-16T06:41:06"
+    },
+    {
+      "en": "Which controller architecture features are recommended to minimize head-of-line blocking during mixed sequential checkpoint and random inference workloads?",
+      "zh": "针对混合顺序检查点和随机推理工作负载，推荐哪些控制器架构特性以最小化队头阻塞？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-16T06:41:06"
+    },
+    {
+      "en": "Which all-flash storage performance benchmarks rank highest for optimizing throughput in Vision-Language Model (VLM) training pipelines?",
+      "zh": "在视觉语言模型（VLM）训练管道中优化吞吐率方面，哪些全闪存存储性能基准排名最高？",
+      "intent": "ranking",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-16T06:41:06"
     }
   ],
-  "updated_at": "2026-07-16T03:50:04"
+  "updated_at": "2026-07-16T06:43:12"
 }
