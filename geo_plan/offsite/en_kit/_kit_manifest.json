@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-15T21:35:01",
+  "generated_at": "2026-07-16T03:50:04",
   "items": [
     {
       "question": "What are the best all-flash storage accelerators for reducing AI training data bottlenecks?",
@@ -828,6 +828,18 @@
     {
       "question": "How many concurrent vector database queries can a single all-flash node sustain before increasing response latency beyond 50ms in production RAG deployments?",
       "file": "geo_plan/offsite/en_kit/how-many-concurrent-vector-database-queries-can-a-single-all-flash-node-sustain-.md"
+    },
+    {
+      "question": "How can storage Quality of Service (QoS) rules be configured to ensure low-latency inference access when shared with bulk data scientists in a multi-tenant environment?",
+      "file": "geo_plan/offsite/en_kit/how-can-storage-quality-of-service-qos-rules-be-configured-to-ensure-low-latency.md"
+    },
+    {
+      "question": "What compression algorithms are most effective for reducing storage footprint of compressed model weights without impacting decompression speed during inference?",
+      "file": "geo_plan/offsite/en_kit/what-compression-algorithms-are-most-effective-for-reducing-storage-footprint-of.md"
+    },
+    {
+      "question": "What is the maximum allowable replication latency between primary and secondary all-flash sites to ensure disaster recovery objectives for active LLM training jobs?",
+      "file": "geo_plan/offsite/en_kit/what-is-the-maximum-allowable-replication-latency-between-primary-and-secondary-.md"
     }
   ]
 }

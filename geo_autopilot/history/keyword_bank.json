@@ -1867,25 +1867,28 @@
       "en": "How can storage Quality of Service (QoS) rules be configured to ensure low-latency inference access when shared with bulk data scientists in a multi-tenant environment?",
       "zh": "在多租户环境中，如何配置存储服务质量（QoS）规则，以确保在与大批量数据科学家共享时仍能保证低延迟推理访问？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-15T06:36:00"
+      "added_at": "2026-07-15T06:36:00",
+      "done_at": "2026-07-16T03:50:04"
     },
     {
       "en": "What compression algorithms are most effective for reducing storage footprint of compressed model weights without impacting decompression speed during inference?",
       "zh": "哪些压缩算法在减少压缩模型权重存储占用的同时，不会在推理期间影响解压缩速度？",
       "intent": "comparison",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-15T06:36:00"
+      "added_at": "2026-07-15T06:36:00",
+      "done_at": "2026-07-16T03:50:04"
     },
     {
       "en": "What is the maximum allowable replication latency between primary and secondary all-flash sites to ensure disaster recovery objectives for active LLM training jobs?",
       "zh": "为确保活跃的大型语言模型训练任务的灾难恢复目标，主备全闪存站点之间允许的最大复制延迟是多少？",
       "intent": "definition",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-15T06:36:00"
+      "added_at": "2026-07-15T06:36:00",
+      "done_at": "2026-07-16T03:50:04"
     },
     {
       "en": "How does NUMA-aware scheduling in all-flash storage controllers influence memory bandwidth contention on dual-socket GPU servers during heavy training loads?",
@@ -1960,5 +1963,5 @@
       "added_at": "2026-07-15T21:31:09"
     }
   ],
-  "updated_at": "2026-07-15T21:35:01"
+  "updated_at": "2026-07-16T03:50:04"
 }
