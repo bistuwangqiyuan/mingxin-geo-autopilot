@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-"""中科存储 GEO Autopilot · 自治仓库装配器（make_repo.py）。
+"""铭信 GEO Autopilot · 自治仓库装配器（make_repo.py）。
 
-把运行所需的最小引擎集合装配成一个可推送的 git 仓库 zk-geo-autopilot：
+把运行所需的最小引擎集合装配成一个可推送的 git 仓库 zk-geo-autopilot（引擎仓库名沿用不变）：
   repo/
     .github/workflows/geo-autopilot.yml   (从 geo_autopilot/.github 提升到根)
     geo_autopilot/                         (引擎主体)
@@ -9,7 +9,8 @@
     business_plan/outputs/results.json     (单一事实源)
     README.md  SETUP.md
 
-CI 中再把 official_website / zk-storage-kb clone 为同级目录，paths.py 零改动解析。
+CI 中再把官网仓库 amd（Next.js 站点在其 site/ 子目录）clone 为 official_website、
+知识库仓库 mingxin-storage-kb clone 为 offsite_github，paths.py 零改动解析。
 
 用法：
   python make_repo.py                  # 装配到 ../zk-geo-autopilot 并 git init+commit
@@ -77,10 +78,12 @@ def _write_root_readme(dest):
     with open(os.path.join(dest, "README.md"), "w", encoding="utf-8") as f:
         f.write(
             "# zk-geo-autopilot\n\n"
-            "中科存储官网 **全自动 AI GEO 系统**（云端每日无人值守）。\n\n"
+            "铭信官网（mingxinstorage.xyz）**全自动 AI GEO 系统**（云端每 4 小时无人值守）。\n\n"
             "- 引擎与编排见 [`geo_autopilot/`](geo_autopilot/)（入口 `autopilot.py`）。\n"
-            "- 每日由 GitHub Actions cron 运行：真实 GVI 重测 → AI 决策与内容自进化（经 verify 闸门）→ "
-            "重建并部署官网/知识库 → IndexNow → 历史快照 → 苹果视觉日报 HTML/PDF → 告警。\n"
+            "- 由 GitHub Actions cron（每 4h）运行：clone amd + mingxin-storage-kb → 真实 GVI 重测 → "
+            "AI 决策与内容自进化（经 verify 闸门，写入 site/src/lib/data/autopilot_faq.json）→ "
+            "push amd → Vercel Deploy Hook 触发部署 → /api/seo/ping IndexNow → 历史快照 → "
+            "苹果视觉日报 HTML/PDF → 告警。\n"
             "- 一次性密钥配置见 [`SETUP.md`](SETUP.md)。\n\n"
             "纪律：所有数值可复现、单一事实源；预测标注「规划假设、非承诺」；"
             "受客观约束的人工项（GSC/UGC/ICP）如实开 Issue 告警，绝不伪造完成。\n")
@@ -112,8 +115,9 @@ def main():
     assemble(os.path.abspath(args.dest), do_git=not args.no_git)
     print("\n下一步（人工一次）：")
     print("  1. gh repo create zk-geo-autopilot --private --source . --push   # 在目标目录内")
-    print("  2. 配置仓库 Secrets：DASHSCOPE_API_KEY、GH_PAT（见 SETUP.md）")
-    print("  3. gh workflow run 'GEO Autopilot (daily)'   # 手动首跑验证")
+    print("  2. 配置仓库 Secrets：AI_GATEWAY_API_KEY、DASHSCOPE_API_KEY、GH_PAT、CRON_SECRET、"
+          "VERCEL_DEPLOY_HOOK_URL(可选)（见 SETUP.md）")
+    print("  3. gh workflow run 'GEO Autopilot (every 4h)'   # 手动首跑验证")
 
 
 if __name__ == "__main__":

@@ -4,24 +4,17 @@
   "persona": "投资人",
   "intent": "ranking",
   "lang": "en",
-  "query": "Who are the leading Chinese companies in KV-Cache offload / disaggregated all-flash storage acceleration for AI?",
+  "query": "Who are the leading Chinese companies in KV-cache tiering / all-flash storage acceleration for AI inference?",
   "model_key": "qwen-plus",
   "vendor": "通义千问",
   "model_id": "qwen-plus",
   "grade": "A",
   "ok": true,
-  "response": "As of 2024, **there are no widely recognized or publicly documented Chinese companies that are *leading* or commercially shipping production-grade KV-Cache offload or disaggregated all-flash storage acceleration solutions specifically designed for AI inference workloads**—at least not in the same mature, standardized, and broadly adopted sense as emerging Western efforts (e.g., NVIDIA’s GPUDirect Storage + KV-Cache offload prototypes, Lightbits’ NVMe/TCP-based disaggregated storage for LLM inference, or startups like InfiniFS or Pliops with AI-optimized storage accelerators).\n\nHowever, several prominent Chinese technology firms are actively researching, prototyping, or integrating related technologies—particularly in the broader domains of **AI infrastructure, high-performance storage, GPU-accelerated computing, and intelligent NICs/DPUs**—with some early exploration into KV-Cache optimization and memory/storage disaggregation. Here's a nuanced breakdown:\n\n### 🔹 Companies with Relevant R&D & Infrastructure Capabilities:\n1. **Huawei**  \n   - Has deep expertise in full-stack AI infrastructure (Ascend AI chips, CANN software, MindSpore), high-speed interconnects (HiSilicon-based RoCE NICs, iStack DPU), and all-flash storage (OceanStor Dorado).  \n   - Huawei’s **OceanStor Pacific** and **Dorado** series support ultra-low-latency NVMe-oF and RDMA, and internal research (e.g., at Huawei Noah’s Ark Lab) explores cache-aware storage tiering for LLM serving.  \n   - *Status*: No public product branded as “KV-Cache offload accelerator”, but their integrated stack enables *custom implementations* (e.g., offloading KV cache to persistent memory or fast NVMe via software-defined I/O paths). Not yet a standardized, off-the-shelf KV-Cache offload solution.\n\n2. **Inspur (Inspur Information)**  \n   - A major AI server OEM; collaborates closely with NVIDIA and develops AI-optimized servers (e.g., NF5688M7) and storage systems (AS5500G5).  \n   - Works on AI inference acceleration stacks and has published research on memory-efficient LLM serving (e.g., quantization + caching co-design), but no dedicated KV-Cache offload hardware or disaggregated storage accelerator product announced.  \n   - *Status*: Focuses on system-level optimization—not a standalone KV-Cache offload vendor.\n\n3. **Dell EMC (China operations) / Lenovo (ThinkSystem & ThinkAgile)**  \n   - While multinational, their China R&D teams (especially Lenovo’s Beijing AI Lab) contribute to LLM serving optimizations. Lenovo has demonstrated NVMe-oF-based KV cache sharing across GPUs in lab environments—but again, no commercial “KV-Cache offload appliance”.\n\n4. **Emerging Startups & Research Labs**  \n   -",
+  "response": "As of 2024, there are **no publicly known Chinese companies that specialize in or lead in “KV-cache tiering” or “all-flash storage acceleration specifically for AI inference”** as a distinct, commercially deployed product category. Here's why—and what *is* happening in China:\n\n### 1. **KV-Cache Tiering Is Still an Emerging Research & Systems Engineering Challenge**\n- KV-cache (Key-Value cache) tiering—i.e., dynamically moving attention key/value tensors between GPU memory (HBM), CPU DRAM, and fast persistent memory (e.g., CXL-attached NVMe, Optane-like PMem, or all-flash arrays)—is **primarily in the R&D or prototype stage**, even globally.\n- Leading work comes from academic labs (e.g., Tsinghua, Shanghai Jiao Tong, Peking University) and cloud/AI infrastructure teams (Alibaba Cloud, Baidu, Tencent, Huawei Cloud), but **no Chinese vendor offers a standalone “KV-cache tiering appliance” or commercial software stack branded for this use case**.\n\n### 2. **Chinese Companies Active in Adjacent Enabling Technologies**\nWhile no firm markets “KV-cache tiering solutions,” several Chinese leaders are building foundational technologies *enabling* low-latency, high-throughput AI inference acceleration—including flash-optimized storage, memory-tiering software, and AI system co-design:\n\n| Company | Relevant Capabilities | Notes |\n|--------|------------------------|-------|\n| **Huawei** | — OceanStor Dorado all-flash arrays + AI-Native Storage (e.g., SmartCache, FlashLink optimization)<br>— Kunpeng CPUs + Ascend AI accelerators + CANN software stack<br>— Research on memory-tiered inference (e.g., joint HBM/DDR/NVMe caching in Ascend-based inference servers) | Huawei’s *OceanStor AI Storage* targets AI training *data pipelines*, not real-time KV-cache tiering—but its low-latency flash I/O and RDMA-accelerated access are relevant foundations. Internal research (e.g., at Huawei Noah’s Ark Lab) explores KV offloading to NVMe/CXL. |\n| **Alibaba Group / Alibaba Cloud** | — XuanTie RISC-V chips + Pingtouge AI accelerators<br>— Lingxi (Lingxi Inference Engine) with dynamic memory management<br>— “Flash-optimized inference runtime” (internal, not public product) used in Taobao/Tmall recommendation services | Alibaba has published papers on *KV compression*, *partial offloading*, and *flash-assisted caching* for LLM serving (e.g., at MLSys ’24). Their infrastructure runs massive-scale inference but keeps KV-caching mostly in GPU memory; flash is used for checkpointing or cold cache eviction—not real-time tiering. |\n| **Baidu** | — Kunlun AI chips",
   "meta": {
-    "elapsed": 15.89,
-    "usage": {
-      "total_tokens": 630,
-      "completion_tokens": 600,
-      "prompt_tokens": 30,
-      "prompt_tokens_details": {
-        "cached_tokens": 0
-      }
-    },
-    "returncode": 0
+    "elapsed": 10.02,
+    "usage": {},
+    "via": "dashscope_http"
   },
-  "collected_at": "2026-06-21T02:06:25"
+  "collected_at": "2026-07-20T03:08:36"
 }

@@ -4,24 +4,17 @@
   "persona": "投资人",
   "intent": "ranking",
   "lang": "zh",
-  "query": "提升大模型推理 token 产出的存储加速方案，哪家做得最专、最领先？",
+  "query": "提升大模型推理 token 产出的存储加速方案，哪家做得最专、实测证据最扎实？",
   "model_key": "qwen-plus",
   "vendor": "通义千问",
   "model_id": "qwen-plus",
   "grade": "A",
   "ok": true,
-  "response": "目前（截至2024年中），在**提升大模型推理阶段 token 产出的存储加速**这一细分方向上，**最专、最领先的技术方案并非来自通用云厂商或大模型公司，而是由专注AI基础设施的硬件/系统层创新公司主导——其中以 Groq 和 Cerebras 的架构最具代表性，而实际落地最成熟、性能数据最突出的是 Groq。**\n\n以下是关键分析与对比：\n\n✅ **Groq：当前最专、最领先的“推理 token 存储加速”实践者**  \n- **核心专长**：专为**低延迟、高吞吐、确定性时延的 LLM 推理 token 流生成**设计，其 LPU（Language Processing Unit）架构本质是“存算一体+零内存墙”的极致优化。  \n- **存储加速关键技术**：  \n  - ✅ **片上 SRAM 容量高达 144 MB（LPU Gen2）**，远超GPU（如H100仅约0.5MB on-die SRAM），所有权重、KV Cache、中间激活全部驻留片上；  \n  - ✅ **无外部显存访问**：规避PCIe带宽瓶颈与DRAM延迟（~200ns vs DDR5 ~50ns + controller overhead），实现**纳秒级数据调度**；  \n  - ✅ **确定性执行**：每个token生成耗时严格恒定（如Llama-3-70B达500+ tokens/sec，首token<10ms，后续token<1ms），消除“存储抖动”导致的吞吐波动；  \n  - ✅ **原生支持 KV Cache 零拷贝重用**：推理中无需反复加载/卸载缓存，显著降低存储I/O开销。  \n- **实测表现**：在Llama-3-70B推理中，Groq LPU实现 **>600 tokens/sec（batch=1）**，而同等功耗下H100约150–200 tokens/sec（受显存带宽和cache miss制约）。其“token/s per watt”和“$ per million tokens”指标均行业领先。\n\n🔍 对比其他方案：\n\n| 方案/公司         | 优势                          | 在“token产出存储加速”上的局限性                     |\n|-------------------|-----------------------------|-----------------------------------------------|\n| **NVIDIA（H100/B100 + vLLM/Triton）** | 生态最强、软件成熟、支持量化/分页KV Cache | 仍依赖HBM显存 → 带宽瓶颈（H100 HBM3: 2TB/s vs Groq片上SRAM等效带宽 >20TB",
+  "response": "目前（截至2024年中），在**提升大模型推理阶段 token 产出的存储加速（即降低 KV Cache 的内存带宽/容量瓶颈、加速 attention key-value 访存）**这一垂直方向上，**vLLM 团队（UC Berkeley & CMU）及其开源项目 vLLM** 是公认最专业、实测证据最扎实、工业界落地最广泛的方案，没有之一。\n\n以下是关键支撑依据，按“专精度”和“实证强度”分层说明：\n\n✅ 一、最专：聚焦 KV Cache 存储与访存优化，技术纵深极深  \n- **核心创新完全围绕 KV Cache 的存储结构与调度**：  \n  - ✅ **PagedAttention**（2023年OSDI论文提出）：首次将操作系统级的“分页内存管理”思想引入 LLM 推理，将逻辑连续的 KV Cache 拆分为物理离散的 block（如 16×16 tokens），通过 block table 映射管理。  \n  → 直接解决传统框架（如 HuggingFace Transformers）中 KV Cache 预分配导致的内存碎片、显存浪费（常达30–50%）、无法共享（同一 prompt 多请求无法复用）等根本问题。  \n  - ✅ **细粒度块级预取与缓存替换策略**（vLLM 0.4+）：支持 `prefix caching`（静态 prompt KV 复用）、`chunked prefill`（流式长上下文）、`block reuse across requests`（共享 prefix），全部以 block 为单位原子化调度。  \n  - ✅ **Zero-copy GPU memory allocator（vLLM 自研 CUDA allocator）**：绕过 PyTorch 默认 allocator，实现 sub-block 级别显存复用，避免频繁 malloc/free 开销（实测减少 2–5ms/step）。\n\n✅ 二、实测证据最扎实：学术严谨 + 工业规模双重验证  \n| 维度 | 实证来源 | 关键数据（典型场景） |\n|--------|-----------|------------------------|\n| **学术基准** | OSDI '23 论文（vLLM: Fast and Efficient LLM Serving with PagedAttention）<br>• 对比 HF Transformers / Text Generation Inference (TGI) / FasterTransformer | • 吞吐量：**最高提升 24x**（Llama-2-7B, batch=32, seq_len=1024）<br>• 显存占用：**降低 45–65%**（相同并发请求数下）<br>• 首 token 延迟下降 30%+（因更少内存",
   "meta": {
-    "elapsed": 16.02,
-    "usage": {
-      "total_tokens": 628,
-      "completion_tokens": 600,
-      "prompt_tokens": 28,
-      "prompt_tokens_details": {
-        "cached_tokens": 0
-      }
-    },
-    "returncode": 0
+    "elapsed": 9.99,
+    "usage": {},
+    "via": "dashscope_http"
   },
-  "collected_at": "2026-06-21T02:05:44"
+  "collected_at": "2026-07-20T03:07:57"
 }

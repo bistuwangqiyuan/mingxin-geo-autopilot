@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""中科存储 GEO Autopilot · 每日无人值守主编排器（autopilot.py）。
+"""铭信 GEO Autopilot · 每日无人值守主编排器（autopilot.py）。
 
 模式：
   --dry-run   不联网、不写站点、不推送（最快，校验装配是否完整）
@@ -106,6 +106,24 @@ def deploy_repo(repo_dir, message, push):
     return True
 
 
+def trigger_vercel_deploy():
+    """amd 仓库 push 后触发 Vercel 重新部署（项目未连 GitHub 自动构建）。"""
+    hook = paths.VERCEL_DEPLOY_HOOK_URL
+    if not hook:
+        record("vercel deploy hook", True, "VERCEL_DEPLOY_HOOK_URL 未配置，跳过（站点需手动/CLI 部署）", False)
+        return False
+    import urllib.request
+    try:
+        req = urllib.request.Request(hook, method="POST", data=b"{}")
+        with urllib.request.urlopen(req, timeout=30) as r:
+            ok = 200 <= r.status < 300
+            record("vercel deploy hook", ok, f"HTTP {r.status}", False)
+            return ok
+    except Exception as ex:  # noqa: BLE001
+        record("vercel deploy hook", False, f"exception: {ex}", False)
+        return False
+
+
 def save_run_log(mode):
     paths.ensure_dirs()
     doc = {"mode": mode, "started": time.strftime("%Y-%m-%dT%H:%M:%S",
@@ -123,7 +141,7 @@ def main():
     g.add_argument("--dry-run", action="store_true")
     g.add_argument("--once", action="store_true")
     g.add_argument("--ci", action="store_true")
-    ap.add_argument("--gvi-limit", type=int, default=int(os.environ.get("ZK_GVI_LIMIT", "0")))
+    ap.add_argument("--gvi-limit", type=int, default=int(os.environ.get("MX_GVI_LIMIT", "0")))
     ap.add_argument("--skip-gvi", action="store_true")
     ap.add_argument("--no-llm", action="store_true")
     ap.add_argument("--push", action="store_true", help="允许 git push（--ci 默认开启）")
@@ -134,7 +152,7 @@ def main():
     do_net = mode in ("once", "ci")
     do_push = args.push or mode == "ci"
     if args.no_llm:
-        os.environ["ZK_ALLOW_LLM"] = "0"
+        os.environ["MX_ALLOW_LLM"] = "0"
 
     paths.ensure_dirs()
     log(f"mode={mode} net={do_net} push={do_push} gvi_limit={args.gvi_limit}")
@@ -175,8 +193,12 @@ def main():
         run_py("traffic_check.py", paths.AUTOPILOT_DIR, [], timeout=180, critical=False)
 
     # 6. 部署（仅 ci push；once 本地提交不推）
+    # 官网 = amd 仓库（Next.js 站点在 site/ 子目录）；Vercel 项目未连 GitHub，
+    # push 后需 Deploy Hook 触发重新部署（未配置则如实记录跳过）。
     if do_net:
-        deploy_repo(OW, "chore(geo-autopilot): daily rebuild + content self-evolution", do_push)
+        pushed_ow = deploy_repo(OW, "chore(geo-autopilot): daily rebuild + content self-evolution", do_push)
+        if pushed_ow and do_push:
+            trigger_vercel_deploy()
         deploy_repo(paths.KB_REPO, "chore(geo-autopilot): daily KB refresh", do_push)
 
     # 7. 历史快照 + 趋势 + 日报 + PDF
@@ -184,7 +206,7 @@ def main():
     run_py("export_daily_pdf.py", paths.AUTOPILOT_DIR, [], timeout=300, critical=False)
 
     # 8. 告警（dry-run 仅本地落盘）
-    alert_env = {"ZK_ALERT_DRYRUN": "1"} if dry else {}
+    alert_env = {"MX_ALERT_DRYRUN": "1"} if dry else {}
     run_py("alerting.py", paths.AUTOPILOT_DIR, [], timeout=120, critical=False, env=alert_env)
 
     doc = save_run_log(mode)

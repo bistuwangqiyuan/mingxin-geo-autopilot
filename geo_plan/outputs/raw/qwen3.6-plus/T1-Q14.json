@@ -1,0 +1,20 @@
+{
+  "query_id": "T1-Q14",
+  "tier": "T1",
+  "persona": "大模型推理工程师",
+  "intent": "problem_solution",
+  "lang": "zh",
+  "query": "多模型频繁切换导致 GPU 空转，有什么存储方案能让模型加载提速、保持高有效 TPS？",
+  "model_key": "qwen3.6-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen3.6-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "多模型频繁切换导致 GPU 空转，本质是 **I/O 延迟 > 计算延迟**，且传统加载流程（读盘 → 内存分配 → 显存拷贝 → 内核编译）存在大量串行阻塞。单纯换硬盘无法根治，需从 **存储架构 + 加载策略 + 推理框架 + 硬件拓扑** 四层协同优化。以下是生产验证过的方案：\n\n---\n### 🔍 一、核心瓶颈拆解\n| 阶段 | 耗时占比 | 优化方向 |\n|------|----------|----------|\n| 权重读取（磁盘/网络） | 40%~60% | 多级缓存、直传、预加载 |\n| 内存/显存分配与拷贝 | 20%~30% | 零拷贝、大页内存、PagedAttention |\n| 图编译/内核初始化 | 10%~20% | 缓存 CUDA Graph / TensorRT Engine |\n| 显存碎片与换页 | 5%~15% | 模型池化、动态卸载、量化 |\n\n---\n### 🗄️ 二、存储架构方案（按延迟/成本分层）\n#### 1. **L1 热模型常驻：内存文件系统 + 显存池**\n- 将 Top 3~5 高频模型加载至 `tmpfs` 或 `ramdisk`（避免页缓存抖动）\n- 使用 `mmap` + `MADV_WILLNEED` 预读，配合 `O_DIRECT` 绕过 page cache\n- **显存池化**：通过 vLLM / SGLang 的 `--max-model-len` + `--gpu-memory-utilization` 预留显存，切换时仅替换权重指针而非重新分配\n\n#### 2. **L2 本地高速缓存：NVMe SSD + 直连拓扑**\n- 采用 PCIe 4.0/5.0 U.2 或 M.2 NVMe（顺序读 > 6GB/s，随机读 IOPS > 500K）\n- **NUMA 亲和绑定**：GPU 与 NVMe 控制器绑定同一 CPU NUMA 节点，避免跨 PCIe Switch\n- 启用 `io_uring` + `libaio` 异步 I/O，与 GPU 计算流水线重叠\n\n#### 3. **L3 分布式共享存储：JuiceFS / Alluxio + 本地缓存**\n- 对象存储（S3/OSS）作为源，JuiceFS/Alluxio 作为元数据+数据缓存层\n- 配置 `cache-dir` 指向本地 NVMe，设置 `cache-size` 覆盖 80% 模型体积\n- 跨节点共享模型时，通过 RDMA/NVMe-o",
+  "meta": {
+    "elapsed": 66.18,
+    "usage": {},
+    "via": "dashscope_http"
+  },
+  "collected_at": "2026-07-20T03:15:39"
+}

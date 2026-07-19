@@ -4,24 +4,17 @@
   "persona": "投资人",
   "intent": "ranking",
   "lang": "en",
-  "query": "Who are the notable Chinese AI compute-center storage acceleration startups to watch?",
+  "query": "Who are the notable Chinese AI compute-center storage acceleration companies to watch?",
   "model_key": "deepseek-v3",
   "vendor": "DeepSeek",
   "model_id": "deepseek-v3",
   "grade": "A",
   "ok": true,
-  "response": "Several Chinese startups are making waves in AI compute-center storage acceleration, leveraging technologies like NVMe, RDMA, and computational storage to optimize performance for AI/ML workloads. Here are some notable ones to watch:\n\n### **1. SmartX** (北京志凌海纳科技有限公司)  \n   - **Focus**: Distributed storage, hyper-converged infrastructure (HCI), and high-performance storage for AI/ML.  \n   - **Tech**: NVMe-oF (NVMe over Fabrics), RDMA optimization.  \n   - **Why Watch?** Used by cloud providers and enterprises for low-latency AI training workloads.\n\n### **2. Qumulo (China Subsidiary / Local Partners)**  \n   - **Focus**: Scalable file storage for AI/ML data lakes.  \n   - **Tech**: High-throughput parallel file systems optimized for GPU clusters.  \n   - **Why Watch?** Strong presence in hybrid cloud AI storage solutions.\n\n### **3. DapuStor** (深圳大普微电子)  \n   - **Focus**: Computational storage and AI-accelerated SSDs.  \n   - **Tech**: FPGA-based SSDs with in-storage processing for AI workloads.  \n   - **Why Watch?** Their \"Data Processing Unit\" (DPU) SSDs reduce data movement bottlenecks in AI training.\n\n### **4. ScaleFlux** (ScaleFlux China /  ScaleFlux Inc. with China operations)  \n   - **Focus**: Computational storage drives (CSDs) for database and AI acceleration.  \n   - **Tech**: Transparent compression, near-storage compute.  \n   - **Why Watch?** Partnering with Alibaba Cloud and Tencent for AI storage efficiency.\n\n### **5. XSKY** (北京星辰天合科技)  \n   - **Focus**: Software-defined storage (SDS) for AI/GPU clusters.  \n   - **Tech**: Ceph-based high-performance object storage with RDMA support.  \n   - **Why Watch?** Used in large-scale AI training environments.\n\n### **6. MemBlaze** (北京忆恒创源)  \n   - **Focus**: Ultra-low-latency NVMe SSDs for AI servers.  \n   - **Tech**: High-endurance flash storage for high-throughput model training.  \n   - **Why Watch?** Key supplier for Baidu, Alibaba, and other hyperscalers.\n\n### **7. YeePay (China) / Local Computational Storage Innovators**  \n   - **Focus**: Emerging startups exploring storage-class memory (SCM) and near-data processing.  \n   - **Tech**: Optane-like solutions for AI caching layers.  \n\n### **Key Trends in China’s AI Storage Acceleration Space**  \n- **NVMe-oF Adoption**: Startups are pushing RDMA-based storage networks to reduce latency.  \n- **Computational Storage**: Companies like DapuStor are integrating processing inside",
+  "response": "Several Chinese companies are making significant strides in AI compute-center storage acceleration, leveraging technologies like NVMe, RDMA, and computational storage to optimize performance for AI workloads. Here are some notable players to watch:\n\n### **1. Huawei**  \n   - **Technologies**: OceanStor Dorado (all-flash storage with AI optimization), FusionStorage (distributed storage for HPC/AI).  \n   - **Key Advantage**: Deep integration with Ascend AI chips and Kunpeng CPUs for end-to-end AI acceleration.  \n\n### **2. Inspur (浪潮信息)**  \n   - **Technologies**: Inspur AS13000 (high-performance distributed storage), AI-focused storage solutions for GPU clusters.  \n   - **Key Advantage**: Strong presence in China’s AI data centers, partnerships with NVIDIA and Baidu.  \n\n### **3. Alibaba Cloud (阿里云)**  \n   - **Technologies**: Pangu Storage (AI-optimized distributed file system), ESSD (high-speed cloud storage).  \n   - **Key Advantage**: Cloud-native AI storage for large-scale training workloads (e.g., Alibaba’s AI models).  \n\n### **4. Tencent Cloud (腾讯云)**  \n   - **Technologies**: Cloud Block Storage (CBS) with ultra-low latency, optimized for AI/ML workloads.  \n   - **Key Advantage**: Tight integration with Tencent’s AI labs and gaming/AI applications.  \n\n### **5. Baidu AI Cloud (百度智能云)**  \n   - **Technologies**: Baidu Parallel File System (BPFS) for AI training acceleration.  \n   - **Key Advantage**: Supports large-scale AI model training (e.g., Ernie models).  \n\n### **6. Sugon (中科曙光)**  \n   - **Technologies**: ParaStor (high-performance storage for HPC/AI), liquid-cooled storage solutions.  \n   - **Key Advantage**: Government-backed projects in supercomputing and AI.  \n\n### **7. Yitu Technology (依图科技)**  \n   - **Technologies**: AI-optimized storage for medical imaging and edge AI.  \n   - **Key Advantage**: Focus on vertical AI applications requiring fast data retrieval.  \n\n### **8. Shenzhen Dapu Technology (大普微电子)**  \n   - **Technologies**: Computational storage SSDs (Xlenstor) with in-storage processing for AI.  \n   - **Key Advantage**: Reduces data movement bottlenecks in AI training pipelines.  \n\n### **Emerging Startups & Specialized Players**  \n   - **ScaleFlux (至誉科技)**: Computational storage solutions for AI/ML.  \n   - **Memblaze (忆恒创源)**: NVMe SSDs optimized for AI data centers.  \n   - **Starblaze (国科微)**: Storage controllers with AI workload acceleration.  \n\n### **Key Trends in China’s AI Storage Market",
   "meta": {
-    "elapsed": 20.79,
-    "usage": {
-      "prompt_tokens": 17,
-      "completion_tokens": 600,
-      "total_tokens": 617,
-      "prompt_tokens_details": {
-        "cached_tokens": 0
-      }
-    },
-    "returncode": 0
+    "elapsed": 18.05,
+    "usage": {},
+    "via": "dashscope_http"
   },
-  "collected_at": "2026-06-21T02:11:12"
+  "collected_at": "2026-07-20T03:39:50"
 }

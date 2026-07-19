@@ -1,0 +1,20 @@
+{
+  "query_id": "T1-Q27",
+  "tier": "T1",
+  "persona": "大模型推理工程师",
+  "intent": "definition",
+  "lang": "en",
+  "query": "What is KV-cache tiering to external all-flash NVMe-oF storage, and which vendors provide it for LLM inference?",
+  "model_key": "qwen3.6-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen3.6-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "### What is KV-Cache Tiering to External All-Flash NVMe-oF Storage?\n\n**KV-cache** (Key-Value cache) is a memory structure used in transformer-based LLMs during autoregressive generation. It stores the attention keys and values for previously generated tokens to avoid recomputation. As context length and batch size grow, KV-cache can consume **60–80% of GPU VRAM**, becoming the primary bottleneck for long-context or high-throughput inference.\n\n**KV-cache tiering** is the practice of dynamically moving (paging/swapping) less frequently accessed or overflow KV-cache data from GPU VRAM to external storage, then fetching it back when needed. When the external tier is **all-flash NVMe over Fabrics (NVMe-oF)**, the architecture leverages:\n- **NVMe-oF** (typically over RoCEv2 or TCP) for network-attached, low-latency (~10–50 μs), high-throughput SSD access\n- **RDMA/GPUDirect Storage** to bypass CPU and enable direct GPU↔storage data movement\n- **Software paging, prefetching, and compression** (e.g., PagedAttention, KV quantization) to minimize latency penalties\n\n**Why tier to NVMe-oF instead of local NVMe?**\n- **Scalability**: Decouples storage capacity from GPU nodes\n- **Cost efficiency**: Share a centralized flash pool across multiple inference servers\n- **Flexibility**: Dynamically allocate cache capacity per workload without hardware changes\n- **Trade-off**: Adds ~10–100 μs latency per page fault vs. VRAM, but enables 5–10x longer contexts or larger batches at lower TCO\n\n---\n\n### Who Provides It for LLM Inference?\n\nIt's critical to distinguish between **storage infrastructure vendors** (who provide the NVMe-oF fabric) and **inference software/frameworks** (who implement the actual tiering logic). No single vendor sells a \"KV-cache tiering appliance\"; instead, it's an integrated stack.\n\n#### 🔹 Storage/Infrastructure Vendors (NVMe-oF + AI-Optimized Stacks)\nThese vendors provide the low-latency, high-throughput NVMe-oF storage layer and publish reference architectures, integrations, or validated designs for KV-cache offloading:\n\n| Vendor | Product/Platform | NVMe-oF Support | LLM/KV-Cache Positioning |\n|--------|------------------|-----------------|--------------------------|\n| **WEKA** | WEKA.IO Parallel File System | ✅ RoCEv2/TCP NVMe-oF | Explicitly markets AI-optimized storage with documented vLLM/TensorRT-LLM KV-cache offloading blueprints |\n| **Pure Storage** | FlashBlade//S & FlashArray | ✅ NVMe-oF (RoCE/TCP) | AI",
+  "meta": {
+    "elapsed": 109.51,
+    "usage": {},
+    "via": "dashscope_http"
+  },
+  "collected_at": "2026-07-20T03:21:12"
+}

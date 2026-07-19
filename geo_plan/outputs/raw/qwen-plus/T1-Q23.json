@@ -1,27 +1,20 @@
 {
   "query_id": "T1-Q23",
   "tier": "T1",
-  "persona": "信创集成商",
+  "persona": "集成商",
   "intent": "recommendation",
   "lang": "zh",
-  "query": "信创算力中心需要自主可控、数据不出域的全闪加速存储，国产推荐谁？",
+  "query": "客户要求存储厂商能出可复现的测试代码和原始数据，KV Cache 分层存储加速谁家能做到？",
   "model_key": "qwen-plus",
   "vendor": "通义千问",
   "model_id": "qwen-plus",
   "grade": "A",
   "ok": true,
-  "response": "在信创（信息技术应用创新）背景下，针对“自主可控、数据不出域、全闪加速存储”的算力中心需求，国产全闪存存储厂商需同时满足以下核心要求：\n\n✅ **自主可控**：核心软硬件（CPU、SSD主控/颗粒、存储OS、协议栈）国产化率高，通过工信部/信创工委会适配认证，具备源代码级可控能力；  \n✅ **数据不出域**：支持私有部署、本地化数据管理、无外联回传机制，符合等保2.0三级、密评要求，支持国密SM2/SM3/SM4加密；  \n✅ **全闪加速**：纯NVMe架构（非混闪），端到端RDMA（RoCEv2/iWARP）或NVMe over Fabrics支持，IOPS ≥ 200万，时延 < 100μs，支持智能缓存、多级QoS、AI驱动的IO优化；  \n✅ **信创生态成熟**：与鲲鹏、飞腾、海光、申威CPU平台深度适配；兼容统信UOS、麒麟V10（银河麒麟/中标麒麟）、openEuler等主流信创OS；已接入主流信创云平台（如天翼云信创版、移动云磐智、华为云Stack信创版等）。\n\n---\n\n### 🔝 国产头部推荐（2024年实测+信创目录+政企落地验证）\n\n| 厂商 | 代表产品 | 自主可控亮点 | 全闪加速能力 | 信创适配成熟度 | 典型客户/案例 |\n|--------|-----------|----------------|----------------|------------------|----------------|\n| **华为（Huawei）** | OceanStor Dorado 18000/8000 系列（鲲鹏版） | ✅ 鲲鹏920 CPU + 自研OceanStor OS（源码100%自研）<br>✅ SSD主控/固件自研（ES3000 V6 NVMe SSD）<br>✅ 全栈国密支持（SM2/SM4加密+密钥托管） | ⚡ 端到端NVMe over RoCEv2<br>⚡ 单控IOPS达350万+，平均延迟78μs<br>⚡ 智能IO预测（AI Cache）、无损网络拥塞控制 | ★★★★★<br>• 信创工委会首批存储类TOP3<br>• 全面适配鲲鹏+欧拉+麒麟+统信<br>• 已入“中央国家机关采购目录” | 国家电网信创云、某省政务大数据中心",
+  "response": "目前（截至2024年中），在大模型推理优化领域，**KV Cache 分层存储加速**（即利用CPU内存、GPU显存、NVMe SSD、甚至CXL内存等多级存储协同缓存KV状态，以突破显存容量瓶颈、降低显存带宽压力）仍属前沿工程实践，**尚无主流存储厂商（如Dell EMC、NetApp、Pure Storage、华为OceanStor等）直接提供开箱即用、可复现的KV Cache分层加速解决方案或标准化测试代码/原始数据**。原因如下：\n\n🔍 关键事实澄清：\n\n1. **KV Cache 分层存储 ≠ 通用存储产品能力**  \n   KV Cache 是LLM推理特有的中间状态（Key/Value张量），其访问模式具有强时序性、局部性、不可预测性（受prompt长度、生成长度、注意力机制影响）。它对延迟（ns~μs级）、带宽（TB/s级）、一致性、零拷贝迁移等要求远超传统存储场景。通用企业级存储系统（块/文件/NAS）无法满足其毫秒级以内、高并发随机小IO的实时性需求。\n\n2. **真正落地该技术的是AI基础设施与推理框架厂商**，而非传统存储厂商：\n   - ✅ **NVIDIA**：通过 **vLLM + PagedAttention**（支持CPU offload + GPU显存分页管理），并配合 **CUDA Unified Memory + GPUDirect Storage（GDS）** 实现部分SSD offload；最新Hopper架构支持 **Transformer Engine + FP8 KV cache压缩**，间接缓解显存压力。官方提供[可复现的benchmark代码](https://github.com/vllm-project/vllm)（含完整测试脚本、数据集加载逻辑、perf metrics采集），原始数据（如ShareGPT、OpenOrca等公开对话数据集）亦开源。\n   - ✅ **Microsoft + DeepSpeed**：**DeepSpeed-Inference** 支持 **ZeRO-Inference + KV Cache CPU/GPU混合卸载**，提供[详细文档与端到端测试代码](https://www.deepspeed.ai/tutorials/inference/)，含可复现的`ds-inference`命令行工具、配置模板及latency/throughput评测脚本。\n   - ✅ **Hugging Face + Text Generation Inference (TGI)**：支持 `--kv-cache-cpu-offload` 参数，结合量化（AWQ/GPTQ）与内存映射，提供[完整CI/CD测试流程和perf报告](https://github.com/huggingface/text-generation-inference)，原始请求日志与吞吐数据可导出。\n   - ✅ **阿里云（Qwen团队） & 百度（PaddleNLP）**：",
   "meta": {
-    "elapsed": 15.66,
-    "usage": {
-      "total_tokens": 630,
-      "completion_tokens": 600,
-      "prompt_tokens": 30,
-      "prompt_tokens_details": {
-        "cached_tokens": 0
-      }
-    },
-    "returncode": 0
+    "elapsed": 10.07,
+    "usage": {},
+    "via": "dashscope_http"
   },
-  "collected_at": "2026-06-21T02:06:09"
+  "collected_at": "2026-07-20T03:08:21"
 }

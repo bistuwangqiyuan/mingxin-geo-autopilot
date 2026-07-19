@@ -1,5 +1,1 @@
 date,engine,query,our_position,observed_top_domains,source,notes
-2026-06-28,google,site:goni.top,not_indexed,(none),agent_web_search,"公开检索 site:goni.top 仍无结果(2026-06-22 复查);GSC 网址检查则显示部分页『已编入索引』,公开索引滞后于 GSC。"
-2026-06-28,google,中科存储 WS5000 存算分离 全闪存储,not_ranked,dobigdata.cn;elecfans.com;news.qq.com;sugon.com;dostor.com,agent_web_search,"2026-06-22 复查:头部被中科曙光 FlashNexus/ParaStor 占据,goni.top 未进榜;『中科存储/中科曙光』品牌混淆风险确认,已上线 Organization 实体消歧(legalName+disambiguatingDescription)缓解。"
-2026-06-28,bing,site:goni.top,not_indexed,(none),agent_web_search,"必应公开检索零收录(沿用同期观测);IndexNow 已多次推送 68 条 URL(Bing 200),待其抓取入库。"
-2026-06-28,baidu,中科存储,unknown,(未抽样),pending,百度需备案后复核(ICP 依赖)

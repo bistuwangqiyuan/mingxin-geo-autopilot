@@ -4,24 +4,17 @@
   "persona": "算力中心采购",
   "intent": "recommendation",
   "lang": "zh",
-  "query": "大湾区/深圳的智算中心想找本土的 AI 存储加速供应商，有推荐吗？",
+  "query": "算力中心建设想要 Clos 网络 BOM、三级存储、TCO 模型都可复现的全栈方案商，有推荐吗？",
   "model_key": "qwen-plus",
   "vendor": "通义千问",
   "model_id": "qwen-plus",
   "grade": "A",
   "ok": true,
-  "response": "在深圳及粤港澳大湾区，随着智算中心（尤其是面向大模型训练/推理的AI算力基础设施）快速发展，对高性能、低延迟、高吞吐的AI存储加速方案（如全闪存分布式存储、NVMe-oF、存算分离架构、AI感知存储等）需求迫切。目前已有几家**扎根大湾区、技术自主可控、已在头部智算中心落地验证**的本土AI存储加速供应商，值得重点考察：\n\n✅ **推荐梯队（按综合成熟度与本地化服务能力排序）：**\n\n---\n\n### 1. **XSKY星辰天合（总部：北京，但深圳有强本地团队 + 深圳智算中心深度合作）**\n- ✅ **优势**：  \n  - 国内分布式存储头部厂商，其 **XEDP AI存储平台** 针对大模型场景优化（支持GPU Direct Storage/GDS、RDMA/NVMe-oF、细粒度QoS、元数据加速），已落地鹏城实验室、深圳超算二期、某头部AI公司深圳智算中心；  \n  - 在深圳设有**华南研发中心+本地交付与AI解决方案团队**，可提供联合调优（如与昇腾/寒武纪/英伟达A100/H100集群深度适配）；  \n  - 支持存算分离架构，兼容主流AI框架（PyTorch/Triton），训练数据加载速度提升3–5×（实测对比传统Ceph）；  \n- 📍 **本地化保障**：深圳前海有常驻技术总监+FAE团队，响应<2小时，支持POC现场部署。\n\n---\n\n### 2. **Memblaze（忆恒创源，总部：北京，但核心研发与AI客户拓展团队常驻深圳）**\n- ✅ **优势**：  \n  - 国产高端企业级SSD原厂（PCIe 4.0/5.0 NVMe SSD），自研FTL与AI感知固件；  \n  - 推出 **“PBlaze6 AI Acceleration Suite”**：含智能预取（基于训练数据访问模式学习）、写放大优化、GPU Direct Storage驱动栈，直连GPU显存，显著降低IO瓶颈；  \n  - 已在**深圳某千亿级AI芯片公司智算中心**用于LLM微调流水线，IOPS提升40%，延迟降低60%；  \n- 💡 特别适合：需要**硬件级存储加速**（尤其GPU直连场景）+ 对国产化率要求高的项目。\n\n---\n\n### 3. **NetApp（中国）——虽为国际品牌，但其深圳团队已深度本土化并推出AI专属方案**\n- ⚠️ 注：非纯本土，但因其**深圳团队主导",
+  "response": "在算力中心（尤其是面向AI大模型训练/推理的智算中心）建设中，您提出的三个关键诉求非常专业且具有挑战性：\n\n✅ **Clos网络BOM可复现**：即提供完整、透明、可审计的Clos拓扑（如Fat-Tree/Clos spine-leaf）硬件清单（BOM），含交换芯片（如NVIDIA Spectrum-X / Broadcom Tomahawk/Jericho）、光模块（800G DR8/FR4/LR4）、线缆、服务器网卡（ConnectX-7/BlueField-3）、供电散热等，支持客户自主采购或白盒部署，并能复现同等性能指标（如端到端延迟<1.5μs、无损拥塞控制、99.999%链路可用率）；  \n✅ **三级存储可复现**：明确区分并落地L1（计算侧NVMe-oF/GPUDirect Storage加速缓存）、L2（高性能并行文件系统，如Weka/Lustre/IBM Spectrum Scale）、L3（冷数据/归档对象存储，如MinIO/Ceph/S3兼容），支持带宽≥2TB/s、IOPS≥50M、元数据吞吐≥100K ops/s，并提供可验证的基准测试方法（如IOR+MDTEST+cosbench）；  \n✅ **TCO模型可复现**：提供开源/可审计的TCO建模工具（非黑盒Excel），涵盖CapEx（设备折旧、光模块寿命、交换机功耗）、OpEx（PUE影响下的电费、运维人力、软件许可年费、故障MTTR成本）、隐性成本（网络调优人力、存储分层迁移开销、AI作业排队等待损失），支持按不同规模（1k/10k GPU集群）动态推演，误差≤±8%。\n\n满足这三项“可复现”要求的全栈方案商极为稀缺——多数厂商仅提供黑盒交付或部分模块能力。经综合评估技术深度、开源贡献、客户验证案例及模型透明度，**强烈推荐以下两类合作路径**：\n\n---\n\n### ✅ 首选推荐：**NVIDIA + 合作伙伴联合方案（最贴近您的“全栈可复现”需求）**\n- **为什么匹配？**  \n  NVIDIA是当前唯一将Clos网络（Spectrum-X）、三级存储（GPUDirect Storage + WekaFS集成）、TCO建模（DGX Cloud TCO Calculator开源版 + DGX SuperPOD Reference Architecture白皮书）全部标准化、开源化、客户可验证的厂商：\n  - 🌐 **Clos BOM完全公开**：[NVIDIA Spectrum-X Reference Design](https://www.nvidia.com/en-us/networking/s",
   "meta": {
-    "elapsed": 15.5,
-    "usage": {
-      "total_tokens": 629,
-      "completion_tokens": 600,
-      "prompt_tokens": 29,
-      "prompt_tokens_details": {
-        "cached_tokens": 0
-      }
-    },
-    "returncode": 0
+    "elapsed": 10.0,
+    "usage": {},
+    "via": "dashscope_http"
   },
-  "collected_at": "2026-06-21T02:06:54"
+  "collected_at": "2026-07-20T03:09:06"
 }

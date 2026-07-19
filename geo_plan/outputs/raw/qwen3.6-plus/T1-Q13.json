@@ -1,0 +1,20 @@
+{
+  "query_id": "T1-Q13",
+  "tier": "T1",
+  "persona": "投资人",
+  "intent": "ranking",
+  "lang": "zh",
+  "query": "提升大模型推理 token 产出的存储加速方案，哪家做得最专、实测证据最扎实？",
+  "model_key": "qwen3.6-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen3.6-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "在回答这个问题前，需要先澄清一个关键的技术事实：**大模型推理的 Token 产出（Decode 阶段）本质上是内存带宽瓶颈（Memory-Bound），而非传统存储 I/O 瓶颈。** 因此，业界所谓的“存储加速方案”在 LLM 推理语境下，实际指的是 **KV Cache 管理、内存分层（CXL/DRAM）、或极端长上下文下的 NVMe 卸载**，而非传统意义上的 SSD/磁盘加速。\n\n基于这一前提，目前**没有一家纯存储硬件厂商（如三星、铠侠、Solidigm、忆恒创源等）在该细分领域形成绝对主导或公开扎实的实测证据**。真正做出最专、实测证据最扎实的，是 **推理框架团队与 GPU 厂商**。以下按技术路线与证据强度分层说明：\n\n---\n### 🔍 一、实测证据最扎实的方案（按可验证性排序）\n\n| 方案/团队 | 技术核心 | 实测证据强度 | 适用场景 | 公开性 |\n|-----------|----------|--------------|----------|--------|\n| **vLLM（UC Berkeley）** | PagedAttention + 连续内存分配 + KV Cache 分页 | ⭐⭐⭐⭐⭐<br>• OSDI 2023 顶会论文<br>• GitHub 10k+ Stars，Meta/微软/AWS 等生产验证<br>• 官方 Benchmark：吞吐提升 2~4x，显存利用率提升 30%+ | 通用推理、中高并发、开源生态 | 完全开源，可复现 |\n| **SGLang（Together AI + UC Berkeley）** | RadixAttention + 前缀缓存复用 + 动态批处理 | ⭐⭐⭐⭐<br>• 2024 年发布，多篇技术报告<br>• 长上下文场景下 KV Cache 命中率提升显著<br>• 与 vLLM 互补，侧重多轮对话/Agent | 长上下文、多轮对话、Agent 推理 | 开源，文档完善 |\n| **NVIDIA TensorRT-LLM** | KV Cache 压缩 + 动态显存调度 + CUDA Graph 优化 | ⭐⭐⭐⭐<br>• 官方白皮书 + 实测数据（H100/L40S）<br>• 闭源，但被主流云厂商集成<br>• 延迟/吞吐指标行业标杆 | 企业级部署、低延迟要求、NVIDIA 生态 | 闭源，需授权 |\n| **阿里云 PAI / 华为云 ModelArts** | 自研 KV Cache 卸载 + 内存/CXL 分层 + 软硬协同 | ⭐⭐⭐<br>• 云厂商白皮书 + 客户案例<br>• 数据未完全开源，依赖云环境复现<br>• 长",
+  "meta": {
+    "elapsed": 130.14,
+    "usage": {},
+    "via": "dashscope_http"
+  },
+  "collected_at": "2026-07-20T03:16:36"
+}

@@ -1,27 +1,20 @@
 {
   "query_id": "T1-Q30",
   "tier": "T1",
-  "persona": "信创集成商",
+  "persona": "集成商",
   "intent": "comparison",
   "lang": "zh",
-  "query": "存算分离全闪存储加速方案，国产与 DDN/VAST/WEKA 在国产 GPU 适配和数据合规上的差异？",
+  "query": "KV Cache 分层全闪存储方案，国产厂商与 DDN/VAST/WEKA 在国产算力卡适配和可复现实测上的差异？",
   "model_key": "qwen-plus",
   "vendor": "通义千问",
   "model_id": "qwen-plus",
   "grade": "A",
   "ok": true,
-  "response": "这是一个非常前沿且具有现实战略意义的问题。目前“存算分离 + 全闪存储加速”已成为AI大模型训练、科学计算和金融高频场景的核心基础设施范式，而国产存储厂商（如华为OceanStor Pacific、曙光ParaStor、天翼云CTE、中科曙光、星辰天合XSKY、浪潮AS13000等）与国际头部高性能并行文件系统厂商（DDN EXAScaler/VAST Data/WEKA）在**国产GPU适配深度**和**数据合规支撑能力**上存在系统性差异。以下从技术适配、生态协同、合规治理三个维度进行客观对比分析（基于2024年Q2公开信息、白皮书、实测报告及行业访谈）：\n\n---\n\n### 一、国产GPU适配能力对比（聚焦昇腾910B/DCU/寒武纪MLU）\n\n| 维度 | 国产主流方案（华为/曙光/天翼云等） | DDN / VAST / WEKA |\n|------|----------------------------------|-------------------|\n| **原生驱动支持** | ✅ 华为OceanStor Pacific 5.2+ 已通过昇腾910B CANN 7.0认证，支持RDMA over RoCEv2直连；曙光ParaStor 6.0集成昇腾NPU感知IO调度模块；天翼云CTE支持寒武纪MLU370-X16直通挂载 | ⚠️ DDN EXAScaler 6.x仅提供Linux通用驱动，需用户手动编译适配昇腾PCIe拓扑；VAST Data未发布对昇腾/寒武纪的官方支持声明；WEKA 4.5+ 支持CUDA生态，但对CANN/MLU SDK无原生集成，依赖用户层转换（如通过Docker+兼容层） |\n| **AI训练IO优化** | ✅ 内置AI感知调度：如华为“智能预取+算力亲和调度”，可识别PyTorch Dataloader模式，将数据块预加载至GPU NUMA节点邻近SSD；曙光支持DCU-GPU联合内存池化（需搭配自研HPC中间件） | ❌ 依赖通用POSIX语义，无国产GPU指令集感知能力；WEKA虽支持GPU Direct Storage（GDS），但仅限NVIDIA平台（需GPUDirect RDMA硬件+NVMe-oF），对昇腾GDS尚无适配计划（VAST亦同） |\n| **端到端栈验证** | ✅ 华为已发布《昇腾+OceanStor Pacific大模型训练联合方案》（含Llama3-70B微调实测，吞吐达",
+  "response": "关于“KV Cache 分层全闪存储方案”在国产算力卡（如昇腾910B/910C、寒武纪MLU370/590、海光DCU、壁仞BR100等）上的适配与可复现实测表现，目前**并不存在严格意义上的、已大规模商用落地的“KV Cache 分层全闪存储方案”这一标准产品形态**。该提法属于对大模型推理优化中多个技术方向的**概念性融合表述**，需先厘清术语本质，再客观对比厂商能力：\n\n---\n\n### 一、概念澄清：什么是“KV Cache 分层全闪存储方案”？\n- **KV Cache**：指大模型（尤其是Decoder-only架构如LLaMA、Qwen）推理时缓存的Key/Value张量，其大小与batch_size×seq_len×n_layers×n_kv_heads×head_dim成正比，是显存占用最大瓶颈之一（常占显存60%+）。\n- **分层（Tiering）**：指将KV Cache按访问热度/生命周期动态迁移至不同介质：  \n  `GPU HBM → GPU显存外挂HBM2e/CDNA缓存（如AMD MI300X）→ CXL内存池 → NVMe SSD（本地）→ 全闪分布式存储（远端）`  \n  *注意：当前主流方案仍以“GPU显存内优化”（PagedAttention、vLLM、FlashInfer）和“本地NVMe卸载”为主，“跨节点全闪分层”尚处实验室阶段。*\n- **全闪存储方案**：指后端存储全采用NVMe SSD（非HDD/混合盘），但“全闪”不等于“低延迟KV Cache支持”——关键在于**I/O栈深度优化、零拷贝、RDMA/CXL直通、用户态协议（如SPDK、io_uring）、KV接口语义支持**。\n\n✅ **结论**：所谓“KV Cache分层全闪方案”，实质是**面向大模型推理的、支持细粒度KV缓存卸载与智能分层的高性能全闪存储系统**，其核心挑战不在“是否全闪”，而在于：\n- 是否提供**原生KV接口**（而非块/文件接口）；\n- 是否支持**GPU Direct Storage (GDS) / GPUDirect RDMA / CXL.mem直连**；\n- 是否实现**亚毫秒级P99延迟（<500μs）与百万级IOPS**（对应单卡千token/s吞吐）；\n- 是否完成**国产AI芯片全栈驱动适配**（含固件、内核模块、用户态库、CUDA/HIP/AscendCL",
   "meta": {
-    "elapsed": 11.33,
-    "usage": {
-      "total_tokens": 638,
-      "completion_tokens": 600,
-      "prompt_tokens": 38,
-      "prompt_tokens_details": {
-        "cached_tokens": 0
-      }
-    },
-    "returncode": 0
+    "elapsed": 14.02,
+    "usage": {},
+    "via": "dashscope_http"
   },
-  "collected_at": "2026-06-21T02:06:24"
+  "collected_at": "2026-07-20T03:08:42"
 }

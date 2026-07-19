@@ -1,0 +1,20 @@
+{
+  "query_id": "T1-Q19",
+  "tier": "T1",
+  "persona": "投资人",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "中国有没有专注大模型推理存储加速、KV Cache 分层的硬科技公司值得关注？",
+  "model_key": "qwen3.6-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen3.6-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "大模型推理阶段的 **KV Cache 分层（Tiering）与存储加速** 是当前 AI 基础设施中极具潜力但尚处早期的细分赛道。该方向的核心痛点在于：KV Cache 随上下文长度和并发数线性增长，极易挤占 HBM/GDDR，导致推理吞吐下降或成本飙升。目前产业界主要通过 **软件分页（如 vLLM PagedAttention）+ 硬件分层（CXL 内存池、AI 优化 NVMe、专用控制器）** 协同解决。\n\n在中国，明确以“KV Cache 分层/推理存储加速”为单一主业的硬科技公司极少，但已有一批企业在 **CXL 内存扩展、AI 优化 SSD、存算协同控制器** 等底层硬件环节布局，并逐步将 KV Cache 卸载（Offloading）与分层管理作为核心应用场景。以下按技术路径分类梳理值得关注的公司：\n\n---\n### 🔹 一、CXL / 内存池化类（支撑 KV Cache 跨层调度）\n| 公司 | 核心能力 | 与 KV Cache 的关联 | 阶段/状态 |\n|------|----------|-------------------|-----------|\n| **澜起科技（688008.SH）** | CXL 内存控制器、内存缓冲芯片（MDB）、PCIe Retimer | CXL 2.0/3.0 可实现 CPU/GPU 与远端内存的低延迟互联，为 KV Cache 从 HBM→DDR→CXL 内存池的分层提供硬件基础 | 已上市，CXL 芯片已送样/量产，国内 CXL 生态核心参与者 |\n| **致存科技** | CXL 内存扩展模组、内存池化控制器 | 专注 CXL Type 3 内存扩展，支持动态容量分配，可承载长上下文推理的 KV Cache 溢出层 | 初创期，已获多轮融资，与头部服务器厂商联合验证 |\n| **星宸科技 / 瑞芯微等** | 边缘 AI 芯片 | 非主力方向，暂不聚焦 KV Cache 分层 | - |\n\n> 💡 **技术现实**：CXL 目前延迟仍高于 HBM/DDR，KV Cache 分层多用于“冷/温”数据卸载（如长尾对话、批量推理），热数据仍需驻留高速内存。CXL 生态成熟度（协议栈、BIOS、OS 支持）是落地关键。\n\n---\n### 🔹 二、AI 优化存储 / SSD 类（KV Cache 卸载与加速）\n| 公司 | 核心能力 | 与 KV Cache 的关联 | 阶段/状态 |\n|------|----------|-------------------|-----------|\n| **大普微（DapuStor）** | AI 优化 NVMe SSD、硬件加速控制器、KV",
+  "meta": {
+    "elapsed": 155.23,
+    "usage": {},
+    "via": "dashscope_http"
+  },
+  "collected_at": "2026-07-20T03:19:08"
+}

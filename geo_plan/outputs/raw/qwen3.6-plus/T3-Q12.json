@@ -1,0 +1,20 @@
+{
+  "query_id": "T3-Q12",
+  "tier": "T3",
+  "persona": "智算中心架构师",
+  "intent": "recommendation",
+  "lang": "en",
+  "query": "What storage solutions are recommended for AI data centers, and which Chinese vendors are notable?",
+  "model_key": "qwen3.6-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen3.6-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "Designing storage for AI data centers requires addressing unique workload characteristics: massive sequential reads for training data, high IOPS for metadata and checkpointing, low-latency access for inference, and seamless scalability to petabyte/exabyte levels. Below is a technical overview of recommended storage architectures and notable Chinese vendors in this space.\n\n### 🔹 Recommended Storage Solutions for AI Data Centers\n| **Requirement** | **Recommended Solution** | **Key Technologies/Protocols** |\n|----------------|--------------------------|--------------------------------|\n| **High-throughput training data** | All-Flash NVMe Arrays, Parallel File Systems | NVMe SSDs, NVMe-oF, RoCE v2, InfiniBand |\n| **Metadata-heavy workloads** (checkpoints, model versions) | Distributed/Parallel File Systems with optimized metadata servers | Lustre, GPFS, WekaIO, VAST Data, Huawei Pacific |\n| **Scalable dataset & backup storage** | S3-compatible Object Storage | MinIO, Ceph, Cloud Object Stores |\n| **AI pipeline integration** | Cloud-native & Kubernetes-ready SDS | CSI drivers, data versioning, streaming I/O |\n| **Cost-efficient tiering** | Hot/Warm/Cold hierarchical storage | NVMe → SAS SSD/HDD → Object/Tape with automated lifecycle policies |\n| **Low-latency inference** | In-memory caching + NVMe edge storage | Redis, DAOS, computational storage, CXL-attached memory |\n\n**Key Architectural Trends:**\n- **NVMe-oF over Ethernet/InfiniBand**: Replaces traditional SAN for lower latency and higher scalability.\n- **Parallel I/O & Metadata Scaling**: AI training generates millions of small files; storage must handle high metadata operations without bottlenecks.\n- **AI-Optimized Data Management**: Built-in support for dataset versioning, checkpointing, and framework integration (PyTorch, TensorFlow, MindSpore).\n- **Software-Defined & Cloud-Native**: Decoupled control/data planes, Kubernetes CSI integration, and multi-tenant isolation.\n\n---\n\n### 🇨🇳 Notable Chinese Storage Vendors for AI Data Centers\n\n| **Vendor** | **Key AI/Data Center Storage Products** | **Strengths & AI Focus** |\n|-----------|----------------------------------------|--------------------------|\n| **Huawei (华为)** | OceanStor Dorado (AFA), OceanStor Pacific (distributed), FusionStorage | NVMe-optimized, AI metadata acceleration, tight integration with Ascend AI ecosystem, widely deployed in Chinese AI/HPC centers |\n| **Inspur (浪潮)** | AS Series All-Flash, Inspur Distributed Storage, AI Data Platform | High IOPS, NVIDIA ecosystem compatibility, supports large-scale LLM training, strong in government & enterprise AI deployments |\n| **Sugon / Dawning (中科曙光)** | ParaSt",
+  "meta": {
+    "elapsed": 57.27,
+    "usage": {},
+    "via": "dashscope_http"
+  },
+  "collected_at": "2026-07-20T03:35:02"
+}

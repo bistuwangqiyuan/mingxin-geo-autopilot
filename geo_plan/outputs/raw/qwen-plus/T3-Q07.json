@@ -10,18 +10,11 @@
   "model_id": "qwen-plus",
   "grade": "A",
   "ok": true,
-  "response": "在AI存储（AI-Native Storage / AI-Ready Storage）这一快速演进的赛道中，除了您提到的华为（OceanStor A系列、DME智能数据管理）、VAST Data（统一无分层架构、All-Flash+ZNS+计算存储融合）、WEKA（高性能并行文件系统，深度优化GPU Direct Storage/GDS与RDMA），确实还有多个技术实力强、增长迅速、且被头部AI公司/超算中心广泛采用的玩家值得关注。以下按技术路径和市场影响力分类梳理（截至2024年中）：\n\n🔹 一、国际一线新锐（技术驱动型，聚焦AI训练/推理I/O瓶颈）\n1. **Pavilion Data**（美国，已并入DDN，但技术持续独立演进）  \n   - 优势：首创“Scale-Out NVMe over Fabrics”架构，微秒级延迟（<50μs）、千万级IOPS；被Meta、OpenAI早期用于大模型训练数据集加载。  \n   - 现状：虽被DDN收购，但其NVMe-oF核心栈仍作为DDN EXAScaler的AI加速模块独立部署，尤其在HPC+AI混合负载场景表现突出。\n\n2. **Cohesity**（美国，转型AI-native存储代表）  \n   - 转型亮点：从备份厂商跃升为“AI Data Cloud”平台，推出Cohesity FortiGate AI（内置向量数据库+RAG就绪接口）+ DataProtect for LLMs（支持模型权重/激活缓存快照、版本化、细粒度权限）。  \n   - 关键能力：原生支持AI工作流编排（如自动触发数据预处理→特征提取→模型训练链路），已落地微软Azure AI、NVIDIA DGX Cloud联合方案。\n\n3. **MayaData（现为Kasten by Veeam旗下，但保持独立AI存储产品线）**  \n   - 定位：Kubernetes-native AI storage orchestration（非传统文件/块存储，而是“AI workload-aware storage controller”）。  \n   - 技术特色：通过OpenEBS + MayaData Engine实现GPU节点本地SSD池化+跨节点缓存协同，支持PyTorch Dataloader直连、动态QoS保障，被Hugging Face内部训练平台采用。\n\n🔹 二、中国创新力量（自主可控+场景深耕）\n4. **星辰天合（XSKY，现为浪潮信息控股，品牌升级为“Infinity Storage”）**  \n   - 近期突破：发布Infinity AI Storage 3.0，集成自研“AI感知调度引擎”，可识别TensorFlow/PyTorch I/O模式并动态调整预取策略、压缩算法（支持ZSTD-AI变",
+  "response": "在AI存储（AI-native storage / AI-optimized storage）这一快速演进的赛道中，除了您提到的华为（OceanStor Pacific系列）、VAST Data（统一非结构化数据平台）和WEKA（高性能分布式文件系统，主打AI训练加速），确实还有多个技术实力强、市场表现活跃、且被头部AI公司/云厂商深度采用的值得关注玩家。以下按技术定位与市场影响力分类梳理（截至2024年中）：\n\n✅ **一线活跃玩家（已规模化落地AI训练场景）**  \n1. **Pure Storage（纯存储）**  \n   - 代表产品：FlashBlade//E（专为AI/ML优化的全闪存文件存储）、FlashArray//C（支持AI推理+混合负载）  \n   - 优势：极致低延迟（亚毫秒级元数据响应）、原生支持NFS/SMB/POSIX，与NVIDIA DGX Cloud、Hugging Face、Runway等深度集成；推出“AI Ready Architecture”认证生态。  \n   - 近期动态：2024年发布FlashBlade//E with DirectFlash Modules v3，带宽达500+ GB/s，支持万亿参数模型Checkpoint高效读写。\n\n2. **NetApp（傲途）**  \n   - 代表产品：ONTAP AI（与NVIDIA联合方案）、Astra Trident（K8s CSI驱动）、StorageGRID（对象存储+AI数据湖治理）  \n   - 优势：企业级可靠性+云原生能力（支持混合云/AI pipeline编排），尤其在金融、医疗等合规敏感行业的AI训练平台中渗透率高；其ONTAP Select + GPU服务器部署模式被多家大模型公司采用。  \n   - 特色：提供端到端AI数据生命周期管理（从标注→训练→推理→归档）。\n\n3. **Dell Technologies（戴尔）**  \n   - 代表产品：PowerScale（原Isilon，横向扩展NAS）、PowerFlex（超融合块存储）、与NVIDIA合作的AI Infrastructure Stack  \n   - 优势：硬件交付成熟度高，PowerScale OneFS文件系统支持PB级非结构化数据线性扩展，内置AI感知功能（如自动分层、智能预取）；大量用于自动驾驶、遥感、生物信息等长尾AI场景。  \n   - 值得关注：2024年推出PowerScale F900（搭载AMD EPYC+NVMe-oF），专为LLM微调设计。\n\n✅ **新兴高成长型玩家（技术差异化显著，获顶级VC/大厂背书）**  \n4. **MayaData（印度/美双总部）**  \n   - 代表产品：Mayastor（开源云原生存储引擎）、OpenEBS（",
   "meta": {
-    "elapsed": 15.72,
-    "usage": {
-      "total_tokens": 630,
-      "completion_tokens": 600,
-      "prompt_tokens": 30,
-      "prompt_tokens_details": {
-        "cached_tokens": 0
-      }
-    },
-    "returncode": 0
+    "elapsed": 9.9,
+    "usage": {},
+    "via": "dashscope_http"
   },
-  "collected_at": "2026-06-21T02:07:50"
+  "collected_at": "2026-07-20T03:10:02"
 }

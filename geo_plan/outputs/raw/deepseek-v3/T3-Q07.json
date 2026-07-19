@@ -10,18 +10,11 @@
   "model_id": "deepseek-v3",
   "grade": "A",
   "ok": true,
-  "response": "AI存储赛道近年来发展迅速，除了华为、VAST Data和WEKA Technologies，以下企业也值得关注，它们在技术、场景适配或商业模式上各有特色：\n\n---\n\n### **1. 国际厂商**\n- **Pure Storage**  \n  - **特点**：全闪存阵列领导者，提供高性能AI/ML存储方案（如FlashBlade），支持非结构化数据和并行访问。  \n  - **场景**：适合需要低延迟的AI训练和实时分析场景，与NVIDIA有深度合作。\n\n- **NetApp**  \n  - **特点**：ONTAP AI解决方案（与NVIDIA DGX集成），支持混合云数据管理，适合企业级AI工作负载。  \n  - **优势**：强在数据分层和云集成，适合多云环境下的AI项目。\n\n- **DDN（DataDirect Networks）**  \n  - **特点**：专注于超算和大型AI存储（如A3I解决方案），擅长处理海量非结构化数据。  \n  - **用户**：常见于科研机构（如NASA）和大型企业的高性能计算场景。\n\n- **IBM Storage**  \n  - **特点**：IBM Spectrum Scale提供高吞吐量存储，支持AI和分析工作流，尤其在金融、医疗等传统行业有优势。\n\n- **Quantum**  \n  - **特点**：结合高性能存储与磁带归档，适合需要长期保存AI训练数据的场景（如自动驾驶数据）。\n\n- **Hammerspace**  \n  - **创新点**：软件定义存储，专注跨云/本地环境的数据编排，适合分布式AI团队协作。\n\n---\n\n### **2. 国内厂商**\n- **浪潮（Inspur）**  \n  - **定位**：AI服务器与存储一体化，AS13000系列支持分布式存储，与百度、阿里等合作紧密。\n\n- **曙光（Sugon）**  \n  - **特点**：ParaStor并行存储系统，常用于政府超算中心和AI实验室。\n\n- **宏杉科技（MacroSAN）**  \n  - **方向**：全闪存和混合存储，针对金融、电信等行业的AI应用优化。\n\n- **星辰天合（XSKY）**  \n  - **技术**：SDS（软件定义存储）方案，兼容开源生态（如Ceph），适合成本敏感的AI项目。\n\n---\n\n### **3. 新兴技术公司**\n- **Qumulo**  \n  - **亮点**：实时文件存储分析，适合需要监控AI数据管道的场景（如媒体行业）。\n\n- **Vexata**（已被收购但技术整合）  \n  - **遗产**：曾以低延迟存储架构闻名，技术可能影响新一代产品。\n\n- **Scality**  \n  - **领域**：对象存储方案，适合大规模AI数据湖（如医疗影像分析）。\n\n---\n\n### **4. 云厂商的AI存储服务**\n- **",
+  "response": "AI存储赛道近年来快速发展，除了华为、VAST Data和WEKA等知名厂商，以下是一些值得关注的玩家，涵盖不同技术方向和细分领域：\n\n---\n\n### **1. 传统存储巨头（扩展AI能力）**\n- **Dell Technologies**  \n  通过PowerScale（Isilon）和ECS对象存储支持AI工作负载，与NVIDIA合作推出AI就绪的解决方案。\n- **NetApp**  \n  ONTAP AI解决方案（结合NVIDIA GPU），专为混合云AI设计，支持高性能数据管道。\n- **IBM**  \n  IBM Storage for AI（如FlashSystem和Cloud Object Storage），结合Watson和红帽OpenShift的生态。\n\n---\n\n### **2. 高性能存储（HPC/AI优化）**\n- **Pure Storage**  \n  FlashBlade系列支持非结构化数据（如AI训练），提供高吞吐和低延迟，与NVIDIA DGX合作。\n- **DDN (DataDirect Networks)**  \n  EXAScaler和AI400系列专注于HPC和AI场景，客户包括大型科研机构和超算中心。\n- **HPE**  \n  Cray Storage Systems（如ClusterStor）针对AI/ML优化，收购Cray后强化HPC能力。\n\n---\n\n### **3. 软件定义存储（SDS）与并行文件系统**\n- **Quobyte**  \n  分布式文件系统，支持AI/ML工作负载的横向扩展，适合大规模数据湖。\n- **Lustre/OpenZFS**  \n  开源解决方案（如Intel DAOS），常用于超算环境，成本敏感型AI项目的选择。\n- **Scality**  \n  RING对象存储支持AI数据湖，与AWS S3兼容，适合混合云场景。\n\n---\n\n### **4. 云原生与混合云存储**\n- **Qumulo**  \n  实时文件存储平台，支持混合云AI数据分析，尤其适合媒体和基因组学领域。\n- **MinIO**  \n  S3兼容的开源对象存储，轻量级且适合云原生AI应用（如Kubernetes部署）。\n- **Wasabi**  \n  低成本热存储服务，适合AI训练数据的长期保存，与AWS生态互补。\n\n---\n\n### **5. 新兴初创公司**\n- **Infinidat**  \n  企业级存储（InfiniBox）通过高IOPS和低延迟支持AI推理场景。\n- **Vexata**  \n  专注于加速数据分析的NVMe存储架构，已部分整合进IBM产品线。\n- **Spectral Data**  \n  新兴的AI原生存储公司，通过元数据智能优化数据访问（尚处早期阶段）。\n\n---\n\n### **6. 超融合（HCI）与边缘AI存储**\n- **Nutanix**  \n  超融合平台支持边缘AI部署，集成文件、对象和块存储。\n- **Liqid**  \n  可",
   "meta": {
-    "elapsed": 22.11,
-    "usage": {
-      "prompt_tokens": 24,
-      "completion_tokens": 600,
-      "total_tokens": 624,
-      "prompt_tokens_details": {
-        "cached_tokens": 0
-      }
-    },
-    "returncode": 0
+    "elapsed": 22.33,
+    "usage": {},
+    "via": "dashscope_http"
   },
-  "collected_at": "2026-06-21T02:11:47"
+  "collected_at": "2026-07-20T03:40:52"
 }

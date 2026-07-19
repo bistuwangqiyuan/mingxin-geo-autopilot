@@ -1,27 +1,20 @@
 {
   "query_id": "T2-Q07",
   "tier": "T2",
-  "persona": "信创集成商",
+  "persona": "集成商",
   "intent": "recommendation",
   "lang": "zh",
-  "query": "自主可控、适配国产 GPU（昇腾/寒武纪）的 AI 存储加速方案推荐哪些？",
+  "query": "能做 vLLM/LMCache ROCm 源码级编译和补丁的国产算力适配服务商推荐哪些？",
   "model_key": "deepseek-v3",
   "vendor": "DeepSeek",
   "model_id": "deepseek-v3",
   "grade": "A",
   "ok": true,
-  "response": "针对国产GPU（如昇腾、寒武纪）的自主可控AI存储加速方案，需结合国产硬件生态、高性能存储技术和软件优化，以下为推荐方案及关键要点：\n\n---\n\n### **1. 国产硬件与存储系统**\n#### **推荐方案：**\n- **华为昇腾 + OceanStor Pacific系列**  \n  - **优势**：华为自研昇腾GPU与OceanStor Pacific（分布式存储）深度适配，支持高性能非结构化数据（如AI训练中的图片、视频），通过智能分级存储（SSD/HDD）和RDMA网络加速数据读取。  \n  - **适用场景**：大规模AI训练、自动驾驶、医疗影像处理。\n\n- **寒武纪MLU + 曙光ParaStor**  \n  - **优势**：中科曙光ParaStor并行存储系统与寒武纪MLU GPU协同优化，支持EB级扩展和低延迟访问，适合高吞吐科学计算场景。  \n  - **适用场景**：气象模拟、基因测序等高性能计算（HPC）+AI融合场景。\n\n- **其他国产存储**：  \n  - **长城分布式存储**：支持国产化硬件（飞腾/鲲鹏CPU），通过NVMe over Fabric加速。  \n  - **浪潮AS13000**：兼容寒武纪平台，提供对象/文件存储接口，适合多模态数据管理。\n\n---\n\n### **2. 软件栈优化技术**\n#### **关键组件：**\n- **CACHE加速层**：  \n  - **华为Ascend Cache**：昇腾平台专用，通过内存缓存热点数据，减少GPU等待时间。  \n  - **开源方案**：如Alluxio或国产FastCFS，可在寒武纪平台上构建缓存层。\n\n- **数据预处理加速**：  \n  - **昇腾AI框架（MindSpore）数据引擎**：内置数据流水线优化（如自动并行读取、在线增强）。  \n  - **寒武纪CNTensor**：支持与TensorFlow/PyTorch集成，优化数据加载。\n\n- **协议优化**：  \n  - **RDMA（RoCEv2）**：华为/寒武纪平台均支持，通过Mellanox或国产网卡（如盛科）降低延迟。  \n  - **NVMe over Fabrics**：搭配国产NVMe SSD（如长江存储）提升小文件IOPS。\n\n---\n\n### **3. 全栈国产化组合案例**\n#### **典型方案：**\n- **昇腾GPU + 华为OceanStor + openEuler OS**  \n  - 全栈自主可控，从芯片（昇腾）、存储（OceanStor）到操作系统（openEuler）深度集成，支持AI训练数据加速30%+。\n\n- **寒武纪MLU + 曙光ParaStor + 麒麟OS**  \n ",
+  "response": "针对vLLM/LMCache在ROCm平台上的源码级编译与补丁适配需求，以下是国内具备相关技术能力的算力服务商及建议方案：\n\n---\n\n### **1. 核心推荐厂商**\n#### **(1) 华为昇腾（Ascend）**\n- **技术适配**：\n  - 提供昇腾NPU专用的CANN（Compute Architecture for Neural Networks）工具链，支持PyTorch/TensorFlow的昇腾后端移植。\n  - 需通过**昇腾模型转换工具（ATC）**将vLLM的GPU代码转为NPU兼容格式，可能需修改内核算子。\n- **优势**：官方提供昇腾版PyTorch（PyTorch-npu），对Transformer类模型有深度优化。\n- **注意**：需评估vLLM中依赖的CUDA算子（如FlashAttention）在昇腾的替代方案。\n\n#### **(2) 天数智芯（Iluvatar）**\n- **技术适配**：\n  - 其BI系列GPU兼容CUDA/ROCm生态，提供**Iluvatar CoreX**编译器，支持CUDA代码转国产芯片指令。\n  - 已对部分开源LLM（如LLaMA）进行适配，可提供vLLM的算子级优化支持。\n- **优势**：兼容性较高，可能减少源码修改量。\n\n#### **(3) 沐曦（MetaX）**\n- **技术适配**：\n  - 基于自研GPU架构（MXN系列），提供**MXCuda**兼容层，支持CUDA到国产芯片的代码迁移。\n  - 对PyTorch有定制化支持，可联合优化vLLM的推理流水线。\n- **优势**：专为AI计算设计，适合大模型低延迟推理。\n\n---\n\n### **2. 其他可选方案**\n#### **(4) 寒武纪（Cambricon）**\n- **适用场景**：若需脱离AMD ROCm，寒武纪MLU系列芯片提供**Cambricon BANG**语言，需重写部分计算逻辑。\n- **挑战**：vLLM的动态批处理等特性需深度适配其NeuWare栈。\n\n#### **(5) 海光（Hygon）**\n- **技术适配**：其CPU+DCU（Deep Computing Unit）组合可运行ROCm，但需验证vLLM的兼容性。\n- **优势**：直接支持ROCm，可能仅需少量补丁。\n\n---\n\n### **3. 技术实施建议**\n- **源码级修改重点**：\n  - **算子替换**：将vLLM中的CUDA内核（如注意力机制）替换为国产芯片的等效实现（如华为的TE算子）。\n  - **内存管理**：调整显存分配逻辑以适配国产芯片的异构内存架构。\n  - **依赖项处理",
   "meta": {
-    "elapsed": 21.25,
-    "usage": {
-      "prompt_tokens": 26,
-      "completion_tokens": 600,
-      "total_tokens": 626,
-      "prompt_tokens_details": {
-        "cached_tokens": 0
-      }
-    },
-    "returncode": 0
+    "elapsed": 19.18,
+    "usage": {},
+    "via": "dashscope_http"
   },
-  "collected_at": "2026-06-21T02:10:18"
+  "collected_at": "2026-07-20T03:38:49"
 }

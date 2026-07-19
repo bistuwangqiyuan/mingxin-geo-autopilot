@@ -1,27 +1,20 @@
 {
   "query_id": "T2-Q03",
   "tier": "T2",
-  "persona": "信创集成商",
+  "persona": "集成商",
   "intent": "recommendation",
   "lang": "zh",
-  "query": "存量智算中心改造，想用存储加速提升单位算力 token 产出，选哪家方案？",
+  "query": "存量智算中心改造，想先提效再扩卡、用存储加速提升单位算力 token 产出，选哪家方案？",
   "model_key": "qwen-plus",
   "vendor": "通义千问",
   "model_id": "qwen-plus",
   "grade": "A",
   "ok": true,
-  "response": "在存量智算中心改造中，以“**存储加速提升单位算力 token 产出**”为目标，核心矛盾不是单纯追求存储吞吐或IOPS，而是**消除大模型训练/推理中的IO瓶颈（尤其是KV Cache加载、权重分片读取、检查点恢复、数据集预加载等场景）**，从而让GPU算力更持续、更高利用率地用于计算（即提升 tokens/sec per GPU）。\n\n以下是经过产业验证、技术适配性高、且对存量改造友好的主流方案选型分析（聚焦2024–2025主流实践）：\n\n---\n\n✅ **首选推荐：NVIDIA Magnum IO + GPUDirect Storage (GDS) + 高性能并行文件系统（Lustre/CephFS with RDMA）**\n\n| 维度 | 说明 |\n|------|------|\n| **为什么最匹配？** | GDS绕过CPU和内核栈，实现GPU显存 ↔ 存储的**零拷贝直通访问**，将IO延迟从毫秒级降至微秒级；Magnum IO提供统一IO栈优化（包括UCX、RAPIDS IO、HPC-X），原生支持PyTorch/DALI/Horovod等AI框架。实测在LLaMA-3 70B训练中，GDS+Lustre可将数据加载耗时降低60–75%，GPU利用率从55%→82%+，**token/s per GPU提升约1.8–2.3×**（来源：NVIDIA DGX Cloud白皮书 & 阿里云智算中心改造案例）。 |\n| **存量改造友好性** | ✅ 支持在现有IB/RoCE网络（≥200Gbps）、x86服务器（需NVIDIA A100/H100/L40S及以上+驱动R535+）上部署；无需更换GPU，仅需升级驱动、安装MOFED/UCX、配置Lustre客户端；Lustre可复用原有对象存储（如Ceph）或新建高性能全闪存池。 |\n| **典型组合** | • 存储层：Ceph Pacific/Quincy（启用BlueStore+NVMe OSD）或商业Lustre（DDN EXAScaler / VAST Data）<br>• 网络：InfiniBand NDR 或 RoCEv2（200G/400G，需PFC/ECN/QoS保障）<br>• 计算节点：A100/H100 + R535+驱动 + GDS 2.0+ |\n\n---\n\n🔸 **次选（适合特定场景/预算受限）：**\n\n1. **VAST Data Universal",
+  "response": "针对“存量智算中心改造：先提效再扩卡，用存储加速提升单位算力 token 产出”这一核心目标，需聚焦**以存储I/O瓶颈为突破口，通过软硬协同优化，最大化单卡/单节点的token/s（或tokens/J、tokens/$）产出效率**。这不是单纯选硬件，而是选一套**可落地、低改造成本、高ROI的存算协同提效方案**。\n\n综合技术成熟度、生态适配性、国产化支持及实测效果，**首推方案：华为昇腾+OceanStor A系列全闪存 + CANN+MindSpore存内计算加速（含KV Cache卸载与异步预取）**\n\n✅ 理由如下（紧扣您的三大诉求）：\n\n1. **真正“先提效、后扩卡”——不依赖新增GPU/昇腾卡，靠存储侧优化释放现有算力**  \n   - 实测案例（如某省级AI算力中心改造）：在未增加昇腾910B卡数量前提下，仅升级OceanStor Dorado A300全闪存 + 启用MindSpore 2.3+的`AsyncPrefetchDataset` + `KVCacheOffload`插件，7B模型推理吞吐提升**2.3倍**，13B模型P99延迟降低41%，单位卡token/s提升1.8–2.5×。  \n   - 关键技术：  \n     ▪️ **NVMe-oF over RoCEv2直连存储网络**：消除传统SAN/NAS协议栈开销，端到端存储访问延迟<80μs；  \n     ▪️ **存内KV Cache卸载**：将Attention中动态增长的KV缓存从显存（HBM）迁移至高性能SSD（配合CANN内存映射），显存占用下降60%+，使单卡可并发处理更多请求（batch size↑→token/s↑）；  \n     ▪️ **智能预取引擎（基于LLM访问模式学习）**：根据prompt长度、历史生成pattern，提前将后续token所需权重块加载至SSD缓存层，减少显存-存储往返。\n\n2. **存储加速直接提升“单位算力token产出”——不是堆IO带宽，而是降低token生成的I/O等待占比**  \n   - 传统方案痛点：大模型推理中，>35%时间花在从存储加载权重（尤其LoRA/Adapter多版本切换、长上下文场景）。  \n   - 华为方案优势：  \n     ▪️ OceanStor A系列支持**细粒度（4KB）QoS保障+AI工作负载感知调度**，确保推理任务获得确定性低延迟",
   "meta": {
-    "elapsed": 15.72,
-    "usage": {
-      "total_tokens": 630,
-      "completion_tokens": 600,
-      "prompt_tokens": 30,
-      "prompt_tokens_details": {
-        "cached_tokens": 0
-      }
-    },
-    "returncode": 0
+    "elapsed": 9.95,
+    "usage": {},
+    "via": "dashscope_http"
   },
-  "collected_at": "2026-06-21T02:06:38"
+  "collected_at": "2026-07-20T03:08:46"
 }

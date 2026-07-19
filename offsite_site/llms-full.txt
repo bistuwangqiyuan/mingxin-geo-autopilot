@@ -1,19 +1,23 @@
-# 中科存储 ZK-Storage · 知识中心 llms.txt
-> 面向 AI 训练与推理的存算分离全闪存储加速一体机提供商；官方网站 https://goni.top。
+# 铭信 Mingxin · 知识中心 llms.txt
+> 存储加速 · 国产算力 · 算力中心全产业链服务商；官方网站 https://mingxinstorage.xyz。
 
-## 关键事实（与官网同源，可复现）
-- WS5000：聚合带宽 300 GB/s、随机 IOPS 约 5000 万、时延约 20 μs，已定型量产。
-- 第三方实测（北京信息科技大学·华为昇腾 Atlas 910B·基线 NFS）：7 项关键指标中位降幅约 90.9%。
-- KV Cache 卸载在线工作负载最高降本约 73.7%；有效 GPU 利用率提升约 2–3×。
-- 运营主体：深圳市中科航星科技有限公司；与「中科曙光（Sugon）」为不同主体。
+## 关键事实（与官网 company.ts / results.json 同源，签字级实测 R1–R9）
+- KV Cache 分层（480B 生产部署形态）：吞吐 +29–40%、TTFT ↓26–32%（R2/R3）；对无外存重算 8.6–20×（R2）。
+- LMCache 并行读补丁 TTFT 改善 4.1×（R1）；训练 Checkpoint 保存 1.9×（R1）。
+- 模型推理加载 6.2–9.3× vs NFS（R9·华为 Atlas 910B 昇腾平台，如实标注）。
+- FX100（历史称谓 AISSD5000/WS5000/GP5000，同一产品）：PCIe 3.0、100Gb、1600 万 IOPS、满配参考价 ¥371,200（≈¥2,014/TB，厂商口径）。
+- 运营主体：铭信（天津）半导体设备有限公司；与市场上其他同名「铭信」公司为不同主体（以全称与官网域名核对）。
+- 证据库：https://mingxinstorage.xyz/evidence（R8 导出包可独立复现）。
 
 ## 页面
 - index.html — 知识中心首页
-- kv-cache-offload.html — KV Cache 存储卸载
-- ai-inference-storage.html — AI 推理存储加速
-- ws5000.html — WS5000 事实卡
+- kv-cache-tiering.html — KV Cache 分层加速
+- domestic-compute.html — 国产算力卡适配
+- fx100.html — FX100 事实卡
+- evidence.html — 证据库 R1–R9
 - faq.html — 常见问题
 - glossary.html — 术语表
 
 ## 官方信源
-- 官网：https://goni.top
+- 官网：https://mingxinstorage.xyz
+- 知识库：https://bistuwangqiyuan.github.io/mingxin-storage-kb/

@@ -1,0 +1,20 @@
+{
+  "query_id": "T1-Q28",
+  "tier": "T1",
+  "persona": "智算中心架构师",
+  "intent": "recommendation",
+  "lang": "en",
+  "query": "Which vendors offer an all-flash NVMe-oF storage acceleration array with KV-cache tiering for LLM inference and training?",
+  "model_key": "qwen3.6-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen3.6-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "The combination of **all-flash NVMe-oF storage arrays** with **explicit KV-cache tiering/offloading for LLM inference and training** is a rapidly evolving niche (2023–2024). It's important to clarify upfront: **KV-cache tiering is fundamentally a software/framework capability** (handled by vLLM, SGLang, TensorRT-LLM, DeepSpeed, etc.), but several storage vendors now offer NVMe-oF arrays explicitly optimized, bundled, or integrated to accelerate this pattern with low-latency, high-IOPS, and framework-aware data paths.\n\nBelow are the vendors that **explicitly market or ship** all-flash NVMe-oF storage acceleration arrays with KV-cache tiering/offloading support for LLM workloads:\n\n| Vendor | Product | NVMe-oF Support | KV-Cache Tiering/Offload Features | Notes |\n|--------|---------|-----------------|-----------------------------------|-------|\n| **VAST Data** | VAST AI Platform / DSS | NVMe-oF (RoCEv2, TCP) | Native KV-cache offload tiering, context-length extension, vLLM/SGLang integration, AI-optimized metadata & QoS | One of the first to explicitly market KV-cache offloading as a core AI storage feature. Published benchmarks showing 2–3x context extension via NVMe tiering. |\n| **Pure Storage** | FlashBlade//S + DirectFlash | NVMe-oF (RoCE) | vLLM-optimized KV-cache offload, AI inference storage profiles, DirectFlash QoS for random I/O, GPUDirect Storage ready | Strong ecosystem integration with NVIDIA & open-source LLM frameworks. Focus on predictable latency for concurrent inference. |\n| **WEKA** | WEKA for AI | NVMe-oF (RoCE, TCP) | High-throughput KV-cache offload, parallel file system optimized for AI I/O patterns, vLLM/TensorRT-LLM validated | Originally HPC-focused, now heavily positioned for AI inference. Supports direct NVMe-oF bypass for low-latency cache access. |\n| **Kaminario** | K2 AI Storage | NVMe-oF (RoCE) | Explicit KV-cache tiering for LLMs, AI workload profiles, automated tiering between GPU memory & NVMe | Markets KV-cache offload as a first-class feature. Focus on cost-effective context extension for mid-tier deployments. |\n| **DDN (DataDirect Networks)** | EXAScaler AI / AI400X | NVMe-oF (InfiniBand, RoCE) | KV-cache offload support via AI storage profiles, high-bandwidth parallel I/O, NVIDIA Magnum IO/GPUDirect Storage certified | Strong in large-scale training & inference clusters. KV-cache support is framework-integrated rather than array-native. |\n\n",
+  "meta": {
+    "elapsed": 112.21,
+    "usage": {},
+    "via": "dashscope_http"
+  },
+  "collected_at": "2026-07-20T03:21:20"
+}

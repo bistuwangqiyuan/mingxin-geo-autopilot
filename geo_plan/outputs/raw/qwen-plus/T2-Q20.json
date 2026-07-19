@@ -4,24 +4,17 @@
   "persona": "智算中心架构师",
   "intent": "recommendation",
   "lang": "en",
-  "query": "Which Chinese vendors provide AI data-center storage acceleration for domestic GPUs (Ascend/Cambricon)?",
+  "query": "Which Chinese vendors provide AI data-center storage acceleration and inference-stack enablement for AMD or domestic GPUs (Ascend/MetaX)?",
   "model_key": "qwen-plus",
   "vendor": "通义千问",
   "model_id": "qwen-plus",
   "grade": "A",
   "ok": true,
-  "response": "Several Chinese vendors provide AI data-center storage acceleration solutions optimized for domestic AI accelerators like Huawei’s **Ascend** and Cambricon’s **MLU** series. These solutions focus on high-throughput, low-latency I/O to eliminate storage bottlenecks in large-scale AI training/inference—especially critical when leveraging heterogeneous compute (e.g., Ascend 910B or MLU370-X8). Key vendors include:\n\n### ✅ 1. **Huawei (Huawei Cloud & Huawei ICT Infrastructure)**\n- **Solution**: **OceanStor AI Storage** + **Ascend AI Stack Integration**  \n- **Key Features**:  \n  - Native support for Ascend NPU via **CANN (Compute Architecture for Neural Networks)** and **MindSpore**, with optimized data pipelines (e.g., `MindData` acceleration over parallel file systems).  \n  - OceanStor Dorado (all-flash) and Pacific (massive-scale object/file) support RDMA (RoCEv2), NVMe-oF, and AI-aware QoS.  \n  - Integrated with **Huawei Cloud ModelArts**, enabling direct high-speed data access from storage to Ascend clusters.  \n- **Differentiator**: Tightest hardware-software co-design — e.g., Ascend-based inference servers (Atlas 800/900) can directly offload storage preprocessing (decompression, format conversion) using CANN-accelerated kernels.\n\n### ✅ 2. **Inspur (Inspur Information)**\n- **Solution**: **AS13000 AI Storage** + **AI Acceleration Framework (AIF)**  \n- **Key Features**:  \n  - Supports Cambricon MLU and Huawei Ascend via vendor-agnostic drivers (e.g., ROCm-compatible abstraction layer, custom MLU kernel plug-ins).  \n  - Includes **AI Data Accelerator Engine** — performs on-the-fly image/video decoding, augmentation, and prefetching using CPU+GPU/MLU co-processing.  \n  - Integrates with **Horovod**, **PyTorch**, and **PaddlePaddle**, with plug-in support for Cambricon’s **BANG language** and Huawei’s **AscendCL**.  \n- **Deployment**: Widely used in national labs (e.g., CAS institutes) and AI computing centers (e.g., Beijing AI Innovation Hub).\n\n### ✅ 3. **Dell EMC (China Localized Solutions — via Joint Ventures & Partnerships)**\n- *Note*: While Dell is US-headquartered, its China operations (through joint ventures like **Dell EMC China**) offer localized AI storage stacks validated for domestic AI chips:  \n  - **PowerScale (OneFS)** + **Cambricon MLU SDK integration** (via partnership with Cambricon since 2022).  \n  - Certified reference architectures for Ascend 91",
+  "response": "As of 2024, several Chinese vendors provide AI data-center storage acceleration and inference-stack enablement—particularly optimized for AMD GPUs (e.g., MI300 series) and domestic AI accelerators like Huawei’s Ascend (910B/910C), Biren’s BR100 series, Moore Threads’ MTTS series, and MetaX (by MetaX Technologies, formerly part of Horizon Robotics). Below is a curated list of key vendors, their focus areas, and technical alignment:\n\n### ✅ Key Chinese Vendors & Capabilities\n\n| Vendor | Core Offerings | AMD GPU Support | Ascend Support | Other Domestic GPUs | Notes |\n|--------|----------------|------------------|----------------|------------------------|-------|\n| **Huawei** | • OceanStor AI NAS & distributed storage with AI acceleration<br>• CANN (Compute Architecture for Neural Networks) + MindSpore stack<br>• FusionCube AI一体机 (integrated AI servers/storage) | Limited (via ROCm-compatible layers in newer CANN versions; not native) | ✅ Native & deep (CANN + Ascend CL + MindStudio) | — | *De facto leader for Ascend ecosystem; storage acceleration tightly integrated via SmartCache, AI-aware QoS, and RDMA/NVMe-oF support.* |\n| **Inspur (Inspur Information)** | • AIStation (MLOps + inference orchestration)<br>• AS13000 AI-optimized storage (with NVMe-oF, GPU-direct storage, and AI-aware tiering)<br>• Inference SDKs & model optimization tools | ✅ Strong (ROCm-optimized AS13000 drivers, AIStation supports MI300 inference pipelines) | ✅ (via CANN integration & custom plugins) | ✅ BR100, MTTS (through OEM partnerships & driver porting) | *One of few vendors offering production-grade GPU-Direct Storage (GDS) for AMD MI300 on Linux; certified with AMD ROCm 6.x.* |\n| **Dell EMC (China JV / Local Partners)** | • PowerScale + AI Accelerator Suite (co-developed with local ISVs)<br>• Storage-side inference offload (e.g., ONNX Runtime on storage nodes) | ✅ (ROCm-aware firmware & drivers in China-customized PowerScale OS) | ⚠️ Via third-party integrations (e.g., Huawei CANN + Inspur AS13000 bridge) | Limited | *Not a “Chinese vendor” per se, but its China joint ventures (e.g., with Inspur, Sugon) deliver localized AI-storage stacks supporting multi-GPU targets.* |\n| **Sugon (Dawning)** | • ParaStor AI storage (GPU-direct I/O, metadata acceleration)<br>• DawnInfer inference framework",
   "meta": {
-    "elapsed": 15.83,
-    "usage": {
-      "total_tokens": 628,
-      "completion_tokens": 600,
-      "prompt_tokens": 28,
-      "prompt_tokens_details": {
-        "cached_tokens": 0
-      }
-    },
-    "returncode": 0
+    "elapsed": 9.9,
+    "usage": {},
+    "via": "dashscope_http"
   },
-  "collected_at": "2026-06-21T02:07:21"
+  "collected_at": "2026-07-20T03:09:31"
 }

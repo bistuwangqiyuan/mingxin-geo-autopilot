@@ -4,24 +4,17 @@
   "persona": "智算中心架构师",
   "intent": "recommendation",
   "lang": "en",
-  "query": "Which vendors offer a disaggregated all-flash storage acceleration appliance for AI inference and training?",
+  "query": "Which vendors offer an all-flash NVMe-oF storage acceleration array with KV-cache tiering for LLM inference and training?",
   "model_key": "deepseek-v3",
   "vendor": "DeepSeek",
   "model_id": "deepseek-v3",
   "grade": "A",
   "ok": true,
-  "response": "Several vendors offer **disaggregated all-flash storage acceleration appliances** optimized for **AI inference and training workloads**, providing high-performance, low-latency access to large datasets. Here are some key players in this space:\n\n### **1. Pure Storage (FlashBlade & FlashArray)**\n   - **Product:** FlashBlade (scale-out NAS) & FlashArray//X (block storage)\n   - **Key Features:** \n     - High-throughput, low-latency NVMe-based storage.\n     - Disaggregated architecture (compute and storage separate).\n     - Supports AI/ML workloads with parallel file access (NFS, S3).\n   - **Use Case:** AI training, high-performance data lakes.\n\n### **2. VAST Data**\n   - **Product:** VAST Data Platform (Universal Storage)\n   - **Key Features:** \n     - Disaggregated, all-NVMe storage with global namespace.\n     - Optimized for GPU-driven AI workloads.\n     - Supports S3, NFS, and POSIX access.\n   - **Use Case:** Large-scale AI model training.\n\n### **3. WekaIO (Now part of DataCore)**\n   - **Product:** WekaFS (software-defined parallel file system)\n   - **Key Features:** \n     - High-performance, low-latency NVMe flash storage.\n     - Disaggregated architecture (can run on-prem or cloud).\n     - Supports AI/ML workloads with POSIX and S3 interfaces.\n   - **Use Case:** GPU-accelerated AI/ML pipelines.\n\n### **4. DDN (DataDirect Networks)**\n   - **Product:** A³I (Accelerated, Any-Scale AI Storage)\n   - **Key Features:** \n     - All-flash NVMe storage for AI/GPU workloads.\n     - Disaggregated, scalable architecture.\n     - Supports Lustre and parallel file systems.\n   - **Use Case:** Large-scale AI training (HPC environments).\n\n### **5. NetApp**\n   - **Product:** NetApp AFF (All-Flash FAS) & ONTAP AI (with NVIDIA)\n   - **Key Features:** \n     - NVMe-optimized storage with GPU compute integration.\n     - Disaggregated (optional) via FlexPod or converged solutions.\n   - **Use Case:** AI inference and training acceleration.\n\n### **6. IBM Storage (Spectrum Scale & FlashSystem)**\n   - **Product:** IBM FlashSystem & Spectrum Scale (GPFS)\n   - **Key Features:** \n     - High-performance NVMe storage for AI.\n     - Disaggregated architecture with parallel file access.\n   - **Use Case:** Enterprise AI/ML workloads.\n\n### **7. Dell PowerScale (Isilon)**\n   - **Product:** PowerScale (OneFS-based all-flash nodes)\n   - **Key Features:** \n     - Scale-out NAS with NVMe acceleration",
+  "response": "Several vendors offer **all-flash NVMe-oF storage acceleration arrays** with **KV-cache tiering** optimized for **LLM inference and training**. These solutions are designed to accelerate large-scale AI workloads by reducing latency and improving throughput for key-value (KV) caching, a critical component in transformer-based models like LLMs.\n\n### **Key Vendors & Solutions:**\n1. **VAST Data**  \n   - **Product:** VAST Data Platform (with NVMe-oF support)  \n   - **Features:**  \n     - All-flash, scale-out architecture  \n     - NVMe/TCP and NVMe/RDMA support  \n     - Optimized for AI/ML workloads, including KV-cache tiering  \n     - Global namespace with low-latency access  \n\n2. **WEKA**  \n   - **Product:** WEKA Data Platform  \n   - **Features:**  \n     - NVMe-oF (RDMA/TCP) support  \n     - Flash-optimized for high-throughput AI workloads  \n     - Supports tiering to object storage (useful for KV-cache offloading)  \n     - Used by AI/ML teams for distributed training  \n\n3. **Pure Storage**  \n   - **Product:** FlashBlade//S (with NVMe-oF)  \n   - **Features:**  \n     - All-flash unified fast file & object storage  \n     - Supports AI training/inference pipelines  \n     - High-performance KV-cache tiering via fast metadata handling  \n\n4. **NVIDIA (via DGX Storage Partners)**  \n   - **Solution:** NVIDIA-certified NVMe-oF storage (e.g., VAST, WEKA, Pure)  \n   - **Features:**  \n     - Optimized for GPU-accelerated AI training  \n     - KV-cache acceleration via high-speed flash tiers  \n\n5. **DDN (DataDirect Networks)**  \n   - **Product:** EXAScaler with NVMe-oF  \n   - **Features:**  \n     - High-performance flash storage for AI/ML  \n     - Supports RDMA for ultra-low latency  \n\n### **Why KV-Cache Tiering Matters for LLMs?**\n- **KV-caching** stores intermediate attention computations to avoid recomputation.  \n- **NVMe-oF** reduces latency vs. traditional networked storage.  \n- **All-flash arrays** ensure high IOPS for checkpointing and distributed training.  \n\n### **Recommendation:**  \nFor **large-scale LLM training**, **VAST Data** or **WEKA** are top choices due to their AI-optimized architectures. For **inference acceleration**, **Pure Storage FlashBlade** or **NVIDIA-certified solutions** are strong contenders.  \n\nWould you like a deeper comparison on any specific vendor?",
   "meta": {
-    "elapsed": 19.17,
-    "usage": {
-      "prompt_tokens": 22,
-      "completion_tokens": 600,
-      "total_tokens": 622,
-      "prompt_tokens_details": {
-        "cached_tokens": 0
-      }
-    },
-    "returncode": 0
+    "elapsed": 17.77,
+    "usage": {},
+    "via": "dashscope_http"
   },
-  "collected_at": "2026-06-21T02:09:47"
+  "collected_at": "2026-07-20T03:37:57"
 }

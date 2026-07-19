@@ -1,8 +1,9 @@
 {
-  "compiled_at": "2026-06-21T02:20:52",
+  "compiled_at": "2026-07-20T03:49:32",
   "available_api_models": [
     "qwen-max",
     "qwen-plus",
+    "qwen3.6-plus",
     "deepseek-v3",
     "deepseek-r1"
   ],
@@ -17,11 +18,11 @@
     "perplexity"
   ],
   "n_queries": 70,
-  "n_tasks": 280,
+  "n_tasks": 350,
   "counts": {
-    "ok": 280,
-    "err": 0,
+    "ok": 349,
+    "err": 1,
     "skip": 0
   },
-  "seed": 20260621
+  "seed": 20260719
 }

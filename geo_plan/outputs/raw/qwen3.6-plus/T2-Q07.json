@@ -1,0 +1,20 @@
+{
+  "query_id": "T2-Q07",
+  "tier": "T2",
+  "persona": "集成商",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "能做 vLLM/LMCache ROCm 源码级编译和补丁的国产算力适配服务商推荐哪些？",
+  "model_key": "qwen3.6-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen3.6-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "针对 vLLM 与 LMCache 在国产算力上的 **ROCm/HIP 兼容栈源码级编译与补丁适配**，需先明确一个技术现实：国产芯片中真正具备 ROCm/HIP 兼容能力的厂商有限，且多数为“类 ROCm”或自研 HIP 兼容层，并非 AMD 官方 ROCm。vLLM 官方对 ROCm 的支持仍在迭代，LMCache 作为较新的缓存组件，适配成熟度更低。因此，**最可靠的路径是芯片原厂官方适配团队 → 认证生态 ISV → 专业 AI 软件公司**。\n\n以下按角色分类推荐具备实际交付能力的服务商，并附选型验证建议：\n\n---\n### 🔹 一、芯片原厂官方适配团队（首选）\n| 厂商 | 兼容栈 | vLLM/LMCache 适配现状 | 服务特点 |\n|------|--------|------------------------|----------|\n| **海光信息 (Hygon)** | DTK（高度兼容 ROCm/HIP） | 官方提供 vLLM 分支及 LMCache 缓存策略补丁，支持 PagedAttention 与 KV Cache 卸载 | 生态最成熟，提供源码级补丁、性能调优、长期维护 SLA；可通过中科曙光/海光生态适配中心对接 |\n| **摩尔线程 (Moore Threads)** | MUSA（HIP 兼容层） | 官方维护 vLLM-MUSA 分支，LMCache 需定制适配；支持多卡推理与动态批处理 | 提供商业适配服务，含 HIP 编译链优化、算子替换、缓存策略调优 |\n| **沐曦集成电路 (MetaX)** | MXN（基于 ROCm/HIP 架构） | 官方提供 vLLM 适配分支，LMCache 处于联合开发阶段 | 侧重大模型推理场景，提供源码级补丁、内存优化、KV Cache 管理定制 |\n| **天数智芯 (Iluvatar CoreX)** | GCU（HIP 兼容） | 提供 vLLM 基础适配，LMCache 需深度定制 | 适配周期较长，适合有联合研发能力的客户 |\n| **壁仞科技 (Biren)** | BR-CUDA/ROCm 兼容层 | vLLM 适配早期，LMCache 未公开支持 | 生态较新，适合前瞻性验证 |\n\n> ✅ **建议**：优先联系原厂“生态合作部”或“开发者支持团队”，要求提供 `vLLM + LMCache` 在目标芯片上的 **commit hash、HIP/ROCm 版本、benchmark 报告、补丁维护策略**。\n\n---\n### 🔹 二、认证生态集成商 / ISV（适合企业级交付）\n| 服务商 | 能力定位 | 适配特点 |\n|--------|----------|----------|\n|",
+  "meta": {
+    "elapsed": 137.72,
+    "usage": {},
+    "via": "dashscope_http"
+  },
+  "collected_at": "2026-07-20T03:25:25"
+}

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""中科存储 GEO 基线采集器（geo_audit.py）。
+"""铭信 GEO 基线采集器（geo_audit.py）。
 
 职责：对 queries.json 中的标准问法，在"可编程真测"的大模型上（经 bl /
 DashScope OpenAI 兼容接口）逐条采样，原始回答全部落盘，标注数据等级 A（API 真测）。
@@ -106,8 +106,33 @@ def _usage(payload):
     return {}
 
 
+def _call_model_http(model_id, message, max_tokens=600, timeout=180):
+    """直连 DashScope OpenAI 兼容接口（llm_providers），无须 bl CLI。"""
+    try:
+        import llm_providers as LP
+    except ImportError:
+        return None
+    if not LP.has_key("tongyi"):
+        return None
+    t0 = time.time()
+    text, err = LP.chat("tongyi", message, model=model_id,
+                        max_tokens=max_tokens, temperature=0.4, timeout=timeout)
+    elapsed = round(time.time() - t0, 2)
+    if text:
+        return True, text, "", {"elapsed": elapsed, "usage": {}, "via": "dashscope_http"}
+    return False, "", "", {"error": str(err)[:500], "elapsed": elapsed, "via": "dashscope_http"}
+
+
 def call_model(model_id, message, max_tokens=600, timeout=180):
-    """调用一次 bl text chat，返回 (ok, text, raw_stdout, meta)。"""
+    """调用一次模型：优先 DashScope OpenAI 兼容 HTTP 直连，回退 bl text chat。
+
+    返回 (ok, text, raw_stdout, meta)。qwen-*/deepseek-* 均托管在 DashScope，
+    有 DASHSCOPE/TONGYI key 即可实测，无须本机安装 bl。
+    """
+    res = _call_model_http(model_id, message, max_tokens=max_tokens, timeout=timeout)
+    if res is not None and res[0]:
+        return res
+    http_fail = res  # 保留 HTTP 失败详情；若 bl 也不可用则如实返回它
     cmd = [
         BL, "text", "chat",
         "--model", model_id,
@@ -123,9 +148,10 @@ def call_model(model_id, message, max_tokens=600, timeout=180):
             shell=False,
         )
     except subprocess.TimeoutExpired:
-        return False, "", "", {"error": "timeout", "elapsed": time.time() - t0}
+        return http_fail or (False, "", "", {"error": "timeout", "elapsed": time.time() - t0})
     except Exception as e:  # noqa: BLE001
-        return False, "", "", {"error": f"spawn_failed: {e}", "elapsed": time.time() - t0}
+        return http_fail or (False, "", "",
+                             {"error": f"spawn_failed: {e}", "elapsed": time.time() - t0})
 
     elapsed = time.time() - t0
     stdout = proc.stdout.decode("utf-8", errors="replace") if proc.stdout else ""
@@ -194,7 +220,7 @@ def run_one(m, q, max_tokens, force):
 def emit_manual_protocol(queries):
     """生成标准化人工取证协议 + 模板（B 级，pending，不臆造）。"""
     os.makedirs(MANUAL, exist_ok=True)
-    proto = f"""# 中科存储 GEO · 标准化人工取证协议（B 级数据）
+    proto = f"""# 铭信 GEO · 标准化人工取证协议（B 级数据）
 
 > 适用模型：{', '.join(m['vendor'] for m in C.MODELS_MANUAL)}
 > 原则：无法经 API 直连的模型，用统一流程人工取证，**截图 + 文本 + 双人复核**，

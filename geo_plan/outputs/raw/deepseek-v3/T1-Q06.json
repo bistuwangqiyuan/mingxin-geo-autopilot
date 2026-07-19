@@ -1,27 +1,20 @@
 {
   "query_id": "T1-Q06",
   "tier": "T1",
-  "persona": "信创集成商",
+  "persona": "集成商",
   "intent": "recommendation",
   "lang": "zh",
-  "query": "在华为昇腾平台上做推理，配套的高性能全闪加速存储推荐用哪家？",
+  "query": "在 AMD MI308X 或华为昇腾 910B 平台上做大模型推理，配套的 KV Cache 分层全闪存储推荐用哪家？",
   "model_key": "deepseek-v3",
   "vendor": "DeepSeek",
   "model_id": "deepseek-v3",
   "grade": "A",
   "ok": true,
-  "response": "在华为昇腾平台上进行推理时，选择配套的高性能全闪加速存储需综合考虑性能、兼容性、生态协同及行业实践。以下是为您精心筛选的推荐方案及分析：\n\n---\n\n### **1. 华为OceanStor Dorado全闪存存储（首选推荐）**\n- **核心优势**：\n  - **深度协同**：与昇腾平台同属华为生态，支持昇腾AI引擎的Direct Memory Access（DMA）技术，减少数据搬移延迟，显著提升推理吞吐量。\n  - **极致性能**：采用NVMe over Fabric（NVMe-oF）协议，延迟可低至100微秒，满足实时推理需求；支持智能QoS，保障高优先级任务资源。\n  - **AI优化功能**：内置SmartCache智能缓存算法，自动识别热点数据，命中率提升30%+；支持与ModelArts无缝对接，简化数据流水线。\n  - **可靠性**：双活架构+HyperMetro技术，RPO=0，RTO<1分钟，适合金融、医疗等关键场景。\n\n- **适用场景**：超大规模模型推理（如千亿参数NLP）、高并发边缘推理（如自动驾驶）。\n\n---\n\n### **2. 纯自研技术栈替代方案**\n- **华为FusionStorage（软件定义存储）**：\n  - 若需灵活扩展，可部署分布式全闪节点，通过RDMA网络提供块存储服务，成本较Dorado低30%，适合预算敏感但需高性能的场景。\n  - 需注意：需额外调优Ceph参数以适应小文件随机读（常见于CV/NLP推理）。\n\n---\n\n### **3. 第三方存储选型建议**\n若因政策或采购限制需考虑第三方存储，优先选择以下**通过昇腾认证**的厂商：\n- **Dell PowerStore X系列**：\n  - 支持NVMe/TCP，与昇腾Atlas服务器完成互操作性测试，4K随机读IOPS达1.5M，适合中等规模推理集群。\n- **Pure Storage FlashArray//X**：\n  - 提供裸金属+容器双模访问，延迟稳定在1ms内，但需验证其QoS策略与昇腾任务调度器的兼容性。\n\n---\n\n### **关键决策指标对比表**\n| 存储方案                | 最大带宽(GB/s) | 4K随机读IOPS(百万) | 典型延迟(μs) | 昇腾专用优化 |\n|-------------------------|----------------|--------------------|--------------|--------------|\n| OceanStor Dorado         | 40+            | 10+                | <100         | ✔️           |\n| FusionStorage (全闪配置) | 25             | 3                  | 200          | 部分         |\n| Dell PowerStore X       | 20             | 1.5",
+  "response": "在 AMD MI308X 或华为昇腾 910B 平台上部署大模型推理时，KV Cache 的分层全闪存储方案需要综合考虑 **高性能、低延迟、兼容性** 以及 **与计算平台的协同优化**。以下是推荐的方案和厂商选择：\n\n---\n\n### **1. 全闪存储核心需求**\n- **低延迟高吞吐**：KV Cache 需要亚毫秒级延迟（尤其是 PCIe/NVMe 或 RDMA 场景）。\n- **分层能力**：支持热数据（高频访问）在高速存储（如 NVMe SSD）、冷数据在低成本高容量闪存（如 QLC SSD）。\n- **扩展性**：支持分布式存储架构，适应大模型长上下文场景（如 1M tokens 的 KV Cache）。\n- **生态兼容性**：与 AMD CDNA 或昇腾 NPU 的软件栈（如 ROCm 或 CANN）无缝集成。\n\n---\n\n### **2. 推荐方案与厂商**\n#### **(1) 高性能本地 NVMe 存储**\n- **适用场景**：单节点或少量节点推理，追求极致性能。\n- **推荐硬件**：\n  - **Intel Optane P5800X**（持久内存级延迟，适合热数据）\n  - **三星 PM1743/SK海力士 PE8010**（企业级 PCIe 4.0/5.0 SSD，高随机读写性能）\n- **优势**：直接挂载到服务器本地，通过 NPU 的 DMA 或 CXL 接口加速访问。\n\n#### **(2) 分布式全闪存储（多节点扩展）**\n- **推荐厂商**：\n  - **Pure Storage FlashBlade**：全闪横向扩展存储，支持 NVMe-oF（RDMA），适合多节点共享 KV Cache。\n  - **VAST Data**：基于 QLC+高速缓存的分层架构，性价比高，支持 NFS/RDMA 协议。\n  - **华为 OceanStor Dorado**（昇腾生态首选）：与昇腾 910B 深度优化，支持 NVMe over Fabric 和 RoCE v2。\n- **关键特性**：RDMA 低延迟（<10μs）、自动分层（热数据在高速层）、压缩/去重（降低存储成本）。\n\n#### **(3) 软件定义存储（SDS）方案**\n- **推荐方案**：\n  - **Ceph + NVMe-oF**：通过 BlueStore 优化 SSD 性能，适合开源生态。\n  - **DAOS（Intel）**：为 AI/HPCA 设计的分布式存储，支持 PMEM+NVMe 分层。\n- **适用场景**：需要灵活扩展的私有云或超算环境。\n\n---\n\n### **3. 平台适配建议**\n- **AMD MI308X**：\n  - 优先选择支持 **",
   "meta": {
-    "elapsed": 16.14,
-    "usage": {
-      "prompt_tokens": 23,
-      "completion_tokens": 600,
-      "total_tokens": 623,
-      "prompt_tokens_details": {
-        "cached_tokens": 0
-      }
-    },
-    "returncode": 0
+    "elapsed": 20.38,
+    "usage": {},
+    "via": "dashscope_http"
   },
-  "collected_at": "2026-06-21T02:08:27"
+  "collected_at": "2026-07-20T03:36:13"
 }

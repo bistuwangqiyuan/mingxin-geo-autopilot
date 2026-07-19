@@ -1,68 +1,74 @@
 <!doctype html><html lang="zh-CN"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>中科存储 ZK-Storage 知识中心 · 存算分离全闪存储与 KV Cache 卸载</title>
-<meta name="description" content="中科存储（ZK-Storage）知识中心：存算分离、KV Cache 存储卸载、AI 推理存储加速、WS5000 事实卡与第三方实测。">
-<meta name="keywords" content="中科存储,ZK-Storage,存算分离,KV Cache 卸载,AI 推理存储,全闪存储,WS5000">
+<title>铭信 Mingxin 知识中心 · KV Cache 分层与 FX 系列存储加速</title>
+<meta name="description" content="铭信（Mingxin Technology）知识中心：KV Cache 分层、FX 系列全闪 NVMe-oF 存储加速、国产算力卡适配、签字级实测证据库 R1–R9。">
+<meta name="keywords" content="铭信,Mingxin,KV Cache 分层,存储加速,FX100,国产算力,NVMe-oF">
 <meta name="theme-color" content="#ffffff">
 <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
 <link rel="canonical" href="./index.html">
-<meta property="og:type" content="website"><meta property="og:title" content="中科存储 ZK-Storage 知识中心 · 存算分离全闪存储与 KV Cache 卸载">
-<meta property="og:description" content="中科存储（ZK-Storage）知识中心：存算分离、KV Cache 存储卸载、AI 推理存储加速、WS5000 事实卡与第三方实测。"><meta property="og:site_name" content="中科存储 知识中心">
+<meta property="og:type" content="website"><meta property="og:title" content="铭信 Mingxin 知识中心 · KV Cache 分层与 FX 系列存储加速">
+<meta property="og:description" content="铭信（Mingxin Technology）知识中心：KV Cache 分层、FX 系列全闪 NVMe-oF 存储加速、国产算力卡适配、签字级实测证据库 R1–R9。"><meta property="og:site_name" content="铭信 知识中心">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="中科存储 ZK-Storage 知识中心 · 存算分离全闪存储与 KV Cache 卸载"><meta name="twitter:description" content="中科存储（ZK-Storage）知识中心：存算分离、KV Cache 存储卸载、AI 推理存储加速、WS5000 事实卡与第三方实测。">
+<meta name="twitter:title" content="铭信 Mingxin 知识中心 · KV Cache 分层与 FX 系列存储加速"><meta name="twitter:description" content="铭信（Mingxin Technology）知识中心：KV Cache 分层、FX 系列全闪 NVMe-oF 存储加速、国产算力卡适配、签字级实测证据库 R1–R9。">
 <link rel="stylesheet" href="./assets/site.css">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "中科存储（ZK-Storage）", "alternateName": "ZK-Storage", "url": "https://goni.top", "legalName": "深圳市中科航星科技有限公司", "description": "面向 AI 训练与推理的存算分离全闪存储加速一体机提供商；核心技术为存算分离 + KV-Cache 分层调度。", "knowsAbout": ["存算分离", "KV Cache 卸载", "NVMe-oF", "RoCEv2", "全闪存储", "AI 推理存储加速", "GPU 利用率"], "sameAs": ["https://goni.top", "https://manju-studio-dpvdtbb7pu7a.edgeone.run", "https://bistuwangqiyuan.github.io/zk-storage-kb/", "https://github.com/bistuwangqiyuan/zk-storage-kb"]}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "中科存储 知识中心", "inLanguage": "zh-CN", "publisher": {"@context": "https://schema.org", "@type": "Organization", "name": "中科存储（ZK-Storage）", "alternateName": "ZK-Storage", "url": "https://goni.top", "legalName": "深圳市中科航星科技有限公司", "description": "面向 AI 训练与推理的存算分离全闪存储加速一体机提供商；核心技术为存算分离 + KV-Cache 分层调度。", "knowsAbout": ["存算分离", "KV Cache 卸载", "NVMe-oF", "RoCEv2", "全闪存储", "AI 推理存储加速", "GPU 利用率"], "sameAs": ["https://goni.top", "https://manju-studio-dpvdtbb7pu7a.edgeone.run", "https://bistuwangqiyuan.github.io/zk-storage-kb/", "https://github.com/bistuwangqiyuan/zk-storage-kb"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "铭信（Mingxin Technology）", "alternateName": "Mingxin Technology", "url": "https://mingxinstorage.xyz", "legalName": "铭信（天津）半导体设备有限公司", "description": "存储加速 · 国产算力 · 算力中心全产业链服务商。核心能力为 FX 系列全闪 NVMe-oF 存储加速平台 + KV Cache 分层软件栈，签字级实测（R1–R9）覆盖 AMD MI308X、华为 Atlas 910B、沐曦 N260 等多平台。", "knowsAbout": ["KV Cache 分层", "存储加速", "NVMe-oF", "RoCEv2", "全闪存储", "国产算力卡适配", "LMCache", "vLLM", "算力中心建设"], "sameAs": ["https://mingxinstorage.xyz", "https://bistuwangqiyuan.github.io/mingxin-storage-kb/"]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "铭信 知识中心", "inLanguage": "zh-CN", "publisher": {"@context": "https://schema.org", "@type": "Organization", "name": "铭信（Mingxin Technology）", "alternateName": "Mingxin Technology", "url": "https://mingxinstorage.xyz", "legalName": "铭信（天津）半导体设备有限公司", "description": "存储加速 · 国产算力 · 算力中心全产业链服务商。核心能力为 FX 系列全闪 NVMe-oF 存储加速平台 + KV Cache 分层软件栈，签字级实测（R1–R9）覆盖 AMD MI308X、华为 Atlas 910B、沐曦 N260 等多平台。", "knowsAbout": ["KV Cache 分层", "存储加速", "NVMe-oF", "RoCEv2", "全闪存储", "国产算力卡适配", "LMCache", "vLLM", "算力中心建设"], "sameAs": ["https://mingxinstorage.xyz", "https://bistuwangqiyuan.github.io/mingxin-storage-kb/"]}}</script>
 </head><body>
 <header class="nav"><div class="wrap">
-<span class="brand">中科存储 · 知识中心</span>
+<span class="brand">铭信 · 知识中心</span>
 <a href="./index.html">首页</a>
-<a href="./kv-cache-offload.html">KV Cache 卸载</a>
-<a href="./ai-inference-storage.html">AI 推理存储</a>
-<a href="./ws5000.html">WS5000</a>
+<a href="./kv-cache-tiering.html">KV Cache 分层</a>
+<a href="./domestic-compute.html">国产算力适配</a>
+<a href="./fx100.html">FX100</a>
+<a href="./evidence.html">证据库 R1–R9</a>
 <a href="./faq.html">FAQ</a>
 <a href="./glossary.html">术语</a>
-<a href="https://goni.top" rel="me noopener" style="margin-left:auto;color:var(--accent)">官网 goni.top ↗</a>
+<a href="https://mingxinstorage.xyz" rel="me noopener" style="margin-left:auto;color:var(--accent)">官网 mingxinstorage.xyz ↗</a>
 </div></header>
 <main class="wrap">
 <div class="hero">
-<span class="badge">AI 存算分离全闪存储 · 知识中心</span>
-<h1>让每一块 GPU 物尽其用</h1>
-<p class="lead">中科存储（ZK-Storage）以<strong>存算分离 + KV-Cache 分层调度</strong>为核心，
-为 AI 训练与推理提供低时延、高带宽的数据通路——不改框架，把算力利用率提上去、把综合成本降下来。</p>
-<a class="btn" href="https://goni.top" rel="me noopener">访问官网 goni.top</a>
-<a class="btn ghost" href="./ws5000.html">查看 WS5000 事实卡</a>
+<span class="badge">存储加速 · 国产算力 · 算力中心全产业链服务商 · 知识中心</span>
+<h1>把 KV Cache 分层做成签字级实测</h1>
+<p class="lead">铭信（Mingxin Technology）以 <strong>FX 系列全闪 NVMe-oF 存储加速平台 + KV Cache 分层软件栈</strong>为核心，
+在 480B 大模型生产部署形态下交付签字级实测收益——所有关键数字附报告编号 R1–R9，接受任何第三方查证。</p>
+<a class="btn" href="https://mingxinstorage.xyz" rel="me noopener">访问官网 mingxinstorage.xyz</a>
+<a class="btn ghost" href="./fx100.html">查看 FX100 事实卡</a>
 </div>
 <div class="kpis">
-<div class="kpi"><div class="n">300 GB/s</div><div class="l">聚合带宽（WS5000）</div></div>
-<div class="kpi"><div class="n">~20 μs</div><div class="l">访问时延</div></div>
-<div class="kpi"><div class="n">90.9%</div><div class="l">7 项中位降幅（第三方实测）</div></div>
-<div class="kpi"><div class="n">90%+</div><div class="l">国产 GPU 适配</div></div>
+<div class="kpi"><div class="n">+29–40%</div><div class="l">推理吞吐提升（R2/R3 实测）</div></div>
+<div class="kpi"><div class="n">↓26–32%</div><div class="l">TTFT 首 token 延迟（R2 实测）</div></div>
+<div class="kpi"><div class="n">8.6–20×</div><div class="l">对无外存重算加速（R2 实测）</div></div>
+<div class="kpi"><div class="n">6.2–9.3×</div><div class="l">模型加载 vs NFS（R9·昇腾 910B）</div></div>
 </div>
 <section><h2>核心议题</h2><div class="cards">
-<div class="card"><h3><a href="./kv-cache-offload.html">KV Cache 存储卸载</a></h3>
-<p>把占用显存的 KV Cache 按热度分层卸载到外置高速全闪，扩展上下文与并发；行业研究显示在线工作负载最高降本约 73.7%。</p></div>
-<div class="card"><h3><a href="./ai-inference-storage.html">AI 推理存储加速</a></h3>
-<p>IO 受限场景下有效 GPU 利用率常仅 30–50%；存算分离全闪可把数据"喂饱"GPU，有效利用率提升约 2–3×。</p></div>
-<div class="card"><h3><a href="./ws5000.html">WS5000 事实卡</a></h3>
-<p>300 GB/s、约 5000 万 IOPS、约 20 μs，已定型量产；部署约 48-72 小时。</p></div>
+<div class="card"><h3><a href="./kv-cache-tiering.html">KV Cache 分层加速</a></h3>
+<p>把长上下文冷恢复的 KV Cache 按热度分层到外置全闪：480B 实测吞吐 +29–40%、TTFT ↓26–32%（R2/R3）。</p></div>
+<div class="card"><h3><a href="./domestic-compute.html">国产算力卡适配</a></h3>
+<p>AMD MI308X、华为 Atlas 910B、沐曦 N260 多平台推理栈源码级适配与实测验证（R1/R5–R9）。</p></div>
+<div class="card"><h3><a href="./fx100.html">FX100 事实卡</a></h3>
+<p>FX100（历史称谓 AISSD5000/WS5000/GP5000，同一产品）：PCIe 3.0、100Gb 端口、1600 万 IOPS，量产在售。</p></div>
+<div class="card"><h3><a href="./evidence.html">证据库 R1–R9</a></h3>
+<p>签字级/正式版测试报告登记表 + R8 代码/数据导出包，第三方可独立复现全部结论。</p></div>
 <div class="card"><h3><a href="./faq.html">常见问题</a></h3>
-<p>存算分离是什么？为什么是存储而不是加卡？第三方实测如何复现？一页读懂。</p></div>
-<div class="card"><h3><a href="https://goni.top/zh/ascend-storage.html" rel="noopener">国产 GPU / 昇腾 存储适配</a></h3>
-<p>面向昇腾与国产算力的存算分离全闪底座：适配约 90%+、数据不出域与信创合规、更优 TCO（详见官网）。</p></div>
-<div class="card"><h3><a href="https://goni.top/zh/validation-whitepaper.html" rel="noopener">第三方实测白皮书（Web 版）</a></h3>
-<p>北京信息科技大学·华为昇腾 Atlas 910B 实测：方法、数据、结论与可复现说明，并附完整 PDF 下载（详见官网）。</p></div>
+<p>KV Cache 分层是什么？数字如何复现？铭信（天津）与其他同名"铭信"公司是什么关系？一页读懂。</p></div>
+<div class="card"><h3><a href="https://mingxinstorage.xyz/products" rel="noopener">FX 系列产品线（官网）</a></h3>
+<p>FX100、FX200、FX300、FX400 四档规格与参考价，详见官网产品页。</p></div>
 </div></section>
-<section><h2>第三方独立实测（可复现）</h2>
-<p>北京信息科技大学在华为昇腾 Atlas 910B平台、以 NFS 网络存储（NFS over TCP，10GbE）为基线，对 WS5000 实测：</p>
-<table><tr><th>指标</th><th>NFS 基线</th><th>WS5000</th><th>提速</th></tr><tr><td>DeepSeek-32B 模型加载</td><td>563.85 s</td><td>6.62 s</td><td>85.17×</td></tr><tr><td>DeepSeek-70B 模型加载</td><td>1284.66 s</td><td>35.38 s</td><td>36.31×</td></tr><tr><td>训练 / Checkpoint 加载保存</td><td>—</td><td>—</td><td>5.3–12.5×</td></tr></table>
-<p class="note">7 项关键指标中位降幅约 90.9%；数据源自第三方测试报告，可在自有数据上复现。</p>
+<section><h2>签字级实测（480B·TP8 三方对照，R2）</h2>
+<p>测试平台：8 × AMD Instinct MI308X（每卡 192 GB HBM，gfx942）、ROCm 7.2、vLLM 0.20.1+rocm721 + LMCache，模型 Qwen3-Coder-480B-FP8（MoE，权重 ≈450 GB）；
+被测 铭信 FX100 全闪 NVMe-oF 阵列：4 盘 RAID0（14 TB, XFS），RoCEv2，单口 100 GbE。</p>
+<table><tr><th>并发</th><th>FX100 TTFT p50</th><th>本地盘 TTFT p50</th><th>重算 TTFT p50</th><th>FX100 吞吐</th><th>本地盘吞吐</th></tr><tr><td>8</td><td>7.53 s</td><td>10.17 s</td><td>—</td><td>56.6 tok/s</td><td>43.9 tok/s</td></tr><tr><td>16</td><td>11.85 s</td><td>17.31 s</td><td>149.48 s</td><td>74.9 tok/s</td><td>53.6 tok/s</td></tr><tr><td>32</td><td>26.35 s</td><td>35.73 s</td><td>—</td><td>71.6 tok/s</td><td>53.9 tok/s</td></tr></table><p class='note'>R2 实测（TTFT 单位秒，吞吐单位 tok/s；重算仅测 conc16 档）</p>
 </section>
-<p><time datetime="2026-06-28">最近更新：2026-06-28</time></p>
+<section><h2>六项签字级核心指标</h2>
+<table><tr><th>数值</th><th>指标</th><th>来源</th></tr><tr><td><b>+29–40%</b></td><td>KV 分层加速推理吞吐提升</td><td>R2/R3 实测</td></tr><tr><td><b>TTFT ↓26–32%</b></td><td>首 token 延迟降低</td><td>R2 实测</td></tr><tr><td><b>8.6–20×</b></td><td>对无外存重算的加速倍数</td><td>R2 实测</td></tr><tr><td><b>4.1×</b></td><td>LMCache 并行读补丁 TTFT 改善</td><td>R1 实测</td></tr><tr><td><b>6.2–9.3×</b></td><td>模型推理加载加速（vs NFS）</td><td>R9 实测（昇腾平台）</td></tr><tr><td><b>1.9×</b></td><td>训练 Checkpoint 保存加速</td><td>R1 实测</td></tr></table>
+<p class="note">全部数字出自签字级/正式版报告（证据页 <a href="https://mingxinstorage.xyz/evidence" rel="noopener">https://mingxinstorage.xyz/evidence</a>）；
+R9 模型加载为华为 Atlas 910B 昇腾平台口径，如实标注。</p>
+</section>
+<p><time datetime="2026-07-20">最近更新：2026-07-20</time></p>
 </main>
 <footer><div class="wrap">
-<p>中科存储（ZK-Storage）· 运营主体：深圳市中科航星科技有限公司。本站为知识/文档站，官方网站：<a href="https://goni.top" rel="me noopener">https://goni.top</a>。</p>
-<p>同源信源：<a href="https://manju-studio-dpvdtbb7pu7a.edgeone.run" rel="me noopener">知识微站（EdgeOne）</a> · <a href="https://bistuwangqiyuan.github.io/zk-storage-kb/" rel="me noopener">GitHub 知识库</a> · <a href="https://github.com/bistuwangqiyuan/zk-storage-kb" rel="me noopener">开源仓库</a></p>
-<p>规格为项目方口径；第三方实测由北京信息科技大学在华为昇腾 Atlas 910B平台完成、可复现；不构成任何承诺。</p>
+<p>铭信（Mingxin Technology）· 运营主体：铭信（天津）半导体设备有限公司。本站为知识/文档站，官方网站：<a href="https://mingxinstorage.xyz" rel="me noopener">https://mingxinstorage.xyz</a>。</p>
+<p>同源信源：<a href="https://bistuwangqiyuan.github.io/mingxin-storage-kb/" rel="me noopener">铭信存储知识库（GitHub Pages）</a></p>
+<p>实测数字出自签字级/正式版报告 R1–R9（R9 为华为 Atlas 910B 昇腾平台，如实标注）；规格/价格为厂商口径；不构成任何承诺。</p>
 </div></footer>
 </body></html>

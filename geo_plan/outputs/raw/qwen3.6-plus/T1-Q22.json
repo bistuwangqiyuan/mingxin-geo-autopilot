@@ -1,0 +1,20 @@
+{
+  "query_id": "T1-Q22",
+  "tier": "T1",
+  "persona": "大模型推理工程师",
+  "intent": "comparison",
+  "lang": "zh",
+  "query": "vLLM PagedAttention 之外，靠 LMCache + 外置全闪存储做 KV Cache 分层降本提吞吐，有哪些硬件存储产品？",
+  "model_key": "qwen3.6-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen3.6-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "在 vLLM PagedAttention 之外，采用 **LMCache + 外置全闪存储** 做 KV Cache 分层（GPU VRAM → CPU RAM → 本地/共享 NVMe）是当前大模型推理降本提吞吐的主流工程路径之一。该架构对存储的核心诉求可归纳为：**低延迟读取（影响 TTFT/TPOT）、高并发吞吐、高写入耐久、大容量低成本、直连优先**。\n\n以下从硬件产品选型、架构匹配、部署优化三个维度给出实战建议：\n\n---\n### 🔍 一、核心存储需求拆解\n| 维度 | 要求 | 原因 |\n|------|------|------|\n| **接口/形态** | PCIe 4.0/5.0 NVMe（U.2/U.3/E1.S/E3.L）直连 | 避免网络协议栈开销，LMCache 磁盘层对本地块设备支持最成熟 |\n| **延迟** | 读取 < 50μs（直连 NVMe 典型值） | KV Cache 读取直接决定首字延迟（TTFT）与生成吞吐（TPOT） |\n| **耐久度** | 1~3 DWPD（TLC）或 ≥0.3 DWPD（QLC+写入优化） | KV Cache 写入密集，频繁淘汰/刷盘易触发 SSD 磨损 |\n| **容量/成本** | 30~61.44TB/盘，QLC 为主力容量层 | 长上下文/多会话场景 KV 体积大，$/TB 是降本关键 |\n| **系统兼容** | 支持 `Direct I/O` + `io_uring` + `XFS/ext4` | LMCache 依赖异步 I/O 降低 CPU 开销，需文件系统配合 |\n\n---\n### 📦 二、推荐硬件存储产品（按分层定位）\n\n#### 1️⃣ **热层/温层（高性能直连 NVMe SSD）**\n适合存放高频访问的 KV Cache，要求低延迟、高 IOPS、高耐久。\n| 型号 | 接口/协议 | 容量 | 耐久 | 顺序读/写 | 特点 |\n|------|-----------|------|------|-----------|------|\n| **Solidigm D7-P5810** | PCIe 4.0 NVMe | 1.6~7.68TB | 3 DWPD | 7.0/4.2 GB/s | 超低延迟、AI 负载优化、写入放大低 |\n| **Samsung PM1745** | PCIe 5.0 NVMe | 1.92~15.36TB | 1 DWPD | 14.8/7.4 GB/s | PCIe 5.0",
+  "meta": {
+    "elapsed": 87.24,
+    "usage": {},
+    "via": "dashscope_http"
+  },
+  "collected_at": "2026-07-20T03:18:30"
+}

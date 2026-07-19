@@ -1,0 +1,20 @@
+{
+  "query_id": "T2-Q10",
+  "tier": "T2",
+  "persona": "智算中心架构师",
+  "intent": "comparison",
+  "lang": "zh",
+  "query": "提升算力中心 token 产出，是该扩 GPU 还是上存储加速？两条路线怎么权衡？",
+  "model_key": "qwen3.6-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen3.6-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "提升算力中心的 `token 产出`（通常指推理吞吐量 tokens/sec 或训练吞吐 tokens/sec/step），**不能凭直觉“加卡”或“上存储”，必须先定位真实瓶颈，再按业务场景做技术-经济权衡**。下面给出一套可直接落地的决策框架。\n\n---\n### 🔍 一、先回答：你的 Token 产出到底卡在哪？\n用 10 分钟跑一次 profiling，看 4 个核心指标：\n| 指标 | 工具 | 健康阈值 | 瓶颈指向 |\n|------|------|----------|----------|\n| GPU Compute Util | `dcgmi`, `nvidia-smi`, PyTorch Profiler | `<70%` 说明算力闲置 | 调度/数据/通信瓶颈 |\n| HBM Memory BW | `nsys`, `dcgmi dmon` | `>90%` 打满 | 显存带宽瓶颈（推理最常见） |\n| I/O Wait / Data Load Time | `iostat`, `vLLM metrics`, `torch.utils.data` | `>15%` 或 GPU 等数据 >50ms | 存储/数据管道瓶颈 |\n| KV Cache Hit / Swap Rate | `vLLM --enable-swap`, `FlexGen` logs | `Swap >10%` 或 Eviction 频繁 | 显存不足，依赖存储卸载 |\n\n📌 **关键结论**：\n- **推理场景**：Token 生成几乎永远是 **HBM 带宽 + KV Cache 管理** 瓶颈，存储 I/O 仅在开启模型/上下文卸载（Offloading/Swap）时才相关。\n- **训练/微调场景**：数据加载、Checkpoint 读写、多机同步是主要 I/O 瓶颈，存储加速收益显著。\n\n---\n### ⚖️ 二、扩 GPU vs 存储加速：适用场景对比\n| 维度 | 扩 GPU | 存储加速（NVMe阵列/并行文件系统/GPUDirect/缓存层） |\n|------|--------|--------------------------------------------------|\n| **直接收益** | 线性提升算力/显存/并行度 | 缩短 GPU 等待时间，提升有效利用率 |\n| **适用瓶颈** | Compute/HBM 打满、并发请求高、需大 Batch | I/O Wait 高、频繁加载权重/Checkpoint、长上下文 Swap 频繁 |\n| **成本量级** | 单卡 $1.5w~$4w，含机柜/电源/网络改造 | 单 TB NVMe $50~$100，软件栈可复用现有硬件 |\n| **收益曲线** | 接近线性（理想网络下） | 对数型：I/O 优化后边际递减快，存在天花板 |\n| **",
+  "meta": {
+    "elapsed": 87.27,
+    "usage": {},
+    "via": "dashscope_http"
+  },
+  "collected_at": "2026-07-20T03:25:56"
+}

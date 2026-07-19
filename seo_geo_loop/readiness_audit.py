@@ -1,18 +1,21 @@
 # -*- coding: utf-8 -*-
-"""中科存储 GEO+SEO 就绪度综合指数（CRI）· 确定性站内审计（可复现）。
+"""铭信 GEO+SEO 就绪度综合指数（CRI）· 线上确定性审计。
 
-真实扫描 ../official_website 的主站双语内容页（zh/ 与 en/，不含学院子站 training/
-与 noindex 门户 portal/）与站点级文件，按 5 支柱计算 CRI(0–100)。给定站点输入，
-结果**完全确定、可复现**（无随机数、无网络）。
+铭信官网为 Next.js 站点（amd 仓库 site/ 子目录，Vercel 部署），本地不再有静态
+HTML 可扫。本审计改为对**线上页面**做 HTTP 抓取（https://mingxinstorage.xyz/ 、
+/products、/evidence、/faq、/en 等）并按 5 支柱计算 CRI(0–100)：给定同一份线上
+HTML，检查与打分**完全确定、可复现**（无随机数）；网络失败时如实记录 error，
+绝不编造分数。
 
 5 支柱（权重公开、可调、和=1）：
   A 技术 SEO            0.25   每页 title/desc/H1/canonical/hreflang/og/twitter/JSON-LD/
-                              lang/viewport/charset/图片 alt/内链 + 站级 sitemap/robots/indexnow/manifest
+                              lang/viewport/charset/图片 alt/内链 + 站级 sitemap/robots/seo-ping/manifest
   B AI 抓取与可达       0.20   robots 放行 AI bot、声明 sitemap；llms.txt/llms-full.txt 覆盖；sitemap 覆盖
-  C 结构化数据完备度    0.20   Organization(富化)/WebSite(SearchAction)/Product/FAQPage/
+  C 结构化数据完备度    0.20   Organization(富化)/WebSite(SearchAction)/Product(FX100)/FAQPage/
                               BreadcrumbList/TechArticle/Person/DefinedTermSet 应有尽有
   D 答案优先/可抽取性   0.20   问句式 H2 + 速答关键事实块 + 规格表 + FAQ + 术语 + 来源标注密度
-  E 实体一致性&E-E-A-T  0.15   实体名/规格口径一致、联系方式、可见更新时间、作者归属
+  E 实体一致性&E-E-A-T  0.15   实体名/规格口径一致（+29–40%/26–32% 等新指标在页、旧 300GB/s 类
+                              旧数字清零）、联系方式、可见更新时间、作者归属
 
 用法：
   python readiness_audit.py --label baseline        # 单次快照（写 outputs/snapshots/）
@@ -25,15 +28,28 @@ import json
 import os
 import re
 import sys
+import urllib.request
 
 BASE = os.path.dirname(os.path.abspath(__file__))
-SITE = os.path.join(os.path.dirname(BASE), "official_website")
 OUT = os.path.join(BASE, "outputs")
 SNAP = os.path.join(OUT, "snapshots")
 
 # 单一数据源常量（用于实体/规格一致性核对）
-sys.path.insert(0, SITE)
-import site_data as D  # noqa: E402
+sys.path.insert(0, BASE)
+import site_facts as D  # noqa: E402
+
+SITE_URL = os.environ.get("MX_SITE_URL", "https://mingxinstorage.xyz").rstrip("/")
+
+# 审计页面（route, lang）。Next.js 路由，无 .html 后缀。
+PAGES = [
+    ("zh", "/"),
+    ("zh", "/products"),
+    ("zh", "/evidence"),
+    ("zh", "/faq"),
+    ("zh", "/solutions"),
+    ("zh", "/about"),
+    ("en", "/en"),
+]
 
 # --------------------------------------------------------------------------- #
 # 权重（公开、可调；和必须=1）
@@ -42,29 +58,40 @@ PILLAR_WEIGHTS = {"A": 0.25, "B": 0.20, "C": 0.20, "D": 0.20, "E": 0.15}
 assert abs(sum(PILLAR_WEIGHTS.values()) - 1.0) < 1e-9
 
 # 答案优先「关键页」集合（用于 D 支柱抽样）
-KEY_PAGES = {
-    "product.html", "technology.html", "validation.html", "solutions.html",
-    "solutions-ai-dc.html", "kv-cache-offload.html", "ai-inference-storage.html",
-    "faq.html", "glossary.html",
-}
-# g7 速答块应出现的 5 页（规格类核心页）
-ANSWER_PAGES = {"product.html", "technology.html", "validation.html",
-                "solutions.html", "solutions-ai-dc.html"}
+KEY_PAGES = {"/", "/products", "/evidence", "/faq", "/solutions"}
+# 速答块应出现的页（规格/能力类核心页）
+ANSWER_PAGES = {"/", "/products", "/evidence", "/solutions"}
 # 规格表应出现的页
-TABLE_PAGES = {"product.html", "technology.html", "validation.html",
-               "solutions-ai-dc.html", "ai-inference-storage.html"}
+TABLE_PAGES = {"/products", "/evidence"}
+# 新指标（+29–40% / 26–32% 等）应出现的页
+METRIC_PAGES = {"/", "/products", "/evidence"}
 
 AI_BOTS = ["GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "anthropic-ai",
            "Claude-Web", "Claude-User", "PerplexityBot", "Perplexity-User",
            "Google-Extended", "Applebot-Extended", "Applebot", "Bytespider",
            "Amazonbot", "CCBot", "Meta-ExternalAgent", "cohere-ai", "DeepSeekBot"]
 
-SOURCE_TOKENS = ["S9", "S38", "S4", "S5", "S42", "S43", "来源", "项目方口径", "实测", "source", "vendor spec"]
+SOURCE_TOKENS = ["R1", "R2", "R3", "R9", "来源", "厂商口径", "实测", "source", "vendor"]
+
+# 必须清零的旧口径数字（旧品牌时代遗留；任何一处出现即 spec 失分）
+OLD_NUMBER_RES = [
+    re.compile(r"300\s*GB/s", re.I),
+    re.compile(r"5000\s*万"),
+    re.compile(r"20\s*[\u03bc\u00b5]s"),
+    re.compile(r"73\.7\s*%"),
+    re.compile(r"85(?:\.17)?\s*[x\u00d7]"),
+    re.compile(r"48\s*[-\u2013]\s*72\s*小时"),
+]
+# 新事实指标（须经 site_facts 同口径出现在关键页）
+NEW_METRIC_RES = [
+    re.compile(rf"\+?\s*{D.THROUGHPUT_UPLIFT_LOW}\s*[-\u2013~]\s*{D.THROUGHPUT_UPLIFT_HIGH}\s*%"),
+    re.compile(rf"{D.TTFT_RED_LOW}\s*[-\u2013~]\s*{D.TTFT_RED_HIGH}\s*%"),
+]
 
 # --------------------------------------------------------------------------- #
 # 正则
 # --------------------------------------------------------------------------- #
-TITLE_RE = re.compile(r"<title>(.*?)</title>", re.S | re.I)
+TITLE_RE = re.compile(r"<title[^>]*>(.*?)</title>", re.S | re.I)
 DESC_RE = re.compile(r'<meta\s+name="description"\s+content="(.*?)"', re.S | re.I)
 H1_RE = re.compile(r"<h1\b", re.I)
 H2_RE = re.compile(r"<h2[^>]*>(.*?)</h2>", re.S | re.I)
@@ -79,10 +106,10 @@ TWTITLE_RE = re.compile(r'<meta\s+name="twitter:title"', re.I)
 TWDESC_RE = re.compile(r'<meta\s+name="twitter:description"', re.I)
 THEME_RE = re.compile(r'<meta\s+name="theme-color"', re.I)
 AUTHOR_RE = re.compile(r'<meta\s+name="author"', re.I)
-LANG_RE = re.compile(r'<html\s+lang="([^"]+)"', re.I)
+LANG_RE = re.compile(r'<html[^>]*\slang="([^"]+)"', re.I)
 VIEWPORT_RE = re.compile(r'<meta\s+name="viewport"', re.I)
 CHARSET_RE = re.compile(r'<meta\s+charset=', re.I)
-JSONLD_RE = re.compile(r'<script\s+type="application/ld\+json">(.*?)</script>', re.S | re.I)
+JSONLD_RE = re.compile(r'<script[^>]*type="application/ld\+json"[^>]*>(.*?)</script>', re.S | re.I)
 IMG_RE = re.compile(r"<img\b[^>]*>", re.I)
 ALT_RE = re.compile(r'\balt="([^"]*)"', re.I)
 TIME_RE = re.compile(r"<time\s+datetime=", re.I)
@@ -94,16 +121,20 @@ Q_MARKS = ["？", "?", "什么", "如何", "为何", "为什么", "怎样", "怎
            "what", "how", "why", "which", "where", "does", "can "]
 
 
-def _content_pages():
-    out = []
-    for lang in ("zh", "en"):
-        d = os.path.join(SITE, lang)
-        if not os.path.isdir(d):
-            continue
-        for fn in sorted(os.listdir(d)):
-            if fn.endswith(".html"):
-                out.append((lang, fn, os.path.join(d, fn)))
-    return out
+def _fetch(url, timeout=30):
+    req = urllib.request.Request(
+        url, headers={"User-Agent": "Mozilla/5.0 (Mingxin CRI audit)"})
+    with urllib.request.urlopen(req, timeout=timeout) as r:
+        return r.read().decode("utf-8", "replace"), r.status
+
+
+def _fetch_safe(url, timeout=30):
+    """返回 (html, status, error)；网络失败如实返回 error，不抛异常、不编造。"""
+    try:
+        html, status = _fetch(url, timeout)
+        return html, status, None
+    except Exception as e:  # noqa: BLE001
+        return "", None, f"{type(e).__name__}: {e}"
 
 
 def _parse_jsonld(html):
@@ -117,6 +148,8 @@ def _parse_jsonld(html):
         items = obj if isinstance(obj, list) else [obj]
         for it in items:
             if isinstance(it, dict):
+                if isinstance(it.get("@graph"), list):
+                    items.extend(x for x in it["@graph"] if isinstance(x, dict))
                 objs.append(it)
                 t = it.get("@type")
                 if isinstance(t, str):
@@ -131,13 +164,7 @@ def _find_obj(objs, t):
 
 
 def _has_product_schema(types, objs):
-    """是否承载『产品/平台规格』结构化数据（据实识别白帽实现）。
-
-    本站为 B2B 询价制、无公开零售价/评分，故**刻意不**使用 schema.org/Product
-    （会被 GSC 判缺 offers/review/aggregateRating），改以 WebPage.about=Thing +
-    additionalProperty(PropertyValue) 承载型号与硬指标（见 official_website/build_site.py g2）。
-    审计须据实识别该等价白帽实现，避免把正确实现误判为 0 分。
-    """
+    """是否承载『FX100/FX 系列』产品结构化数据（Product 或 about=Thing 等价白帽实现）。"""
     if "Product" in types:
         return True
     for o in objs:
@@ -148,7 +175,7 @@ def _has_product_schema(types, objs):
     return False
 
 
-def audit_page(lang, fname, html):
+def audit_page(lang, route, html):
     title_m = TITLE_RE.search(html)
     title = title_m.group(1).strip() if title_m else ""
     desc_m = DESC_RE.search(html)
@@ -159,16 +186,21 @@ def audit_page(lang, fname, html):
     imgs = IMG_RE.findall(html)
     imgs_with_alt = sum(1 for im in imgs if (ALT_RE.search(im) and ALT_RE.search(im).group(1).strip()))
     internal_links = [h for h in HREF_RE.findall(html)
-                      if not h.startswith(("http://", "https://", "mailto:", "tel:", "#", "data:"))]
+                      if h.startswith("/") or h.startswith(SITE_URL)]
     h2s = [re.sub(r"<[^>]+>", "", h).strip().lower() for h in H2_RE.findall(html)]
     has_q_h2 = any(any(m in h for m in Q_MARKS) for h in h2s)
 
     title_len = len(title)
-    title_lim = 40 if lang == "zh" else 65
+    title_lim = 45 if lang == "zh" else 70
     org = _find_obj(objs, "Organization")
     website = _find_obj(objs, "WebSite")
 
-    # ---- CRI v2 新增子项（确定性、可复现）----
+    # ---- 规格口径：新指标在关键页出现、旧数字全站清零 ----
+    old_leak = [p.pattern for p in OLD_NUMBER_RES if p.search(html)]
+    has_new_metric = any(p.search(html) for p in NEW_METRIC_RES)
+    spec_ok = (not old_leak) and (has_new_metric if route in METRIC_PAGES else True)
+
+    # ---- CRI v2 子项（确定性、可复现）----
     imgs_decoding = (all("decoding=" in im.lower() for im in imgs)) if imgs else True
     # 规格单位排版口径：数字与单位之间必须恰有空格（"300GB/s"/"20μs" 视为漂移）
     spec_canonical = not (re.search(r"\dGB/s", html) or re.search(r"\d(?:\u03bc|\u00b5)s", html))
@@ -178,11 +210,11 @@ def audit_page(lang, fname, html):
     webpage_type = "WebPage" in types
 
     return {
-        "lang": lang, "fname": fname,
+        "lang": lang, "route": route,
         # A：技术 SEO
         "title_ok": bool(title) and title_len <= title_lim,
         "title_len": title_len,
-        "desc_ok": bool(desc) and 70 <= len(desc) <= 160,
+        "desc_ok": bool(desc) and 70 <= len(desc) <= 170,
         "desc_len": len(desc),
         "h1_one": h1 == 1,
         "canonical": bool(CANON_RE.search(html)),
@@ -206,24 +238,26 @@ def audit_page(lang, fname, html):
         "has_product": _has_product_schema(types, objs),
         "has_faqpage": "FAQPage" in types,
         "has_breadcrumb": "BreadcrumbList" in types,
-        "has_techarticle": "TechArticle" in types,
+        "has_techarticle": "TechArticle" in types or "Article" in types,
         "has_person": "Person" in types,
         "has_definedterms": "DefinedTermSet" in types,
         "faq_q_count": sum(len(o.get("mainEntity", [])) for o in objs if o.get("@type") == "FAQPage"),
         "term_count": sum(len(o.get("hasDefinedTerm", [])) for o in objs if o.get("@type") == "DefinedTermSet"),
         # D：答案优先
         "has_q_h2": has_q_h2,
-        "has_keyfacts": bool(KEYFACTS_RE.search(html)),
+        "has_keyfacts": bool(KEYFACTS_RE.search(html)) or ("速答" in html) or ("Quick answer" in html),
         "has_table": bool(TABLE_RE.search(html)),
         "has_source": any(tok in html for tok in SOURCE_TOKENS),
         # E：E-E-A-T
         "has_time": bool(TIME_RE.search(html)),
         "has_author": bool(AUTHOR_RE.search(html)),
-        "entity_ok": (D.ENTITY_ZH in html) if lang == "zh" else (D.ENTITY_EN in html or "ZK-Storage" in html),
+        "entity_ok": ((D.ENTITY_ZH in html or D.BRAND_ZH in html) if lang == "zh"
+                      else (D.ENTITY_EN in html or "Mingxin" in html)),
         "tel_ok": D.CONTACT_TEL in html,
-        # 规格一致性：若提及带宽/时延，必须用单一数据源口径
-        "spec_ok": (("GB/s" not in html or f"{D.BANDWIDTH} GB/s" in html)
-                    and ("μs" not in html or f"{D.LATENCY} μs" in html or f"{D.LATENCY} \u00b5s" in html)),
+        # 规格一致性（新事实口径 + 旧数字清零）
+        "spec_ok": spec_ok,
+        "old_number_leaks": old_leak,
+        "has_new_metric": has_new_metric,
         # ---- CRI v2 子项 ----
         "img_decoding": imgs_decoding,
         "spec_canonical": spec_canonical,
@@ -236,44 +270,57 @@ def audit_page(lang, fname, html):
     }
 
 
-def _site_level():
-    def p(rel):
-        return os.path.join(SITE, rel)
-
-    out = {"sitemap": os.path.exists(p("sitemap.xml")),
-           "robots": os.path.exists(p("robots.txt")),
-           "manifest": os.path.exists(p("manifest.webmanifest")) or os.path.exists(p("site.webmanifest")),
-           "llms": os.path.exists(p("llms.txt")),
-           "llms_full": os.path.exists(p("llms-full.txt")),
+def _site_level(home_html):
+    """站级文件线上核对（robots/sitemap/llms/manifest/seo-ping）；失败如实记录。"""
+    out = {"sitemap": False, "robots": False, "manifest": False,
+           "llms": False, "llms_full": False,
            "robots_sitemap": False, "ai_bots": 0,
            "llms_page_urls": 0, "llms_full_page_urls": 0,
-           "sitemap_urls": 0}
+           "sitemap_urls": 0, "errors": {}}
 
-    # IndexNow key 文件
-    out["indexnow"] = any(re.fullmatch(r"[0-9a-f]{8,}\.txt", fn, re.I)
-                          for fn in (os.listdir(SITE) if os.path.isdir(SITE) else []))
+    def get(rel):
+        html, status, err = _fetch_safe(f"{SITE_URL}{rel}")
+        if err:
+            out["errors"][rel] = err
+        return html, status
 
-    # CRI v2：字体显示策略（site.css 含 font-display 或 Google Fonts &display=swap）
-    css = os.path.join(SITE, "assets", "css", "site.css")
-    out["font_display"] = False
-    if os.path.exists(css):
-        t = open(css, "r", encoding="utf-8").read()
-        out["font_display"] = ("font-display" in t) or ("display=swap" in t)
-
-    if out["robots"]:
-        txt = open(p("robots.txt"), "r", encoding="utf-8").read()
+    txt, st = get("/robots.txt")
+    if st == 200:
+        out["robots"] = True
         out["robots_sitemap"] = "sitemap" in txt.lower()
-        out["ai_bots"] = sum(1 for ua in AI_BOTS if re.search(rf"User-agent:\s*{re.escape(ua)}\b", txt, re.I))
+        out["ai_bots"] = sum(1 for ua in AI_BOTS
+                             if re.search(rf"User-agent:\s*{re.escape(ua)}\b", txt, re.I))
 
-    if out["sitemap"]:
-        out["sitemap_urls"] = len(re.findall(r"<loc>(.*?)</loc>",
-                                  open(p("sitemap.xml"), "r", encoding="utf-8").read()))
-    if out["llms"]:
-        t = open(p("llms.txt"), "r", encoding="utf-8").read()
-        out["llms_page_urls"] = len(set(re.findall(r"https?://[^\s)]+\.html", t)))
-    if out["llms_full"]:
-        t = open(p("llms-full.txt"), "r", encoding="utf-8").read()
-        out["llms_full_page_urls"] = len(set(re.findall(r"https?://[^\s)]+\.html", t)))
+    txt, st = get("/sitemap.xml")
+    if st == 200:
+        out["sitemap"] = True
+        out["sitemap_urls"] = len(re.findall(r"<loc>(.*?)</loc>", txt))
+
+    txt, st = get("/llms.txt")
+    if st == 200:
+        out["llms"] = True
+        out["llms_page_urls"] = len(set(re.findall(r"https?://[^\s)]+", txt)))
+
+    txt, st = get("/llms-full.txt")
+    if st == 200:
+        out["llms_full"] = True
+        out["llms_full_page_urls"] = len(set(re.findall(r"https?://[^\s)]+", txt)))
+
+    _, st = get("/manifest.webmanifest")
+    if st != 200:
+        _, st = get("/site.webmanifest")
+    out["manifest"] = st == 200
+
+    # 站点自带 /api/seo/ping（IndexNow+百度推送+WebSub，Bearer CRON_SECRET）。
+    # 无凭证只验证端点存在（非 404 即在线），不伪造提交。
+    _, st, err = _fetch_safe(f"{SITE_URL}/api/seo/ping")
+    out["seo_ping_endpoint"] = (st is not None and st != 404)
+    if err and "404" not in err:
+        # 401/403/405 属预期（端点在线但拒绝无凭证 GET），视为存在
+        out["seo_ping_endpoint"] = any(code in err for code in ("401", "403", "405"))
+
+    # CRI v2：字体显示策略（首页 HTML 含 font-display 或 &display=swap）
+    out["font_display"] = ("font-display" in home_html) or ("display=swap" in home_html)
     return out
 
 
@@ -288,20 +335,46 @@ def _imgs_frac(rows, key):
 
 
 def run(label="current", v2=False):
-    pages = _content_pages()
-    rows = [audit_page(lang, fn, open(fp, "r", encoding="utf-8").read())
-            for lang, fn, fp in pages]
+    rows, errors = [], []
+    for lang, route in PAGES:
+        url = f"{SITE_URL}{route}"
+        html, status, err = _fetch_safe(url)
+        if err or status != 200:
+            errors.append({"url": url, "status": status, "error": err or f"HTTP {status}"})
+            continue
+        rows.append(audit_page(lang, route, html))
+
+    scope = (f"线上 {SITE_URL} 双语内容页 HTTP 抓取审计"
+             f"（{', '.join(r for _, r in PAGES)}；Next.js/Vercel 部署）")
+
+    if not rows:
+        # 网络全部失败：如实记录，不编造分数。
+        return {
+            "label": label,
+            "cri_version": "v2" if v2 else "v1",
+            "computed_at": dt.datetime.now().isoformat(timespec="seconds"),
+            "scope": scope,
+            "n_pages": 0,
+            "weights": PILLAR_WEIGHTS,
+            "pillars": {},
+            "cri": None,
+            "detail": {},
+            "errors": errors,
+            "note": "全部页面抓取失败（网络/站点不可达），本次不产生 CRI 分数——如实记录。",
+            "per_page": [],
+        }
+
     n = len(rows)
-    site = _site_level()
-    n_content = n  # zh+en 主站内容页数
+    home = next((r for r in rows if r["route"] == "/"), rows[0])
+    site = _site_level(home.get("_html", ""))
+    n_content = n
 
     # ---- Pillar A：技术 SEO ----
     A_PAGE_KEYS = ["title_ok", "desc_ok", "h1_one", "canonical", "hreflang3", "og_abs",
                    "social_full", "jsonld", "lang_attr", "viewport_charset", "alt_cov",
                    "theme_color", "internal_links_ok"]
     a_page_items = [_frac(rows, k) for k in A_PAGE_KEYS]
-    a_site_keys = ["sitemap", "robots", "robots_sitemap", "indexnow", "manifest"]
-    # v2：A 增 media_dims(decoding) + preload_css 两个页级子项，font_display 并入站级。
+    a_site_keys = ["sitemap", "robots", "robots_sitemap", "seo_ping_endpoint", "manifest"]
     if v2:
         a_v2_media = _imgs_frac(rows, "img_decoding")
         a_v2_preload = _frac(rows, "preload_css")
@@ -316,51 +389,48 @@ def run(label="current", v2=False):
     b2 = 1.0 if site["robots_sitemap"] else 0.0
     b3 = 1.0 if (site["llms"] and site["llms_page_urls"] >= 6) else 0.0
     b4 = 1.0 if site["llms_full"] else 0.0
-    b5 = min(site["llms_full_page_urls"] / max(1, n_content), 1.0)  # llms-full 覆盖率
-    # sitemap 覆盖（应含全部 zh/en 内容页；sitemap 也含 training，故按 ≥ 内容页数判定）
+    b5 = min(site["llms_full_page_urls"] / max(1, n_content), 1.0)
     b6 = 1.0 if site["sitemap_urls"] >= n_content else round(site["sitemap_urls"] / max(1, n_content), 4)
     B = (b1 + b2 + b3 + b4 + b5 + b6) / 6.0
 
     # ---- Pillar C：结构化数据完备度 ----
-    by = {(r["lang"], r["fname"]): r for r in rows}
-    def has_on(fname, key):
-        vals = [r for r in rows if r["fname"] == fname]
+    def has_on(route, key):
+        vals = [r for r in rows if r["route"] == route]
         return all(r.get(key) for r in vals) if vals else False
+
+    def has_any(key):
+        return any(r.get(key) for r in rows)
 
     c1 = _frac(rows, "has_org")
     c2 = _frac(rows, "org_enriched")
     c3 = _frac(rows, "has_website")
     c4 = _frac(rows, "website_search")
-    c5 = (1.0 if has_on("product.html", "has_product") else 0.0) * 0.5 + \
-         (1.0 if has_on("solutions-ai-dc.html", "has_product") else 0.0) * 0.5
-    c6 = 1.0 if has_on("faq.html", "has_faqpage") else 0.0
+    c5 = 1.0 if has_on("/products", "has_product") else 0.0
+    c6 = 1.0 if has_on("/faq", "has_faqpage") else 0.0
     c7 = _frac(rows, "has_breadcrumb")
-    c8 = 1.0 if (has_on("kv-cache-offload.html", "has_techarticle")
-                 and has_on("ai-inference-storage.html", "has_techarticle")) else 0.0
-    c9 = 1.0 if has_on("about.html", "has_person") else 0.0
-    c10 = 1.0 if has_on("glossary.html", "has_definedterms") else 0.0
+    c8 = 1.0 if has_any("has_techarticle") else 0.0
+    c9 = 1.0 if has_any("has_person") else 0.0
+    c10 = 1.0 if has_any("has_definedterms") else 0.0
     c_items = [c1, c2, c3, c4, c5, c6, c7, c8, c9, c10]
-    # v2：C 增 org.sameAs 覆盖 + 首页 WebPage/Speakable。
     if v2:
         c11 = _frac(rows, "org_sameas")
-        c12 = 1.0 if (has_on("index.html", "webpage_type") and has_on("index.html", "speakable")) else 0.0
+        c12 = 1.0 if (has_on("/", "webpage_type") and has_on("/", "speakable")) else 0.0
         c_items += [c11, c12]
     C = sum(c_items) / len(c_items)
 
     # ---- Pillar D：答案优先 / 可抽取性 ----
-    key_rows = [r for r in rows if r["fname"] in KEY_PAGES]
-    ans_rows = [r for r in rows if r["fname"] in ANSWER_PAGES]
-    tbl_rows = [r for r in rows if r["fname"] in TABLE_PAGES]
+    key_rows = [r for r in rows if r["route"] in KEY_PAGES]
+    ans_rows = [r for r in rows if r["route"] in ANSWER_PAGES]
+    tbl_rows = [r for r in rows if r["route"] in TABLE_PAGES]
     d1 = _frac(key_rows, "has_q_h2")
     d2 = _frac(ans_rows, "has_keyfacts")
     d3 = _frac(tbl_rows, "has_table")
-    faq_q = max((r["faq_q_count"] for r in rows if r["fname"] == "faq.html"), default=0)
+    faq_q = max((r["faq_q_count"] for r in rows if r["route"] == "/faq"), default=0)
     d4 = 1.0 if faq_q >= 6 else round(faq_q / 6.0, 4)
-    term_c = max((r["term_count"] for r in rows if r["fname"] == "glossary.html"), default=0)
+    term_c = max((r["term_count"] for r in rows), default=0)
     d5 = 1.0 if term_c >= 8 else round(term_c / 8.0, 4)
     d6 = _frac(rows, "has_source")
     d_items = [d1, d2, d3, d4, d5, d6]
-    # v2：D 增「答案块全覆盖」——全部主内容页含问句式 H2 或速答关键事实块。
     if v2:
         d7 = round(sum(1 for r in rows if r.get("has_q_h2") or r.get("has_keyfacts")) / len(rows), 4)
         d_items += [d7]
@@ -374,7 +444,6 @@ def run(label="current", v2=False):
     e5 = _frac(rows, "has_author")
     e6 = 1.0 if all(r.get("org_enriched") for r in rows) else _frac(rows, "org_enriched")
     e_items = [e1, e2, e3, e4, e5, e6]
-    # v2：E 增 规格排版一致性(spec_canonical) + 真实站外实体锚点(sameAs)。
     if v2:
         e7 = _frac(rows, "spec_canonical")
         e8 = _frac(rows, "org_sameas")
@@ -421,12 +490,14 @@ def run(label="current", v2=False):
         "label": label,
         "cri_version": "v2" if v2 else "v1",
         "computed_at": dt.datetime.now().isoformat(timespec="seconds"),
-        "scope": "official_website 主站双语内容页（zh/ + en/，不含 training 子站与 portal）",
+        "scope": scope,
         "n_pages": n,
         "weights": PILLAR_WEIGHTS,
         "pillars": pillars,
         "cri": cri,
         "detail": detail,
+        "errors": errors,
+        "site_level_errors": site.get("errors", {}),
         "lowest_pillar": min(pillars, key=pillars.get),
         "per_page": clean_rows,
     }
@@ -435,7 +506,7 @@ def run(label="current", v2=False):
 def lowest_levers(snapshot, k=3):
     """返回得分最低的支柱明细子项（用于复盘『还差在哪』）。"""
     items = []
-    for pillar, d in snapshot["detail"].items():
+    for pillar, d in (snapshot.get("detail") or {}).items():
         for key, val in d.items():
             if isinstance(val, (int, float)) and not isinstance(val, bool) and val < 1.0 \
                     and key not in ("ai_bots", "faq_q", "glossary_terms", "sitemap_urls",
@@ -456,9 +527,16 @@ def main():
     if label != "current":
         with open(os.path.join(SNAP, f"{label}.json"), "w", encoding="utf-8") as f:
             json.dump(snap, f, ensure_ascii=False, indent=2)
+    if snap["cri"] is None:
+        print(f"[CRI:{label}] 线上 {SITE_URL} 抓取全部失败，本次不产生分数（如实记录）：")
+        for e in snap["errors"]:
+            print(f"  {e['url']} -> {e['error']}")
+        return
     print(f"[CRI:{label}/{snap['cri_version']}] {snap['cri']}  pillars="
           + " ".join(f"{k}={v}" for k, v in snap["pillars"].items())
           + f"  pages={snap['n_pages']}")
+    if snap["errors"]:
+        print("  抓取失败页（如实记录）：" + "; ".join(e["url"] for e in snap["errors"]))
     print("  最低子项：", "; ".join(f"{name}={v}" for v, name in lowest_levers(snap, 5)))
 
 

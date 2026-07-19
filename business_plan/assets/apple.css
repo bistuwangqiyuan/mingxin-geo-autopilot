@@ -1,0 +1,358 @@
+/* =====================================================================
+   铭信 Mingxin · 报告 Apple 视觉基因打印样式
+   设计：Apple Ink (#1D1D1F) + System Blue (#0A84FF)，大留白、细三线表、
+   章节全幅扉页、metric cards、callout——对齐 Apple Keynote / HIG。
+   目标：经 Chromium 打印为 A4 世界级视觉 PDF。
+   ===================================================================== */
+
+:root {
+  --ink: #1D1D1F;
+  --blue: #0A84FF;
+  --blue-deep: #0030B0;
+  --indigo: #5E5CE6;
+  --teal: #30B0C7;
+  --green: #34C759;
+  --orange: #FF9F0A;
+  --soft: #6E6E73;
+  --hair: #D2D2D7;
+  --hair-soft: #E8E8ED;
+  --bg-tint: #F5F8FF;
+  --bg-tint2: #EAF3FF;
+  --warn-bg: #FFF7E8;
+  --good-bg: #EAFBEF;
+  --font-cn: "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", "Heiti SC", sans-serif;
+  --font-latin: -apple-system, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  color: var(--ink);
+  font-family: var(--font-latin), var(--font-cn);
+  font-size: 13pt;
+  line-height: 2.14;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+
+/* A4 页面；页边距与页眉/页脚由 Playwright page.pdf(margin + header/footerTemplate) 控制 */
+@page { size: A4; }
+
+/* 强制打印背景色/图片 */
+* { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+p { orphans: 3; widows: 3; }
+img { max-width: 100%; }
+
+/* ---------------------------------------------------------------------
+   封面
+   --------------------------------------------------------------------- */
+.cover {
+  break-after: page;
+  text-align: center;
+  padding-top: 4mm;
+}
+.cover .hero img {
+  width: 100%;
+  border-radius: 14px;
+  box-shadow: 0 10px 34px rgba(0,0,0,0.16);
+}
+.doc-title {
+  font-family: var(--font-latin), var(--font-cn);
+  font-size: 40pt;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin: 16px 0 4px;
+  color: var(--ink);
+}
+.doc-subtitle {
+  font-family: var(--font-cn);
+  font-size: 14pt;
+  font-weight: 500;
+  color: var(--blue);
+  margin: 4px 0;
+}
+.doc-subtitle.ink { color: var(--ink); font-weight: 700; }
+.doc-subtitle.soft { color: var(--soft); font-weight: 400; letter-spacing: 0.3px; }
+
+/* ---------------------------------------------------------------------
+   章节扉页（全幅 · Keynote 式）
+   --------------------------------------------------------------------- */
+.divider {
+  break-before: page;
+  break-after: page;
+  padding-top: 10mm;
+  page-break-inside: avoid;
+}
+.divider .dv-hero img {
+  width: 100%;
+  height: 112mm;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+}
+.dv-num {
+  margin-top: 18px;
+  font-family: var(--font-cn);
+  font-size: 14pt;
+  font-weight: 700;
+  color: var(--blue);
+  letter-spacing: 2px;
+}
+.dv-cn {
+  font-family: var(--font-cn);
+  font-size: 34pt;
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: -0.5px;
+  margin-top: 2px;
+}
+.dv-en {
+  font-size: 15pt;
+  color: var(--soft);
+  font-weight: 500;
+  margin-top: 4px;
+}
+.dv-sub {
+  margin-top: 14px;
+  font-family: var(--font-cn);
+  font-size: 12pt;
+  color: var(--soft);
+  line-height: 1.6;
+  max-width: 86%;
+}
+
+/* ---------------------------------------------------------------------
+   标题层级
+   --------------------------------------------------------------------- */
+.sec-h1 {
+  font-family: var(--font-cn);
+  font-size: 22pt;
+  font-weight: 800;
+  color: var(--ink);
+  margin: 10px 0 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--blue);
+  break-after: avoid;
+}
+.h2 {
+  font-family: var(--font-cn);
+  font-size: 16pt;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 32px 0 13px;
+  break-after: avoid;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.h2-num {
+  display: inline-block;
+  font-family: var(--font-latin);
+  font-size: 11pt;
+  font-weight: 700;
+  color: #fff;
+  background: var(--blue);
+  border-radius: 6px;
+  padding: 1px 8px;
+  letter-spacing: 0.3px;
+}
+.h3 {
+  font-family: var(--font-cn);
+  font-size: 12.5pt;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 14px 0 4px;
+  break-after: avoid;
+}
+
+/* ---------------------------------------------------------------------
+   正文与要点
+   --------------------------------------------------------------------- */
+.body {
+  margin: 0 0 17px;
+  text-align: justify;
+  text-justify: inter-character;
+  font-family: var(--font-cn);
+}
+.body.noindent { text-indent: 0; }
+.body:not(.noindent):not(.center):not(.left) { text-indent: 2em; }
+.body.center { text-align: center; text-indent: 0; }
+.body.left { text-align: left; text-indent: 0; }
+.body strong, .bullet strong, .co-body strong { color: var(--blue); font-weight: 700; }
+
+.bullet {
+  margin: 7px 0 7px 2px;
+  padding-left: 22px;
+  position: relative;
+  font-family: var(--font-cn);
+  text-align: justify;
+  line-height: 1.72;
+}
+.bullet .dot {
+  position: absolute;
+  left: 4px;
+  color: var(--blue);
+  font-weight: 800;
+}
+
+/* ---------------------------------------------------------------------
+   三线表
+   --------------------------------------------------------------------- */
+.tl-wrap { margin: 16px 0 20px; break-inside: avoid; }
+.tl-cap {
+  text-align: center;
+  font-family: var(--font-cn);
+  font-size: 10.5pt;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+table.tl {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-cn);
+  font-size: 10pt;
+}
+table.tl thead th {
+  background: var(--bg-tint2);
+  color: var(--ink);
+  font-weight: 700;
+  padding: 7px 8px;
+  border-top: 2px solid var(--ink);
+  border-bottom: 1.5px solid var(--blue);
+}
+table.tl tbody td {
+  padding: 8px 9px;
+  border-bottom: 0.6px solid var(--hair-soft);
+}
+table.tl tbody tr:last-child td { border-bottom: 2px solid var(--ink); }
+table.tl tr.hl td, table.tl tbody tr.hl td {
+  background: var(--bg-tint);
+  font-weight: 700;
+}
+table.tl .center { text-align: center; }
+table.tl .left { text-align: left; }
+table.tl tbody tr:nth-child(even):not(.hl) td { background: #FBFCFE; }
+
+/* ---------------------------------------------------------------------
+   指标卡（metric cards）
+   --------------------------------------------------------------------- */
+.cards {
+  display: grid;
+  gap: 12px;
+  margin: 18px 0 20px;
+  break-inside: avoid;
+}
+.card {
+  background: linear-gradient(180deg, #FFFFFF 0%, var(--bg-tint) 100%);
+  border: 1px solid var(--hair-soft);
+  border-radius: 14px;
+  padding: 18px 12px 16px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(10,132,255,0.06);
+}
+.card-v {
+  font-family: var(--font-latin), var(--font-cn);
+  font-size: 21pt;
+  font-weight: 800;
+  color: var(--blue);
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+}
+.card-l {
+  font-family: var(--font-cn);
+  font-size: 10pt;
+  font-weight: 700;
+  color: var(--ink);
+  margin-top: 4px;
+}
+.card-s {
+  font-family: var(--font-cn);
+  font-size: 8.5pt;
+  color: var(--soft);
+  margin-top: 3px;
+  line-height: 1.35;
+}
+
+/* ---------------------------------------------------------------------
+   callout 要点框
+   --------------------------------------------------------------------- */
+.callout {
+  margin: 18px 0 20px;
+  padding: 15px 18px 15px 20px;
+  border-radius: 12px;
+  border-left: 5px solid var(--blue);
+  background: var(--bg-tint);
+  break-inside: avoid;
+}
+.callout.warn { border-left-color: var(--orange); background: var(--warn-bg); }
+.callout.good { border-left-color: var(--green); background: var(--good-bg); }
+.co-title {
+  font-family: var(--font-cn);
+  font-size: 11pt;
+  font-weight: 800;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.co-body {
+  font-family: var(--font-cn);
+  font-size: 10.5pt;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+/* ---------------------------------------------------------------------
+   图表
+   --------------------------------------------------------------------- */
+.fig {
+  margin: 26px 0 28px;
+  text-align: center;
+  break-inside: avoid;
+}
+.fig img {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--hair-soft);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+}
+.fig figcaption {
+  margin-top: 10px;
+  font-family: var(--font-cn);
+  font-size: 9.5pt;
+  font-weight: 600;
+  color: var(--soft);
+}
+.hero { margin: 6px 0; text-align: center; }
+
+/* ---------------------------------------------------------------------
+   目录
+   --------------------------------------------------------------------- */
+.toc-list { margin: 8px 0; }
+.toc-list .bullet {
+  font-size: 12pt;
+  padding: 6px 0 6px 22px;
+  border-bottom: 0.6px dotted var(--hair);
+}
+
+/* ---------------------------------------------------------------------
+   工具类
+   --------------------------------------------------------------------- */
+.pagebreak { break-after: page; }
+.spacer { height: 8px; }
+
+/* 公式 */
+.formula {
+  text-align: center;
+  margin: 10px 0 12px;
+  break-inside: avoid;
+}
+.formula img { height: 22px; vertical-align: middle; }
+.eq-num {
+  font-family: var(--font-latin);
+  font-size: 10pt;
+  color: var(--soft);
+  margin-left: 12px;
+}

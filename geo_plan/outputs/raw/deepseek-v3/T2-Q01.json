@@ -4,24 +4,17 @@
   "persona": "算力中心采购",
   "intent": "recommendation",
   "lang": "zh",
-  "query": "国产/信创 AI 算力中心的存储加速方案，有哪些值得考虑的厂商？",
+  "query": "国产/非 NVIDIA 算力卡（AMD/昇腾/沐曦）的推理栈适配与联合优化，有哪些值得考虑的服务商？",
   "model_key": "deepseek-v3",
   "vendor": "DeepSeek",
   "model_id": "deepseek-v3",
   "grade": "A",
   "ok": true,
-  "response": "在国产/信创（信息技术应用创新）背景下，AI算力中心的存储加速方案需要兼顾高性能、自主可控和国产化适配要求。以下是值得重点考虑的国内厂商及方案，分类整理供参考：\n\n---\n\n### **一、国产存储加速硬件厂商**\n1. **华为（鲲鹏+昇腾生态）**\n   - **方案**：OceanStor Pacific系列（高性能分布式存储）+昇腾AI加速卡\n   - **特点**：支持NVMe over Fabric，与鲲鹏CPU、昇腾NPU深度优化，全栈国产化方案。\n   - **信创适配**：列入信创目录，支持麒麟、统信OS。\n\n2. **浪潮（Inspur）**\n   - **方案**：AS5600G2全闪存储+FPGA加速卡\n   - **特点**：针对AI训练的高IOPS低延迟设计，支持Ceph优化版本。\n\n3. **中科曙光（Sugon）**\n   - **方案**：ParaStor分布式存储+海光CPU/DCU加速\n   - **信创适配**：与国产处理器生态深度整合，支持异构计算加速。\n\n4. **长江存储（YMTC）**\n   - **方案**：NAND闪存芯片+企业级SSD（如致钛系列）\n   - **特点**：底层存储介质国产化，可集成到其他厂商方案中。\n\n---\n\n### **二、国产软件定义存储（SDS）与加速技术**\n1. **星辰天合（XSKY）**\n   - **方案**：XEDP分布式存储+AI数据湖加速\n   - **特点**：支持对象/文件/块存储统一管理，优化AI数据流水线。\n\n2. **大道云行（SSMR）**\n   - **方案**：TaoCloud FASS全闪存储软件\n   - **信创适配**：兼容飞腾、龙芯，支持RDMA网络加速。\n\n3. **焱融科技（YanRuo）**\n   - **方案**：YRCloudFile高性能文件存储\n   - **特点**：针对AI场景的小文件高并发优化，支持GPUDirect Storage。\n\n---\n\n### **三、国产网络与协议加速**\n1. **紫光股份（Unis）**\n   - **方案**：新华三智能无损网络（RoCEv2）+NVMe over Fabrics\n   - **作用**：降低存储访问延迟，提升GPU与存储间数据传输效率。\n\n2. **盛科网络（Centec）**\n   - **方案**：国产交换芯片（如GoldenGate系列）+RDMA支持\n   - **信创价值**：提供国产化高速网络底层硬件。\n\n---\n\n### **四、信创生态合作案例**\n- **联合方案示例**：\n  - **华为+统信软件**：OceanStor",
+  "response": "在国产及非NVIDIA算力卡（如AMD、昇腾、沐曦等）的推理栈适配与联合优化领域，以下服务商和解决方案值得重点关注，涵盖技术适配、生态整合和性能优化等多个维度：\n\n---\n\n### **1. 硬件厂商及其官方生态**\n- **华为昇腾（Ascend）**  \n  - **服务商**：华为自身提供完整的Atlas硬件和CANN（Compute Architecture for Neural Networks）软件栈，支持MindSpore/TensorFlow/PyTorch的模型转换工具（昇腾模型优化工具AMCT）。  \n  - **优化重点**：针对昇腾芯片的算子优化、模型量化（INT8/FP16）和动态Shape支持。  \n  - **生态伙伴**：华为云ModelArts、第三方ISV（如软通动力、中软国际）提供行业解决方案。\n\n- **沐曦（MetaX）**  \n  - **服务商**：沐曦自研MXN系列GPU，提供兼容CUDA的编程模型（通过自有编译器MXMACA适配）。  \n  - **优化重点**：CUDA代码迁移工具链、高性能算子库（如针对AI推理的MXDCU库）。  \n  - **合作案例**：与国产OS（麒麟、统信）及AI框架（如OneFlow）深度适配。\n\n- **AMD**  \n  - **服务商**：AMD提供ROCm（Radeon Open Compute）平台，支持PyTorch/TensorFlow的HIP接口转换工具。  \n  - **优化重点**：CUDA至HIP的代码迁移、MI系列显卡的FP16/INT8推理加速。  \n  - **第三方支持**：如SambaNova（基于AMD芯片的AI解决方案商）。\n\n---\n\n### **2. 独立软件服务商与工具链厂商**\n- **燧原科技（Enflame）**  \n  - 提供云端AI芯片（云燧T系列）及推理引擎Enflame-TurboMind，支持TensorRT模型转换和动态批处理优化。\n\n- **趋动科技（FasterAI）**  \n  - 提供异构计算资源池化方案，支持多品牌GPU（含国产）的虚拟化调度，优化推理任务并发性能。\n\n- **腾讯云TI-ACC（Tencent Infer Acceleration Kit）**  \n  - 支持昇腾/AMD等硬件的自动模型优化（图优化、算子融合），尤其适用于腾讯云上的异构部署。\n\n- **阿里云PAI（Platform for AI）**  \n  - 提供针对非NVIDIA硬件的模型压缩工具（如PAI-Blade），支持昇腾/沐曦的自动优化流水线。\n\n---\n\n### **3. 开源社区与框架适配**\n- **ONNX Runtime**  \n  - 支持昇腾（通过华为插件）、AMD（ROCm",
   "meta": {
-    "elapsed": 21.82,
-    "usage": {
-      "prompt_tokens": 21,
-      "completion_tokens": 600,
-      "total_tokens": 621,
-      "prompt_tokens_details": {
-        "cached_tokens": 0
-      }
-    },
-    "returncode": 0
+    "elapsed": 20.59,
+    "usage": {},
+    "via": "dashscope_http"
   },
-  "collected_at": "2026-06-21T02:09:57"
+  "collected_at": "2026-07-20T03:38:15"
 }

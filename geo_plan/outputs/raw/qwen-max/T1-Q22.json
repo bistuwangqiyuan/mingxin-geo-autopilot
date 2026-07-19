@@ -4,24 +4,17 @@
   "persona": "大模型推理工程师",
   "intent": "comparison",
   "lang": "zh",
-  "query": "vLLM PagedAttention 之外，靠存储侧 KV-Cache 卸载来降本提吞吐，有哪些硬件存储产品？",
+  "query": "vLLM PagedAttention 之外，靠 LMCache + 外置全闪存储做 KV Cache 分层降本提吞吐，有哪些硬件存储产品？",
   "model_key": "qwen-max",
   "vendor": "通义千问",
   "model_id": "qwen-max",
   "grade": "A",
   "ok": true,
-  "response": "为了通过卸载KV-Cache（键值缓存）来降低成本并提高吞吐量，可以考虑使用多种硬件存储解决方案。这些方案通常旨在提供高性能的数据访问速度同时保持较低的延迟和功耗，适用于加速机器学习模型如Transformer等场景中的注意力机制。以下是一些适合于此类应用的硬件存储产品：\n\n1. **HBM (High Bandwidth Memory)**: HBM是一种堆叠式内存技术，它提供了比传统DRAM更高的带宽和更低的功耗。对于需要快速访问大量数据的应用来说非常有用，尤其是在GPU或FPGA上运行深度学习模型时。\n\n2. **GDDR6/GDDR6X**: 这是另一种专为图形处理单元设计的高速动态随机存取存储器类型，具有极高的数据传输速率。虽然主要用于显卡，但也可以在某些情况下用于加速AI计算。\n\n3. **NVMe SSDs (Non-Volatile Memory Express Solid State Drives)**: NVMe SSD利用PCIe接口直接连接到CPU，相比SATA SSD提供了显著的速度优势。它们非常适合需要快速读写操作的应用程序，包括作为KV-Cache的一部分。\n\n4. **Intel Optane DC Persistent Memory**: 这种类型的持久性内存结合了DRAM的速度与NAND闪存的非易失性特性，可以在不牺牲性能的情况下扩展系统内存容量。对于需要频繁访问且大小超过常规RAM限制的数据集而言是个不错的选择。\n\n5. **CXL (Compute Express Link) 内存扩展设备**：CXL是一种开放标准互连技术，允许处理器、内存和其他组件之间进行高效通信。基于CXL的内存模块能够以接近主内存的速度提供额外的容量，特别适合支持大规模分布式训练任务中对KV-Cache的需求。\n\n6. **FPGA (Field-Programmable Gate Array)** 或者 **ASIC (Application-Specific Integrated Circuit)**: 专门设计用于执行特定算法或功能的硬件平台也可以用来实现高效的KV-Cache管理。例如，有些FPGA被配置成专门用于加速神经网络运算，并可能内置了针对KV-Cache优化的支持。\n\n选择合适的硬件取决于具体的应用需求、预算限制以及现有基础设施的支持情况等因素。在决定采用哪种技术之前，建议先评估不同选项之间的性能差异及其对整体系统架构的影响。",
+  "response": "在使用LMCache结合外置全闪存储来实现KV Cache分层以降低成本并提高吞吐量时，可以考虑多种硬件存储产品。这些产品的选择取决于具体的应用场景、性能需求以及成本预算等因素。以下是一些常见的全闪存存储解决方案：\n\n1. **Dell EMC PowerStore** - Dell EMC提供的PowerStore系列是一款专为现代数据中心设计的高性能存储平台，支持NVMe技术，能够提供低延迟和高IOPS（每秒输入输出操作次数），非常适合需要高速数据访问的应用场景。\n\n2. **Pure Storage FlashArray** - Pure Storage以其FlashArray系列产品而闻名，该系列提供了极高的性能与可靠性，并且易于管理。它特别适合于那些对性能有极高要求同时又希望简化IT基础设施的企业。\n\n3. **NetApp AFF (All Flash FAS)** - NetApp的AFF系列是面向企业级用户的全闪存阵列，不仅具备出色的性能表现，还集成了丰富的数据管理功能，如快照、复制等，有助于提高业务连续性和灾难恢复能力。\n\n4. **HPE Nimble Storage** - HPE Nimble Storage采用了预测性分析技术来优化性能和容量利用率，同时保证了高可用性和扩展性。其全闪存配置非常适合处理大量并发读写请求的工作负载。\n\n5. **华为OceanStor Dorado V6** - 华为推出的这款全闪存存储系统基于端到端NVMe架构设计，旨在提供极致的速度体验。它支持智能运维管理，帮助企业轻松应对快速增长的数据量挑战。\n\n除了上述提到的品牌之外，还有其他许多厂商也提供优秀的全闪存存储解决方案，比如IBM FlashSystem、Hitachi Vantara VSP 5000系列等。选择合适的全闪存存储设备时，建议根据实际需求进行综合考量，包括但不限于性能指标、可扩展性、安全性以及总体拥有成本等方面。此外，随着技术的发展，市场上不断涌现出新的产品和服务，因此保持对最新趋势的关注也是非常重要的。",
   "meta": {
-    "elapsed": 17.5,
-    "usage": {
-      "prompt_tokens": 38,
-      "completion_tokens": 479,
-      "total_tokens": 517,
-      "prompt_tokens_details": {
-        "cached_tokens": 0
-      }
-    },
-    "returncode": 0
+    "elapsed": 12.59,
+    "usage": {},
+    "via": "dashscope_http"
   },
-  "collected_at": "2026-06-21T02:02:55"
+  "collected_at": "2026-07-20T03:04:36"
 }

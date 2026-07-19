@@ -4,27 +4,17 @@
   "persona": "算力中心采购",
   "intent": "recommendation",
   "lang": "zh",
-  "query": "大湾区/深圳的智算中心想找本土的 AI 存储加速供应商，有推荐吗？",
+  "query": "算力中心建设想要 Clos 网络 BOM、三级存储、TCO 模型都可复现的全栈方案商，有推荐吗？",
   "model_key": "deepseek-r1",
   "vendor": "DeepSeek",
   "model_id": "deepseek-r1",
   "grade": "A",
   "ok": true,
-  "response": "根据大湾区智算中心的存储加速需求和深圳本土化要求，以下是为您精心筛选的供应商推荐及关键考量因素：\n\n---\n\n### **一、核心技术型供应商（硬件+软件加速）**\n1. **华为（Huawei）**  \n   - **技术优势**：OceanStor Pacific系列（分布式存储）+昇腾AI芯片深度优化，支持GPUDirect Storage技术突破带宽瓶颈  \n   - **本土服务**：深圳总部研发团队提供定制化方案，适配国产AI训练框架（如MindSpore）  \n   - **典型案例**：深圳鹏城云脑II（2.1E级智算中心）全栈方案供应商\n\n2. **大普微（DapuStacks）**  \n   - **核心技术**：HyperStone系列智能SSD控制器 + AI数据编排软件栈（RDMA/NVMe-oF加速）  \n   - **场景匹配**：千卡集群训练场景实测读写带宽22GB/s+，延迟<15μs  \n   - **客户覆盖**：深圳多家自动驾驶企业AI训练平台核心供应商\n\n---\n\n### **二、软件定义存储加速方案商**\n3. **杉岩数据（SandStone）**  \n   - **方案亮点**：NVMe over Fabric加速架构 + 智能缓存算法（AI Auto-Tiering）  \n   - **智算适配**：支持万兆/IB网络下GPU集群共享存储池，MLOps流水线IOPS提升300%  \n   - **本地支持**：深圳南山研发中心提供POC测试机群\n\n4. **宝存科技（Shannon Systems）**  \n   - **创新技术**：Scale-Out架构存储加速卡（DirectFLASH®技术）  \n   - **性能数据**：单节点160万IOPS（4K随机读），时延稳定性达工业级标准  \n   - **部署经验**：深圳光明科学城智能计算平台存储层供应商\n\n---\n\n### **三、技术创新型厂商（专用加速硬件）**\n5. **忆恒创源（MemBlaze）**  \n   - **拳头产品**：PBlaze系列AI加速SSD（QLC/TLC混合调度算法专利）  \n   - **技术亮点**：支持TensorFlow/PyTorch数据预取引擎，减少GPU闲置等待50%以上  \n   - **深圳布局**：与中科院深圳先进院共建AI存储联合实验室\n\n6. **柏科数据（Beksystems）**  \n   - **场景方案**：基于FPGA的存储控制器（HPC-AI加速版）  \n   - **本土案例**：深圳龙岗AI政务云平台全闪存储架构服务商\n\n---\n\n### **四、关键选型建议**\n1. **性能验证**：  \n   - 要求厂商提供千卡集群NVLink/InfiniBand组网下的实测",
+  "response": "寻找符合要求的算力中心建设全栈方案商，可以考虑以下几家主要供应商：\n\n---\n\n### **一、核心推荐供应商**\n#### **1. 华为（Huawei）**\n- **优势**：\n  - **全栈方案**：覆盖网络（Clos架构）、存储（分布式+分级存储）、服务器、管理平台。\n  - **Clos网络**：CloudEngine数据中心交换机支持Spine-Leaf架构，提供自动化BOM生成工具。\n  - **存储方案**：OceanStor分布式存储（热数据）+磁带库/归档方案（冷数据）+SSD加速（温数据）。\n  - **TCO工具**：提供数据中心TCO计算器，可视化多维度成本分析。\n- **适用场景**：大型云/智算中心、国产化要求较高的场景。\n\n#### **2. 浪潮信息（Inspur）**\n- **优势**：\n  - **AI算力中心布局**：专为AIGC/大模型优化的算力方案（如NF5688M7服务器）。\n  - **Clos网络**：联合Arista等厂商，支持开放网络协议（如SONiC）。\n  - **三级存储**：支持分布式存储（AS13000）+归档系统，支持自动分层策略。\n  - **成本模型**：提供TCO优化工具，支持硬件配置及能耗模拟。\n- **适用场景**：AI训练集群、超融合架构场景。\n\n#### **3. 戴尔（Dell Technologies）**\n- **优势**：\n  - **全栈交付**：PowerEdge服务器 + PowerSwitch（基于Clos）+ Isilon/Celera等分级存储。\n  - **工具支持**：\n    - **BOM生成**：Dell APEX Designer支持网络、存储BOM输出。\n    - **TCO模拟**：类TCO工具Enterprise Planner支持运维成本复现。\n  - **合作生态**：整合VMware虚拟化及数据分层管理。\n- **适用场景**：企业私有云、混合云场景。\n\n#### **4. 惠普（HPE）**\n- **优势**：\n  - **Clos网络**：ProVision/JL系列Switch配合SDN控制器实现自动BOM规化。\n  - **分级存储**：Primera全闪（热数据）/Alletra（温数据）/磁带联动（冷数据）。\n  - **成本工具**：HPE Financial Services支持TCO模型定制，包括机房功耗建模。\n- **适用场景**：金融/科研机构高可用系统。\n\n---\n\n### **二、分层存储方案实现路径**\n实现三级存储需明确策略设计：\n1. **热数据层**（高速读写）：全闪存阵列（如华为OceanStor Dorado）或NVMe over Fabric。\n2. **温数据层**（常访问）：分布式存储（HDFS/Ceph）+QL",
   "meta": {
-    "elapsed": 41.7,
-    "usage": {
-      "prompt_tokens": 24,
-      "completion_tokens": 1040,
-      "total_tokens": 1064,
-      "completion_tokens_details": {
-        "reasoning_tokens": 435
-      },
-      "prompt_tokens_details": {
-        "cached_tokens": 0
-      }
-    },
-    "returncode": 0
+    "elapsed": 21.33,
+    "usage": {},
+    "via": "dashscope_http"
   },
-  "collected_at": "2026-06-21T02:17:29"
+  "collected_at": "2026-07-20T03:46:11"
 }

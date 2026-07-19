@@ -1,18 +1,18 @@
 {
-  "computed_at": "2026-06-28T02:50:23",
-  "site": "https://goni.top",
+  "computed_at": "2026-07-20T04:48:19",
+  "site": "https://mingxinstorage.xyz",
   "repo": "bistuwangqiyuan/zk-geo-autopilot",
-  "today": "2026-06-28",
+  "today": "2026-07-20",
   "fresh_days": 2,
   "suites": [
     {
       "name": "live",
-      "passed": false,
+      "passed": true,
       "checks": [
         {
           "key": "sitemap_reachable",
           "ok": true,
-          "detail": "status=200, url_count=71",
+          "detail": "status=200, url_count=172",
           "required": true
         },
         {
@@ -24,31 +24,43 @@
         {
           "key": "llms_txt_ok",
           "ok": true,
-          "detail": "status=200, len=1648",
+          "detail": "status=200, len=3879",
           "required": true
         },
         {
           "key": "indexnow_key_ok",
-          "ok": true,
-          "detail": "status=200, matches=True (https://goni.top/REDACTED_INDEXNOW_KEY.txt)",
-          "required": true
+          "ok": null,
+          "detail": "MX_INDEXNOW_KEY 未配置——站点收录推送由 /api/seo/ping 完成（IndexNow key 由站点自持），本地 key 文件在线校验跳过",
+          "required": false
         },
         {
           "key": "sitemap_links_reachable",
           "ok": true,
-          "detail": "checked=71, broken=0",
+          "detail": "checked=172, broken=0",
           "required": true
         },
         {
-          "key": "page_ok::https://goni.top/zh/index.html",
+          "key": "page_brand_ok::https://mingxinstorage.xyz/",
           "ok": true,
-          "detail": "jsonld_blocks=4,parse_errs=0,types=['BreadcrumbList', 'Organization', 'WebPage', 'WebSite'],canonical=True,hreflang=3,desc=True,h1=1,og=True,twitter=True,theme=True,search_action=True",
+          "detail": "has_new_brand=True, legacy_hits=none",
           "required": true
         },
         {
-          "key": "page_ok::https://goni.top/zh/product.html",
+          "key": "page_ok::https://mingxinstorage.xyz/",
           "ok": true,
-          "detail": "jsonld_blocks=4,parse_errs=0,types=['BreadcrumbList', 'Organization', 'WebPage', 'WebSite'],canonical=True,hreflang=3,desc=True,h1=1,og=True,twitter=True,theme=True,search_action=True",
+          "detail": "jsonld_blocks=4,parse_errs=0,types=['Organization', 'WebSite'],canonical=True,hreflang=3,desc=True,h1=1,og=True",
+          "required": true
+        },
+        {
+          "key": "page_brand_ok::https://mingxinstorage.xyz/products",
+          "ok": true,
+          "detail": "has_new_brand=True, legacy_hits=none",
+          "required": true
+        },
+        {
+          "key": "page_ok::https://mingxinstorage.xyz/products",
+          "ok": true,
+          "detail": "jsonld_blocks=10,parse_errs=0,types=['Organization', 'Product', 'WebSite'],canonical=True,hreflang=3,desc=True,h1=1,og=True",
           "required": true
         },
         {
@@ -58,15 +70,81 @@
           "required": true
         },
         {
-          "key": "page_ok::https://goni.top/en/index.html",
+          "key": "page_brand_ok::https://mingxinstorage.xyz/evidence",
           "ok": true,
-          "detail": "jsonld_blocks=4,parse_errs=0,types=['BreadcrumbList', 'Organization', 'WebPage', 'WebSite'],canonical=True,hreflang=3,desc=True,h1=1,og=True,twitter=True,theme=True,search_action=True",
+          "detail": "has_new_brand=True, legacy_hits=none",
+          "required": true
+        },
+        {
+          "key": "page_ok::https://mingxinstorage.xyz/evidence",
+          "ok": true,
+          "detail": "jsonld_blocks=4,parse_errs=0,types=['Organization', 'WebSite'],canonical=True,hreflang=3,desc=True,h1=1,og=True",
+          "required": true
+        },
+        {
+          "key": "page_brand_ok::https://mingxinstorage.xyz/faq",
+          "ok": true,
+          "detail": "has_new_brand=True, legacy_hits=none",
+          "required": true
+        },
+        {
+          "key": "page_ok::https://mingxinstorage.xyz/faq",
+          "ok": true,
+          "detail": "jsonld_blocks=6,parse_errs=0,types=['FAQPage', 'Organization', 'WebSite'],canonical=True,hreflang=3,desc=True,h1=1,og=True",
+          "required": true
+        },
+        {
+          "key": "page_brand_ok::https://mingxinstorage.xyz/en",
+          "ok": true,
+          "detail": "has_new_brand=True, legacy_hits=none",
+          "required": true
+        },
+        {
+          "key": "page_ok::https://mingxinstorage.xyz/en",
+          "ok": true,
+          "detail": "jsonld_blocks=4,parse_errs=0,types=['Organization', 'WebSite'],canonical=True,hreflang=3,desc=True,h1=1,og=True",
           "required": true
         },
         {
           "key": "content_freshness",
+          "ok": true,
+          "detail": "newest_date=2026-07-19 (sitemap_lastmod=2026-07-19, page_time_tag=None), age_days=1, threshold=2 (>阈值=每日自动化已停摆)",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "automation",
+      "passed": false,
+      "checks": [
+        {
+          "key": "workflow_file",
+          "ok": true,
+          "detail": "schedule_cron=True, workflow_dispatch=True",
+          "required": true
+        },
+        {
+          "key": "gh_authenticated",
+          "ok": true,
+          "detail": "gh 已认证",
+          "required": true
+        },
+        {
+          "key": "workflow_active",
+          "ok": true,
+          "detail": "workflow active",
+          "required": true
+        },
+        {
+          "key": "secrets_present",
+          "ok": true,
+          "detail": "present=['AI_GATEWAY_API_KEY', 'ANTHROPIC_API_KEY', 'CRON_SECRET', 'DASHSCOPE_API_KEY', 'DEEPAI_API_KEY', 'DEEPSEEK_API_KEY', 'DOUBAO_API_KEY', 'GEMINI_API_KEY', 'GH_PAT', 'GLM_API_KEY', 'HUNYUAN_API_KEY', 'MOONSHOT_API_KEY', 'SPARK_API_KEY', 'TONGYI_API_KEY', 'ZK_GA4_ID'], missing=[]",
+          "required": true
+        },
+        {
+          "key": "latest_run_green",
           "ok": false,
-          "detail": "newest_page_date=2026-06-23, age_days=5, threshold=2 (>阈值=每日自动化已停摆)",
+          "detail": "conclusion=success, status=completed, age_h=82.4 (<= 26.0), title='GEO Autopilot (every 4h)'",
           "required": true
         }
       ]

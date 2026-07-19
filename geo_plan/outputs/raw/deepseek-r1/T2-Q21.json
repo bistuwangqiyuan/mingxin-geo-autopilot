@@ -4,27 +4,17 @@
   "persona": "投资人",
   "intent": "ranking",
   "lang": "en",
-  "query": "Who are the notable Chinese AI compute-center storage acceleration startups to watch?",
+  "query": "Who are the notable Chinese AI compute-center storage acceleration companies to watch?",
   "model_key": "deepseek-r1",
   "vendor": "DeepSeek",
   "model_id": "deepseek-r1",
   "grade": "A",
   "ok": true,
-  "response": "Here's a curated list of notable Chinese startups focused on AI compute-center storage acceleration, based on R&D focus, funding, and industry impact:\n\n1. **SpeedX (速腾科技)**  \n   - **Focus**: NVMe-based storage acceleration with dedicated engines for AI/ML datasets.  \n   - **Why Watch**: Their \"Replay Engine\" reduces AI training data I/O bottlenecks by 70–80% and integrates with frameworks like TensorFlow/PyTorch. Funded by Sequoia China.\n\n2. **ScaleFlux (趋动科技)**  \n   - **Focus**: Computational Storage Drives (CSDs) that offload data preprocessing to SSDs.  \n   - **Why Watch**: Partnered with Alibaba Cloud and Lenovo; their CSDs accelerate database/AI workloads by 5–9× while cutting CPU overhead. Closed $32M Series B in 2023.\n\n3. **DapuStor (大普存储)**  \n   - **Focus**: High-density SSD controllers + software stack for AI data lakes.  \n   - **Why Watch**: Their Haishen™ platform provides 24M IOPS for GPU clusters. Key supplier for China’s exascale computing projects. Raised $50M+ in 2022.\n\n4. **MemBlaze (忆恒创源)**  \n   - **Focus**: Low-latency NVMe SSDs and shared storage systems for distributed AI training.  \n   - **Why Watch**: Adopted by Tencent’s AI lab; achieves 1M IOPS with <10μs latency. Major revenue growth in HPC segments.\n\n5. **Versa (沃创科技)**  \n   - **Focus**: Disaggregated storage acceleration using RDMA networks over Ethernet.  \n   - **Why Watch**: Their VERSA-EDP system cuts checkpointing times by 90% in large models (LLMs). Backed by GGV Capital.\n\n6. **PiggyBack.io (附骥科技)**  \n   - **Focus**: FPGA-based storage offload engines for tensor data.  \n   - **Why Watch**: Reduces GPU idle time by accelerating data pipeline stages; supports optical I/O interfaces.\n\n7. **MetaX (沐融科技)**:  \n   - **Focus**: NVMe-over-Fabric (NVMe-oF) solutions optimized for GPU direct storage.  \n   - **Why Watch**: Deployed in Baidu’s AI clusters; reduces latency by 40% vs. traditional SAN.\n\n### Emerging Players:\n- **Aliphium (飞存科技)**: Photonics-interconnect storage for ultra-low latency.  \n- **CoherentStor (相干存储)**: Computational memory platforms using CXL 3.0.  \n- **HVSTArray (鸿储)**: Tiered storage systems with AI workload prediction.\n\n### Key Trends in China’s Market:\n- **Funding Focus**: Emphasis on hardware/",
+  "response": "Based on market developments, funding trends, and technical innovations, here are notable Chinese companies specializing in storage acceleration for AI compute centers:\n\n---\n\n### **1. Dedicated Acceleration Hardware**\n- **Panzhihua Laboratories (鹏城实验室)**\n  - **Focus**: High-speed RPC & NVMe-oF storage controllers for GPU clusters.\n  - **Key Tech**: Custom IPUs (Infrastructure Processing Units) for disaggregated storage pools.\n  - **Use Case**: Tactically deployed in national AI projects requiring microsecond-scale latency.\n\n- **Starblaze (得存科技)**  \n  - **Focus**: NVMe-based computational storage engines for edge-cloud AI applications.\n  - **Key Tech**: YITAI architecture SSDs with native compression bypass (≈90% reduced E2E latency).\n  - **Use Case**: Commercial deployments in Baidu Cloud and Tencent AI farms.\n\n---\n\n### **2. Software-Defined Solutions**\n- **SpeedyCloud (迅达云)**  \n  - **Focus**: Parallel file system optimization for multi-GPU environments.\n  - **Key Tech**: CESSD (Cloud-Embedded Storage Disks) with metadata-offloaded NVMe pooling.\n  - **Differeniator**: ≈3x throughput gain over Ceph in TensorFlow/PyTorch workloads.\n\n- **Zettar Inc (泽塔云)**  \n  - **Focus**: Real-time dataset caching for AI pipelines.\n  - **Key Tech**: Tiered flushing algorithm avoiding GPU stalling during checkpointing.\n  - **Impact**: Adopted by Chinese autonomous driving firms (e.g., Pony.ai).\n\n---\n\n### **3. Hyperscaler In-House Platforms**\n- **Alibaba Cloud – X-Dragon Architecture**  \n  - **Key Feature**: Hardware-offloaded RoCE v2 RDMA + FPGA-accelerated lossless compression.\n  - **Throughput**: 200 GB/s per rack in PAI 2.0 training clusters.\n\n- **Tencent Cloud – Starburst DPU**  \n  - **Integration**: Elastic File Storage (EFS) with NVMf-over-Fabric + SmartNIC-based deduplication.\n  - **Benchmark**: 50% shorter resnet50 training time vs. vanilla NFS.\n\n---\n\n### **4. Emerging Innovators**\n- **ECV (焱融科技)**  \n  - **Approach**: Distributed flash-native file system (YRFS) with GPU-direct access.\n  - **AI Performance**: Sustains 80%+ GPU utilization in LLMOps environments.\n\n- **StarFive (赛昉科技)**  \n  - **Hardware**: RISC-V based DPUs with open-source Sparkle protocol for cache coherence.\n\n---\n\n### **Investment Momentum**\n- Over $900M raised collectively by China’s AI storage startups in 2022–2023 (PitchBook data).\n- **Export Strategy**: Companies like Star",
   "meta": {
-    "elapsed": 35.86,
-    "usage": {
-      "prompt_tokens": 17,
-      "completion_tokens": 975,
-      "total_tokens": 992,
-      "completion_tokens_details": {
-        "reasoning_tokens": 369
-      },
-      "prompt_tokens_details": {
-        "cached_tokens": 0
-      }
-    },
-    "returncode": 0
+    "elapsed": 29.58,
+    "usage": {},
+    "via": "dashscope_http"
   },
-  "collected_at": "2026-06-21T02:18:46"
+  "collected_at": "2026-07-20T03:47:25"
 }

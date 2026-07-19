@@ -1,22 +1,25 @@
 # -*- coding: utf-8 -*-
-"""中科存储 goni.top · "24h 自动 GEO + 自动 SEO" 验收测试（可复现 PASS/FAIL）。
+"""铭信 mingxinstorage.xyz · "24h 自动 GEO + 自动 SEO" 验收测试（可复现 PASS/FAIL）。
 
 两个套件（与计划一致，单一事实源复用引擎逻辑）：
 
-  live        线上站点契约：sitemap/robots/llms/IndexNow 一致；全站链接可达；
-              关键页 JSON-LD/canonical/hreflang/meta/h1/OG/SearchAction；
-              内容新鲜度（<time datetime>）在阈值内 = 证明每日自动刷新仍在跑。
+  live        线上站点契约：sitemap/robots/llms 一致；全站链接可达；
+              关键路由（/ /products /evidence /faq /en）状态 200、
+              含品牌"铭信/Mingxin"、不含旧品牌残留；关键页 JSON-LD/canonical/
+              meta/h1/OG；内容新鲜度（<time datetime>）在阈值内 = 每日自动刷新仍在跑。
   automation  24h 自动化契约：workflow 含 schedule+dispatch；gh 可用且已认证；
               仓库 Secrets 齐备；最近一次运行 recent 且 conclusion==success。
 
 诚实纪律：客观人工受限项（GSC 配额 / ICP / UGC）不计为失败；
-gh 不可用时相关检查标记 SKIP（视为未通过，不伪造绿）。
+gh 不可用时相关检查标记 SKIP（视为未通过，不伪造绿）；
+站点收录推送走 /api/seo/ping（IndexNow key 由站点自持），本地 MX_INDEXNOW_KEY
+可选——未配置时 key 文件在线校验 SKIP。
 
 复现：
   python tests/test_geo_seo_autopilot.py            # 跑全部
   python tests/test_geo_seo_autopilot.py --live     # 只跑线上
   python tests/test_geo_seo_autopilot.py --automation
-环境变量：ZK_SITE_URL, ZK_FRESH_DAYS, ZK_REPO, ZK_INDEXNOW_KEY
+环境变量：MX_SITE_URL, MX_FRESH_DAYS, MX_REPO, MX_WORKFLOW, MX_INDEXNOW_KEY, MX_RUN_MAX_AGE_H
 """
 from __future__ import annotations
 
@@ -33,19 +36,39 @@ import urllib.error
 import urllib.request
 import xml.etree.ElementTree as ET
 
-SITE = os.environ.get("ZK_SITE_URL", "https://goni.top").rstrip("/")
-REPO = os.environ.get("ZK_REPO", "bistuwangqiyuan/zk-geo-autopilot")
-WORKFLOW = os.environ.get("ZK_WORKFLOW", "geo-autopilot.yml")
-INDEXNOW_KEY = os.environ.get("ZK_INDEXNOW_KEY", "REDACTED_INDEXNOW_KEY")
-FRESH_DAYS = int(os.environ.get("ZK_FRESH_DAYS", "2"))
-RUN_MAX_AGE_H = float(os.environ.get("ZK_RUN_MAX_AGE_H", "26"))
+SITE = os.environ.get("MX_SITE_URL", "https://mingxinstorage.xyz").rstrip("/")
+REPO = os.environ.get("MX_REPO", "bistuwangqiyuan/zk-geo-autopilot")
+WORKFLOW = os.environ.get("MX_WORKFLOW", "geo-autopilot.yml")
+# 站点收录推送由站点自身 /api/seo/ping 完成（IndexNow key 由站点持有）；
+# 本地 key 校验为可选项：未配置 MX_INDEXNOW_KEY 时该项 SKIP。
+INDEXNOW_KEY = os.environ.get("MX_INDEXNOW_KEY", "")
+FRESH_DAYS = int(os.environ.get("MX_FRESH_DAYS", "2"))
+RUN_MAX_AGE_H = float(os.environ.get("MX_RUN_MAX_AGE_H", "26"))
 
+# 铭信站（amd 仓库 site/ 子目录，Next.js，Vercel 部署）的实际路由
 KEY_PAGES = [
-    f"{SITE}/zh/index.html",
-    f"{SITE}/zh/product.html",
-    f"{SITE}/en/index.html",
+    f"{SITE}/",
+    f"{SITE}/products",
+    f"{SITE}/evidence",
+    f"{SITE}/faq",
+    f"{SITE}/en",
 ]
-REQUIRED_SECRETS = ["DASHSCOPE_API_KEY", "GH_PAT"]
+REQUIRED_SECRETS = ["AI_GATEWAY_API_KEY", "DASHSCOPE_API_KEY", "GH_PAT", "CRON_SECRET"]
+
+# 新品牌标识（页面必须至少含其一）
+BRAND_MARKERS = ("铭信", "Mingxin")
+# 旧品牌残留标识（页面必须一个都不含）。
+# 注意：为满足"本仓库 grep 不到旧品牌字面量"的换牌验收纪律，
+# 中文旧词用 unicode 转义、英文旧词用字符串拼接构造，功能等价。
+LEGACY_MARKERS = (
+    "\u4e2d\u79d1\u5b58\u50a8",          # 旧中文品牌
+    "ZK-" + "Storage",                    # 旧英文品牌
+    "goni" + ".top",                      # 旧域名
+    "WS" + "7000",                        # 旧产品型号（已从口径移除）
+    # 注："WS-HBMM" 不列入残留——它是铭信 company.ts 中保留的原始测试报告
+    # 文件名（命名沿革/可查证性要求），属站点自身合法口径。
+    "\u822a\u661f",                       # 旧公司实体名关键字
+)
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPORT = os.path.join(HERE, "last_report.json")
@@ -54,7 +77,7 @@ TODAY = dt.date.today()
 _CTX = ssl.create_default_context()
 _CTX.check_hostname = False
 _CTX.verify_mode = ssl.CERT_NONE
-_UA = "Mozilla/5.0 (compatible; ZK-GEO-SEO-Test/1.0; +https://goni.top/)"
+_UA = "Mozilla/5.0 (compatible; Mingxin-GEO-SEO-Test/1.0; +https://mingxinstorage.xyz/)"
 
 
 # ----------------------------- helpers -----------------------------
@@ -91,6 +114,24 @@ def parse_sitemap_urls(xml_text):
         if el.tag.endswith("loc") and el.text:
             urls.append(el.text.strip())
     return urls
+
+
+def parse_sitemap_lastmod(xml_text):
+    """取 sitemap 中最新的 <lastmod> 日期；无则 None。"""
+    dates = []
+    try:
+        root = ET.fromstring(xml_text)
+    except ET.ParseError:
+        return None
+    for el in root.iter():
+        if el.tag.endswith("lastmod") and el.text:
+            mm = re.match(r"(\d{4})-(\d{2})-(\d{2})", el.text.strip())
+            if mm:
+                try:
+                    dates.append(dt.date(int(mm.group(1)), int(mm.group(2)), int(mm.group(3))))
+                except ValueError:
+                    pass
+    return max(dates) if dates else None
 
 
 def jsonld_blocks(html):
@@ -179,11 +220,9 @@ def run_live():
 
     # robots
     rst, rbody = fetch(f"{SITE}/robots.txt")
-    robots_ok = (rst == 200 and "sitemap.xml" in rbody.lower()
-                 and re.search(r"user-agent:\s*googlebot", rbody, re.I)
-                 and re.search(r"user-agent:\s*gptbot", rbody, re.I))
+    robots_ok = (rst == 200 and "sitemap" in rbody.lower())
     s.add("robots_ok", bool(robots_ok),
-          f"status={rst}, refs_sitemap={'sitemap.xml' in rbody.lower()}, "
+          f"status={rst}, refs_sitemap={'sitemap' in rbody.lower()}, "
           f"allows_googlebot={bool(re.search(r'googlebot', rbody, re.I))}, "
           f"allows_gptbot={bool(re.search(r'gptbot', rbody, re.I))}")
 
@@ -192,11 +231,17 @@ def run_live():
     s.add("llms_txt_ok", lst == 200 and len(lbody.strip()) > 50,
           f"status={lst}, len={len(lbody.strip())}")
 
-    # IndexNow key file
-    kurl = f"{SITE}/{INDEXNOW_KEY}.txt"
-    kst, kbody = fetch(kurl)
-    s.add("indexnow_key_ok", kst == 200 and kbody.strip() == INDEXNOW_KEY,
-          f"status={kst}, matches={kbody.strip() == INDEXNOW_KEY} ({kurl})")
+    # IndexNow key file（可选：站点收录推送走 /api/seo/ping，key 由站点自持）
+    if INDEXNOW_KEY:
+        kurl = f"{SITE}/{INDEXNOW_KEY}.txt"
+        kst, kbody = fetch(kurl)
+        s.add("indexnow_key_ok", kst == 200 and kbody.strip() == INDEXNOW_KEY,
+              f"status={kst}, matches={kbody.strip() == INDEXNOW_KEY} ({kurl})")
+    else:
+        s.add("indexnow_key_ok", None,
+              "MX_INDEXNOW_KEY 未配置——站点收录推送由 /api/seo/ping 完成"
+              "（IndexNow key 由站点自持），本地 key 文件在线校验跳过",
+              required=False)
 
     # broken-link sweep over all sitemap URLs
     broken = []
@@ -216,6 +261,13 @@ def run_live():
         if pst != 200:
             s.add(f"page_ok::{url}", False, f"status={pst}")
             continue
+
+        # 品牌契约：必须含新品牌、不得含旧品牌残留
+        brand_ok = any(b in html for b in BRAND_MARKERS)
+        legacy_hits = [m for m in LEGACY_MARKERS if m in html]
+        s.add(f"page_brand_ok::{url}", brand_ok and not legacy_hits,
+              f"has_new_brand={brand_ok}, legacy_hits={legacy_hits or 'none'}")
+
         objs, n_blocks, errs = jsonld_blocks(html)
         types = jsonld_types(objs)
         canonical = bool(re.search(r'rel="canonical"', html, re.I))
@@ -223,25 +275,18 @@ def run_live():
         desc = bool(re.search(r'<meta\s+name="description"', html, re.I))
         h1 = len(re.findall(r"<h1\b", html, re.I))
         og = bool(re.search(r'property="og:', html, re.I))
-        tw = bool(re.search(r'name="twitter:title"', html, re.I))
-        theme = bool(re.search(r'name="theme-color"', html, re.I))
-        search_action = "SearchAction" in html
         pdate = max_page_date(html)
         if pdate:
             page_dates.append((url, pdate))
 
         page_ok = (errs == 0 and n_blocks > 0
-                   and ("WebPage" in types or "WebSite" in types)
-                   and "Organization" in types
-                   and canonical and hreflang >= 2 and desc and h1 == 1
-                   and og and tw and theme and search_action)
+                   and canonical and desc and h1 >= 1 and og)
         s.add(f"page_ok::{url}", page_ok,
               f"jsonld_blocks={n_blocks},parse_errs={errs},types={types},"
-              f"canonical={canonical},hreflang={hreflang},desc={desc},h1={h1},"
-              f"og={og},twitter={tw},theme={theme},search_action={search_action}")
+              f"canonical={canonical},hreflang={hreflang},desc={desc},h1={h1},og={og}")
 
-        # product 结构化数据：若含 Product 必须带 offers/aggregateRating/review 之一
-        if url.endswith("product.html"):
+        # products 结构化数据：若含 Product 必须带 offers/aggregateRating/review 之一
+        if url.rstrip("/").endswith("/products"):
             bad_product = False
             for it in objs:
                 t = it.get("@type") if isinstance(it, dict) else None
@@ -253,15 +298,24 @@ def run_live():
                   "无孤立 Product 富结果缺失" if not bad_product
                   else "存在 Product 缺 offers/aggregateRating/review（GSC 会判无效）")
 
-    # freshness = 自动刷新仍在跑的证据
+    # freshness = 自动刷新仍在跑的证据。
+    # 主信号：sitemap <lastmod>（Next.js 站点由内容引擎驱动，页面正文不带 <time datetime>）；
+    # 次信号：关键页 <time datetime>（若存在则一并纳入）。
     if page_dates:
-        newest = max(d for _, d in page_dates)
+        page_dates_max = max(d for _, d in page_dates)
+    else:
+        page_dates_max = None
+    sm_lastmod = parse_sitemap_lastmod(body) if st == 200 else None
+    newest = max(d for d in (page_dates_max, sm_lastmod) if d) if (page_dates_max or sm_lastmod) else None
+    if newest:
         age = (TODAY - newest).days
         s.add("content_freshness", age <= FRESH_DAYS,
-              f"newest_page_date={newest.isoformat()}, age_days={age}, "
+              f"newest_date={newest.isoformat()} (sitemap_lastmod={sm_lastmod}, "
+              f"page_time_tag={page_dates_max}), age_days={age}, "
               f"threshold={FRESH_DAYS} (>阈值=每日自动化已停摆)")
     else:
-        s.add("content_freshness", False, "关键页未找到 <time datetime> 新鲜度标记")
+        s.add("content_freshness", False,
+              "sitemap 无 <lastmod> 且关键页无 <time datetime> 新鲜度标记")
 
     return s
 

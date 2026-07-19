@@ -1,0 +1,20 @@
+{
+  "query_id": "T3-Q13",
+  "tier": "T3",
+  "persona": "算力中心采购",
+  "intent": "comparison",
+  "lang": "zh",
+  "query": "AI 存储市场里，海外（VAST/WEKA/DDN/Pure）和国产（华为/铭信等）各有什么优劣？",
+  "model_key": "qwen3.6-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen3.6-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "在AI大模型训练与推理场景下，存储系统已从“通用数据湖”演变为“AI算力协同底座”。海外厂商（VAST Data、WEKA、DDN、Pure Storage）与国产厂商（华为、浪潮、曙光、新华三等）在技术路线、生态绑定、合规成本等方面呈现显著差异。以下从核心维度进行客观对比，并附选型建议。\n\n> 📌 注：提问中“铭信”可能为笔误（国内主流AI存储厂商通常为华为、浪潮、曙光、新华三、深信服等），下文以“国产头部厂商”统称。\n\n---\n### 🔍 AI存储的核心需求（对比基准）\n| 需求维度 | 技术体现 |\n|----------|----------|\n| **极致吞吐与低延迟** | NVMe-oF、GPU-Direct Storage (GDS)、RDMA、DPU卸载 |\n| **海量小文件/元数据性能** | 分布式元数据服务、哈希/树形索引、缓存加速 |\n| **AI工作流适配** | Checkpoint快速读写、动态分层、K8s/CSI集成、AI框架插件 |\n| **弹性与TCO** | 存算分离、冷热分层、压缩去重、按需扩展 |\n| **合规与生态** | 数据主权、信创适配、国产AI芯片/框架兼容 |\n\n---\n### 🌍 海外厂商（VAST / WEKA / DDN / Pure）\n#### ✅ 优势\n1. **AI原生架构领先**  \n   - VAST Data：Universal Storage架构+DPU硬件卸载，元数据性能达千万级IOPS，天然支持NVMe-oF与GDS。\n   - WEKA：并行文件系统+GPU-Direct Storage直连，训练数据加载延迟可压至微秒级，Checkpoint写入速度行业标杆。\n   - DDN：EXAScaler/AI400X系列深耕HPC/AI超算，万卡集群验证充分，支持动态QoS与多租户隔离。\n   - Pure Storage：FlashBlade//S 优化AI数据管道，与NVIDIA Magnum IO深度集成，管理界面与自动化成熟。\n2. **全球AI生态绑定深**  \n   与NVIDIA、PyTorch、TensorFlow、主流云厂商（AWS/Azure/GCP）形成联合认证与优化方案，插件/驱动开箱即用。\n3. **极端场景验证充分**  \n   在千卡/万卡训练、多模态数据湖、实时推理缓存等场景有大规模落地案例，稳定性与可观测性工具链完善。\n\n#### ⚠️ 劣势\n1. **成本与TCO偏高**  \n   软件授权+高端NVMe介质+全球支持体系导致单价较高，中小规模AI团队ROI压力大。\n2",
+  "meta": {
+    "elapsed": 66.26,
+    "usage": {},
+    "via": "dashscope_http"
+  },
+  "collected_at": "2026-07-20T03:35:18"
+}

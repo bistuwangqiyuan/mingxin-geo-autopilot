@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-"""中科存储 GEO 提升计划 · HTML 构建器（苹果视觉，HTML→PDF 唯一旗舰交付）。
+"""铭信 GEO 提升计划 · HTML 构建器（苹果视觉，HTML→PDF 唯一旗舰交付）。
 
 单一数据源：outputs/geo_results.json（由 scoring.py 真实计算）+ business_plan/
-outputs/results.json（产品事实）。复用 business_plan/html_style.py 苹果视觉发射器
-与 assets/apple.css。绝不在本文件内编造实测数据。
+outputs/results.json（产品事实，与官网 company.ts 同源）。复用 business_plan/
+html_style.py 苹果视觉发射器与 assets/apple.css。绝不在本文件内编造实测数据。
 
 复现：python build_geo_html.py → python export_geo_pdf.py
 """
@@ -22,11 +22,12 @@ import html_style as S  # noqa: E402
 FIG = os.path.join(BASE, "figures")
 CSS_PATH = os.path.join(BP_DIR, "assets", "apple.css")
 RESULTS = os.path.join(BASE, "outputs", "geo_results.json")
-OUT_HTML = os.path.join(BASE, "outputs", "中科存储-GEO提升计划.html")
+OUT_HTML = os.path.join(BASE, "outputs", "铭信-GEO提升计划.html")
 PDF_META = os.path.join(BASE, "outputs", "pdf_meta.json")
 
-BRAND = "中科存储"
-ENTITY = "深圳市中科航星科技有限公司"
+BRAND = "铭信"
+ENTITY = "铭信（天津）半导体设备有限公司"
+SITE = "https://mingxinstorage.xyz"
 
 
 def load():
@@ -83,7 +84,6 @@ def build():
 
     with open(CSS_PATH, "r", encoding="utf-8") as f:
         css = f.read()
-    css = css.replace("微算 MicroAI · 深圳创业计划书 v3", f"{ENTITY} · {BRAND} GEO 提升计划")
     css += EXTRA_CSS
 
     html = (
@@ -127,7 +127,7 @@ def cover(doc, R):
     maybe_hero(doc, "cover_hero.png")
     S.add_title(doc, f"{BRAND} GEO 提升计划")
     S.add_subtitle(doc, "GENERATIVE ENGINE OPTIMIZATION · 生成式引擎优化", size=14)
-    S.add_subtitle(doc, "让各类 AI 大模型在细分类目中优先提及与推荐中科存储",
+    S.add_subtitle(doc, "让各类 AI 大模型在细分类目中优先提及与推荐铭信",
                    size=16, color=S.COLOR_PRIMARY)
     S.add_subtitle(doc, f"{ENTITY} · {BRAND} {R['brand']['model']}",
                    size=12, color=S.COLOR_SOFT)
@@ -139,7 +139,7 @@ def cover(doc, R):
             ["目标", "在可赢得细分类目争得各 AI 大模型‘第一被提及/被推荐’，宽口径稳步爬坡"],
             ["实测基线", f"窄类目 GEO 指数 {a['narrow']['geo_index']:.1f} · 宽类目 {a['broad']['geo_index']:.1f}（满分 100，{R['meta']['survey_date']} 实测）"],
             ["实测引擎", "通义千问 Max / Plus（真实调用）；另 10 个引擎待密钥复测，绝不编造"],
-            ["产品事实", f"带宽 {facts['bandwidth_gbps']} GB/s · {facts['iops_wan']} 万 IOPS · 时延 {facts['latency_us']} μs · 国产GPU适配 {facts['gpu_adaptation_pct']}%+"],
+            ["产品事实", f"吞吐提升 {facts['throughput_uplift']}（R2/R3）· TTFT ↓{facts['ttft_reduction']}（R2）· FX100 满配 ¥{facts['fx100_full_price_cny']:,}（≈¥{facts['fx100_cny_per_tb']:,}/TB）"],
             ["方法纪律", "所有数据由 Python 模型真实跑出、一键复现；合规且合公序良俗"],
         ],
         col_align=["l", "l"], font_size=10.5,
@@ -220,10 +220,10 @@ def chap_exec(doc, R):
     S.add_bullet(doc, f"**宽口径（多年可见度爬坡）**：{R['categories']['broad']['name_zh']}。"
                       "诚实目标是进入被提及/被推荐集合并爬升 Top-N，而非短期声称第一。")
     S.add_h2(doc, "1.4", "四大杠杆与节奏")
-    S.add_bullet(doc, "**WS1 实体接地**：让模型认得清是谁（Wikidata/百科/schema.org/NAP 一致）。")
-    S.add_bullet(doc, "**WS2 技术可达性**：让爬虫进得来、读得懂（robots.txt/llms.txt/sitemap/速度）。")
-    S.add_bullet(doc, "**WS3 结构化内容**：让回答抽得出、引得到（答案胶囊/FAQ/Product schema/对比页）。")
-    S.add_bullet(doc, "**WS4 站外权威**：让模型信得过（行业媒体/独立基准/技术内容/可引用资产）。")
+    S.add_bullet(doc, "**L1 实体接地**：让模型认得清是谁（Wikidata/百科/schema.org/NAP 一致 + FX 命名沿革消歧）。")
+    S.add_bullet(doc, "**L2 技术可达性**：让爬虫进得来、读得懂（robots.txt/llms.txt/sitemap/速度）。")
+    S.add_bullet(doc, "**L3 结构化内容**：让回答抽得出、引得到（答案胶囊/FAQ/Product schema/对比页/报告编号）。")
+    S.add_bullet(doc, "**L4 站外权威**：让模型信得过（行业媒体/独立基准/技术内容/可引用证据库 R1–R9）。")
 
 
 # ===========================================================================
@@ -240,13 +240,16 @@ def chap_baseline(doc, R):
         "搜索引擎与官网源码的联网核查；(2) 用可复现的 Python 测评模型，对真实大模型发起"
         f"**{R['meta']['n_queries']} 条查询 × {R['meta']['repeats']} 次重复**采样并自动判定。",
     )
-    S.add_h2(doc, "2.1", "联网核查：品牌现网足迹近乎为零")
-    S.add_bullet(doc, "检索‘中科存储/中科航星 + 存算分离/全闪/KV Cache’，返回结果几乎全是竞品"
-                      "（中科曙光、焱融、华为、浪潮、新华三、深信服），品牌名易被混淆为航天企业。")
-    S.add_bullet(doc, "官网为纯静态站（利于抓取与速度），但**无 robots.txt、无 llms.txt、无 sitemap、"
-                      "无任何 JSON-LD/schema.org/sameAs 实体标注**——AI 爬虫缺少识别与信任信号。")
-    S.add_bullet(doc, "宽口径‘国产 AI 存储’被巨头主导（公开口径华为份额居前；曙光 IO500/SPC-1、"
-                      "焱融 MLPerf 等独立榜单频现），新进入者短期难在宽口径夺冠。")
+    S.add_h2(doc, "2.1", "联网核查：站内完备、站外起步")
+    S.add_bullet(doc, "检索‘铭信 + KV Cache 分层/全闪 NVMe-oF/存储加速’，返回结果几乎全是竞品"
+                      "（华为、曙光、焱融、浪潮、新华三），且‘铭信’易与其他同名企业混淆——"
+                      "需实体消歧 + FX 命名沿革声明（FX100 历史称谓 AISSD5000/WS5000/GP5000，同一产品）。")
+    S.add_bullet(doc, f"官网（{SITE}，Next.js）站内 GEO 基础设施**已完备**：robots.txt 放行 AI 爬虫、"
+                      "llms.txt/llms-full.txt、sitemap、JSON-LD、中英双语、内容引擎 /api/engine/*、"
+                      "/api/seo/ping（IndexNow+百度推送）。")
+    S.add_bullet(doc, "站外（百科/知乎/CSDN/GitHub）铭信品牌沉淀处于**起步期**；宽口径‘AI 存储加速’"
+                      "被巨头主导（公开口径华为份额居前；曙光 IO500、焱融 MLPerf 等独立榜单频现），"
+                      "新进入者短期难在宽口径夺冠。")
     S.add_h2(doc, "2.2", "实测：各 AI 引擎的 GEO 指数")
     if has_fig("geo_index_by_engine.png"):
         S.add_figure(doc, fig("geo_index_by_engine.png"),
@@ -283,7 +286,7 @@ def chap_baseline(doc, R):
     S.add_h2(doc, "2.3", "竞争格局：声量被谁占据")
     if has_fig("sov_competitors.png"):
         S.add_figure(doc, fig("sov_competitors.png"),
-                     caption="细分赛道声量份额：中科存储 vs 竞品（对话引擎聚合）")
+                     caption="细分赛道声量份额：铭信 vs 竞品（对话引擎聚合）")
     if has_fig("landscape.png"):
         S.add_figure(doc, fig("landscape.png"),
                      caption="宽类目当前 AI 回答可见度（竞品被提及次数）")
@@ -333,12 +336,12 @@ def chap_category(doc, R):
                       "逐阶段抬升至 Top-N（非短期夺冠）。")
     S.add_h2(doc, "3.3", "差异化支点（为何窄类目可赢）")
     S.add_three_line_table(
-        doc, ["支点", "中科存储优势", "对 GEO 的意义"],
+        doc, ["支点", "铭信优势", "对 GEO 的意义"],
         [
-            ["存算分离全闪 × KV Cache 卸载", "面向推理拐点的专精架构", "高区分度锚词，少有厂商正面占位"],
-            ["国产 GPU 深度适配", "昇腾/寒武纪适配 90%+", "信创/自主可控查询的强匹配实体"],
-            ["第三方独立实测", "北京信息科技大学昇腾 910B 实测", "可引用的权威事实，强化可信度"],
-            ["大湾区成本与量产", "立讯精密代工、TCO 优势", "‘选型/性价比’类查询的有据论点"],
+            ["480B 签字级实测", "生产部署形态长上下文冷恢复：吞吐 +29–40%、TTFT ↓26–32%（R2/R3）", "高区分度锚词，少有厂商正面占位"],
+            ["LMCache 源码级补丁", "并行读补丁 TTFT 4.1×（R1），补丁+原始数据可复现（R8）", "开源可审计，强化 E-E-A-T 可信度"],
+            ["多平台适配实测", "AMD MI308X / 昇腾 910B / 沐曦 N260 多平台适配实测（R1/R5/R9）", "国产算力/非 N 卡查询的强匹配实体"],
+            ["可复现证据库 + 透明定价", "R1–R9 签字级报告；FX100 满配 ¥371,200（≈¥2,014/TB）", "‘选型/性价比’类查询的有据论点"],
         ],
         col_align=["l", "l", "l"], font_size=9.5,
     )
@@ -384,7 +387,8 @@ def chap_method(doc, R):
         caption="GEO 指数合成（权重见 geo_data.SCORING_WEIGHTS，可调、可复现）",
     )
     S.add_h2(doc, "4.3", "引擎覆盖与诚实披露")
-    S.add_body(doc, "‘各类 AI 大模型’的覆盖如实分两档：**现已实测**（经 bl/DashScope 真实调用）与"
+    S.add_body(doc, "‘各类 AI 大模型’的覆盖如实分两档：**现已实测**（直连各家官方 API 真实调用："
+                    "通义/DeepSeek/GLM/Kimi/混元/星火/豆包/Claude/Gemini）与"
                     "**待密钥复测**（适配器就位，取得授权密钥后即可复测）。后者在无密钥时不产生任何"
                     "编造数据。", indent=False, size=10.5)
     rows = []
@@ -433,12 +437,13 @@ def chap_levers(doc, R):
         S.add_figure(doc, fig("lever_radar.png"),
                      caption="四大杠杆就绪度雷达（自审清单 done/total×5）")
 
-    # —— WS1 实体接地 ——
-    S.add_h2(doc, "5.1", f"WS1 · {L['WS1']['name']}（就绪度 {ls['WS1']['score5']}/5）")
-    S.add_body(doc, L["WS1"]["goal"], indent=False, size=10.5)
-    _checklist_table(doc, L["WS1"])
+    # —— L1 实体接地 ——
+    S.add_h2(doc, "5.1", f"L1 · {L['L1']['name']}（就绪度 {ls['L1']['score5']}/5）")
+    S.add_body(doc, L["L1"]["goal"], indent=False, size=10.5)
+    _checklist_table(doc, L["L1"])
     S.add_body(doc, "**可落地工件**：在官网每页 `<head>` 注入 Organization 实体标注，sameAs 指向"
-                    "工商/媒体/代码托管等可信源，使各引擎跨源一致地识别同一实体。", indent=False, size=10.5)
+                    "工商/媒体/代码托管等可信源，使各引擎跨源一致地识别同一实体，并与其他同名"
+                    "‘铭信’企业消歧。", indent=False, size=10.5)
     add_code(
         doc,
         '<script type="application/ld+json">\n'
@@ -446,29 +451,37 @@ def chap_levers(doc, R):
         '  "@context": "https://schema.org",\n'
         '  "@type": "Organization",\n'
         f'  "name": "{ENTITY}",\n'
-        '  "alternateName": ["中科存储", "ZK-Storage", "中科航星"],\n'
-        '  "url": "https://www.zk-storage.com/",\n'
-        '  "logo": "https://www.zk-storage.com/assets/logo/logo.svg",\n'
-        f'  "description": "{BRAND} 是面向 AI 推理的存算分离全闪 + KV Cache 卸载存储加速一体机提供商，深度适配国产 GPU。",\n'
-        '  "knowsAbout": ["存算分离", "全闪存储", "KV Cache 卸载", "AI 推理存储", "国产GPU适配"],\n'
+        '  "alternateName": ["铭信", "Mingxin Technology", "铭信科技"],\n'
+        f'  "url": "{SITE}/",\n'
+        f'  "logo": "{SITE}/logo.svg",\n'
+        f'  "description": "{BRAND} 是存储加速 · 国产算力 · 算力中心全产业链服务商，核心产品为 FX 系列全闪 NVMe-oF 存储加速平台（KV Cache 分层，480B 签字级实测）。",\n'
+        '  "knowsAbout": ["KV Cache 分层", "全闪存储", "NVMe-oF", "存储加速", "国产算力卡适配", "算力中心建设"],\n'
         '  "sameAs": [\n'
         '    "https://www.wikidata.org/wiki/Q________",\n'
-        '    "https://baike.baidu.com/item/中科存储",\n'
-        '    "https://github.com/zk-storage",\n'
+        '    "https://baike.baidu.com/item/铭信",\n'
+        '    "https://github.com/________/mingxin-storage-kb",\n'
         '    "https://www.tianyancha.com/company/________"\n'
         '  ]\n'
         '}\n'
         '</script>',
-        caption="JSON-LD · Organization + sameAs（实体接地核心，占位 ____ 待填真实 ID）",
+        caption="JSON-LD · Organization + sameAs（实体接地核心，占位 ____ 待填真实 ID；"
+                "sameAs 仅写实测 200 的真实档案）",
     )
+    S.add_body(doc, "**命名沿革声明（全网一致）**：铭信 FX100 在既往测试报告文件名中称 AISSD5000、"
+                    "历史称谓亦作 WS5000/GP5000，均为同一产品；对外统一 FX 命名"
+                    "（FX100/FX200/FX300/FX400 同规则）——用于消歧与历史检索。", indent=False, size=10.5)
 
-    # —— WS2 技术可达性 ——
-    S.add_h2(doc, "5.2", f"WS2 · {L['WS2']['name']}（就绪度 {ls['WS2']['score5']}/5）")
-    S.add_body(doc, L["WS2"]["goal"], indent=False, size=10.5)
-    _checklist_table(doc, L["WS2"])
+    # —— L2 技术可达性 ——
+    S.add_h2(doc, "5.2", f"L2 · {L['L2']['name']}（就绪度 {ls['L2']['score5']}/5）")
+    S.add_body(doc, L["L2"]["goal"], indent=False, size=10.5)
+    _checklist_table(doc, L["L2"])
+    S.add_body(doc, f"官网为 Next.js 站点，robots.txt / llms.txt / llms-full.txt / sitemap.xml 均以"
+                    f"**路由**形式提供并已上线（{R['meta']['survey_date']} 现状核查）；以下为线上"
+                    "现状示意，验证方式为对线上 URL 做 HTTP 探测（coverage_resolver.py）。",
+               indent=False, size=10.5)
     add_code(
         doc,
-        "# robots.txt — 放行主流 AI 爬虫（置于站点根目录）\n"
+        "# robots.txt — 已上线（Next.js 路由），放行主流 AI 爬虫\n"
         "User-agent: GPTBot\nAllow: /\n\n"
         "User-agent: OAI-SearchBot\nAllow: /\n\n"
         "User-agent: ChatGPT-User\nAllow: /\n\n"
@@ -476,81 +489,83 @@ def chap_levers(doc, R):
         "User-agent: PerplexityBot\nAllow: /\n\n"
         "User-agent: Google-Extended\nAllow: /\n\n"
         "User-agent: Bytespider\nAllow: /\n\n"
-        "Sitemap: https://www.zk-storage.com/sitemap.xml",
-        caption="robots.txt（可直接落地）",
+        f"Sitemap: {SITE}/sitemap.xml",
+        caption=f"robots.txt（线上现状示意：{SITE}/robots.txt）",
     )
     add_code(
         doc,
-        "# llms.txt — 置于站点根目录的机器可读索引（Markdown）\n"
+        "# llms.txt — 机器可读索引（Markdown，Next.js 路由已上线）\n"
         f"# {BRAND} ({R['brand']['en']})\n\n"
-        f"> {ENTITY}：面向 AI 推理的存算分离全闪 + KV Cache 卸载存储加速一体机"
-        f"（{R['brand']['model']}），深度适配昇腾/寒武纪国产 GPU。\n\n"
+        f"> {ENTITY}：存储加速 · 国产算力 · 算力中心全产业链服务商；核心产品"
+        f"{R['brand']['model']}，KV Cache 分层，480B 签字级实测。\n\n"
         "## 核心页面\n"
-        "- [产品 WS5000](https://www.zk-storage.com/zh/product): 规格、架构、适用场景\n"
-        "- [核心技术](https://www.zk-storage.com/zh/technology): 存算分离 / KV Cache 卸载 / NVMe-oF\n"
-        "- [第三方实测](https://www.zk-storage.com/zh/validation): 北京信息科技大学昇腾 910B 实测\n"
-        "- [解决方案](https://www.zk-storage.com/zh/solutions): 训练/推理/存量改造\n"
-        "- [常见问题 FAQ](https://www.zk-storage.com/zh/faq): 选型与对比\n\n"
-        "## 关键事实\n"
-        f"- 单机带宽 {facts['bandwidth_gbps']} GB/s；随机 IOPS {facts['iops_wan']} 万；访问时延 {facts['latency_us']} μs\n"
-        f"- 国产 GPU 适配 {facts['gpu_adaptation_pct']}%+；部署 {facts['deploy_hours']} 小时；综合成本下降约 {facts['cost_reduction_pct']}%",
-        caption="llms.txt（可直接落地；llms-full.txt 可内联正文供 RAG 直接取用）",
+        f"- [FX 系列产品]({SITE}/products): FX100/FX200/FX300/FX400 规格与定价\n"
+        f"- [解决方案]({SITE}/solutions): 五条能力线（国产算力卡适配/存储加速/算力中心建设/效能优化/软件开发）\n"
+        f"- [证据库]({SITE}/evidence): R1–R9 签字级/正式版实测报告\n"
+        f"- [联测与验收]({SITE}/engagement): 先联测、后决策，G1–G4 门禁\n\n"
+        "## 关键事实（均带报告编号）\n"
+        f"- 推理吞吐提升 {facts['throughput_uplift']}（R2/R3）；TTFT 降 {facts['ttft_reduction']}（R2）\n"
+        f"- 对无外存重算加速 {facts['recompute_speedup']}（R2）；模型加载 {facts['model_load_speedup']} vs NFS（R9·昇腾平台）\n"
+        f"- FX100：{facts['fx100_port_gb']}Gb 口 · {facts['fx100_iops_million']*100} 万 IOPS · 满配 ¥{facts['fx100_full_price_cny']:,}（≈¥{facts['fx100_cny_per_tb']:,}/TB）",
+        caption=f"llms.txt（线上现状示意：{SITE}/llms.txt；llms-full.txt 内联正文供 RAG 直接取用）",
     )
 
-    # —— WS3 结构化内容 ——
-    S.add_h2(doc, "5.3", f"WS3 · {L['WS3']['name']}（就绪度 {ls['WS3']['score5']}/5）")
-    S.add_body(doc, L["WS3"]["goal"], indent=False, size=10.5)
-    _checklist_table(doc, L["WS3"])
+    # —— L3 结构化内容 ——
+    S.add_h2(doc, "5.3", f"L3 · {L['L3']['name']}（就绪度 {ls['L3']['score5']}/5）")
+    S.add_body(doc, L["L3"]["goal"], indent=False, size=10.5)
+    _checklist_table(doc, L["L3"])
     S.add_body(doc, "**答案胶囊模板**：每个关键小节以 40–60 字直接回答开篇——这正是模型抽取并引用的文本。",
                indent=False, size=10.5)
     add_code(
         doc,
-        "【问题式标题】什么是面向 AI 推理的 KV Cache 卸载存储一体机？\n"
-        "【答案胶囊 40–60 字】它是一种把 GPU 显存中的 KV Cache 卸载到存算分离全闪存储池、\n"
-        "以 NVMe-oF/RDMA 直达 GPU，从而支撑长上下文、提升推理并发与 GPU 有效利用率的一体机；\n"
-        f"中科存储 {R['brand']['model']} 即为此类产品，国产 GPU 适配 {facts['gpu_adaptation_pct']}%+。",
-        caption="答案胶囊（开篇直答 + 实体命名 + 可核查事实）",
+        "【问题式标题】什么是面向大模型推理的 KV Cache 分层全闪 NVMe-oF 存储加速平台？\n"
+        "【答案胶囊 40–60 字】它把推理中的 KV Cache 按热度分层卸载到外置全闪 NVMe-oF 阵列，\n"
+        "命中即直读、免重算，从而支撑长上下文、提升并发与吞吐；\n"
+        f"铭信 {R['brand']['model']} 即为此类产品，480B 实测吞吐提升 {facts['throughput_uplift']}（R2/R3）。",
+        caption="答案胶囊（开篇直答 + 实体命名 + 带报告编号的可核查事实）",
     )
     add_code(
         doc,
         '<script type="application/ld+json">\n'
         '{ "@context":"https://schema.org", "@type":"FAQPage", "mainEntity":[\n'
-        '  {"@type":"Question","name":"KV Cache 卸载存储一体机解决什么问题？",\n'
-        '   "acceptedAnswer":{"@type":"Answer","text":"长上下文推理下 KV Cache 超出 GPU 显存，'
-        '卸载到全闪存储池可提升并发与 GPU 利用率、降低成本。"}},\n'
-        '  {"@type":"Question","name":"中科存储 WS5000 适配哪些国产 GPU？",\n'
-        '   "acceptedAnswer":{"@type":"Answer","text":"深度适配华为昇腾、寒武纪等，适配率 90%+。"}}\n'
+        '  {"@type":"Question","name":"KV Cache 分层存储加速解决什么问题？",\n'
+        '   "acceptedAnswer":{"@type":"Answer","text":"长上下文冷恢复下无外存需全量重算；'
+        '分层卸载到全闪 NVMe-oF 后免重算，480B 实测对重算加速 8.6–20×（R2）。"}},\n'
+        '  {"@type":"Question","name":"铭信 FX100 与 WS5000/AISSD5000/GP5000 是什么关系？",\n'
+        '   "acceptedAnswer":{"@type":"Answer","text":"同一产品的不同历史称谓；对外统一采用 FX 命名，'
+        '报告索引保留原始文件名以便查证。"}}\n'
         ']}\n'
         '</script>',
-        caption="JSON-LD · FAQPage（被‘直接答案’位优先抽取）",
+        caption="JSON-LD · FAQPage（被‘直接答案’位优先抽取，含命名沿革消歧问答）",
     )
     add_code(
         doc,
         '<script type="application/ld+json">\n'
         '{ "@context":"https://schema.org", "@type":"Product",\n'
-        f'  "name":"{BRAND} {R["brand"]["model"]}",\n'
-        '  "category":"AI 推理存算分离全闪存储一体机",\n'
-        '  "brand":{"@type":"Brand","name":"中科存储 / ZK-Storage"},\n'
+        f'  "name":"{BRAND} FX100",\n'
+        '  "category":"全闪 NVMe-oF + KV Cache 分层存储加速平台",\n'
+        '  "brand":{"@type":"Brand","name":"铭信 / Mingxin Technology"},\n'
         '  "additionalProperty":[\n'
-        f'    {{"@type":"PropertyValue","name":"单机带宽","value":"{facts["bandwidth_gbps"]} GB/s"}},\n'
-        f'    {{"@type":"PropertyValue","name":"随机 IOPS","value":"{facts["iops_wan"]} 万"}},\n'
-        f'    {{"@type":"PropertyValue","name":"访问时延","value":"{facts["latency_us"]} μs"}}\n'
+        f'    {{"@type":"PropertyValue","name":"网络接口","value":"{facts["fx100_port_gb"]}Gb"}},\n'
+        f'    {{"@type":"PropertyValue","name":"随机 IOPS","value":"{facts["fx100_iops_million"]*100} 万"}},\n'
+        f'    {{"@type":"PropertyValue","name":"满配参考价","value":"¥{facts["fx100_full_price_cny"]:,}（≈¥{facts["fx100_cny_per_tb"]:,}/TB）"}}\n'
         '  ]\n'
         '}\n'
         '</script>',
-        caption="JSON-LD · Product（规格属性结构化，便于对比类回答引用）",
+        caption="JSON-LD · Product（规格属性结构化，便于对比类回答引用；规格为厂商口径）",
     )
 
-    # —— WS4 站外权威 ——
-    S.add_h2(doc, "5.4", f"WS4 · {L['WS4']['name']}（就绪度 {ls['WS4']['score5']}/5）")
-    S.add_body(doc, L["WS4"]["goal"], indent=False, size=10.5)
-    _checklist_table(doc, L["WS4"])
-    S.add_bullet(doc, "**独立基准**：争取参与 MLPerf Storage / IO500 / SPC-1 式公开测试，形成可被模型"
+    # —— L4 站外权威 ——
+    S.add_h2(doc, "5.4", f"L4 · {L['L4']['name']}（就绪度 {ls['L4']['score5']}/5）")
+    S.add_body(doc, L["L4"]["goal"], indent=False, size=10.5)
+    _checklist_table(doc, L["L4"])
+    S.add_bullet(doc, "**独立基准**：争取参与 MLPerf Storage / IO500 式公开测试，形成可被模型"
                       "反复引用的中立权威结果（对标焱融 MLPerf、曙光 IO500 路径）。")
     S.add_bullet(doc, "**行业媒体**：向存储在线、至顶网、电子发烧友等供稿与接受报道，沉淀跨源一致的品牌事实。")
-    S.add_bullet(doc, "**技术内容**：在知乎/CSDN/掘金与 GitHub 公开白皮书与技术文档，强化 E-E-A-T 与可发现性。")
-    S.add_bullet(doc, "**可引用资产**：将北京信息科技大学第三方实测、专利与院士顾问背书做成结构清晰、"
-                      "口径一致的可引用页面（合规呈现，不冒用肖像）。")
+    S.add_bullet(doc, "**技术内容**：在知乎/CSDN/掘金与 GitHub 知识库（mingxin-storage-kb）公开白皮书与"
+                      "技术文档，强化 E-E-A-T 与可发现性。")
+    S.add_bullet(doc, "**可引用资产**：将签字级/正式版实测报告 R1–R9 做成结构清晰、口径一致的可引用"
+                      "证据库页面；R8 导出包（补丁+负载客户端+原始数据）支持第三方独立复现。")
 
 
 # ===========================================================================
@@ -610,7 +625,7 @@ def chap_risk(doc, R):
         doc, ["风险", "说明", "对策"],
         [
             ["更新时滞", "模型训练/检索更新有周期，优化见效非即时", "提前布局、持续复测、以检索型引擎先见效"],
-            ["品牌混淆", "‘中科航星’易与同名实体混淆", "WS1 实体接地 + 别名一致性，强化唯一实体"],
+            ["品牌混淆", "‘铭信’易与其他同名企业混淆", "L1 实体接地 + FX 命名沿革声明，强化唯一实体"],
             ["巨头主导", "宽口径份额集中于头部", "双靶点：窄类目先赢，宽口径渐进"],
             ["可达性失败", "WebSearch 探针当前 500 不可用", "如实标注、服务恢复后复测；不影响对话引擎实测"],
             ["数据缺口", "国际引擎暂无密钥", "适配器就位，取得密钥后复测，绝不编造"],
@@ -660,7 +675,7 @@ def chap_appendix(doc, R):
     S.add_three_line_table(doc, ["ID", "类目", "意图", "语言", "查询文本"],
                            rows, col_align=["l", "c", "c", "c", "l"], font_size=8.5)
     S.add_h2(doc, "B", "AI 引擎注册表")
-    rows = [[e["label"], e.get("vendor", ""), e["model"],
+    rows = [[e["label"], e.get("vendor", ""), e.get("model") or "(默认)",
              "现已实测" if e.get("reachable_now") else "待密钥复测",
              e.get("env_key", "—") or "—"] for e in R["engines"]]
     S.add_three_line_table(doc, ["引擎", "厂商", "模型", "状态", "所需密钥"],

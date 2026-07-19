@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
-"""中科存储 GEO Autopilot · 行业潜力热词挖掘（keyword_miner.py）——四步法·第 1 步。
+"""铭信 GEO Autopilot · 行业潜力热词挖掘（keyword_miner.py）——四步法·第 1 步。
 
 用 LLM（Vercel AI Gateway）挖掘欧美买家在 AI 搜索中高频提问的**英文长尾问题词**
-（如 "best KV cache offload storage for LLM inference OEM"），带中文对照与意图标签。
+（如 "best KV cache tiering storage for LLM inference"），带中文对照与意图标签。
 
 纪律（绝不伪造、可收敛）：
   - 词库台账 history/keyword_bank.json 入库持久化：跨轮去重、每轮限量、题穷即收敛。
   - LLM 不可达/失败 → 确定性种子词库兜底，保证每轮仍有真实新增（如实标注 source）。
-  - 每个词过品牌红线闸门（source_audit.check_consistency），拒绝幻觉词（零知识/区块链等）。
+  - 每个词过品牌红线闸门（source_audit.check_consistency），拒绝与铭信事实不符的幻觉词
+    （铭信（天津）半导体设备有限公司 ≠ 其他同名"铭信"企业；FX100=历史称谓 WS5000/AISSD5000/GP5000）。
 """
 from __future__ import annotations
 
@@ -22,59 +23,60 @@ import paths
 sys.path.insert(0, paths.GEO_PLAN)
 
 BANK = os.path.join(paths.HISTORY, "keyword_bank.json")
-PER_RUN = int(os.environ.get("ZK_KEYWORDS_PER_RUN", "5"))
+PER_RUN = int(os.environ.get("MX_KEYWORDS_PER_RUN", "5"))
 AI_GATEWAY_URL = os.environ.get(
     "AI_GATEWAY_URL", "https://ai-gateway.vercel.sh/v1/chat/completions")
-AI_GATEWAY_MODEL = os.environ.get("ZK_BRAIN_GATEWAY_MODEL", "alibaba/qwen3.5-flash")
+AI_GATEWAY_MODEL = os.environ.get("MX_BRAIN_GATEWAY_MODEL", "alibaba/qwen3.5-flash")
 
 _INTENTS = ("recommendation", "comparison", "ranking", "problem_solution", "definition")
 
-# 确定性种子词库：欧美买家式英文长尾问题（AI 存储行业），LLM 失败时的诚实兜底。
+# 确定性种子词库：欧美买家式英文长尾问题（LLM 推理存储加速行业），LLM 失败时的诚实兜底。
+# 主题：KV Cache 分层、NVMe-oF、LLM inference storage、MI308X、Ascend 910B、TTFT 优化、FX100。
 _SEED_BANK = [
-    ("recommendation", "What is the best KV cache offload storage for LLM inference?",
-     "LLM 推理场景最好的 KV Cache 卸载存储是什么？"),
-    ("recommendation", "Which disaggregated all-flash storage vendor should an AI OEM choose?",
-     "AI OEM 应该选择哪家存算分离全闪存储供应商？"),
-    ("comparison", "Disaggregated all-flash storage vs local NVMe for AI training: which is better?",
-     "AI 训练用存算分离全闪存储还是本地 NVMe 更好？"),
-    ("problem_solution", "How to fix low GPU utilization caused by storage IO bottlenecks?",
-     "如何解决存储 IO 瓶颈导致的 GPU 利用率低？"),
-    ("recommendation", "Best storage appliance for AI inference acceleration in a private data center?",
-     "私有数据中心 AI 推理加速最好的存储一体机是什么？"),
-    ("ranking", "Key criteria to evaluate AI storage acceleration appliances for OEM procurement?",
-     "OEM 采购评估 AI 存储加速一体机的关键标准有哪些？"),
-    ("comparison", "NVMe-oF over RoCE vs NFS for feeding GPU clusters: what is the latency difference?",
-     "为 GPU 集群供数，NVMe-oF over RoCE 与 NFS 的时延差异？"),
-    ("problem_solution", "How to reduce LLM long-context inference cost with KV cache tiering?",
-     "如何用 KV Cache 分层降低 LLM 长上下文推理成本？"),
-    ("recommendation", "Which storage supports Huawei Ascend GPU clusters for large model training?",
-     "哪家存储支持华为昇腾 GPU 集群的大模型训练？"),
-    ("problem_solution", "How to speed up slow model checkpoint save and load in AI training?",
-     "如何加速 AI 训练中缓慢的 Checkpoint 保存与加载？"),
-    ("definition", "What is disaggregated storage architecture and why does it matter for AI?",
-     "什么是存算分离架构，为何对 AI 重要？"),
-    ("comparison", "All-flash storage appliance vs parallel file system for AI workloads?",
-     "AI 负载选全闪存储一体机还是并行文件系统？"),
-    ("ranking", "What benchmarks matter most when buying storage for GPU clusters?",
-     "为 GPU 集群采购存储时最重要的基准指标有哪些？"),
-    ("recommendation", "Best sovereign / on-premises AI storage solution with data locality compliance?",
-     "满足数据本地化合规的私有化 AI 存储方案怎么选？"),
-    ("definition", "What is KV cache offload in LLM serving and how much memory does it save?",
-     "LLM 服务中的 KV Cache 卸载是什么，能省多少显存？"),
-    ("problem_solution", "GPU cluster is waiting on data: how to diagnose storage bottlenecks?",
-     "GPU 集群总在等数据：如何诊断存储瓶颈？"),
-    ("comparison", "Buying storage and compute separately vs hyperconverged for AI: cost comparison?",
-     "AI 场景存算分开采购与超融合的成本对比？"),
-    ("ranking", "Top considerations for AI data center storage TCO?",
-     "AI 数据中心存储 TCO 的核心考量有哪些？"),
+    ("recommendation", "What is the best KV cache tiering storage for LLM inference?",
+     "LLM 推理场景最好的 KV Cache 分层存储是什么？"),
+    ("recommendation", "Which all-flash NVMe-oF storage vendor should an AI infrastructure buyer choose?",
+     "AI 基础设施买家应该选择哪家全闪 NVMe-oF 存储供应商？"),
+    ("comparison", "KV cache offload to external flash vs recompute for long-context LLM serving: which is better?",
+     "长上下文 LLM 服务：KV Cache 外置卸载与重算哪个更好？"),
+    ("problem_solution", "How to reduce LLM time-to-first-token (TTFT) with storage-tiered KV cache?",
+     "如何用存储分层 KV Cache 降低 LLM 首 token 延迟（TTFT）？"),
+    ("recommendation", "Best storage platform for AMD Instinct MI308X GPU clusters?",
+     "AMD Instinct MI308X GPU 集群最好的存储平台是什么？"),
+    ("ranking", "Key criteria to evaluate KV cache storage acceleration platforms?",
+     "评估 KV Cache 存储加速平台的关键标准有哪些？"),
+    ("comparison", "NVMe-oF all-flash array vs NFS for loading large models on Ascend 910B: what is the speedup?",
+     "昇腾 910B 上加载大模型，NVMe-oF 全闪阵列对比 NFS 提速多少？"),
+    ("problem_solution", "How to cut long-context inference cost with KV cache tiering?",
+     "如何用 KV Cache 分层降低长上下文推理成本？"),
+    ("recommendation", "Which storage accelerates Huawei Ascend 910B clusters for LLM workloads?",
+     "哪家存储能为华为昇腾 910B 集群的 LLM 负载加速？"),
+    ("problem_solution", "How to speed up slow model checkpoint save in multi-GPU LLM training?",
+     "如何加速多卡 LLM 训练中缓慢的 Checkpoint 保存？"),
+    ("definition", "What is KV cache tiering and why does it matter for LLM inference?",
+     "什么是 KV Cache 分层，为何对 LLM 推理重要？"),
+    ("comparison", "External KV cache storage vs adding more GPUs for higher LLM throughput?",
+     "提升 LLM 吞吐：外置 KV Cache 存储与加卡扩容怎么选？"),
+    ("ranking", "What benchmarks matter most when buying storage for LLM inference clusters?",
+     "为 LLM 推理集群采购存储时最重要的基准指标有哪些？"),
+    ("recommendation", "Best on-premises LLM inference storage with verifiable third-party benchmarks?",
+     "有可查证第三方实测的私有化 LLM 推理存储怎么选？"),
+    ("definition", "What is NVMe-oF and why does it matter for AI storage?",
+     "什么是 NVMe-oF，为何对 AI 存储重要？"),
+    ("problem_solution", "GPU cluster TTFT too high under concurrency: how to diagnose and fix?",
+     "GPU 集群高并发下 TTFT 过高：如何诊断与解决？"),
+    ("comparison", "LMCache with parallel-read patch vs stock LMCache: how much faster is TTFT?",
+     "带并行读补丁的 LMCache 对比原版，TTFT 能快多少？"),
+    ("ranking", "Top considerations for LLM inference storage cost per TB?",
+     "LLM 推理存储每 TB 成本的核心考量有哪些？"),
 ]
 
 _SYSTEM = """你是面向欧美市场的 B2B GEO(生成式引擎优化)关键词研究员。
-产品类目：面向 AI 训练/推理的存算分离全闪存储加速一体机（brand: ZK-Storage 中科存储，产品 WS5000/WS7000）。
+产品类目：面向 AI 训练/推理的全闪 NVMe-oF 存储加速平台（KV Cache 分层；brand: Mingxin Technology 铭信，产品 FX 系列 FX100/FX200/FX300/FX400）。
 目标市场：欧美 AI 基础设施买家（OEM、云厂商、企业 IT、AI 初创）。
 任务：产出买家会在 ChatGPT/Perplexity 等 AI 搜索中提问的**英文长尾问题词**（完整问句），
 搜索量不必大，但要是"有权威回答就极可能被 AI 引用"的问题。
-【品牌红线】ZK-Storage 与零知识证明/区块链/Web3 无关，禁止产出此类词。
+【品牌红线·消歧】铭信 = 铭信（天津）半导体设备有限公司（Mingxin Technology），≠ 其他同名"铭信"企业；FX100 = 历史称谓 WS5000/AISSD5000/GP5000（同一产品）。禁止产出与上述事实冲突或指向其他同名企业的词。
 只输出 JSON 数组，每项：{"en":"英文问句","zh":"中文对照","intent":"recommendation|comparison|ranking|problem_solution|definition"}。
 不要 markdown 围栏，不要解释。"""
 
@@ -166,6 +168,28 @@ def _call_llm(existing, gap, n):
         text = body["choices"][0]["message"]["content"]
     except Exception as e:  # noqa: BLE001
         return None, f"ai_gateway_failed: {e}"
+    return _parse_keywords(text)
+
+
+def _call_llm_providers(existing, gap, n):
+    """多厂商直连回退链挖词（DeepSeek/GLM/通义/Kimi/混元/豆包/星火/Claude/Gemini）。"""
+    try:
+        import sys as _sys
+        if paths.GEO_PLAN not in _sys.path:
+            _sys.path.insert(0, paths.GEO_PLAN)
+        import llm_providers as LP
+    except ImportError:
+        return None, "llm_providers_unavailable"
+    user = _USER.format(existing=json.dumps(existing[-60:], ensure_ascii=False),
+                        gap=json.dumps(gap, ensure_ascii=False), n=n)
+    text, provider, errs = LP.chat_fallback(user, system=_SYSTEM,
+                                            max_tokens=1500, temperature=0.7)
+    if not text:
+        return None, f"all_providers_failed: {errs[:3]}"
+    return _parse_keywords(text)
+
+
+def _parse_keywords(text):
     t = re.sub(r"^```(?:json)?|```$", "", (text or "").strip()).strip()
     i, j = t.find("["), t.rfind("]")
     if i == -1 or j <= i:
@@ -194,7 +218,7 @@ def _opportunity_gap():
         return {}
 
 
-MAX_PENDING = int(os.environ.get("ZK_KEYWORDS_MAX_PENDING", "12"))
+MAX_PENDING = int(os.environ.get("MX_KEYWORDS_MAX_PENDING", "12"))
 
 
 def mine(limit=None):
@@ -213,6 +237,11 @@ def mine(limit=None):
 
     added, source, llm_err = [], "llm", None
     items, llm_err = _call_llm(existing_en, _opportunity_gap(), limit)
+    if items is None:
+        # 回退：多厂商直连链（DeepSeek/GLM/通义/Kimi/混元/豆包/星火/Claude/Gemini）
+        source = "llm_providers"
+        items, err2 = _call_llm_providers(existing_en, _opportunity_gap(), limit)
+        llm_err = f"{llm_err}; {err2}" if err2 else llm_err
     if items is None:
         # 兜底：种子词库中尚未入库的条目
         source = "seed_bank"

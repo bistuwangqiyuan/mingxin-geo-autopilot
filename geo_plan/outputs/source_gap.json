@@ -1,8 +1,8 @@
 {
   "by_model": {
     "DeepSeek": {
-      "weighted_coverage": 0.2462,
-      "gap": 0.7538,
+      "weighted_coverage": 0.1354,
+      "gap": 0.8646,
       "model_weight": 1.0,
       "detail": [
         {
@@ -18,7 +18,7 @@
         {
           "platform": "GitHub/GitCode",
           "tier": "primary",
-          "coverage": 0.72
+          "coverage": 0.0
         },
         {
           "platform": "技术白皮书",
@@ -188,14 +188,14 @@
       ]
     },
     "腾讯元宝": {
-      "weighted_coverage": 0.0,
-      "gap": 1.0,
+      "weighted_coverage": 0.0222,
+      "gap": 0.9778,
       "model_weight": 0.8,
       "detail": [
         {
           "platform": "微信公众号",
           "tier": "primary",
-          "coverage": 0.0
+          "coverage": 0.1
         },
         {
           "platform": "微信读书",
@@ -283,6 +283,15 @@
     },
     {
       "platform": "知乎技术区",
+      "impact": 1.0,
+      "current_coverage": 0.0,
+      "priority": 1.0,
+      "models": [
+        "DeepSeek"
+      ]
+    },
+    {
+      "platform": "GitHub/GitCode",
       "impact": 1.0,
       "current_coverage": 0.0,
       "priority": 1.0,
@@ -427,15 +436,6 @@
       ]
     },
     {
-      "platform": "微信公众号",
-      "impact": 0.8,
-      "current_coverage": 0.0,
-      "priority": 0.8,
-      "models": [
-        "腾讯元宝"
-      ]
-    },
-    {
       "platform": "微信读书",
       "impact": 0.8,
       "current_coverage": 0.0,
@@ -478,6 +478,15 @@
       "priority": 0.75,
       "models": [
         "Kimi"
+      ]
+    },
+    {
+      "platform": "微信公众号",
+      "impact": 0.8,
+      "current_coverage": 0.1,
+      "priority": 0.72,
+      "models": [
+        "腾讯元宝"
       ]
     },
     {
@@ -562,15 +571,6 @@
       ]
     },
     {
-      "platform": "GitHub/GitCode",
-      "impact": 1.0,
-      "current_coverage": 0.72,
-      "priority": 0.28,
-      "models": [
-        "DeepSeek"
-      ]
-    },
-    {
       "platform": "技术白皮书",
       "impact": 1.0,
       "current_coverage": 0.88,
@@ -584,7 +584,7 @@
     "独立官网": 0.9,
     "CSDN": 0.0,
     "知乎技术区": 0.0,
-    "GitHub/GitCode": 0.72,
+    "GitHub/GitCode": 0.0,
     "技术白皮书": 0.88,
     "arXiv/学术": 0.0,
     "百度百科": 0.0,
@@ -600,11 +600,11 @@
     "百科": 0.0,
     "搜狐号": 0.0,
     "网易号": 0.0,
-    "微信公众号": 0.0,
+    "微信公众号": 0.1,
     "微信读书": 0.0,
     "腾讯新闻": 0.0,
     "企鹅号": 0.0,
     "知乎长文(高赞)": 0.0
   },
-  "note": "覆盖率/缺口基于 coverage_resolver 诚实推导（仅计实测 200 渠道）；UGC 未发布则保持 0。"
+  "note": "覆盖率/缺口基于 coverage_resolver 诚实推导（官网线上探测，网络不可用则 unknown/pending；其余仅计实测 200 渠道）；UGC 未发布则保持 0。"
 }

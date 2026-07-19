@@ -1,10 +1,13 @@
-"""Honest IndexNow + sitemap submission for goni.top.
+"""Honest IndexNow + sitemap submission for mingxinstorage.xyz.
+
+Strategy (in order):
+  1) Preferred: call the site's own POST /api/seo/ping (Bearer CRON_SECRET).
+     The Next.js site holds its INDEXNOW_KEY server-side and fans out to
+     IndexNow + Baidu push + WebSub in one call. Requires env CRON_SECRET.
+  2) Fallback: direct IndexNow consortium submit, only if env MX_INDEXNOW_KEY
+     is provided AND the key file is verifiably live at the site root.
 
 - Parses the LIVE sitemap.xml to obtain the canonical URL list (single source of truth).
-- Submits the full list to IndexNow (Microsoft Bing / Yandex / Seznam / Naver consortium)
-  using the key file already published at the site root.
-- Attempts legacy sitemap "ping" endpoints and records their REAL HTTP responses
-  (Google/Bing ping endpoints are deprecated; we report exactly what they return).
 - Writes outputs/indexnow_submit.json with timestamps, payloads and raw responses.
 
 Honesty: we only claim what the endpoints actually return. Google has no public
@@ -13,6 +16,7 @@ ping/submit without Search Console; we record that truthfully and do not fake su
 from __future__ import annotations
 
 import json
+import os
 import ssl
 import sys
 import time
@@ -22,10 +26,16 @@ import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from pathlib import Path
 
-HOST = "goni.top"
-KEY = "REDACTED_INDEXNOW_KEY"
-KEY_LOCATION = f"https://{HOST}/{KEY}.txt"
-SITEMAP = f"https://{HOST}/sitemap.xml"
+HOST = os.environ.get("MX_SITE_HOST", "mingxinstorage.xyz")
+SITE = f"https://{HOST}"
+SITEMAP = f"{SITE}/sitemap.xml"
+SEO_PING = f"{SITE}/api/seo/ping"
+CRON_SECRET = os.environ.get("CRON_SECRET", "")
+
+# Direct-submit fallback: the IndexNow key belongs to the site (Vercel env INDEXNOW_KEY).
+# Provide it here only if you also host {KEY}.txt at the site root.
+KEY = os.environ.get("MX_INDEXNOW_KEY", "")
+KEY_LOCATION = f"{SITE}/{KEY}.txt" if KEY else ""
 
 OUT = Path(__file__).resolve().parent / "outputs" / "indexnow_submit.json"
 
@@ -33,7 +43,7 @@ _CTX = ssl.create_default_context()
 _CTX.check_hostname = False
 _CTX.verify_mode = ssl.CERT_NONE
 
-_UA = "Mozilla/5.0 (compatible; ZK-IndexNow/1.0; +https://goni.top/)"
+_UA = f"Mozilla/5.0 (compatible; Mingxin-IndexNow/1.0; +{SITE}/)"
 
 
 def _get(url: str, timeout: int = 25) -> tuple[int, str]:
@@ -47,20 +57,21 @@ def _get(url: str, timeout: int = 25) -> tuple[int, str]:
         return -1, f"{type(e).__name__}: {e}"
 
 
-def _post_json(url: str, payload: dict, timeout: int = 30) -> dict:
+def _post_json(url: str, payload: dict, headers: dict | None = None, timeout: int = 60) -> dict:
     data = json.dumps(payload).encode("utf-8")
     req = urllib.request.Request(
         url,
         data=data,
         method="POST",
-        headers={"Content-Type": "application/json; charset=utf-8", "User-Agent": _UA},
+        headers={"Content-Type": "application/json; charset=utf-8", "User-Agent": _UA,
+                 **(headers or {})},
     )
     t = time.time()
     try:
         r = urllib.request.urlopen(req, timeout=timeout, context=_CTX)
-        return {"status": r.status, "body": r.read().decode("utf-8", "ignore")[:500], "elapsed": round(time.time() - t, 2)}
+        return {"status": r.status, "body": r.read().decode("utf-8", "ignore")[:1000], "elapsed": round(time.time() - t, 2)}
     except urllib.error.HTTPError as e:
-        return {"status": e.code, "body": e.read().decode("utf-8", "ignore")[:500], "elapsed": round(time.time() - t, 2)}
+        return {"status": e.code, "body": e.read().decode("utf-8", "ignore")[:1000], "elapsed": round(time.time() - t, 2)}
     except Exception as e:  # noqa: BLE001
         return {"status": -1, "body": f"{type(e).__name__}: {e}", "elapsed": round(time.time() - t, 2)}
 
@@ -86,67 +97,65 @@ def main() -> int:
     now = datetime.now(timezone.utc).astimezone()
     result: dict = {
         "host": HOST,
-        "key": KEY,
-        "key_location": KEY_LOCATION,
         "submitted_at": now.isoformat(timespec="seconds"),
     }
-
-    # 0) verify key file is live and matches
-    ks, kbody = _get(KEY_LOCATION)
-    result["key_file_check"] = {"status": ks, "matches": kbody.strip() == KEY}
 
     # 1) get canonical URL list from live sitemap
     ss, sbody = _get(SITEMAP)
     urls = parse_sitemap_urls(sbody) if ss == 200 else []
-    # ensure homepage variants included
-    for extra in [f"https://{HOST}/", f"https://{HOST}/zh/index.html", f"https://{HOST}/en/index.html"]:
+    for extra in [f"{SITE}/", f"{SITE}/en"]:
         if extra not in urls:
             urls.append(extra)
     urls = sorted(set(urls))
     result["sitemap"] = {"status": ss, "url_count": len(urls)}
     result["url_list"] = urls
 
-    if ks != 200 or not result["key_file_check"]["matches"]:
-        result["error"] = "IndexNow key file not live or mismatched; aborting submit (honest)."
-        OUT.parent.mkdir(parents=True, exist_ok=True)
-        OUT.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
-        print(json.dumps(result, ensure_ascii=False, indent=2))
-        return 1
+    # 2) preferred path: the site's own /api/seo/ping (site holds INDEXNOW_KEY)
+    submitted = False
+    if CRON_SECRET:
+        resp = _post_json(SEO_PING, {"urls": urls},
+                          headers={"Authorization": f"Bearer {CRON_SECRET}"})
+        result["seo_ping"] = resp
+        submitted = resp.get("status") == 200
+    else:
+        result["seo_ping"] = {"status": None,
+                              "note": "CRON_SECRET 未配置，跳过站点 /api/seo/ping（首选通道）"}
 
-    # 2) IndexNow submit (batched) to multiple consortium endpoints
-    payload = {"host": HOST, "key": KEY, "keyLocation": KEY_LOCATION, "urlList": urls}
-    endpoints = {
-        "indexnow.org": "https://api.indexnow.org/indexnow",
-        "bing": "https://www.bing.com/indexnow",
-        "yandex": "https://yandex.com/indexnow",
-    }
-    result["indexnow"] = {}
-    for name, ep in endpoints.items():
-        result["indexnow"][name] = _post_json(ep, payload)
-        time.sleep(1.0)
-
-    # 3) legacy sitemap ping endpoints — record REAL responses (often deprecated/404)
-    pings = {
-        "google_ping": f"https://www.google.com/ping?sitemap={SITEMAP}",
-        "bing_ping": f"https://www.bing.com/ping?sitemap={SITEMAP}",
-    }
-    result["sitemap_ping"] = {}
-    for name, url in pings.items():
-        st, body = _get(url, timeout=20)
-        result["sitemap_ping"][name] = {"status": st, "note": "deprecated by provider" if st in (404, 410) else "ok"}
+    # 3) fallback: direct IndexNow consortium submit (requires our own key file live)
+    if not submitted and KEY:
+        ks, kbody = _get(KEY_LOCATION)
+        result["key_file_check"] = {"status": ks, "matches": kbody.strip() == KEY}
+        if ks == 200 and result["key_file_check"]["matches"]:
+            payload = {"host": HOST, "key": KEY, "keyLocation": KEY_LOCATION, "urlList": urls}
+            endpoints = {
+                "indexnow.org": "https://api.indexnow.org/indexnow",
+                "bing": "https://www.bing.com/indexnow",
+                "yandex": "https://yandex.com/indexnow",
+            }
+            result["indexnow"] = {}
+            for name, ep in endpoints.items():
+                result["indexnow"][name] = _post_json(ep, payload)
+                time.sleep(1.0)
+            submitted = any(v.get("status") == 200 for v in result["indexnow"].values())
+        else:
+            result["indexnow_note"] = "MX_INDEXNOW_KEY 提供但 key 文件不在线/不匹配，如实跳过直连提交。"
+    elif not submitted:
+        result["indexnow_note"] = ("直连 IndexNow 需 MX_INDEXNOW_KEY 且站点根托管 {KEY}.txt；"
+                                   "未配置则依赖站点 /api/seo/ping（其自持 INDEXNOW_KEY）。")
 
     # 4) honest note about Google
+    result["submitted"] = submitted
     result["google_note"] = (
         "Google 无公开免认证提交/ping 接口（ping 已于 2023 弃用）。收录需 Search Console "
-        "提交 sitemap 或自然抓取；用户当前无站长平台访问，故此处仅如实记录 ping 响应，"
-        "Google 侧依赖 sitemap.xml + 自然抓取 + 站外信源积累。"
+        "提交 sitemap 或自然抓取；此处如实记录各端点真实响应，Google 侧依赖 "
+        "sitemap.xml + 自然抓取 + 站外信源积累。"
     )
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
     print(json.dumps({k: v for k, v in result.items() if k != "url_list"}, ensure_ascii=False, indent=2))
-    print(f"\n[OK] {len(urls)} URLs; written {OUT}")
-    return 0
+    print(f"\n[{'OK' if submitted else 'SKIP'}] {len(urls)} URLs; written {OUT}")
+    return 0 if submitted or not (CRON_SECRET or KEY) else 1
 
 
 if __name__ == "__main__":

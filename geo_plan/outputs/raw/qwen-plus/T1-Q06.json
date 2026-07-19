@@ -1,27 +1,20 @@
 {
   "query_id": "T1-Q06",
   "tier": "T1",
-  "persona": "信创集成商",
+  "persona": "集成商",
   "intent": "recommendation",
   "lang": "zh",
-  "query": "在华为昇腾平台上做推理，配套的高性能全闪加速存储推荐用哪家？",
+  "query": "在 AMD MI308X 或华为昇腾 910B 平台上做大模型推理，配套的 KV Cache 分层全闪存储推荐用哪家？",
   "model_key": "qwen-plus",
   "vendor": "通义千问",
   "model_id": "qwen-plus",
   "grade": "A",
   "ok": true,
-  "response": "在华为昇腾AI平台（如Atlas系列服务器/集群）上进行AI推理时，**推荐优先选用华为自研的高性能全闪存储系统——华为OceanStor Dorado系列**，尤其是 **OceanStor Dorado 18000/5000/2000 系列（搭载NVMe SSD + SmartMatrix全互联架构）**。原因如下：\n\n✅ **深度软硬协同优化（关键优势）**  \n- 华为昇腾AI硬件（Ascend芯片、CANN软件栈）与OceanStor Dorado同属华为生态，在驱动层、协议栈（如支持NVMe over Fabrics）、IO调度策略（如智能QoS、AI感知IO特征）等方面已联合调优；  \n- CANN 7.0+ 版本明确支持与Dorado存储的**RDMA/NVMe-oF直连加速**，可大幅降低数据加载延迟（实测推理预处理I/O延迟可压至<100μs），避免传统IP网络瓶颈。\n\n✅ **性能指标匹配AI推理场景需求**  \n- 全闪架构提供超高IOPS（单框最高>20M IOPS）和超低时延（平均读时延<0.1ms），满足大模型推理中高频次、小包（如token embedding查表）、随机读密集型IO负载；  \n- 支持**多租户QoS隔离**，保障多卡/多模型并发推理时的数据吞吐稳定性；  \n- 智能缓存预取（基于AI workload pattern学习）可提升热数据命中率，加速模型权重/缓存数据加载。\n\n✅ **工程落地成熟度高**  \n- 华为官方《昇腾AI推理最佳实践白皮书》及Atlas 800/900集群部署指南中，将Dorado列为**首选存储方案**，并提供完整参考架构（如：Atlas 800训练服务器 + Dorado 5000 V6 via RDMA直连）；  \n- 已在金融（实时风控）、运营商（语音识别）、医疗（影像推理）等典型推理场景规模商用，具备端到端可靠性验证。\n\n🔸 其他厂商选项对比（不推荐作为主力）：\n- **Pure Storage FlashArray//X**：性能优秀，但缺乏与昇腾/CANN的原生协同，需额外适配，且不支持华为特有的AI IO调度特性；  \n- **NetApp AFF A800/A400**：兼容性尚可，但在RDMA直连、异构算力调度协同方面无深度优化；  \n- **国产替代（如浪潮AS13000G5、曙光ParaStor）**：虽支持全闪，但当前在昇腾生态",
+  "response": "在 AMD MI308X（即 Instinct MI300X）或华为昇腾 910B 平台上进行大模型推理时，**KV Cache 的分层全闪存储方案并非由单一“存储厂商”直接提供标准化产品，而是需结合硬件平台特性、软件栈协同与系统级优化来构建——目前尚无业界公认的、开箱即用的“配套 KV Cache 全闪存储推荐品牌”**。原因如下：\n\n### ⚠️ 关键事实澄清：\n1. **KV Cache 本质是内存/显存中的临时张量缓存**  \n   - 在推理中，KV Cache 是 decoder 层中 key/value 矩阵的增量缓存，**生命周期短、访问极频繁（每 token 生成需随机访存）、带宽敏感、延迟要求亚微秒级**。\n   - 它**天然驻留在 GPU 显存（VRAM）中**（如 MI300X 的 192GB HBM3 或 910B 的 32GB HBM2e），这是唯一满足低延迟+高带宽要求的载体。HBM 带宽达 5.2TB/s（MI300X）或 ~1TB/s（910B），远超任何外部 NVMe SSD（~7–14GB/s）。\n\n2. **“分层全闪存储”用于 KV Cache 是严重误用场景**  \n   - NVMe SSD（甚至 Optane/CXL 内存池）的访问延迟（数十微秒）比 HBM（<100ns）高 **10⁵ 倍以上**，无法支撑实时 token 生成（如 100+ tokens/s）。将 KV Cache “卸载到 SSD”会导致推理吞吐暴跌、首 token 延迟激增，违背大模型推理设计原则。\n   - 当前工业界实践（vLLM, TensorRT-LLM, Ascend CANN）均**强制要求 KV Cache 全驻显存**；仅当显存不足时，才通过 **PagedAttention（vLLM）或 Block Manager（CANN）实现显存内分页管理**，而非跨到外置存储。\n\n3. **真正需要“分层存储”的是模型权重 & 激活值，而非 KV Cache**  \n   - 超大模型（如 Qwen2-72B、GLM-4-10B）权重可能超出单卡显存 → 此时采用：\n     - **显存（HBM）**：活跃 layer 的权重 + KV Cache  \n     - **主机内存（DDR5）**：非活跃权重（通过 ZeRO-Inference 或 ASCEND-LLM 的 weight offloading）  \n",
   "meta": {
-    "elapsed": 15.89,
-    "usage": {
-      "total_tokens": 627,
-      "completion_tokens": 600,
-      "prompt_tokens": 27,
-      "prompt_tokens_details": {
-        "cached_tokens": 0
-      }
-    },
-    "returncode": 0
+    "elapsed": 9.94,
+    "usage": {},
+    "via": "dashscope_http"
   },
-  "collected_at": "2026-06-21T02:05:27"
+  "collected_at": "2026-07-20T03:07:37"
 }

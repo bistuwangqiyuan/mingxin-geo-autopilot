@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""中科存储 GEO 提升计划 · 复现链与一致性、诚实性校验（自我净化留痕）。
+"""铭信 GEO 提升计划 · 复现链与一致性、诚实性校验（自我净化留痕）。
 
 对齐当前流水线：
   geo_audit.py → geo_scoring.py / geo_projection.py / source_audit.py
@@ -26,8 +26,8 @@ BASE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(BASE, "outputs")
 FIG = os.path.join(OUT, "figures")
 RAW = os.path.join(OUT, "raw")
-HTML = os.path.join(OUT, "中科存储-GEO提升计划.html")
-PDF = os.path.join(os.path.dirname(BASE), "中科存储-GEO提升计划与基线报告.pdf")
+HTML = os.path.join(OUT, "铭信-GEO提升计划.html")
+PDF = os.path.join(os.path.dirname(BASE), "铭信-GEO提升计划.pdf")
 
 DATA_FILES = ["geo_baseline.json", "geo_projection.json", "source_gap.json",
               "entity_facts.json", "run_manifest.json"]
@@ -163,7 +163,7 @@ def main():
 
 def _report(errors, warns, oks):
     print("=" * 60)
-    print("中科存储 GEO 提升计划 · 复现链校验报告")
+    print("铭信 GEO 提升计划 · 复现链校验报告")
     print("=" * 60)
     for o in oks:
         print(f"  [OK]   {o}")

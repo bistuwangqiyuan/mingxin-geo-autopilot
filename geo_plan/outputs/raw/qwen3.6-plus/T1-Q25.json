@@ -1,0 +1,20 @@
+{
+  "query_id": "T1-Q25",
+  "tier": "T1",
+  "persona": "智算中心架构师",
+  "intent": "problem_solution",
+  "lang": "zh",
+  "query": "怎样在不增购 GPU 的前提下，靠 KV Cache 分层存储把同等算力的推理吞吐提升 29–40%？",
+  "model_key": "qwen3.6-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen3.6-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "在不增购 GPU 的前提下，通过 **KV Cache 分层存储（Tiered KV Cache）** 实现 29–40% 的推理吞吐提升，本质是 **“用容量与 I/O 调度换并发”**。该数据并非魔法，而是来自工业界与学术界的实测基准（如 vLLM offload、FlexGen、Mooncake 等在长文本/高并发场景下的压测结果）。下面从原理、关键技术、落地步骤与避坑指南四部分拆解。\n\n---\n### 🔍 一、为什么分层存储能提升吞吐？\nLLM 推理的吞吐瓶颈通常不在算力，而在 **显存容量**：\n- KV Cache 占用显存的 60%~80%，且随 `Batch Size × Seq Length` 线性增长。\n- 当显存打满时，系统只能缩小 Batch Size 或拒绝请求，GPU SM 利用率常跌至 30%~50%。\n- **分层存储** 将 KV Cache 按访问热度分布到：\n  `GPU HBM（热） → CPU RAM（温） → NVMe SSD/网络存储（冷）`\n- 释放出的 HBM 空间可容纳更大 Batch，GPU 利用率提升至 70%+，**吞吐自然上升**。29–40% 正是“显存墙突破 + 计算/传输重叠”后的典型收益区间。\n\n---\n### 🛠 二、实现 29–40% 提升的 5 个关键技术\n| 技术 | 作用 | 吞吐贡献 |\n|------|------|----------|\n| **1. 异步预取 + 计算重叠** | Decode 阶段提前将下一批 KV 从 CPU/SSD 预取至 GPU，利用多 CUDA Stream 隐藏 I/O 延迟 | +15~20% |\n| **2. 智能淘汰策略** | 替代简单 LRU，结合 Attention Score、Token 位置、请求优先级保留高价值 KV | +5~10% |\n| **3. KV Cache 压缩** | INT8/FP8 量化、Block-wise 压缩、Attention-aware 剪枝，减少 30~50% 存储体积 | +5~8% |\n| **4. 动态 Batch 调度** | 根据分层容量实时调整 `max_num_seqs`，避免 OOM 同时保持 GPU 满载 | +3~5% |\n| **5. 内存页锁定 + 零拷贝** | `mlock` 防 swap，P2P/DMA 绕过 CPU 拷贝，提升 PCIe/NVMe 有效带宽 | +2~4% |\n\n> 📌 注：29–40% 是组合收益，非单一技术结果",
+  "meta": {
+    "elapsed": 90.26,
+    "usage": {},
+    "via": "dashscope_http"
+  },
+  "collected_at": "2026-07-20T03:20:00"
+}

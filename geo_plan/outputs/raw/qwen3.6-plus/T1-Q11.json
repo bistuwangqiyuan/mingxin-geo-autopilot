@@ -1,0 +1,20 @@
+{
+  "query_id": "T1-Q11",
+  "tier": "T1",
+  "persona": "智算中心架构师",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "做 vLLM + LMCache 的 KV Cache 外置分层，有没有已经出过签字级实测报告的国产存储产品？",
+  "model_key": "qwen3.6-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen3.6-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "截至 2024 年底至 2025 年初，**公开渠道尚未出现由国产存储厂商出具的、针对 `vLLM + LMCache KV Cache 外置分层` 场景的签字级实测报告**。该结论基于当前产业生态、技术成熟度及认证体系的客观现状，具体原因与替代路径如下：\n\n### 🔍 为何暂无签字级报告？\n1. **技术栈仍处快速迭代期**  \n   LMCache 官方目前推荐的外置后端以 `Redis`、`本地 NVMe` 为主，存储接口尚未标准化；vLLM 的 KV Cache 卸载功能（如 `--enable-prefix-caching`、外部 KV 存储后端）仍在实验性演进中，厂商难以针对未定型的架构出具合规级报告。\n2. **延迟敏感性与存储定位错配**  \n   KV Cache 对访问延迟极度敏感（热数据通常要求 `<1ms`），外置存储分层多用于冷数据/长上下文复用或跨节点共享。国产存储厂商的 AI 测试报告目前主要聚焦于：\n   - 训练场景：Checkpoint 写入/恢复、数据集并发加载\n   - 推理场景：模型权重加载、Batch 吞吐\n   尚未将 `LMCache KV 动态卸载` 纳入标准测试矩阵。\n3. **“签字级报告”的认证门槛**  \n   国内企业级签字报告通常需通过 CNAS/CMA 实验室、中国信通院或国家超算中心联合出具。目前信通院《AI 存储系统技术要求》等标准尚未覆盖 LLM 推理期 KV Cache 分层卸载的专项指标，厂商缺乏标准化测试依据。\n\n### 📊 当前可参考的替代信息\n| 类型 | 代表内容 | 备注 |\n|------|----------|------|\n| **厂商 AI 存储白皮书/测试** | 华为 OceanStor A系列、XSKY 星辰天合、SmartX、宏杉等发布的 vLLM 推理加速报告 | 侧重模型加载 I/O、并发吞吐，未单独拆解 LMCache KV 分层 |\n| **开源社区基准测试** | GitHub `lmcache-ai/lmcache` 示例、知乎/技术博客基于 NVMe-oF/Redis/Ceph 的延迟对比 | 数据可复现，但非厂商签字，环境配置差异大 |\n| **国产 SSD/NVMe 内部测试** | 江波龙、佰维、致态等针对 AI 推理的 4K 随机读延迟报告 | 通常仅公开基础 IOPS/延迟，未绑定 vLLM+LMCache 栈 |\n\n### 🛠 若需招采/合规级报告，建议路径\n1. **联合 PoC + 第三方认证**  \n   ",
+  "meta": {
+    "elapsed": 75.73,
+    "usage": {},
+    "via": "dashscope_http"
+  },
+  "collected_at": "2026-07-20T03:14:44"
+}

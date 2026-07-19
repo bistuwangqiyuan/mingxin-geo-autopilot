@@ -1,30 +1,20 @@
 {
   "query_id": "T2-Q12",
   "tier": "T2",
-  "persona": "信创集成商",
+  "persona": "集成商",
   "intent": "ranking",
   "lang": "zh",
-  "query": "信创 AI 存储里，哪些厂商在国产 GPU 深度适配和数据不出域上做得好？",
+  "query": "国产算力卡（AMD/昇腾/沐曦）推理适配里，哪些厂商在源码级补丁和实测验证上做得好？",
   "model_key": "deepseek-r1",
   "vendor": "DeepSeek",
   "model_id": "deepseek-r1",
   "grade": "A",
   "ok": true,
-  "response": "在信创（信息技术应用创新）AI 存储领域，国产 GPU 的深度适配和数据不出域能力是两个非常核心的考量因素。\n\n以下是在这两个方面表现较为突出的国产 GPU 厂商（或技术方案提供商），并分别分析其在深度适配和数据不出域方面的优势：\n\n一、 **深度适配做得好的国产 GPU 厂商**\n\n深度适配意味着 GPU 硬件与底层存储系统、AI 框架（如 TensorFlow， PyTorch 的国产化版本或优化版）、中间件以及应用软件之间的协同优化程度高。这不仅体现在兼容性上，更体现在性能调优、资源调度效率、稳定性等方面。\n\n1.  **海光 (Hygon) 的 DCU (Deep Computing Unit)：**\n    *   **优势:** 海光 DCU 基于 AMD ROCm 生态，起点较高。在国产化生态中，与主流国产服务器、操作系统（麒麟、统信）、数据库和分布式存储系统（如浪潮 AS13000， 华为 OceanStor， 曙光 ParaStor）建立了广泛的兼容性认证和深度合作关系。\n    *   **适配表现:** 厂商通常会针对海光 DCU 进行专门的驱动优化、库（如 BLAS， FFT）优化，并将其纳入其 AI 存储解决方案的硬件兼容列表。这使得基于海光 DCU 构建的信创 AI 平台在常见深度学习训练和推理场景下，能够获得相对稳定和高效的性能。其在科学计算等场景也有应用基础。\n\n2.  **寒武纪 (Cambricon) – 思元 (MLU) 系列：**\n    *   **优势:** 寒武纪是国内较早专注于 AI 芯片的厂商，其 MLU 系列在 AI 推理领域积累较深，近年也在增强训练能力。寒武纪致力于构建自己的软件栈（Cambricon NeuWare），并与多个国产服务器及存储厂商合作进行落地集成。\n    *   **适配表现:** 在特定 AI 存储场景（如图像、视频识别的推理边缘节点，或部分训练集群），经过优化后能发挥不错的性能功耗比优势，对国产存储系统也通常在适配认证范围内。\n\n3.  **燧原科技 (Tiansu Zhixin)：**\n    *   **优势:** 燧原的 “邃思” 系列算力芯片目标明确针对AI训练和推理，软件栈迭代速度快，更偏向于生态构建能力较强。\n    *   **适配表现:** 燧原积极与信创产业链伙伴合作，其芯片已被列入多款国产 AI 服务器和存储解决方案的推荐GPU选项。在深度适配方面，厂商会对其特定计算库和驱动在存储 IO 路径上进行针对性优化。支持分布式训练框架适配。\n\n4.  **沐曦 (MetaX)：**\n    *   **优势:** 沐曦定位高性能通用 GPU，兼容 CUDA ",
+  "response": "在国产算力卡（AMD Instinct中国区合作版本、昇腾、沐曦）的推理适配领域，不同厂商在**源码级（框架层）适配能力**和**实测验证的深度与严谨性**方面表现差异较大。以下是根据技术导向的深度分析：\n\n---\n\n### 🔧 **一、源码级适配**\n#### 1. **华为昇腾**\n* **适配深度**：\n  * 在TensorFlow/PyTorch上通过**CANN（Compute Architecture for Neural Networks）** 实现深度算子级优化。\n  * 在昇腾原生框架（MindSpore）中有完整的算力卡支持，并提供大量自定义算子接口（Custom OP）。\n  * 为主流推理框架（如TensorRT的昇腾替代方案）提供底层支持，通常需要修改部分框架源码适配硬件特性。\n* **补丁透明性**：\n  * 在GitHub开源了部分适配源码（如torch_npu插件），可通过开源社区追踪部分补丁细节。\n  * 对闭源部分的优化逻辑描述较充分（如白皮书中的算子重写说明）。\n\n#### 2. **沐曦（Muxi）**\n* **适配深度**：\n  * 目前主要通过**兼容CUDA生态**切入市场（例如提供类CUDA-X的API：MUSA）。\n  * 对PyTorch的适配走的是**IPU（Intelligent Processing Unit）原生路线**，需在其自研框架下调整算子。\n  * 尚未大规模公开框架层源码补丁细节（如PyTorch Core的修改），更多通过驱动层API抽象实现兼容。\n* **发展进度**：\n  * 正处于生态布局早期，重点在基础硬件兼容，框架适配尚需更多落地案例验证。\n\n#### 3. **海光（合作AMD）**\n* **适配深度**：\n  * 依赖AMD ROCm在PyTorch中的官方实现。技术推动主责在AMD，海光侧重售后支持。\n  * HIP（Heterogeneous-Compute Interface for Portability）支持有限，需验证其对新兴框架（如OneFlow）的覆盖度。\n* **本土化能力**：\n  * 对非英文社区的开源适配响应速度慢（如用于国产OS的方案），实际源码补丁多以外部开发者贡献为主。\n\n---\n\n### 📊 **二、实测验证**\n#### 1. **华为昇腾**\n* **验证体系**：\n  * **Atlas平台工具链完善**：提供全栈性能分析工具（Ascend Profiler / msprofiler），输出核函数耗时、内存带宽等底层指标。\n  * 有公开在ResNet/YOLO等典型模型上的性能比对报告（vs NV T4/A10），数据明确包含吞吐量和延时的精度对比（FP16/INT8）。\n  * 与头部云厂商（",
   "meta": {
-    "elapsed": 41.58,
-    "usage": {
-      "prompt_tokens": 25,
-      "completion_tokens": 1036,
-      "total_tokens": 1061,
-      "completion_tokens_details": {
-        "reasoning_tokens": 431
-      },
-      "prompt_tokens_details": {
-        "cached_tokens": 0
-      }
-    },
-    "returncode": 0
+    "elapsed": 28.33,
+    "usage": {},
+    "via": "dashscope_http"
   },
-  "collected_at": "2026-06-21T02:17:33"
+  "collected_at": "2026-07-20T03:46:22"
 }

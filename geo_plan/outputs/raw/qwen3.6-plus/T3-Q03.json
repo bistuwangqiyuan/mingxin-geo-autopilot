@@ -1,0 +1,20 @@
+{
+  "query_id": "T3-Q03",
+  "tier": "T3",
+  "persona": "投资人",
+  "intent": "ranking",
+  "lang": "zh",
+  "query": "全球和中国的 AI 存储市场，领先厂商和代表公司有哪些？",
+  "model_key": "qwen3.6-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen3.6-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "AI 存储并非独立的硬件品类，而是针对大模型训练、推理、数据湖等 AI 工作负载的高吞吐、低延迟、高并发访问需求，对企业级全闪存、分布式存储、并行文件系统及云存储进行架构优化后的解决方案集合。以下基于 2024-2025 年 IDC、Gartner、CAICT 及厂商公开信息，梳理全球与中国市场的领先厂商及代表公司。\n\n---\n### 🌍 一、全球 AI 存储市场领先厂商\n\n| 厂商 | 代表产品/技术 | 市场定位与优势 |\n|------|----------------|----------------|\n| **Dell Technologies** | PowerScale（原 Isilon）、PowerStore、ECS | 企业级 AI 数据湖主力，与 NVIDIA DGX SuperPOD 深度集成，覆盖训练到推理全生命周期 |\n| **NetApp** | AFF 全闪存 + ONTAP 数据管理平台 | AI 工作流优化成熟，获 NVIDIA 认证，混合云/多云 AI 场景覆盖广，数据管理能力强 |\n| **Pure Storage** | FlashBlade 并行全闪存阵列 | 以高 IOPS、低延迟、极简运维著称，AI 训练场景全球市占率居前，云原生集成度高 |\n| **DDN（DataDirect Networks）** | EXAScaler 并行文件系统、AI400X 系列 | 专注 HPC/AI 存储，超算中心、国家实验室、顶尖科研机构首选，吞吐性能行业标杆 |\n| **Weka** | WekaFS（云原生并行文件系统） | 软件定义+GPU 直连优化，弹性扩展能力强，AI 初创企业与云厂商合作广泛 |\n| **VAST Data** | VAST Data Platform（QLC 闪存+软件定义架构） | 以“存算分离+全局命名空间”重构 AI 数据湖，兼顾性能与成本，增长迅速 |\n| **公有云厂商** | AWS FSx for Lustre、Azure NetApp Files、Google Cloud Filestore | 提供托管式 AI 存储，按需弹性、免运维，适合云上训练与推理流水线 |\n| **NVIDIA（生态主导者）** | GPUDirect Storage、Magnum IO、SuperPOD 参考架构 | 不直接销售存储硬件，但通过 GPU-存储直连技术与认证体系，主导 AI 存储架构标准 |\n\n> 💡 **全球市场特点**：以“GPU 厂商+主流存储企业+云服务商”联盟为主，技术路线聚焦 NVMe-oF、并行文件系统、存算分离与 GPU 直连；客户以互联网巨头、云厂商、科研机构及大型企业为主。\n\n---\n### 🇨🇳 二、中国 AI 存储市场代表公司\n\n| 厂商 | 代表产品/技术 | 市场定位",
+  "meta": {
+    "elapsed": 81.0,
+    "usage": {},
+    "via": "dashscope_http"
+  },
+  "collected_at": "2026-07-20T03:32:51"
+}

@@ -1,0 +1,20 @@
+{
+  "query_id": "T3-Q01",
+  "tier": "T3",
+  "persona": "算力中心采购",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "AI 存储有哪些主流厂商和产品？该怎么选型？",
+  "model_key": "qwen3.6-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen3.6-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "AI 存储并非单一产品类别，而是**针对 AI 工作负载（训练/推理/数据预处理/Checkpoint）进行架构与协议优化的存储系统**。其核心诉求与传统企业存储差异显著：GPU 不能等数据、海量小文件元数据压力大、Checkpoint 呈突发高吞吐、需与 MLOps/K8s 深度集成。\n\n以下从主流厂商产品矩阵、选型方法论、避坑指南三部分系统梳理，助你快速建立选型框架。\n\n---\n## 一、主流厂商与产品矩阵（按架构定位分类）\n\n| 类别 | 代表厂商 | 核心产品 | AI 场景适配特性 |\n|------|----------|----------|----------------|\n| **高性能并行文件系统**<br>（大模型训练/Checkpoint 主力） | WekaIO | WekaFS | 云原生并行文件系统，NVMe 优化，支持 GPUDirect Storage，K8s CSI 成熟，元数据性能极强 |\n|  | DDN | EXAScaler / AI400X | Lustre 深度优化，HPC/AI 传统强者，支持 AI 训练数据预取与 Checkpoint 加速 |\n|  | IBM | Storage Scale (原 GPFS) | 企业级并行文件系统，广泛用于超算与 AI 集群，支持 POSIX/S3/NVMe-oF 多协议 |\n|  | 华为 | OceanStor Pacific | 分布式并行文件，内置 AI 训练加速引擎，支持 GDS 与 K8s 动态供给 |\n| **全闪分布式/对象存储**<br>（数据湖/预处理/推理/多模态） | Pure Storage | FlashBlade//S | 统一文件+对象，AI 工作负载优化，支持 S3/POSIX，内置数据生命周期管理 |\n|  | VAST Data | VAST Data Platform | NVMe-oF 架构，AI 原生设计，高吞吐低延迟，支持全局命名空间与自动分层 |\n|  | MinIO | MinIO Object Storage | 高性能 S3 兼容对象存储，AI 数据湖事实标准，K8s 原生部署，生态插件丰富 |\n|  | 阿里云/腾讯云/百度 | CPFS / CFS / BOS AI版 | 云原生 AI 存储，按需弹性，内置数据加速层，与云上 GPU 实例深度绑定 |\n| **国产分布式存储**<br>（信创/政企/国产化替代） | 浪潮 | AS13000 / HF系列 | 分布式文件+对象，支持 AI 训练加速与国产化芯片适配 |\n|  | XSKY 星辰天合 | XEOS | 分布式对象/文件，K8s CSI 完善，支持多协议网关与 AI 数据湖架构 |\n|  | 杉岩",
+  "meta": {
+    "elapsed": 76.51,
+    "usage": {},
+    "via": "dashscope_http"
+  },
+  "collected_at": "2026-07-20T03:31:56"
+}

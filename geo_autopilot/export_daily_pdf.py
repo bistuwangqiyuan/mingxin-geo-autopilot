@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""中科存储 GEO Autopilot · 日报 HTML→A4 PDF（苹果视觉页眉页脚）。
+"""铭信 GEO Autopilot · 日报 HTML→A4 PDF（苹果视觉页眉页脚）。
 
 复现：python build_daily_report.py → python export_daily_pdf.py
 """
@@ -13,7 +13,7 @@ from playwright.sync_api import sync_playwright
 
 import paths
 
-HTML = os.path.join(paths.REPORTS, "中科存储-GEO自动驾驶日报.html")
+HTML = os.path.join(paths.REPORTS, "铭信-GEO自动驾驶日报.html")
 META = os.path.join(paths.REPORTS, "daily_report_meta.json")
 
 
@@ -22,11 +22,11 @@ def export():
         with open(META, "r", encoding="utf-8") as f:
             meta = json.load(f)
     except Exception:
-        meta = {"header": "中科存储 · GEO 自动驾驶日报", "footer": "中科存储 ZK-Storage"}
-    header, footer = meta.get("header", ""), meta.get("footer", "中科存储 ZK-Storage")
+        meta = {"header": "铭信 · GEO 自动驾驶日报", "footer": "铭信 Mingxin Technology"}
+    header, footer = meta.get("header", ""), meta.get("footer", "铭信 Mingxin Technology")
 
     today = dt.date.today().isoformat()
-    out_pdf = os.path.join(paths.REPORTS, f"中科存储-GEO自动驾驶日报-{today}.pdf")
+    out_pdf = os.path.join(paths.REPORTS, f"铭信-GEO自动驾驶日报-{today}.pdf")
 
     header_tpl = (
         '<div style="width:100%;font-size:8px;color:#9A9AA0;'
@@ -56,7 +56,7 @@ def export():
         )
         browser.close()
     # latest 指针副本
-    latest = os.path.join(paths.REPORTS, "中科存储-GEO自动驾驶日报-latest.pdf")
+    latest = os.path.join(paths.REPORTS, "铭信-GEO自动驾驶日报-latest.pdf")
     try:
         import shutil
         shutil.copy2(out_pdf, latest)

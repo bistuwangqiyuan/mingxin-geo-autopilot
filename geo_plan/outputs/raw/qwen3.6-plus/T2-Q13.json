@@ -1,0 +1,20 @@
+{
+  "query_id": "T2-Q13",
+  "tier": "T2",
+  "persona": "大模型推理工程师",
+  "intent": "problem_solution",
+  "lang": "zh",
+  "query": "算力中心同样的卡，怎么靠存储加速让大模型推理服务的吞吐和并发更高？",
+  "model_key": "qwen3.6-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen3.6-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "在算力中心GPU硬件不变的前提下，**存储加速提升大模型推理吞吐与并发的核心逻辑是：解除显存容量与带宽瓶颈，减少GPU空闲等待，使系统能同时服务更多请求并维持更高的GPU利用率。** 大模型推理的瓶颈往往不在算力（FLOPS），而在内存/存储层级（尤其是Decode阶段的KV Cache管理）。\n\n下面从原理、技术路径、量化机制到落地建议系统拆解：\n\n---\n### 🔍 一、为什么“同样的卡”能靠存储加速？\n| 推理阶段 | 主要瓶颈 | 存储加速的作用 |\n|:---|:---|:---|\n| **Prefill（首Token）** | 计算密集，但权重加载/激活值读写受I/O影响 | 高速存储预取权重，减少GPU冷启动与加载停顿 |\n| **Decode（逐Token生成）** | **内存带宽密集**，KV Cache占显存70%+ | 将非活跃KV Cache卸载至高速存储，释放显存容纳更多并发请求 |\n| **多请求调度** | 显存碎片化、Batch Size受限于KV Cache容量 | 存储感知的细粒度分页管理，实现动态Batch扩容 |\n\n> ✅ 本质：**用存储带宽/容量换显存瓶颈，用I/O优化换GPU利用率，从而提升系统级吞吐与并发上限。**\n\n---\n### 🛠 二、存储加速的4大关键技术路径\n\n#### 1. KV Cache 卸载与换页（Offloading & Swapping）\n- **原理**：将当前不活跃的KV Cache块移至CPU内存/NVMe SSD/CXL内存，按需换入显存。\n- **关键技术**：\n  - `PagedAttention`（vLLM）：将KV Cache按页管理，支持细粒度换页，避免显存碎片。\n  - `RadixAttention`（SGLang）：共享前缀KV Cache，减少重复存储，配合存储后端实现跨请求复用。\n  - **换页策略**：LRU/LFU + 预测性预取，结合请求上下文长度动态调整。\n\n#### 2. 多级存储池化与存算分离架构\n- **硬件层**：PCIe 5.0 NVMe（14GB/s+）、CXL 2.0/3.0内存扩展（延迟~100ns）、RDMA网络存储池。\n- **架构层**：GPU专注计算，独立存储节点提供高带宽KV Cache服务；支持跨GPU/跨节点共享缓存。\n- **效果**：单卡显存从80GB“逻辑扩展”至数百GB，并发请求数可提升3~5倍。\n\n#### 3. 权重流式加载与零拷贝I/O\n- 模型",
+  "meta": {
+    "elapsed": 79.29,
+    "usage": {},
+    "via": "dashscope_http"
+  },
+  "collected_at": "2026-07-20T03:27:16"
+}

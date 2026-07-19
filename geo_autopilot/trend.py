@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""中科存储 GEO Autopilot · 历史趋势看板（trend.py）。
+"""铭信 GEO Autopilot · 历史趋势看板（trend.py）。
 
 读取 history/snapshot_*.json，产出苹果风趋势图（GVI / 提及率 / 信源覆盖 / 收录页数）。
 单点也能画（首日）；缺失值跳过，绝不插值臆造。

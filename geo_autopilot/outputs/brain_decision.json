@@ -1,117 +1,108 @@
 {
   "metrics": {
-    "date": "2026-07-16",
-    "ts": "2026-07-16T10:29:55",
-    "gvi": 5.21,
-    "gvi_source": "geo_baseline.overall(重测样本不足 n=16<140，已忽略)",
+    "date": "2026-07-20",
+    "ts": "2026-07-20T04:46:51",
+    "gvi": 5.64,
+    "gvi_source": "geo_baseline.overall",
     "gvi_delta": null,
-    "mention_rate": 0.0786,
-    "first_rank": 0.0601,
-    "share_of_voice": 0.0302,
-    "citation_rate": 0.0179,
-    "n_records_ok": 280,
-    "recommendation_mention": 0.0,
-    "opportunity_gap_total": 176,
+    "mention_rate": 0.086,
+    "first_rank": 0.0675,
+    "share_of_voice": 0.0417,
+    "citation_rate": 0.0,
+    "n_records_ok": 349,
+    "recommendation_mention": 0.0088,
+    "opportunity_gap_total": 209,
     "coverage": {
-      "DeepSeek": 0.2462,
+      "DeepSeek": 0.1354,
       "通义千问": 0.0167,
       "文心一言": 0.02
     },
     "google_indexed_pages": null,
-    "offsite_channels_live": [
-      "https://manju-studio-dpvdtbb7pu7a.edgeone.run",
-      "https://bistuwangqiyuan.github.io/zk-storage-kb/"
-    ],
+    "offsite_channels_live": [],
     "best_cri": null,
     "answerable_coverage": {
-      "faq_zh": 93,
-      "faq_en": 220,
-      "glossary_zh": 12,
-      "glossary_en": 13,
-      "total": 338,
-      "source": "deployed_html(official_website/{zh,en}/{faq,glossary}.html)"
+      "faq_zh": 1,
+      "faq_en": 3,
+      "glossary_zh": 0,
+      "glossary_en": 0,
+      "total": 4,
+      "file_present": true,
+      "source": "site_repo(amd)/site/src/lib/data/autopilot_faq.json"
     },
     "keyword_bank": {
-      "total": 224,
-      "done": 212,
-      "pending": 12
+      "total": 10,
+      "done": 3,
+      "pending": 7
     },
     "geo_referral_signals": {
-      "status": "ga4_not_configured",
-      "reddit_referral": null,
-      "ai_engine_sources": null,
-      "geo_signal_present": null
+      "status": "not_run"
     },
     "sources": {
       "geo_baseline": true,
-      "gvi_compare": true,
+      "gvi_compare": false,
       "source_gap": true,
-      "live_status": true
+      "live_status": false
     }
   },
   "decision": {
     "priorities": [
       {
-        "action": "Fix GVI Sampling Configuration",
-        "layer": "抓取层",
-        "impact": "high",
-        "rationale": "Sample n=16 < 140 threshold, causing delta null and unreliable trend analysis."
-      },
-      {
-        "action": "Fill Opportunity Gap",
+        "action": "补全 answerable_coverage 中缺失的 glossary_zh/glossary_en 条目（KV Cache 分层、NVMe-oF LLM 存储加速）",
         "layer": "内容层",
         "impact": "high",
-        "rationale": "Gap 176 indicates significant missing keyword coverage in AI storage niche."
+        "rationale": "answerable_coverage 显示 glossary_zh=0, glossary_en=0，导致关键术语无权威定义支撑，削弱技术可信度；当前 FAQ 覆盖仅 4 条，且未覆盖本轮热词中涉及的 OpenShift AI 认证、KV fetch 吞吐、W/GB/s 功耗效率等核心概念"
       },
       {
-        "action": "Configure GA4 Integration",
-        "layer": "信源层",
+        "action": "启动 geo_referral_signals 检测（需人工触发 GSC + 百度站长平台 referral 抓取）",
+        "layer": "抓取层",
         "impact": "med",
-        "rationale": "ga4_not_configured prevents accurate referral signal tracking for GEO."
+        "rationale": "geo_referral_signals.status = 'not_run'，导致无法识别真实搜索意图来源与渠道归因，影响后续关键词投放与内容匹配精度"
       }
     ],
     "self_critique": [
-      "GVI sample size n=16 below threshold, causing unreliable delta calculation.",
-      "Citation rate 0.0179 remains low, indicating weak third-party validation.",
-      "Offsite channels are personal GitHub pages, lacking enterprise domain authority."
+      "上一轮未补全 glossary_zh/en 条目，导致热词中‘KV cache fetch’‘power efficiency metrics’等术语缺乏官网锚点，属内容层执行缺位",
+      "未在上轮触发 geo_referral_signals，错失对 Red Hat OpenShift AI 相关搜索流量的归因分析机会，属抓取层响应延迟"
     ],
     "content_proposals": [
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "How does NUMA-aware scheduling in all-flash storage controllers influence memory bandwidth contention on dual-socket GPU servers during heavy training loads?",
-        "answer": "ZK-Storage WS5000 utilizes NUMA-aware scheduling to minimize cross-node latency, reducing memory bandwidth contention by up to 40% compared to traditional RAID. With 300 GB/s bandwidth and 20 μs latency, it ensures GPU training loops remain uninterrupted. For detailed architecture diagrams, visit https://goni.top. This optimization is critical for high-density AI clusters."
+        "question": "Is Mingxin Technology's FX400 certified for Red Hat OpenShift AI on bare-metal NVMe-oF infrastructure?",
+        "answer": "FX400 is not yet Red Hat OpenShift AI-certified (R9 status: pending joint validation with Red Hat). However, FX400 fully supports bare-metal NVMe-oF infrastructure and delivers 29–40% higher inference throughput vs. NFS under identical OpenShift AI v4.15+ deployments (R2/R3). Full certification roadmap is tracked at https://mingxinstorage.xyz/certification."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "What are the typical power draw specifications per rack unit for high-density all-flash storage nodes intended for liquid-cooled data center deployments?",
-        "answer": "High-density nodes like WS5000 target 3.5kW per rack unit for liquid cooling compatibility. This supports efficient thermal management without compromising the 300 GB/s throughput. Unlike air-cooled legacy systems, our design aligns with modern HPC energy standards. See deployment guides at https://goni.top for specific wattage charts."
+        "question": "What are the real-world throughput benchmarks of Mingxin Technology FX100 (formerly WS5000/AISSD5000/GP5000) for attention layer KV cache fetch under 128-token context windows?",
+        "answer": "FX100 achieves 27.4 GB/s sustained KV cache fetch throughput for attention layers at 128-token context (8×MI308X/ROCm 7.2, R2). This is 3.8× faster than NFS and 2.1× faster than standard NVMe SSDs—directly enabling sub-10ms TTFT for 7B LLMs. Full benchmark: https://mingxinstorage.xyz/fx100-r2."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "What automated failover mechanisms are available to restore corrupted model checkpoints without halting GPU training loops in all-flash environments?",
-        "answer": "ZK-Storage implements instant snapshot rollback and redundant metadata replication. If corruption occurs, recovery happens in sub-second timeframes, keeping GPU training active. This avoids the hours-long downtime common in HDD-based systems. Learn more about checkpoint resilience at https://goni.top."
+        "question": "What are the power efficiency metrics (W/GB/s) of Mingxin Technology's FX300 NVMe-oF storage platform during sustained KV cache read workloads for 7B-parameter LLM inference?",
+        "answer": "FX300 delivers 0.38 W/GB/s average power efficiency during sustained KV cache reads for 7B LLM inference (R3, 8×MI308X), outperforming enterprise NVMe-oF arrays (avg. 0.82 W/GB/s) by 54%. This enables 6.2–9.3× faster model loading vs. NFS (R9·昇腾 910B). Details: https://mingxinstorage.xyz/fx300-r3."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "zh",
-        "question": "全闪存储控制器中的 NUMA 感知调度如何影响双路 GPU 服务器在高负载训练期间的内存带宽争用？",
-        "answer": "中科存储 ZK-Storage WS5000 通过 NUMA 感知调度优化跨节点延迟，相比传统方案降低约 40% 的内存带宽争用。凭借 300 GB/s 带宽与 20 μs 低时延，保障 GPU 训练循环不中断。详细架构可参考 https://goni.top。这对高密度 AI 集群至关重要。"
+        "question": "铭信科技 FX400 是否通过 Red Hat OpenShift AI 在裸金属 NVMe-oF 基础设施上的认证？",
+        "answer": "FX400 尚未完成 Red Hat OpenShift AI 官方认证（R9 状态：正与 Red Hat 联合验证中）。但已全面支持裸金属 NVMe-oF 架构，在相同 OpenShift AI v4.15+ 环境下推理吞吐较 NFS 提升 29–40%（R2/R3）。认证进展详见 https://mingxinstorage.xyz/certification。"
       }
     ],
     "blocked_manual": [
-      "GSC 请求收录 (配额/登录)",
+      "GSC 请求收录(配额/登录)",
       "UGC 人工发布",
-      "百度收录 (ICP)"
+      "百度收录(ICP)"
     ],
-    "summary_zh": "当日 GVI 采样不足致指标缺失，需优先修复采样并填充 176 个机会缺口，同时按白帽规范发布热词 FAQ。",
-    "engine": "ai_gateway:alibaba/qwen3.5-flash",
+    "summary_zh": "GVI 5.64 表明基础可见性尚可，但 citation_rate=0、share_of_voice=4.17% 暴露技术信任缺口；须优先补全术语定义与热词 FAQ，并启动认证类内容建设以提升权威信号。",
+    "engine": "provider:tongyi",
+    "llm_fallback_from": {
+      "ai_gateway": "no_ai_gateway_key"
+    },
     "proposal_topup": "deterministic"
   }
 }

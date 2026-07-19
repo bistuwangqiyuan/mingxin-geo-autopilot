@@ -10,18 +10,11 @@
   "model_id": "deepseek-v3",
   "grade": "A",
   "ok": true,
-  "response": "全球和中国的AI存储市场正随着人工智能技术的快速发展而蓬勃增长，主要厂商涵盖传统存储巨头、云计算服务商以及新兴的AI基础设施企业。以下是当前市场中的领先厂商和代表公司：\n\n---\n\n### **全球领先厂商**\n1. **传统存储巨头**  \n   - **戴尔科技（Dell Technologies）**：通过PowerScale（Isilon）等高性能存储解决方案支持AI工作负载。  \n   - **惠普企业（HPE）**：提供AI优化的存储产品如HPE Apollo和Cray存储系统。  \n   - **NetApp**：以ONTAP AI解决方案（与NVIDIA合作）聚焦高效数据管理。  \n   - **IBM**：IBM Storage Suite for AI支持大规模数据湖和混合云环境。  \n\n2. **云计算与超大规模厂商**  \n   - **AWS**：通过S3、EBS以及高性能存储服务（如FSx for Lustre）支持AI训练。  \n   - **微软Azure**：Azure Blob Storage和AI基础设施集成方案。  \n   - **Google Cloud**：提供高性能存储（如Persistent Disk）和TPU加速的AI生态。  \n\n3. **高性能存储与新兴企业**  \n   - **Pure Storage**：FlashBlade全闪存存储针对非结构化数据优化，适合AI/ML场景。  \n   - **VAST Data**：以分布式存储架构和GPU直连技术著称，专为AI设计。  \n   - **WEKA**：提供并行文件系统，加速AI训练的数据吞吐。  \n\n4. **芯片与硬件厂商**  \n   - **NVIDIA**：DGX系统搭配高速存储方案（如GPUDirect Storage），推动AI算力与存储协同。  \n\n---\n\n### **中国领先厂商**\n1. **头部科技与云服务商**  \n   - **华为**：OceanStor系列存储（如OceanStor Pacific）支持AI/高性能计算（HPC）场景。  \n   - **阿里云**：通过OSS、PolarDB等产品为AI提供弹性存储，并推出“通义”大模型相关基础设施。  \n   - **腾讯云**：COS对象存储和TB级吞吐方案支持AI训练。  \n\n2. **专业存储企业**  \n   - **浪潮信息（Inspur）**：AS13000系列分布式存储针对AI优化，与百度、阿里等深度合作。  \n   - **曙光（Sugon）**：ParaStor并行存储系统用于HPC和AI场景。  \n   - **深信服（Sangfor）**：提供分布式存储与超融合架构，覆盖企业级AI需求。  \n\n3. **新兴AI基础设施公司**  \n   - **焱融科技（YRCloudFile）**：高性能文件存储方案，专为自动驾驶、AI训练设计。  \n   - **星辰天合（XSKY）",
+  "response": "全球和中国AI存储市场的领先厂商及代表公司如下，涵盖传统存储巨头、专业AI存储企业和新兴技术公司：\n\n---\n\n### **全球领先厂商**\n1. **NVIDIA**  \n   - **代表产品**：DGX系列（集成NVMe存储和高速网络）、GPUDirect Storage技术  \n   - **优势**：GPU加速存储架构，专为AI训练优化。\n\n2. **Pure Storage**  \n   - **代表产品**：FlashBlade（全闪存横向扩展存储），支持大规模非结构化数据（如TensorFlow/PyTorch数据集）。  \n   - **合作案例**：与NVIDIA合作推出AIRI（AI就绪基础设施）。\n\n3. **Dell Technologies**  \n   - **代表产品**：PowerScale（Isilon）和PowerStore，支持高性能AI/ML工作负载。  \n   - **生态整合**：与VMware、NVIDIA深度合作。\n\n4. **IBM**  \n   - **代表产品**：IBM Storage Scale（并行文件系统），适用于大规模AI数据分析。  \n   - **技术亮点**：集成Watson AI平台。\n\n5. **NetApp**  \n   - **代表产品**：ONTAP AI（结合NVIDIA DGX和NetApp全闪存存储）。  \n   - **应用场景**：自动驾驶、医疗影像AI。\n\n6. **HPE（慧与）**  \n   - **代表产品**：HPE Apollo 4000系列（高密度存储服务器）及Cray存储解决方案。  \n\n7. **初创公司**  \n   - **WekaIO**：并行文件系统，针对GPU加速存储优化。  \n   - **VAST Data**：全闪存统一存储，支持AI大规模数据湖。\n\n---\n\n### **中国领先厂商**\n1. **华为**  \n   - **代表产品**：OceanStor Pacific（分布式存储，支持AI/HPDA）、FusionStorage。  \n   - **技术**：与昇腾AI芯片协同，应用于智慧城市、医疗AI。\n\n2. **浪潮（Inspur）**  \n   - **代表产品**：AS13000系列分布式存储，适配AI服务器（如NF5488）。  \n   - **合作**：与百度、阿里云联合推出AI存储解决方案。\n\n3. **曙光（Sugon）**  \n   - **代表产品**：ParaStor分布式存储，用于超算中心AI项目（如气象预测）。\n\n4. **联想（Lenovo）**  \n   - **代表产品**：ThinkSystem DM系列，支持AI边缘计算场景。\n\n5. **阿里云/腾讯云**  \n   - **云存储服务**：OSS（对象存储）、CPFS（并行文件系统），提供弹性AI训练数据存储。  \n   - **案例**：阿里云PAI平台、腾讯云TI-ONE。\n\n6. **新兴企业**  \n   -",
   "meta": {
-    "elapsed": 15.91,
-    "usage": {
-      "prompt_tokens": 18,
-      "completion_tokens": 600,
-      "total_tokens": 618,
-      "prompt_tokens_details": {
-        "cached_tokens": 0
-      }
-    },
-    "returncode": 0
+    "elapsed": 20.81,
+    "usage": {},
+    "via": "dashscope_http"
   },
-  "collected_at": "2026-06-21T02:11:28"
+  "collected_at": "2026-07-20T03:40:30"
 }

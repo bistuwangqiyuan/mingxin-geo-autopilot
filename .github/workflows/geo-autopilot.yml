@@ -1,10 +1,11 @@
 name: GEO Autopilot (every 4h)
 
-# 中科存储官网全自动 GEO 系统 · 云端无人值守运行。
+# 铭信官网（mingxinstorage.xyz）全自动 GEO 系统 · 云端无人值守运行。
 # 触发：每 4 小时定时 cron（每天 6 次）+ 手动 workflow_dispatch。
 # 每次运行都做完整流水线（热词挖掘 + GVI 真实重测 + 内容自进化 + 多点分发 + IndexNow + 线上审计 + 部署 + 流量信号检测）。
 # 仓库布局（zk-geo-autopilot）：geo_autopilot/ + geo_plan/ + seo_geo_loop/ + business_plan/outputs/results.json
-# CI 把官网/知识库仓库 clone 为同级目录，paths.py 零改动即可解析。
+# CI 把官网(amd，Next.js 站点在其 site/ 子目录)/知识库仓库 clone 为同级目录，paths.py 零改动即可解析。
+# 注意：Vercel 项目 mingxin-site 未连 GitHub 自动构建；push 到 amd 后由 VERCEL_DEPLOY_HOOK_URL 触发部署（可选）。
 
 on:
   schedule:
@@ -39,14 +40,28 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 50
     env:
-      # 首选 LLM 决策脑：Vercel AI Gateway（OpenAI 兼容，qwen3.5-flash 等）。缺失则回退 bl/DashScope→规则脑。
+      # 首选 LLM 决策脑：Vercel AI Gateway（OpenAI 兼容）。缺失则回退多厂商直连链→bl/DashScope→规则脑。
       AI_GATEWAY_API_KEY: ${{ secrets.AI_GATEWAY_API_KEY }}
       DASHSCOPE_API_KEY: ${{ secrets.DASHSCOPE_API_KEY }}
+      # 多模型 GVI 实测 + 决策脑回退链（密钥在即自动纳入，缺失优雅跳过，绝不编造）
+      TONGYI_API_KEY: ${{ secrets.TONGYI_API_KEY }}
+      DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+      GLM_API_KEY: ${{ secrets.GLM_API_KEY }}
+      MOONSHOT_API_KEY: ${{ secrets.MOONSHOT_API_KEY }}
+      HUNYUAN_API_KEY: ${{ secrets.HUNYUAN_API_KEY }}
+      SPARK_API_KEY: ${{ secrets.SPARK_API_KEY }}
+      DOUBAO_API_KEY: ${{ secrets.DOUBAO_API_KEY }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       GH_PAT: ${{ secrets.GH_PAT }}
       GH_TOKEN: ${{ secrets.GH_PAT }}
-      ZK_ALERT_REPO: ${{ github.repository }}
-      # GA4（可选，提供即自动激活）：ZK_GA4_ID=埋码 Measurement ID；PROPERTY_ID+SA_JSON=Data API 读流量信号。
-      ZK_GA4_ID: ${{ secrets.ZK_GA4_ID }}
+      # 铭信站点自带引擎/SEO 接口鉴权（/api/seo/ping、/api/engine/*）
+      CRON_SECRET: ${{ secrets.CRON_SECRET }}
+      # 可选：push amd 仓库后触发 Vercel 重新部署（项目未连 GitHub）
+      VERCEL_DEPLOY_HOOK_URL: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
+      MX_ALERT_REPO: ${{ github.repository }}
+      # GA4（可选，提供即自动激活）：MX_GA4_ID=埋码 Measurement ID；PROPERTY_ID+SA_JSON=Data API 读流量信号。
+      MX_GA4_ID: ${{ secrets.MX_GA4_ID }}
       GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
       GA4_SA_JSON: ${{ secrets.GA4_SA_JSON }}
       PYTHONIOENCODING: "utf-8"
@@ -75,8 +90,8 @@ jobs:
       - name: Clone site repos (siblings)
         run: |
           AUTH="https://x-access-token:${GH_PAT}@github.com"
-          git clone --depth 1 "${AUTH}/${{ github.repository_owner }}/zhongke-dpu-official.git" official_website
-          git clone --depth 1 "${AUTH}/${{ github.repository_owner }}/zk-storage-kb.git" offsite_github
+          git clone --depth 1 "${AUTH}/${{ github.repository_owner }}/amd.git" official_website
+          git clone --depth 1 "${AUTH}/${{ github.repository_owner }}/mingxin-storage-kb.git" offsite_github || echo "kb repo not created yet; offsite KB steps will be skipped"
           git config --global user.name  "geo-autopilot[bot]"
           git config --global user.email "geo-autopilot@users.noreply.github.com"
 

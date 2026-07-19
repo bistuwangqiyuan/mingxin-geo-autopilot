@@ -1,0 +1,20 @@
+{
+  "query_id": "T1-Q29",
+  "tier": "T1",
+  "persona": "投资人",
+  "intent": "ranking",
+  "lang": "en",
+  "query": "Who are the leading Chinese companies in KV-cache tiering / all-flash storage acceleration for AI inference?",
+  "model_key": "qwen3.6-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen3.6-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "The market for **KV-cache tiering and all-flash storage acceleration for AI inference** is still highly emergent globally, and in China it is primarily driven by **cloud providers, server/storage vendors, and AI framework teams** rather than pure-play storage startups. KV-cache offloading (moving attention states from GPU HBM → CPU DRAM → NVMe SSD) is currently implemented as a software optimization within inference platforms or open-source frameworks, with storage vendors providing the underlying all-flash/NVMe infrastructure and tiering software.\n\nBelow is a breakdown of the leading Chinese companies actively developing or deploying these capabilities, categorized by their role in the stack:\n\n### 🔹 Cloud & AI Platform Providers\nThese companies integrate KV-cache tiering into their managed LLM inference services, often combining proprietary storage stacks with open-source frameworks.\n\n| Company | Key Offerings / Contributions |\n|---------|-------------------------------|\n| **Huawei Cloud** | `ModelArts` + `Ascend` ecosystem; KV-cache offloading to CPU/NVMe in MindFormers; `OceanStor A800` AI-optimized all-flash storage with NVMe-oF and tiered caching for inference workloads. |\n| **Alibaba Cloud** | `PAI-EAS` inference platform; heavy contributions to `vLLM` and `SGLang` with KV-cache paging to SSD; `AI Storage` solutions (CPFS/NAS) optimized for long-context serving; internal research on CPU/SSD tiering for 100K+ token contexts. |\n| **Tencent Cloud** | `TI-ONE` & `Hunyuan` serving stack; `LightLLM` (open-source inference engine) supports KV-cache offloading to CPU/SSD; integrates with Tencent's NVMe storage pool for cost-effective long-context inference. |\n\n### 🔹 Server & Storage Vendors\nThese companies provide the hardware and software-defined storage layers that enable all-flash acceleration and tiered KV-cache architectures.\n\n| Company | Key Offerings / Contributions |\n|---------|-------------------------------|\n| **Huawei** | `OceanStor` AI storage series (NVMe SSDs, RDMA/NVMe-oF, intelligent tiering); tight integration with Ascend NPUs and MindSpore for KV-cache paging; CXL memory pooling research. |\n| **Inspur (浪潮信息)** | AI inference servers with built-in NVMe SSD tiers; `AI-Native Storage` architecture whitepapers; software stack for GPU-CPU-SSD KV-cache offloading; partnerships with Chinese LLM providers for long-context serving. |\n| **XSKY (星辰天合)** | Leading Chinese SDS vendor; `XEDP/XEOS` platforms optimized for AI workloads; NVMe-oF, tiered caching, and QoS controls for inference storage; actively benchmarking KV-cache offloading to",
+  "meta": {
+    "elapsed": 115.56,
+    "usage": {},
+    "via": "dashscope_http"
+  },
+  "collected_at": "2026-07-20T03:21:55"
+}

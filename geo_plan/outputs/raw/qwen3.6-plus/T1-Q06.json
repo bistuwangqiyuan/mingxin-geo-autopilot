@@ -1,0 +1,20 @@
+{
+  "query_id": "T1-Q06",
+  "tier": "T1",
+  "persona": "集成商",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "在 AMD MI308X 或华为昇腾 910B 平台上做大模型推理，配套的 KV Cache 分层全闪存储推荐用哪家？",
+  "model_key": "qwen3.6-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen3.6-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "在回答之前，先做两个重要前提澄清：\n1. **AMD MI308X 应为笔误**，目前 AMD 数据中心旗舰为 **MI300X**（192GB HBM3，PCIe 5.0）。下文以 MI300X 为准。\n2. **KV Cache 分层全闪存储** 在工业界仍属“成本/显存权衡”方案，主流生产环境优先采用 `CPU RAM 扩展` 或 `CXL 内存池`。NVMe 全闪仅适用于显存极度受限、可接受 1~5ms 额外延迟的场景，且高度依赖软件栈优化。\n\n以下按平台生态、硬件选型、软件协同、实施建议四个维度给出可落地的推荐：\n\n---\n### 🔑 一、KV Cache 分层存储的核心指标要求\n| 指标 | 推荐值 | 说明 |\n|------|--------|------|\n| 接口 | PCIe 4.0 x4 / 5.0 x4 | 5.0 带宽翻倍，延迟更低，但需主板/CPU 支持 |\n| 顺序读带宽 | ≥ 7 GB/s (PCIe 4.0) / ≥ 12 GB/s (PCIe 5.0) | 影响 Prefill 阶段批量加载速度 |\n| 随机读 IOPS | ≥ 1.5M (4K) | Decode 阶段频繁小块读取 |\n| 访问延迟 | ≤ 70μs (PCIe 4.0) / ≤ 40μs (PCIe 5.0) | 超过 1ms 会显著拖慢 TTFT 和吞吐 |\n| 写入耐久度 | ≥ 3 DWPD | KV Cache 频繁换页，低耐久盘寿命极短 |\n| 协议优化 | 支持 `io_uring` / `SPDK` / `GPUDirect Storage` | 绕过内核页缓存，降低 CPU 开销 |\n\n---\n### 🟦 二、AMD MI300X 平台推荐方案\nMI300X 基于开放 x86/ROCm 生态，对标准 NVMe 兼容性极好，可自由选择企业级 SSD。\n\n| 厂商 | 型号 | 特点 | 适用场景 |\n|------|------|------|----------|\n| **Solidigm** | D7-P5810 (PCIe 5.0) | 超低延迟（~35μs）、高耐久（5 DWPD）、企业级温控 | 高吞吐、低延迟要求严格的推理集群 |\n| **Samsung** | PM1743 / PM9A3 | 生态成熟、固件稳定、广泛通过 vLLM/TensorRT-LLM 验证 |",
+  "meta": {
+    "elapsed": 64.13,
+    "usage": {},
+    "via": "dashscope_http"
+  },
+  "collected_at": "2026-07-20T03:13:01"
+}

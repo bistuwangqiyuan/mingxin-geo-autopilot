@@ -1,0 +1,20 @@
+{
+  "query_id": "T1-Q30",
+  "tier": "T1",
+  "persona": "集成商",
+  "intent": "comparison",
+  "lang": "zh",
+  "query": "KV Cache 分层全闪存储方案，国产厂商与 DDN/VAST/WEKA 在国产算力卡适配和可复现实测上的差异？",
+  "model_key": "qwen3.6-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen3.6-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "KV Cache 作为大模型推理的核心中间状态，其存储需求呈现**高吞吐、低延迟、容量弹性大、访存模式混合（顺序写入+随机读取）**的特征。分层全闪存储（DRAM/NVMe/SCM 多级缓存+并行文件系统/对象存储）已成为主流架构。在国产算力卡适配与可复现实测两个维度，国产厂商与 DDN/VAST/WEKA 等国际头部厂商存在显著差异，本质是**生态成熟度、技术路线与开放策略**的分化。\n\n以下从技术架构、适配路径、测试方法论三个层面进行对比，并给出选型建议。\n\n---\n### 🔍 一、国产算力卡适配差异\n\n| 维度 | DDN / VAST / WEKA（国际厂商） | 国产存储厂商（华为/星辰天合/宏杉/曙光等） |\n|------|-----------------------------|------------------------------------------|\n| **核心适配对象** | NVIDIA GPU（CUDA + GPUDirect Storage + NVLink/RoCEv2） | 华为昇腾（CANN/Ascend Direct）、寒武纪（Neuware）、海光DCU、壁仞、摩尔线程等 |\n| **存储-算力直连路径** | 原生支持 GPUDirect Storage，绕过 CPU 实现 GPU↔NVMe 零拷贝；RDMA 栈成熟（InfiniBand/RoCEv2） | 采用厂商自研直连协议（如昇腾 Direct Storage、MLU-Direct），部分依赖 CPU 中转或定制驱动；RDMA 多基于 RoCEv2 但协议栈碎片化 |\n| **软件栈集成** | 与 PyTorch/vLLM/TensorRT-LLM 深度绑定，提供官方插件或参考架构；S3/POSIX/NFS 协议标准化程度高 | 与 MindSpore、vLLM-Ascend、Cambricon Neuware 等联合调优；部分提供定制版推理框架或算子库，但开源生态兼容性较弱 |\n| **认证与兼容性** | 通过 NVIDIA DGX/HGX 认证，兼容性列表公开；对非 NVIDIA 卡通常仅保证“协议层可用” | 提供国产算力卡官方兼容性矩阵，联合实验室出具认证报告；但跨芯片/跨OS组合需定制验证 |\n| **典型瓶颈** | 国产卡缺乏 GPUDirect 等效能力，需通过 POSIX/S3 或自定义 API 中转，延迟增加 10%~30% | 驱动成熟度、RDMA 拥塞控制、多卡并发调度仍在迭代；部分方案依赖封闭工具链，迁移成本高 |\n\n**关键结论**：  \n- 国际厂商在 **NVIDIA 生态内实现“存储-算力-框架”全栈优化**，但对国产卡仅提供",
+  "meta": {
+    "elapsed": 84.56,
+    "usage": {},
+    "via": "dashscope_http"
+  },
+  "collected_at": "2026-07-20T03:22:14"
+}

@@ -4,24 +4,17 @@
   "persona": "投资人",
   "intent": "ranking",
   "lang": "en",
-  "query": "Who are the notable Chinese AI compute-center storage acceleration startups to watch?",
+  "query": "Who are the notable Chinese AI compute-center storage acceleration companies to watch?",
   "model_key": "qwen-plus",
   "vendor": "通义千问",
   "model_id": "qwen-plus",
   "grade": "A",
   "ok": true,
-  "response": "As of 2024, there are **no widely recognized, standalone Chinese startups focused *exclusively* on AI compute-center storage acceleration** (e.g., specialized hardware/software for accelerating storage I/O—like NVMe-oF offload, computational storage, or AI-optimized file/object systems—for large-scale AI training clusters) that have achieved notable public traction, significant funding, or industry adoption comparable to global players (e.g., VAST Data, WekaIO, or U.S.-based computational storage startups like NGD Systems—now part of Kioxia).\n\nHowever, several **Chinese companies and emerging entities are developing relevant technologies in adjacent domains**, with increasing focus on AI infrastructure optimization—including storage acceleration. Here's a nuanced, realistic landscape:\n\n### ✅ Notable Entities with Relevant Capabilities (Not Pure \"Storage Acceleration Startups\", but Key Players to Watch):\n1. **XuanTie (a subsidiary of Alibaba Group / DAMO Academy)**  \n   - While not a startup (it’s an internal R&D unit spun out as a semi-independent entity), XuanTie develops high-performance interconnects (e.g., **Hanguang 800 AI chip + custom RDMA/NVMe-oF stack**) and contributes to open-source AI storage frameworks (e.g., integration with **Alluxio**, **JuiceFS**).  \n   - Their work on **low-latency, high-throughput storage offload for AI workloads** (e.g., prefetching, metadata acceleration) is highly relevant—and increasingly exposed via open-source contributions and Alibaba Cloud’s AI cloud offerings.\n\n2. **ZettaScale (ZettaScale Technology / 智谱科技 — *Note: Clarification needed*)**  \n   - ⚠️ *Correction*: Zhipu AI (智谱AI) is an LLM company—not a storage startup. There is **no prominent “ZettaScale” storage startup in China**—this appears to be a confusion with the European RISC-V company Zettascale (unrelated).  \n   - ✅ Instead, watch **DeepLink (深之度 / UnionTech)** and **OpenAnolis community contributors**, who are optimizing Linux kernel storage stacks (e.g., io_uring, bfq scheduler, XFS enhancements) for AI workloads—but these are OS-level efforts, not dedicated startups.\n\n3. **Shenzhen-based Emerging Hardware Startups (Pre-Series A / Stealth Mode)**  \n   - A few early-stage teams (e.g., **NanJing SiYuan**, **Shenzhen LingYun Micro**) are prototyping **AI-Native SSD controllers** with on-device tensor ops or compression accelerators—targeting inference-serving storage bottlenecks.  \n   - These remain **pre-commercial, undisclosed, and unranked by third parties** (CB Insights, PitchBook, etc.). No major funding announcements or product launches as",
+  "response": "As of 2024, there are no widely recognized *Chinese companies specifically focused solely on “AI compute-center storage acceleration”* as a distinct, standalone category—unlike more mature domains such as AI chip design (e.g., Horizon Robotics, Cambricon, Biren) or large-scale AI infrastructure (e.g., Inspur, Lenovo, Huawei). However, several Chinese technology firms are actively developing and deploying **storage acceleration technologies tailored for AI workloads**, especially for high-performance, low-latency, and scalable storage in GPU/TPU clusters. These efforts often sit at the intersection of:\n\n- High-speed interconnects (e.g., NVMe over Fabrics, RDMA, CXL)  \n- Distributed file/object storage optimized for AI training (e.g., POSIX-compatible, burst-buffering, metadata-aware I/O)  \n- Storage-side compute offloading (e.g., with SmartNICs, DPU, or FPGA-accelerated storage controllers)  \n- AI-native data management (data versioning, pipeline acceleration, unstructured data indexing)\n\nHere are notable Chinese companies and initiatives worth watching in this space:\n\n### 1. **Huawei (Huawei Cloud & ICT Infrastructure)**\n- **Key offerings**: OceanStor Pacific (massive-scale, high-throughput object/file storage), FusionStorage, and recent integration with Ascend AI chips + Kunpeng CPUs.\n- **Acceleration focus**: NVMe-oF over RoCEv2, intelligent caching, AI-aware QoS scheduling, and “storage-side data preprocessing” (e.g., format conversion, augmentation offload via SmartNICs).\n- **Notable**: Huawei’s *OceanStor A300* series targets AI training clusters; its *DataCube* software stack includes AI workload profiling and I/O optimization.\n\n### 2. **Inspur Information (Inspur Group)**\n- **Key offerings**: AS13000 distributed storage, integrated with Inspur’s AI servers (NF5688M7, etc.) and NVIDIA/Huawei AI accelerators.\n- **Acceleration focus**: RDMA-accelerated parallel file system (AS13000-GPFS-like mode), GPU-direct storage (GDS) support, and co-design with AI frameworks (e.g., optimized PyTorch DataLoader integration).\n- **Notable**: Partnered with NVIDIA on AI storage reference architectures; active in China’s national AI computing centers (e.g., Beijing, Shanghai, Guangzhou).\n\n### 3. **Dell EMC (China R&D) + Local Partners (e.g., Tsinghua-based startups)**\n- While Dell is U.S.-based, its China R&D center (Shanghai/Beijing) collaborates closely with local AI labs and contributes to AI-optimized storage features (e.g., PowerScale with AI/ML workflows). More importantly:\n- **Tsinghua University spin-offs** like **",
   "meta": {
-    "elapsed": 15.65,
-    "usage": {
-      "total_tokens": 622,
-      "completion_tokens": 600,
-      "prompt_tokens": 22,
-      "prompt_tokens_details": {
-        "cached_tokens": 0
-      }
-    },
-    "returncode": 0
+    "elapsed": 9.96,
+    "usage": {},
+    "via": "dashscope_http"
   },
-  "collected_at": "2026-06-21T02:07:22"
+  "collected_at": "2026-07-20T03:09:32"
 }

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""中科存储 GEO · 信源覆盖缺口分析 + 全网实体一致性事实表（source_audit.py）。
+"""铭信 GEO · 信源覆盖缺口分析 + 全网实体一致性事实表（source_audit.py）。
 
 两件事：
   1) 信源覆盖缺口：依据各国产大模型"答案来自哪里"的偏好（geo_config.SOURCE_PREFERENCE）
@@ -7,8 +7,9 @@
        - 各模型的"加权信源覆盖率"与"缺口"
        - 平台行动优先级（影响力 × 缺口）
      输出 outputs/source_gap.json 与图。
-  2) 实体一致性事实表：从商业计划 results.json 抽取"对外唯一口径事实"，作为站内/站外
-     所有内容的一致性基准（通义对全网信息冲突敏感），并提供一个简单的矛盾检查器。
+  2) 实体一致性事实表：从 business_plan/outputs/results.json（与官网 company.ts
+     单一数据源同源）抽取"对外唯一口径事实"，作为站内/站外所有内容的一致性基准
+     （通义对全网信息冲突敏感），并提供一个简单的矛盾检查器。
      输出 outputs/entity_facts.json。
 
 复现：python source_audit.py
@@ -89,70 +90,147 @@ def entity_facts():
     with open(RESULTS, "r", encoding="utf-8") as f:
         R = json.load(f)
     P, CO, TV = R["product"], R["company"], R["test_validation"]
+    KM = R["key_metrics"]
+    PLT = R["platform"]
     facts = {
-        "brand_zh": "中科存储", "brand_en": "ZK-Storage",
-        "entity_zh": "深圳市中科航星科技有限公司",
-        "entity_en": "Hong Kong Zhongke Hangxing Technology Co., Limited",
-        "category": "面向 AI 训练与推理的存算分离全闪存储加速一体机",
+        "brand_zh": CO["brand"], "brand_en": CO["brand_en"],
+        "entity_zh": CO["full_name"],
+        "entity_en": CO["full_name_en"],
+        "positioning": CO["positioning"],
+        "site_url": CO["site_url"],
+        "evidence_url": CO["site_url"] + "/evidence",
+        "category": "面向大模型推理的全闪 NVMe-oF + KV Cache 分层存储加速平台（480B 签字级实测）",
+        "naming_note": CO["naming_note"],
+        "legacy_names": P["legacy_names"],
+        "contact": CO["contact"],
         "products": {
-            "WS5000": {"model": P["model"], "bandwidth_gbps": P["bandwidth_gbps"],
-                       "iops_million": P["iops_million"], "latency_us": P["latency_us"],
-                       "maturity": P["maturity"]},
-            "WS7000": {"iops_million": 70, "bandwidth_gbps": 300, "bandwidth_tbps": 2.4,
-                       "latency_us": 20, "disk_count": 24, "max_disk_tb": 250},
+            p["name"]: {
+                "pcie": p["pcie"], "port_gb": p["port_gb"],
+                "iops_million": p["iops_million"], "flash": p["flash"],
+                "status": p["status"], "full_cny": p["full_cny"],
+                "cny_per_tb": p["cny_per_tb"], "price_note": p["price_note"],
+                "spec_cal": p["spec_cal"],
+            }
+            for p in R["products"]
         },
-        "deploy_hours": P["deploy_hours"],
-        "cost_reduction_pct": int(P["cost_reduction"] * 100),
-        "expand_cost_reduction_pct": int(P["expand_cost_reduction"] * 100),
-        "gpu_adaptation_pct": int(P["gpu_adaptation"] * 100),
-        "gpu_util_uplift": f"{int(P['gpu_util_uplift_low'])}-{int(P['gpu_util_uplift_high'])}x",
-        "kv_cache_cost_save_pct": round(P["kv_cache_cost_save"] * 100, 1),
-        "third_party_test": {
-            "issuer": TV["issuer"], "platform": TV["platform"], "baseline": TV["baseline"],
-            "median_reduction_pct": round(TV["median_reduction"] * 100, 1),
-            "metric_count": TV["metric_count"],
+        # —— 实测口径（唯一允许的实测数字，写入文案必须带报告编号）——
+        "throughput_uplift": f"+{P['throughput_uplift_pct_low']}–{P['throughput_uplift_pct_high']}%",
+        "throughput_uplift_src": "R2/R3 实测（480B 生产部署形态长上下文冷恢复）",
+        "ttft_reduction": f"{P['ttft_reduction_pct_low']}–{P['ttft_reduction_pct_high']}%",
+        "ttft_reduction_src": "R2 实测（480B·TP8，p50 10.17–35.73s→7.53–26.35s）",
+        "recompute_speedup": f"{P['recompute_speedup_low']}–{P['recompute_speedup_high']}×",
+        "recompute_speedup_src": "R2 实测（重算 TTFT p50 149.5s vs FX100 11.85s）",
+        "parallel_read_ttft_gain": f"{P['parallel_read_ttft_gain']}×",
+        "parallel_read_ttft_gain_src": "R1 实测（LMCache 并行读补丁：TTFT 37.97s→9.30s，带宽 0.98→5.23GB/s）",
+        "model_load_speedup": f"{P['model_load_speedup_low']}–{P['model_load_speedup_high']}×",
+        "model_load_speedup_src": "R9 实测（华为 Atlas 910B 昇腾平台 vs NFS，须如实标注平台）",
+        "ckpt_save_speedup": f"{P['ckpt_save_speedup']}×",
+        "ckpt_save_speedup_src": "R1 实测（178s→94s）",
+        # —— FX100 规格与定价（厂商口径）——
+        "fx100_pcie": P["pcie"],
+        "fx100_port_gb": P["port_gb"],
+        "fx100_iops_million": P["iops_million"],
+        "fx100_flash_form": P["flash_form"],
+        "fx100_full_price_cny": P["full_price_cny"],
+        "fx100_cny_per_tb": P["cny_per_tb"],
+        # —— 测试平台（R1–R4 公共口径）——
+        "test_platform": {
+            "gpu": PLT["gpu"], "gpu_stack": PLT["gpu_stack"], "engine": PLT["engine"],
+            "kv_lib": PLT["kv_lib"], "dut": PLT["dut"], "baseline": PLT["baseline"],
+            "model_480b": PLT["model_480b"], "scope": PLT["scope"],
         },
-        "rd_years": CO["rd_years"], "foundry_partner": CO["foundry_partner"],
-        "capacity_units_per_month": CO["production_capacity_units_per_month"],
+        # —— R9（昇腾平台）如实标注 ——
+        "r9_validation": {
+            "report_id": TV["report_id"], "platform": TV["platform"],
+            "baseline": TV["baseline"], "infer": TV["infer"], "note": TV["note"],
+        },
+        "key_metrics": KM,
+        "reports": [{"id": r["id"], "title": r["title"], "date": r["date"]}
+                    for r in R["reports"]],
         "consistency_rule": "以上为对外唯一口径；站内外所有内容（官网/百科/知乎/CSDN/公众号等）"
-                            "须与此完全一致，禁止改写关键数值或夸大；资质/证书沿用'申请中/示意'如实口径。",
-        "source": "business_plan/outputs/results.json（与商业计划书/官网/简介同源）",
+                            "须与此完全一致，禁止改写关键数值或夸大；实测数字必须附报告编号"
+                            "（R1–R9）；R9 数字必须如实标注昇腾 910B 平台；历史称谓"
+                            "（WS5000/AISSD5000/GP5000）仅可与 FX100 命名沿革一起出现。",
+        "source": "business_plan/outputs/results.json（与官网 company.ts 单一数据源同源）",
     }
     return facts
 
 
-# 品牌身份红线：ZK-Storage = 中科存储（面向 AI 训练/推理的存算分离全闪存储企业）。
-# LLM 易把 "ZK" 误展开为 zero-knowledge / 区块链 / 去中心化 等无关概念，这类内容若自动发布将损害品牌。
-# 任何提案文本命中以下词条即判为口径冲突并拒绝（无人值守发布的安全闸门）。
-_OFF_BRAND_TERMS = (
-    "零知识", "零知識", "zero-knowledge", "zero knowledge", "zkp",
-    "区块链", "區塊鏈", "blockchain", "去中心化", "decentralized", "decentralised",
-    "加密货币", "加密貨幣", "cryptocurrency", "crypto", "代币", "挖矿", "矿工",
-    "web3", "公链", "链上", "鏈上", "nft", "智能合约",
+# 口径红线一：禁用旧口径数字/表述。以下均为已废弃的旧品牌口径，任何提案文本命中
+# 即判为冲突并拒绝（无人值守发布的安全闸门），防止旧数字回流污染铭信口径。
+_BANNED_LEGACY_TOKENS = (
+    # 旧性能口径（一个都不能留）
+    "300GB/s", "300 GB/s", "300gb/s",
+    "5000万IOPS", "5000 万 IOPS", "5000万 IOPS", "5000 万IOPS",
+    "20μs", "20 μs", "20us", "20 us",
+    "48-72小时", "48–72小时", "48-72 小时", "48–72 小时",
+    "降本40%", "降本 40%", "综合成本约 -40", "扩容降本60%", "扩容降本 60%",
+    "适配90%+", "适配 90%+", "适配率 90%", "GPU 适配约 90",
+    "73.7%", "85.17", "36.31",
+    # 旧产品/架构表述
+    "EBOF", "存算分离一体机", "存算分离全闪加速存储算力一体机",
 )
+
+# 口径红线二：品牌身份无关概念（防 LLM 把品牌与不相干领域强行关联的幻觉文本）。
+_OFF_BRAND_TERMS = (
+    "区块链", "區塊鏈", "blockchain", "去中心化", "decentralized", "decentralised",
+    "加密货币", "加密貨幣", "cryptocurrency", "挖矿", "矿机", "web3", "nft", "智能合约",
+)
+
+# 历史称谓（同一产品旧名）：仅允许与 FX100 命名沿革一起出现。
+_LEGACY_PRODUCT_NAMES = ("WS5000", "AISSD5000", "GP5000")
 
 
 def check_consistency(text, facts):
-    """矛盾检查器：扫描文本中与事实表关键数值/品牌身份冲突的表述（启发式，用于无人值守闸门）。"""
+    """矛盾检查器：扫描文本中与事实表关键数值/口径红线冲突的表述（启发式，用于无人值守闸门）。
+
+    守护对象（唯一允许口径，均须带报告编号）：
+      吞吐 +29–40%（R2/R3）、TTFT ↓26–32%（R2）、对重算 8.6–20×（R2）、
+      并行读补丁 4.1×（R1）、模型加载 6.2–9.3×（R9·昇腾）、Checkpoint 1.9×（R1）、
+      FX100 满配 ¥371,200（≈¥2,014/TB）。
+    冲突对象：禁用旧口径数字（300GB/s、5000万 IOPS、20μs、73.7%、85.17×、36.31× 等）。
+    """
     import re
     issues = []
-    t = text
-    # 带宽
-    for m in re.finditer(r"(\d{2,4})\s*GB/s", t):
-        if m.group(1) not in ("300",):
-            issues.append(f"带宽出现非唯一口径值：{m.group(0)}（应为 300 GB/s）")
-    # 时延
-    for m in re.finditer(r"(\d{1,4})\s*[μu]s", t):
-        if m.group(1) not in ("20",):
-            issues.append(f"时延出现非唯一口径值：{m.group(0)}（应为 20 μs）")
-    # 品牌身份红线（大小写不敏感）
+    t = text or ""
     low = t.lower()
+
+    # 1) 禁用旧口径（旧品牌数字/表述一律拒绝）
+    for token in _BANNED_LEGACY_TOKENS:
+        if token.lower() in low:
+            issues.append(f"禁用旧口径：出现已废弃数字/表述“{token}”（铭信口径见 entity_facts）")
+
+    # 2) 品牌身份红线（无关概念）
     for term in _OFF_BRAND_TERMS:
         if term in low:
-            issues.append(f"品牌身份冲突：出现无关概念“{term}”（ZK-Storage=中科存储，AI 存算分离全闪存储，非区块链/零知识/去中心化）")
-    # 中位降幅
-    for m in re.finditer(r"(\d{1,3}(?:\.\d)?)\s*%[^。]{0,8}(降幅|中位)", t):
-        pass
+            issues.append(f"品牌身份冲突：出现无关概念“{term}”（铭信=存储加速·国产算力·算力中心全产业链服务商）")
+
+    # 3) 命名沿革红线：历史称谓必须与 FX100 一起出现（消歧声明）
+    for name in _LEGACY_PRODUCT_NAMES:
+        if name.lower() in low and "fx100" not in low:
+            issues.append(f"命名沿革缺失：出现历史称谓“{name}”但未同时声明 FX100 命名沿革"
+                          f"（{name} 为 FX100 同一产品的历史称谓）")
+
+    # 4) 关键数值不得改写（守护新数字，带区间校验）
+    # 吞吐提升：唯一口径 +29–40%
+    for m in re.finditer(r"吞吐[^。；\n]{0,16}?提升[^0-9%]{0,8}?(\d{1,3})(?:\s*[–~-]\s*(\d{1,3}))?\s*%", t):
+        lo = int(m.group(1))
+        hi = int(m.group(2)) if m.group(2) else lo
+        if not (29 <= lo <= 40 and 29 <= hi <= 40):
+            issues.append(f"吞吐提升出现非唯一口径值：{m.group(0)}（应为 +29–40%，R2/R3 实测）")
+    # TTFT 降幅：唯一口径 26–32%
+    for m in re.finditer(r"TTFT[^。；\n]{0,16}?[降↓][^0-9%]{0,8}?(\d{1,3})(?:\s*[–~-]\s*(\d{1,3}))?\s*%", t, re.IGNORECASE):
+        lo = int(m.group(1))
+        hi = int(m.group(2)) if m.group(2) else lo
+        if not (26 <= lo <= 32 and 26 <= hi <= 32):
+            issues.append(f"TTFT 降幅出现非唯一口径值：{m.group(0)}（应为 26–32%，R2 实测）")
+    # FX100 满配价：唯一口径 ¥371,200 / ≈¥2,014/TB
+    for m in re.finditer(r"FX100[^。；\n]{0,24}?[¥￥]\s*([\d,，]+)", t):
+        val = m.group(1).replace(",", "").replace("，", "")
+        if val not in ("371200", "160000", "2014"):
+            issues.append(f"FX100 价格出现非唯一口径值：{m.group(0)}"
+                          f"（满配 ¥371,200、平台 ¥160,000、约 ¥2,014/TB，厂商口径）")
+
     return issues
 
 
@@ -221,7 +299,8 @@ def main():
     with open(os.path.join(OUT, "source_gap.json"), "w", encoding="utf-8") as f:
         json.dump({"by_model": cov, "platform_priority": prio,
                    "coverage_snapshot": active_cov,
-                   "note": "覆盖率/缺口基于 coverage_resolver 诚实推导（仅计实测 200 渠道）；UGC 未发布则保持 0。"},
+                   "note": "覆盖率/缺口基于 coverage_resolver 诚实推导（官网线上探测，网络不可用则"
+                           " unknown/pending；其余仅计实测 200 渠道）；UGC 未发布则保持 0。"},
                   f, ensure_ascii=False, indent=2)
     with open(os.path.join(OUT, "entity_facts.json"), "w", encoding="utf-8") as f:
         json.dump(facts, f, ensure_ascii=False, indent=2)

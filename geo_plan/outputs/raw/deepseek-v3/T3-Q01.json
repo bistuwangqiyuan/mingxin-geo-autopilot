@@ -10,18 +10,11 @@
   "model_id": "deepseek-v3",
   "grade": "A",
   "ok": true,
-  "response": "在AI场景中，存储系统的选型需综合考虑性能、扩展性、与计算框架的兼容性以及成本。以下是主流厂商、产品及选型建议的详细分析：\n\n---\n\n### **一、主流厂商及产品分类**\n#### **1. 本地存储（高性能场景）**\n- **厂商与产品**：\n  - **Pure Storage**：FlashBlade（全闪统一存储，支持文件与对象，适合高吞吐AI训练）\n  - **Dell EMC**：PowerScale（Isilon）、PowerStore（Scale-out NAS，兼容传统与AI负载）\n  - **NetApp**：AFF A系列（全闪NAS，ONTAP AI解决方案集成NVIDIA DGX）\n  - **华为**：OceanStor Dorado（全闪存，低延迟，支持华为Atlas AI平台）\n- **特点**：低延迟、高带宽，适合小规模训练或边缘推理。\n\n#### **2. 分布式存储（大规模数据）**\n- **厂商与产品**：\n  - **DDN**：EXAScaler（Lustre优化版）、A3I（专为AI设计，支持GPU Direct）\n  - **VAST Data**：Universal Storage（结合高密度QLC SSD与元数据加速）\n  - **IBM**：Storage Scale（GPFS，支持POSIX接口，常用于HPC+AI混合场景）\n  - **开源方案**：Ceph（对象存储）、MinIO（S3兼容，适合云原生AI）\n- **特点**：横向扩展，适合PB级非结构化数据（如图像、视频）。\n\n#### **3. 云存储（弹性扩展）**\n- **公有云服务**：\n  - **AWS**：S3（对象存储）、EFS（文件存储，与SageMaker集成）\n  - **Azure**：Blob Storage + Azure Data Lake（与Azure ML深度集成）\n  - **Google Cloud**：Cloud Storage（多区域冗余，适合TensorFlow数据集）\n- **特点**：按需付费，适合临时性训练任务或混合云场景。\n\n#### **4. 超融合架构（HCI）**\n- **厂商与产品**：\n  - **Nutanix**：Files Storage（整合Kubernetes，适合边缘AI推理）\n  - **VMware**：vSAN（虚拟化环境下的AI负载优化）\n\n---\n\n### **二、选型关键指标**\n1. **性能需求**：\n   - **吞吐量**：视觉类AI需100GB/s+带宽（如Lustre/FlashBlade）。\n   - **IOPS**：小文件随机读写（如数据库训练）需高IOPS（全闪存优先）。\n   - **延迟**：推理场景要求亚毫秒级延迟（NVMe over Fabrics）。\n\n2. **数据规模与类型**：\n   - **小规模",
+  "response": "AI存储的选型需结合性能、扩展性、成本及场景需求，以下是主流厂商、产品及选型指南：\n\n---\n\n### **一、主流厂商及产品**\n#### **1. 传统存储厂商（企业级存储）**\n- **Dell EMC**  \n  - **PowerScale (Isilon)**：横向扩展NAS，适合非结构化数据（如训练数据集）。  \n  - **PowerStore**：全闪存阵列，支持AI工作负载的低延迟需求。  \n- **NetApp**  \n  - **AFF全闪存系列**：高性能文件存储，支持ONTAP AI（与NVIDIA合作方案）。  \n  - **StorageGRID**：对象存储，适合海量数据归档。  \n- **IBM**  \n  - **Storage Ceph**：开源分布式存储方案，适合混合云AI场景。  \n  - **FlashSystem**：低延迟块存储，适用于数据库型AI应用。  \n- **HPE**  \n  - **Nimble Storage**：自适应闪存存储，支持AI分析负载。  \n\n#### **2. 云服务商（公有云存储）**\n- **AWS**  \n  - **S3/EBS/FSx**：S3存储海量数据，EBS提供低延迟块存储，FSx for Lustre适合高性能计算。  \n- **Azure**  \n  - **Blob Storage/Managed Disks**：Blob存储非结构化数据，Disks支持VM训练。  \n- **Google Cloud**  \n  - **Cloud Storage/Persistent Disks**：支持TensorFlow等AI框架的存储需求。  \n\n#### **3. 高性能存储（AI优化方案）**\n- **Pure Storage**  \n  - **FlashBlade**：统一文件与对象存储，专为AI设计，高吞吐低延迟。  \n- **WEKA**  \n  - **WEKA FS**：并行文件系统，支持GPU直接访问数据，适合大规模训练。  \n- **DDN**  \n  - **A3I系列**：专为AI设计的存储，支持高速数据流水线。  \n\n#### **4. 开源/软件定义存储**\n- **Ceph**：分布式存储，适合成本敏感型场景。  \n- **MinIO**：高性能对象存储，可私有化部署，兼容S3协议。  \n\n---\n\n### **二、选型关键因素**\n1. **数据类型与访问模式**  \n   - **非结构化数据（图像/视频）**：选择对象存储（如S3、MinIO）或横向扩展NAS（如PowerScale）。  \n   - **高吞吐训练数据**：并行文件系统（Lustre、WEKA FS）或全闪存阵列（FlashBlade）。  \n   - **低延迟推理**：全闪存块存储（如Pure Storage FlashArray）。  \n\n2. **性能",
   "meta": {
-    "elapsed": 13.89,
-    "usage": {
-      "prompt_tokens": 16,
-      "completion_tokens": 600,
-      "total_tokens": 616,
-      "prompt_tokens_details": {
-        "cached_tokens": 0
-      }
-    },
-    "returncode": 0
+    "elapsed": 20.03,
+    "usage": {},
+    "via": "dashscope_http"
   },
-  "collected_at": "2026-06-21T02:11:20"
+  "collected_at": "2026-07-20T03:40:12"
 }

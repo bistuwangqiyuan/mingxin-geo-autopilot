@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""中科存储 GEO+SEO 提升闭环 · 苹果风格复现图（matplotlib → PNG）。
+"""铭信 GEO+SEO 提升闭环 · 苹果风格复现图（matplotlib → PNG）。
 
 读取：outputs/loop_results.json、outputs/gvi_compare.json、
       geo_plan/outputs/geo_projection.json
@@ -265,7 +265,7 @@ def lever_contribution_v2():
 
 
 def live_lab_chart():
-    """线上 goni.top 实验室性能指标（Playwright/CDP 真测，按审计主机网络）。"""
+    """线上 mingxinstorage.xyz 实验室性能指标（Playwright/CDP 真测，按审计主机网络）。"""
     p = os.path.join(OUT, "lighthouse.json")
     if not os.path.exists(p):
         return False
@@ -273,7 +273,7 @@ def live_lab_chart():
     labs = [r for r in data.get("results", []) if r.get("ok") and r.get("method") == "lab"]
     if not labs:
         return False
-    urls = [r["url"].replace("https://goni.top", "") for r in labs]
+    urls = [r["url"].replace("https://mingxinstorage.xyz", "") for r in labs]
     metrics = [("FCP", "fcp"), ("LCP", "lcp"), ("Load", "load")]
     x = np.arange(len(urls))
     w = 0.26
@@ -287,7 +287,7 @@ def live_lab_chart():
     ax.set_xticks(x)
     ax.set_xticklabels(urls, fontsize=9)
     ax.set_ylabel("秒（越低越好）")
-    ax.set_title("线上 goni.top 实验室性能真测（Playwright/CDP · 审计主机网络）",
+    ax.set_title("线上 mingxinstorage.xyz 实验室性能真测（Playwright/CDP · 审计主机网络）",
                  fontsize=12, fontweight="bold")
     ax.legend(frameon=False, fontsize=9, ncol=3)
     ax.grid(axis="x", visible=False)

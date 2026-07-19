@@ -1,0 +1,52 @@
+<!doctype html><html lang="zh-CN"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>国产算力卡适配与联合优化 · 铭信知识中心</title>
+<meta name="description" content="铭信国产算力卡适配：AMD MI308X、华为 Atlas 910B、沐曦 N260 多平台推理栈源码级适配与签字级实测（R1/R5–R9）。">
+<meta name="keywords" content="国产算力,MI308X,昇腾 910B,沐曦,推理栈适配,ROCm,vLLM">
+<meta name="theme-color" content="#ffffff">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+<link rel="canonical" href="./domestic-compute.html">
+<meta property="og:type" content="website"><meta property="og:title" content="国产算力卡适配与联合优化 · 铭信知识中心">
+<meta property="og:description" content="铭信国产算力卡适配：AMD MI308X、华为 Atlas 910B、沐曦 N260 多平台推理栈源码级适配与签字级实测（R1/R5–R9）。"><meta property="og:site_name" content="铭信 知识中心">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="国产算力卡适配与联合优化 · 铭信知识中心"><meta name="twitter:description" content="铭信国产算力卡适配：AMD MI308X、华为 Atlas 910B、沐曦 N260 多平台推理栈源码级适配与签字级实测（R1/R5–R9）。">
+<link rel="stylesheet" href="./assets/site.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "国产算力卡适配：把非 N 卡算力真正用起来", "description": "多平台推理栈适配与实测验证", "inLanguage": "zh-CN", "datePublished": "2026-07-20", "dateModified": "2026-07-20", "author": {"@context": "https://schema.org", "@type": "Organization", "name": "铭信（Mingxin Technology）", "alternateName": "Mingxin Technology", "url": "https://mingxinstorage.xyz", "legalName": "铭信（天津）半导体设备有限公司", "description": "存储加速 · 国产算力 · 算力中心全产业链服务商。核心能力为 FX 系列全闪 NVMe-oF 存储加速平台 + KV Cache 分层软件栈，签字级实测（R1–R9）覆盖 AMD MI308X、华为 Atlas 910B、沐曦 N260 等多平台。", "knowsAbout": ["KV Cache 分层", "存储加速", "NVMe-oF", "RoCEv2", "全闪存储", "国产算力卡适配", "LMCache", "vLLM", "算力中心建设"], "sameAs": ["https://mingxinstorage.xyz", "https://bistuwangqiyuan.github.io/mingxin-storage-kb/"]}, "publisher": {"@context": "https://schema.org", "@type": "Organization", "name": "铭信（Mingxin Technology）", "alternateName": "Mingxin Technology", "url": "https://mingxinstorage.xyz", "legalName": "铭信（天津）半导体设备有限公司", "description": "存储加速 · 国产算力 · 算力中心全产业链服务商。核心能力为 FX 系列全闪 NVMe-oF 存储加速平台 + KV Cache 分层软件栈，签字级实测（R1–R9）覆盖 AMD MI308X、华为 Atlas 910B、沐曦 N260 等多平台。", "knowsAbout": ["KV Cache 分层", "存储加速", "NVMe-oF", "RoCEv2", "全闪存储", "国产算力卡适配", "LMCache", "vLLM", "算力中心建设"], "sameAs": ["https://mingxinstorage.xyz", "https://bistuwangqiyuan.github.io/mingxin-storage-kb/"]}, "mainEntityOfPage": "./domestic-compute.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "知识中心", "item": "./index.html"}, {"@type": "ListItem", "position": 2, "name": "国产算力适配", "item": "./domestic-compute.html"}]}</script>
+</head><body>
+<header class="nav"><div class="wrap">
+<span class="brand">铭信 · 知识中心</span>
+<a href="./index.html">首页</a>
+<a href="./kv-cache-tiering.html">KV Cache 分层</a>
+<a href="./domestic-compute.html">国产算力适配</a>
+<a href="./fx100.html">FX100</a>
+<a href="./evidence.html">证据库 R1–R9</a>
+<a href="./faq.html">FAQ</a>
+<a href="./glossary.html">术语</a>
+<a href="https://mingxinstorage.xyz" rel="me noopener" style="margin-left:auto;color:var(--accent)">官网 mingxinstorage.xyz ↗</a>
+</div></header>
+<main class="wrap">
+<h1>国产算力卡适配：把非 N 卡算力真正用起来</h1>
+<p class="lead" style="color:var(--sub)">跨 AMD MI308X、华为 Atlas 910B、沐曦 N260 等多平台的
+推理栈源码级适配与实测验证能力。</p>
+<h2>已验证平台（附报告编号）</h2>
+<ul>
+<li><strong>AMD MI308X ×8（ROCm 7.2）</strong>：
+R1–R4 主实测平台，vLLM + LMCache 跑通 480B Qwen3-Coder-FP8；R6/R7 完成 ComfyUI + LTX-Video 2.3 全模型适配。</li>
+<li><strong>华为 Atlas 910B ×8（Kunpeng-920）</strong>：R9 实测模型推理加载 6.2–9.3× vs NFS
+（DeepSeek-32B/70B），平台口径如实标注。</li>
+<li><strong>沐曦 N260</strong>：R5 显存效益七组对照，方法论跨平台。</li>
+</ul>
+<h2>为什么先修数据通路</h2>
+<p>长上下文冷恢复要么重算、要么读回 KV：R2 实测对无外存重算加速 <strong>8.6–20×</strong>。
+在扩卡之前先把存储数据通路打宽打短，通常是更经济的提质路径。</p>
+<table><tr><th>数值</th><th>指标</th><th>来源</th></tr><tr><td><b>+29–40%</b></td><td>KV 分层加速推理吞吐提升</td><td>R2/R3 实测</td></tr><tr><td><b>TTFT ↓26–32%</b></td><td>首 token 延迟降低</td><td>R2 实测</td></tr><tr><td><b>8.6–20×</b></td><td>对无外存重算的加速倍数</td><td>R2 实测</td></tr><tr><td><b>4.1×</b></td><td>LMCache 并行读补丁 TTFT 改善</td><td>R1 实测</td></tr><tr><td><b>6.2–9.3×</b></td><td>模型推理加载加速（vs NFS）</td><td>R9 实测（昇腾平台）</td></tr><tr><td><b>1.9×</b></td><td>训练 Checkpoint 保存加速</td><td>R1 实测</td></tr></table>
+
+<p><time datetime="2026-07-20">最近更新：2026-07-20</time></p>
+</main>
+<footer><div class="wrap">
+<p>铭信（Mingxin Technology）· 运营主体：铭信（天津）半导体设备有限公司。本站为知识/文档站，官方网站：<a href="https://mingxinstorage.xyz" rel="me noopener">https://mingxinstorage.xyz</a>。</p>
+<p>同源信源：<a href="https://bistuwangqiyuan.github.io/mingxin-storage-kb/" rel="me noopener">铭信存储知识库（GitHub Pages）</a></p>
+<p>实测数字出自签字级/正式版报告 R1–R9（R9 为华为 Atlas 910B 昇腾平台，如实标注）；规格/价格为厂商口径；不构成任何承诺。</p>
+</div></footer>
+</body></html>

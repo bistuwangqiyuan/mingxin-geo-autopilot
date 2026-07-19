@@ -1,0 +1,20 @@
+{
+  "query_id": "T1-Q09",
+  "tier": "T1",
+  "persona": "算力中心采购",
+  "intent": "problem_solution",
+  "lang": "zh",
+  "query": "推理集群吞吐上不去、TTFT 波动大，瓶颈在 KV Cache 重算，有哪些存储产品能把吞吐提升 30% 左右？",
+  "model_key": "qwen3.6-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen3.6-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "针对“KV Cache 重算导致吞吐上不去、TTFT 波动大”的问题，需要先明确一个关键工程事实：**KV Cache 重算的本质通常是显存容量不足或调度策略引发的换页（Swap/Eviction），而非纯存储带宽瓶颈。** 存储产品只能在“不得不将 KV Cache 卸载到非显存介质”时起到缓解作用，且 30% 的吞吐提升有严格的前提条件。\n\n下面按技术可行性、产品选型、落地条件给出可直接执行的方案。\n\n---\n### 🔍 一、先确认是否真的该上存储\n| 现象 | 根因 | 存储能否解决 |\n|------|------|--------------|\n| TTFT 波动大 + GPU 利用率周期性跌至 30% 以下 | KV Cache 频繁换页/重算（显存不足或 `gpu-memory-utilization` 设置过低） | ✅ 仅当当前卸载介质延迟过高时有效 |\n| 长上下文（>16K）并发高，但 GPU 显存利用率 >85% | 调度策略未启用 PagedAttention / 前缀缓存 / KV 量化 | ❌ 存储无效，需改框架配置 |\n| 批量推理场景，Prefill 阶段 I/O 打满 | 模型权重/激活值加载慢 | ✅ 存储可优化，但与 KV Cache 无关 |\n\n**结论**：只有当你的推理框架已启用 KV Cache 卸载（如 vLLM `--swap-space` / `--gpu-memory-utilization<1.0`），且当前卸载介质为 PCIe 3.0/4.0 NVMe、SATA SSD 或 CPU 内存时，升级存储/内存扩展才可能带来 ~30% 吞吐提升。\n\n---\n### 📦 二、可带来 ~30% 吞吐提升的存储/内存产品推荐\n\n#### 1️⃣ **CXL 内存扩展器（首选，延迟最低）**\n| 产品 | 接口/协议 | 延迟 | 带宽 | 适用场景 |\n|------|-----------|------|------|----------|\n| Samsung CXL 2.0 Memory Module (CMM) | CXL 2.0 / PCIe 5.0 | ~120-180ns | 32-64 GB/s per lane | 显存不足时的 KV Cache 扩展池 |\n| Micron CXL Memory Expander | CXL 2.0 | ~150ns | 32 GB/s | 同上，支持 NUMA 亲和绑定 |\n| Astera Labs Leo CXL Controller + 第三方 DRAM | CXL 3.0 | ~100ns | 64+ GB/s | 需定制服务器拓扑 |\n\n**为什么",
+  "meta": {
+    "elapsed": 91.41,
+    "usage": {},
+    "via": "dashscope_http"
+  },
+  "collected_at": "2026-07-20T03:14:33"
+}

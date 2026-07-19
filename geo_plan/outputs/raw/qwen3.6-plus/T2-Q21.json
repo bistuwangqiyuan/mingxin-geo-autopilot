@@ -1,0 +1,20 @@
+{
+  "query_id": "T2-Q21",
+  "tier": "T2",
+  "persona": "投资人",
+  "intent": "ranking",
+  "lang": "en",
+  "query": "Who are the notable Chinese AI compute-center storage acceleration companies to watch?",
+  "model_key": "qwen3.6-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen3.6-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "The Chinese AI compute-center storage acceleration landscape is rapidly evolving, driven by massive domestic AI training demand, US export controls on advanced GPUs, and a strong push for domestic substitution. \"Storage acceleration\" in this context typically refers to technologies that optimize data throughput, reduce latency, accelerate metadata operations, speed up AI checkpoint/restart cycles, and integrate tightly with high-performance networking (RDMA/NVMe-oF) for AI workloads.\n\nBelow are the most notable Chinese companies to watch, categorized by their primary focus:\n\n### 🔹 Hardware & NVMe Acceleration\n1. **Memblaze (忆恒创源)**\n   - **Focus**: Enterprise NVMe SSDs & storage controllers optimized for AI/data centers\n   - **Why Watch**: One of China's leading independent NVMe SSD vendors. Their `PBlaze` series delivers high IOPS, low latency, and power-loss protection tailored for AI training clusters. Widely adopted by Baidu, Alibaba, Tencent, and national AI labs. Actively developing next-gen PCIe 5.0/6.0 drives and computational storage features.\n   - **Status**: Series D funded, publicly traded on STAR Market (688498.SH)\n\n2. **Longsys (江波龙) & Foresee (佰维存储)**\n   - **Focus**: NAND flash modules, enterprise SSDs, and storage controllers\n   - **Why Watch**: While broader memory/storage players, both are rapidly scaling AI-optimized enterprise SSD lines and investing in controller IP to reduce reliance on foreign NAND. Critical for domestic AI compute center supply chains.\n\n### 🔹 Software-Defined & Parallel Storage Systems\n3. **XSKY (星辰天合)**\n   - **Focus**: Software-defined distributed storage (XEOS) with AI/HPC optimization\n   - **Why Watch**: China's leading independent SDS vendor. XEOS supports NVMe-oF, RDMA, parallel file system semantics, and AI-specific features like metadata acceleration, tiered caching, and checkpoint optimization. Deployed in multiple provincial AI compute centers and research institutes.\n   - **Status**: Series E funded, consistently ranked #1 in Chinese SDS market share (IDC)\n\n4. **YottaStor (耀数科技)**\n   - **Focus**: High-performance parallel file system & AI storage acceleration\n   - **Why Watch**: Founded by ex-HPC/AI storage engineers, YottaStor specializes in metadata acceleration, sub-second AI checkpoint/restart, and RDMA-integrated storage. Designed specifically for large-scale LLM training clusters. Backed by top-tier VCs (Sequoia China, Hillhouse, etc.).\n   - **Status**: Rapidly scaling deployments in private AI compute centers and university labs\n\n5. **JuiceFS (Juicedata / 桔星科技)**\n   - **Focus**: Cloud-native distributed file system optimized for AI data pipelines\n  ",
+  "meta": {
+    "elapsed": 175.03,
+    "usage": {},
+    "via": "dashscope_http"
+  },
+  "collected_at": "2026-07-20T03:31:29"
+}

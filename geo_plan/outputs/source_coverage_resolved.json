@@ -1,10 +1,10 @@
 {
-  "resolved_at": "2026-06-28T02:52:32",
+  "resolved_at": "2026-07-20T04:47:18",
   "coverage": {
     "独立官网": 0.9,
     "CSDN": 0.0,
     "知乎技术区": 0.0,
-    "GitHub/GitCode": 0.72,
+    "GitHub/GitCode": 0.0,
     "技术白皮书": 0.88,
     "arXiv/学术": 0.0,
     "百度百科": 0.0,
@@ -20,7 +20,7 @@
     "百科": 0.0,
     "搜狐号": 0.0,
     "网易号": 0.0,
-    "微信公众号": 0.0,
+    "微信公众号": 0.1,
     "微信读书": 0.0,
     "腾讯新闻": 0.0,
     "企鹅号": 0.0,
@@ -30,42 +30,22 @@
     {
       "platform": "独立官网",
       "score": 0.9,
-      "rationale": "GEO 基础设施就绪 100%；GSC 已编入 0 页（partial indexing）",
+      "probe_status": "probed",
+      "rationale": "线上探测 robots/llms/sitemap 就绪 100%；GSC 已编入 0 页（partial indexing）",
       "urls": [
-        "https://goni.top"
-      ]
-    },
-    {
-      "platform": "GitHub/GitCode",
-      "score": 0.72,
-      "rationale": "公开仓库 + GitHub Pages 知识库实测 200，含 JSON-LD 与英文 README",
-      "urls": [
-        "https://bistuwangqiyuan.github.io/zk-storage-kb/",
-        "https://github.com/bistuwangqiyuan/zk-storage-kb"
+        "https://mingxinstorage.xyz/robots.txt",
+        "https://mingxinstorage.xyz/llms.txt",
+        "https://mingxinstorage.xyz/sitemap.xml"
       ]
     },
     {
       "platform": "技术白皮书",
       "score": 0.88,
-      "rationale": "官网 validation-whitepaper 页已上线（TechArticle + 第三方实测数据）",
+      "rationale": "官网证据库页 /evidence 实测 200（R1–R9 签字级/正式版报告，口径标注）",
       "urls": [
-        "https://goni.top/zh/validation-whitepaper.html"
+        "https://mingxinstorage.xyz/evidence"
       ]
-    },
-    {
-      "platform": "EdgeOne 知识微站（不计入 UGC 平台覆盖）",
-      "score": "N/A",
-      "rationale": "已部署结构化微站，计入 sameAs 实体图，但不冒充 CSDN/语雀覆盖",
-      "urls": [
-        "https://manju-studio-dpvdtbb7pu7a.edgeone.run"
-      ]
-    },
-    {
-      "platform": "UGC（CSDN/知乎/百科/公众号等）",
-      "score": 0.0,
-      "rationale": "定稿已就绪（geo_plan/offsite/*.md），待人工核准发布；白帽不自动发帖",
-      "urls": []
     }
   ],
-  "method": "coverage_resolver.py · 仅计实测 200 的渠道；UGC 无 live URL 则为 0"
+  "method": "coverage_resolver.py · 官网走线上 HTTP 探测（网络不可用则 unknown/pending）；其余仅计实测 200 的渠道；UGC 无 live URL 则为 0"
 }

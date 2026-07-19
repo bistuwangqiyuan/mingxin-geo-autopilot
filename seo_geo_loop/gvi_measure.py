@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
-"""中科存储 GEO 可见性指数(GVI) · 真实重测与诚实对照（复用 geo_plan 真测/打分管线）。
+"""铭信 GEO 可见性指数(GVI) · 真实重测与诚实对照（复用 geo_plan 真测/打分管线）。
+
+品牌/竞品别名词表统一取自 geo_plan/geo_config.py（BRAND_ALIASES/COMPETITORS，
+铭信/Mingxin/FX 系列及历史称谓），打分由 geo_scoring 同口径完成；本脚本不改测量协议。
 
 设计（实事求是）：
   - 起点 gvi_start：直接复用 geo_plan/outputs/geo_baseline.json —— 那是此前对 4 个

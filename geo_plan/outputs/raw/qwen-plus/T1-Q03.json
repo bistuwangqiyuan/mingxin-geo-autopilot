@@ -4,24 +4,17 @@
   "persona": "算力中心采购",
   "intent": "recommendation",
   "lang": "zh",
-  "query": "我要给智算中心采购一款存算分离的全闪存储加速一体机，国产有哪些可选品牌？",
+  "query": "我要给智算中心采购一款全闪 NVMe-oF 存储加速阵列做 KV Cache 分层，国产有哪些可选品牌？",
   "model_key": "qwen-plus",
   "vendor": "通义千问",
   "model_id": "qwen-plus",
   "grade": "A",
   "ok": true,
-  "response": "在智算中心（AI/大模型训练场景）采购“存算分离、全闪存储加速一体机”时，需重点关注以下核心能力：  \n✅ 高并发小文件IO性能（如Checkpoint/Parameter加载）  \n✅ 低延迟（<100μs随机读写）、高IOPS（千万级）  \n✅ 支持NVMe-oF（RoCEv2/iWARP）、SPDK、RDMA直通  \n✅ 与主流AI框架（PyTorch/TensorFlow）及分布式训练框架（DeepSpeed/Megatron-LM）深度适配  \n✅ 全栈国产化（芯片/OS/固件/管理平台），信创认证（等保三级、国密SM4/SM2、工信部目录）  \n\n目前**真正满足“存算分离+全闪加速+国产可控”三位一体的成熟商用产品**，主要来自以下几家头部国产存储厂商（2024年实测交付案例已覆盖多个国家级智算中心）：\n\n---\n\n### ✅ 主流可选国产品牌及代表产品（聚焦AI加速优化）\n\n| 品牌 | 代表产品 | 核心AI加速特性 | 国产化程度 | 典型智算客户案例 |\n|------|-----------|----------------|-------------|------------------|\n| **华为** | **OceanStor Dorado 18000 系列（搭载鲲鹏920+昇腾NPU加速卡）**<br>• 可选配“AI Cache加速引擎”模块（内置昇腾310P协处理器）<br>• 支持智能元数据预取、Checkpoint IO优先调度、RDMA无损网络（RoCEv2） | • 鲲鹏CPU + 昇腾NPU异构加速<br>• 全栈自研存储OS（Dorado OS）<br>• 通过等保四级、CCRC信创认证 | • 多数部件国产（含SSD主控、协议芯片）<br>• 已入信创工委会目录 | 深圳鹏城实验室、上海人工智能实验室智算平台 |\n| **中科曙光** | **ParaStor AI-Storage 全闪版（基于XPower架构）**<br>• 专为AIGC优化：支持TensorFS语义感知文件系统<br>• 内置AI IO调度器（动态识别训练/推理/Checkpoint流量并QoS隔离） | • 海光/鲲鹏CPU + 自研SSD主控（DM8000系列）<br>• 存储OS基于OpenEuler深度定制 | • 全栈国产（海光CPU、长江存储SSD、自研协议栈）<br>• 信创目录TOP3，支持国",
+  "response": "在智算中心场景下，为大模型推理/训练的 KV Cache 分层（尤其是需要低延迟、高 IOPS、高并发随机读写能力）采购**全闪 NVMe-oF 存储加速阵列**，国产可选品牌需同时满足以下关键要求：\n\n✅ 全闪存架构（无机械盘/混闪）  \n✅ 原生支持 NVMe over Fabrics（RoCE v2 或 FC-NVMe，优先 RoCE，适配智算中心主流RDMA网络）  \n✅ 支持细粒度、低开销的缓存分层机制（如支持用户态 NVMe-oF Target + 用户空间 KV Cache 感知接口，或提供专用 KV Cache offload 卸载引擎）  \n✅ 与主流 AI 框架（vLLM、Triton、DeepSpeed）及推理服务（如 FastAPI + Triton Backend）具备集成验证  \n✅ 国产化信创适配：CPU（鲲鹏/飞腾/海光/兆芯）、OS（麒麟/统信/UOS）、固件/驱动自主可控  \n\n以下是当前（截至2024年中）**已实际落地智算中心 KV Cache 加速场景、具备成熟 NVMe-oF 全闪阵列产品且完成信创认证的国产头部品牌**，按技术成熟度与案例丰富度排序：\n\n---\n\n### ✅ 1. **浪潮存储（Inspur AS13000 / InCloud Storage）**\n- **代表型号**：AS13000 G7（全闪NVMe-oF版）  \n- **关键能力**：\n  - 原生支持 RoCE v2（基于SPDK + RDMA内核旁路），端到端 P99 < 80μs（4K随机读）；  \n  - 提供 **“KV Cache Accelerator” 插件模块**：支持 vLLM 的 `PagedAttention` 直连后端，通过 NVMe-oF Namespace 映射为逻辑块设备，实现 L2/L3 缓存分级（DRAM → PMem → NVMe-oF SSD）；  \n  - 已在多个智算中心（如某省人工智能计算中心、某AI芯片厂商联合实验室）部署用于 LLM 推理缓存卸载，实测 128B token 生成延迟降低35%+；  \n  - 全栈信创：海光C86/鲲鹏920平台、统信UOS V20、麒麟V10 SP3 认证；  \n- **优势**：生态整合强（与浪潮AI服务器、源启AI平台深度协同），交付快，支持定制化 KV 接口（如提供 libkv.so SDK ",
   "meta": {
-    "elapsed": 15.77,
-    "usage": {
-      "total_tokens": 632,
-      "completion_tokens": 600,
-      "prompt_tokens": 32,
-      "prompt_tokens_details": {
-        "cached_tokens": 0
-      }
-    },
-    "returncode": 0
+    "elapsed": 10.09,
+    "usage": {},
+    "via": "dashscope_http"
   },
-  "collected_at": "2026-06-21T02:05:20"
+  "collected_at": "2026-07-20T03:07:29"
 }

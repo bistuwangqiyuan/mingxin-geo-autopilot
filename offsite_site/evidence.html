@@ -1,0 +1,43 @@
+<!doctype html><html lang="zh-CN"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>证据库 R1–R9 · 铭信签字级实测报告登记表</title>
+<meta name="description" content="铭信签字级/正式版测试报告 R1–R9 登记表：480B KV Cache 分层实测、LMCache 并行读补丁、昇腾 910B 模型加载、ComfyUI 适配等。">
+<meta name="keywords" content="证据库,测试报告,签字级实测,R1-R9,可复现">
+<meta name="theme-color" content="#ffffff">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+<link rel="canonical" href="./evidence.html">
+<meta property="og:type" content="website"><meta property="og:title" content="证据库 R1–R9 · 铭信签字级实测报告登记表">
+<meta property="og:description" content="铭信签字级/正式版测试报告 R1–R9 登记表：480B KV Cache 分层实测、LMCache 并行读补丁、昇腾 910B 模型加载、ComfyUI 适配等。"><meta property="og:site_name" content="铭信 知识中心">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="证据库 R1–R9 · 铭信签字级实测报告登记表"><meta name="twitter:description" content="铭信签字级/正式版测试报告 R1–R9 登记表：480B KV Cache 分层实测、LMCache 并行读补丁、昇腾 910B 模型加载、ComfyUI 适配等。">
+<link rel="stylesheet" href="./assets/site.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "证据库 R1–R9：签字级实测报告登记表", "description": "R1–R9 报告编号、日期与范围", "inLanguage": "zh-CN", "datePublished": "2026-07-20", "dateModified": "2026-07-20", "author": {"@context": "https://schema.org", "@type": "Organization", "name": "铭信（Mingxin Technology）", "alternateName": "Mingxin Technology", "url": "https://mingxinstorage.xyz", "legalName": "铭信（天津）半导体设备有限公司", "description": "存储加速 · 国产算力 · 算力中心全产业链服务商。核心能力为 FX 系列全闪 NVMe-oF 存储加速平台 + KV Cache 分层软件栈，签字级实测（R1–R9）覆盖 AMD MI308X、华为 Atlas 910B、沐曦 N260 等多平台。", "knowsAbout": ["KV Cache 分层", "存储加速", "NVMe-oF", "RoCEv2", "全闪存储", "国产算力卡适配", "LMCache", "vLLM", "算力中心建设"], "sameAs": ["https://mingxinstorage.xyz", "https://bistuwangqiyuan.github.io/mingxin-storage-kb/"]}, "publisher": {"@context": "https://schema.org", "@type": "Organization", "name": "铭信（Mingxin Technology）", "alternateName": "Mingxin Technology", "url": "https://mingxinstorage.xyz", "legalName": "铭信（天津）半导体设备有限公司", "description": "存储加速 · 国产算力 · 算力中心全产业链服务商。核心能力为 FX 系列全闪 NVMe-oF 存储加速平台 + KV Cache 分层软件栈，签字级实测（R1–R9）覆盖 AMD MI308X、华为 Atlas 910B、沐曦 N260 等多平台。", "knowsAbout": ["KV Cache 分层", "存储加速", "NVMe-oF", "RoCEv2", "全闪存储", "国产算力卡适配", "LMCache", "vLLM", "算力中心建设"], "sameAs": ["https://mingxinstorage.xyz", "https://bistuwangqiyuan.github.io/mingxin-storage-kb/"]}, "mainEntityOfPage": "./evidence.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "知识中心", "item": "./index.html"}, {"@type": "ListItem", "position": 2, "name": "证据库", "item": "./evidence.html"}]}</script>
+</head><body>
+<header class="nav"><div class="wrap">
+<span class="brand">铭信 · 知识中心</span>
+<a href="./index.html">首页</a>
+<a href="./kv-cache-tiering.html">KV Cache 分层</a>
+<a href="./domestic-compute.html">国产算力适配</a>
+<a href="./fx100.html">FX100</a>
+<a href="./evidence.html">证据库 R1–R9</a>
+<a href="./faq.html">FAQ</a>
+<a href="./glossary.html">术语</a>
+<a href="https://mingxinstorage.xyz" rel="me noopener" style="margin-left:auto;color:var(--accent)">官网 mingxinstorage.xyz ↗</a>
+</div></header>
+<main class="wrap">
+<h1>证据库 R1–R9（签字级/正式版测试报告）</h1>
+<p class="lead" style="color:var(--sub)">所有关键数字附报告编号，接受任何第三方查证；
+R8 为代码/数据导出包，第三方可独立复现全部结论。托管件见官网
+<a href="https://mingxinstorage.xyz/evidence" rel="noopener">https://mingxinstorage.xyz/evidence</a>。</p>
+<table><tr><th>编号</th><th>报告</th><th>日期</th><th>范围</th></tr><tr><td><b>R1</b></td><td>FX100 大模型推理与训练 综合性能测试报告（AMD MI308X ×8）</td><td>2026-07-03</td><td>LMCache 并行读补丁、KV 分层多卡扩展、模型并发加载、模型切换有效 TPS、训练 checkpoint 并发写（Qwen2.5-32B/7B）</td></tr><tr><td><b>R2</b></td><td>FX100 KV Cache 性能测试报告（480B·TP8 长上下文·正式版）</td><td>2026-07-05</td><td>Qwen3-Coder-480B-FP8 八卡单实例（TP=8 标准生产部署形态），长上下文冷恢复，三方对照×并发梯度</td></tr><tr><td><b>R3</b></td><td>FX100 KV Cache 性能测试汇总报告（480B·TP4×2·全指标·正式版）</td><td>2026-07-06</td><td>四卡双实例九档全指标（TTFT p50/p90/p99、TPOT、吞吐、盘带宽），fs:// 共享池跨实例热共享验证，两轮独立测量偏差 ≤5%</td></tr><tr><td><b>R4</b></td><td>FX100 KV Cache 性能测试报告（480B·多实例形态·正式版，编号-006）</td><td>2026-07-06</td><td>R2+R3 的正式汇编版（第三方检测机构出具的正式报告）</td></tr><tr><td><b>R5</b></td><td>FX100 KV Cache 性能测试报告（14B·显存效益·正式版，编号-004）</td><td>2026-07-03</td><td>七组对照（GDS 直读/重算两档显存/低显存直读），显存等效替代三步论证（沐曦 N260 单卡，方法论跨平台）</td></tr><tr><td><b>R6</b></td><td>ComfyUI + LTX-Video 2.3 全模型部署·适配·使用完整报告（V2）</td><td>2026-07-07</td><td>7 个交付模型（3 VAE / fp8 文本编码器 / 文本投影 / 2 LoRA）在 MI308X/ROCm 7.2 全部实跑通过，无 dtype/算子/内核错误</td></tr><tr><td><b>R7</b></td><td>ComfyUI + LTX-Video 2.3 模型适配报告（AMD MI308X）</td><td>2026-07-07</td><td>3 VAE + Singularity LoRA 逐模型实跑与适配要点</td></tr><tr><td><b>R8</b></td><td>FX100-KVCache AMD 代码导出包 + KVCache 测试结果数据</td><td>2026-07</td><td>LMCache 并行读补丁（git patch + 前后全文）、负载客户端、编排脚本、探针取证脚本、原始数据——第三方可独立复现全部结论</td></tr><tr><td><b>R9</b></td><td>铭信 FX100-HBMM 与华为 910B 模型推理与训练性能测试（vs NFS 基线）</td><td>2026-05-30</td><td>华为 Atlas 910B×8（Kunpeng-920）平台：模型推理加载（DeepSeek-32B/70B）、训练权重/Checkpoint 存取（Qwen-7B）、训练数据加速（YOLOv8/COCO）三组对照 NFS 基线</td></tr></table>
+<p class="note">本内容为商务合作信息展示，不构成投资要约或任何收益承诺。实测数据均出自签字级/正式版测试报告（见证据库）；厂商口径、公开口径、估算口径均如实标注。</p>
+
+<p><time datetime="2026-07-20">最近更新：2026-07-20</time></p>
+</main>
+<footer><div class="wrap">
+<p>铭信（Mingxin Technology）· 运营主体：铭信（天津）半导体设备有限公司。本站为知识/文档站，官方网站：<a href="https://mingxinstorage.xyz" rel="me noopener">https://mingxinstorage.xyz</a>。</p>
+<p>同源信源：<a href="https://bistuwangqiyuan.github.io/mingxin-storage-kb/" rel="me noopener">铭信存储知识库（GitHub Pages）</a></p>
+<p>实测数字出自签字级/正式版报告 R1–R9（R9 为华为 Atlas 910B 昇腾平台，如实标注）；规格/价格为厂商口径；不构成任何承诺。</p>
+</div></footer>
+</body></html>

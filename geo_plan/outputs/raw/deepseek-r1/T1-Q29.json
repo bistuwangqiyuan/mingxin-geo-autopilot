@@ -4,27 +4,17 @@
   "persona": "投资人",
   "intent": "ranking",
   "lang": "en",
-  "query": "Who are the leading Chinese companies in KV-Cache offload / disaggregated all-flash storage acceleration for AI?",
+  "query": "Who are the leading Chinese companies in KV-cache tiering / all-flash storage acceleration for AI inference?",
   "model_key": "deepseek-r1",
   "vendor": "DeepSeek",
   "model_id": "deepseek-r1",
   "grade": "A",
   "ok": true,
-  "response": "The domain of KV-Cache offload and disaggregated all-flash storage acceleration for large-scale AI workloads is rapidly emerging. While specialized pure-play startups dominate this space in the US segment (e.g., Pliops, Eideticom, ScaleFlux), the landscape in China features a mix of established tech giants, specialized hardware innovators, and innovative startups approaching this challenge through slightly different angles. There aren't clear, singular \"leaders\" like in the US yet, but several prominent players are actively developing relevant technologies:\n\n1.  **Inspur / Yusur Technologies (浪潮 / 遇存科技):**\n    *   **Focus:** Separating the KV-Cache data store from the accelerator. Yusur, an investment of Inspur, is developing specific hardware designed to act as an external, high-performance key-value store optimized for AI workloads, potentially integrating Xilinx (now AMD) FPGA-based acceleration.\n    *   **Approach:** Disaggregating the caching layer using optimized flash/NVM hardware with dedicated processing.\n    *   **Status:** More visible in R&D discussions and specialized forums targeting AI infrastructure, actively pushing the boundaries for large model serving.\n\n2.  **Fusion Data Co., Ltd.** (飞致云: Fei Zhi Yun):\n    *   **Focus:** Known for high-performance storage technologies including all-flash systems with NVMe over Fabrics (NVMe-oF) capabilities. While not explicitly marketing a \"KV-Cache offload\" box, their core technology stack enables the building blocks for high-throughput, low-latency disaggregated storage – which is fundamental infrastructure required for efficient KV-Cache offload implementations.\n    *   **Approach:** Providing the ultra-fast networked flash storage platform upon which KV-Cache offload systems could be built or integrated.\n    *   **Status:** A commercially available player providing the foundational disaggregated all-flash layer.\n\n3.  **SenseTime (商汤科技):**\n    *   **Focus:** As a leading AI algorithm company, SenseTime also develops its own AI accelerators and infrastructure. They have a strong internal need for efficient Large Language Model (LLM) serving and are likely deeply involved in R&D for optimizing KV-Cache management, potentially including custom hardware or software solutions within their domain-specific systems.\n    *   **Approach:** Internal R&D focus, potentially vertical integration.\n    *   **Status:** Publishes research (e.g., on AMC-Serv for large-model serving), indicating deep architectural considerations for inference bottlenecks like KV-Cache, though specific offload hardware specs are less publicly detailed.\n\n4.  **Wireless-link Technologies (联捷科技):** (Originally focused on computational storage solutions)\n    *   **Focus:** Pioneers in computational storage drives (CSDs) and accelerators in China. While their existing products might target broader computational offload (data filters, encryption, compression), the underlying concept (off",
+  "response": "Okay, let's break down the landscape of Chinese companies working in the cutting-edge space of **KV-cache tiering and all-flash storage acceleration specifically for AI inference.**\n\nThis is a highly specific and rapidly evolving niche, often involving:\n\n1.  **KV-Cache Optimization:** Managing the increasingly large working set of Key-Value pairs that large language models (LLMs) need to hold in memory during long-context inference (especially for tokens beyond what fits in GPU HBM).\n2.  **Tiering:** Moving parts of the KV-cache or associated state strategically between layers of memory and storage (GPU HBM -> CPU RAM -> NVMe SSD -> potentially other persistent storage like AIO).\n3.  **All-Flash Acceleration:** Utilizing the ultra-low latency and high throughput of NVMe SSDs (and often networking like RDMA/GPUDirect) to offload parts of the KV-cache from GPU/CPU memory, acting as a large, fast extension to memory.\n\n## Leading Chinese Players in this Space\n\nThese companies have significant R&D efforts or product offerings relevant to these concepts:\n\n1.  **Alibaba Cloud:**\n    *   **Focus:** Their **Platform for AI (PAI)** heavily invests in optimizing LLM inference infrastructure, both internally for their own services and for cloud customers.\n    *   **Relevance:** They are actively researching and likely deploying techniques for managing large KV-caches for models like Qwen. This almost certainly involves tiering strategies and utilizing high-performance cloud storage (like their ESSD PL-X tier ultra-high performance SSDs) integrated with accelerated networking (RDMA, potentially GPUDirect variants). Their deep vertical stack (cloud, hardware, networking, ML framework) allows tight integration. Look out for innovations in PAI-LLM serving frameworks.\n    *   **Keywords:** PAI, ESSD (especially PL-X), RDMA, GPU Direct.\n\n2.  **Huawei:**\n    *   **Focus:** They are a powerhouse in enterprise storage and networking products with strong investments in AI hardware (Ascend NPUs) and infrastructure.\n    *   **Relevance:** Their **OceanStor Pacific AI storage series** heavily emphasizes AI workloads. They are pioneers in promoting concepts like **NeuralStream** – a defined framework for streaming data to AI accelerators, breaking the barrier between storage and GPU memory. While less documented specifically as \"KV-cache tiering\", their technology stack (high-perf NVMe All-Flash Arrays, NVMe over Fabrics, RDMA networking, AI-targeted software) directly enables the infrastructure necessary for such advancements. They explicitly position their AI storage to support large-state inference tasks.\n    *   **Keywords:** OceanStor Pacific AI, NeuralStream, NVMe AFA, RDMA/Optical Network, Ascend.\n\n3.  **Baidu:**\n    *   **Focus:** Leading AI research (Ernie models",
   "meta": {
-    "elapsed": 52.88,
-    "usage": {
-      "prompt_tokens": 27,
-      "completion_tokens": 1147,
-      "total_tokens": 1174,
-      "completion_tokens_details": {
-        "reasoning_tokens": 543
-      },
-      "prompt_tokens_details": {
-        "cached_tokens": 0
-      }
-    },
-    "returncode": 0
+    "elapsed": 24.61,
+    "usage": {},
+    "via": "dashscope_http"
   },
-  "collected_at": "2026-06-21T02:16:11"
+  "collected_at": "2026-07-20T03:44:56"
 }

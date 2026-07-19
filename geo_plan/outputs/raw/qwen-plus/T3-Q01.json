@@ -10,18 +10,11 @@
   "model_id": "qwen-plus",
   "grade": "A",
   "ok": true,
-  "response": "AI 存储是支撑大模型训练、推理、数据预处理和特征工程的关键基础设施，其选型需兼顾**高吞吐（带宽）、低延迟、海量可扩展性、元数据性能、并行访问能力及AI工作负载适配性**。以下是当前主流厂商、代表性产品及系统化选型指南：\n\n---\n\n### 一、主流AI存储厂商与核心产品（2024年更新）\n\n| 类别 | 厂商 | 代表产品 | 核心技术特点 | 典型适用场景 |\n|------|------|-----------|----------------|----------------|\n| **高性能并行文件系统（HPC/AI原生）** | **DDN（DataDirect Networks）** | EXA5™、WekaIO™（已收购） | WekaFS：全闪优化、POSIX兼容、亚毫秒延迟、百万级IOPS、支持GPUDirect Storage；EXA5为EB级扩展架构 | 大模型训练（Llama3、GPT-4级）、科学计算、生成式AI流水线 |\n| | **VAST Data** | VAST Data Platform（Unified Namespace） | 无元数据服务器架构、NVMe-oF+QLC/SCM混合介质、统一对象/文件/NFS接口、单集群EB级、内置数据缩减（10:1+） | 超大规模AI数据湖、多租户训练平台、端到端AI pipeline（含数据准备+训练+推理缓存） |\n| | **WekaIO（现属DDN）** | WekaFS | 同上（已整合进DDN产品线），强调GPU直连（GPUDirect Storage）、Kubernetes CSI驱动成熟 | AI/ML平台（如NVIDIA DGX Cloud、Run:ai集成）、实时推理服务 |\n| **云原生/分布式对象存储（AI数据湖底座）** | **MinIO** | MinIO Distributed Object Store | 开源S3兼容、轻量高吞吐（100GB/s+）、纠删码+多站点复制、K8s原生部署、支持Arrow Flight SQL加速 | AI数据湖、特征存储、模型版本管理（MLflow/DVC后端）、私有云AI平台 |\n| | **AWS** | Amazon FSx for Lustre + S3 | FSx Lustre：与S3无缝打通、百万IOPS、支持GPUDirect Storage；S3：低成本持久层+S3 Express One Zone（低延迟SSD） | 混合云AI训练（EC2 p4/p5实例）、SageMaker数据加速 |\n| | **Azure** | Azure NetApp Files (ANF) + Azure Blob Storage | ANF：企业级Lustre/NFS，SLA保障；Blob + ADLS Gen",
+  "response": "AI 存储是支撑大模型训练、推理、数据预处理和特征工程的关键基础设施，其选型需兼顾**高吞吐（带宽）、低延迟、高并发I/O、海量小文件/大文件混合处理能力、可扩展性、与AI框架（PyTorch/TensorFlow）的兼容性，以及成本效益**。以下是当前主流厂商、代表性产品及系统化选型指南：\n\n---\n\n### 一、主流AI存储厂商与核心产品（2024年更新）\n\n| 类别 | 厂商 | 代表产品 | 技术特点 | 适用场景 |\n|------|------|-----------|-----------|-----------|\n| **高性能并行文件系统（HPC/AI原生）** | **DDN（现属Vast Data）** | EXA5™ / VAST Data Platform | 基于NVMe-oF+RDMA，统一命名空间，EB级扩展，<100μs元数据延迟；内置AI优化（如TensorFlow Dataset加速） | 超大规模训练（千卡以上）、多租户共享存储池 |\n| | **WekaIO（已被Dell收购）** | WekaFS | 全闪架构，POSIX兼容，支持S3/NFS/SMB，AI感知调度（自动分层、预取），与Kubernetes深度集成 | 中大型AI集群（100–1000 GPU）、云边协同 |\n| | **VAST Data** | VAST Data Platform | 统一存储（对象+文件+块），无RAID、无LVM，基于QLC SSD+Optane缓存，单集群支持百亿小文件 | 多模态数据湖、端到端AI流水线（从数据摄入→训练→推理） |\n| | **IBM Spectrum Scale（GPFS）** | IBM Storage Scale System | 成熟企业级并行文件系统，支持AI workload profile（如Deep Learning I/O pattern tuning），与Red Hat OpenShift集成 | 金融/科研等强合规场景、混合负载（HPC+AI） |\n| **云原生/软件定义存储（SDS）** | **NetApp（收购SolidFire + Astra）** | NetApp Astra Trident + ONTAP AI | ONTAP AI参考架构（含DGX SuperPOD集成），支持GPU直通、CSI插件、快照克隆加速数据集版本管理 | 企业私有云/AI Lab、NVIDIA生态深度适配 |\n| | **Pure Storage** | Pure FlashBlade//ONE（含Evergreen//One订阅） | 文件+对象统一，ActiveCluster跨AZ同步，DirectFlash Shelf支持PCIe 5.0 NVMe，内置AI分析引擎（Pure1 Meta） | 高频迭代训练、实时推理",
   "meta": {
-    "elapsed": 11.54,
-    "usage": {
-      "total_tokens": 622,
-      "completion_tokens": 600,
-      "prompt_tokens": 22,
-      "prompt_tokens_details": {
-        "cached_tokens": 0
-      }
-    },
-    "returncode": 0
+    "elapsed": 9.92,
+    "usage": {},
+    "via": "dashscope_http"
   },
-  "collected_at": "2026-06-21T02:07:33"
+  "collected_at": "2026-07-20T03:09:45"
 }

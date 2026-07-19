@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-"""中科存储 GEO · 评分与合成层。
+"""铭信 GEO · 评分与合成层。
 
 读取 outputs/measurements_raw.json，计算：
 - 每引擎 × {总体/窄类目/宽类目} 的：被提及率、被推荐率、排名得分、引用率、
   声量份额(SoV)，合成 0–100 的 GEO 指数（权重见 geo_data.SCORING_WEIGHTS）。
 - GEO 指数 bootstrap 90% 置信区间（对记录重采样）。
-- 竞品声量份额表（中科存储 vs 竞品）。
+- 竞品声量份额表（铭信 vs 竞品）。
 - 杠杆就绪度（自审清单）、分阶段目标（T0 由实测窄/宽 GEO 指数填入）。
 
 输出：outputs/geo_results.json。绝不为‘待密钥’引擎编造任何分数。
@@ -112,7 +112,7 @@ def _funnel(records):
 
 
 def _competitor_sov(records):
-    """竞品声量份额：各厂商被提及次数 / 全部厂商被提及次数（含中科存储）。"""
+    """竞品声量份额：各厂商被提及次数 / 全部厂商被提及次数（含铭信）。"""
     recs = [r for r in records if r.get("ok")]
     counts = {"__self__": 0}
     for k in G.COMPETITORS:
@@ -142,11 +142,12 @@ def compute():
     records = raw["records"]
     meta = raw["meta"]
 
-    # 区分对话引擎与检索探针
+    # 区分对话引擎与检索探针（以实测数据中实际出现的引擎为准，兼容任意 provider 组合）
+    measured = {r["engine"] for r in records}
     chat_keys = [e["key"] for e in G.ENGINES
-                 if e.get("reachable_now") and e["adapter"] == "bl_chat"]
+                 if e["key"] in measured and e["adapter"] != "bl_search"]
     search_keys = [e["key"] for e in G.ENGINES
-                   if e.get("reachable_now") and e["adapter"] == "bl_search"]
+                   if e["key"] in measured and e["adapter"] == "bl_search"]
     engine_label = {e["key"]: e["label"] for e in G.ENGINES}
 
     per_engine = {}
@@ -221,7 +222,8 @@ def compute():
             "milestones": stages["milestones"],
         },
         "query_basket": G.QUERY_BASKET,
-        "engines": G.ENGINES,
+        # 落盘时冻结可达性快照（reachable_now），供报告构建器展示
+        "engines": [dict(e, reachable_now=G._engine_reachable(e)) for e in G.ENGINES],
         "competitors": G.COMPETITORS,
         "sources": G.SOURCES,
     }

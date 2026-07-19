@@ -1,42 +1,212 @@
 {
-  "brand_zh": "中科存储",
-  "brand_en": "ZK-Storage",
-  "entity_zh": "深圳市中科航星科技有限公司",
-  "entity_en": "Hong Kong Zhongke Hangxing Technology Co., Limited",
-  "category": "面向 AI 训练与推理的存算分离全闪存储加速一体机",
+  "brand_zh": "铭信",
+  "brand_en": "Mingxin Technology",
+  "entity_zh": "铭信（天津）半导体设备有限公司",
+  "entity_en": "Mingxin (Tianjin) Semiconductor Equipment Co., Ltd.",
+  "positioning": "存储加速 · 国产算力 · 算力中心全产业链服务商",
+  "site_url": "https://mingxinstorage.xyz",
+  "evidence_url": "https://mingxinstorage.xyz/evidence",
+  "category": "面向大模型推理的全闪 NVMe-oF + KV Cache 分层存储加速平台（480B 签字级实测）",
+  "naming_note": "铭信 FX100 在既往测试报告文件名中称 AISSD5000、历史称谓亦作 WS5000/GP5000，均为同一产品的不同称谓；统一采用 FX 命名（FX100/FX200/FX300/FX400 同规则），报告索引保留原始文件名以便查证。",
+  "legacy_names": [
+    "AISSD5000",
+    "WS5000",
+    "GP5000"
+  ],
+  "contact": {
+    "name": "Karl Wang",
+    "phone": "13911373183",
+    "phone_alt": "13161818898",
+    "wechat": "Wisdom13161818898",
+    "emails": [
+      "mingxin@agentmail.to",
+      "13426086861@139.com"
+    ],
+    "email_note": "第一个为 AI 自动接收邮箱（7×24 自动处理），第二个为备用人工邮箱"
+  },
   "products": {
-    "WS5000": {
-      "model": "WS5000（WS-HBMM5000）",
-      "bandwidth_gbps": 300,
-      "iops_million": 50,
-      "latency_us": 20,
-      "maturity": "已定型量产"
+    "FX100": {
+      "pcie": "PCIe 3.0",
+      "port_gb": 100,
+      "iops_million": 16,
+      "flash": "U.2",
+      "status": "量产在售",
+      "full_cny": 371200,
+      "cny_per_tb": 2014,
+      "price_note": "满配整机参考价 = 平台 ¥160,000 + 24×¥8,800 = ¥371,200（裸容量 184.3TB，约 ¥2,014/TB）；SSD 为参考市场价随行就市，正式价格以采购合同为准。",
+      "spec_cal": "厂商"
     },
-    "WS7000": {
-      "iops_million": 70,
-      "bandwidth_gbps": 300,
-      "bandwidth_tbps": 2.4,
-      "latency_us": 20,
-      "disk_count": 24,
-      "max_disk_tb": 250
+    "FX200": {
+      "pcie": "PCIe 4.0",
+      "port_gb": 200,
+      "iops_million": 32,
+      "flash": "U.2",
+      "status": "量产在售",
+      "full_cny": 331200,
+      "cny_per_tb": 1797,
+      "price_note": "满配整机参考价 ¥331,200（约 ¥1,797/TB，三档中每 TB 成本最低）。",
+      "spec_cal": "厂商"
+    },
+    "FX300": {
+      "pcie": "PCIe 5.0",
+      "port_gb": 400,
+      "iops_million": 60,
+      "flash": "U.2",
+      "status": "量产在售",
+      "full_cny": 924000,
+      "cny_per_tb": 5014,
+      "price_note": "平台价含 BlueField-3 DPU×6（¥240,000 + 6×¥60,000）；满配整机参考价 ¥924,000（约 ¥5,014/TB）。",
+      "spec_cal": "厂商"
+    },
+    "FX400": {
+      "pcie": "PCIe 6.0",
+      "port_gb": 400,
+      "iops_million": 140,
+      "flash": "E1.S",
+      "status": "2026-08 初出测试机，2026 年底量产",
+      "full_cny": null,
+      "cny_per_tb": null,
+      "price_note": "设备聚合带宽 4.8Tb/s、IOPS 1.4 亿为厂商口径，以测试机实测回填；量产定价待发布。",
+      "spec_cal": "厂商"
     }
   },
-  "deploy_hours": "48-72",
-  "cost_reduction_pct": 40,
-  "expand_cost_reduction_pct": 60,
-  "gpu_adaptation_pct": 90,
-  "gpu_util_uplift": "2-3x",
-  "kv_cache_cost_save_pct": 73.7,
-  "third_party_test": {
-    "issuer": "北京信息科技大学",
-    "platform": "华为昇腾 Atlas 910B",
-    "baseline": "NFS 网络存储（NFS over TCP，10GbE）",
-    "median_reduction_pct": 90.9,
-    "metric_count": 7
+  "throughput_uplift": "+29–40%",
+  "throughput_uplift_src": "R2/R3 实测（480B 生产部署形态长上下文冷恢复）",
+  "ttft_reduction": "26–32%",
+  "ttft_reduction_src": "R2 实测（480B·TP8，p50 10.17–35.73s→7.53–26.35s）",
+  "recompute_speedup": "8.6–20×",
+  "recompute_speedup_src": "R2 实测（重算 TTFT p50 149.5s vs FX100 11.85s）",
+  "parallel_read_ttft_gain": "4.1×",
+  "parallel_read_ttft_gain_src": "R1 实测（LMCache 并行读补丁：TTFT 37.97s→9.30s，带宽 0.98→5.23GB/s）",
+  "model_load_speedup": "6.2–9.3×",
+  "model_load_speedup_src": "R9 实测（华为 Atlas 910B 昇腾平台 vs NFS，须如实标注平台）",
+  "ckpt_save_speedup": "1.9×",
+  "ckpt_save_speedup_src": "R1 实测（178s→94s）",
+  "fx100_pcie": "PCIe 3.0",
+  "fx100_port_gb": 100,
+  "fx100_iops_million": 16,
+  "fx100_flash_form": "U.2",
+  "fx100_full_price_cny": 371200,
+  "fx100_cny_per_tb": 2014,
+  "test_platform": {
+    "gpu": "8 × AMD Instinct MI308X（每卡 192 GB HBM，gfx942）",
+    "gpu_stack": "ROCm 7.2",
+    "engine": "vLLM 0.20.1+rocm721",
+    "kv_lib": "LMCache（上游主线 2026-06-29 源码编译）",
+    "dut": "铭信 FX100 全闪 NVMe-oF 阵列：4 盘 RAID0（14 TB, XFS），RoCEv2，单口 100 GbE",
+    "baseline": "本地 NVMe 单盘（PCIe Gen4, 2 TB）；无外存重算",
+    "model_480b": "Qwen3-Coder-480B-FP8（MoE，权重 ≈450 GB）",
+    "scope": "R1–R4 公共口径"
   },
-  "rd_years": 10,
-  "foundry_partner": "立讯精密",
-  "capacity_units_per_month": 1000,
-  "consistency_rule": "以上为对外唯一口径；站内外所有内容（官网/百科/知乎/CSDN/公众号等）须与此完全一致，禁止改写关键数值或夸大；资质/证书沿用'申请中/示意'如实口径。",
-  "source": "business_plan/outputs/results.json（与商业计划书/官网/简介同源）"
+  "r9_validation": {
+    "report_id": "R9",
+    "platform": "华为 Atlas 910B ×8（Kunpeng-920）",
+    "baseline": "NFS 网络存储基线",
+    "infer": {
+      "DeepSeek-32B": {
+        "load_fx_s": 112,
+        "load_nfs_s": 691,
+        "load_speedup": 6.2
+      },
+      "DeepSeek-70B": {
+        "load_fx_s": 150,
+        "load_nfs_s": 1399,
+        "load_speedup": 9.3
+      }
+    },
+    "note": "平台为昇腾 910B（非 MI308X），如实标注；R1–R4 主实测平台为 AMD MI308X ×8。"
+  },
+  "key_metrics": [
+    {
+      "value": "+29–40%",
+      "label": "KV 分层加速推理吞吐提升",
+      "detail": "480B 生产部署形态长上下文冷恢复负载：并发 8 档 +29%（下界）、最优工作点并发 16 档 +40%（上界）、TP4×2 全机口径 +35–36%",
+      "source": "R2/R3 实测",
+      "cal": "实测"
+    },
+    {
+      "value": "TTFT ↓26–32%",
+      "label": "首 token 延迟降低",
+      "detail": "480B·TP8 三档并发：TTFT p50 从 10.17–35.73s 降至 7.53–26.35s",
+      "source": "R2 实测",
+      "cal": "实测"
+    },
+    {
+      "value": "8.6–20×",
+      "label": "对无外存重算的加速倍数",
+      "detail": "重算基线 TTFT p50 149.5s（conc16）对比 FX100 11.85s；吞吐 4.1 对 74.9 tok/s",
+      "source": "R2 实测",
+      "cal": "实测"
+    },
+    {
+      "value": "4.1×",
+      "label": "LMCache 并行读补丁 TTFT 改善",
+      "detail": "单卡·并发16·冷读盘（Qwen2.5-32B）：TTFT 37.97s → 9.30s，带宽 0.98 → 5.23 GB/s（↑5.3×）",
+      "source": "R1 实测",
+      "cal": "实测"
+    },
+    {
+      "value": "6.2–9.3×",
+      "label": "模型推理加载加速（vs NFS）",
+      "detail": "华为 Atlas 910B 平台：DeepSeek-32B 服务加载 691s → 112s（6.2×）、DeepSeek-70B 1399s → 150s（9.3×）",
+      "source": "R9 实测（昇腾平台）",
+      "cal": "实测"
+    },
+    {
+      "value": "1.9×",
+      "label": "训练 Checkpoint 保存加速",
+      "detail": "8 卡 32B LoRA、每份 65.6GB 整模型快照：178s → 94s，持续写带宽 3.26 → 6.40 GB/s（+96%）",
+      "source": "R1 实测",
+      "cal": "实测"
+    }
+  ],
+  "reports": [
+    {
+      "id": "R1",
+      "title": "FX100 大模型推理与训练 综合性能测试报告（AMD MI308X ×8）",
+      "date": "2026-07-03"
+    },
+    {
+      "id": "R2",
+      "title": "FX100 KV Cache 性能测试报告（480B·TP8 长上下文·正式版）",
+      "date": "2026-07-05"
+    },
+    {
+      "id": "R3",
+      "title": "FX100 KV Cache 性能测试汇总报告（480B·TP4×2·全指标·正式版）",
+      "date": "2026-07-06"
+    },
+    {
+      "id": "R4",
+      "title": "FX100 KV Cache 性能测试报告（480B·多实例形态·正式版，编号-006）",
+      "date": "2026-07-06"
+    },
+    {
+      "id": "R5",
+      "title": "FX100 KV Cache 性能测试报告（14B·显存效益·正式版，编号-004）",
+      "date": "2026-07-03"
+    },
+    {
+      "id": "R6",
+      "title": "ComfyUI + LTX-Video 2.3 全模型部署·适配·使用完整报告（V2）",
+      "date": "2026-07-07"
+    },
+    {
+      "id": "R7",
+      "title": "ComfyUI + LTX-Video 2.3 模型适配报告（AMD MI308X）",
+      "date": "2026-07-07"
+    },
+    {
+      "id": "R8",
+      "title": "FX100-KVCache AMD 代码导出包 + KVCache 测试结果数据",
+      "date": "2026-07"
+    },
+    {
+      "id": "R9",
+      "title": "铭信 FX100-HBMM 与华为 910B 模型推理与训练性能测试（vs NFS 基线）",
+      "date": "2026-05-30"
+    }
+  ],
+  "consistency_rule": "以上为对外唯一口径；站内外所有内容（官网/百科/知乎/CSDN/公众号等）须与此完全一致，禁止改写关键数值或夸大；实测数字必须附报告编号（R1–R9）；R9 数字必须如实标注昇腾 910B 平台；历史称谓（WS5000/AISSD5000/GP5000）仅可与 FX100 命名沿革一起出现。",
+  "source": "business_plan/outputs/results.json（与官网 company.ts 单一数据源同源）"
 }

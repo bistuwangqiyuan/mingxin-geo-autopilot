@@ -4,24 +4,17 @@
   "persona": "投资人",
   "intent": "recommendation",
   "lang": "zh",
-  "query": "中国有没有专注 AI 推理存储加速、KV-Cache 卸载的硬科技创业公司值得关注？",
+  "query": "中国有没有专注大模型推理存储加速、KV Cache 分层的硬科技公司值得关注？",
   "model_key": "qwen-plus",
   "vendor": "通义千问",
   "model_id": "qwen-plus",
   "grade": "A",
   "ok": true,
-  "response": "是的，中国确实有几家专注 AI 推理加速、特别是围绕 **KV-Cache 优化与卸载（offload）** 的硬科技创业公司正在快速崛起，它们在存算协同、近存计算、定制化存储架构等方向具备较强技术壁垒。以下为值得关注的代表性公司（截至2024年中，已获融资/有明确产品落地/被头部大模型厂商验证）：\n\n---\n\n### ✅ 重点推荐（技术聚焦度高、进展扎实）\n1. **智源研究院孵化 + 产业化主体：「深存科技」（DeepStorage / DeepCache Tech）**  \n   - **核心方向**：专攻大模型推理中的 **KV-Cache 存储墙问题**，提出“可编程缓存编排架构”（Programmable KV Cache Orchestrator），支持动态分层卸载（HBM → LPDDR5X → 定制低延迟SSD → 存内计算单元）。  \n   - **技术亮点**：  \n     - 自研轻量级KV-Cache压缩协议（支持无损/有损混合压缩+稀疏索引）；  \n     - 与寒武纪思元芯片深度协同，实现片上缓存+存内预取联合调度；  \n     - 已在某千亿参数MoE模型（如Qwen-MoE）推理中实测降低35%显存占用，吞吐提升2.1×（A100 80GB单卡）。  \n   - **进展**：2023年完成Pre-A轮融资（红杉中国领投），已与阿里云、智谱AI达成POC合作。\n\n2. **「后摩智能」（Houmo Intelligence）—— 虽以存算一体芯片闻名，但其**Genspark™ 系列芯片已扩展KV-Cache加速能力**  \n   - **关键突破**：在2024年发布的Genspark-R1芯片中，集成专用KV-Cache Engine模块，支持：  \n     - 实时token级KV块生命周期管理（LRU+热度感知）；  \n     - 片上SRAM+ReRAM混合缓存，将高频访问KV块保留在存内计算阵列旁；  \n     - 支持LLM推理中“逐层卸载决策”，避免传统静态Offload导致的带宽抖动。  \n   - **验证**：已在小鹏汽车XNGP大模型端侧推理中部署，降低7nm SoC DDR带宽压力40%。\n\n3. **「瀚博半导体」（Vastai Technologies）—— 面向云-边协同推理的KV优化方案**  \n   - 不做通用芯片，而是提供 **软件定义KV加速栈（VastKV） + ",
+  "response": "是的，中国确实有几家在**大模型推理加速、KV Cache 分层优化与存算协同硬件技术**方向深耕的硬科技公司值得关注。这些企业聚焦于解决LLM推理中核心瓶颈——**KV Cache内存墙问题**（显存/内存带宽与容量限制），通过自研芯片、存内计算、近存计算、分层缓存架构、智能压缩/量化/置换算法等硬软协同方案，实现低延迟、高吞吐、低成本的大模型推理部署。以下为当前（截至2024年中）具有代表性的公司及技术亮点：\n\n---\n\n### ✅ 重点推荐（技术扎实、已落地验证、有明确硬件路径）\n\n1. **摩尔线程（Moore Threads）**  \n   - **亮点**：其国产GPU（如MTT S4000/S5000系列）支持**硬件级KV Cache分层管理**，内置专用缓存控制器，可将高频访问的KV块动态驻留在片上SRAM（L1/L2），冷数据自动下溢至HBM/PCIe SSD，并配合驱动层的**智能Cache预取与LRU+策略增强算法**。  \n   - **进展**：已在金融、政务大模型私有化部署中实测将7B模型推理首token延迟降低35%，显存占用减少40%（对比标准vLLM）。  \n   - **优势**：全栈自研（GPU+驱动+推理框架适配），对国产生态（昇腾/寒武纪生态外）提供关键替代选项。\n\n2. **瀚博半导体（Vastsummit）**  \n   - **亮点**：基于自研AI加速芯片SV100系列，提出**“KV-Aware Memory Hierarchy”架构**：  \n     • 片上32MB SRAM专用于KV缓存（可配置为多bank分片）；  \n     • 支持细粒度（token-level）KV生命周期感知调度 + 硬件辅助的FP8/KV混合精度压缩；  \n     • 配套软件栈Sailor-LLM提供透明化的分层Cache API（兼容vLLM/Triton）。  \n   - **进展**：已与头部云厂商合作落地千卡级推理集群，支持13B/34B模型在单卡上实现>120 tokens/sec吞吐（batch=1, context=4K）。\n\n3. **天数智芯（Iluvatar CoreX）**  \n   - **亮点**：其7nm通用GPU（BI系列）虽非纯推理芯片，但通过**创新的Memory Fabric互联+KV Cache-aware DMA引擎**，实现：  \n     • 多GPU间KV分片共享（跨卡Cache一致性",
   "meta": {
-    "elapsed": 15.61,
-    "usage": {
-      "total_tokens": 631,
-      "completion_tokens": 600,
-      "prompt_tokens": 31,
-      "prompt_tokens_details": {
-        "cached_tokens": 0
-      }
-    },
-    "returncode": 0
+    "elapsed": 9.9,
+    "usage": {},
+    "via": "dashscope_http"
   },
-  "collected_at": "2026-06-21T02:06:00"
+  "collected_at": "2026-07-20T03:08:11"
 }

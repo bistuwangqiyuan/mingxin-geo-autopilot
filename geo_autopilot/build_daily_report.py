@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-"""中科存储 GEO Autopilot · 苹果视觉日报（build_daily_report.py）。
+"""铭信 GEO Autopilot · 苹果视觉日报（build_daily_report.py）。
 
 读取当日 snapshot + brain_decision + applied_proposals + run_log，
-产出《中科存储 · GEO 自动驾驶日报》HTML（苹果视觉），数据全部来自单一事实源，绝不臆造。
+产出《铭信 · GEO 自动驾驶日报》HTML（苹果视觉），数据全部来自单一事实源，绝不臆造。
 """
 from __future__ import annotations
 
@@ -14,7 +14,7 @@ import paths
 import metrics as M
 import trend
 
-HTML_OUT = os.path.join(paths.REPORTS, "中科存储-GEO自动驾驶日报.html")
+HTML_OUT = os.path.join(paths.REPORTS, "铭信-GEO自动驾驶日报.html")
 
 
 def _load(path, default=None):
@@ -109,7 +109,7 @@ def build():
                     else "GA4 实测（近 7 天）：信号尚未出现——GEO 是信号积累过程，继续按四步法迭代，非失效。")
     elif sig_status == "ga4_not_configured":
         sig_v, sig_k = "未配置", "GEO 流量信号（GA4 未配置）"
-        sig_note = ("GA4 未配置：提供 ZK_GA4_ID（埋码）与 GA4_PROPERTY_ID + GA4_SA_JSON（读数）"
+        sig_note = ("GA4 未配置：提供 MX_GA4_ID（埋码）与 GA4_PROPERTY_ID + GA4_SA_JSON（读数）"
                     "三个 Secrets 后自动激活；未配置前如实报告，绝不编造流量信号。")
     else:
         sig_v, sig_k = "—", f"GEO 流量信号（{sig_status or 'not_run'}）"
@@ -117,7 +117,7 @@ def build():
 
     html = f"""<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>中科存储 · GEO 自动驾驶日报 {today}</title>
+<title>铭信 · GEO 自动驾驶日报 {today}</title>
 <style>
 :root{{--ink:#1D1D1F;--ink2:#48484A;--mut:#86868B;--line:#E2E2E7;--line2:#F0F0F3;--blue:#0071E3;--green:#34C759;--red:#FF375F;--bg:#FFF;--card:#FBFBFD;}}
 *{{box-sizing:border-box}} html,body{{margin:0;padding:0;background:var(--bg);color:var(--ink);
@@ -149,7 +149,7 @@ figcaption{{font-size:12px;color:var(--mut);margin-top:6px;}}
 
 <section class="cover"><div class="wrap">
   <div class="eyebrow">GEO Autopilot · 自动驾驶日报</div>
-  <div class="big">中科存储 GEO 系统<br/>每日自动运行报告</div>
+  <div class="big">铭信 GEO 系统<br/>每日自动运行报告</div>
   <p>本报告由全自动 AI GEO 系统于每日云端运行后生成，所有指标源自真实测量与单一事实源，可复现、不臆造。</p>
   <p class="mut">报告日期：{today} · 决策引擎：{engine} · 历史样本：{len(hist)} 天</p>
 </div></section>
@@ -228,7 +228,7 @@ figcaption{{font-size:12px;color:var(--mut);margin-top:6px;}}
 
     with open(HTML_OUT, "w", encoding="utf-8") as f:
         f.write(html)
-    meta = {"header": f"中科存储 · GEO 自动驾驶日报 {today}", "footer": "中科存储 ZK-Storage · 全自动 GEO 系统"}
+    meta = {"header": f"铭信 · GEO 自动驾驶日报 {today}", "footer": "铭信 Mingxin Technology · 全自动 GEO 系统"}
     with open(os.path.join(paths.REPORTS, "daily_report_meta.json"), "w", encoding="utf-8") as f:
         json.dump(meta, f, ensure_ascii=False, indent=2)
     print(f"Saved: {HTML_OUT}")

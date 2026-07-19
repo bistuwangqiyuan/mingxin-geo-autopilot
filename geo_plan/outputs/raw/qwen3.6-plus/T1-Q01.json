@@ -1,0 +1,20 @@
+{
+  "query_id": "T1-Q01",
+  "tier": "T1",
+  "persona": "大模型推理工程师",
+  "intent": "definition",
+  "lang": "zh",
+  "query": "什么是 KV Cache 分层存储（KV cache tiering）？把 KV Cache 卸载到外置全闪存储如何降低大模型推理成本？",
+  "model_key": "qwen3.6-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen3.6-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "### 一、什么是 KV Cache 分层存储（KV Cache Tiering）？\n\n在 Transformer 架构的大语言模型（LLM）自回归推理中，**KV Cache** 用于缓存已生成 token 的 Key 和 Value 向量，避免重复计算。随着序列长度和 Batch Size 增加，KV Cache 会线性膨胀，极易占满 GPU 的 HBM（通常 40~80GB/卡），成为推理吞吐的瓶颈。\n\n**KV Cache 分层存储** 是一种内存/存储协同管理技术：将 KV Cache 数据按照**访问频率、延迟敏感度、容量需求**，动态分布在多级介质中，形成“热-温-冷”分层架构：\n\n| 层级 | 介质 | 延迟 | 容量/成本 | 存放内容 |\n|------|------|------|-----------|----------|\n| L1（热） | GPU HBM | ~100ns | 极小/极贵 | 当前生成窗口、高频访问的 KV 块 |\n| L2（温） | CPU DRAM | ~100ns~1μs | 中等/中等 | 近期历史 token、低优先级请求缓存 |\n| L3（冷） | 外置全闪存储（NVMe SSD） | ~0.1~0.5ms | 极大/极便宜 | 长上下文历史、离线批处理数据、低频访问块 |\n\n**核心机制**：\n- 基于 PagedAttention 等块级内存管理，将 KV Cache 切分为固定大小的 Block\n- 通过 LRU/LFU、访问预测或调度策略，在生成过程中异步迁移 Block\n- 配合预取（Prefetching）、I/O 重叠（Compute-IO Overlap）和压缩技术，隐藏存储延迟\n\n---\n\n### 二、卸载到外置全闪存储如何降低推理成本？\n\n将 KV Cache 卸载到外置全闪存储（企业级 NVMe SSD，通常通过 PCIe 5.0 或 NVMe-oF 连接）并非单纯“把数据挪走”，而是通过**容量换成本、带宽换显存**的系统级优化，实现以下降本路径：\n\n#### 1. 突破显存墙，提升单卡吞吐\n- 传统方案：受限于 HBM 容量，Batch Size 通常只能设为 1~8，GPU 计算单元利用率常低于 40%\n- 分层卸载后：KV Cache 占用显存下降 50%~80%，Batch Size 可放大 2~5 倍，GPU 利用率提升至 70%+，**等效算力成本下降 30%~50%**\n\n#### 2. 减少 GPU 采购数量（CapEx 降低）\n- 相同 QPS 需求下，",
+  "meta": {
+    "elapsed": 80.19,
+    "usage": {},
+    "via": "dashscope_http"
+  },
+  "collected_at": "2026-07-20T03:11:35"
+}

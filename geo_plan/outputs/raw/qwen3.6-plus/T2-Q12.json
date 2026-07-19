@@ -1,0 +1,20 @@
+{
+  "query_id": "T2-Q12",
+  "tier": "T2",
+  "persona": "集成商",
+  "intent": "ranking",
+  "lang": "zh",
+  "query": "国产算力卡（AMD/昇腾/沐曦）推理适配里，哪些厂商在源码级补丁和实测验证上做得好？",
+  "model_key": "qwen3.6-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen3.6-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "在回答前需先澄清一个前提：**AMD 并非国产厂商**，其 ROCm 生态属于国际开源体系。若您的关注点严格限定在“国产算力卡”，下文将以 **华为昇腾、沐曦** 为主，并补充其他主流国产芯片的客观对比。评估维度聚焦您提到的两项核心指标：\n- **源码级补丁**：是否提供透明、可维护、可追溯的框架适配补丁（如 PyTorch/TensorFlow/vLLM/Transformers 的 backend 插件），是否积极向开源主线合入，补丁是否附带 CI 测试与版本兼容矩阵。\n- **实测验证**：是否有可复现的基准测试、第三方评测报告、真实业务部署案例，以及社区/开发者的反馈闭环。\n\n---\n### 🔍 一、源码级补丁表现对比\n\n| 厂商 | 核心适配栈 | 补丁透明度与上游贡献 | 典型开源仓库 | 维护成熟度 |\n|------|------------|----------------------|--------------|------------|\n| **华为昇腾** | `torch_npu` / `mindspore` / CANN | 高。提供完整 PyTorch NPU 后端插件，部分核心算子已合入 PyTorch 主线；补丁通过 Gitee/GitHub 公开，带版本兼容表、CI 流水线与迁移指南 | `Ascend/torch_npu`、`Ascend/transformers`、`vllm-project/vllm`（Ascend 后端） | 成熟。支持 PyTorch 2.0~2.4，提供 `ascend-migration-tool` 自动化补丁生成 |\n| **沐曦** | `torch_musa` / MUSA SDK | 中。以官方 SDK 为主，`torch_musa` 逐步开放，但补丁多依赖闭源 runtime，上游合入较少；部分算子以 patch 形式提供，需手动 apply | `MooreThreads/torch_musa`、`musa-ecosystem` | 发展中。兼容 PyTorch 2.1+，但版本碎片化较明显，补丁文档与回滚机制仍在完善 |\n| **海光 DCU** | `torch_hip` / ROCm 兼容 | 中高。基于 AMD ROCm 生态二次开发，补丁多复用 ROCm 主线，部分自研算子以 patch 提供 | `HygonDCU/hip-torch`、`rocm` 兼容层 | 较稳定。推理适配偏 HPC/科学计算，大模型推理插件仍在补齐 |\n| **寒武纪 MLU** | `torch_mlu` / Neuware | 中。补丁集中在官方 SDK，部分核心算子未开源；提供 `cnml` 插件，但框架层 patch 透明度一般 | `Cam",
+  "meta": {
+    "elapsed": 56.15,
+    "usage": {},
+    "via": "dashscope_http"
+  },
+  "collected_at": "2026-07-20T03:26:24"
+}

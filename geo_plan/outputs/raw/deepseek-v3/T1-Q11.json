@@ -4,24 +4,17 @@
   "persona": "智算中心架构师",
   "intent": "recommendation",
   "lang": "zh",
-  "query": "做 EBOF + NVMe-oF 的存算分离扩展存储，有没有已经第三方实测验证过的国产产品？",
+  "query": "做 vLLM + LMCache 的 KV Cache 外置分层，有没有已经出过签字级实测报告的国产存储产品？",
   "model_key": "deepseek-v3",
   "vendor": "DeepSeek",
   "model_id": "deepseek-v3",
   "grade": "A",
   "ok": true,
-  "response": "在存算分离架构中，结合 **EBOF（Ethernet Bunch of Flash）** 和 **NVMe-oF（NVMe over Fabric）** 技术的国产存储解决方案已有部分厂商进行了第三方实测验证。以下是经过市场验证或公开测试的国产产品及技术方案：\n\n---\n\n### **1. 华为 OceanStor Dorado**\n- **技术特点**：支持 NVMe-oF（基于 RDMA 或 TCP），通过智能 NIC 和 SSD 池化实现存算分离。\n- **验证情况**：第三方测试机构如 **Tolly Group** 和 **ESG** 对其高性能和低延迟（微秒级）进行过验证，适用于金融、云原生场景。\n- **参考链接**：华为官网公开的 [ESG 测试报告](https://e.huawei.com/cn/material/enterprise/3a2e4c0d1b1a4d7a8e4d7a8e4d7a8e4d)。\n\n---\n\n### **2. 浪潮 AS5600G2**\n- **技术特点**：支持 NVMe-oF over RDMA（RoCEv2），结合 EBOF 设计实现存储资源池化。\n- **验证情况**：中国信通院等机构对其在超融合和 AI 场景下的扩展性（单集群 PB 级）和带宽（100Gbps+）进行过测试。\n- **参考链接**：浪潮存储白皮书中的 [性能测试数据](https://www.inspur.com/lcjtzw/123/123/123.html)。\n\n---\n\n### **3. 大普微（DapuStor）智能 SSD + EBOF 方案**\n- **技术特点**：国产自研 NVMe SSD 配合 EBOF 硬件（如基于赛灵思 FPGA 的控制器），支持 TCP/RDMA 协议。\n- **验证情况**：第三方实验室（如 **CNLabs**）验证其随机读写性能（IOPS 超 100 万）和端到端延迟（<100μs）。\n- **参考链接**：大普微官网的 [技术白皮书](https://www.dapustor.com/)。\n\n---\n\n### **4. 忆恒创源（PBlaze）EBOF 解决方案**\n- **技术特点**：国产 NVMe SSD 结合 EBOF 硬件（如基于国产芯片的网关），支持 NVMe-oF over TCP。\n- **验证情况**：在高校和科研机构（如中科院计算所）的测试中，实现多节点共享存储下的线性扩展。\n- **参考链接**：PBlaze 的 [案例研究](https://www.pblaze.com/)。\n\n---\n\n### **5. 曙光 ParaStor**\n- **技术特点**：分布式存储支持 NVMe-o",
+  "response": "在 **vLLM + LMCache 的 KV Cache 外置分层存储**领域，目前国产存储产品的公开签字级实测报告较为有限，但结合行业动态和技术趋势，以下方向值得关注：\n\n---\n\n### 1. **国产高性能存储产品动态**\n   - **华为 OceanStor 系列**  \n     - 华为的 **OceanStor Dorado** 全闪存存储（支持 NVMe over Fabrics）在低延迟和高吞吐场景（如 AI 推理）中有应用潜力，但需验证与 vLLM 的适配性。  \n     - **华为 Ascend 缓存方案**：部分生态伙伴可能已尝试将其与 LLM 推理结合，但需联系华为获取定制化测试报告。  \n   - **浪潮 AS5600G2**  \n     - 针对 AI 工作负载优化，支持高速 NVMe 协议，可能适合 KV Cache 分层，但需实测验证延迟表现。  \n   - **阿里云/腾讯云 ESSD AutoPL 云盘**  \n     - 云厂商的极速型云存储（如阿里云 ESSD PL-X）在云原生 LLM 推理中有应用案例，但需确认是否针对 KV Cache 做过专项测试。\n\n---\n\n### 2. **技术适配关键点**\n   - **延迟敏感型需求**：KV Cache 对延迟要求极高（微秒级），需优先考虑 **RDMA/NVMe-oF 协议**的国产存储。  \n   - **分层策略验证**：需实测冷热数据迁移效率，例如通过 **CXL 内存扩展**或 **SCM（存储级内存）** 方案（如英特尔 Optane 替代品）。  \n   - **软件栈兼容性**：国产存储需支持 **vLLM 的 PagedAttention** 和 **LMCache 的缓存替换算法**，可能需定制驱动或中间件。\n\n---\n\n### 3. **建议行动**\n   - **联系厂商获取白皮书**：华为、浪潮等厂商可能有未公开的 AI 存储优化案例，可直接咨询技术团队。  \n   - **参考学术合作成果**：例如清华大学、中科院等机构与国产存储厂商的联合论文（如基于 CXL 的 KV Cache 研究）。  \n   - **社区实践**：关注 **MLSys 或 AI 工程化论坛** 中的国产方案讨论（如百度飞桨生态中的存储优化）。\n\n---\n\n若需具体产品测试数据，建议从 **华为 AI 存储解决方案** 或 **浪潮 AIStation** 入手，要求厂商提供针对 LLM 推理的基准报告（重点：4K 随机读写延迟、带宽稳定性）。目前公开的“签字级”报告较少，但部分头部厂商内部已有原型验证。",
   "meta": {
-    "elapsed": 22.97,
-    "usage": {
-      "prompt_tokens": 29,
-      "completion_tokens": 600,
-      "total_tokens": 629,
-      "prompt_tokens_details": {
-        "cached_tokens": 0
-      }
-    },
-    "returncode": 0
+    "elapsed": 20.87,
+    "usage": {},
+    "via": "dashscope_http"
   },
-  "collected_at": "2026-06-21T02:08:50"
+  "collected_at": "2026-07-20T03:36:40"
 }

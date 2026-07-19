@@ -1,27 +1,20 @@
 {
   "query_id": "T2-Q07",
   "tier": "T2",
-  "persona": "信创集成商",
+  "persona": "集成商",
   "intent": "recommendation",
   "lang": "zh",
-  "query": "自主可控、适配国产 GPU（昇腾/寒武纪）的 AI 存储加速方案推荐哪些？",
+  "query": "能做 vLLM/LMCache ROCm 源码级编译和补丁的国产算力适配服务商推荐哪些？",
   "model_key": "qwen-plus",
   "vendor": "通义千问",
   "model_id": "qwen-plus",
   "grade": "A",
   "ok": true,
-  "response": "针对“自主可控、适配国产GPU（昇腾/寒武纪）的AI存储加速方案”，需兼顾**软硬协同、信创合规、生态适配、高性能IO与训练/推理场景优化**四大核心诉求。以下是当前（2024年）成熟度高、已在政企/科研/智算中心落地验证的推荐方案，按架构层级分类并附关键评估维度：\n\n---\n\n### ✅ 一、整体推荐原则（信创优先）\n- **全栈国产化**：CPU（鲲鹏/飞腾/海光）、GPU（昇腾910B/310P、寒武纪MLU370-S4/X4）、OS（统信UOS/麒麟V10）、文件系统/存储软件需通过工信部《信息技术应用创新产品目录》或进入“信创工委会”生态图谱。\n- **原生适配昇腾/寒武纪**：支持 `Ascend CANN`（含 `hccl` 集群通信 + `ADK` 存储加速接口）及 `Cambricon Neuware`（含 `CNCL` + `CNS` 存储插件），非简单CUDA移植。\n- **AI工作负载优化**：支持大模型训练（TB级Checkpoint读写、千万级小文件加载）、多卡/多节点分布式训练（RDMA/NVMe over Fabrics低延迟访问）、在线推理高QPS低延迟。\n\n---\n\n### ✅ 二、主流成熟方案推荐（已落地验证）\n\n| 方案类型 | 推荐厂商/方案 | 核心优势 | 昇腾适配 | 寒武纪适配 | 典型客户案例 | 备注 |\n|----------|----------------|-----------|------------|--------------|----------------|------|\n| **1. 分布式AI文件系统（首选）** | **华为 OceanStor A800 + AI NAS（搭载OceanFS）** | • 原生集成昇腾CANN，支持`HCCP`（HCCL+POSIX）直通<br>• RDMA+NVMe-oF，训练数据加载延迟<50μs<br>• 支持Checkpoint秒级快照/跨集群同步 | ✅ 深度适配（华为自研，CANN 7.0+原生支持） | ❌ 无官方支持 | 国家超算中心、某省级AI实验室 | 需搭配昇腾服务器（Atlas 800T A2等） |\n| | **XSKY星辰天合 XEOS AI Edition** | • 信创认证（鲲鹏+昇腾+麒麟全栈兼容）<br>• 自研`AI-IO Engine`，小文件聚合+预取优化（ResNet",
+  "response": "目前（截至2024年中），**vLLM 和 LMCache 在 ROCm 平台（特别是国产 AMD GPU 如海光 DCU、摩尔线程 MT 系列、壁仞 BR100 等）上的源码级编译与深度适配仍处于高度定制化、非标准化阶段**。需明确几点前提：\n\n✅ **关键事实澄清：**  \n- **ROCm 官方支持范围有限**：AMD ROCm 主要原生支持 Radeon Instinct（MI200/MI300 系列）及部分 Linux 发行版（Ubuntu/CentOS Stream），**对国产加速卡（如海光DCU、壁仞BR100、摩尔线程MT系列）的驱动、HIP运行时、内核模块等均不官方支持**。这些国产卡多数基于自研架构或深度定制的AMD IP，需厂商提供闭源/半开源的类ROCm软件栈（如海光的Hygon ROCm兼容层、壁仞的BIREN SDK、摩尔线程的MT-Stream）。\n- **vLLM/LMCache 无开箱即用 ROCm 支持**：vLLM 当前（v0.6.x）**仅官方支持 CUDA**；其 ROCm 分支（如 `vllm-rocm`）由社区或个别厂商维护，未合并入主干，且多针对 MI250/MI300，**不兼容国产卡**。LMCache 同样无 ROCm 原生后端，需手动移植 PagedAttention、KV Cache 操作至 HIP/HSA。\n- **“源码级编译+补丁” ≠ 简单 cmake 编译**：涉及：\n  - HIP→自研指令集映射（如海光DCU需适配 Hygon-HIP）\n  - 内存管理重写（国产卡常无标准 HSA 分页机制）\n  - 自定义 kernel（FlashAttention/Grouped Query Attention 的 HIP 实现）\n  - vLLM 的 PagedAttention 内存分配器对接国产卡 MMU/IOVA\n  - LMCache 的 offload 路径适配（如对接壁仞 BRAM 或摩尔线程显存池）\n\n---\n\n### ✅ 国内具备该能力的**头部适配服务商/团队推荐**（按技术深度与落地案例排序）：\n\n| 机构 | 核心能力 | 适配案例 | 注意事项 |\n|--------|-----------|------------|-------------|\n| **壁仞科技（Biren）算法与平台团队** | ✅ 提供 **BR100/BR200 系列完整 vLLM 补丁包**（含 ROCm 兼",
   "meta": {
-    "elapsed": 15.89,
-    "usage": {
-      "total_tokens": 633,
-      "completion_tokens": 600,
-      "prompt_tokens": 33,
-      "prompt_tokens_details": {
-        "cached_tokens": 0
-      }
-    },
-    "returncode": 0
+    "elapsed": 9.8,
+    "usage": {},
+    "via": "dashscope_http"
   },
-  "collected_at": "2026-06-21T02:06:45"
+  "collected_at": "2026-07-20T03:08:56"
 }

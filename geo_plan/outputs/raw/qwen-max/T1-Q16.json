@@ -4,24 +4,17 @@
   "persona": "智算中心架构师",
   "intent": "recommendation",
   "lang": "zh",
-  "query": "想要 300GB/s 带宽、20μs 时延、48-72 小时快速部署的全闪存储一体机，有哪些选择？",
+  "query": "想要 100–400Gb 端口、1600 万以上 IOPS、每 TB 成本 2000 元级的全闪 NVMe-oF 阵列，有哪些选择？",
   "model_key": "qwen-max",
   "vendor": "通义千问",
   "model_id": "qwen-max",
   "grade": "A",
   "ok": true,
-  "response": "对于需要300GB/s带宽、20μs时延，并且能在48-72小时内快速部署的全闪存存储一体机需求，市场上确实有一些高端解决方案可以考虑。不过，请注意，具体型号的选择可能会根据最新市场动态有所变化，因此建议直接联系供应商获取最准确的信息。以下是一些可能满足您要求的品牌和系列：\n\n1. **华为OceanStor Dorado系列**：华为的OceanStor Dorado系列是专为高性能场景设计的全闪存存储系统，支持多种企业级特性如智能数据缩减等。它能够提供非常高的IOPS（每秒输入输出操作次数）以及低延迟性能，适合对性能有极高要求的应用环境。\n\n2. **Dell EMC PowerStore**：Dell EMC提供的PowerStore系列产品也是面向现代化数据中心而设计的全闪存存储解决方案之一。它集成了先进的自动化管理功能，旨在简化IT运营的同时提高效率与灵活性。PowerStore X型号更是将计算资源与存储集成在一起，提供了更高的性能密度。\n\n3. **NetApp AFF A-Series**：NetApp的AFF (All Flash FAS) A系列提供了优秀的性能表现及丰富的数据服务选项。该系列产品支持NVMe over Fabrics技术，能够实现极低的读写延迟，并且具有良好的扩展性。\n\n4. **Pure Storage FlashArray//X**：Pure Storage以其领先的全闪存阵列而闻名，FlashArray//X系列特别针对关键任务工作负载进行了优化，提供卓越的性能表现和可靠性。它们同样支持NVMe协议，有助于进一步降低访问延迟。\n\n请注意，上述产品是否完全符合您的所有规格要求（特别是关于部署时间），还需要向各厂商进行详细咨询。此外，在选择时还应考虑到成本效益比、技术支持能力等因素。希望这些建议对您有所帮助！",
+  "response": "对于您提到的需求（100-400Gb端口、超过1600万IOPS、每TB成本约2000元级别的全闪存NVMe-oF存储阵列），市场上有几种可能的选择。请注意，具体产品选择会根据供应商的不同而有所变化，并且价格也会随时间波动以及配置的具体情况而有所不同。以下是一些知名品牌的示例：\n\n1. **Dell EMC PowerStore** - Dell EMC提供的PowerStore系列是专为现代数据中心设计的高性能存储解决方案之一。它支持NVMe-oF协议，能够提供非常高的IOPS性能。不过，是否完全符合您的所有要求（特别是成本方面）需要进一步与销售代表确认。\n\n2. **Pure Storage FlashArray//X** - Pure Storage以其高性能和低延迟著称，FlashArray//X系列提供了强大的NVMe支持能力。该系列产品旨在满足对速度和效率有着极高要求的应用场景。同样地，关于具体的成本效益比，请直接咨询厂商以获取最新信息。\n\n3. **HPE Nimble Storage All Flash Arrays** - HPE Nimble Storage也提供了一系列基于NVMe技术的全闪存阵列产品，这些产品强调了易用性和智能化管理功能。它们在性能上表现良好，但是否能满足您特定的成本目标还需进一步探讨。\n\n4. **NetApp AFF A-Series** - NetApp的AFF (All Flash FAS) A系列也是市场上较为知名的全闪存存储解决方案之一，支持多种高级特性如数据压缩、重复删除等来优化存储效率。对于高带宽需求及大规模IOPS处理能力，A系列可以是一个不错的选择。\n\n5. **华为OceanStor Dorado V6** - 华为推出的OceanStor Dorado V6系列全闪存存储系统采用了最新的硬件架构和技术，旨在为企业级用户提供极致性能体验。此系列支持NVMe over Fabrics技术，并具有良好的扩展性和可靠性。\n\n建议您根据上述推荐联系相关厂商或授权经销商进行详细咨询，以便获得最准确的产品规格、性能指标以及报价信息。同时也可以考虑通过专业的IT顾问或集成商来帮助评估最适合您业务需求的解决方案。",
   "meta": {
-    "elapsed": 10.91,
-    "usage": {
-      "prompt_tokens": 48,
-      "completion_tokens": 384,
-      "total_tokens": 432,
-      "prompt_tokens_details": {
-        "cached_tokens": 0
-      }
-    },
-    "returncode": 0
+    "elapsed": 9.72,
+    "usage": {},
+    "via": "dashscope_http"
   },
-  "collected_at": "2026-06-21T02:02:37"
+  "collected_at": "2026-07-20T03:04:12"
 }

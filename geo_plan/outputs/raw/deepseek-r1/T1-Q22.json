@@ -4,27 +4,17 @@
   "persona": "大模型推理工程师",
   "intent": "comparison",
   "lang": "zh",
-  "query": "vLLM PagedAttention 之外，靠存储侧 KV-Cache 卸载来降本提吞吐，有哪些硬件存储产品？",
+  "query": "vLLM PagedAttention 之外，靠 LMCache + 外置全闪存储做 KV Cache 分层降本提吞吐，有哪些硬件存储产品？",
   "model_key": "deepseek-r1",
   "vendor": "DeepSeek",
   "model_id": "deepseek-r1",
   "grade": "A",
   "ok": true,
-  "response": "好的，我们来梳理一下为实现降低推理成本（降本）并提高吞吐量（提吞吐）的目标，在 KV-Cache 卸载策略中可以使用的主要硬件存储技术选项。\n\n理解核心目标：KV-Cache 卸载的本质是**将原本必须存于昂贵 GPU/HBM 显存中的键值缓存 (KV-Cache) 临时地或部分地搬到更大容量、更低成本的存储介质上**，从而：\n1.  **释放 GPU 显存空间**：使单张 GPU 可处理更大的模型或更多的并发请求。\n2.  **降低硬件成本**：用廉价的存储单元替代昂贵的 GPU 显存扩展开销。\n3.  **提高吞吐量**：允许部署更多模型或处理更多用户请求（尤其是长序列场景）。\n\n硬件存储选项主要基于两大技术方向：**直接连接块存储**和**网络块存储**。以下是主要的硬件产品和技术类别：\n\n### 🌟 1. 本地高性能 NVMe SSD (Direct-Attached Block Storage)\n*   **描述**: 这是最常用的存储卸载介质。通过高速 PCIe（通常为 Gen4 或 Gen5）通道直接连接到服务器主板或通过 NVMe over Fabrics 连接到专用适配卡。\n*   **优点**:\n    *   **性价比高**: SSD/GB 的成本显著低于 GPU 显存/HBM。\n    *   **可扩展容量**: 单服务器可轻松集成数 TB 甚至数十 TB 的 NVMe SSD 存储。\n    *   **性能适中**: 现代高性能企业级或数据中心级 NVMe SSD，尤其是 QLC 或存储优化款 (如：\n        *   **Intel Optane P5800X (或先前型号)**: 虽已停产，但在低延迟写入方面仍有优势（但需考虑伦理采购）。\n        *   **Samsung PM/SE 系列 (如 PM9A3, SE-SIT)**: 性能稳定，容量大，广泛使用。\n        *   **Micron 9400/7450 系列**。\n        *   **Kioxia CM 系列**。\n        *   **新产品 (如 Samsung 推出的近4x于旧款的TLC版SSD)**：提供优秀的性能与成本均衡。\n    *   **延迟在可接受范围内**: 访问延迟通常在几十微妙级别，虽然比 GPU 显存慢几个数量级，但对于容忍一定延迟的 KV-Cache 或冷缓存已足够。\n*   **缺点**:\n    *   **延迟远高于 HBM**: 可能成为吞吐瓶颈。\n    *   **单服务器扩展性局限**: 受插槽限制。\n*   **适用场景**: 在单台服务器内扩展 KV-Cache 容量的理想方式。作为缓存池的第一层本地扩展。\n\n### 🚆 2. NVMe over Fabrics (NVMe-oF) (",
+  "response": "好的，我们来探讨一下在采用类似于vLLM PagedAttention + LMCache（或类似技术）的分层 KV Cache 方案时，适用于存放外部 KV Cache 的硬件存储选项。核心目标是：**在尽可能低的成本下，提供稳定且较高的吞吐量（带宽）和可接受的延迟，满足大规模 KV Cache 离主计算设备存储的需求。**\n\n由于 KV Cache 的特点是：\n* **访问模式：** 缓存的页面（Pages）可能被频繁或不频繁访问（取决于 QPS 和 Attention 模式）。LMCache 的作用就是自动管理冷热数据。\n* **容量需求：** 可能**极其巨大**（数十 TB 级甚至更大）。\n* **性能要求：** 对于从外部存储“预取”到GPU内存的速度（供 PagedAttention 重填使用）有较高带宽要求。初始填充新页面的延迟要求相对较低（覆盖在推理时间中），但对已存冷页面的热身（如果被重新访问）需要快速。\n* **数据一致性：** 通常在模型推理期间是只读或追加写的 KV 页，重启后可能重建，不强依赖持久化。但持久化也可以考虑用于加速服务启动或 checkpoint。\n\n结合以上特点，适用于外部 KV Cache 存储的硬件产品类别包括：\n\n## 1. 高密度、高性能 NVMe SSD 服务器（推荐）\n\n* **描述：** 部署装备了大量（可能由 JBOF/JBOF理念形态）NVMe SSD 的服务器。这些服务器扮演 KV Cache 缓存的存储提供者角色。国内常见比如采用 HGST等厂商的SSD搭建冷热存储池。\n* **优点:**\n  * **极高的性价比:** 替换传统企业存储基础设施，缩减整体硬件成本。QLC SSD提供每GB最低成本和大容量部署。\n  * **高带宽/吞吐量:** 通过聚合多个 NVMe SSD（特别是 PCIe 4.0/5.0）提供巨大的总吞吐能力，满足 KV Cache 批量加载需求。单台能提供数 GB/s甚至更高带宽。\n  * **较低延迟:** NVMe 协议本身提供低延迟，尤其PCIe直连而非存储网络。\n  * **灵活扩展:** 可通过网络连接多台此类服务器构建巨型 KV Cache 池。\n* **代表产品和供应商:**\n  * **服务器/存储节点：** Supermicro、Dell PowerEdge 等品牌的专用高密度存储服务器型号。被vLLM团队实践应用并推荐。\n  * **NVMe SSD：**\n    * **企业级 TLC SSD：** 提供更均衡的性能和耐用性。如 Samsung PM9A3/PM1733/PM1735, Solidigm D7-P5520/P5620, Kioxia CM6/CD6, Micron 7450/9400 等。\n    * **企业级 Q",
   "meta": {
-    "elapsed": 48.14,
-    "usage": {
-      "prompt_tokens": 31,
-      "completion_tokens": 1087,
-      "total_tokens": 1118,
-      "completion_tokens_details": {
-        "reasoning_tokens": 482
-      },
-      "prompt_tokens_details": {
-        "cached_tokens": 0
-      }
-    },
-    "returncode": 0
+    "elapsed": 31.14,
+    "usage": {},
+    "via": "dashscope_http"
   },
-  "collected_at": "2026-06-21T02:15:12"
+  "collected_at": "2026-07-20T03:44:14"
 }

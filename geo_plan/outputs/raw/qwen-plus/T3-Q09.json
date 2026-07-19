@@ -4,24 +4,17 @@
   "persona": "算力中心采购",
   "intent": "ranking",
   "lang": "zh",
-  "query": "AI 存储 / AI 算力中心存储，国产厂商里谁比较领先？",
+  "query": "AI 存储 / AI 算力中心存储加速，国产厂商里谁比较领先？",
   "model_key": "qwen-plus",
   "vendor": "通义千问",
   "model_id": "qwen-plus",
   "grade": "A",
   "ok": true,
-  "response": "在AI存储与AI算力中心存储领域（即面向大模型训练/推理、海量非结构化数据（如图像、视频、日志、向量）的高性能、高扩展、高可靠、支持AI工作负载特征的存储系统），国产厂商近年来进步显著。目前处于**第一梯队、技术领先且已规模落地**的国产厂商主要有以下几家，按综合技术实力、生态适配性、头部客户验证和商业化成熟度排序：\n\n✅ **1. 华为（Huawei）—— 全栈引领者，综合实力最强**  \n- **核心产品**：OceanStor A系列（A300/A500/A800）、OceanProtect AI备份方案、与昇腾AI集群深度协同的“存算分离”架构（如通过DPU卸载、RDMA网络优化、NVMe over Fabrics）。  \n- **优势**：  \n  - 全栈自研：鲲鹏CPU + 昇腾AI芯片 + 自研存储OS（OceanStor OS）+ 自研SSD控制器 + DPU（如昇思MindSpore+OceanStor联合优化）；  \n  - 针对AI负载深度优化：支持EB级横向扩展、亚毫秒级延迟（全闪配置）、智能分层（热/温/冷数据自动迁移）、原生支持HDFS/S3/NFS/POSIX多协议，无缝对接PyTorch/TensorFlow/MindSpore训练框架；  \n  - 已在多个国家级智算中心（如武汉、西安、成都等）及互联网大厂（如某头部短视频平台AI训练平台）规模部署，单集群超100PB已商用；  \n  - “AI for Storage”能力突出：利用AI预测故障、自动调优IO路径、智能压缩去重（针对AI数据特征优化）。  \n- **短板**：受国际供应链影响，高端部件（如部分HBM、先进制程DPU）存在长期演进挑战，但已通过自研替代加速缓解。\n\n✅ **2. 浪潮信息（Inspur）—— AI算力生态最紧密，交付能力强**  \n- **核心产品**：AS13000G7/G8（AI存储版）、AIStation+AS13000联合方案、与NF5688M7/NF5488A5等AI服务器深度协同；  \n- **优势**：  \n  - 国内AI服务器市占率第一（超30%），天然具备“存算一体”交付优势，可提供从GPU服务器→高速IB/RoCE网络→分布式存储的端到端AI基建；  \n  - AS13000G8支持100GbE RoCEv2、GPU Direct Storage（GDS）直",
+  "response": "在AI存储与AI算力中心的存储加速领域，国产厂商近年来发展迅速，尤其在面向大模型训练/推理、智算中心（AIC）场景的高性能、高带宽、低延迟、可扩展存储系统方面，已形成一批技术领先、落地扎实的头部企业。以下是当前（截至2024年中）在**AI存储架构创新、存算协同、软硬一体化加速能力**等方面综合表现突出的国产厂商梯队分析：\n\n---\n\n✅ **第一梯队（技术领先 + 大规模商用验证 + 全栈能力）**\n\n1. **浪潮信息（Inspur）**  \n   - ✅ 优势：  \n     - 自研「AS13000 AI存储」系列（含全闪/混闪），深度适配GPU集群，支持NVMe-oF、RDMA、GPUDirect Storage（GDS）；  \n     - 与NVIDIA联合优化，是首批通过NVIDIA DGX SuperPOD认证的国产存储厂商；  \n     - 在多地智算中心（如济南、合肥、成都）大规模部署，单集群PB级并发吞吐超200GB/s；  \n     - 软件定义存储（SDS）+ 智能数据分层（热/温/冷数据自动调度）+ AI感知IO调度（如基于训练任务特征预取/缓存）。  \n   - 🔍 代表项目：国家超算济南中心“山河”智算平台、某头部互联网大模型训练平台。\n\n2. **华为（Huawei）**  \n   - ✅ 优势：  \n     - OceanStor Pacific系列（原OceanStor 100D升级版）专为AI/HPC设计，支持EB级横向扩展、百万级IOPS、亚毫秒级延迟；  \n     - 独创「智能无损网络」（iLossless）+「AI Fabric智能调度」，实现存储网络与计算网络融合；  \n     - 全栈自研：鲲鹏CPU + 昇腾AI芯片 + OceanStor存储 + GaussDB（用于元数据管理）+ iMaster NCE智能运维；  \n     - 支持GDS直通加速，与昇腾910B集群深度协同，实测大模型Checkpoint读写提速3–5倍。  \n   - 🔍 代表项目：“东数西算”枢纽节点（如贵安、韶关）、鹏城实验室“鹏城云脑Ⅲ”。\n\n3. **曙光（Sugon）**  \n   - ✅ 优势：  \n     - ParaStor分布式存储系统持续迭代，最新版本支持AI workload感知调度（如PyTorch DataLoader友好接口、HDF5/TFRecord高效加载）；  \n     - “硅立方”液冷智算",
   "meta": {
-    "elapsed": 15.63,
-    "usage": {
-      "total_tokens": 628,
-      "completion_tokens": 600,
-      "prompt_tokens": 28,
-      "prompt_tokens_details": {
-        "cached_tokens": 0
-      }
-    },
-    "returncode": 0
+    "elapsed": 9.82,
+    "usage": {},
+    "via": "dashscope_http"
   },
-  "collected_at": "2026-06-21T02:07:55"
+  "collected_at": "2026-07-20T03:10:06"
 }

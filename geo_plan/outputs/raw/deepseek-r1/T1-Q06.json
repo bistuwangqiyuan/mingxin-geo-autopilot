@@ -1,30 +1,20 @@
 {
   "query_id": "T1-Q06",
   "tier": "T1",
-  "persona": "信创集成商",
+  "persona": "集成商",
   "intent": "recommendation",
   "lang": "zh",
-  "query": "在华为昇腾平台上做推理，配套的高性能全闪加速存储推荐用哪家？",
+  "query": "在 AMD MI308X 或华为昇腾 910B 平台上做大模型推理，配套的 KV Cache 分层全闪存储推荐用哪家？",
   "model_key": "deepseek-r1",
   "vendor": "DeepSeek",
   "model_id": "deepseek-r1",
   "grade": "A",
   "ok": true,
-  "response": "在华为昇腾平台上配置高性能全闪存储时，考虑到其对**低延迟、高吞吐及可靠性的极致需求**，以下几类存储解决方案较适合，具体选择需结合场景预算：\n\n### ⚡ 核心推荐方向\n1. **华为OceanStor Dorado全闪存**（首选生态方案）  \n   - **优势**：与昇腾平台深度适配，支持**NVMe over RoCE**协议，提供μs级延迟（如Dorado 8000X可达100μs内），并通过**SmartIO适配器**实现GPU direct存储访问，避免宿主机CPU瓶颈。\n   - **场景匹配**：适用于需与Atlas服务器进行RDMA网络直连的实时推理（如自动驾驶实时决策）。\n\n2. **Pure Storage FlashArray//XL系列**  \n   - **技术亮点**：基于QLC NAND+SCM（存储级内存）分层设计，提供**一致的低延迟**（<500μs），支持**AI Native数据缩减**（节省模型存储空间），并通过Pure File Services提供NFSv4.1加速。\n   - **适用场景**：多容器实例同时加载模型库的场景（如在线广告推荐系统的高并发推理）。\n\n3. **VAST Data Universal Storage**  \n   - **架构优势**：分布式全闪架构支持**全局命名空间**，**双控制器**设计可承载1000+昇腾节点的并发读取，尤其适合**千亿级参数模型并行加载**。\n   - **性能表现**：在Meta Llama-3 70B模型实测中，200节点同时加载仅需8秒（传统存储需分钟级）。\n\n### 🛠️ 关键配置建议\n- **协议栈**：强制启用 **NVMe-oF** + **RDMA（RoCEv2）**（避免TCP/IP堆栈延迟）  \n- **网络拓扑**：  \n  - 单机柜场景：采用 **TOR交换机组** + **100GbE DAC直连线缆**  \n  - 跨机柜场景：部署 **200Gb 低延时交换网络**（如Arista 7800R3系列）  \n- **存储基准参数**：  \n   ```plaintext\n   需求项          推荐阈值  \n   -----------------------------------------------\n   随机读IOPS       >1M/节点   (4K块)  \n   顺序读带宽       >5GB/s/节点  \n   尾延迟（99%）    <1ms  \n   HA切换时间       <30秒  \n   ```\n\n### ⚠️ 实际案例参考\n某自动驾驶公司使用**OceanStor Dorado 6800V6** + **Atlas 900**集群：  \n- **场景**：200路视频流实时检测（YOLOv7-tiny）  \n- **结果**：存储延迟从HDD方案的9ms降至",
+  "response": "在AMD MI308X或华为昇腾910B平台上进行大模型推理时，**KV Cache对存储性能的要求极高**，需要超低延迟、高吞吐量和高IOPS的存储方案来支撑频繁的KV数据访问。以下是为**分层全闪存储**推荐的架构方案及供应商选择建议：\n\n---\n\n### **一、核心需求分析**\n1. **KV Cache特性**  \n   - 高频读写：推理时需快速访问/更新键值对缓存。\n   - 低延迟：延迟敏感（需微秒级响应）。\n   - 高带宽：多GPU并发访问时需TB级吞吐。\n   - 数据局部性：热数据需在超高速层（如NVMe），冷数据可下沉至QLC或大容量层。\n\n2. **平台差异**  \n   - **AMD MI308X**：需支持CDNA架构的NUMA优化与PCIe 5.0。\n   - **昇腾910B**：需兼容昇腾AI架构的异构计算链路（如 HCCS 总线）。\n\n---\n\n### **二、推荐分层存储方案**\n#### **架构设计**\n1. **热层（Tier1）**  \n   - **介质**：NVMe SSD（首选企业级TLC/PLC NAND）。\n   - **接口**：NVMe-oF（RDMA/RoCE），消除TCP/IP开销。\n   - **要求**：延迟≤100μs，IOPS ≥100万，带宽≥100GB/s。\n   - **技术**：基于GPU-Direct Storage（GDS）绕过CPU直读SSD。\n\n2. **温层（Tier2）**  \n   - **介质**：QLC/高容量TLC SSD（如30TB+）。\n   - **技术**：支持高速异步写入（用于KV重排/持久化）。\n   - **带宽需求**：≥40GB/s。\n\n3. **冷层（可选）**  \n   - **介质**：SATA SSD或分布式对象存储（用于CheckPoint备份）。\n\n---\n\n### **三、供应商推荐**\n#### **专精方案**\n1. **VAST Data**  \n   - **优势**：全局命名空间 + 无原生存储层次（通过QLC+TLC混合实现硬件分层）。\n   - **协议支持**：NVMe/TCP + RDMA，适配AMD/昇腾 RDMA网卡（如CX7）。\n   - **数据集加速**：支持GPU-Direct缓存预加载。\n\n2. **WEKA**  \n   - **特点**：并行文件系统架构，元数据性能强（KV索引密集场景优势）。\n   - **昇腾适配**：支持华为iSNS+DME存储加速引擎。\n   - **延时**：实测随机读≤200μs（100%全闪配置）。\n\n3. **Pure Storage FlashBlade//E**  \n",
   "meta": {
-    "elapsed": 44.28,
-    "usage": {
-      "prompt_tokens": 23,
-      "completion_tokens": 1001,
-      "total_tokens": 1024,
-      "completion_tokens_details": {
-        "reasoning_tokens": 397
-      },
-      "prompt_tokens_details": {
-        "cached_tokens": 0
-      }
-    },
-    "returncode": 0
+    "elapsed": 30.73,
+    "usage": {},
+    "via": "dashscope_http"
   },
-  "collected_at": "2026-06-21T02:12:55"
+  "collected_at": "2026-07-20T03:42:13"
 }

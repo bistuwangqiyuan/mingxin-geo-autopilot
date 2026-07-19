@@ -11,9 +11,9 @@ import os
 from playwright.sync_api import sync_playwright
 
 BASE = os.path.dirname(os.path.abspath(__file__))
-HTML = os.path.join(BASE, "outputs", "中科存储-GEO计划落地实施报告.html")
+HTML = os.path.join(BASE, "outputs", "铭信-GEO计划落地实施报告.html")
 META = os.path.join(BASE, "outputs", "implementation_report_meta.json")
-OUT_PDF = os.path.join(os.path.dirname(BASE), "中科存储-GEO计划落地实施报告.pdf")
+OUT_PDF = os.path.join(os.path.dirname(BASE), "铭信-GEO计划落地实施报告.pdf")
 
 
 def export():
@@ -21,9 +21,9 @@ def export():
         with open(META, "r", encoding="utf-8") as f:
             meta = json.load(f)
     except Exception:
-        meta = {"header": "中科存储 · GEO 计划落地实施", "footer": "中科存储 ZK-Storage"}
+        meta = {"header": "铭信 · GEO 计划落地实施", "footer": "铭信 Mingxin Technology"}
     header = meta.get("header", "")
-    footer = meta.get("footer", "中科存储 ZK-Storage")
+    footer = meta.get("footer", "铭信 Mingxin Technology")
     header_tpl = (
         '<div style="width:100%;font-size:8px;color:#9A9AA0;'
         'font-family:-apple-system,\'Segoe UI\',\'Microsoft YaHei\',sans-serif;'

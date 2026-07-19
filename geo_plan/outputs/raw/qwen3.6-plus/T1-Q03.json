@@ -1,0 +1,20 @@
+{
+  "query_id": "T1-Q03",
+  "tier": "T1",
+  "persona": "算力中心采购",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "我要给智算中心采购一款全闪 NVMe-oF 存储加速阵列做 KV Cache 分层，国产有哪些可选品牌？",
+  "model_key": "qwen3.6-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen3.6-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "针对智算中心大模型推理/训练场景的 **KV Cache 分层（Offloading/Tiering）**，存储阵列需满足：**端到端延迟 ≤ 80μs、原生 NVMe-oF（RoCEv2）支持、高 IOPS/吞吐、与主流 AI 框架（vLLM/SGLang/TensorRT-LLM）兼容**。以下为国内主流可选品牌及产品线对比，均具备全闪 NVMe-oF 能力，并在 AI 智算场景有落地案例：\n\n### 🔍 国产主流品牌及产品线对比\n| 品牌 | 代表产品系列 | NVMe-oF 支持 | KV Cache 专项能力 | 典型优势 | 注意事项 |\n|------|--------------|--------------|-------------------|----------|----------|\n| **华为** | OceanStor Dorado 8000/18000 | ✅ RoCEv2 原生支持，支持多路径/ECN | 提供“AI 存储加速方案”，支持 vLLM KV Cache 卸载，内置智能缓存调度 | 生态完善、与昇腾/英伟达 GPU 兼容性好、智算中心落地案例多 | 需配合华为或第三方 RoCE 网络调优 PFC/ECN |\n| **浪潮** | HF5000G7 / AS5000G7 全闪阵列 | ✅ 原生 NVMe-oF over RoCE | 明确推出“大模型 KV Cache 分层存储”方案，支持显存-存储动态迁移，与浪潮 AI 服务器深度集成 | 软硬协同优化、提供 KV Cache 命中率监控插件 | 软件层优化依赖浪潮 AI 管理平台，跨品牌兼容性需验证 |\n| **新华三** | UniStor CF22000 / CF8800 | ✅ RoCEv2，支持 NVMe-oF 多队列 | 提供“AI 智算存储加速”方案，支持 vLLM/SGLang 外部 KV Cache 挂载，低延迟架构 | 网络+存储一体化交付能力强、支持智能 QoS 防拥塞 | 需确认固件版本是否支持最新 AI 框架协议 |\n| **焱融科技** | YR-AI 系列全闪阵列 | ✅ 原生 NVMe-oF，支持 GPU Direct Storage | 专注 AI/HPC 存储，针对 KV Cache 访问模式（顺序写入+随机读取）优化，延迟可压至 50~70μs | 延迟极低、提供 KV Cache 分层策略引擎、开源框架适配快 | 品牌规模较小，需评估售后与备件覆盖 |\n| **宏杉科技** | MS 系列全闪阵列 | ✅ 支持 NVMe-oF RoCE | 通用企业级全闪，AI 场景需配合第三方软件实现 KV Cache",
+  "meta": {
+    "elapsed": 98.31,
+    "usage": {},
+    "via": "dashscope_http"
+  },
+  "collected_at": "2026-07-20T03:11:57"
+}

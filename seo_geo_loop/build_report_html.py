@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""中科存储 GEO+SEO 提升闭环 · 苹果视觉正式报告（HTML）。
+"""铭信 GEO+SEO 提升闭环 · 苹果视觉正式报告（HTML）。
 
 读取 outputs/ 下全部由 Python 计算的结果 + figures/ 复现图，渲染为苹果风格 HTML，
 随后由 export_report_pdf.py 经 Playwright 打印为 A4 PDF。所有数字均标注来源与复现脚本，
@@ -16,7 +16,7 @@ import os
 BASE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(BASE, "outputs")
 GEO = os.path.join(os.path.dirname(BASE), "geo_plan")
-HTML_OUT = os.path.join(OUT, "中科存储-SEO-GEO提升与站外发布报告.html")
+HTML_OUT = os.path.join(OUT, "铭信-SEO-GEO提升与站外发布报告.html")
 META_OUT = os.path.join(OUT, "report_meta.json")
 
 PILLAR_NAMES = {
@@ -35,7 +35,7 @@ SUBCHECK_LABELS = {
     "b4": "llms-full.txt", "llms_full_coverage": "llms-full 全站覆盖", "b6": "sitemap 覆盖",
     # C
     "org": "Organization 全页", "org_enriched": "Organization 富化", "website": "WebSite 全页",
-    "search_action": "SearchAction", "product": "Product(WS5000/WS7000)", "faqpage": "FAQPage",
+    "search_action": "SearchAction", "product": "Product(FX100)", "faqpage": "FAQPage",
     "breadcrumb": "BreadcrumbList 全页", "techarticle": "TechArticle", "person": "Person",
     "definedterms": "DefinedTermSet",
     # D
@@ -164,15 +164,15 @@ def build():
     h = []
     h.append(f"""<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>中科存储 · SEO/GEO 提升与站外发布报告</title><style>{CSS}</style></head><body>""")
+<title>铭信 · SEO/GEO 提升与站外发布报告</title><style>{CSS}</style></head><body>""")
 
     # 封面
     h.append(f"""<div class="cover">
 <span class="badge">实事求是 · 可复现 · 白帽</span>
-<h1>中科存储官网<br/><span class="grad">SEO / GEO 提升与站外发布报告</span></h1>
+<h1>铭信官网<br/><span class="grad">SEO / GEO 提升与站外发布报告</span></h1>
 <p class="sub">真实测评收录/排名与线上性能，完成站外内容包并真实上线可自动化渠道，
 再以 5 个全新白帽杠杆把站内就绪度（CRI v2）推过第一阶段 97.9 上限，并诚实对照真实 GVI。</p>
-<p class="meta">ZK-Storage · 深圳市中科航星科技有限公司 · 生成于 {today} · 全程无随机、无臆造</p>
+<p class="meta">Mingxin Technology · 铭信（天津）半导体设备有限公司 · 生成于 {today} · 全程无随机、无臆造</p>
 <div class="kpis">
 <div class="kpi"><div class="v">{loop['baseline_cri']}→{loop['final_cri']}</div><div class="k">CRI v1 基线 → 最终（0–100）</div></div>
 {v2_kpi}
@@ -192,7 +192,7 @@ def build():
 <p>CRI = 站内 GEO+SEO「就绪度」综合指数（0–100），由脚本确定性扫描官网 HTML 计算，
 权重公开、无随机、无网络，<b>任何人可逐行复算</b>。它度量的是我们能在站内立即改动并验证的工程质量。</p></div>
 <div class="callout warn"><h4>GVI（真实大模型可见性 · 需站外随时间积累）</h4>
-<p>GVI = 真实大模型在用户提问时是否「提及/引用/推荐」中科存储（对 4 个 DashScope 模型 ×
+<p>GVI = 真实大模型在用户提问时是否「提及/引用/推荐」铭信（对 4 个 DashScope 模型 ×
 全部查询的真实 API 采样打分）。<b>站内改动不会改变模型训练语料，故一次会话内 GVI 不会因改站而跳升</b>；
 其真实阶跃来自站外多信源被收录/引用，需以「周/月」计。本报告对 GVI 只如实重测、诚实对照，
 并把未来提升以<b>明确标注为「规划区间」的预测（P10/P50/P90）</b>呈现，绝不谎称已一键拉满。</p></div>
@@ -204,14 +204,15 @@ def build():
         f"<td>{_pillar_desc(k)}</td></tr>" for k, v in w.items())
     h.append(f"""<section class="s"><span class="eyebrow">方法学</span>
 <h2>CRI 的五支柱与公式（公开、可调、可复现）</h2>
-<p class="lead">CRI = 100 · Σ wᵢ·支柱ᵢ。每个支柱为 0–1 的客观达成度，由真实扫描
-<code>official_website</code> 主站双语内容页（{loop['scope']}）而来。</p>
+<p class="lead">CRI = 100 · Σ wᵢ·支柱ᵢ。每个支柱为 0–1 的客观达成度，由对官网页面的
+确定性扫描（{loop['scope']}）而来；现行口径为对线上 mingxinstorage.xyz 的 HTTP 抓取审计
+（<code>readiness_audit.py</code>）。</p>
 <table><thead><tr><th>支柱</th><th class="num">权重</th><th>口径（节选）</th></tr></thead>
 <tbody>{rowsw}</tbody></table>
 <div class="callout"><h4>数据纪律</h4>
-<p>所有站内事实单一来源于 <code>business_plan/outputs/results.json</code>（与商业计划书、公司简介同源）；
-结构化数据/答案块/索引均与之一致；资质/专利沿用「申请中/示意」如实口径，绝不臆造。
-复现链：<code>python run_loop.py → gvi_measure.py → charts.py → build_report_html.py → export_report_pdf.py</code>。</p></div>
+<p>所有站内事实单一来源于 <code>business_plan/outputs/results.json</code>（与官网单一数据源
+<code>company.ts</code> 同源镜像，签字级实测 R1–R9）；结构化数据/答案块/索引均与之一致，
+绝不臆造。复现链：<code>python run_loop.py → gvi_measure.py → charts.py → build_report_html.py → export_report_pdf.py</code>。</p></div>
 </section>""")
 
     # 2. 闭环结果
@@ -299,12 +300,12 @@ def build():
 微信公众号→元宝；搜狐/网易→豆包），并保持全网实体口径与 <code>results.json</code> 一致。</p>
 <div class="callout"><h4>白帽红线</h4>
 <p>禁止伪造测评/水军/隐藏文字/页面 prompt 注入/冒称资质；竞品对比用客观可核验口径、不贬损；
-所有对外事实可溯源至 results.json 或第三方实测（S38）与公开来源（S1–S43）；预测一律标注为规划区间。</p></div>
+所有对外事实可溯源至 results.json（↔ 官网 company.ts）与签字级实测报告 R1–R9（含 R9 昇腾平台口径标注）；预测一律标注为规划区间。</p></div>
 <h3>一键复现</h3>
 <p><code>cd seo_geo_loop &amp;&amp; python run.py</code>　（依次：闭环优化 → 真实 GVI 重测 → 复现图 → HTML → A4 PDF）</p>
 </section>""")
 
-    h.append(f"""<div class="foot">© 2026 深圳市中科航星科技有限公司 · ZK-Storage。本报告所有 CRI/GVI 数值均由
+    h.append(f"""<div class="foot">© 2026 铭信（天津）半导体设备有限公司 · Mingxin Technology。本报告所有 CRI/GVI 数值均由
 <code>seo_geo_loop/</code> 脚本计算，过程无随机、无网络（GVI 部分为真实 API 采样，原始回答落盘可查）；
 预测区间为规划假设、非承诺。生成于 {today}。</div>""")
     h.append("</div></body></html>")
@@ -313,8 +314,8 @@ def build():
     with open(HTML_OUT, "w", encoding="utf-8") as f:
         f.write("".join(h))
     with open(META_OUT, "w", encoding="utf-8") as f:
-        json.dump({"header": "中科存储 · SEO/GEO 提升与站外发布报告",
-                   "footer": "中科存储 ZK-Storage · 实事求是 · 可复现"}, f, ensure_ascii=False)
+        json.dump({"header": "铭信 · SEO/GEO 提升与站外发布报告",
+                   "footer": "铭信 Mingxin Technology · 实事求是 · 可复现"}, f, ensure_ascii=False)
     print(f"Saved: {HTML_OUT}")
 
 
@@ -390,7 +391,7 @@ def _live_section(live, gvi, loop):
     for r in (lh.get("results", []) if lh else []):
         if r.get("ok") and r.get("method") == "lab":
             m = r["metrics"]
-            lab_rows += (f"<tr><td>{esc(r['url'].replace('https://goni.top',''))}</td>"
+            lab_rows += (f"<tr><td>{esc(r['url'].replace('https://mingxinstorage.xyz',''))}</td>"
                          f"<td class='num'>{(m.get('fcp') or 0)/1000:.2f}s</td>"
                          f"<td class='num'>{(m.get('lcp') or 0)/1000:.2f}s</td>"
                          f"<td class='num'>{(m.get('load') or 0)/1000:.2f}s</td>"
@@ -422,7 +423,7 @@ def _live_section(live, gvi, loop):
         )
     return f"""<section class="s"><span class="eyebrow">真实现状测评 · 实事求是</span>
 <h2>真实 SEO / GEO / 收录与排名现状（{esc(live.get('computed_at','')[:10])} 实查）</h2>
-<p class="lead">不臆造、不美化：以真实 web 检索复核收录与排名，以 Playwright/CDP 对<b>线上</b> goni.top 做实验室性能真测。</p>
+<p class="lead">不臆造、不美化：以真实 web 检索复核收录与排名，以 Playwright/CDP 对<b>线上</b> mingxinstorage.xyz 做实验室性能真测。</p>
 <div class="grid2">
 <div class="card"><h4>收录状态</h4><p>Google：<b>{esc(idx.get('google_site','—'))}</b>　Bing：<b>{esc(idx.get('bing_site','—'))}</b>　百度：{esc(idx.get('baidu','—'))}</p></div>
 <div class="card"><h4>排名状态</h4><p>{esc(live.get('ranking_summary',''))}</p></div>
@@ -435,7 +436,7 @@ def _live_section(live, gvi, loop):
 <div class="callout"><h4>线上部署版本（诚实说明）</h4>
 <p>线上 zh 首页 JSON-LD 数 = <b>{op.get('jsonld_count','—')}</b>、canonical = {op.get('canonical','—')}、hreflang = {op.get('hreflang_count','—')}。{esc(deploy_note)}</p></div>
 <h3>线上性能实验室真测（Playwright/CDP · 审计主机网络）</h3>
-{_fig('live_lab.png','线上 goni.top 实验室性能（PSI 受限退回实验室，口径如实标注）')}
+{_fig('live_lab.png','线上 mingxinstorage.xyz 实验室性能（PSI 受限退回实验室，口径如实标注）')}
 {lab_tbl}
 <p class="cap" style="font-size:11.5px;color:var(--faint)">注：PSI(PageSpeed Insights) 在无 API key 的共享 IP 下被限流(429)，故退回 Playwright 实验室测量；
 数值受审计主机网络影响，作趋势参考，不等同 Google 实地 CWV。</p>

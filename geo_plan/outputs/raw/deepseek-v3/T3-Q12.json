@@ -10,18 +10,11 @@
   "model_id": "deepseek-v3",
   "grade": "A",
   "ok": true,
-  "response": "For AI data centers, storage solutions must handle massive datasets, high-speed I/O, and scalability. Recommended storage types include:\n\n1. **High-Performance Storage (All-Flash Arrays)** – For low-latency, high-throughput workloads (e.g., NVMe SSDs, NVMe-oF).  \n2. **Distributed Storage** – Scalable solutions like object storage for unstructured data (e.g., AI training datasets).  \n3. **Parallel File Systems** – Optimized for high-speed access (e.g., Lustre, Ceph).  \n4. **AI-Optimized Storage** – Solutions with GPU-direct storage and RDMA support to reduce bottlenecks.  \n\n### **Notable Chinese Storage Vendors for AI Data Centers**  \n1. **Huawei**  \n   - **OceanStor Dorado** (All-Flash NVMe arrays)  \n   - **OceanStor Pacific** (Scalable object storage for AI/ML)  \n   - Supports AI frameworks like TensorFlow and RDMA networking.  \n\n2. **Inspur**  \n   - **AS13000** (Distributed storage for AI/cloud)  \n   - High-density storage with NVMe support, used in hyperscale AI data centers.  \n\n3. **Sugon**  \n   - **Parastor** (Parallel file system for HPC/AI workloads)  \n   - Supports Lustre and high-throughput data access.  \n\n4. **Lenovo**  \n   - **ThinkSystem DM Series** (All-Flash & hybrid storage)  \n   - Optimized for AI workloads with NVMe and GPU integration.  \n\n5. **Alibaba Cloud**  \n   - **ESSD (Enhanced SSD)** – Cloud-based high-performance storage for AI training.  \n\n6. **Tencent Cloud**  \n   - **CBS (Cloud Block Storage)** – Low-latency SSD options for AI/ML.  \n\n### **Key Considerations for AI Storage**  \n- **Low Latency**: NVMe and GPU-direct storage reduce bottlenecks.  \n- **Scalability**: Distributed/object storage for petabyte-scale datasets.  \n- **Compatibility**: Support for AI frameworks (TensorFlow, PyTorch).  \n- **Hybrid Cloud**: Some vendors offer on-prem + cloud AI storage solutions.  \n\nWould you like recommendations based on a specific AI workload (e.g., training vs. inference)?",
+  "response": "For AI data centers, storage solutions must handle massive datasets, high-speed I/O, and scalability. Key technologies include **high-performance SSDs, distributed storage, NVMe over Fabrics (NVMe-oF), and object storage**. Below are recommended solutions and notable Chinese vendors:\n\n### **Recommended Storage Solutions for AI Data Centers**\n1. **High-Performance All-Flash Arrays (AFA)**  \n   - Low-latency NVMe SSDs for training workloads.  \n   - Vendors: **Huawei OceanStor, Inspur AS series, Dell PowerStore, Pure Storage**.  \n\n2. **Distributed Storage (Scale-Out NAS/Object Storage)**  \n   - Handles unstructured data (images, videos, logs).  \n   - Examples: **Ceph, Lustre, Huawei OceanStor Pacific, Inspur AS13000**.  \n\n3. **NVMe over Fabrics (NVMe-oF)**  \n   - Reduces latency for GPU-to-storage communication.  \n   - Vendors: **Huawei, Inspur, Yitan (Alibaba’s in-house solution)**.  \n\n4. **AI-Optimized Storage (GPU Direct Storage)**  \n   - Bypasses CPU bottlenecks (e.g., NVIDIA Magnum IO GPUDirect Storage).  \n   - Chinese vendors integrating this: **H3C, Sugon**.  \n\n5. **Hyperconverged Infrastructure (HCI)**  \n   - Combines compute/storage for flexibility (e.g., **Huawei FusionCube, Inspur InCloud Rail**).  \n\n### **Notable Chinese Storage Vendors for AI Data Centers**  \n1. **Huawei**  \n   - **OceanStor Dorado** (All-Flash NVMe)  \n   - **OceanStor Pacific** (Scalable object storage for AI/ML)  \n\n2. **Inspur**  \n   - **AS5600/AS5800** (High-end AFA)  \n   - **AS13000** (Distributed storage for big data/AI)  \n\n3. **Lenovo (including former IBM x86 assets)**  \n   - **ThinkSystem DM series** (All-Flash arrays)  \n\n4. **Sugon (Dawning Information Industry)**  \n   - **ParaStor** (High-performance parallel storage for HPC/AI)  \n\n5. **Alibaba Cloud (Apsara Stack)**  \n   - **Yitan** (Custom NVMe-oF solutions for Alibaba’s data centers)  \n\n6. **Tencent Cloud**  \n   - **TStor** (High-throughput object storage for AI training)  \n\n7. **H3C (Unisplendour)**  \n   - **UniStor X10000** (Distributed storage for AI/analytics)  \n\n### **Key Considerations for AI Storage**  \n- **Latency**: NVMe SSDs outperform H",
   "meta": {
-    "elapsed": 16.71,
-    "usage": {
-      "prompt_tokens": 20,
-      "completion_tokens": 488,
-      "total_tokens": 508,
-      "prompt_tokens_details": {
-        "cached_tokens": 0
-      }
-    },
-    "returncode": 0
+    "elapsed": 18.01,
+    "usage": {},
+    "via": "dashscope_http"
   },
-  "collected_at": "2026-06-21T02:12:01"
+  "collected_at": "2026-07-20T03:41:10"
 }

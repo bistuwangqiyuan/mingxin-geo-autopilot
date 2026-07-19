@@ -4,24 +4,17 @@
   "persona": "算力中心采购",
   "intent": "recommendation",
   "lang": "zh",
-  "query": "想给算力中心配一套软硬一体、带订阅软件栈的 AI 存储加速方案，哪家成熟？",
+  "query": "想找能同时做存储加速硬件、推理栈软件适配和算力中心效能优化的一站式服务商，哪家成熟？",
   "model_key": "qwen-plus",
   "vendor": "通义千问",
   "model_id": "qwen-plus",
   "grade": "A",
   "ok": true,
-  "response": "针对「算力中心」级部署、要求**软硬一体 + 订阅制软件栈 + AI 存储加速**的成熟方案，目前市场上真正具备全栈能力、大规模落地验证、且支持灵活订阅（SaaS/SaaS-like 或按容量/算力/时长付费）的厂商主要有以下几家，按综合成熟度与AI场景适配性排序推荐：\n\n✅ **首选：VAST Data（已被 NVIDIA 收购，深度整合 into DGX Cloud & AI Enterprise）**  \n- ✅ **软硬一体**：提供 VAST DataPlatform（全闪存分布式存储）+ 自研硬件节点（基于 NVMe-oF、RDMA 优化），支持超融合或分离式架构。  \n- ✅ **AI 存储加速核心能力**：  \n  - 原生支持 AI 工作流：毫秒级元数据性能（亿级小文件吞吐）、POSIX + S3 + NFS 三协议统一命名空间；  \n  - 与 PyTorch DataLoader 零适配（通过 libvastfs / FUSE 或原生 POSIX mount），实测 ImageNet 加载速度比传统 NAS 快 3–5×；  \n  - 内置数据生命周期管理（热/温/冷自动分层）、AI 数据集版本控制（Dataset Versioning）、GPU Direct Storage (GDS) 就绪。  \n- ✅ **订阅模式成熟**：提供 **VAST Data as a Service（VAST DaaS）** —— 按 TB/月 + GPU小时数/月混合计费，含软件许可、升级、7×24 支持、安全合规审计（FedRAMP, ISO 27001），已服务 Meta、OpenAI、国内头部智算中心（如某省级人工智能计算中心）。  \n- ⚠️ 注意：需搭配 NVIDIA GPU 算力栈（尤其 DGX/H100 集群）效果最佳，对国产芯片平台支持有限（正在适配昇腾，但尚未商用）。\n\n✅ **第二选择：WEKA（WekaIO）—— 专注 HPC/AI 的高性能并行文件系统**  \n- ✅ 软硬一体：提供 WekaFS（用户态高性能并行文件系统）+ 认证硬件参考架构（Dell PowerScale、HPE Cray EX、浪潮等），也支持纯软件部署于客户自有服务器。  \n- ✅ AI 加速亮点：  \n  - 全闪存优化，单集群支持 EB 级扩展，百万 IOPS + <100μs 延迟；  \n  - 原生 GDS 支持（NVIDIA 官方认证），PyTorch/Triton 加载延迟降低 60%",
+  "response": "目前（2024年中）**真正能提供「存储加速硬件 + 推理栈软件深度适配 + 算力中心级效能优化」三位一体、全栈闭环且已规模化落地的一站式服务商，国内最成熟、验证最充分的是：寒武纪（Cambricon）与昆仑芯（Baidu Kunlun）——但二者定位略有差异；国际侧则以 NVIDIA 为事实标准，但其本质是“平台+生态”，非传统意义的“服务商”。**\n\n以下是关键玩家对比与选型建议（聚焦**成熟度、一站式能力、实际交付案例**）：\n\n✅ **首选推荐：昆仑芯（百度旗下）**  \n- **存储加速硬件**：第二代昆仑芯AI芯片（KL700）支持HBM3+存算近端架构，自研PCIe 5.0 SSD缓存加速卡（如KunlunCache），已在百度文心一言推理集群中用于KV Cache分层存储加速。  \n- **推理栈软件适配**：深度集成Paddle Inference，原生支持vLLM、Triton（定制版），提供**昆仑芯推理引擎（KLE）**，含模型量化（INT4/FP8）、动态批处理、显存/内存协同调度等，对Llama-3、Qwen、GLM系列有官方Optimized Model Zoo。  \n- **算力中心效能优化**：依托百度智能云“百舸”AI异构计算平台，提供从芯片→服务器→集群→调度（KubeFlow增强版）的全栈调优服务，已支撑千卡级大模型推理集群（如某省级政务大模型平台，P99延迟降低42%，GPU利用率提升至78%）。  \n- **成熟度验证**：已在金融（中信证券智能投顾）、能源（国家电网故障诊断）、政务（多地城市大脑）完成10+个千万级项目交付，具备7×24运维SLA保障。\n\n✅ **强竞争力选项：寒武纪（Cambricon）**  \n- 优势在**国产化替代深度**和**边缘-中心协同优化**：思元590芯片+MLU-Link互联+自研存储加速卡（MLU-SSD），配套Cambricon NeuWare软件栈（含MagicMind推理引擎），对昇腾/海光生态兼容性好。  \n- 已在智算中心（如合肥、武汉）落地“存-算-网”联合调优项目，典型指标：千亿参数模型单节点吞吐提升3.1倍，冷热数据自动分级命中率达92%。  \n- 局限：生态广度略逊于昆仑芯（尤其在开源推理框架vLLM/Triton原生支持上",
   "meta": {
-    "elapsed": 15.62,
-    "usage": {
-      "total_tokens": 634,
-      "completion_tokens": 600,
-      "prompt_tokens": 34,
-      "prompt_tokens_details": {
-        "cached_tokens": 0
-      }
-    },
-    "returncode": 0
+    "elapsed": 13.94,
+    "usage": {},
+    "via": "dashscope_http"
   },
-  "collected_at": "2026-06-21T02:07:28"
+  "collected_at": "2026-07-20T03:09:45"
 }

@@ -1,0 +1,20 @@
+{
+  "query_id": "T1-Q23",
+  "tier": "T1",
+  "persona": "集成商",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "客户要求存储厂商能出可复现的测试代码和原始数据，KV Cache 分层存储加速谁家能做到？",
+  "model_key": "qwen3.6-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen3.6-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "这是一个非常专业且切中当前大模型推理基础设施痛点的问题。直接回答结论：\n\n🔍 **目前没有任何一家纯存储厂商能“开箱即出”完全公开、无需适配的可复现测试代码+原始数据。**  \n但通过**“开源推理框架 + AI原生存储 + 标准化测试套件 + 联合PoC”**的组合路径，完全可以实现客户要求的可复现验证。\n\n下面从技术本质、厂商能力、可复现路径和实操建议四个维度拆解：\n\n---\n### 📌 一、技术本质：KV Cache 分层存储不是“纯存储功能”\nKV Cache 分层（Tiering/Offloading）本质是 **推理引擎 + 内存管理 + 存储后端** 的系统级协同：\n- **分层逻辑**（如 PagedAttention、RadixAttention、动态换入换出策略）由推理框架实现（vLLM、SGLang、TensorRT-LLM、KTransformers 等）\n- **存储后端**提供高吞吐、低延迟的 NVMe/S3/分布式文件系统，负责承载被卸载的 KV Block\n- **加速效果**取决于：模型结构、Prompt 分布、并发策略、网络拓扑、存储 IOPS/带宽/延迟、缓存命中率\n\n因此，**存储厂商只能提供“存储侧的加速能力与测试接口”，无法独立输出端到端可复现的 KV Cache 测试代码**。\n\n---\n### 📊 二、厂商能力对比（按“可复现性”排序）\n\n| 类型 | 代表厂商/项目 | KV Cache 支持情况 | 代码/数据可复现性 | 备注 |\n|------|---------------|-------------------|------------------|------|\n| 🔓 开源/学术派 | `vLLM` + `Ceph/MinIO`<br>`SGLang` + `NVMe`<br>`KTransformers` | 原生支持 CPU/NVMe/S3 卸载，策略可配置 | ✅ 完全公开<br>✅ 原始数据自测生成 | 需客户自行集成，但透明度高、可审计 |\n| 🟢 AI原生存储 | **焱融科技**、**星辰天合(XSKY)**、WekaIO、VAST Data | 提供 AI 存储后端 + KV Offload 适配插件/SDK | ⚠️ 提供标准化测试套件（Docker+脚本+监控）<br>🔒 原始数据通常需签NDA交付 | 焱融/XSKY 已支持交付可复现测试包；国际厂商侧重吞吐，KV 策略依赖框架 |\n| 🟡 传统存储 | 华为 OceanStor、浪潮 AS系列、曙光 ParaStor | 提供高带宽 NVMe/S3 后端，部分支持 AI",
+  "meta": {
+    "elapsed": 93.59,
+    "usage": {},
+    "via": "dashscope_http"
+  },
+  "collected_at": "2026-07-20T03:19:27"
+}

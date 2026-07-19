@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-"""把 outputs/中科存储-SEO-GEO提升闭环报告.html 经 Playwright(Chromium) 打印为 A4 PDF。
+"""把 outputs/铭信-SEO-GEO提升与站外发布报告.html 经 Playwright(Chromium) 打印为 A4 PDF。
 
 复用 geo_plan/export_report_pdf.py 的苹果风格页眉页脚与打印设置。
-输出：仓库根目录 中科存储-SEO-GEO提升闭环报告.pdf。
+输出：仓库根目录 铭信-SEO-GEO提升与站外发布报告.pdf。
 
 复现链：python build_report_html.py → python export_report_pdf.py
 """
@@ -14,9 +14,9 @@ import os
 from playwright.sync_api import sync_playwright
 
 BASE = os.path.dirname(os.path.abspath(__file__))
-HTML = os.path.join(BASE, "outputs", "中科存储-SEO-GEO提升与站外发布报告.html")
+HTML = os.path.join(BASE, "outputs", "铭信-SEO-GEO提升与站外发布报告.html")
 META = os.path.join(BASE, "outputs", "report_meta.json")
-OUT_PDF = os.path.join(os.path.dirname(BASE), "中科存储-SEO-GEO提升与站外发布报告.pdf")
+OUT_PDF = os.path.join(os.path.dirname(BASE), "铭信-SEO-GEO提升与站外发布报告.pdf")
 
 
 def _meta():
@@ -24,13 +24,13 @@ def _meta():
         with open(META, "r", encoding="utf-8") as f:
             return json.load(f)
     except Exception:
-        return {"header": "中科存储 · SEO/GEO 提升闭环报告", "footer": "中科存储 ZK-Storage"}
+        return {"header": "铭信 · SEO/GEO 提升闭环报告", "footer": "铭信 Mingxin Technology"}
 
 
 def export():
     meta = _meta()
     header = meta.get("header", "")
-    footer = meta.get("footer", "中科存储 ZK-Storage")
+    footer = meta.get("footer", "铭信 Mingxin Technology")
 
     header_tpl = (
         '<div style="width:100%;font-size:8px;color:#9A9AA0;'

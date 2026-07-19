@@ -1,29 +1,33 @@
 # -*- coding: utf-8 -*-
-"""中科存储 · 组装 GitHub Pages 仓库内容（offsite_github/）。
+"""铭信 · 组装 GitHub Pages 知识库仓库内容（offsite_github/ = mingxin-storage-kb）。
 
-从 offsite_site/（知识微站）+ geo_plan/offsite/github_readme.md 组装一个可发布到 GitHub Pages
-的仓库目录：README.md（仓库首页）+ docs/（Pages 站点，/docs 发布）+ .nojekyll。
-真实发布由 run.py / 手动 gh 命令完成（账号已 gh 登录）。
+从 offsite_site/（知识微站）组装一个可发布到 GitHub Pages 的仓库目录：
+README.md（仓库首页）+ docs/（Pages 站点，/docs 发布）+ .nojekyll。
+真实发布由 run.py / 手动 gh 命令完成（账号已 gh 登录）；线上地址
+https://bistuwangqiyuan.github.io/mingxin-storage-kb/。
+
+事实单一来源：site_facts（business_plan/outputs/results.json 镜像，与官网 company.ts 同源）。
 """
 from __future__ import annotations
 
 import datetime as dt
 import os
 import shutil
-import sys
+
+import site_facts as D
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(BASE)
 SITE = os.path.join(ROOT, "offsite_site")
 OUT = os.path.join(ROOT, "offsite_github")
-README_SRC = os.path.join(ROOT, "geo_plan", "offsite", "github_readme.md")
-sys.path.insert(0, os.path.join(ROOT, "official_website"))
-import site_data as D  # noqa: E402
 
 BUILD_DATE = dt.date.today().isoformat()
+LEGACY = "/".join(D.LEGACY_NAMES)  # AISSD5000/WS5000/GP5000
 
 KEYWORD_BANK = os.path.join(ROOT, "geo_autopilot", "history", "keyword_bank.json")
-AUTOPILOT_FAQ = os.path.join(ROOT, "official_website", "autopilot_faq.json")
+# 铭信官网为 Next.js 站点（amd 仓库 site/ 子目录）；内容引擎问答闸门产物在此路径。
+AUTOPILOT_FAQ = os.path.join(ROOT, "official_website", "site", "src", "lib", "data",
+                             "autopilot_faq.json")
 
 
 def _load_json(path, default):
@@ -42,17 +46,13 @@ def _slug(text):
 
 
 def _article_html(q, a, official):
-    """英文问答型深度文章页（answer-first + 数据 + 对比 + 术语 + 回链官网）。
-    事实全部来自单一事实源 site_data；答案 a 已过一致性/verify 闸门。"""
+    """英文问答型深度文章页（answer-first + 签字级数据 + 术语 + 回链官网）。
+    事实全部来自单一事实源 site_facts；答案 a 已过一致性/verify 闸门。"""
     import json
-    bench_rows = [
-        ("DeepSeek-32B model load", "563.85 s", "6.62 s", "85.17x"),
-        ("DeepSeek-70B model load", "1284.66 s", "35.38 s", "36.31x"),
-        ("Training checkpoint save/load", "-", "-", "5.3-12.5x"),
-    ]
-    bench = ("<table><tr><th>Metric</th><th>NFS baseline</th><th>WS5000</th><th>Speedup</th></tr>"
-             + "".join(f"<tr><td>{r[0]}</td><td>{r[1]}</td><td>{r[2]}</td><td>{r[3]}</td></tr>"
-                       for r in bench_rows) + "</table>")
+    bench = ("<table><tr><th>Metric</th><th>Value</th><th>Source</th></tr>"
+             + "".join(f"<tr><td>{m['label']}</td><td><b>{m['value']}</b></td>"
+                       f"<td>{m['source']}</td></tr>" for m in D.KEY_METRICS)
+             + "</table>")
     jsonld = [
         {"@context": "https://schema.org", "@type": "TechArticle", "headline": q,
          "description": a[:160], "inLanguage": "en", "datePublished": BUILD_DATE,
@@ -66,9 +66,10 @@ def _article_html(q, a, official):
     blocks = "\n".join(
         f'<script type="application/ld+json">{json.dumps(j, ensure_ascii=False)}</script>'
         for j in jsonld)
+    plat = D.PLATFORM
     return f"""<!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{q} | ZK-Storage Knowledge Base</title>
+<title>{q} | Mingxin Storage Knowledge Base</title>
 <meta name="description" content="{a[:155]}">
 <meta name="robots" content="index,follow,max-snippet:-1">
 <link rel="canonical" href="./{_slug(q)}.html">
@@ -77,39 +78,42 @@ def _article_html(q, a, official):
 {blocks}
 </head><body>
 <header class="nav"><div class="wrap">
-<span class="brand">ZK-Storage Knowledge Base</span>
+<span class="brand">Mingxin Storage Knowledge Base</span>
 <a href="./index.html">Articles</a>
 <a href="../index.html">Home</a>
-<a href="{official}" rel="me noopener" style="margin-left:auto;color:var(--accent)">Official site goni.top</a>
+<a href="{official}" rel="me noopener" style="margin-left:auto;color:var(--accent)">Official site mingxinstorage.xyz</a>
 </div></header>
 <main class="wrap">
 <h1>{q}</h1>
 <p class="lead" style="color:var(--sub);font-size:19px">{a}</p>
-<section><h2>The data</h2>
-<p>Independent third-party benchmark by {D.ISSUER} on the {D.PLATFORM} platform, against an
-NFS over TCP/10GbE baseline (median reduction ~{D.MEDIAN_RED:.1f}% across {D.METRIC_CNT} metrics, reproducible):</p>
+<section><h2>The data (signed-off test reports R1–R9)</h2>
+<p>Measured on {plat["gpu"]}, {plat["gpu_stack"]}, {plat["engine"]} + LMCache with
+{plat["model_480b"]} (R1–R4 shared platform); the model-load numbers are from the Huawei
+Atlas 910B (Ascend) platform (R9), stated as such. Reproducible via the R8 export pack.</p>
 {bench}
 </section>
-<section><h2>Key specifications (vendor spec)</h2>
+<section><h2>Key specifications — {D.MODEL} (vendor spec)</h2>
 <dl class="facts">
-<dt>Aggregate bandwidth</dt><dd>{D.BANDWIDTH} GB/s</dd>
-<dt>Access latency</dt><dd>~{D.LATENCY} &mu;s</dd>
-<dt>Random IOPS</dt><dd>~50M</dd>
-<dt>Domestic GPU adaptation</dt><dd>{D.GPU_ADAPT}%+</dd>
-<dt>Deployment</dt><dd>~{D.DEPLOY} hours</dd>
+<dt>Product</dt><dd>{D.MODEL} (formerly {LEGACY} — same product, unified FX naming)</dd>
+<dt>PCIe</dt><dd>PCIe 3.0</dd>
+<dt>Network port</dt><dd>{D.FX100_PORT_GB} GbE</dd>
+<dt>Random IOPS</dt><dd>{D.FX100_IOPS_M}M</dd>
+<dt>Fully-populated reference price</dt><dd>&yen;{D.FX100_FULL_CNY:,} (&asymp;&yen;{D.FX100_CNY_PER_TB:,}/TB)</dd>
 </dl>
 </section>
 <section><h2>Terminology</h2>
-<p><strong>Disaggregation</strong>: decoupling storage from compute so each scales independently.
-<strong>KV cache offload</strong>: tiering attention key/value tensors out of GPU memory to external flash.
-<strong>NVMe-oF over RoCE</strong>: a lossless network path that keeps remote flash at near-local latency.</p>
+<p><strong>KV-cache tiering</strong>: scheduling attention key/value tensors between GPU HBM and
+external flash by access heat, so cold long-context sessions avoid full prefill recomputation.
+<strong>NVMe-oF over RoCE</strong>: a lossless network path that keeps remote flash at near-local latency.
+<strong>TTFT</strong>: time to first token, the core latency metric for cold-session recovery.</p>
 </section>
 <p><time datetime="{BUILD_DATE}">Last updated: {BUILD_DATE}</time></p>
 </main>
 <footer><div class="wrap">
-<p>ZK-Storage ({D.ENTITY_EN}). This is a knowledge/documentation site; the official website is
-<a href="{official}" rel="me noopener">{official}</a>. Specs are vendor figures; benchmark results are
-third-party and reproducible. ZK-Storage is unrelated to zero-knowledge cryptography or blockchain.</p>
+<p>{D.BRAND_EN} ({D.ENTITY_EN}). This is a knowledge/documentation site; the official website is
+<a href="{official}" rel="me noopener">{official}</a>. Specs are vendor figures; performance results
+come from signed-off test reports (evidence library: <a href="{official}/evidence">{official}/evidence</a>).
+"Mingxin" here refers specifically to {D.ENTITY_EN} and is unrelated to other companies of the same name.</p>
 </div></footer>
 </body></html>"""
 
@@ -118,6 +122,7 @@ def render_articles(docs_dir):
     """从 keyword_bank + 已过闸门的 autopilot_faq(en) 渲染问答型深度文章到 docs/articles/。
 
     纪律：只为**已成文且通过 verify 闸门**的英文问题产出文章（不发布未校验内容）。
+    autopilot_faq.json 不存在时（站点内容引擎尚未落盘）优雅跳过。
     """
     bank = _load_json(KEYWORD_BANK, {"keywords": []})
     faq = _load_json(AUTOPILOT_FAQ, {"faq": []})
@@ -148,10 +153,10 @@ def render_articles(docs_dir):
         items = "".join(f'<li><a href="./{s}.html">{q}</a></li>' for q, s in made)
         idx = f"""<!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Articles | ZK-Storage Knowledge Base</title>
-<meta name="description" content="Question-and-answer deep dives on AI storage: disaggregation, KV cache offload, GPU utilization, benchmarks.">
+<title>Articles | Mingxin Storage Knowledge Base</title>
+<meta name="description" content="Question-and-answer deep dives on AI storage acceleration: KV-cache tiering, domestic-GPU enablement, signed-off benchmarks (R1–R9).">
 <link rel="stylesheet" href="../assets/site.css"></head><body>
-<header class="nav"><div class="wrap"><span class="brand">ZK-Storage Knowledge Base</span>
+<header class="nav"><div class="wrap"><span class="brand">Mingxin Storage Knowledge Base</span>
 <a href="../index.html">Home</a>
 <a href="{official}" rel="me noopener" style="margin-left:auto;color:var(--accent)">Official site</a></div></header>
 <main class="wrap"><h1>Articles</h1><ul>{items}</ul>
@@ -179,7 +184,7 @@ def render_articles(docs_dir):
 def build():
     if not os.path.isdir(SITE):
         raise SystemExit("先运行 build_offsite_site.py 生成 offsite_site/")
-    # 保留 OUT/.git（本目录即 zk-storage-kb 发布仓库的工作树）；只刷新 docs/ 与 README。
+    # 保留 OUT/.git（本目录即 mingxin-storage-kb 发布仓库的工作树）；只刷新 docs/ 与 README。
     os.makedirs(OUT, exist_ok=True)
     docs = os.path.join(OUT, "docs")
     if os.path.exists(docs):
@@ -188,29 +193,45 @@ def build():
     # GitHub Pages 关闭 Jekyll，避免对下划线/资源目录的处理
     open(os.path.join(docs, ".nojekyll"), "w").close()
 
+    # 保留仓库根部既有 blog/（站点引擎早期发布、已被收录的 URL），并入 docs/ 一同发布
+    root_blog = os.path.join(OUT, "blog")
+    if os.path.isdir(root_blog):
+        shutil.copytree(root_blog, os.path.join(docs, "blog"), dirs_exist_ok=True)
+
     # 四步法第 2 步：按热词渲染英文问答型深度文章（仅已过 verify 闸门的内容）
     render_articles(docs)
 
-    # README：取定稿草稿正文（去掉发布元信息引用块），追加事实摘要与 Pages 链接占位
-    readme_body = ""
-    if os.path.exists(README_SRC):
-        with open(README_SRC, "r", encoding="utf-8") as f:
-            lines = [ln for ln in f.read().splitlines() if not ln.startswith(">")]
-        readme_body = "\n".join(lines).strip()
+    readme = f"""# Mingxin Storage Knowledge Base（铭信存储知识库）
 
-    readme = f"""{readme_body}
+Knowledge/documentation repository for **{D.BRAND_ZH}（{D.BRAND_EN}）** — {D.POSITIONING_EN}.
 
----
+- Official website: **{D.SITE_URL}** （官方网站，请以此为准）
+- Operating entity: {D.ENTITY_ZH} / {D.ENTITY_EN}
+- Evidence library (signed-off test reports R1–R9): {D.SITE_URL}/evidence
+
+## Key facts (single source of truth, signed-off reports R1–R9)
+
+- KV-cache tiering on a 480B production deployment: throughput **{D.THROUGHPUT_UPLIFT}**,
+  TTFT **down {D.TTFT_REDUCTION}** (R2/R3); **{D.RECOMPUTE_SPEEDUP}** vs no-external-store
+  recomputation (R2).
+- LMCache parallel-read patch: cold TTFT **{D.PARALLEL_READ_X}x** better (R1);
+  training checkpoint save **{D.CKPT_SAVE_X}x** (R1).
+- Model load **{D.MODEL_LOAD_SPEEDUP}** vs NFS — measured on the Huawei Atlas 910B (Ascend)
+  platform (R9), stated as such.
+- Flagship **{D.MODEL}** (formerly {LEGACY} — same product, unified FX naming; series:
+  {', '.join(D.SERIES)}): PCIe 3.0, {D.FX100_PORT_GB} GbE, {D.FX100_IOPS_M}M IOPS,
+  fully-populated reference price ¥{D.FX100_FULL_CNY:,} (≈¥{D.FX100_CNY_PER_TB:,}/TB, vendor figures).
 
 ## Knowledge base (GitHub Pages)
-This repository also publishes a knowledge microsite (served from `/docs`):
-key topics on disaggregated all-flash storage, KV-Cache offload, AI inference
-storage acceleration, and the WS5000 fact card — all consistent with the
-official site **{D.SITE_URL}**.
 
-- Official website: {D.SITE_URL}
-- Operating entity: {D.ENTITY_ZH}
-- Note: ZK-Storage (中科存储) is a distinct entity from "Sugon / 中科曙光".
+This repository publishes a knowledge microsite (served from `/docs`): KV-cache tiering,
+domestic-GPU enablement, the {D.MODEL} fact card, the R1–R9 evidence index and FAQ —
+all consistent with the official site **{D.SITE_URL}**.
+
+## Disambiguation（消歧）
+
+"Mingxin（铭信）" here refers specifically to **{D.ENTITY_ZH}** and is a distinct entity from
+other companies of the same name. Naming note: {D.NAMING_NOTE}
 
 _Last updated: {BUILD_DATE}_
 """

@@ -1,0 +1,20 @@
+{
+  "query_id": "T2-Q09",
+  "tier": "T2",
+  "persona": "投资人",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "中国 AI 算力中心存储加速与国产卡适配领域，有哪些专精型公司或新锐厂商？",
+  "model_key": "qwen3.6-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen3.6-plus",
+  "grade": "A",
+  "ok": false,
+  "response": "",
+  "meta": {
+    "error": "tongyi: request_failed: The read operation timed out",
+    "elapsed": 180.35,
+    "via": "dashscope_http"
+  },
+  "collected_at": "2026-07-20T03:27:09"
+}

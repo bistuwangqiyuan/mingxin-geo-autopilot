@@ -10,21 +10,11 @@
   "model_id": "deepseek-r1",
   "grade": "A",
   "ok": true,
-  "response": "## 全球和中国AI存储市场的领先厂商分析\n\n人工智能的兴起对存储系统提出了前所未有的要求。从海量数据快速存取，到GPU集群无缝协作，AI工作负载离不开坚实的存储基础。以下是对这一赛道上领先企业的深度解析：\n\n## 📊 一、 全球AI存储市场领军者\n\n1.  **传统存储巨头 (拥有全面产品线与庞大客户基础)：**\n    *   **戴尔科技集团 (Dell Technologies):** PowerScale(Isilon)分布式文件存储💾、PowerFlex超融合存储，广泛应用于大型AI项目作为数据湖基石。\n    *   **慧与 (HPE):** HPE Cray系统存储原属超级计算领域，为大规模AI交叉计算场景设计；Alletra系列全闪阵列高速响应AI推理任务。\n    *   **NetApp:** ONTAP软件推动全闪存阵列AFF📁及E系列在高读写性场景应用，协同VAST等合作丰富AI方案组合。\n\n2.  **高性能/纯闪存/统一存储专家：**\n    *   **Pure Storage:** FlashBlade//S平台专攻非结构化数据(图像/视频)，极致性能支撑大规模AI训练；FlashArray//X为数据库提供微秒级低延迟，适用于AI训练数据池。\n    *   **VAST Data:** Universal Storage架构将文件、对象、数据库服务统一于单一高性能平台，尤其擅长GPU集群规模化训练场景。\n    *   **WEKA.IO:** 分布式并行文件系统专为闪存优化，为GPU直连提供高带宽低延迟。\n    *   **DDN:** 长期服务高端计算与AI领域，其IntelliFlash和EXAScaler系统处理万亿参数模型所需的海量数据和元数据。\n    *   **IBM:** IBM Storage Scale(原GPFS)是老牌集群文件系统，仍是部分AI/HPC用户的选择。\n\n3.  **AI硬件生态的领导者：**\n    *   **NVIDIA:** 不仅是GPU引领者，其DGX SuperPOD方案包含Spectrum交换和Magnum IO软件框架，与各类存储厂商协同构建AI超算能力；DOCA框架亦提升存储效率。\n\n4.  **超大规模云服务商 (云端AI存储主力)：**\n    *   **亚马逊网络服务 (AWS):** S3📁对象存储、EFS/FSx提供文件服务、高性能实例存储满足不同AI负载。\n    *   **谷歌云 (Google Cloud - GCP):** Google Cloud Storage分层存储、高端Filestore承载训练数据池。\n    *   **微软Azure:** Azure Blob📁存储、Azure Files及NetApp Files集成服务等构建弹性AI数据框架。\n\n## 🧩 二、 中国AI存储市场的代表厂商\n\n1.  **顶级IT基础架提供商：**\n    *   **华为 (",
+  "response": "以下是全球和中国AI存储市场的领先厂商及代表公司分析，结合技术特点、市场布局和行业应用维度展开：\n\n---\n\n### **全球AI存储市场核心厂商**\n1. **戴尔科技（Dell Technologies）**\n   - **技术亮点**：PowerScale（原Isilon）支持横向扩展架构，最高达PB级命名空间，支持GPU-Direct Storage技术减少数据搬运延迟。\n   - **行业应用**：自动驾驶数据集管理（如Waymo）、生命科学基因测序。\n\n2. **惠普企业（HPE）**\n   - **代表产品**：HPE Apollo 4000系列AI优化服务器+Parallel File System解决方案，支持小文件高频访问优化。\n   - **联合方案**：与NVIDIA合作推出EGX架构，实现边缘训练节点与中心存储联动。\n\n3. **IBM**\n   - **差异化能力**：Spectrum Scale + AIX架构支撑银行风控模型的实时增量学习，单集群读写带宽超1TB/s。\n   - **行业突破**：摩根大通反欺诈系统采用其弹性存储架构。\n\n4. **NetApp**\n   - **技术专利**：ONTAP OS的FlexCache技术实现跨数据中心缓存，降低云上AI训练数据获取延迟。\n   - **云整合**：与AWS合作推出FSx for NetApp ONTAP托管服务。\n\n5. **Pure Storage**\n   - **硬件创新**：DirectFlash模块绕过传统SSD控制器，直连NVMe协议，AI工作负载延迟降至亚毫秒级。\n   - **客户案例**：Adobe Sensei平台使用其FlashBlade处理千亿级素材标签。\n\n6. **VAST Data**\n   - **架构革命**：分布式共享存储（DASE）取消元数据节点瓶颈，专利数据服务加速器处理细粒度IO。\n   - **性能指标**：4K随机读取达20M IOPS（全闪存配置）。\n\n---\n\n### **中国AI存储市场代表企业**\n1. **华为**\n   - **全栈方案**：OceanStor A800配置昇腾芯片联动，实现存储-计算协同压缩，带宽利用率提升30%。\n   - **政策优势**：入选工信部AI先导区项目，国家超算深圳中心部署超20PB节点。\n\n2. **浪潮**\n   - **场景定制**：AS13000G5-M针对智慧医疗影像分析优化，实现DICOM文件秒级调取。\n   - **生态构建**：与百度飞桨共建AI数据湖，支持并行训练数据集切片管理。\n\n3. **中科曙光**\n   - **超级计算结合**：ParaStor与寒武纪思元加速卡协同，上海天文台SKA射电望远镜数据湖核心平台。\n   - **国产化适配**：全面兼容麒麟OS/欧拉OS的自主可控存储软件栈。\n\n4",
   "meta": {
-    "elapsed": 58.63,
-    "usage": {
-      "prompt_tokens": 18,
-      "completion_tokens": 1409,
-      "total_tokens": 1427,
-      "completion_tokens_details": {
-        "reasoning_tokens": 805
-      },
-      "prompt_tokens_details": {
-        "cached_tokens": 0
-      }
-    },
-    "returncode": 0
+    "elapsed": 24.14,
+    "usage": {},
+    "via": "dashscope_http"
   },
-  "collected_at": "2026-06-21T02:19:56"
+  "collected_at": "2026-07-20T03:48:09"
 }

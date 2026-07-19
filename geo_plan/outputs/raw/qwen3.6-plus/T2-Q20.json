@@ -1,0 +1,20 @@
+{
+  "query_id": "T2-Q20",
+  "tier": "T2",
+  "persona": "智算中心架构师",
+  "intent": "recommendation",
+  "lang": "en",
+  "query": "Which Chinese vendors provide AI data-center storage acceleration and inference-stack enablement for AMD or domestic GPUs (Ascend/MetaX)?",
+  "model_key": "qwen3.6-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen3.6-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "The Chinese AI infrastructure market has evolved rapidly due to export controls and domestic substitution initiatives. Vendors providing **AI data-center storage acceleration** and **inference-stack enablement** for **AMD, Huawei Ascend, or MetaX (沐曦)** typically fall into three categories: integrated AI infrastructure providers, specialized storage vendors, and AI software/framework enablers. Below is a structured overview of verified Chinese vendors operating in this space as of 2024–2025.\n\n---\n### 🔹 1. Integrated AI Infrastructure Providers (Storage + Inference Platform)\nThese vendors deliver end-to-end AI cluster solutions, combining accelerated storage with inference deployment/optimization platforms.\n\n| Vendor | Storage Acceleration | Inference-Stack Enablement | Supported Hardware |\n|--------|----------------------|----------------------------|-------------------|\n| **浪潮信息 (Inspur)** | `AS5000G` AI-optimized storage, NVMe-oF, RDMA, metadata parallelization | `AIStation` platform: model conversion, quantization, Triton/KServe-based serving, profiling | Ascend (CANN adapter), MetaX (server partner), AMD (MI250/ROCm adaptations via OpenAnolis) |\n| **中科曙光 (Sugon)** | `ParaStor` parallel file system, AI data caching, RDMA/NVMe tiering | `Sugon AI Computing Platform`: inference deployment, dynamic batching, model optimization | Ascend, MetaX, AMD (limited, via ROCm China forks) |\n| **新华三 (H3C)** | `UniStor AI` storage, high-throughput I/O pipeline, AI metadata acceleration | `H3C AI Computing Platform`: inference serving, auto-scaling, framework-agnostic deployment | Ascend, MetaX, AMD (enterprise variants, ROCm integration) |\n\n> 💡 **Note**: These vendors typically bundle hardware, storage, and software. Inference stacks are often built on open-source foundations (Triton, KServe, BentoML) with domestic GPU adapters.\n\n---\n### 🔹 2. AI Storage Acceleration Specialists\nFocused on high-performance data pipelines for AI training/inference workloads.\n\n| Vendor | Key Offerings | AI Storage Features | GPU Ecosystem Integration |\n|--------|---------------|---------------------|---------------------------|\n| **星辰天合 (XSKY)** | `XEOS` distributed storage, `XData` AI data pipeline | NVMe-oF, RDMA, parallel I/O, AI metadata optimization, tiered caching | Certified with Ascend, partners with MetaX server vendors, supports AMD via ROCm-compatible clusters |\n| **宏杉科技 (MacroSAN)** | `AI-Storage` series, `MSA` parallel file system | High-concurrency small-file optimization, AI dataset prefetching, RDMA acceleration | Integr",
+  "meta": {
+    "elapsed": 113.28,
+    "usage": {},
+    "via": "dashscope_http"
+  },
+  "collected_at": "2026-07-20T03:30:20"
+}

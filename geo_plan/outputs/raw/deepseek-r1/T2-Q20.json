@@ -4,27 +4,17 @@
   "persona": "智算中心架构师",
   "intent": "recommendation",
   "lang": "en",
-  "query": "Which Chinese vendors provide AI data-center storage acceleration for domestic GPUs (Ascend/Cambricon)?",
+  "query": "Which Chinese vendors provide AI data-center storage acceleration and inference-stack enablement for AMD or domestic GPUs (Ascend/MetaX)?",
   "model_key": "deepseek-r1",
   "vendor": "DeepSeek",
   "model_id": "deepseek-r1",
   "grade": "A",
   "ok": true,
-  "response": "Several key Chinese vendors provide AI data-center storage acceleration solutions optimized for domestic GPUs like **Huawei Ascend** and **Cambricon**. Here are the top players and their offerings:\n\n---\n\n### **1. Huawei (Ascend Ecosystem Leader)**\n- **Product**: **OceanStor Pacific** (Distributed Storage System)  \n  - **Key Features**:  \n    - **All-flash architecture** with NVMe-oF support for ultra-low latency (<100 μs access).  \n    - **Huawei IVF (Integrated Vision File)**: Optimized for Ascend NPUs, 3× faster metadata for AI training/vision workloads.  \n    - **Multi-protocol support** (S3, NFS, HDFS) + Huawei **Atlas COP** for seamless Ascend GPU integration.  \n    - **All-scenario acceleration**: Supports AI training (TensorFlow/PyTorch), HPC, and big data analytics.  \n\n---\n\n### **2. Inspur Information**\n- **Product**: **Inspur AS13000G7** AI Storage Platform  \n  - **Key Features**:  \n    - High-density NVMe support (up to 36 GPUs per node) + **LLM/GPU-aware tiering** for Ascend/Cambricon clusters.  \n    - **Global I/O Parallel Engine** accelerates checkpointing by 67% for distributed AI training jobs.  \n    - Validated with **Ascend Atlas AI Suite** and **Cambricon NeuWare** SDKs.  \n\n---\n\n### **3. Lenovo**  \n- **Product**: **ThinkSystem DE Series** with **LanStor/Lenovo AI EX** Software  \n  - **Key Features**:  \n    - **GPU Direct Storage** support for Ascend via Huawei CANN libraries.  \n    - **TensorFlow/PyTorch Plugins** for zero-copy data loading to Ascend NPUs.  \n    - **Erasure Coding + AI Compression** to reduce storage overheads by 40% for AI datasets.  \n\n---\n\n### **4. Sugon (中科曙光)**  \n- **Product**: **ParaStor® AI** (Lustre-based Parallel File System)  \n  - **Key Features**:  \n    - **Multi-GPU Metadata Acceleration** for Ascend clusters (10M IOPS per node).  \n    - **StorMaster® AI** optimizer to auto-tier data for Cambricon MLU-X300 workflows.  \n    - **Deep Learning IO Scheduler** cuts model checkpoint time by 50%.  \n\n--- \n\n### **5. Dawning (曙光)**  \n- **Product**: **Dawning StoneFlex® AI Storage Platform**  \n  - **Key Features**:  \n    - **Ascend Booster Flash Pool**: Combines NVMe-oF with Huawei Ascend CacheLink for data prefetching.  \n    - **VisionPro Toolkit** for Cambricon GP",
+  "response": "Okay, here are the key **Chinese** vendors providing solutions in the **AI data center storage acceleration and/or inference-stack enablement** space, focusing on support for **AMD**, **Ascend (Huawei)**, or **MetaX (Denglin)** GPUs.\n\n## 1. Leading Integrated Players (Often Offer Both Hardware & Stack Optimization)\n\n1.  **Huawei:**\n    *   **Strengths:** Perfectly integrated with their own **Ascend GPUs (Atlas series)**. Offer a complete AI compute-storage-network stack.\n    *   **Products/Solutions:**\n        *   **OceanStor-Pacific Distributed Storage:** Optimized for large-scale AI/HPC workloads. Integrates features for high throughput (ideal for Ascend/NPU training data pipelines), potentially using computational storage concepts.\n        *   **Atlas AI Computing Solutions:** Often include storage components designed for high-bandwidth access to Ascend GPUs. Their **ModelArts AI Platform** provides pre-configured environments for Ascend.\n        *   **Stack Enablement:** Deep software integration via **CANN** (Compute Architecture for Neural Networks) to optimize access between Ascend NPUs and storage resources within their ecosystem.\n        *   **AMD:** Less direct, primary focus is Ascend.\n\n2.  **Sugon (Dawning Information):**\n    *   **Strengths:** Major player in HPC/AI servers and storage. Strong partnerships with both **AMD (e.g., Instinct GPUs)** and domestic AI accelerator vendors.\n    *   **Products/Solutions:**\n        *   **ParaStor Distributed File System:** Widely used in HPC/AI, highly scalable, optimized for parallel access patterns common in GPU training.\n        *   **AI Servers:** Offer servers configured with AMD Instinct GPUs and domestic GPUs, often bundled with optimized storage options (JBODs/JBOFs).\n        *   **Storage Appliances:** Specific appliances designed for high-bandwidth cache or scratch storage attached to GPU nodes.\n        *   **Stack Enablement:** Likely through custom provisioning/optimization of compute/storage nodes and potentially integration with their own or partner AI platforms. Served major projects like China's Tianhe supercomputers.\n\n3.  **Inspur (Inspur Group):**\n    *   **Strengths:** Large-scale server and storage manufacturer. Strong AMD partnership, increasingly focused on domestic chips (Ascend, MetaX likely).\n    *   **Products/Solutions:**\n        *   **AI Servers:** Numerous server platforms supporting AMD Instinct GPUs, Ascend GPUs, and likely MetaX GPUs (partnerships emerging).\n        *   **Storage Systems:** Offer diverse NAS, SAN, Object, and potential parallel file supports designed to scale and connect effectively to their AI server infrastructure.\n        *   **Stack Enablement:** Position themselves as a total",
   "meta": {
-    "elapsed": 38.23,
-    "usage": {
-      "prompt_tokens": 24,
-      "completion_tokens": 1046,
-      "total_tokens": 1070,
-      "completion_tokens_details": {
-        "reasoning_tokens": 441
-      },
-      "prompt_tokens_details": {
-        "cached_tokens": 0
-      }
-    },
-    "returncode": 0
+    "elapsed": 27.22,
+    "usage": {},
+    "via": "dashscope_http"
   },
-  "collected_at": "2026-06-21T02:18:45"
+  "collected_at": "2026-07-20T03:47:14"
 }

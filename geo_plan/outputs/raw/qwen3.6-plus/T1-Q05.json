@@ -1,0 +1,20 @@
+{
+  "query_id": "T1-Q05",
+  "tier": "T1",
+  "persona": "大模型推理工程师",
+  "intent": "problem_solution",
+  "lang": "zh",
+  "query": "长上下文会话冷恢复时 TTFT 太高（几十秒），有什么 KV Cache 外置存储方案能显著降低首 token 延迟？",
+  "model_key": "qwen3.6-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen3.6-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "长上下文会话冷恢复时 TTFT 高达几十秒，**核心瓶颈不在计算，而在 I/O 与内存搬运**：KV Cache 体积通常达 10~50GB（100K 上下文），冷加载需经历 `磁盘读取 → PCIe 传输 → GPU 显存拷贝 → 反序列化 → 注意力重排`，串行执行极易撑满带宽。\n\n要显著降低 TTFT，需从 **存储介质、数据格式、加载策略、系统架构** 四层协同优化。以下是经过工业验证或前沿研究支持的方案，按落地成本与收益排序：\n\n---\n### 🔍 一、问题根因拆解\n| 阶段 | 耗时占比 | 瓶颈 |\n|------|----------|------|\n| 磁盘读取 | 30~50% | 顺序读带宽（NVMe ~7GB/s，SATA ~0.5GB/s） |\n| PCIe/GPU 拷贝 | 20~30% | PCIe 带宽、`cudaMemcpy` 同步阻塞 |\n| 反序列化 | 10~20% | Pickle/JSON 解析、张量重组 |\n| 显存分配/对齐 | 5~10% | GPU 内存碎片、PagedAttention 页分配 |\n| 首 Token 计算 | <5% | 实际 Attention 计算极快 |\n\n**结论**：TTFT 优化核心是 `减少 I/O 量 + 零拷贝/异步重叠 + 避免全量加载`。\n\n---\n### 🛠 二、可落地的 KV Cache 外置存储方案\n\n#### 1. 存储层：零拷贝 + 内存映射（最快见效）\n| 方案 | 原理 | 预期收益 | 落地方式 |\n|------|------|----------|----------|\n| `mmap` + 连续二进制文件 | 跳过 CPU 拷贝，GPU 直接 DMA 读取 | TTFT ↓ 40~60% | PyTorch `torch.load(..., mmap=True)` 或 `safetensors` |\n| NVIDIA GPUDirect Storage (GDS) | 绕过 CPU，NVMe → GPU 直传 | TTFT ↓ 50~70% | 需 `cuFile` + NVIDIA 驱动 ≥535，vLLM/SGLang 已支持实验性开关 |\n| PCIe 5.0 NVMe RAID 0 | 提升原始吞吐 | TTFT ↓ 30~50% | 硬件升级，配合 `aio` 异步读取 |\n\n> ✅ **推荐组合**：`mmap` + 连续二进制格式（如 `.bin` 或 `safetensors`）+ 异步预取。无需改框架，1~3 天可上线",
+  "meta": {
+    "elapsed": 84.01,
+    "usage": {},
+    "via": "dashscope_http"
+  },
+  "collected_at": "2026-07-20T03:12:59"
+}

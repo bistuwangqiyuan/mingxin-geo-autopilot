@@ -1,4 +1,4 @@
-# 中科存储 GEO Autopilot · Python 依赖（可复现）
+# 铭信 GEO Autopilot · Python 依赖（可复现）
 matplotlib>=3.7
 playwright>=1.40
 pypdf>=4.0

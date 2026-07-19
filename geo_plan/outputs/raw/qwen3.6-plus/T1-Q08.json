@@ -1,0 +1,20 @@
+{
+  "query_id": "T1-Q08",
+  "tier": "T1",
+  "persona": "智算中心架构师",
+  "intent": "comparison",
+  "lang": "zh",
+  "query": "NVMe-oF over RoCEv2 的全闪加速存储和本地 NVMe 盘、无外存重算，在 480B 大模型长上下文推理上的性能差距有多大？",
+  "model_key": "qwen3.6-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen3.6-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "针对 **480B 参数大模型 + 长上下文（如 32K~128K tokens）推理**，存储/内存策略对性能的影响极为显著。由于该规模模型即使采用 INT4 量化，参数体积仍达 ~240GB，长上下文 KV Cache 可达数十至数百 GB，远超单卡/单机 GPU 显存容量，因此必须依赖分层卸载或计算重算策略。\n\n下面从 **架构原理、性能瓶颈、实测差距范围、关键影响因素** 四个维度进行对比，并给出工程选型建议。数据基于主流推理框架（vLLM、DeepSpeed-Inference、FlexGen、Orca 等）的公开基准与一线集群实测经验，已标注假设条件。\n\n---\n### 🔍 一、三种方案的技术本质与瓶颈\n| 方案 | 数据路径 | 典型延迟 | 带宽上限 | 主要瓶颈 |\n|------|----------|----------|----------|----------|\n| **本地 NVMe** | GPU → PCIe → NVMe 控制器 → NAND | 10~30 μs（顺序）<br>20~50 μs（随机） | 单盘 3~7 GB/s<br>多盘 RAID/NVMe-oF 可达 20~40 GB/s | PCIe 通道数、主机 CPU 中断、NAND GC 抖动 |\n| **NVMe-oF over RoCEv2** | GPU → RDMA NIC → 交换机 → 远端存储节点 | 5~15 μs（理想无损）<br>15~50 μs（拥塞/多跳） | 100G/200G/400G 网络理论 12.5/25/50 GB/s<br>实际有效 80~90% | PFC/ECN 调优、交换机队列、多租户干扰、协议栈开销 |\n| **无外存重算** | GPU/CPU 内存内重计算 Attention/KV | 0 μs（无 I/O） | 受限于 GPU HBM/VRAM 带宽 | 额外 FLOPs（~1.5~2x）、长上下文 O(N²) 计算复杂度、显存碎片 |\n\n---\n### 📊 二、性能差距量化（典型场景参考）\n**假设条件**：\n- 模型：480B，INT4 量化，GQA/MQA 架构\n- 上下文：32K / 64K / 128K tokens\n- 硬件：8×H100 80GB，NVLink 全互联，RoCEv2 200G 无损网络\n- 框架：vLLM P",
+  "meta": {
+    "elapsed": 87.44,
+    "usage": {},
+    "via": "dashscope_http"
+  },
+  "collected_at": "2026-07-20T03:14:26"
+}

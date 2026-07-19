@@ -4,24 +4,17 @@
   "persona": "算力中心采购",
   "intent": "recommendation",
   "lang": "zh",
-  "query": "国产/信创 AI 算力中心的存储加速方案，有哪些值得考虑的厂商？",
+  "query": "国产/非 NVIDIA 算力卡（AMD/昇腾/沐曦）的推理栈适配与联合优化，有哪些值得考虑的服务商？",
   "model_key": "qwen-plus",
   "vendor": "通义千问",
   "model_id": "qwen-plus",
   "grade": "A",
   "ok": true,
-  "response": "在国产化（信创）AI算力中心建设中，存储加速是关键瓶颈之一——既要满足大模型训练/推理对高吞吐（>100GB/s）、低延迟（<100μs）、高IOPS（千万级）和海量小文件（如千亿参数模型的检查点、LoRA权重、日志、数据集分片）的严苛需求，又需全面适配信创生态（CPU：鲲鹏/飞腾/海光/兆芯；OS：统信UOS/麒麟Kylin；固件/驱动/管理平台需通过工信部认证）。\n\n以下是**当前（2024–2025年）在信创AI存储加速领域具备成熟落地能力、通过权威信创认证、且已在头部智算中心/国家实验室/央企项目中规模部署的主流厂商及方案特点**，按技术路线分类推荐：\n\n---\n\n### ✅ 一、全栈自研+信创深度适配型（优先推荐）\n| 厂商 | 核心方案 | 信创适配亮点 | 典型AI加速能力 | 代表客户/案例 |\n|------|-----------|----------------|------------------|----------------|\n| **浪潮存储（Inspur AS13000 AI版）** | 分布式并行文件系统 + NVMe-oF智能缓存 + GPU Direct Storage（GDS）集成 | ✔ 全栈适配鲲鹏920/海光C86、统信UOS V20/麒麟V10；获“信创工委会”A级兼容认证；支持国产加密芯片（SM4/SM2） | 支持100+节点并发读写，实测AI训练吞吐达180GB/s（ResNet-50），小文件（4KB）IOPS > 500万 | 国家超算无锡中心（神威·太湖之光升级AI平台）、某省人工智能创新中心 |\n| **华为OceanStor Pacific 9950（信创增强版）** | 自研分布式文件系统（PacificFS）+ 智能元数据集群 + 多协议融合（POSIX/NFS/S3）+ GDS直通优化 | ✔ 鲲鹏920/昇腾910双栈支持；通过等保三级+密评；原生支持openEuler 22.03 LTS；管理平台iMaster NCE完成麒麟V10适配 | 单集群EB级扩展，AI数据加载速度提升3–5×（对比传统NAS），支持TB级Checkpoint秒级快照恢复 | 中国电子科技集团AI训练平台、某大型银行金融大模型底座 |\n| **曙光ParaStor 500G",
+  "response": "在国产/非 NVIDIA 算力卡（如 AMD GPU、华为昇腾 Ascend、沐曦 MXN/MXG 系列）的推理栈适配与联合优化领域，选择服务商需综合考量：**硬件深度支持能力、推理框架兼容性（PyTorch/TensorFlow/ONNX）、模型编译与量化工具链成熟度、端到端部署经验（含算子融合、内存优化、低延迟调度），以及对国产生态（如CANN、OpenAtom、昇思MindSpore、摩尔线程MTGPU SDK、沐曦MUSA）的原生适配水平**。\n\n以下是国内及国际范围内**值得重点考虑的服务商梯队**（按技术深度与落地实践分层推荐），兼顾商业化服务、开源贡献与定制化能力：\n\n---\n\n### ✅ 第一梯队（深度适配 + 全栈交付能力）\n| 服务商 | 核心优势 | 适配重点 | 备注 |\n|--------|-----------|------------|------|\n| **华为昇腾生态伙伴（如云从科技、中科曙光、寒武纪合作方）** | • CANN软件栈深度优化经验<br>• MindSpore + PyTorch on Ascend 双轨支持<br>• 提供Ascend CL、ACL、AclGraph等底层调优服务 | 昇腾910B/310P系列，支持FP16/BF16/INT4量化推理 | 华为官方认证ISV（如云从已发布昇腾大模型推理平台“云从大模型推理引擎”）；建议优先选择**华为昇腾AI创新中心认证服务商** |\n| **沐曦半导体官方生态团队 & 认证合作伙伴（如百度飞桨、智谱、百川智能）** | • MUSA SDK 2.x+ 原生支持<br>• 与PaddlePaddle、vLLM、llama.cpp 深度联调<br>• 提供MXN系列（如MXN250）的Kernel级算子优化与显存压缩方案 | 沐曦MXN250/MXG系列，支持FP8/INT4推理加速 | 沐曦已开源MUSA-LLM（适配Qwen、Llama3等主流模型），其生态伙伴提供“SDK+推理框架+模型量化”联合调优服务 |\n| **AMD中国AI合作伙伴（如联想、浪潮、新华三 + AMD ROCm认证ISV）** | • ROCm 6.0+ / HIP-Clang 编译栈优化<br>• 支持PyTorch-ROCm、TensorRT-MLIR、ONNX Runtime-ROCm后端<br>• 提供MI300X/AI芯片的分布式推理与NV",
   "meta": {
-    "elapsed": 17.39,
-    "usage": {
-      "total_tokens": 629,
-      "completion_tokens": 600,
-      "prompt_tokens": 29,
-      "prompt_tokens_details": {
-        "cached_tokens": 0
-      }
-    },
-    "returncode": 0
+    "elapsed": 9.86,
+    "usage": {},
+    "via": "dashscope_http"
   },
-  "collected_at": "2026-06-21T02:06:33"
+  "collected_at": "2026-07-20T03:08:41"
 }

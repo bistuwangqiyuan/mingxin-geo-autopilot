@@ -16,7 +16,7 @@ BASE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(BASE)
 OUT = os.path.join(BASE, "outputs")
 LOOP_OUT = os.path.join(ROOT, "seo_geo_loop", "outputs")
-HTML_OUT = os.path.join(OUT, "中科存储-GEO计划落地实施报告.html")
+HTML_OUT = os.path.join(OUT, "铭信-GEO计划落地实施报告.html")
 
 
 def _load(path, default=None):
@@ -93,7 +93,7 @@ def main():
 
     html = f"""<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>中科存储 · GEO 计划落地实施报告</title>
+<title>铭信 · GEO 计划落地实施报告</title>
 <style>
 :root{{--ink:#1D1D1F;--ink2:#48484A;--mut:#86868B;--line:#E2E2E7;--line2:#F0F0F3;--blue:#0071E3;--green:#34C759;--red:#FF375F;--bg:#FFF;--card:#FBFBFD;}}
 *{{box-sizing:border-box}} html,body{{margin:0;padding:0;background:var(--bg);color:var(--ink);
@@ -127,8 +127,8 @@ td.num{{text-align:right;font-variant-numeric:tabular-nums;}}
 
 <section class="cover"><div class="wrap">
   <div class="eyebrow">Implementation Report · 落地实施</div>
-  <div class="big">中科存储 GEO 提升计划<br/>落地实施报告</div>
-  <p>对照 <code>中科存储-GEO提升计划.html</code> 四阶段任务，如实记录已完成、部分完成与待人工项；
+  <div class="big">铭信 GEO 提升计划<br/>落地实施报告</div>
+  <p>对照 <code>铭信-GEO提升计划.html</code> 四阶段任务，如实记录已完成、部分完成与待人工项；
   所有数字源自 Python 可复现流水线，不臆造。</p>
   <p class="mut">报告日期：{today} · 复现：<code>python implement_geo_plan.py</code></p>
 </div></section>
@@ -143,9 +143,10 @@ td.num{{text-align:right;font-variant-numeric:tabular-nums;}}
     <div class="kpi"><div class="v">{pct(gap.get('by_model',{}).get('通义千问',{}).get('weighted_coverage'))}</div><div class="k">通义信源覆盖</div></div>
   </div>
   <div class="note ok"><h4>阶段一「地基」— 已完成</h4>
-  <p>robots 放行 20 类 AI 爬虫 · llms.txt/llms-full.txt · 4+ GEO 事实页 · JSON-LD · 基线报告 · verify 全绿。</p></div>
+  <p>铭信官网（mingxinstorage.xyz，Next.js）站内 GEO 基础设施完备：robots 放行 AI 爬虫 · llms.txt/llms-full.txt ·
+  sitemap · JSON-LD · 中英双语 · 内容引擎 /api/engine/* · /api/seo/ping（IndexNow+百度推送）· 基线报告 · verify 全绿。</p></div>
   <div class="note"><h4>阶段二–四 — 部分完成 / 待人工</h4>
-  <p>站外微站（EdgeOne + GitHub Pages）已上线并写入 sameAs；UGC 平台（CSDN/知乎/语雀/百科/公众号）定稿已就绪，
+  <p>站外（百科/知乎/CSDN/GitHub）铭信品牌沉淀处于起步期；站外微站已上线并写入 sameAs；UGC 平台（CSDN/知乎/语雀/百科/公众号）定稿已就绪，
   需人工发布（SOP：<code>geo_plan/offsite/SOP_manual_publish.md</code>）。GVI 复测仍在采样噪声内，真实阶跃需站外信源被收录引用。</p></div>
   {gvi_block}
 </div></section>
@@ -170,7 +171,7 @@ td.num{{text-align:right;font-variant-numeric:tabular-nums;}}
   <ul>{blocked or '<li>无</li>'}</ul>
   <div class="note crit"><h4>数据纪律</h4>
   <p>预测区间标注「规划假设、非承诺」；sameAs 仅写实测 200 的 URL；UGC 不自动发帖；
-  GSC 配额/ICP 备案受阻如实记录。坚持批评与自我批评，以客观复测数据为准。</p></div>
+  GSC 配额/收录受阻如实记录；关键实测数字必须附报告编号（R1–R9）。坚持批评与自我批评，以客观复测数据为准。</p></div>
   <h3>复现清单</h3>
   <p class="mut">implement_geo_plan.py · coverage_resolver.py · source_audit.py · make_offsite_kit.py ·
   build_implementation_report.py · export_implementation_pdf.py · verify_geo.py</p>
@@ -180,7 +181,7 @@ td.num{{text-align:right;font-variant-numeric:tabular-nums;}}
     os.makedirs(OUT, exist_ok=True)
     with open(HTML_OUT, "w", encoding="utf-8") as f:
         f.write(html)
-    meta = {"header": "中科存储 · GEO 计划落地实施", "footer": "中科存储 ZK-Storage · 实事求是"}
+    meta = {"header": "铭信 · GEO 计划落地实施", "footer": "铭信 Mingxin Technology · 实事求是"}
     with open(os.path.join(OUT, "implementation_report_meta.json"), "w", encoding="utf-8") as f:
         json.dump(meta, f, ensure_ascii=False, indent=2)
     print(f"Saved: {HTML_OUT}")

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""中科存储 GEO Autopilot · 流量来源信号检测（traffic_check.py）——四步法·第 4 步。
+"""铭信 GEO Autopilot · 流量来源信号检测（traffic_check.py）——四步法·第 4 步。
 
 经 GA4 Data API（runReport, 近 7 天 sessionSource/sessionMedium）检测 GEO 生效信号：
   - Referral 中出现 reddit.com

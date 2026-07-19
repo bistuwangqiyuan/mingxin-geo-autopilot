@@ -1,0 +1,20 @@
+{
+  "query_id": "T3-Q11",
+  "tier": "T3",
+  "persona": "投资人",
+  "intent": "ranking",
+  "lang": "en",
+  "query": "Who are the leading vendors in AI storage / AI data-center storage worldwide and in China?",
+  "model_key": "qwen3.6-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen3.6-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "The AI storage market is highly specialized, focusing on **high throughput, low latency, massive metadata scalability, NVMe-oF/RDMA support, GPU-Direct Storage (GDS) compatibility, and AI data pipeline optimization**. Leadership varies by workload (training vs. inference), deployment model (on-prem vs. cloud), and region. Below is a structured overview of leading vendors worldwide and in China, based on 2023–2024 industry reports (IDC, Gartner, Wikibon), vendor deployments, and ecosystem partnerships.\n\n---\n### 🌍 **Global Leaders in AI / AI Data-Center Storage**\n\n| Vendor | Key AI Storage Offerings | Why They Lead in AI |\n|--------|--------------------------|---------------------|\n| **VAST Data** | VAST DataStore (unified file/object) | DASE architecture, extreme metadata performance, native GDS support, dominant in large-scale AI training clusters, strong NVIDIA partnership |\n| **WekaIO** | WekaFS (parallel file system) | High IOPS/throughput, GPU-optimized, widely adopted in AI research & enterprise training, seamless cloud/on-prem scaling |\n| **DDN (DataDirect Networks)** | EXAScaler, AI400X series | Decades in HPC/AI, Lustre-based parallel storage, optimized for multi-petabyte AI datasets, strong in national labs & hyperscale AI |\n| **Pure Storage** | FlashBlade//S, FlashArray//XL | NVMe-native, AI-optimized data tiering, strong ecosystem integrations, growing share in enterprise AI deployments |\n| **NetApp** | ONTAP AI, E-Series, AI Ready Architecture | Reference architectures with NVIDIA DGX, enterprise-grade reliability, strong data management & tiering for AI pipelines |\n| **Dell Technologies** | PowerScale (Isilon), PowerStore, AI-optimized configs | Broad enterprise footprint, scalable parallel file/object, strong channel & support network for AI workloads |\n| **HPE** | Cray ClusterStor, Alletra, AI Reference Architectures | HPC/AI convergence, NVIDIA partnership, strong in government & research AI deployments |\n| **IBM** | Storage Scale (GPFS), FlashSystem | Metadata-optimized parallel file system, long AI/HPC heritage, strong in regulated & enterprise AI environments |\n\n**Key Global Trends:**\n- AI training clusters increasingly demand **unified file/object + NVMe-oF + GDS** architectures.\n- Vendors are competing on **metadata performance, data mobility, and AI pipeline integration** (e.g., Kubernetes, MLOps, data versioning).\n- Cloud providers (AWS, Azure, GCP) offer AI storage services but are not pure-play storage vendors; most enterprises use hybrid models.\n\n---\n### 🇨🇳 **",
+  "meta": {
+    "elapsed": 71.66,
+    "usage": {},
+    "via": "dashscope_http"
+  },
+  "collected_at": "2026-07-20T03:35:10"
+}

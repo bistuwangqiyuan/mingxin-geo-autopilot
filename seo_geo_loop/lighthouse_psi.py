@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""中科存储官网 · 线上真实性能/质量测量（PSI 优先，Playwright/CDP 兜底）。
+"""铭信官网 · 线上真实性能/质量测量（PSI 优先，Playwright/CDP 兜底）。
 
 诚实纪律：
   - 首选 Google PageSpeed Insights v5（真实 Lighthouse 评分 + Core Web Vitals）。
@@ -26,9 +26,10 @@ BASE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(BASE, "outputs")
 
 DEFAULT_URLS = [
-    "https://goni.top/zh/index.html",
-    "https://goni.top/zh/product.html",
-    "https://goni.top/en/index.html",
+    "https://mingxinstorage.xyz/",
+    "https://mingxinstorage.xyz/products",
+    "https://mingxinstorage.xyz/evidence",
+    "https://mingxinstorage.xyz/en",
 ]
 
 
@@ -39,7 +40,7 @@ def psi_measure(url, key=None, strategy="mobile", retries=3):
            f"&strategy={strategy}")
     if key:
         api += f"&key={key}"
-    req = urllib.request.Request(api, headers={"User-Agent": "Mozilla/5.0 (ZK-Storage SEO audit)"})
+    req = urllib.request.Request(api, headers={"User-Agent": "Mozilla/5.0 (Mingxin SEO audit)"})
     last = None
     for i in range(retries):
         try:

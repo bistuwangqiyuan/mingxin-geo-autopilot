@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""中科存储 GEO Autopilot · 告警（alerting.py）。
+"""铭信 GEO Autopilot · 告警（alerting.py）。
 
 回归(GVI 跌破阈值 / 部署失败 / verify 失败)或存在待人工项时，
 经 gh 开/更新一个固定标题的 GitHub Issue（无 gh 或无权限则本地落盘告警，不阻断主流程）。
@@ -15,11 +15,11 @@ import subprocess
 import paths
 
 ALERT_FILE = os.path.join(paths.OUTPUTS, "alert.json")
-ISSUE_TITLE = "[GEO Autopilot] 每日运行告警与待人工事项"
+ISSUE_TITLE = "[铭信 GEO Autopilot] 每日运行告警与待人工事项"
 # 默认在 autopilot 仓库开 Issue；可用环境变量指定（如官网仓库）
-ALERT_REPO = os.environ.get("ZK_ALERT_REPO", "")
+ALERT_REPO = os.environ.get("MX_ALERT_REPO", "")
 
-GVI_REGRESSION_DROP = float(os.environ.get("ZK_GVI_REGRESSION_DROP", "1.0"))
+GVI_REGRESSION_DROP = float(os.environ.get("MX_GVI_REGRESSION_DROP", "1.0"))
 
 
 def _gh():
@@ -137,7 +137,7 @@ def dispatch(snap, ev, decision, dry_run=False):
         json.dump(payload, f, ensure_ascii=False, indent=2)
 
     if dry_run or not ALERT_REPO:
-        payload["delivery"] = "local_file_only(无 ZK_ALERT_REPO 或 dry-run)"
+        payload["delivery"] = "local_file_only(无 MX_ALERT_REPO 或 dry-run)"
         return payload
     gh = _gh()
     if not gh:
@@ -187,7 +187,7 @@ def main():
         with open(appp, "r", encoding="utf-8") as f:
             applied = json.load(f)
     ev = evaluate(snap, runlog, applied, decision)
-    res = dispatch(snap, ev, decision, dry_run=os.environ.get("ZK_ALERT_DRYRUN") == "1")
+    res = dispatch(snap, ev, decision, dry_run=os.environ.get("MX_ALERT_DRYRUN") == "1")
     print(f"[alerting] level={ev['level']} delivery={res.get('delivery')} "
           f"alerts={len(ev['alerts'])} blocked={len(ev.get('blocked_manual', []))}")
 

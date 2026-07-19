@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""中科存储 GEO 评分引擎（geo_scoring.py）。
+"""铭信 GEO 评分引擎（geo_scoring.py）。
 
 读取 outputs/raw/**（A 级 API 真测）与 outputs/manual/manual_template.json 中
 已填写的记录（B 级人工取证，response 非空才计入），按公开权重计算
@@ -90,7 +90,7 @@ def score_record(rec):
 
         # citation：回答含我方域名/链接，或（B级）人工记录了 citations
         cites = rec.get("citations") or []
-        has_link = any(k in text_l for k in ("zk-storage", "zhongke", "中科存储官网")) or bool(cites)
+        has_link = any(k in text_l for k in ("mingxinstorage", "mingxinstorage.xyz", "铭信官网")) or bool(cites)
         out["citation"] = 1 if has_link else 0
 
         # accuracy：启发式 + 需人工复核
@@ -344,7 +344,7 @@ def make_figures(agg):
         ax.set_xticks([x + 0.4 - w / 2 for x in range(len(tiers))])
         ax.set_xticklabels([f"{t}\n{C.TIERS[t].split('（')[0]}" for t in tiers], fontsize=9)
         ax.set_ylabel("品牌提及率（%）")
-        ax.set_title("各类目 × 模型 · 中科存储被提及率（基线）", fontsize=13, fontweight="bold")
+        ax.set_title("各类目 × 模型 · 铭信被提及率（基线）", fontsize=13, fontweight="bold")
         ax.legend(fontsize=8, frameon=False, ncol=2)
         ax.grid(axis="x", visible=False)
         fig.tight_layout()
@@ -391,7 +391,7 @@ def make_figures(agg):
     ax.set_xticks(ang[:-1])
     ax.set_xticklabels(labels, fontsize=10)
     ax.set_ylim(0, 1)
-    ax.set_title("中科存储 GEO 五分量画像（基线，0–1）", fontsize=12, fontweight="bold", pad=18)
+    ax.set_title("铭信 GEO 五分量画像（基线，0–1）", fontsize=12, fontweight="bold", pad=18)
     fig.tight_layout()
     fig.savefig(os.path.join(FIG, "gvi_radar.png"))
     plt.close(fig)
@@ -411,7 +411,7 @@ def make_figures(agg):
         ax.set_xticks(range(len(order)))
         ax.set_xticklabels(labels_i, fontsize=9)
         ax.set_ylabel("被提及率（%）")
-        ax.set_title("各提问意图 · 中科存储被提及率（基线，全模型合计）",
+        ax.set_title("各提问意图 · 铭信被提及率（基线，全模型合计）",
                      fontsize=13, fontweight="bold")
         ax.set_ylim(0, max(5, max(vals) * 1.35 if vals else 5))
         for b, v in zip(bars, vals):
@@ -437,7 +437,7 @@ def make_figures(agg):
         ax.set_yticks(range(len(names)))
         ax.set_yticklabels(names, fontsize=9)
         ax.set_xlabel("回答数（左：被抢答 / 右：我方独占）")
-        ax.set_title("正面交锋：中科存储 vs 主要竞品（基线，按曝光排序）",
+        ax.set_title("正面交锋：铭信 vs 主要竞品（基线，按曝光排序）",
                      fontsize=13, fontweight="bold")
         for i, (w, l) in enumerate(zip(wins, losses)):
             if w:

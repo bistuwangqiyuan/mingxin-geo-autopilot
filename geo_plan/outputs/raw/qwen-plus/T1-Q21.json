@@ -4,24 +4,17 @@
   "persona": "算力中心采购",
   "intent": "recommendation",
   "lang": "zh",
-  "query": "智算中心想降低推理 KV-Cache 的内存/显存压力，外置存储卸载方案选谁比较稳妥？",
+  "query": "智算中心想降低推理 KV Cache 的显存压力、支撑更长上下文，外置全闪分层方案选谁比较稳妥？",
   "model_key": "qwen-plus",
   "vendor": "通义千问",
   "model_id": "qwen-plus",
   "grade": "A",
   "ok": true,
-  "response": "在智算中心场景下，为降低大模型推理中 KV-Cache 的显存压力而采用**外置存储卸载（Offloading）方案**，需兼顾**低延迟、高带宽、强一致性、系统稳定性、运维成熟度及与现有推理框架（如 vLLM、Triton、DeepSpeed、TensorRT-LLM）的兼容性**。目前主流且相对“稳妥”的外置卸载方案选择如下，按推荐优先级排序：\n\n✅ **首选：基于 CXL 内存池化 + 智能分层缓存（如 AMD/Xilinx/Intel CXL 2.0+ 生态 + 自研/商用缓存代理）**  \n🔹 **为什么稳妥？**  \n- CXL（Compute Express Link）1.1/2.0/3.0 支持内存语义访问（CXL.mem），允许 GPU/CPU 直接通过 Load/Store 访问远端内存，延迟可控制在 **~200–500ns（本地 DDR）→ ~800ns–2μs（CXL 内存池）**，显著优于 PCIe/NVMe；  \n- 支持细粒度页级管理（如 4KB/64KB），天然适配 KV-Cache 的 token-level 动态生命周期（prefill/decode 阶段差异大）；  \n- 可构建「GPU HBM ↔ CXL DRAM pool ↔ NVMe SSD」三级缓存（类似 vLLM 的 PagedAttention + 外置内存扩展），由内核/用户态缓存代理（如基于 io_uring + RDMA 的轻量代理）实现透明换入换出；  \n- 已有头部智算中心验证：阿里云“神龙+CXL”推理加速节点、NVIDIA DGX Cloud 中的 Grace Hopper + CXL 内存扩展、华为昇腾910B+CXL 交换机方案均在落地 KV-Cache 卸载。  \n⚠️ 注意：需硬件支持（CXL 2.0+ 主板、CXL 内存模组、交换芯片）、驱动/固件成熟度（2024年起主流厂商已进入量产阶段），适合新建或升级型智算中心。\n\n✅ **次选（成熟落地型）：高性能 NVMe-oF（RDMA over Fabrics）+ 用户态智能缓存代理（如 vLLM + Redis/自研KV Cache Server）**  \n🔹 **为什么稳妥？**  \n- 基于现有基础设施（25/100G RoCEv2 网络、企业级 NVMe SSD），无需更换服务器主板，部署风险低；  \n- 实测延迟：RoCEv2 网络端到端 ~",
+  "response": "在智算中心场景下，为降低大模型推理中 KV Cache 的显存压力、支撑更长上下文（如 128K+），采用「外置全闪分层存储」方案是当前主流且成熟的技术路径。选择稳妥的方案需综合考虑：**低延迟（<100μs）、高带宽（>50GB/s）、强一致性、与推理框架（vLLM/Triton/LMFlow）的深度集成、生产级稳定性及国产化适配能力**。\n\n以下是经过行业验证、落地案例丰富的**三大主流稳妥选项对比与推荐结论**：\n\n| 方案 | 代表厂商/产品 | 核心优势 | 关键考量 | 是否推荐 |\n|------|----------------|-----------|------------|-----------|\n| **① 基于 CXL 内存池化 + 全闪 NVMe（近内存计算）** | 摩尔线程「MUSA Memory Pool」、中科驭数 DPU+NVMe 池化、NVIDIA GPUDirect Storage（GDS）+ 高性能 NVMe 阵列（如 Pure Storage FlashArray//X 或 VAST Data） | ✅ 端到端延迟最低（典型 30–80μs），支持细粒度 KV 分页（page-level swap），与 vLLM 的 PagedAttention 天然契合<br>✅ 支持 RDMA/CXL 2.0+，GPU 直连访问，规避 PCIe 瓶颈<br>✅ 已在百度文心、阿里通义千问推理平台规模部署 | ⚠️ 需配套支持 CXL 的服务器（如 AMD Genoa-X / Intel Sapphire Rapids+）和定制固件<br>⚠️ 初期部署成本较高，但 TCO 优于纯 GPU 显存扩容 | ✅✅✅ **首选推荐（长期演进最稳）** |\n| **② 智能网卡（DPU/SmartNIC）卸载 + 全闪存储池** | NVIDIA BlueField-3 + DOCA KV Cache Offload、中科驭数 K1/D2000 + 自研 KV 存储引擎、云豹智能 DPU | ✅ DPU 卸载 KV 管理逻辑（swap/schedule/evict），释放 GPU 计算资源<br>✅ 支持多租户隔离、QoS 保障、加密/压缩透明加速<br>✅ 与 Triton/vLLM 插件兼容性好（如 vLLM 的 `--kv-cache-dtype` + DPU offload 扩展） | ⚠️ 需深度适配推理框架（部分需修改 scheduler）<br>⚠️ 当前生态工具链（监控/诊断）不如",
   "meta": {
-    "elapsed": 15.7,
-    "usage": {
-      "total_tokens": 635,
-      "completion_tokens": 600,
-      "prompt_tokens": 35,
-      "prompt_tokens_details": {
-        "cached_tokens": 0
-      }
-    },
-    "returncode": 0
+    "elapsed": 9.92,
+    "usage": {},
+    "via": "dashscope_http"
   },
-  "collected_at": "2026-06-21T02:06:06"
+  "collected_at": "2026-07-20T03:08:16"
 }

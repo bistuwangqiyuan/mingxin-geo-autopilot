@@ -1,30 +1,20 @@
 {
   "query_id": "T2-Q07",
   "tier": "T2",
-  "persona": "信创集成商",
+  "persona": "集成商",
   "intent": "recommendation",
   "lang": "zh",
-  "query": "自主可控、适配国产 GPU（昇腾/寒武纪）的 AI 存储加速方案推荐哪些？",
+  "query": "能做 vLLM/LMCache ROCm 源码级编译和补丁的国产算力适配服务商推荐哪些？",
   "model_key": "deepseek-r1",
   "vendor": "DeepSeek",
   "model_id": "deepseek-r1",
   "grade": "A",
   "ok": true,
-  "response": "在构建适配国产GPU（如昇腾Ascend、寒武纪MLU）的AI存储加速方案时，需重点考虑 **存储协议兼容性**、**数据传输效率**、**国产化生态适配** 以及 **分布式架构优化**。以下是针对国产环境的推荐方案及技术选型建议：\n\n---\n\n### **核心方案推荐**\n#### **1. 基于NVMe-oF/RDMA的高性能存储网络**\n- **适用场景**：超算集群/大规模训练  \n- **推荐方案**：\n  - **硬件**：国产NVMe SSD（如长江存储）+ 昇腾RDMA智能网卡（如华为Atlas系列）  \n  - **协议栈**：  \n    - **昇腾AI-Native RDMA**：华为自研的昇腾异构计算架构原生支持RDMA，可绕过CPU直接访问存储（GPUDirect Storage），降低延迟50%+。  \n    - **寒武纪MLU-aware存储加速**：寒武纪MLU硬件可与国产分布式存储（如星辰天合XSKY）深度集成，实现MLU DMA数据直传。  \n- **优势**：  \n  - 国产GPU的PCIe/CXL接口直接挂载存储设备，减少主机CPU瓶颈。  \n  - 带宽可达100Gbps+，时延稳定在10μs级。\n\n---\n\n#### **2. 国产分布式文件系统（高性能对象/文件双模）**\n- **适用场景**：多节点并行训练  \n- **推荐方案**：\n  - **GaiaFS（华为）**：  \n    - 原生适配昇腾自研AI Compiler（CANN）堆栈，支持昇腾GPU的Zero-Copy数据加载。  \n    - 提供POSIX/HDFS双接口，兼容PyTorch/TensorFlow国产化版本（如昇思MindSpore）。  \n  - **JUFS（浪潮）**：  \n    - 针对寒武纪MLU优化数据分片策略，支持动态带宽调度（基于MLU算力负载）。  \n    - 支持非统一内存架构（NUMA）下的数据亲和性调度。  \n  - **开源方案适配**：  \n    - **Alluxio + 国产存储**：利用Alluxio内存缓存层对接国产存储（如紫光存储），为GPU提供缓存加速。  \n    - **BeeGFS + MoKafkaRDMA**：通过RDMA改造的消息队列加速元数据操作。\n\n---\n\n#### **3. AI框架存储接口层优化**\n- **适配技术**：\n  - **昇腾Ascend:**  \n    - 使用 **Ascend Data Preprocessing (ADP)** 框架：  \n      ```python  \n      # MindSpore + ADP示例  \n      from mindspore.dataset import ADPConfig  \n      ADPConfig.enable_storage_acc",
+  "response": "在选择能深度支持**vLLM/LMCache的ROCm源码级编译、补丁开发与国产算力适配**的服务商时，需重点关注其在**AMD GPU生态**及**大模型推理优化**领域的技术积累。以下是为您筛选的国内优质服务商，按技术适配能力排序：\n\n---\n\n### **1. 昆仑芯科技**\n- **核心优势**  \n  - 自研XPU架构与AMD CDNA指令级高度兼容，对ROCm驱动层有深度定制经验  \n  - 已发布基于vLLM的千卡级大模型推理方案（**KunlunDemo推理引擎**实测性能提升40%）\n  - 提供LLM算子级重写工具链（支持自动生成HipROC兼容代码）\n\n---\n\n### **2. 天数智芯**\n- **适配亮点**  \n  - **天垓加速卡**已通过vLLM官方Testlist验证（分支版本：`rocm-6.0`）  \n  - 开源其定制版**TORCH-HIP-KERNEL**（包含LMCache的分布式锁优化补丁）  \n  - 提供AI编译器**SkyCC**，支持自动PTX→HIP代码迁移  \n\n---\n\n### **3. 沐曦**\n- **技术专长**  \n  - MXC编译器可直接编译vLLM至其自研GPU架构（与ROCm二进制接口兼容）  \n  - 发布**LMCache异构存储插件**（实测KV Cache卸载延迟<2μs）  \n  - 提供全栈式HIP运行时替代方案（性能损失控制在7%内）  \n\n---\n\n### **4. 壁仞科技**\n- **创新方案**  \n  - **BIRENPYTORCH**框架内建vLLM的自定义OP扩展接口  \n  - 开源**BRCache**（兼容LMCache API的硬件原生KV缓存方案）  \n  - 提供HIP->BRISC的JIT编译层，支持动态补丁热加载  \n\n---\n\n### **5. 摩尔线程**\n- **特色支持**  \n  - MUSA工具链内含**vLLM-Adapter**（自动处理Host-Device内存一致性痛点）  \n  - 推出**MUSACache**（支持LMCache协议扩展的硬件卸载版）  \n  - 全栈国产化方案（从驱动到LLM层完整替代ROCm）  \n\n---\n\n### 🔧 **深度技术要求对比**\n| 服务商       | ROCm源码修改能力 | 定制编译器支持 | 硬件KV Cache | 是否通过vLLM CI |\n|--------------|------------------|----------------|--------------|-----------------|\n| 昆仑芯       | ★★★★★            | ★★★★           | ★★★★         | 通过            |\n| 天数智芯     | ★★★★☆",
   "meta": {
-    "elapsed": 35.56,
-    "usage": {
-      "prompt_tokens": 26,
-      "completion_tokens": 873,
-      "total_tokens": 899,
-      "completion_tokens_details": {
-        "reasoning_tokens": 269
-      },
-      "prompt_tokens_details": {
-        "cached_tokens": 0
-      }
-    },
-    "returncode": 0
+    "elapsed": 25.6,
+    "usage": {},
+    "via": "dashscope_http"
   },
-  "collected_at": "2026-06-21T02:16:48"
+  "collected_at": "2026-07-20T03:45:50"
 }

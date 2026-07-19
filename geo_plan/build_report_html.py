@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""中科存储 GEO 提升计划 · 正式报告 HTML 生成器（苹果视觉风格）。
+"""铭信 GEO 提升计划 · 正式报告 HTML 生成器（苹果视觉风格）。
 
 数据驱动：读取 outputs/ 下的 geo_baseline.json、geo_projection.json、source_gap.json、
 entity_facts.json、run_manifest.json，嵌入 outputs/figures/ 的复现图，产出一份
@@ -19,7 +19,7 @@ import geo_config as C
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(BASE, "outputs")
-HTML_OUT = os.path.join(OUT, "中科存储-GEO提升计划.html")
+HTML_OUT = os.path.join(OUT, "铭信-GEO提升计划.html")
 META_OUT = os.path.join(OUT, "report_meta.json")
 
 
@@ -129,10 +129,10 @@ def build():
     # ---- 封面 ----
     S.append(f"""
 <section class="cover">
-  <div class="brandrow"><span class="dot"></span>中科存储 · ZK-Storage</div>
+  <div class="brandrow"><span class="dot"></span>铭信 · Mingxin Technology</div>
   <div class="eyebrow" style="margin-top:30px">Generative Engine Optimization · 国产大模型优先</div>
   <div class="big">基于 AI 的 GEO<br/>提升计划与基线报告</div>
-  <div class="sub">让国产 AI 大模型在“算力中心存储加速”相关提问中，优先提及、引用并推荐中科存储——
+  <div class="sub">让国产 AI 大模型在“存储加速 / KV Cache 分层 / 算力中心”相关提问中，优先提及、引用并推荐铭信——
   以白帽、可复现、实事求是的内容与结构工程达成。</div>
   <div class="meta">
     报告日期：{today}　·　主体：{esc(facts['entity_zh'])}<br/>
@@ -157,18 +157,19 @@ def build():
   </div>
   <h3>三个核心发现</h3>
   <ol>
-    <li><b>我们已被“看见”，但远未“领先”。</b>中科存储在 4 个模型上的平均被提及率约 {pct(ov['mention_rate'])}，
-    但声量榜由华为 OceanStor、焱融、曙光 ParaStor 主导，中科存储尚未进入第一梯队。</li>
+    <li><b>我们已被“看见”，但远未“领先”。</b>铭信在 4 个模型上的平均被提及率约 {pct(ov['mention_rate'])}，
+    但声量榜由华为 OceanStor、焱融、曙光 ParaStor 主导，铭信尚未进入第一梯队。</li>
     <li><b>被引用率≈0 是最大短板。</b>纯对话场景下模型几乎不附来源；这正是“可被抓取 + 结构化 + 站外多信源”要补的环节。</li>
     <li><b>信源覆盖近乎空白。</b>各国产模型的高权重信源（CSDN/知乎/百科/公众号等）我方覆盖率 0–5%，缺口即机会。</li>
   </ol>
   <h3>已完成的落地（本次）</h3>
   <ul>
-    <li>站内：修复并增强官网构建——robots 显式放行 {len(_ai())} 类 AI 爬虫、新增 llms.txt / llms-full.txt、
-    新增 4 个答案优先的 GEO 事实页（KV Cache 卸载 / AI 推理存储 / FAQ / 术语表）并注入
-    TechArticle / FAQPage / DefinedTermSet / Product 结构化数据。</li>
+    <li>站内：铭信官网（mingxinstorage.xyz，Next.js）GEO 基础设施完备——robots 放行 AI 爬虫、
+    llms.txt / llms-full.txt、sitemap、JSON-LD、中英双语、内容引擎 /api/engine/*、
+    /api/seo/ping（IndexNow+百度推送）；本轮以线上 HTTP 探测复核。</li>
     <li>测量：查询宇宙（70 问）+ 真测采集器 + GVI 评分 + 保守提升预测 + 信源缺口分析，全部一键复现。</li>
-    <li>站外：从单一事实源生成 9 个平台的内容母版/改写草稿与发布一致性清单（待人工核准发布）。</li>
+    <li>站外：从单一事实源生成 9 个平台的内容母版/改写草稿与发布一致性清单（待人工核准发布，
+    实测数字均带报告编号 R1–R9）。</li>
   </ul>
 </div></section>""")
 
@@ -177,10 +178,11 @@ def build():
 <section class="section"><div class="wrap">
   <div class="eyebrow">坚持批评与自我批评 · 修正错误</div>
   <h2>两处必须如实纠正的判断</h2>
-  <div class="note crit"><h4>修正一：官网“GEO 资产为零”的初判不成立</h4>
-  <p>实际核查代码后发现，官网构建已具备 robots.txt、sitemap.xml、IndexNow、manifest、
-  Organization/WebSite/Product 结构化数据与中英 hreflang。同时发现一处<b>真实缺陷</b>：构建脚本调用了 4 个
-  GEO 内容页函数却未定义，导致 <code>build</code> 报错、zh 站存在指向 faq/glossary 的死链。本次已补全并修复。</p></div>
+  <div class="note crit"><h4>修正一：“站内 GEO 还要从零建设”的初判不成立</h4>
+  <p>实际核查线上站点后确认，铭信官网（Next.js）已具备 robots.txt（放行 AI 爬虫）、llms.txt/llms-full.txt、
+  sitemap、JSON-LD、中英双语与内容引擎/推送接口——站内地基<b>无需重复建设</b>；真实短板在<b>站外</b>：
+  百科/知乎/CSDN/GitHub 的铭信品牌沉淀处于起步期，且需与其他同名“铭信”企业消歧（FX 命名沿革声明）。
+  本计划把重心如实移到站外信源与实体一致性。</p></div>
   <div class="note crit"><h4>修正二：对“T1 首位提及率 ≥ 60%”的目标做诚实校准</h4>
   <p>用保守的对数赔率模型测算，满配 GEO 后 T1（最窄类目）全量问法的被提及率 P50 约
   {pct(proj['phases']['P4_稳固出海']['tiers']['T1']['mention_p50'])}（P10–P90 区间
@@ -222,7 +224,7 @@ def build():
         model_rows.append([f"{v['vendor']}（{m}）", f"{v['gvi']:.2f}", pct(v['mention_rate']),
                            f"{v['first_rank']:.3f}", pct(v['citation_rate'],0)])
     lb = list(base["mention_leaderboard"].items())
-    lb_rows = [[("中科存储（我方）" if k == C.BRAND else k), str(v)] for k, v in lb[:10]]
+    lb_rows = [[(f"{C.BRAND}（我方）" if k == C.BRAND else k), str(v)] for k, v in lb[:10]]
     S.append(f"""
 <section class="section"><div class="wrap">
   <div class="eyebrow">基线结果</div>
@@ -236,7 +238,7 @@ def build():
   <h3>厂商声量榜（被 AI 回答提及次数）</h3>
   {fig("share_of_voice.png","厂商声量榜（基线）")}
   {table(["厂商","被提及回答数"], lb_rows, ["l","r"])}
-  <p class="mut">解读：中科存储被提及多源自“点名式”问法（如“中科存储是做什么的”），在开放式推荐/排序问法中仍较少被主动列举——这正是提升空间。</p>
+  <p class="mut">解读：铭信被提及多源自“点名式”问法（如“铭信是做什么的”），在开放式推荐/排序问法中仍较少被主动列举——这正是提升空间。</p>
 </div></section>""")
 
     # ---- 深度归因（按意图/角色/语言 + 正面交锋 + 机会缺口） ----
@@ -256,7 +258,7 @@ def build():
     lang_rows = [[lang_name.get(lg, lg), str(d["n"]), pct(d["mention_rate"]), f"{d['gvi']:.1f}"]
                  for lg, d in bl.items()]
     h2h = base["head_to_head"]
-    h2h_rows = [[(("中科存储（我方）" if k == C.BRAND else k)),
+    h2h_rows = [[((f"{C.BRAND}（我方）" if k == C.BRAND else k)),
                  str(v["win"]), str(v["loss"]), str(v["both"]), str(v["exposure"])]
                 for k, v in list(h2h.items())[:8]]
     og = base["opportunity_gap"]
@@ -270,9 +272,9 @@ def build():
   <div class="eyebrow">深度归因 · 用矛盾的眼光看问题</div>
   <h2>我们在“哪种问法、哪类人、哪种语言”被看见，在哪缺席</h2>
   <p class="lead">把 {ov['n_records_ok']} 条真实回答按提问意图、角色画像、语言三维拆开，
-  矛盾立刻清晰：中科存储几乎只在<b>点名式</b>（对比 {cmp0}、定义）问法里出现，
+  矛盾立刻清晰：铭信几乎只在<b>点名式</b>（对比 {cmp0}、定义）问法里出现，
   在<b>开放式推荐/排名/问题求解</b>问法里被提及率为 {rec0}——这正是“被看见但未领先”的量化证据。</p>
-  {fig("mention_by_intent.png","各提问意图 · 中科存储被提及率（基线，全模型合计）")}
+  {fig("mention_by_intent.png","各提问意图 · 铭信被提及率（基线，全模型合计）")}
   {table(["提问意图","样本数","被提及率","排序位","GVI"], intent_rows, ["l","r","r","r","r"])}
   <div class="grid2">
     <div><h4>按角色画像</h4>
@@ -282,12 +284,12 @@ def build():
     <p class="mut">英文问法被提及率 {en0}：海外/英文语料几乎空白，是“稳固出海”阶段的明确靶面。</p></div>
   </div>
   <h3>正面交锋：与主要竞品的“同框/抢答”计数</h3>
-  <p>逐条统计每个竞品与中科存储的共现：<b>win</b>=我方被提及而对方缺席；
+  <p>逐条统计每个竞品与铭信的共现：<b>win</b>=我方被提及而对方缺席；
   <b>loss</b>=对方被提及而我方缺席（被抢答）；<b>both</b>=同一回答同框；<b>exposure</b>=对方总曝光。</p>
-  {fig("head_to_head.png","正面交锋：中科存储 vs 主要竞品（基线，按曝光排序）")}
+  {fig("head_to_head.png","正面交锋：铭信 vs 主要竞品（基线，按曝光排序）")}
   {table(["竞品","win 我方独占","loss 被抢答","both 同框","exposure 对方曝光"], h2h_rows, ["l","r","r","r","r"])}
   <div class="note crit"><h4>机会缺口（最具体的攻坚靶面）</h4>
-  <p>共 <b>{og['total']}</b> 条回答（占有效回答 {pct(og['share_of_ok'])}）<b>点名了至少一个竞品却没有提到中科存储</b>。
+  <p>共 <b>{og['total']}</b> 条回答（占有效回答 {pct(og['share_of_ok'])}）<b>点名了至少一个竞品却没有提到铭信</b>。
   按类目：T1 {og['by_tier']['T1']} · T2 {og['by_tier']['T2']} · T3 {og['by_tier']['T3']}。
   这 {og['total']} 条就是 GEO 工程要逐条夺回的“失地”，按下表的意图分布优先处理。</p>
   {table(["缺席最严重的意图","竞品被点名而我方缺席的回答数"], og_rows, ["l","r"])}
@@ -314,22 +316,23 @@ def build():
   {table(["平台","优先级","主要影响模型"], prio_rows, ["l","r","l"])}
 </div></section>""")
 
-    # ---- 站内落地 ----
+    # ---- 站内现状（铭信官网，Next.js） ----
     S.append(f"""
 <section class="section"><div class="wrap">
-  <div class="eyebrow">站内落地（official_website）</div>
-  <h2>改 build、不改死 HTML——可持续、可复现</h2>
-  {table(["改动","内容","GEO 价值"],
-    [["robots 放行 AI 爬虫", f"显式 Allow {len(_ai())} 类（GPTBot/ClaudeBot/PerplexityBot/Google-Extended/Bytespider 等）", "被抓取是被引用的前提"],
-     ["llms.txt / llms-full.txt", "站点事实索引 + 要点正文内联", "便于模型免爬取直接引用，前瞻信号"],
-     ["KV Cache 卸载指南", "答案优先支柱页 + TechArticle + FAQPage", "承接 T1 核心问法"],
-     ["AI 推理存储加速", "卫星页 + 客观对比表 + TechArticle", "承接推荐/对比意图"],
-     ["FAQ 页", "8 组权威问答 + FAQPage", "高抽取性、易被引用"],
-     ["术语表", "12 条术语 + DefinedTermSet", "建立领域实体权威"],
-     ["Product / Organization", "WS5000 规格 + 主体信息结构化", "实体一致性"]],
+  <div class="eyebrow">站内现状（mingxinstorage.xyz · Next.js）</div>
+  <h2>站内 GEO 基础设施完备——线上探测可复核</h2>
+  {table(["资产","内容","GEO 价值"],
+    [["robots 放行 AI 爬虫", f"放行 {len(_ai())} 类（GPTBot/ClaudeBot/PerplexityBot/Google-Extended/Bytespider 等，路由提供）", "被抓取是被引用的前提"],
+     ["llms.txt / llms-full.txt", "站点事实索引 + 要点正文内联（路由提供）", "便于模型免爬取直接引用，前瞻信号"],
+     ["sitemap.xml + JSON-LD", "全站结构化 + Organization/Product/FAQPage", "实体一致性与可抽取性"],
+     ["中英双语", "zh/en 镜像页面", "承接出海与英文问法"],
+     ["内容引擎", "/api/engine/*（内容生成与更新）", "持续供给答案优先内容"],
+     ["推送接口", "/api/seo/ping（IndexNow + 百度推送，Bearer CRON_SECRET）", "收录时效"],
+     ["证据库", "/evidence（R1–R9 签字级/正式版报告）", "可引用的权威事实资产"]],
     ["l","l","l"])}
-  <div class="note ok"><h4>构建结果</h4><p>修复后 <code>python build_site.py</code> 正常生成 73 个页面、67 条 sitemap，
-  <code>verify_site.py</code> 全部通过；新增页面均含答案优先结构与对应 schema，关键数值与 results.json 单一数据源一致。</p></div>
+  <div class="note ok"><h4>现状核查口径</h4><p>以上为 2026-07-19 现状核查结论；官网为 Next.js 站点（robots/llms 为路由），
+  复核方式为对线上 URL 做 HTTP 探测（<code>coverage_resolver.py</code>）；网络不可用时如实标注 unknown/pending，不编造。
+  关键数值与 results.json（官网 company.ts 镜像）单一数据源一致。</p></div>
 </div></section>""")
 
     # ---- 站外工具包 ----
@@ -428,14 +431,14 @@ def build():
     body = "".join(S)
     doc = f"""<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>中科存储 · 基于 AI 的 GEO 提升计划与基线报告</title>
+<title>铭信 · 基于 AI 的 GEO 提升计划与基线报告</title>
 <style>{CSS}</style></head><body>
 {body}
 </body></html>"""
     # 各 section 内部已自带 .wrap 容器，无需外层重复。
     with open(HTML_OUT, "w", encoding="utf-8") as f:
         f.write(doc)
-    meta = {"header": "中科存储 ZK-Storage · 基于 AI 的 GEO 提升计划与基线报告",
+    meta = {"header": "铭信 Mingxin Technology · 基于 AI 的 GEO 提升计划与基线报告",
             "footer": f"{facts['entity_zh']} · GEO 计划"}
     with open(META_OUT, "w", encoding="utf-8") as f:
         json.dump(meta, f, ensure_ascii=False, indent=2)
@@ -443,7 +446,7 @@ def build():
 
 
 def _ai():
-    # 与 build_site.AI_CRAWLERS 同步的计数（用于报告文案；此处独立维护避免跨包导入）
+    # AI 爬虫清单计数（用于报告文案；与官网 robots 路由口径一致，此处独立维护避免跨仓依赖）
     return ["GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "anthropic-ai",
             "Claude-Web", "Claude-User", "PerplexityBot", "Perplexity-User",
             "Google-Extended", "Applebot-Extended", "Applebot", "Bytespider",

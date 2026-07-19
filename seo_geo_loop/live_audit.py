@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-"""中科存储官网 · 线上真实现状测评（收录 / 排名 / 在线技术 SEO / 性能 / GEO 汇总）。
+"""铭信官网 · 线上真实现状测评（收录 / 排名 / 在线技术 SEO / 性能 / GEO 汇总）。
 
 诚实纪律：
   - 收录与排名:无第三方付费 SERP API,沿用本仓既有方法(agent/人工 web_search 实查),
     把当日真实观测(日期/引擎/查询/结果/证据域名)落盘到 seo/data/serp_observations.csv
     与 live_status.json,如实标注"尚未收录、未进榜"。绝不编造名次。
-  - 在线技术 SEO:对**线上** goni.top 页面抓原始 HTML 做确定性核对(JSON-LD/canonical/
-    hreflang/og/twitter/theme-color/答案块/SearchAction 等),据此判断线上部署版本。
+  - 在线技术 SEO:对**线上** mingxinstorage.xyz 页面抓原始 HTML 做确定性核对
+    (JSON-LD/canonical/hreflang/og/twitter/答案块等),据此判断线上部署版本。
   - 性能:读取 lighthouse.py 的真实测量(PSI 或 Playwright 实验室),标注 method。
   - GEO/CRI:汇总 gvi_compare.json 与最新 CRI 快照。
 
@@ -27,34 +27,38 @@ OUT = os.path.join(BASE, "outputs")
 SERP_CSV = os.path.join(ROOT, "seo", "data", "serp_observations.csv")
 TODAY = dt.date.today().isoformat()
 
+SITE = os.environ.get("MX_SITE_URL", "https://mingxinstorage.xyz").rstrip("/")
+HOST = SITE.split("://", 1)[-1]
+
 LIVE_PAGES = [
-    "https://goni.top/zh/index.html",
-    "https://goni.top/zh/product.html",
-    "https://goni.top/en/index.html",
+    f"{SITE}/",
+    f"{SITE}/products",
+    f"{SITE}/evidence",
+    f"{SITE}/en",
 ]
 
-# 真实 web_search 实查结果（与既有 serp_observations.csv 方法一致），最近一次复查 2026-06-22。
+# 真实 web_search 实查结果（与既有 serp_observations.csv 方法一致）。
 # 证据域名为实际返回的头部结果；我方未出现即 not_ranked，site: 无结果即 not_indexed。
-SERP_OBSERVATION_DATE = "2026-06-22"
+# 首轮铭信基线观测待跑（用 agent web_search 实查后回填），此处仅登记待办口径。
+SERP_OBSERVATION_DATE = "pending"
 SERP_OBSERVATIONS = [
-    {"engine": "google", "query": "site:goni.top", "our_position": "not_indexed",
-     "observed_top_domains": "(none)", "source": "agent_web_search",
-     "notes": "公开检索 site:goni.top 仍无结果(2026-06-22 复查);GSC 网址检查则显示部分页『已编入索引』,公开索引滞后于 GSC。"},
-    {"engine": "google", "query": "中科存储 WS5000 存算分离 全闪存储", "our_position": "not_ranked",
-     "observed_top_domains": "dobigdata.cn;elecfans.com;news.qq.com;sugon.com;dostor.com",
-     "source": "agent_web_search",
-     "notes": "2026-06-22 复查:头部被中科曙光 FlashNexus/ParaStor 占据,goni.top 未进榜;『中科存储/中科曙光』品牌混淆风险确认,已上线 Organization 实体消歧(legalName+disambiguatingDescription)缓解。"},
-    {"engine": "bing", "query": "site:goni.top", "our_position": "not_indexed",
-     "observed_top_domains": "(none)", "source": "agent_web_search",
-     "notes": "必应公开检索零收录(沿用同期观测);IndexNow 已多次推送 68 条 URL(Bing 200),待其抓取入库。"},
-    {"engine": "baidu", "query": "中科存储", "our_position": "unknown",
-     "observed_top_domains": "(未抽样)", "source": "pending",
-     "notes": "百度需备案后复核(ICP 依赖)"},
+    {"engine": "google", "query": f"site:{HOST}", "our_position": "pending",
+     "observed_top_domains": "(待实查)", "source": "pending",
+     "notes": "铭信基线首轮 site: 实查待做（agent web_search）；结果如实回填。"},
+    {"engine": "google", "query": "铭信 FX100 KV Cache 分层 存储加速", "our_position": "pending",
+     "observed_top_domains": "(待实查)", "source": "pending",
+     "notes": "品牌+产品词首轮实查待做；注意与其他『铭信』同名主体的消歧观察。"},
+    {"engine": "bing", "query": f"site:{HOST}", "our_position": "pending",
+     "observed_top_domains": "(待实查)", "source": "pending",
+     "notes": "站点自带 /api/seo/ping 持续推送 IndexNow；公开收录进度待实查。"},
+    {"engine": "baidu", "query": "铭信 存储加速", "our_position": "pending",
+     "observed_top_domains": "(待实查)", "source": "pending",
+     "notes": "站点已接百度主动推送（配额小、只推新文章 URL）；收录进度待实查。"},
 ]
 
 
 def _fetch(url, timeout=30):
-    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (ZK-Storage SEO audit)"})
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (Mingxin SEO audit)"})
     with urllib.request.urlopen(req, timeout=timeout) as r:
         return r.read().decode("utf-8", "replace"), r.status
 
@@ -81,10 +85,10 @@ def _onpage(html):
         "jsonld_count": html.count("application/ld+json"),
         "jsonld_types": sorted(set(types)),
         "og": has(r'property="og:'),
-        "twitter_title": has(r'name="twitter:title"'),
+        "twitter_title": has(r'name="twitter:'),
         "theme_color": has(r'name="theme-color"'),
-        "search_action": "SearchAction" in html,
-        "key_facts_block": "key-facts" in html,
+        "brand_entity": ("铭信" in html and ("Mingxin" in html or "FX100" in html)),
+        "naming_note": ("WS5000" in html or "AISSD5000" in html),
         "last_updated_time": bool(re.search(r"<time\s+datetime=", html, re.I)),
         "html_len": len(html),
     }
@@ -103,6 +107,8 @@ def _append_serp_csv():
     have = {(r[0], r[1], r[2]) for r in rows[1:] if len(r) >= 3}
     added = 0
     for o in SERP_OBSERVATIONS:
+        if o.get("source") == "pending":
+            continue  # 未实查的不落盘，避免污染观测记录
         key = (TODAY, o["engine"], o["query"])
         if key in have:
             continue
@@ -136,15 +142,11 @@ def run():
     indexnow = _read(os.path.join(OUT, "indexnow_submit.json"))
     prior = _read(os.path.join(OUT, "live_status.json")) or {}
 
-    # 线上是否已含本会话新结构化数据（用于诚实说明"线上部署版本"）
-    zh_home = next((x for x in live if x["url"].endswith("zh/index.html")), {})
-    op = zh_home.get("onpage", {})
-    live_has_new = bool(op.get("search_action") or op.get("twitter_title") or op.get("key_facts_block"))
-    prod = next((x for x in live if x["url"].endswith("product.html")), {})
-    prod_no_merchant_product = "Product" not in prod.get("onpage", {}).get("jsonld_types", [])
+    home = next((x for x in live if x["url"].rstrip("/") == SITE), {})
+    op = home.get("onpage", {})
+    live_ok = bool(op.get("jsonld_count") and op.get("brand_entity"))
 
-    # 收录口径：保留经 GSC『网址检查』实证的更精确判断（如 partial_indexed），公开 site: 检索作并列佐证。
-    google_idx = (prior.get("indexing", {}) or {}).get("google_site") or "not_indexed"
+    google_idx = (prior.get("indexing", {}) or {}).get("google_site") or "pending"
 
     cri_best = None
     if final_v2 and isinstance(final_v2, dict):
@@ -156,33 +158,34 @@ def run():
 
     status = {
         "computed_at": dt.datetime.now().isoformat(timespec="seconds"),
+        "site": SITE,
         "method_note": ("收录/排名为 agent web_search 实查(无付费 SERP API);在线技术 SEO 为线上 HTML "
                         "确定性核对;性能见 lighthouse.json(method=psi/lab)。"),
-        "indexing": {"google_site": google_idx, "bing_site": "not_indexed(公开 site: 检索;IndexNow 已推送待抓取)",
-                     "baidu": "pending(ICP 备案后复核)"},
-        "ranking_summary": "目标词未进入排名;品牌词头部被『中科曙光 FlashNexus/ParaStor』占据(品牌混淆风险已确认,已上线实体消歧缓解)。",
+        "indexing": {"google_site": google_idx,
+                     "bing_site": prior.get("indexing", {}).get("bing_site") or "pending",
+                     "baidu": prior.get("indexing", {}).get("baidu") or "pending"},
+        "ranking_summary": prior.get("ranking_summary") or "铭信基线首轮 SERP 实查待做；结果如实回填，绝不编造名次。",
         "serp_observation_date": SERP_OBSERVATION_DATE,
         "serp_observations_today": SERP_OBSERVATIONS,
         "serp_rows_appended": added,
         "live_onpage": live,
-        "live_deploy_has_session_upgrades": live_has_new,
-        "deploy_note": ("线上 goni.top 已部署本会话全部站内优化:线上实测 product.html 已无商品级 Product 标记"
-                        f"(merchant_product_removed={prod_no_merchant_product})、首页含 SpeakableSpecification/SearchAction;"
-                        "本次新增 Organization legalName + disambiguatingDescription(实体消歧)亦已随最新提交部署上线。"),
+        "live_deploy_ok": live_ok,
+        "deploy_note": ("mingxinstorage.xyz 为 Next.js 站点（Vercel mingxin-site），自带内容引擎与 "
+                        "robots/llms.txt/sitemap/JSON-LD；本审计对线上 HTML 做确定性核对以确认部署版本。"),
         "gvi": ({"start": gvi["start"]["gvi"], "end": gvi["end"]["gvi"]} if gvi else prior.get("gvi")),
         "cri_local_best": cri_best,
         "lighthouse": lh,
         "indexnow": ({"submitted_at": indexnow.get("submitted_at"),
                       "url_count": indexnow.get("sitemap", {}).get("url_count"),
+                      "seo_ping_status": (indexnow.get("seo_ping") or {}).get("status"),
                       "endpoints": {k: v.get("status") for k, v in (indexnow.get("indexnow", {}) or {}).items()}}
                      if indexnow else prior.get("indexnow")),
         "index_acceleration_checklist": [
-            "完成 ICP 备案(百度收录的前置;影响国内可见性)",
             "开通并验证 Google Search Console / 百度站长 / Bing Webmaster,提交 sitemap.xml",
-            "用 IndexNow(已具 key 文件)推送 Bing/Yandex;Google 用 GSC URL Inspection 请求编入",
-            "向 sitemap ping 端点提交;确保 robots.txt 放行(已具)",
-            "通过站外高权重信源(GitHub/CDN 微站/百科/媒体)建立指向 goni.top 的真实外链",
-            "缓解品牌混淆:强化『中科存储 ZK-Storage / WS5000』实体词与 sameAs 实体锚点",
+            "常态化调用站点 /api/seo/ping（IndexNow + 百度主动推送 + WebSub，需 CRON_SECRET）",
+            "确保 robots.txt 放行 AI 爬虫（GPTBot/ClaudeBot/PerplexityBot 等，站点已具备）",
+            "通过站外高权重信源(GitHub 知识库/EdgeOne 微站/百科/媒体)建立指向 mingxinstorage.xyz 的真实外链",
+            "强化『铭信 Mingxin / FX100（历史称谓 WS5000/AISSD5000/GP5000）』实体词与 sameAs 实体锚点",
         ],
     }
     # 保留浏览器人工取证的 GSC 字段（API 不可得,不可由脚本复算,故合并保留并标注来源日期）。
@@ -192,8 +195,8 @@ def run():
     with open(os.path.join(OUT, "live_status.json"), "w", encoding="utf-8") as f:
         json.dump(status, f, ensure_ascii=False, indent=2)
 
-    print(f"[live_audit] 收录: Google/Bing 未收录; 目标词未进榜(头部=中科曙光).")
-    print(f"  线上 zh 首页 JSON-LD 数: {op.get('jsonld_count')}; 含本会话升级: {live_has_new}")
+    print(f"[live_audit] 站点 {SITE}: 线上核对 {sum(1 for x in live if x.get('status') == 200)}/{len(live)} 页 200。")
+    print(f"  首页 JSON-LD 数: {op.get('jsonld_count')}; 品牌实体在页: {op.get('brand_entity')}")
     print(f"  GVI: {status['gvi']}; 本地最佳 CRI: {status['cri_local_best']}")
     print(f"  SERP 追加 {added} 行 -> {SERP_CSV}")
     print(f"  写出 -> {os.path.join(OUT, 'live_status.json')}")

@@ -4,24 +4,17 @@
   "persona": "智算中心架构师",
   "intent": "recommendation",
   "lang": "zh",
-  "query": "做 EBOF + NVMe-oF 的存算分离扩展存储，有没有已经第三方实测验证过的国产产品？",
+  "query": "做 vLLM + LMCache 的 KV Cache 外置分层，有没有已经出过签字级实测报告的国产存储产品？",
   "model_key": "qwen-plus",
   "vendor": "通义千问",
   "model_id": "qwen-plus",
   "grade": "A",
   "ok": true,
-  "response": "是的，目前已有**多个国产厂商的 EBOF（Ethernet-based Open Fabrics）+ NVMe-oF 存算分离存储解决方案**通过了第三方权威机构的实测验证，并在实际项目中落地部署。以下为已公开披露、具备**第三方实测报告/认证/信创适配认证**的代表性国产产品及验证情况（截至2024年中）：\n\n---\n\n✅ **1. 华为 OceanStor Dorado 系列（支持 NVMe/TCP & EBOF 架构）**  \n- ✅ **第三方验证**：  \n  - 通过中国信息通信研究院（CAICT）《分布式存储系统性能测试规范》NVMe-oF（TCP）专项测试（2023年报告编号：CAICT-SP-2023-NVMeoF-087）；  \n  - 在“信创生态实验室”完成与鲲鹏920 + 昇腾AI服务器 + openEuler 22.03 的全栈存算分离联合验证（2023Q4），支持端到端RDMA/TCP双协议EBOF组网；  \n- ✅ 实际落地：已在某省级政务云、某头部AI智算中心采用“计算节点（昇腾910B）+ Dorado EBOF存储池”架构，实测4K随机读IOPS > 500万，端到端P99延迟 < 120μs（TCP模式）。\n\n---\n\n✅ **2. 中科曙光 ParaStor + XData EBOF 存储系统**  \n- ✅ **第三方验证**：  \n  - 通过国家工业信息安全发展研究中心（INDCS）《存算分离系统兼容性与性能评估报告》（2024年3月，报告号：INDCS-CV-2024-EBOF-015），验证基于国产以太网交换机（盛科V5/V6）、海光C86服务器、麒麟V10 OS 的NVMe/TCP EBOF方案；  \n  - 在“开放计算中国社区（OCP China）”完成OCP EBOF参考设计兼容性测试（符合OCeB v1.0规范）；  \n- ✅ 特点：软硬协同优化TCP栈（自研低延迟内核旁路模块），实测对比标准Linux TCP提升约35% IOPS吞吐。\n\n---\n\n✅ **3. 浪潮存储 AS13000G7（NVMe-oF版） + EBOF扩展柜**  \n- ✅ **第三方验证**：  \n  - 通过赛宝实验室（CEPREI）信创适配认证（证书号：CEPREI-XC-2",
+  "response": "截至目前（2024年6月），**尚未有公开、权威、签字级（即由第三方检测机构或头部AI厂商出具盖章认证的正式测试报告）的国产存储产品，明确针对「vLLM + LMCache 的 KV Cache 外置分层」场景发布实测报告**。\n\n以下是详细分析与现状说明：\n\n✅ 已实现的技术进展（但未达“签字级实测报告”标准）：\n1. **LMCache 与 vLLM 的集成验证已开源落地**  \n   - LMCache（由UCSD/MSR等团队提出，2024年初开源）已在 GitHub 提供 vLLM 插件支持（`lmcache_vllm_plugin`），支持将 KV Cache 卸载至本地SSD或远程对象存储（如S3）。  \n   - 国内多家AI基础设施团队（如智谱、百川、深度求索）在内部PoC中验证过基于国产NVMe SSD（如长江存储PC600系列、华为OceanStor Dorado NVMe盘）的外置KV缓存加速效果，但多为内部benchmark（无第三方背书、未公开方法论/原始数据）。\n\n2. **国产存储厂商的适配动作活跃，但尚处技术联调阶段**：  \n   - **华为**：OceanStor Pacific/All-Flash 系列在2024年Q1与某大模型公司联合开展“大模型推理缓存卸载”POC，支持POSIX语义挂载+低延迟RDMA访问，但仅发布新闻稿（无测试报告编号、无vLLM/LMCache具体配置参数）。  \n   - **浪潮存储**：AS13000G7 在2024年5月宣布支持LMCache协议栈对接，提供“KV Cache直通加速模块”，但官网仅展示架构图，未披露latency/throughput实测数据。  \n   - **天合光能旗下天合存储（原天合云）、忆芯科技、大普微电子**等也发布了面向AI推理的低时延SSD方案，部分通过了MLPerf Inference v4.0子项测试（非KV Cache专项），但**无LMCache+ vLLM联合测试报告**。\n\n❌ “签字级实测报告”的核心门槛未突破：  \n- ✍️ **签字级 = 具备法律效力的第三方认证**（如中国信通院泰尔实验室、国家工业信息安全发展研究中心、或头部云厂商（阿里云/AWS/腾讯云）出具的带CMA/CNAS资质、可追溯测试环境的正式报告）；  \n- 📉 当前所有国产存储宣传中的“vLLM加速”均未满足：  \n  • ",
   "meta": {
-    "elapsed": 15.64,
-    "usage": {
-      "total_tokens": 634,
-      "completion_tokens": 600,
-      "prompt_tokens": 34,
-      "prompt_tokens_details": {
-        "cached_tokens": 0
-      }
-    },
-    "returncode": 0
+    "elapsed": 9.93,
+    "usage": {},
+    "via": "dashscope_http"
   },
-  "collected_at": "2026-06-21T02:05:41"
+  "collected_at": "2026-07-20T03:07:49"
 }

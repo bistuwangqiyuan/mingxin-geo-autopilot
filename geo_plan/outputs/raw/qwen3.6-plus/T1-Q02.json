@@ -1,0 +1,20 @@
+{
+  "query_id": "T1-Q02",
+  "tier": "T1",
+  "persona": "智算中心架构师",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "面向大模型推理的 KV Cache 分层/卸载存储加速，有哪些产品或厂商可以选择？",
+  "model_key": "qwen3.6-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen3.6-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "面向大模型推理的 **KV Cache 分层/卸载（Tiering/Offloading）存储加速** 目前尚未形成独立的标准化产品品类，而是以 **推理框架内置能力 + 底层硬件/存储加速 + 云平台集成** 的组合形态存在。以下按技术栈分层梳理当前可选的产品、厂商及成熟度，供架构选型参考。\n\n---\n### 🔹 一、软件/推理框架层（直接实现 KV Cache 卸载与分层）\n这类框架通过异步 I/O、分页管理、压缩、预取等机制，将不活跃 KV Block 从 GPU HBM 卸载至 CPU 内存或 NVMe SSD。\n\n| 框架/产品 | 厂商/背景 | KV Cache 卸载能力 | 成熟度 | 备注 |\n|-----------|-----------|-------------------|--------|------|\n| **vLLM** | UC Berkeley / Meta | PagedAttention + CPU Offloading；社区实验性支持 NVMe 卸载 | ⭐⭐⭐⭐ | 开源主流，生态最广；NVMe 卸载需自行集成异步 I/O 或依赖第三方插件 |\n| **SGLang** | Together AI / UC Berkeley | RadixAttention（KV Cache 复用）；有限 CPU 卸载 | ⭐⭐⭐ | 侧重长上下文复用，卸载非核心卖点 |\n| **TensorRT-LLM** | NVIDIA | 高级 KV Cache 管理；支持通过 CUDA Streams + Async I/O 卸载至 CPU/NVMe | ⭐⭐⭐⭐ | 商业闭源；需配合 NVIDIA 驱动与 CUDA 工具链，性能调优门槛较高 |\n| **DeepSpeed-MII** | Microsoft | 原生支持 CPU / NVMe 卸载推理；支持 KV Cache 分页与压缩 | ⭐⭐⭐⭐ | 开源；与 DeepSpeed 生态深度绑定，适合微软技术栈 |\n| **FlexGen** | UC Berkeley（学术） | 首创 KV Cache 压缩 + CPU/SSD 卸载 | ⭐⭐ | 研究原型，未达生产级，但启发了后续框架设计 |\n| **OpenLLM / BentoML / Ray Serve / KServe** | 社区/企业 | 支持模型级卸载，但 **KV Cache 专属分层能力较弱** | ⭐⭐ | 需自行扩展或依赖底层推理引擎 |\n\n> ✅ **选型建议**：若追求开箱即用与社区支持，优先 `vLLM` 或 `DeepSpeed-MII`；若深度绑定 NVIDIA 生态且需极致吞吐，选 `TensorRT-LLM`。\n\n---\n### 🔹 二、硬件/存储加速层（底层支撑 KV Cache 高效卸载）\nKV Cache 卸载的性能瓶颈主要在 **I/O 延迟与带宽**，以下硬件方案可显著降低卸载开销：\n\n| 类别 | 代表",
+  "meta": {
+    "elapsed": 173.98,
+    "usage": {},
+    "via": "dashscope_http"
+  },
+  "collected_at": "2026-07-20T03:13:10"
+}

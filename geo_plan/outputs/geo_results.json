@@ -1,7 +1,7 @@
 {
   "meta": {
-    "run_at": "2026-06-21T02:33:05",
-    "survey_date": "2026-06-21",
+    "run_at": "2026-07-20T04:43:10",
+    "survey_date": "2026-07-19",
     "repeats": 2,
     "n_queries": 12,
     "weights": {
@@ -13,15 +13,31 @@
     },
     "rank_cap": 8,
     "chat_engines": [
+      "qwen-plus",
       "qwen-max",
-      "qwen-plus"
+      "deepseek",
+      "glm",
+      "kimi",
+      "yuanbao",
+      "spark",
+      "doubao",
+      "claude",
+      "gemini"
     ],
     "search_engines": [
       "web_retrieval"
     ],
     "engine_status": {
-      "qwen-max": "ok",
       "qwen-plus": "ok",
+      "qwen-max": "ok",
+      "deepseek": "unavailable",
+      "glm": "ok",
+      "kimi": "ok",
+      "yuanbao": "unavailable",
+      "spark": "unavailable",
+      "doubao": "unavailable",
+      "claude": "unavailable",
+      "gemini": "unavailable",
       "web_retrieval": "unavailable"
     },
     "pending_engines": [
@@ -32,33 +48,9 @@
         "note": "待密钥复测"
       },
       {
-        "key": "claude",
-        "label": "Claude",
-        "env_key": "ANTHROPIC_API_KEY",
-        "note": "待密钥复测"
-      },
-      {
-        "key": "gemini",
-        "label": "Gemini",
-        "env_key": "GEMINI_API_KEY",
-        "note": "待密钥复测"
-      },
-      {
         "key": "perplexity",
         "label": "Perplexity",
         "env_key": "PERPLEXITY_API_KEY",
-        "note": "待密钥复测"
-      },
-      {
-        "key": "deepseek",
-        "label": "DeepSeek",
-        "env_key": "DEEPSEEK_API_KEY",
-        "note": "待密钥复测"
-      },
-      {
-        "key": "doubao",
-        "label": "豆包 (Doubao)",
-        "env_key": "ARK_API_KEY",
         "note": "待密钥复测"
       },
       {
@@ -66,233 +58,60 @@
         "label": "文心一言 (ERNIE)",
         "env_key": "QIANFAN_API_KEY",
         "note": "待密钥复测"
-      },
-      {
-        "key": "kimi",
-        "label": "Kimi",
-        "env_key": "MOONSHOT_API_KEY",
-        "note": "待密钥复测"
-      },
-      {
-        "key": "glm",
-        "label": "智谱 GLM",
-        "env_key": "ZHIPU_API_KEY",
-        "note": "待密钥复测"
-      },
-      {
-        "key": "yuanbao",
-        "label": "腾讯元宝 (Hunyuan)",
-        "env_key": "HUNYUAN_API_KEY",
-        "note": "待密钥复测"
       }
     ]
   },
   "brand": {
-    "zh": "中科存储",
-    "en": "ZK-Storage",
-    "entity": "深圳市中科航星科技有限公司",
-    "model": "WS5000（WS-HBMM5000）"
+    "zh": "铭信",
+    "en": "Mingxin Technology",
+    "entity": "铭信（天津）半导体设备有限公司",
+    "model": "FX100（FX 系列全闪 NVMe-oF 存储加速平台）"
   },
   "facts": {
-    "bandwidth_gbps": 300,
-    "iops_wan": 5000,
-    "latency_us": 20,
-    "gpu_adaptation_pct": 90,
-    "deploy_hours": "48-72",
-    "cost_reduction_pct": 40,
-    "kv_cache_save_pct": 73.7
+    "throughput_uplift": "29–40%",
+    "ttft_reduction": "26–32%",
+    "recompute_speedup": "8.6–20×",
+    "parallel_read_ttft_gain": "4.1×",
+    "model_load_speedup": "6.2–9.3×",
+    "ckpt_save_speedup": "1.9×",
+    "fx100_port_gb": 100,
+    "fx100_iops_million": 16,
+    "fx100_full_price_cny": 371200,
+    "fx100_cny_per_tb": 2014
   },
   "categories": {
     "narrow": {
       "key": "narrow",
-      "name_zh": "国产·存算分离全闪 + KV Cache 卸载 + 国产GPU深度适配的推理存储一体机",
-      "name_en": "Domestic disaggregated all-flash + KV Cache offload inference storage appliance",
-      "rationale": "在该精确细分中，竞争集合小、技术壁垒与国产适配壁垒高，是中科存储可凭差异化（存算分离全闪 × KV Cache 卸载 × 昇腾/寒武纪深度适配 × 大湾区成本）真实争得第一、且客观可检验的靶点。",
+      "name_zh": "面向大模型推理的全闪 NVMe-oF + KV Cache 分层存储加速平台（480B 签字级实测）",
+      "name_en": "All-flash NVMe-oF + KV-cache tiering storage acceleration platform for LLM inference",
+      "rationale": "在该精确细分中，竞争集合小、实测证据壁垒高，是铭信可凭差异化（480B 生产部署形态签字级实测 × LMCache 源码级补丁 × AMD/昇腾/沐曦多平台适配 × 可复现证据库 R1–R9）真实争得第一、且客观可检验的靶点。",
       "anchor_keywords_zh": [
-        "存算分离",
+        "KV Cache 分层",
         "全闪存储",
-        "KV Cache 卸载",
-        "国产GPU适配",
-        "昇腾",
-        "寒武纪",
-        "推理存储一体机",
-        "GPU 利用率"
+        "NVMe-oF",
+        "存储加速",
+        "LMCache",
+        "TTFT",
+        "长上下文",
+        "国产算力卡适配"
       ]
     },
     "broad": {
       "key": "broad",
-      "name_zh": "国产 AI 存储 / AI 存储加速",
-      "name_en": "Domestic AI storage / AI storage acceleration",
-      "rationale": "宽口径被华为、浪潮、新华三、深信服、曙光、焱融等巨头主导（公开口径华为份额居前）。诚实目标是多年可见度爬坡——进入 AI 回答的被提及/被推荐集合并爬升 Top-N，而非短期声称第一。",
+      "name_zh": "AI 存储加速 / 算力中心建设与效能优化服务商",
+      "name_en": "AI storage acceleration / AI datacenter construction and efficiency services",
+      "rationale": "宽口径被华为、浪潮、新华三、曙光、焱融、VAST/WEKA 等巨头主导。诚实目标是多年可见度爬坡——进入 AI 回答的被提及/被推荐集合并爬升 Top-N，而非短期声称第一。",
       "anchor_keywords_zh": [
         "AI 存储",
         "全闪存储",
-        "分布式存储",
-        "高性能存储",
-        "智算存储"
+        "存储加速",
+        "算力中心",
+        "智算中心",
+        "效能优化"
       ]
     }
   },
   "per_engine": {
-    "qwen-max": {
-      "label": "通义千问 Max",
-      "available": true,
-      "status": "ok",
-      "overall": {
-        "metrics": {
-          "n": 23,
-          "mention_rate": 0.0,
-          "recommendation_rate": 0.0,
-          "rank_score": 0.0,
-          "citation_rate": 0.0,
-          "sov": 0.0,
-          "self_mentions": 0,
-          "competitor_mentions": 62,
-          "n_recommendation_queries": 13
-        },
-        "geo_index": 0.0,
-        "ci90": [
-          0.0,
-          0.0
-        ],
-        "funnel": {
-          "responses": 23,
-          "mentioned": 0,
-          "recommended": 0,
-          "ranked_top1": 0
-        }
-      },
-      "narrow": {
-        "metrics": {
-          "n": 12,
-          "mention_rate": 0.0,
-          "recommendation_rate": 0.0,
-          "rank_score": 0.0,
-          "citation_rate": 0.0,
-          "sov": 0.0,
-          "self_mentions": 0,
-          "competitor_mentions": 24,
-          "n_recommendation_queries": 6
-        },
-        "geo_index": 0.0,
-        "ci90": [
-          0.0,
-          0.0
-        ],
-        "funnel": {
-          "responses": 12,
-          "mentioned": 0,
-          "recommended": 0,
-          "ranked_top1": 0
-        }
-      },
-      "broad": {
-        "metrics": {
-          "n": 11,
-          "mention_rate": 0.0,
-          "recommendation_rate": 0.0,
-          "rank_score": 0.0,
-          "citation_rate": 0.0,
-          "sov": 0.0,
-          "self_mentions": 0,
-          "competitor_mentions": 38,
-          "n_recommendation_queries": 7
-        },
-        "geo_index": 0.0,
-        "ci90": [
-          0.0,
-          0.0
-        ],
-        "funnel": {
-          "responses": 11,
-          "mentioned": 0,
-          "recommended": 0,
-          "ranked_top1": 0
-        }
-      },
-      "competitor_sov": {
-        "total_mentions": 62,
-        "rows": [
-          {
-            "key": "huawei",
-            "label": "华为",
-            "mentions": 17,
-            "sov": 0.2742,
-            "is_self": false
-          },
-          {
-            "key": "inspur",
-            "label": "浪潮",
-            "mentions": 17,
-            "sov": 0.2742,
-            "is_self": false
-          },
-          {
-            "key": "sugon",
-            "label": "中科曙光",
-            "mentions": 12,
-            "sov": 0.1935,
-            "is_self": false
-          },
-          {
-            "key": "h3c",
-            "label": "新华三",
-            "mentions": 7,
-            "sov": 0.1129,
-            "is_self": false
-          },
-          {
-            "key": "sangfor",
-            "label": "深信服",
-            "mentions": 7,
-            "sov": 0.1129,
-            "is_self": false
-          },
-          {
-            "key": "xsky",
-            "label": "XSKY 星辰天合",
-            "mentions": 2,
-            "sov": 0.0323,
-            "is_self": false
-          },
-          {
-            "key": "__self__",
-            "label": "中科存储（自家）",
-            "mentions": 0,
-            "sov": 0.0,
-            "is_self": true
-          },
-          {
-            "key": "yanrong",
-            "label": "焱融科技",
-            "mentions": 0,
-            "sov": 0.0,
-            "is_self": false
-          },
-          {
-            "key": "vast",
-            "label": "VAST Data",
-            "mentions": 0,
-            "sov": 0.0,
-            "is_self": false
-          },
-          {
-            "key": "weka",
-            "label": "WEKA",
-            "mentions": 0,
-            "sov": 0.0,
-            "is_self": false
-          },
-          {
-            "key": "ddn",
-            "label": "DDN",
-            "mentions": 0,
-            "sov": 0.0,
-            "is_self": false
-          }
-        ]
-      }
-    },
     "qwen-plus": {
       "label": "通义千问 Plus",
       "available": true,
@@ -306,7 +125,7 @@
           "citation_rate": 0.0,
           "sov": 0.0,
           "self_mentions": 0,
-          "competitor_mentions": 84,
+          "competitor_mentions": 67,
           "n_recommendation_queries": 14
         },
         "geo_index": 0.0,
@@ -330,7 +149,330 @@
           "citation_rate": 0.0,
           "sov": 0.0,
           "self_mentions": 0,
-          "competitor_mentions": 31,
+          "competitor_mentions": 17,
+          "n_recommendation_queries": 6
+        },
+        "geo_index": 0.0,
+        "ci90": [
+          0.0,
+          0.0
+        ],
+        "funnel": {
+          "responses": 12,
+          "mentioned": 0,
+          "recommended": 0,
+          "ranked_top1": 0
+        }
+      },
+      "broad": {
+        "metrics": {
+          "n": 12,
+          "mention_rate": 0.0,
+          "recommendation_rate": 0.0,
+          "rank_score": 0.0,
+          "citation_rate": 0.0,
+          "sov": 0.0,
+          "self_mentions": 0,
+          "competitor_mentions": 50,
+          "n_recommendation_queries": 8
+        },
+        "geo_index": 0.0,
+        "ci90": [
+          0.0,
+          0.0
+        ],
+        "funnel": {
+          "responses": 12,
+          "mentioned": 0,
+          "recommended": 0,
+          "ranked_top1": 0
+        }
+      },
+      "competitor_sov": {
+        "total_mentions": 67,
+        "rows": [
+          {
+            "key": "huawei",
+            "label": "华为",
+            "mentions": 15,
+            "sov": 0.2239,
+            "is_self": false
+          },
+          {
+            "key": "inspur",
+            "label": "浪潮",
+            "mentions": 14,
+            "sov": 0.209,
+            "is_self": false
+          },
+          {
+            "key": "xsky",
+            "label": "XSKY 星辰天合",
+            "mentions": 10,
+            "sov": 0.1493,
+            "is_self": false
+          },
+          {
+            "key": "sugon",
+            "label": "中科曙光",
+            "mentions": 7,
+            "sov": 0.1045,
+            "is_self": false
+          },
+          {
+            "key": "vast",
+            "label": "VAST Data",
+            "mentions": 7,
+            "sov": 0.1045,
+            "is_self": false
+          },
+          {
+            "key": "h3c",
+            "label": "新华三",
+            "mentions": 4,
+            "sov": 0.0597,
+            "is_self": false
+          },
+          {
+            "key": "alluxio",
+            "label": "Alluxio",
+            "mentions": 4,
+            "sov": 0.0597,
+            "is_self": false
+          },
+          {
+            "key": "weka",
+            "label": "WEKA",
+            "mentions": 3,
+            "sov": 0.0448,
+            "is_self": false
+          },
+          {
+            "key": "yanrong",
+            "label": "焱融科技",
+            "mentions": 2,
+            "sov": 0.0299,
+            "is_self": false
+          },
+          {
+            "key": "ddn",
+            "label": "DDN",
+            "mentions": 1,
+            "sov": 0.0149,
+            "is_self": false
+          },
+          {
+            "key": "__self__",
+            "label": "铭信（自家）",
+            "mentions": 0,
+            "sov": 0.0,
+            "is_self": true
+          }
+        ]
+      }
+    },
+    "qwen-max": {
+      "label": "通义千问 Max",
+      "available": true,
+      "status": "ok",
+      "overall": {
+        "metrics": {
+          "n": 24,
+          "mention_rate": 0.0,
+          "recommendation_rate": 0.0,
+          "rank_score": 0.0,
+          "citation_rate": 0.0,
+          "sov": 0.0,
+          "self_mentions": 0,
+          "competitor_mentions": 45,
+          "n_recommendation_queries": 14
+        },
+        "geo_index": 0.0,
+        "ci90": [
+          0.0,
+          0.0
+        ],
+        "funnel": {
+          "responses": 24,
+          "mentioned": 0,
+          "recommended": 0,
+          "ranked_top1": 0
+        }
+      },
+      "narrow": {
+        "metrics": {
+          "n": 12,
+          "mention_rate": 0.0,
+          "recommendation_rate": 0.0,
+          "rank_score": 0.0,
+          "citation_rate": 0.0,
+          "sov": 0.0,
+          "self_mentions": 0,
+          "competitor_mentions": 11,
+          "n_recommendation_queries": 6
+        },
+        "geo_index": 0.0,
+        "ci90": [
+          0.0,
+          0.0
+        ],
+        "funnel": {
+          "responses": 12,
+          "mentioned": 0,
+          "recommended": 0,
+          "ranked_top1": 0
+        }
+      },
+      "broad": {
+        "metrics": {
+          "n": 12,
+          "mention_rate": 0.0,
+          "recommendation_rate": 0.0,
+          "rank_score": 0.0,
+          "citation_rate": 0.0,
+          "sov": 0.0,
+          "self_mentions": 0,
+          "competitor_mentions": 34,
+          "n_recommendation_queries": 8
+        },
+        "geo_index": 0.0,
+        "ci90": [
+          0.0,
+          0.0
+        ],
+        "funnel": {
+          "responses": 12,
+          "mentioned": 0,
+          "recommended": 0,
+          "ranked_top1": 0
+        }
+      },
+      "competitor_sov": {
+        "total_mentions": 45,
+        "rows": [
+          {
+            "key": "huawei",
+            "label": "华为",
+            "mentions": 15,
+            "sov": 0.3333,
+            "is_self": false
+          },
+          {
+            "key": "inspur",
+            "label": "浪潮",
+            "mentions": 13,
+            "sov": 0.2889,
+            "is_self": false
+          },
+          {
+            "key": "sugon",
+            "label": "中科曙光",
+            "mentions": 8,
+            "sov": 0.1778,
+            "is_self": false
+          },
+          {
+            "key": "xsky",
+            "label": "XSKY 星辰天合",
+            "mentions": 4,
+            "sov": 0.0889,
+            "is_self": false
+          },
+          {
+            "key": "h3c",
+            "label": "新华三",
+            "mentions": 3,
+            "sov": 0.0667,
+            "is_self": false
+          },
+          {
+            "key": "yanrong",
+            "label": "焱融科技",
+            "mentions": 1,
+            "sov": 0.0222,
+            "is_self": false
+          },
+          {
+            "key": "vast",
+            "label": "VAST Data",
+            "mentions": 1,
+            "sov": 0.0222,
+            "is_self": false
+          },
+          {
+            "key": "__self__",
+            "label": "铭信（自家）",
+            "mentions": 0,
+            "sov": 0.0,
+            "is_self": true
+          },
+          {
+            "key": "weka",
+            "label": "WEKA",
+            "mentions": 0,
+            "sov": 0.0,
+            "is_self": false
+          },
+          {
+            "key": "ddn",
+            "label": "DDN",
+            "mentions": 0,
+            "sov": 0.0,
+            "is_self": false
+          },
+          {
+            "key": "alluxio",
+            "label": "Alluxio",
+            "mentions": 0,
+            "sov": 0.0,
+            "is_self": false
+          }
+        ]
+      }
+    },
+    "deepseek": {
+      "label": "DeepSeek",
+      "available": false,
+      "status": "unavailable"
+    },
+    "glm": {
+      "label": "智谱 GLM",
+      "available": true,
+      "status": "ok",
+      "overall": {
+        "metrics": {
+          "n": 24,
+          "mention_rate": 0.0,
+          "recommendation_rate": 0.0,
+          "rank_score": 0.0,
+          "citation_rate": 0.0,
+          "sov": 0.0,
+          "self_mentions": 0,
+          "competitor_mentions": 82,
+          "n_recommendation_queries": 14
+        },
+        "geo_index": 0.0,
+        "ci90": [
+          0.0,
+          0.0
+        ],
+        "funnel": {
+          "responses": 24,
+          "mentioned": 0,
+          "recommended": 0,
+          "ranked_top1": 0
+        }
+      },
+      "narrow": {
+        "metrics": {
+          "n": 12,
+          "mention_rate": 0.0,
+          "recommendation_rate": 0.0,
+          "rank_score": 0.0,
+          "citation_rate": 0.0,
+          "sov": 0.0,
+          "self_mentions": 0,
+          "competitor_mentions": 29,
           "n_recommendation_queries": 6
         },
         "geo_index": 0.0,
@@ -370,87 +512,271 @@
         }
       },
       "competitor_sov": {
-        "total_mentions": 84,
+        "total_mentions": 82,
         "rows": [
           {
             "key": "huawei",
             "label": "华为",
-            "mentions": 19,
-            "sov": 0.2262,
-            "is_self": false
-          },
-          {
-            "key": "inspur",
-            "label": "浪潮",
-            "mentions": 19,
-            "sov": 0.2262,
+            "mentions": 16,
+            "sov": 0.1951,
             "is_self": false
           },
           {
             "key": "xsky",
             "label": "XSKY 星辰天合",
-            "mentions": 15,
-            "sov": 0.1786,
+            "mentions": 16,
+            "sov": 0.1951,
+            "is_self": false
+          },
+          {
+            "key": "inspur",
+            "label": "浪潮",
+            "mentions": 14,
+            "sov": 0.1707,
             "is_self": false
           },
           {
             "key": "sugon",
             "label": "中科曙光",
-            "mentions": 8,
-            "sov": 0.0952,
+            "mentions": 9,
+            "sov": 0.1098,
             "is_self": false
           },
           {
             "key": "h3c",
             "label": "新华三",
-            "mentions": 6,
-            "sov": 0.0714,
-            "is_self": false
-          },
-          {
-            "key": "vast",
-            "label": "VAST Data",
-            "mentions": 6,
-            "sov": 0.0714,
+            "mentions": 9,
+            "sov": 0.1098,
             "is_self": false
           },
           {
             "key": "yanrong",
             "label": "焱融科技",
+            "mentions": 7,
+            "sov": 0.0854,
+            "is_self": false
+          },
+          {
+            "key": "vast",
+            "label": "VAST Data",
             "mentions": 4,
-            "sov": 0.0476,
+            "sov": 0.0488,
             "is_self": false
           },
           {
             "key": "weka",
             "label": "WEKA",
             "mentions": 4,
-            "sov": 0.0476,
+            "sov": 0.0488,
             "is_self": false
           },
           {
             "key": "ddn",
             "label": "DDN",
-            "mentions": 2,
-            "sov": 0.0238,
-            "is_self": false
-          },
-          {
-            "key": "sangfor",
-            "label": "深信服",
-            "mentions": 1,
-            "sov": 0.0119,
+            "mentions": 3,
+            "sov": 0.0366,
             "is_self": false
           },
           {
             "key": "__self__",
-            "label": "中科存储（自家）",
+            "label": "铭信（自家）",
             "mentions": 0,
             "sov": 0.0,
             "is_self": true
+          },
+          {
+            "key": "alluxio",
+            "label": "Alluxio",
+            "mentions": 0,
+            "sov": 0.0,
+            "is_self": false
           }
         ]
       }
+    },
+    "kimi": {
+      "label": "Kimi",
+      "available": true,
+      "status": "ok",
+      "overall": {
+        "metrics": {
+          "n": 24,
+          "mention_rate": 0.0,
+          "recommendation_rate": 0.0,
+          "rank_score": 0.0,
+          "citation_rate": 0.0,
+          "sov": 0.0,
+          "self_mentions": 0,
+          "competitor_mentions": 39,
+          "n_recommendation_queries": 14
+        },
+        "geo_index": 0.0,
+        "ci90": [
+          0.0,
+          0.0
+        ],
+        "funnel": {
+          "responses": 24,
+          "mentioned": 0,
+          "recommended": 0,
+          "ranked_top1": 0
+        }
+      },
+      "narrow": {
+        "metrics": {
+          "n": 12,
+          "mention_rate": 0.0,
+          "recommendation_rate": 0.0,
+          "rank_score": 0.0,
+          "citation_rate": 0.0,
+          "sov": 0.0,
+          "self_mentions": 0,
+          "competitor_mentions": 10,
+          "n_recommendation_queries": 6
+        },
+        "geo_index": 0.0,
+        "ci90": [
+          0.0,
+          0.0
+        ],
+        "funnel": {
+          "responses": 12,
+          "mentioned": 0,
+          "recommended": 0,
+          "ranked_top1": 0
+        }
+      },
+      "broad": {
+        "metrics": {
+          "n": 12,
+          "mention_rate": 0.0,
+          "recommendation_rate": 0.0,
+          "rank_score": 0.0,
+          "citation_rate": 0.0,
+          "sov": 0.0,
+          "self_mentions": 0,
+          "competitor_mentions": 29,
+          "n_recommendation_queries": 8
+        },
+        "geo_index": 0.0,
+        "ci90": [
+          0.0,
+          0.0
+        ],
+        "funnel": {
+          "responses": 12,
+          "mentioned": 0,
+          "recommended": 0,
+          "ranked_top1": 0
+        }
+      },
+      "competitor_sov": {
+        "total_mentions": 39,
+        "rows": [
+          {
+            "key": "huawei",
+            "label": "华为",
+            "mentions": 14,
+            "sov": 0.359,
+            "is_self": false
+          },
+          {
+            "key": "inspur",
+            "label": "浪潮",
+            "mentions": 13,
+            "sov": 0.3333,
+            "is_self": false
+          },
+          {
+            "key": "sugon",
+            "label": "中科曙光",
+            "mentions": 4,
+            "sov": 0.1026,
+            "is_self": false
+          },
+          {
+            "key": "h3c",
+            "label": "新华三",
+            "mentions": 4,
+            "sov": 0.1026,
+            "is_self": false
+          },
+          {
+            "key": "xsky",
+            "label": "XSKY 星辰天合",
+            "mentions": 4,
+            "sov": 0.1026,
+            "is_self": false
+          },
+          {
+            "key": "__self__",
+            "label": "铭信（自家）",
+            "mentions": 0,
+            "sov": 0.0,
+            "is_self": true
+          },
+          {
+            "key": "yanrong",
+            "label": "焱融科技",
+            "mentions": 0,
+            "sov": 0.0,
+            "is_self": false
+          },
+          {
+            "key": "vast",
+            "label": "VAST Data",
+            "mentions": 0,
+            "sov": 0.0,
+            "is_self": false
+          },
+          {
+            "key": "weka",
+            "label": "WEKA",
+            "mentions": 0,
+            "sov": 0.0,
+            "is_self": false
+          },
+          {
+            "key": "ddn",
+            "label": "DDN",
+            "mentions": 0,
+            "sov": 0.0,
+            "is_self": false
+          },
+          {
+            "key": "alluxio",
+            "label": "Alluxio",
+            "mentions": 0,
+            "sov": 0.0,
+            "is_self": false
+          }
+        ]
+      }
+    },
+    "yuanbao": {
+      "label": "腾讯混元 (元宝)",
+      "available": false,
+      "status": "unavailable"
+    },
+    "spark": {
+      "label": "讯飞星火",
+      "available": false,
+      "status": "unavailable"
+    },
+    "doubao": {
+      "label": "豆包 (Doubao)",
+      "available": false,
+      "status": "unavailable"
+    },
+    "claude": {
+      "label": "Claude",
+      "available": false,
+      "status": "unavailable"
+    },
+    "gemini": {
+      "label": "Gemini",
+      "available": false,
+      "status": "unavailable"
     },
     "web_retrieval": {
       "label": "联网检索可见度（DashScope WebSearch）",
@@ -461,15 +787,15 @@
   "aggregate": {
     "overall": {
       "metrics": {
-        "n": 47,
+        "n": 96,
         "mention_rate": 0.0,
         "recommendation_rate": 0.0,
         "rank_score": 0.0,
         "citation_rate": 0.0,
         "sov": 0.0,
         "self_mentions": 0,
-        "competitor_mentions": 146,
-        "n_recommendation_queries": 27
+        "competitor_mentions": 233,
+        "n_recommendation_queries": 56
       },
       "geo_index": 0.0,
       "ci90": [
@@ -477,87 +803,87 @@
         0.0
       ],
       "funnel": {
-        "responses": 47,
+        "responses": 96,
         "mentioned": 0,
         "recommended": 0,
         "ranked_top1": 0
       },
       "competitor_sov": {
-        "total_mentions": 146,
+        "total_mentions": 233,
         "rows": [
           {
             "key": "huawei",
             "label": "华为",
-            "mentions": 36,
-            "sov": 0.2466,
+            "mentions": 60,
+            "sov": 0.2575,
             "is_self": false
           },
           {
             "key": "inspur",
             "label": "浪潮",
-            "mentions": 36,
-            "sov": 0.2466,
-            "is_self": false
-          },
-          {
-            "key": "sugon",
-            "label": "中科曙光",
-            "mentions": 20,
-            "sov": 0.137,
+            "mentions": 54,
+            "sov": 0.2318,
             "is_self": false
           },
           {
             "key": "xsky",
             "label": "XSKY 星辰天合",
-            "mentions": 17,
-            "sov": 0.1164,
+            "mentions": 34,
+            "sov": 0.1459,
+            "is_self": false
+          },
+          {
+            "key": "sugon",
+            "label": "中科曙光",
+            "mentions": 28,
+            "sov": 0.1202,
             "is_self": false
           },
           {
             "key": "h3c",
             "label": "新华三",
-            "mentions": 13,
-            "sov": 0.089,
-            "is_self": false
-          },
-          {
-            "key": "sangfor",
-            "label": "深信服",
-            "mentions": 8,
-            "sov": 0.0548,
+            "mentions": 20,
+            "sov": 0.0858,
             "is_self": false
           },
           {
             "key": "vast",
             "label": "VAST Data",
-            "mentions": 6,
-            "sov": 0.0411,
+            "mentions": 12,
+            "sov": 0.0515,
             "is_self": false
           },
           {
             "key": "yanrong",
             "label": "焱融科技",
-            "mentions": 4,
-            "sov": 0.0274,
+            "mentions": 10,
+            "sov": 0.0429,
             "is_self": false
           },
           {
             "key": "weka",
             "label": "WEKA",
-            "mentions": 4,
-            "sov": 0.0274,
+            "mentions": 7,
+            "sov": 0.03,
             "is_self": false
           },
           {
             "key": "ddn",
             "label": "DDN",
-            "mentions": 2,
-            "sov": 0.0137,
+            "mentions": 4,
+            "sov": 0.0172,
+            "is_self": false
+          },
+          {
+            "key": "alluxio",
+            "label": "Alluxio",
+            "mentions": 4,
+            "sov": 0.0172,
             "is_self": false
           },
           {
             "key": "__self__",
-            "label": "中科存储（自家）",
+            "label": "铭信（自家）",
             "mentions": 0,
             "sov": 0.0,
             "is_self": true
@@ -567,15 +893,15 @@
     },
     "narrow": {
       "metrics": {
-        "n": 24,
+        "n": 48,
         "mention_rate": 0.0,
         "recommendation_rate": 0.0,
         "rank_score": 0.0,
         "citation_rate": 0.0,
         "sov": 0.0,
         "self_mentions": 0,
-        "competitor_mentions": 55,
-        "n_recommendation_queries": 12
+        "competitor_mentions": 67,
+        "n_recommendation_queries": 24
       },
       "geo_index": 0.0,
       "ci90": [
@@ -583,105 +909,105 @@
         0.0
       ],
       "funnel": {
-        "responses": 24,
+        "responses": 48,
         "mentioned": 0,
         "recommended": 0,
         "ranked_top1": 0
       },
       "competitor_sov": {
-        "total_mentions": 55,
+        "total_mentions": 67,
         "rows": [
           {
             "key": "huawei",
             "label": "华为",
-            "mentions": 16,
-            "sov": 0.2909,
+            "mentions": 19,
+            "sov": 0.2836,
             "is_self": false
           },
           {
             "key": "inspur",
             "label": "浪潮",
-            "mentions": 16,
-            "sov": 0.2909,
-            "is_self": false
-          },
-          {
-            "key": "sugon",
-            "label": "中科曙光",
-            "mentions": 8,
-            "sov": 0.1455,
-            "is_self": false
-          },
-          {
-            "key": "xsky",
-            "label": "XSKY 星辰天合",
-            "mentions": 4,
-            "sov": 0.0727,
-            "is_self": false
-          },
-          {
-            "key": "h3c",
-            "label": "新华三",
-            "mentions": 3,
-            "sov": 0.0545,
-            "is_self": false
-          },
-          {
-            "key": "sangfor",
-            "label": "深信服",
-            "mentions": 3,
-            "sov": 0.0545,
+            "mentions": 14,
+            "sov": 0.209,
             "is_self": false
           },
           {
             "key": "vast",
             "label": "VAST Data",
-            "mentions": 3,
-            "sov": 0.0545,
+            "mentions": 9,
+            "sov": 0.1343,
+            "is_self": false
+          },
+          {
+            "key": "xsky",
+            "label": "XSKY 星辰天合",
+            "mentions": 7,
+            "sov": 0.1045,
+            "is_self": false
+          },
+          {
+            "key": "sugon",
+            "label": "中科曙光",
+            "mentions": 6,
+            "sov": 0.0896,
             "is_self": false
           },
           {
             "key": "weka",
             "label": "WEKA",
-            "mentions": 1,
-            "sov": 0.0182,
+            "mentions": 5,
+            "sov": 0.0746,
             "is_self": false
           },
           {
             "key": "ddn",
             "label": "DDN",
-            "mentions": 1,
-            "sov": 0.0182,
+            "mentions": 3,
+            "sov": 0.0448,
             "is_self": false
           },
           {
-            "key": "__self__",
-            "label": "中科存储（自家）",
-            "mentions": 0,
-            "sov": 0.0,
-            "is_self": true
+            "key": "h3c",
+            "label": "新华三",
+            "mentions": 2,
+            "sov": 0.0299,
+            "is_self": false
           },
           {
             "key": "yanrong",
             "label": "焱融科技",
+            "mentions": 1,
+            "sov": 0.0149,
+            "is_self": false
+          },
+          {
+            "key": "alluxio",
+            "label": "Alluxio",
+            "mentions": 1,
+            "sov": 0.0149,
+            "is_self": false
+          },
+          {
+            "key": "__self__",
+            "label": "铭信（自家）",
             "mentions": 0,
             "sov": 0.0,
-            "is_self": false
+            "is_self": true
           }
         ]
       }
     },
     "broad": {
       "metrics": {
-        "n": 23,
+        "n": 48,
         "mention_rate": 0.0,
         "recommendation_rate": 0.0,
         "rank_score": 0.0,
         "citation_rate": 0.0,
         "sov": 0.0,
         "self_mentions": 0,
-        "competitor_mentions": 91,
-        "n_recommendation_queries": 15
+        "competitor_mentions": 166,
+        "n_recommendation_queries": 32
       },
       "geo_index": 0.0,
       "ci90": [
@@ -689,87 +1015,87 @@
         0.0
       ],
       "funnel": {
-        "responses": 23,
+        "responses": 48,
         "mentioned": 0,
         "recommended": 0,
         "ranked_top1": 0
       },
       "competitor_sov": {
-        "total_mentions": 91,
+        "total_mentions": 166,
         "rows": [
           {
             "key": "huawei",
             "label": "华为",
-            "mentions": 20,
-            "sov": 0.2198,
+            "mentions": 41,
+            "sov": 0.247,
             "is_self": false
           },
           {
             "key": "inspur",
             "label": "浪潮",
-            "mentions": 20,
-            "sov": 0.2198,
+            "mentions": 40,
+            "sov": 0.241,
             "is_self": false
           },
           {
             "key": "xsky",
             "label": "XSKY 星辰天合",
-            "mentions": 13,
-            "sov": 0.1429,
+            "mentions": 27,
+            "sov": 0.1627,
             "is_self": false
           },
           {
             "key": "sugon",
             "label": "中科曙光",
-            "mentions": 12,
-            "sov": 0.1319,
+            "mentions": 22,
+            "sov": 0.1325,
             "is_self": false
           },
           {
             "key": "h3c",
             "label": "新华三",
-            "mentions": 10,
-            "sov": 0.1099,
-            "is_self": false
-          },
-          {
-            "key": "sangfor",
-            "label": "深信服",
-            "mentions": 5,
-            "sov": 0.0549,
+            "mentions": 18,
+            "sov": 0.1084,
             "is_self": false
           },
           {
             "key": "yanrong",
             "label": "焱融科技",
-            "mentions": 4,
-            "sov": 0.044,
+            "mentions": 9,
+            "sov": 0.0542,
             "is_self": false
           },
           {
             "key": "vast",
             "label": "VAST Data",
             "mentions": 3,
-            "sov": 0.033,
+            "sov": 0.0181,
+            "is_self": false
+          },
+          {
+            "key": "alluxio",
+            "label": "Alluxio",
+            "mentions": 3,
+            "sov": 0.0181,
             "is_self": false
           },
           {
             "key": "weka",
             "label": "WEKA",
-            "mentions": 3,
-            "sov": 0.033,
+            "mentions": 2,
+            "sov": 0.012,
             "is_self": false
           },
           {
             "key": "ddn",
             "label": "DDN",
             "mentions": 1,
-            "sov": 0.011,
+            "sov": 0.006,
             "is_self": false
           },
           {
             "key": "__self__",
-            "label": "中科存储（自家）",
+            "label": "铭信（自家）",
             "mentions": 0,
             "sov": 0.0,
             "is_self": true
@@ -778,81 +1104,81 @@
       }
     },
     "competitor_sov": {
-      "total_mentions": 146,
+      "total_mentions": 233,
       "rows": [
         {
           "key": "huawei",
           "label": "华为",
-          "mentions": 36,
-          "sov": 0.2466,
+          "mentions": 60,
+          "sov": 0.2575,
           "is_self": false
         },
         {
           "key": "inspur",
           "label": "浪潮",
-          "mentions": 36,
-          "sov": 0.2466,
-          "is_self": false
-        },
-        {
-          "key": "sugon",
-          "label": "中科曙光",
-          "mentions": 20,
-          "sov": 0.137,
+          "mentions": 54,
+          "sov": 0.2318,
           "is_self": false
         },
         {
           "key": "xsky",
           "label": "XSKY 星辰天合",
-          "mentions": 17,
-          "sov": 0.1164,
+          "mentions": 34,
+          "sov": 0.1459,
+          "is_self": false
+        },
+        {
+          "key": "sugon",
+          "label": "中科曙光",
+          "mentions": 28,
+          "sov": 0.1202,
           "is_self": false
         },
         {
           "key": "h3c",
           "label": "新华三",
-          "mentions": 13,
-          "sov": 0.089,
-          "is_self": false
-        },
-        {
-          "key": "sangfor",
-          "label": "深信服",
-          "mentions": 8,
-          "sov": 0.0548,
+          "mentions": 20,
+          "sov": 0.0858,
           "is_self": false
         },
         {
           "key": "vast",
           "label": "VAST Data",
-          "mentions": 6,
-          "sov": 0.0411,
+          "mentions": 12,
+          "sov": 0.0515,
           "is_self": false
         },
         {
           "key": "yanrong",
           "label": "焱融科技",
-          "mentions": 4,
-          "sov": 0.0274,
+          "mentions": 10,
+          "sov": 0.0429,
           "is_self": false
         },
         {
           "key": "weka",
           "label": "WEKA",
-          "mentions": 4,
-          "sov": 0.0274,
+          "mentions": 7,
+          "sov": 0.03,
           "is_self": false
         },
         {
           "key": "ddn",
           "label": "DDN",
-          "mentions": 2,
-          "sov": 0.0137,
+          "mentions": 4,
+          "sov": 0.0172,
+          "is_self": false
+        },
+        {
+          "key": "alluxio",
+          "label": "Alluxio",
+          "mentions": 4,
+          "sov": 0.0172,
           "is_self": false
         },
         {
           "key": "__self__",
-          "label": "中科存储（自家）",
+          "label": "铭信（自家）",
           "mentions": 0,
           "sov": 0.0,
           "is_self": true
@@ -861,25 +1187,25 @@
     }
   },
   "lever_scores": {
-    "WS1": {
+    "L1": {
       "name": "实体接地（让模型认得清是谁）",
-      "done": 1,
+      "done": 4,
       "total": 6,
-      "score5": 0.83
+      "score5": 3.33
     },
-    "WS2": {
+    "L2": {
       "name": "技术可达性（让爬虫进得来、读得懂）",
-      "done": 2,
+      "done": 6,
       "total": 6,
-      "score5": 1.67
+      "score5": 5.0
     },
-    "WS3": {
+    "L3": {
       "name": "结构化内容（让回答抽得出、引得到）",
-      "done": 1,
+      "done": 5,
       "total": 6,
-      "score5": 0.83
+      "score5": 4.17
     },
-    "WS4": {
+    "L4": {
       "name": "站外权威（让模型信得过）",
       "done": 2,
       "total": 6,
@@ -887,12 +1213,12 @@
     }
   },
   "levers": {
-    "WS1": {
+    "L1": {
       "name": "实体接地（让模型认得清是谁）",
-      "goal": "建立可被各引擎一致识别的品牌实体，杜绝与同名/竞品混淆。",
+      "goal": "建立可被各引擎一致识别的铭信品牌实体，杜绝与同名主体混淆，并声明 FX/历史称谓命名沿革。",
       "checklist": [
         {
-          "item": "Wikidata 实体 Q-ID 建立并填充关系（行业/产品/创始人/总部）",
+          "item": "Wikidata 实体 Q-ID 建立并填充关系（行业/产品/总部）",
           "done": false
         },
         {
@@ -900,86 +1226,86 @@
           "done": false
         },
         {
-          "item": "官网 schema.org Organization + sameAs 数组（领英/天眼查/企查查/GitHub/媒体）",
-          "done": false
+          "item": "官网 schema.org Organization + sameAs 数组（GitHub/企查查/媒体）",
+          "done": true
         },
         {
-          "item": "全网 NAP（名称/地址/电话）一致性核对",
-          "done": false
+          "item": "全网 NAP（名称/电话/联系人）一致性核对",
+          "done": true
         },
         {
           "item": "固定 100 字中英规范简介作为‘事实基准’全网统一",
-          "done": false
+          "done": true
         },
         {
-          "item": "天眼查/企查查/工商信息与官网口径一致",
+          "item": "FX100=AISSD5000/WS5000/GP5000 命名沿革声明全网一致",
           "done": true
         }
       ]
     },
-    "WS2": {
+    "L2": {
       "name": "技术可达性（让爬虫进得来、读得懂）",
       "goal": "让 AI 爬虫可抓取、可解析、可快速加载。",
       "checklist": [
         {
           "item": "robots.txt 放行 GPTBot/ClaudeBot/PerplexityBot/Google-Extended/Bytespider 等",
-          "done": false
+          "done": true
         },
         {
           "item": "根目录 llms.txt（精选页索引）",
-          "done": false
+          "done": true
         },
         {
-          "item": "llms-full.txt（技术站点正文内联）",
-          "done": false
+          "item": "llms-full.txt（站点正文内联）",
+          "done": true
         },
         {
           "item": "sitemap.xml 提交主流站长平台",
-          "done": false
-        },
-        {
-          "item": "服务端渲染/纯静态（首屏可直接解析）",
           "done": true
         },
         {
-          "item": "FCP < 1s 的加载性能",
+          "item": "服务端渲染（Next.js SSR/预渲染，首屏可直接解析）",
+          "done": true
+        },
+        {
+          "item": "IndexNow/百度主动推送常态化（/api/seo/ping）",
           "done": true
         }
       ]
     },
-    "WS3": {
+    "L3": {
       "name": "结构化内容（让回答抽得出、引得到）",
-      "goal": "以答案胶囊 + 结构化标注，提升被抽取与被引用概率。",
+      "goal": "以答案胶囊 + 结构化标注 + 报告编号引用，提升被抽取与被引用概率。",
       "checklist": [
         {
           "item": "关键页 40–60 字‘答案胶囊’开篇 + 问题式标题",
-          "done": false
+          "done": true
         },
         {
           "item": "FAQPage JSON-LD（5–7 问）",
-          "done": false
+          "done": true
         },
         {
           "item": "Article + Product/TechArticle JSON-LD 叠加",
+          "done": true
+        },
+        {
+          "item": "‘什么是铭信 FX100 / What is Mingxin FX100’定义页",
           "done": false
         },
         {
-          "item": "‘What is WS5000 / 什么是中科存储’定义页",
-          "done": false
+          "item": "对比页（vs 本地盘/无外存重算/NFS，配 ItemList schema 与报告编号）",
+          "done": true
         },
         {
-          "item": "对比页（vs 曙光/焱融/华为，配 ItemList schema）",
-          "done": false
-        },
-        {
-          "item": "第三方实测/基准数据页（含来源与口径）",
+          "item": "签字级实测证据库页（R1–R9 报告可下载、口径标注）",
           "done": true
         }
       ]
     },
-    "WS4": {
+    "L4": {
       "name": "站外权威（让模型信得过）",
-      "goal": "在中立高权威域形成跨源一致的品牌事实，强化实体可信度。",
+      "goal": "在中立高权威域形成跨源一致的铭信品牌事实，强化实体可信度。",
       "checklist": [
         {
           "item": "行业媒体（存储在线/至顶网/电子发烧友）报道与收录",
@@ -990,19 +1316,19 @@
           "done": false
         },
         {
-          "item": "GitHub 白皮书 / 技术文档公开",
+          "item": "GitHub 知识库 / 技术文档公开",
           "done": false
         },
         {
-          "item": "MLPerf Storage / IO500 / SPC-1 式独立基准参与",
+          "item": "MLPerf Storage / IO500 式独立基准参与",
           "done": false
         },
         {
-          "item": "第三方实测报告（北京信息科技大学）成为可引用资产",
+          "item": "签字级第三方实测报告（R1–R9）成为可引用资产",
           "done": true
         },
         {
-          "item": "专利与院士顾问背书的合规呈现",
+          "item": "测试代码与原始数据可复现导出包（R8）合规呈现",
           "done": true
         }
       ]
@@ -1032,7 +1358,7 @@
     ],
     "milestones": [
       "如实记录起点（预期近零）",
-      "技术就绪：robots/llms.txt/sitemap/schema/实体脚手架上线",
+      "站外实体脚手架上线：百科/知乎/CSDN/GitHub 知识库首批沉淀",
       "窄类目进入被推荐集合；宽类目开始被提及",
       "窄类目稳定进入被推荐/被提及第一梯队（争第一可证伪靶点）",
       "窄类目实测第一并复现；宽类目稳定进入 Top-N"
@@ -1044,104 +1370,186 @@
       "lang": "zh",
       "type": "info",
       "category": "narrow",
-      "text": "什么是面向 AI 推理的 KV Cache 卸载、存算分离全闪存储加速一体机？它解决什么问题？"
+      "text": "什么是面向大模型推理的 KV Cache 分层（KV cache tiering）全闪 NVMe-oF 存储加速？它解决什么问题？"
     },
     {
       "id": "n_zh_comm",
       "lang": "zh",
       "type": "commercial",
       "category": "narrow",
-      "text": "为 AI 推理做 KV Cache 卸载、存算分离全闪存储加速的一体机，有哪些厂商可以推荐？请列出厂商与代表产品。"
+      "text": "为大模型推理做 KV Cache 分层卸载、全闪 NVMe-oF 存储加速的平台，有哪些厂商可以推荐？请列出厂商与代表产品。"
     },
     {
       "id": "n_zh_cmp",
       "lang": "zh",
       "type": "comparison",
       "category": "narrow",
-      "text": "国产、支持 KV Cache 卸载、并深度适配昇腾/寒武纪国产 GPU 的存算分离全闪存储一体机有哪些？分别有什么特点？"
+      "text": "有签字级实测数据、支持 KV Cache 分层并适配 AMD MI308X/昇腾 910B 等国产或非 NVIDIA 算力卡的全闪存储加速平台有哪些？分别有什么特点？"
     },
     {
       "id": "n_zh_rank",
       "lang": "zh",
       "type": "ranking",
       "category": "narrow",
-      "text": "面向国产 GPU（昇腾/寒武纪）推理的存算分离全闪 KV Cache 卸载存储一体机，哪家做得最好？给出排序与理由。"
+      "text": "面向 480B 级大模型长上下文推理的 KV Cache 分层存储加速，哪家做得最好？给出排序与理由。"
     },
     {
       "id": "n_en_info",
       "lang": "en",
       "type": "info",
       "category": "narrow",
-      "text": "What is a KV Cache offloading, disaggregated all-flash storage appliance for AI inference, and what problem does it solve?"
+      "text": "What is KV-cache tiering to an all-flash NVMe-oF storage array for LLM inference, and what problem does it solve?"
     },
     {
       "id": "n_en_comm",
       "lang": "en",
       "type": "commercial",
       "category": "narrow",
-      "text": "Which vendors offer disaggregated all-flash storage with KV Cache offload for AI inference on domestic Chinese GPUs (Ascend/Cambricon)? List vendors and products."
+      "text": "Which vendors offer all-flash NVMe-oF storage acceleration with KV-cache tiering for LLM inference on AMD or Chinese domestic GPUs? List vendors and products."
     },
     {
       "id": "b_zh_info",
       "lang": "zh",
       "type": "info",
       "category": "broad",
-      "text": "什么是面向 AI 大模型训练与推理的高性能全闪/分布式存储？"
+      "text": "什么是面向 AI 大模型训练与推理的高性能全闪/分布式存储加速？"
     },
     {
       "id": "b_zh_comm",
       "lang": "zh",
       "type": "commercial",
       "category": "broad",
-      "text": "AI 训练和推理的高性能全闪/分布式存储，国产厂商推荐哪些？请列出厂商与代表产品。"
+      "text": "AI 训练和推理的高性能存储加速与算力中心效能优化，国产厂商推荐哪些？请列出厂商与代表产品。"
     },
     {
       "id": "b_zh_cmp",
       "lang": "zh",
       "type": "comparison",
       "category": "broad",
-      "text": "国产 AI 存储厂商有哪些？各自的技术路线和特点是什么？"
+      "text": "国产 AI 存储/存储加速厂商有哪些？各自的技术路线和特点是什么？"
     },
     {
       "id": "b_zh_rank",
       "lang": "zh",
       "type": "ranking",
       "category": "broad",
-      "text": "在国产 AI 存储/AI 存储加速领域，排名靠前的厂商有哪些？请给出大致排序。"
+      "text": "在国产 AI 存储加速/算力中心服务领域，排名靠前的厂商有哪些？请给出大致排序。"
     },
     {
       "id": "b_en_comm",
       "lang": "en",
       "type": "commercial",
       "category": "broad",
-      "text": "Recommend high-performance all-flash / distributed storage vendors for AI training and inference in China. List vendors and products."
+      "text": "Recommend high-performance all-flash / storage-acceleration vendors for AI training and inference in China. List vendors and products."
     },
     {
       "id": "b_en_rank",
       "lang": "en",
       "type": "ranking",
       "category": "broad",
-      "text": "Who are the leading AI storage vendors in China? Give an approximate ranking."
+      "text": "Who are the leading AI storage acceleration vendors in China? Give an approximate ranking."
     }
   ],
   "engines": [
     {
-      "key": "qwen-max",
-      "label": "通义千问 Max",
-      "vendor": "阿里巴巴",
-      "adapter": "bl_chat",
-      "model": "qwen-max",
-      "reachable_now": true,
-      "note": "经 bl(DashScope) 实测（旗舰）"
-    },
-    {
       "key": "qwen-plus",
       "label": "通义千问 Plus",
       "vendor": "阿里巴巴",
-      "adapter": "bl_chat",
+      "adapter": "provider",
+      "provider": "tongyi",
       "model": "qwen-plus",
-      "reachable_now": true,
-      "note": "经 bl(DashScope) 实测"
+      "note": "DashScope OpenAI 兼容模式直连",
+      "reachable_now": true
+    },
+    {
+      "key": "qwen-max",
+      "label": "通义千问 Max",
+      "vendor": "阿里巴巴",
+      "adapter": "provider",
+      "provider": "tongyi",
+      "model": "qwen-max",
+      "note": "DashScope OpenAI 兼容模式直连（旗舰）",
+      "reachable_now": true
+    },
+    {
+      "key": "deepseek",
+      "label": "DeepSeek",
+      "vendor": "深度求索",
+      "adapter": "provider",
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "note": "api.deepseek.com 直连",
+      "reachable_now": true
+    },
+    {
+      "key": "glm",
+      "label": "智谱 GLM",
+      "vendor": "智谱 AI",
+      "adapter": "provider",
+      "provider": "glm",
+      "model": null,
+      "note": "open.bigmodel.cn 直连",
+      "reachable_now": true
+    },
+    {
+      "key": "kimi",
+      "label": "Kimi",
+      "vendor": "月之暗面",
+      "adapter": "provider",
+      "provider": "kimi",
+      "model": null,
+      "note": "api.moonshot.cn 直连",
+      "reachable_now": true
+    },
+    {
+      "key": "yuanbao",
+      "label": "腾讯混元 (元宝)",
+      "vendor": "腾讯",
+      "adapter": "provider",
+      "provider": "hunyuan",
+      "model": null,
+      "note": "hunyuan OpenAI 兼容直连",
+      "reachable_now": true
+    },
+    {
+      "key": "spark",
+      "label": "讯飞星火",
+      "vendor": "科大讯飞",
+      "adapter": "provider",
+      "provider": "spark",
+      "model": null,
+      "note": "spark-api-open 直连",
+      "reachable_now": true
+    },
+    {
+      "key": "doubao",
+      "label": "豆包 (Doubao)",
+      "vendor": "字节跳动",
+      "adapter": "provider",
+      "provider": "doubao",
+      "model": null,
+      "note": "火山方舟直连",
+      "reachable_now": true
+    },
+    {
+      "key": "claude",
+      "label": "Claude",
+      "vendor": "Anthropic",
+      "adapter": "provider",
+      "provider": "claude",
+      "model": null,
+      "note": "Anthropic Messages API 直连",
+      "reachable_now": true
+    },
+    {
+      "key": "gemini",
+      "label": "Gemini",
+      "vendor": "Google",
+      "adapter": "provider",
+      "provider": "gemini",
+      "model": null,
+      "note": "Gemini OpenAI 兼容端点直连",
+      "reachable_now": true
     },
     {
       "key": "web_retrieval",
@@ -1149,108 +1557,41 @@
       "vendor": "检索探针",
       "adapter": "bl_search",
       "model": "websearch",
-      "reachable_now": true,
-      "note": "反映 RAG 类引擎可检索到的可见度；服务异常时标注‘待复测’"
+      "note": "反映 RAG 类引擎可检索到的可见度；服务异常时标注‘待复测’",
+      "reachable_now": true
     },
     {
       "key": "gpt",
       "label": "ChatGPT (GPT)",
       "vendor": "OpenAI",
-      "adapter": "openai",
+      "adapter": "provider",
+      "provider": null,
       "model": "gpt-4o",
-      "reachable_now": false,
       "env_key": "OPENAI_API_KEY",
-      "note": "待密钥复测"
-    },
-    {
-      "key": "claude",
-      "label": "Claude",
-      "vendor": "Anthropic",
-      "adapter": "anthropic",
-      "model": "claude-3-7-sonnet",
-      "reachable_now": false,
-      "env_key": "ANTHROPIC_API_KEY",
-      "note": "待密钥复测"
-    },
-    {
-      "key": "gemini",
-      "label": "Gemini",
-      "vendor": "Google",
-      "adapter": "gemini",
-      "model": "gemini-2.5-pro",
-      "reachable_now": false,
-      "env_key": "GEMINI_API_KEY",
-      "note": "待密钥复测"
+      "note": "待密钥复测",
+      "reachable_now": false
     },
     {
       "key": "perplexity",
       "label": "Perplexity",
       "vendor": "Perplexity",
-      "adapter": "perplexity",
+      "adapter": "provider",
+      "provider": null,
       "model": "sonar",
-      "reachable_now": false,
       "env_key": "PERPLEXITY_API_KEY",
-      "note": "待密钥复测"
-    },
-    {
-      "key": "deepseek",
-      "label": "DeepSeek",
-      "vendor": "深度求索",
-      "adapter": "openai_compat",
-      "model": "deepseek-chat",
-      "reachable_now": false,
-      "env_key": "DEEPSEEK_API_KEY",
-      "note": "待密钥复测"
-    },
-    {
-      "key": "doubao",
-      "label": "豆包 (Doubao)",
-      "vendor": "字节跳动",
-      "adapter": "openai_compat",
-      "model": "doubao-pro",
-      "reachable_now": false,
-      "env_key": "ARK_API_KEY",
-      "note": "待密钥复测"
+      "note": "待密钥复测",
+      "reachable_now": false
     },
     {
       "key": "ernie",
       "label": "文心一言 (ERNIE)",
       "vendor": "百度",
-      "adapter": "qianfan",
+      "adapter": "provider",
+      "provider": null,
       "model": "ernie-4.5",
-      "reachable_now": false,
       "env_key": "QIANFAN_API_KEY",
-      "note": "待密钥复测"
-    },
-    {
-      "key": "kimi",
-      "label": "Kimi",
-      "vendor": "月之暗面",
-      "adapter": "openai_compat",
-      "model": "moonshot-v1",
-      "reachable_now": false,
-      "env_key": "MOONSHOT_API_KEY",
-      "note": "待密钥复测"
-    },
-    {
-      "key": "glm",
-      "label": "智谱 GLM",
-      "vendor": "智谱 AI",
-      "adapter": "openai_compat",
-      "model": "glm-4.5",
-      "reachable_now": false,
-      "env_key": "ZHIPU_API_KEY",
-      "note": "待密钥复测"
-    },
-    {
-      "key": "yuanbao",
-      "label": "腾讯元宝 (Hunyuan)",
-      "vendor": "腾讯",
-      "adapter": "hunyuan",
-      "model": "hunyuan-turbo",
-      "reachable_now": false,
-      "env_key": "HUNYUAN_API_KEY",
-      "note": "待密钥复测"
+      "note": "待密钥复测",
+      "reachable_now": false
     }
   ],
   "competitors": {
@@ -1297,14 +1638,6 @@
         "UniStor"
       ]
     },
-    "sangfor": {
-      "name_zh": "深信服",
-      "aliases": [
-        "深信服",
-        "Sangfor",
-        "EDS"
-      ]
-    },
     "vast": {
       "name_zh": "VAST Data",
       "aliases": [
@@ -1333,6 +1666,12 @@
         "XSKY",
         "星辰天合"
       ]
+    },
+    "alluxio": {
+      "name_zh": "Alluxio",
+      "aliases": [
+        "Alluxio"
+      ]
     }
   },
   "sources": {
@@ -1345,8 +1684,8 @@
     "C2": "焱融科技,《3 节点集群带宽突破 513GB/s，焱融存储再度登顶 MLPerf Storage 全球榜单》, 2025-08.",
     "C3": "CSDN,《2026 国内主流存储厂商全解析》（华为/浪潮/新华三/深信服 第一方阵；IDC 文件存储份额口径）, 2026-06.",
     "C4": "简米科技,《国内存储服务器品牌排行榜 2026》（华为市占居前的公开口径）, 2026.",
-    "S38": "北京信息科技大学，华为昇腾 Atlas 910B 平台第三方独立实测报告（以 NFS 为基线），见 business_plan/sources.py。",
-    "DS": "中科存储产品事实：business_plan/outputs/results.json（与商业计划书/官网同源）。",
-    "SV": "现状核查：2026-06-21 对官网源码与公开搜索引擎的核查（官网无 robots/llms/sitemap/schema；品牌独立检索条目稀少）。"
+    "R": "铭信签字级实测报告 R1–R9（AMD MI308X ×8 / 华为 Atlas 910B / 沐曦 N260；证据库 mingxinstorage.xyz/evidence）。",
+    "DS": "铭信产品事实：business_plan/outputs/results.json（与官网 company.ts 单一数据源同源）。",
+    "SV": "现状核查：2026-07-19 对铭信官网（mingxinstorage.xyz）与公开搜索引擎的核查（站内 GEO 基础设施完备；站外品牌沉淀起步期）。"
   }
 }

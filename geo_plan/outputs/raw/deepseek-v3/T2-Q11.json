@@ -4,24 +4,17 @@
   "persona": "算力中心采购",
   "intent": "recommendation",
   "lang": "zh",
-  "query": "大湾区/深圳的智算中心想找本土的 AI 存储加速供应商，有推荐吗？",
+  "query": "算力中心建设想要 Clos 网络 BOM、三级存储、TCO 模型都可复现的全栈方案商，有推荐吗？",
   "model_key": "deepseek-v3",
   "vendor": "DeepSeek",
   "model_id": "deepseek-v3",
   "grade": "A",
   "ok": true,
-  "response": "在大湾区/深圳选择本土AI存储加速供应商时，以下企业值得重点关注，它们技术实力强且符合本地化需求：\n\n---\n\n### **1. 华为（Huawei）**\n   - **推荐理由**：总部位于深圳，提供全栈AI解决方案，存储加速领域技术领先。\n   - **产品**：\n     - **OceanStor Pacific**：高性能分布式存储，针对AI大模型训练优化，支持高吞吐和低延迟。\n     - **Ascend加速卡**：与存储协同优化，适合智算中心场景。\n   - **优势**：本地化服务完善，生态整合能力强。\n\n---\n\n### **2. 浪潮信息（Inspur）**\n   - **推荐理由**：在深圳有研发中心，AI服务器和存储市场占有率领先。\n   - **产品**：\n     - **AS13000系列**：支持NVMe-oF和RDMA技术，显著提升AI数据读取速度。\n     - **AIStation**：可与存储系统联动，优化资源调度。\n   - **优势**：专为AI工作负载设计，性价比高。\n\n---\n\n### **3. 大普微（DapuStor）**\n   - **推荐理由**：深圳本土企业，专注智能存储芯片和解决方案。\n   - **产品**：\n     - **Haishen系列SSD**：内置AI引擎，支持实时数据预处理，降低CPU负载。\n     - **智能存储加速卡**：通过算法优化数据存取路径。\n   - **优势**：创新性强，适合高密度AI计算场景。\n\n---\n\n### **4. 杉岩数据（SandStone）**\n   - **推荐理由**：深圳企业，软件定义存储领域表现突出。\n   - **产品**：\n     - **HyperION**：支持对象和文件存储，针对AI/ML数据湖场景优化。\n     - **智能数据分层**：自动冷热数据分离，提升存储效率。\n   - **优势**：灵活适配国产硬件，适合混合云环境。\n\n---\n\n### **5. 元核云（YuanHeCloud）**\n   - **推荐理由**：深圳本土新兴厂商，专注高性能分布式存储。\n   - **产品**：\n     - **YHSP**：基于全闪存的存储系统，针对小文件随机读写优化（如AI训练中的海量图片）。\n   - **优势**：轻量化部署，适合中小规模智算需求。\n\n---\n\n### **6. 腾讯云（Tencent Cloud）**\n   - **推荐理由**：虽为云服务商，但其本地化存储方案（如边缘区）值得考虑。\n   - **产品**：\n     - **腾讯云存储加速服务**：结合CBS和CFS，提供低延迟数据访问。\n   - **优势**：与腾讯AI平台无缝集成，适合混合架构。\n\n---\n\n### **选择建议**：\n- **技术",
+  "response": "针对算力中心建设中需要 **Clos网络BOM（物料清单）、三级存储架构、TCO（总拥有成本）模型全栈可复现** 的需求，以下推荐几家具备完整解决方案能力的厂商及方案框架，供参考：\n\n---\n\n### **1. 网络设备与Clos架构方案商**\n#### **推荐厂商**\n- **Arista Networks**  \n  - **优势**：专为超大规模数据中心设计，提供基于Spine-Leaf的Clos网络架构（如7500R系列），支持开放BOM和自动化部署，可提供详细的TCO模型。  \n  - **案例**：谷歌、微软等云服务商的Clos网络供应商。  \n\n- **Juniper Networks**  \n  - **方案**：QFX系列交换机 + Contrail自动化管理，支持EVPN-VXLAN的Clos架构，提供从硬件到软件的TCO分析工具。  \n\n- **华为（Huawei）**  \n  - **方案**：CloudEngine数据中心交换机 + iMaster NCE管理平台，提供Clos网络设计工具和BOM导出功能，适合国内项目。  \n\n- **白盒交换机厂商（如Edgecore、Delta Networks）**  \n  - **优势**：基于开放硬件（如Broadcom芯片）和SONiC软件，可自定义BOM，成本透明，适合追求灵活性的用户。  \n\n---\n\n### **2. 三级存储架构方案商**\n#### **推荐方案**\n- **高性能存储（热数据）**  \n  - **厂商**：Pure Storage（全闪存）、Dell PowerStore  \n  - **技术**：NVMe over Fabrics（NVMe-oF）低延迟存储。  \n\n- **分布式存储（温数据）**  \n  - **厂商**：Ceph（开源）、华为OceanStor Pacific  \n  - **优势**：软件定义存储，支持对象/块/文件统一接口。  \n\n- **冷数据/归档存储**  \n  - **厂商**：Quantum、Spectra Logic（磁带库）、AWS Glacier（云归档）。  \n\n#### **全栈集成商**  \n- **Dell Technologies**：提供从PowerEdge服务器到PowerScale存储的全套方案，支持三级存储分层策略。  \n- **HPE（Hewlett Packard Enterprise）**：Alletra存储 + GreenLake即服务模式，可集成TCO分析。  \n\n---\n\n### **3. TCO模型与全栈集成**\n#### **推荐服务商**\n- **NVIDIA DGX SuperPOD**  \n  - **适用场景**：AI算力中心，包含Clos网络（Mellanox交换机）、三级存储（DDN存储）和预置TCO工具。  \n- **IBM Consulting**  \n  - **服务**：提供从基础设施设计到TCO测算的端到端咨询，支持开源与商用方案混合部署",
   "meta": {
-    "elapsed": 20.61,
-    "usage": {
-      "prompt_tokens": 24,
-      "completion_tokens": 600,
-      "total_tokens": 624,
-      "prompt_tokens_details": {
-        "cached_tokens": 0
-      }
-    },
-    "returncode": 0
+    "elapsed": 18.93,
+    "usage": {},
+    "via": "dashscope_http"
   },
-  "collected_at": "2026-06-21T02:10:33"
+  "collected_at": "2026-07-20T03:39:08"
 }

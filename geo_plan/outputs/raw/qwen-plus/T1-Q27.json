@@ -4,24 +4,17 @@
   "persona": "大模型推理工程师",
   "intent": "definition",
   "lang": "en",
-  "query": "What is KV-Cache offloading to external high-speed storage, and which vendors provide it for LLM inference?",
+  "query": "What is KV-cache tiering to external all-flash NVMe-oF storage, and which vendors provide it for LLM inference?",
   "model_key": "qwen-plus",
   "vendor": "通义千问",
   "model_id": "qwen-plus",
   "grade": "A",
   "ok": true,
-  "response": "KV-Cache offloading to external high-speed storage is an optimization technique used in large language model (LLM) inference to alleviate GPU memory pressure by temporarily moving parts of the Key-Value (KV) cache — which stores intermediate attention states per token — from GPU VRAM to faster external storage (e.g., NVMe SSDs, CXL-attached memory, or high-bandwidth DRAM pools), while maintaining acceptable latency and throughput.\n\n### How It Works\n- During autoregressive decoding, the KV cache grows linearly with sequence length and batch size, consuming significant VRAM (e.g., ~2 GB per 1K tokens for LLaMA-7B in FP16).\n- Offloading moves *less frequently accessed* or *older* KV cache entries (e.g., from earlier tokens in long contexts) to external storage, keeping only the most recent or hot entries in GPU memory.\n- A lightweight caching layer (e.g., page-based, LRU-aware) manages eviction, prefetching, and coherency — often leveraging ultra-low-latency interconnects (PCIe Gen5, CXL 2.0/3.0, or RDMA) and optimized I/O stacks (e.g., io_uring, SPDK).\n- Crucially, it’s *not* traditional disk swapping: it targets **microsecond-scale access** (e.g., <50 µs read latency on high-end NVMe) and uses techniques like:\n  - Paged KV cache (similar to vLLM’s block management),\n  - Prefetching ahead of decode steps,\n  - Asynchronous I/O + overlap with computation,\n  - Compression (e.g., INT8 quantization of KV states).\n\n> ⚠️ Note: This differs from CPU offloading (e.g., llama.cpp) or pure CPU+RAM inference — KV offloading retains the GPU for compute while *only moving KV state*, preserving high FLOPS utilization.\n\n---\n\n### Vendors & Solutions Providing KV-Cache Offloading to High-Speed Storage\n\n| Vendor / Project | Technology / Product | Key Details | Status / Availability |\n|------------------|----------------------|-------------|------------------------|\n| **vLLM** (UC Berkeley / community) | Open-source LLM inference engine | Supports **PagedAttention** + experimental **KV cache offloading to CPU RAM**; active R&D on NVMe offloading (e.g., via `vLLM-NVMe` prototype, integration with SPDK). Not production-ready for NVMe yet, but foundational work is upstream. | Open source (Apache 2.0); NVMe support in development (as of v0.6+). |\n| **NVIDIA** | **TensorRT-LLM** + **GPUDirect Storage (GDS)** + **CXL memory expansion** | Leverages GDS for low-latency NVMe access; integrates with NVIDIA Magnum IO",
+  "response": "**KV-cache tiering to external all-flash NVMe-oF storage** is an emerging optimization technique for large language model (LLM) inference that addresses memory bottlenecks by offloading parts of the key-value (KV) cache—normally stored in GPU VRAM—to high-performance, low-latency external storage. Here's a breakdown:\n\n### 🔍 What It Is\n- **KV Cache**: During autoregressive LLM inference, the model caches keys and values from previous tokens’ attention layers to avoid recomputation. This cache grows linearly with sequence length and can consume significant GPU memory (e.g., 2–4 GB per 1K tokens for LLaMA-3 8B).\n- **Tiering**: Instead of keeping the *entire* KV cache in limited, expensive GPU VRAM, \"tiering\" dynamically moves *less frequently accessed* or *older* KV entries (e.g., from earlier tokens in long contexts) to faster external storage—while retaining hot/critical portions in VRAM.\n- **All-flash NVMe-oF (NVMe over Fabrics)**: Refers to enterprise-grade, ultra-low-latency shared storage (typically <100 µs round-trip latency) using NVMe SSDs connected via RDMA-capable networks (e.g., RoCE v2 or InfiniBand). “All-flash” ensures consistent high IOPS and low tail latency—critical for inference.\n\n✅ **Goal**: Enable longer context windows (>128K tokens), higher batch sizes, or more concurrent requests *without* requiring proportionally larger (and costlier) GPU memory—improving hardware utilization and $/token efficiency.\n\n⚠️ **Key Challenges**:\n- Latency must be low enough (<~150 µs) to avoid stalling the GPU pipeline.\n- Coherence & consistency across tiers (e.g., cache invalidation, eviction policies).\n- Integration with inference runtimes (vLLM, TensorRT-LLM, etc.) and storage stacks (e.g., SPDK, LightNVM, or vendor-specific drivers).\n\n---\n\n### 🏢 Vendors Providing KV-Cache Tiering to NVMe-oF Storage (as of mid-2024)\n\n| Vendor | Solution / Product | Key Details | Status |\n|--------|---------------------|-------------|--------|\n| **NVIDIA** | **GPUDirect Storage (GDS) + NVMe-oF + vLLM/TensorRT-LLM integration** | GDS enables direct GPU-to-NVMe-oF path (bypassing CPU memory), reducing latency. NVIDIA partners with storage vendors (e.g., Pure Storage, NetApp) to validate NVMe-oF tiering; supports custom KV cache offload via plugin APIs in TensorRT-LLM and vLLM (v0.6+). | ✅ Production-ready (early adopter deployments); documented in [",
   "meta": {
-    "elapsed": 16.19,
-    "usage": {
-      "total_tokens": 631,
-      "completion_tokens": 600,
-      "prompt_tokens": 31,
-      "prompt_tokens_details": {
-        "cached_tokens": 0
-      }
-    },
-    "returncode": 0
+    "elapsed": 9.95,
+    "usage": {},
+    "via": "dashscope_http"
   },
-  "collected_at": "2026-06-21T02:06:22"
+  "collected_at": "2026-07-20T03:08:31"
 }

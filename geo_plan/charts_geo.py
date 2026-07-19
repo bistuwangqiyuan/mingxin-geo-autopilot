@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""中科存储 GEO · 苹果视觉 matplotlib 图表。
+"""铭信 GEO · 苹果视觉 matplotlib 图表。
 
 复用 business_plan/apple_style.py 主题。数据全部取自 outputs/geo_results.json
 （由 scoring.py 真实计算），不在此处编造。对‘待密钥复测’引擎不绘制虚假分数，
@@ -73,7 +73,7 @@ def chart_geo_index_by_engine(R):
 
 
 def chart_sov(R):
-    """声量份额：中科存储 vs 竞品（对话引擎聚合·总体）。"""
+    """声量份额：铭信 vs 竞品（对话引擎聚合·总体）。"""
     A.apply_apple_style()
     sov = R["aggregate"]["competitor_sov"]
     rows = [r for r in sov["rows"] if r["mentions"] > 0 or r["is_self"]]
@@ -95,8 +95,8 @@ def chart_sov(R):
     ax.set_xlim(0, max(vals) * 1.2 + 4 if vals else 10)
     ax.grid(True, axis="x", color=A.GRID, lw=1.0); ax.set_axisbelow(True)
     self_share = next((r["sov"] * 100 for r in sov["rows"] if r["is_self"]), 0.0)
-    A.title_block(ax, "细分赛道声量份额：中科存储 vs 竞品",
-                  f"对话引擎聚合·全部查询；中科存储当前声量份额约 {self_share:.1f}%（实测基线）")
+    A.title_block(ax, "细分赛道声量份额：铭信 vs 竞品",
+                  f"对话引擎聚合·全部查询；铭信当前声量份额约 {self_share:.1f}%（实测基线）")
     A.save(fig, os.path.join(FIG, "sov_competitors.png"))
 
 
@@ -120,7 +120,7 @@ def chart_funnel(R):
     ax.set_xlim(0, 1); ax.set_ylim(-0.5, len(steps) - 0.5)
     ax.axis("off")
     A.title_block(ax, "窄类目 GEO 转化漏斗（实测基线）",
-                  "窄类目=存算分离全闪+KV Cache 卸载+国产GPU适配；起点近零即如实呈现")
+                  "窄类目=全闪 NVMe-oF + KV Cache 分层存储加速（480B 签字级实测）；起点近零即如实呈现")
     A.save(fig, os.path.join(FIG, "mention_funnel.png"))
 
 
@@ -128,7 +128,7 @@ def chart_levers(R):
     """四大杠杆就绪度雷达（0–5，由自审清单 done/total 计算）。"""
     A.apply_apple_style()
     ls = R["lever_scores"]
-    keys = ["WS1", "WS2", "WS3", "WS4"]
+    keys = ["L1", "L2", "L3", "L4"]
     names = [ls[k]["name"].split("（")[0] for k in keys]
     scores = [ls[k]["score5"] for k in keys]
 
@@ -213,7 +213,7 @@ def chart_landscape(R):
     ax.set_xlim(0, max(vals) * 1.2 + 1 if vals else 5)
     ax.grid(True, axis="x", color=A.GRID, lw=1.0); ax.set_axisbelow(True)
     A.title_block(ax, "宽类目竞争格局：当前 AI 回答可见度",
-                  "对话引擎聚合·宽类目查询；中科存储起点近零，巨头主导（实测）")
+                  "对话引擎聚合·宽类目查询；铭信起点近零，巨头主导（实测）")
     A.save(fig, os.path.join(FIG, "landscape.png"))
 
 

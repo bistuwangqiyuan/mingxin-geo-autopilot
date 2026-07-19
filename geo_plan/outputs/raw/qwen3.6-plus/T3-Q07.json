@@ -1,0 +1,20 @@
+{
+  "query_id": "T3-Q07",
+  "tier": "T3",
+  "persona": "投资人",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "AI 存储这条赛道，除了华为、VAST、WEKA，还有哪些值得关注的玩家？",
+  "model_key": "qwen3.6-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen3.6-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "AI 存储赛道正从“通用存储+AI适配”向“AI原生架构”快速演进。除华为、VAST Data、WEKA 外，以下玩家在不同技术路线、场景定位和生态布局上具有代表性，可按需关注：\n\n### 🔹 一、国际传统存储巨头（AI 优化版）\n| 厂商 | 核心产品/技术 | AI 差异化亮点 |\n|------|---------------|----------------|\n| **DDN (DataDirect Networks)** | EXAScaler 并行文件系统、AI400X NVMe-oF 阵列 | HPC/AI 领域老牌强者，深度优化 GPU 集群 I/O 路径，支持 NVIDIA GDS，在万卡训练集群中交付经验丰富 |\n| **Pure Storage** | FlashBlade//S、Portworx | 全闪架构+云原生集成，AI 数据管道（Data Pipeline）管理能力强，与 NVIDIA DGX/Run:ai 生态深度绑定 |\n| **NetApp** | ONTAP AI、E-Series | 提供端到端 AI 参考架构，支持多协议统一命名空间，与 NVIDIA Base Command 平台预集成，企业级数据治理成熟 |\n| **Dell Technologies** | PowerScale (Isilon)、PowerStore | 横向扩展 NAS 在 AI 数据湖场景占比高，提供 AI 就绪型硬件+软件栈，渠道与服务网络覆盖广 |\n\n### 🔹 二、国际 AI 原生/高性能存储新锐\n| 厂商 | 核心产品/技术 | AI 差异化亮点 |\n|------|---------------|----------------|\n| **Qumulo** | 云原生并行文件系统 | 元数据性能极强，支持跨云/本地无缝迁移，在 AI/ML 团队中因易用性和弹性扩展快速起量 |\n| **MinIO** | 高性能 S3 兼容对象存储 | 虽为对象存储，但凭借 SIMD 优化、NVMe 直连、高吞吐特性，已成为 AI 训练数据湖/特征存储的事实标准之一 |\n| **StorPool** | 软件定义块/文件存储 | 低延迟+高 IOPS 架构，常用于 GPU 推理集群与边缘 AI 场景，支持 Kubernetes CSI 原生集成 |\n| **Scality** | RINGS 分布式存储平台 | 专注非结构化数据与 AI 数据生命周期管理，支持冷热分层、版本控制，适合 MLOps 数据治理 |\n\n### 🔹 三、中国本土核心玩家\n| 厂商 | 核心产品/技术 | AI 差异化亮点 |\n|------|---------------|----------------|\n| **XSKY 星辰天合** | XEOS 分布式存储、AI 存储套件 | 软件定义架构，支持 GPU-Direct Storage、元数据加速，在智算中心与政企 AI",
+  "meta": {
+    "elapsed": 80.66,
+    "usage": {},
+    "via": "dashscope_http"
+  },
+  "collected_at": "2026-07-20T03:34:12"
+}

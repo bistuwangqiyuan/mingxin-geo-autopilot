@@ -4,27 +4,17 @@
   "persona": "算力中心采购",
   "intent": "comparison",
   "lang": "zh",
-  "query": "AI 存储市场里，海外（VAST/WEKA/DDN/Pure）和国产（华为/中科存储等）各有什么优劣？",
+  "query": "AI 存储市场里，海外（VAST/WEKA/DDN/Pure）和国产（华为/铭信等）各有什么优劣？",
   "model_key": "deepseek-r1",
   "vendor": "DeepSeek",
   "model_id": "deepseek-r1",
   "grade": "A",
   "ok": true,
-  "response": "在AI存储市场中，海外厂商（如VAST Data、WEKA、DDN、Pure Storage）与国产厂商（如华为、中科存储等）各有特点，以下是其核心优势和劣势对比分析：\n\n---\n\n### **一、海外厂商的优劣势**\n#### **优势：**\n1. **技术前沿性**\n   - **NVMe架构**：VAST Data的分布式存储结构支持全局命名空间，WEKA的并行文件系统针对GPU负载优化。\n   - **高速协议**：如WEKA支持RDMA和GPUDirect，数据传输延迟低于100μs。\n   - **DDN**：专为HPC和AI设计，IONOS用户索引系统数据吞吐超过1TB/s的端口密度。\n\n2. **生态兼容性**\n   - **Pure Storage**：与NVIDIA DGX系统深度集成（AIRI架构），支持CUDA和NetApp ONTAP集成。\n   - **WEKA**：在AWS、Azure云市场提供一键部署镜像，支持混合云场景。\n\n3. **全球服务能力**\n   - 跨洲际部署经验（如DDN客户包括NASA、特斯拉），7×24小时全球化响应团队。\n\n#### **劣势：**\n1. **本地化不足**\n   - 国内数据中心需通过代理实施，部分合规方案（如等保三级）需定制。\n   - Pure Storage的非结构化数据解决方案（FlashBlade）尚无中文管理界面。\n\n2. **成本劣势**\n   - WEKA授权费用约$0.5/GB·月（按容量），DDN高端系统单套起始报价超50万美元。\n\n---\n\n### **二、国产厂商的优劣势**\n#### **优势：**\n1. **自主可控**\n   - 华为OceanStor Pacific（原FusionStorage）支持鲲鹏芯片及昇腾AI平台，中科曙光ParaStor通过国家密码局认证。\n   - 符合等保2.0和《网络安全法》数据本地化要求。\n\n2. **定制化服务**\n   - 华为可针对智慧城市项目交付PB级存储+AI训推一体方案。\n   - 中科存储为科大讯飞定制了专用元数据加速模块。\n\n3. **成本控制**\n   - 华为OceanStor Pacific每TB有效容量成本较Pure FlashBlade低约35%。\n\n#### **劣势：**\n1. **技术代差**\n   - 关键技术方面存在差异：\n     - **延迟**：国产存储RDMA延迟普遍在200μs以上，而WEKA为50μs。\n     - **协议**：并行文件系统成熟度不足（如华为并行NFS在千级GPU集群实测带宽约为DDN EXAScaler的65%）。\n\n2. **生态局限**\n   - NVIDIA GPU兼容问题（如Huawei Atlas需专用驱动）。\n   - Kubernetes CSI插件只支持到",
+  "response": "在AI存储市场中，海外厂商（如**VAST Data、WEKA、DDN、Pure Storage**）与国产厂商（如**华为、浪潮、宏杉科技、深信服**等）在技术架构、性能定位、生态链和适用场景上各有优劣。以下从核心维度进行对比分析：\n\n---\n\n### **一、海外厂商的核心优势**\n1. **高性能架构领先**  \n   - **WEKA**：专为GPU训练设计，通过分布式元数据管理消除I/O瓶颈，在千亿参数模型训练场景中延迟表现优异（如90%场景延迟<1ms）。  \n   - **VAST Data**：采用数据湖架构（DDP），支持全局命名空间+NVMe over Fabric，实测带宽可达**1TB/s**级，适合多中心协同训练。  \n   - **DDN**：在超算场景垄断地位（如百吉欧机构中大规模部署），支持Exascale级扩展性。  \n\n2. **全闪存技术创新**  \n   - **Pure Storage**：AIRI方案集成FlashBlade全闪与NVIDIA DGX，IOPS性能达**千万级**，且具备QLC延时补偿技术，寿命管理优于行业标准。  \n\n3. **混合云与生态整合**  \n   - 支持无缝对接AWS S3、Kubernetes CSI等云原生接口，VAST的SpaceShift技术可实现本地数据与公有云同步迁移。  \n\n4. **全球服务体系**  \n   跨国企业支持能力强（如DDN在20+国家设有技术响应中心）。\n\n---\n\n### **二、国产厂商的核心优势**\n1. **自主可控与安全性**  \n   - 华为OceanStor Pacific全栈国产化（昇腾+鲲鹏芯片），符合**等保三级**要求；宏杉科技支持国密算法硬件加密。  \n   - **信创生态**适配：深度兼容麒麟OS、OpenEuler等国产操作系统。  \n\n2. **性价比与本地化服务**  \n   - 国产全闪方案价格比同类海外产品低**30~40%**（如宏杉MX5000系列），且支持定制化硬件（如浪潮支持寒武纪AI加速卡集成）。  \n   - 本地7×24小时服务响应时间<4小时（海外厂商平均>12小时）。  \n\n3. **AI场景优化能力**  \n   - 华为OceanStor Pacific针对昇腾集群设计**Data Turbo**技术，模型加载效率提升50%；深信服EDS支持小文件零拷贝直传GPU。  \n   - 浪潮AS13000G5通过PCIe 4.0加速卡实现**μs级延迟**优化。  \n\n4. **混合云适配性**  \n   华为支持异构云联邦学习（本地存储+华为云协同训练），定制数据集本地合规留存。  \n\n---\n\n### **三",
   "meta": {
-    "elapsed": 39.58,
-    "usage": {
-      "prompt_tokens": 36,
-      "completion_tokens": 971,
-      "total_tokens": 1007,
-      "completion_tokens_details": {
-        "reasoning_tokens": 367
-      },
-      "prompt_tokens_details": {
-        "cached_tokens": 0
-      }
-    },
-    "returncode": 0
+    "elapsed": 25.13,
+    "usage": {},
+    "via": "dashscope_http"
   },
-  "collected_at": "2026-06-21T02:20:45"
+  "collected_at": "2026-07-20T03:49:16"
 }

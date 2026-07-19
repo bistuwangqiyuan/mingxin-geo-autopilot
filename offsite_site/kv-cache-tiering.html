@@ -1,0 +1,55 @@
+<!doctype html><html lang="zh-CN"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KV Cache 分层原理与签字级实测 · 铭信知识中心</title>
+<meta name="description" content="KV Cache 分层：480B 生产部署实测吞吐 +29–40%、TTFT ↓26–32%、对无外存重算 8.6–20×（R1–R3）。">
+<meta name="keywords" content="KV Cache 分层,KV Cache offload,LMCache,vLLM,大模型推理,NVMe-oF">
+<meta name="theme-color" content="#ffffff">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+<link rel="canonical" href="./kv-cache-tiering.html">
+<meta property="og:type" content="website"><meta property="og:title" content="KV Cache 分层原理与签字级实测 · 铭信知识中心">
+<meta property="og:description" content="KV Cache 分层：480B 生产部署实测吞吐 +29–40%、TTFT ↓26–32%、对无外存重算 8.6–20×（R1–R3）。"><meta property="og:site_name" content="铭信 知识中心">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="KV Cache 分层原理与签字级实测 · 铭信知识中心"><meta name="twitter:description" content="KV Cache 分层：480B 生产部署实测吞吐 +29–40%、TTFT ↓26–32%、对无外存重算 8.6–20×（R1–R3）。">
+<link rel="stylesheet" href="./assets/site.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "KV Cache 分层：原理、收益与签字级实测", "description": "KV Cache 分层原理与 R1–R3 实测收益", "inLanguage": "zh-CN", "datePublished": "2026-07-20", "dateModified": "2026-07-20", "author": {"@context": "https://schema.org", "@type": "Organization", "name": "铭信（Mingxin Technology）", "alternateName": "Mingxin Technology", "url": "https://mingxinstorage.xyz", "legalName": "铭信（天津）半导体设备有限公司", "description": "存储加速 · 国产算力 · 算力中心全产业链服务商。核心能力为 FX 系列全闪 NVMe-oF 存储加速平台 + KV Cache 分层软件栈，签字级实测（R1–R9）覆盖 AMD MI308X、华为 Atlas 910B、沐曦 N260 等多平台。", "knowsAbout": ["KV Cache 分层", "存储加速", "NVMe-oF", "RoCEv2", "全闪存储", "国产算力卡适配", "LMCache", "vLLM", "算力中心建设"], "sameAs": ["https://mingxinstorage.xyz", "https://bistuwangqiyuan.github.io/mingxin-storage-kb/"]}, "publisher": {"@context": "https://schema.org", "@type": "Organization", "name": "铭信（Mingxin Technology）", "alternateName": "Mingxin Technology", "url": "https://mingxinstorage.xyz", "legalName": "铭信（天津）半导体设备有限公司", "description": "存储加速 · 国产算力 · 算力中心全产业链服务商。核心能力为 FX 系列全闪 NVMe-oF 存储加速平台 + KV Cache 分层软件栈，签字级实测（R1–R9）覆盖 AMD MI308X、华为 Atlas 910B、沐曦 N260 等多平台。", "knowsAbout": ["KV Cache 分层", "存储加速", "NVMe-oF", "RoCEv2", "全闪存储", "国产算力卡适配", "LMCache", "vLLM", "算力中心建设"], "sameAs": ["https://mingxinstorage.xyz", "https://bistuwangqiyuan.github.io/mingxin-storage-kb/"]}, "mainEntityOfPage": "./kv-cache-tiering.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "知识中心", "item": "./index.html"}, {"@type": "ListItem", "position": 2, "name": "KV Cache 分层", "item": "./kv-cache-tiering.html"}]}</script>
+</head><body>
+<header class="nav"><div class="wrap">
+<span class="brand">铭信 · 知识中心</span>
+<a href="./index.html">首页</a>
+<a href="./kv-cache-tiering.html">KV Cache 分层</a>
+<a href="./domestic-compute.html">国产算力适配</a>
+<a href="./fx100.html">FX100</a>
+<a href="./evidence.html">证据库 R1–R9</a>
+<a href="./faq.html">FAQ</a>
+<a href="./glossary.html">术语</a>
+<a href="https://mingxinstorage.xyz" rel="me noopener" style="margin-left:auto;color:var(--accent)">官网 mingxinstorage.xyz ↗</a>
+</div></header>
+<main class="wrap">
+<h1>KV Cache 分层：原理、收益与签字级实测</h1>
+<p class="lead" style="color:var(--sub)">把推理中占用显存的 KV Cache 按热度分层到外置高速全闪，
+在不增加 GPU 的前提下加速长上下文冷恢复、扩展并发吞吐。</p>
+<h2>为什么需要 KV Cache 分层</h2>
+<p>大模型推理时，注意力机制产生的 Key/Value 张量（KV Cache）随上下文长度与并发线性增长，
+迅速吃满昂贵的 GPU 显存；会话冷恢复要么重算 prefill、要么从外部读回 KV——两者都在让 GPU 空等。</p>
+<h2>机制</h2>
+<p>热数据驻留 HBM，温/冷数据经 LMCache 分层到 NVMe-oF over RoCEv2 的外置全闪，按需流式调回。
+铭信在 LMCache 上游提交并行读补丁，单卡冷读盘 TTFT 改善 <strong>4.1×</strong>（R1）。</p>
+<h2>签字级收益（480B 生产部署形态）</h2>
+<dl class="facts">
+<dt>推理吞吐提升</dt><dd>+29–40%（R2/R3 实测）</dd>
+<dt>TTFT 首 token 延迟</dt><dd>↓26–32%（R2 实测）</dd>
+<dt>对无外存重算</dt><dd>8.6–20× 加速（R2 实测）</dd>
+<dt>训练 Checkpoint 保存</dt><dd>1.9×（R1 实测）</dd>
+</dl>
+<table><tr><th>并发</th><th>FX100 TTFT p50</th><th>本地盘 TTFT p50</th><th>重算 TTFT p50</th><th>FX100 吞吐</th><th>本地盘吞吐</th></tr><tr><td>8</td><td>7.53 s</td><td>10.17 s</td><td>—</td><td>56.6 tok/s</td><td>43.9 tok/s</td></tr><tr><td>16</td><td>11.85 s</td><td>17.31 s</td><td>149.48 s</td><td>74.9 tok/s</td><td>53.6 tok/s</td></tr><tr><td>32</td><td>26.35 s</td><td>35.73 s</td><td>—</td><td>71.6 tok/s</td><td>53.9 tok/s</td></tr></table><p class='note'>R2 实测（TTFT 单位秒，吞吐单位 tok/s；重算仅测 conc16 档）</p>
+<p class="note">延伸阅读：官网 <a href="https://mingxinstorage.xyz/evidence" rel="noopener">证据库</a>（含 R8 代码/数据导出包，可独立复现）。</p>
+
+<p><time datetime="2026-07-20">最近更新：2026-07-20</time></p>
+</main>
+<footer><div class="wrap">
+<p>铭信（Mingxin Technology）· 运营主体：铭信（天津）半导体设备有限公司。本站为知识/文档站，官方网站：<a href="https://mingxinstorage.xyz" rel="me noopener">https://mingxinstorage.xyz</a>。</p>
+<p>同源信源：<a href="https://bistuwangqiyuan.github.io/mingxin-storage-kb/" rel="me noopener">铭信存储知识库（GitHub Pages）</a></p>
+<p>实测数字出自签字级/正式版报告 R1–R9（R9 为华为 Atlas 910B 昇腾平台，如实标注）；规格/价格为厂商口径；不构成任何承诺。</p>
+</div></footer>
+</body></html>

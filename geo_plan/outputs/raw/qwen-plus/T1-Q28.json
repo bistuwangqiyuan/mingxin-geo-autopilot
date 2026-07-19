@@ -4,24 +4,17 @@
   "persona": "智算中心架构师",
   "intent": "recommendation",
   "lang": "en",
-  "query": "Which vendors offer a disaggregated all-flash storage acceleration appliance for AI inference and training?",
+  "query": "Which vendors offer an all-flash NVMe-oF storage acceleration array with KV-cache tiering for LLM inference and training?",
   "model_key": "qwen-plus",
   "vendor": "通义千问",
   "model_id": "qwen-plus",
   "grade": "A",
   "ok": true,
-  "response": "As of 2024, **there are no widely recognized, commercially available “disaggregated all-flash storage acceleration appliances” specifically branded and optimized *exclusively* for AI inference and training** — at least not in the way the term might imply (e.g., a standalone hardware appliance that sits between compute and storage, offering disaggregated flash + AI-aware acceleration).\n\nHowever, several vendors offer **high-performance, disaggregated (or disaggregation-ready), all-flash storage systems with AI/ML-optimized features**, often deployed *in support of* AI training and inference workloads. These solutions emphasize:\n\n- Ultra-low latency & high IOPS/throughput (for data loading bottlenecks),\n- NVMe-oF (NVMe over Fabrics) or RDMA-based disaggregation,\n- AI-aware software (e.g., prefetching, data layout optimization, integration with ML frameworks like PyTorch/TensorFlow),\n- Support for object/file/NVMe-native access, often with GPU-direct storage capabilities.\n\nHere are key vendors offering relevant technologies (not \"appliances\" per se, but purpose-built infrastructure stacks):\n\n### ✅ Leading Vendors & Solutions (AI-Optimized Disaggregated All-Flash Storage)\n\n| Vendor | Solution / Platform | Key AI/Disaggregation Features |\n|--------|---------------------|----------------------------------|\n| **Vast Data** | Universal Storage® | • True disaggregated architecture (compute/storage/network decoupled)<br>• All-flash, NVMe-based, built-in erasure coding & compression<br>• Native object + file + block; supports GPU-direct storage via GPUDirect Storage (GDS)<br>• Used by AI labs (e.g., NVIDIA DGX Cloud, CoreWeave) for large-scale training datasets |\n| **Pure Storage** | FlashBlade//S (with Purity//FA & File) + Evergreen//One | • All-flash scale-out NAS (NFS/SMB/S3) with sub-millisecond latency<br>• NVMe-oF support; integrates with NVIDIA GPUDirect Storage<br>• AI Data Services (e.g., dataset versioning, snapshot-based data pipelines)<br>• Deployed in AI clusters (e.g., Meta, OpenAI partners, HPE GreenLake for AI) |\n| **DDN (DataDirect Networks)** | EXAScaler® ES7900 / A³I (AI & Analytics Infrastructure) | • All-flash parallel file system (EXAScaler) optimized for HPC/AI<br>• Supports NVMe-oF, RDMA, and GPU-Direct Storage<br>• Designed for massive concurrent reads/writes (e.g., billion-image datasets)<br>• Used in national labs and AI research centers |\n| **NetApp** | AFF (All Flash FAS) + ONTAP + StorageGRID + AI/ML integrations | • NVMe-oF, FlexGroup scalability",
+  "response": "As of mid-2024, **no major commercial storage vendor offers a production-ready, off-the-shelf “all-flash NVMe-oF storage acceleration array with built-in KV-cache tiering specifically designed for LLM inference and training.”** Here's why—and what *does* exist:\n\n### 🔍 Key Clarifications:\n- **KV-cache tiering is application- or framework-level**, not a native storage array feature. The KV cache (key-value cache for attention key/value tensors) is managed by the LLM inference runtime (e.g., vLLM, TensorRT-LLM, Hugging Face TGI) — typically in GPU VRAM or host DRAM — *not* in storage arrays.\n- **NVMe-oF (NVMe over Fabrics)** is widely supported (by Pure Storage, Dell PowerScale/PowerStore, NetApp A-Series, VAST Data, WekaIO, Excelero), but it serves as high-throughput, low-latency *block/file storage*, not a KV cache accelerator.\n- **“Storage acceleration array” + “KV-cache tiering” conflates two distinct layers**:  \n  → Storage layer (persistent, durable, scalable)  \n  → Inference acceleration layer (ephemeral, ultra-low-latency, memory-resident caching)\n\n### ✅ What *is* available today (real-world solutions):\n| Vendor | Offering | Relevance to LLMs | Notes |\n|--------|----------|-------------------|-------|\n| **VAST Data** | Unified Data Platform (all-flash, NVMe-oF, object/file/block) | High throughput & low latency for dataset loading & checkpoint I/O | Supports fast data ingest/training; no built-in KV cache — relies on app-layer caching. |\n| **WekaIO** | WekaFS (parallel file system over NVMe-oF/JBOF) | Optimized for AI/ML workloads (e.g., <100 µs metadata ops, 100+ GB/s per rack) | Used by NVIDIA DGX Cloud, Meta, etc. for training — but KV cache remains in GPU/host memory. |\n| **Pure Storage** | FlashBlade//EB (all-flash NVMe-oF, S3/object + NFS) | Strong for large-scale dataset access & checkpoint saves | Integrates with frameworks like PyTorch via POSIX/S3 — no KV-tiering logic in array. |\n| **Excelero** (acquired by NVIDIA) | NVMesh (software-defined NVMe-oF) | Used in AI superclusters (e.g., NVIDIA DGX SuperPOD) for disaggregated GPU-accessible storage | Enables fast model/data fetch — still no KV cache in storage layer. |\n| **NGD Systems / NGD (now part of Seagate)** | Computational storage (e.g., N5 PCIe SSDs w/ embedded compute) | Early exploration of *",
   "meta": {
-    "elapsed": 15.65,
-    "usage": {
-      "total_tokens": 625,
-      "completion_tokens": 600,
-      "prompt_tokens": 25,
-      "prompt_tokens_details": {
-        "cached_tokens": 0
-      }
-    },
-    "returncode": 0
+    "elapsed": 9.88,
+    "usage": {},
+    "via": "dashscope_http"
   },
-  "collected_at": "2026-06-21T02:06:22"
+  "collected_at": "2026-07-20T03:08:32"
 }

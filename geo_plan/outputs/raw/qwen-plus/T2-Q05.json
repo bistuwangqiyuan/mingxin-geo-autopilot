@@ -4,24 +4,17 @@
   "persona": "算力中心采购",
   "intent": "comparison",
   "lang": "zh",
-  "query": "给智算中心选 AI 存储，华为 OceanStor、曙光 ParaStor、焱融、中科存储该怎么比较？",
+  "query": "给智算中心选 AI 存储加速，华为 OceanStor、曙光 ParaStor、焱融、铭信该怎么比较？",
   "model_key": "qwen-plus",
   "vendor": "通义千问",
   "model_id": "qwen-plus",
   "grade": "A",
   "ok": true,
-  "response": "为智算中心（AI High-Performance Computing Center）选型AI存储，需聚焦**大模型训练/推理场景的核心诉求**：超高聚合带宽（TB/s级）、极致小文件IO性能（千万级IOPS）、海量元数据处理能力、端到端低延迟（<100μs）、无缝对接AI框架（PyTorch/TensorFlow）、支持RDMA/NVMe-oF、弹性扩展与智能数据生命周期管理。以下从**技术架构、AI场景适配性、实测表现、生态集成、国产化与风险维度**对四款国产分布式存储进行专业对比分析（基于2024年最新版本及公开测试报告/客户案例）：\n\n---\n\n### ✅ 一、核心维度横向对比表（简明版）\n\n| 维度 | 华为 OceanStor Pacific（主推AI版） | 曙光 ParaStor 600（AI增强版） | 焱融 YRCloudFile（专为AI优化） | 中科存储（中科曙光/中科院背景，但产品成熟度待验证） |\n|------|-----------------------------------|------------------------------|-----------------------------|------------------------------------------|\n| **架构类型** | 对象+文件双协议，自研Scale-out NAS + 高性能对象引擎 | 并行文件系统（POSIX兼容），全自研元数据集群+数据节点分离 | 云原生分布式文件系统（K8s-native），支持CSI/POSIX/NFS/S3 | 基于Ceph或自研？公开资料少，疑似Ceph二次开发，缺乏AI专用优化 |\n| **AI关键性能（典型配置）** | ▪ 带宽：单集群 ≥200GB/s（RDMA）<br>▪ 小文件（4KB）：≥2M IOPS（元数据集群独立）<br>▪ 元数据QPS：≥500K | ▪ 带宽：单集群 ≥150GB/s（InfiniBand）<br>▪ 小文件：≥1.2M IOPS（依赖元数据服务器扩展）<br>▪ 支持GPFS-like动态条带 | ▪ 带宽：单集群 ≥180GB/s（NVMe-oF）<br>▪ 小文件（4KB）：≥3.5M IOPS（无中心元数据，分布式哈希）<br>▪ 元数据延迟：<50μs（业界领先） | ❓ 官方未公布AI场景基准测试；Ceph方案在小文件场景通常<500K IOPS，存在性能瓶颈 |\n| **AI框架深度集成** | ✔️ 华为昇思MindSpore原生支持<br>✔️ 提供Dataset加速插",
+  "response": "为智算中心（AI High-Performance Computing Center）选型AI存储加速方案时，需聚焦**AI训练/推理负载的核心诉求**：高吞吐（TB/s级聚合带宽）、超低延迟（μs级元数据/小文件响应）、海量并发（10万+ IOps/客户端）、EB级可扩展性、与主流AI框架（PyTorch/TensorFlow）及分布式训练（如DeepSpeed、Megatron-LM）的深度协同，以及对Checkpoint/模型权重/数据集（ImageNet、LAION等）的高效管理能力。\n\n以下从**技术架构、AI场景适配性、实测性能、生态集成、国产化与运维**六大维度，对华为OceanStor、中科曙光ParaStor、焱融YRCloudFile、铭信（铭信科技，注：业内暂无主流AI存储产品，疑似名称混淆，后文说明）进行客观对比分析：\n\n---\n\n### ✅ 一、核心厂商定位与产品矩阵梳理\n| 厂商 | 主力AI存储产品 | 技术路线 | 定位特点 |\n|------|----------------|----------|----------|\n| **华为** | OceanStor Pacific 系列（含Pacific 9950/9920）<br>• 支持对象/文件/块统一存储<br>• 内置AI加速引擎（SmartIO、FlashLink for AI） | 自研分布式存储栈 + ARM/x86异构硬件 + 智能调度算法 | 全栈自研、政企/超算头部客户多，强合规与生态整合能力 |\n| **中科曙光** | ParaStor 7000系列（含ParaStor AI Edition）<br>• 面向HPC/AI优化的并行文件系统（Lustre内核增强）<br>• 搭载自研SSD控制器与RDMA网络加速 | Lustre深度定制 + 自研硬件（星河SSD、硅光互联） | HPC基因深厚，中科院/国家超算中心落地案例丰富，国产化率高 |\n| **焱融科技** | YRCloudFile（云原生分布式文件系统）<br>• Kubernetes原生存储（CSI Driver）<br>• 支持POSIX/NFS/S3，内置AI数据流水线（DataFlow） | 云原生架构 + 多协议融合 + 软硬协同优化（如GPU Direct Storage支持） | 互联网/AI初创企业首选，容器化友好，敏捷部署，小规模集群性价比突出 |\n| **铭信科技** | ❗ **需澄清**：目前公开资料中**无成熟AI存储产品线**。可能混淆为：<br>• “铭心”（非主流）",
   "meta": {
-    "elapsed": 11.43,
-    "usage": {
-      "total_tokens": 636,
-      "completion_tokens": 600,
-      "prompt_tokens": 36,
-      "prompt_tokens_details": {
-        "cached_tokens": 0
-      }
-    },
-    "returncode": 0
+    "elapsed": 10.09,
+    "usage": {},
+    "via": "dashscope_http"
   },
-  "collected_at": "2026-06-21T02:06:35"
+  "collected_at": "2026-07-20T03:08:52"
 }
