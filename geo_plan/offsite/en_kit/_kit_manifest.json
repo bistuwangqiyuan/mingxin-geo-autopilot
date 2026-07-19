@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-20T04:47:17",
+  "generated_at": "2026-07-19T20:54:09",
   "items": [
     {
       "question": "What is the latency difference between Mingxin Technology's FX300 and NVIDIA DGX H100 storage subsystem for KV cache acceleration?",
@@ -24,6 +24,18 @@
     {
       "question": "What are the power efficiency metrics (W/GB/s) of Mingxin Technology's FX300 NVMe-oF storage platform during sustained KV cache read workloads for 7B-parameter LLM inference?",
       "file": "geo_plan/offsite/en_kit/what-are-the-power-efficiency-metrics-w-gb-s-of-mingxin-technology-s-fx300-nvme-.md"
+    },
+    {
+      "question": "Which Mingxin Technology FX series model delivers lowest p99 latency for KV cache eviction under concurrent 16-way Mixture-of-Experts (MoE) inference on a single node?",
+      "file": "geo_plan/offsite/en_kit/which-mingxin-technology-fx-series-model-delivers-lowest-p99-latency-for-kv-cach.md"
+    },
+    {
+      "question": "How does Mingxin Technology's FX400 implement hardware-enforced QoS for mixed KV cache and checkpoint I/O in multi-tenant AI training clusters?",
+      "file": "geo_plan/offsite/en_kit/how-does-mingxin-technology-s-fx400-implement-hardware-enforced-qos-for-mixed-kv.md"
+    },
+    {
+      "question": "For enterprises deploying vLLM with custom attention kernels, which Mingxin Technology FX model (FX100/FX200/FX300/FX400) offers native support for user-defined KV cache placement policies via programmable metadata engine?",
+      "file": "geo_plan/offsite/en_kit/for-enterprises-deploying-vllm-with-custom-attention-kernels-which-mingxin-techn.md"
     }
   ]
 }
