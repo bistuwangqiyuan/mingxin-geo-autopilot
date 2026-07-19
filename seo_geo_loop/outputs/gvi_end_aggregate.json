@@ -1,0 +1,344 @@
+{
+  "weights": {
+    "mention": 0.3,
+    "first_rank": 0.25,
+    "share_of_voice": 0.2,
+    "citation": 0.15,
+    "accuracy": 0.1
+  },
+  "overall": {
+    "n_records_ok": 8,
+    "gvi": 0.0,
+    "mention_rate": 0.0,
+    "first_rank": 0.0,
+    "share_of_voice": 0.0,
+    "citation_rate": 0.0,
+    "brand_share_of_mentions": 0.0
+  },
+  "by_model": {
+    "deepseek-r1": {
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "n": 2,
+      "gvi": 0.0,
+      "mention_rate": 0.0,
+      "first_rank": 0.0,
+      "share_of_voice": 0.0,
+      "citation_rate": 0.0,
+      "by_tier": {
+        "T1": {
+          "gvi": 0.0,
+          "mention_rate": 0.0
+        },
+        "T2": {
+          "gvi": 0.0,
+          "mention_rate": 0.0
+        },
+        "T3": {
+          "gvi": 0.0,
+          "mention_rate": 0.0
+        }
+      }
+    },
+    "deepseek-v3": {
+      "vendor": "DeepSeek",
+      "grade": "A",
+      "n": 2,
+      "gvi": 0.0,
+      "mention_rate": 0.0,
+      "first_rank": 0.0,
+      "share_of_voice": 0.0,
+      "citation_rate": 0.0,
+      "by_tier": {
+        "T1": {
+          "gvi": 0.0,
+          "mention_rate": 0.0
+        },
+        "T2": {
+          "gvi": 0.0,
+          "mention_rate": 0.0
+        },
+        "T3": {
+          "gvi": 0.0,
+          "mention_rate": 0.0
+        }
+      }
+    },
+    "qwen-max": {
+      "vendor": "通义千问",
+      "grade": "A",
+      "n": 2,
+      "gvi": 0.0,
+      "mention_rate": 0.0,
+      "first_rank": 0.0,
+      "share_of_voice": 0.0,
+      "citation_rate": 0.0,
+      "by_tier": {
+        "T1": {
+          "gvi": 0.0,
+          "mention_rate": 0.0
+        },
+        "T2": {
+          "gvi": 0.0,
+          "mention_rate": 0.0
+        },
+        "T3": {
+          "gvi": 0.0,
+          "mention_rate": 0.0
+        }
+      }
+    },
+    "qwen-plus": {
+      "vendor": "通义千问",
+      "grade": "A",
+      "n": 2,
+      "gvi": 0.0,
+      "mention_rate": 0.0,
+      "first_rank": 0.0,
+      "share_of_voice": 0.0,
+      "citation_rate": 0.0,
+      "by_tier": {
+        "T1": {
+          "gvi": 0.0,
+          "mention_rate": 0.0
+        },
+        "T2": {
+          "gvi": 0.0,
+          "mention_rate": 0.0
+        },
+        "T3": {
+          "gvi": 0.0,
+          "mention_rate": 0.0
+        }
+      }
+    }
+  },
+  "by_tier": {
+    "T1": {
+      "gvi": 0.0,
+      "mention_rate": 0.0
+    },
+    "T2": {
+      "gvi": 0.0,
+      "mention_rate": 0.0
+    },
+    "T3": {
+      "gvi": 0.0,
+      "mention_rate": 0.0
+    }
+  },
+  "by_intent": {
+    "definition": {
+      "n": 4,
+      "gvi": 0.0,
+      "mention_rate": 0.0,
+      "first_rank": 0.0
+    },
+    "recommendation": {
+      "n": 4,
+      "gvi": 0.0,
+      "mention_rate": 0.0,
+      "first_rank": 0.0
+    },
+    "comparison": {
+      "n": 0,
+      "gvi": 0.0,
+      "mention_rate": 0.0,
+      "first_rank": 0.0
+    },
+    "ranking": {
+      "n": 0,
+      "gvi": 0.0,
+      "mention_rate": 0.0,
+      "first_rank": 0.0
+    },
+    "problem_solution": {
+      "n": 0,
+      "gvi": 0.0,
+      "mention_rate": 0.0,
+      "first_rank": 0.0
+    }
+  },
+  "by_persona": {
+    "大模型推理工程师": {
+      "n": 4,
+      "gvi": 0.0,
+      "mention_rate": 0.0,
+      "first_rank": 0.0
+    },
+    "智算中心架构师": {
+      "n": 4,
+      "gvi": 0.0,
+      "mention_rate": 0.0,
+      "first_rank": 0.0
+    }
+  },
+  "by_lang": {
+    "zh": {
+      "n": 8,
+      "gvi": 0.0,
+      "mention_rate": 0.0,
+      "first_rank": 0.0
+    },
+    "en": {
+      "n": 0,
+      "gvi": 0.0,
+      "mention_rate": 0.0,
+      "first_rank": 0.0
+    }
+  },
+  "head_to_head": {
+    "阿里云": {
+      "win": 0,
+      "loss": 2,
+      "both": 0,
+      "neither": 6,
+      "exposure": 2
+    },
+    "华为 OceanStor": {
+      "win": 0,
+      "loss": 0,
+      "both": 0,
+      "neither": 8,
+      "exposure": 0
+    },
+    "中科曙光 ParaStor": {
+      "win": 0,
+      "loss": 0,
+      "both": 0,
+      "neither": 8,
+      "exposure": 0
+    },
+    "浪潮存储": {
+      "win": 0,
+      "loss": 0,
+      "both": 0,
+      "neither": 8,
+      "exposure": 0
+    },
+    "焱融科技 YRCloudFile": {
+      "win": 0,
+      "loss": 0,
+      "both": 0,
+      "neither": 8,
+      "exposure": 0
+    },
+    "新华三 H3C": {
+      "win": 0,
+      "loss": 0,
+      "both": 0,
+      "neither": 8,
+      "exposure": 0
+    },
+    "XSKY 星辰天合": {
+      "win": 0,
+      "loss": 0,
+      "both": 0,
+      "neither": 8,
+      "exposure": 0
+    },
+    "同有科技": {
+      "win": 0,
+      "loss": 0,
+      "both": 0,
+      "neither": 8,
+      "exposure": 0
+    },
+    "DDN": {
+      "win": 0,
+      "loss": 0,
+      "both": 0,
+      "neither": 8,
+      "exposure": 0
+    },
+    "VAST Data": {
+      "win": 0,
+      "loss": 0,
+      "both": 0,
+      "neither": 8,
+      "exposure": 0
+    },
+    "WEKA": {
+      "win": 0,
+      "loss": 0,
+      "both": 0,
+      "neither": 8,
+      "exposure": 0
+    },
+    "Pure Storage": {
+      "win": 0,
+      "loss": 0,
+      "both": 0,
+      "neither": 8,
+      "exposure": 0
+    },
+    "NetApp": {
+      "win": 0,
+      "loss": 0,
+      "both": 0,
+      "neither": 8,
+      "exposure": 0
+    },
+    "Dell": {
+      "win": 0,
+      "loss": 0,
+      "both": 0,
+      "neither": 8,
+      "exposure": 0
+    },
+    "腾讯云": {
+      "win": 0,
+      "loss": 0,
+      "both": 0,
+      "neither": 8,
+      "exposure": 0
+    },
+    "Alluxio": {
+      "win": 0,
+      "loss": 0,
+      "both": 0,
+      "neither": 8,
+      "exposure": 0
+    }
+  },
+  "opportunity_gap": {
+    "total": 2,
+    "share_of_ok": 0.25,
+    "by_tier": {
+      "T1": 2,
+      "T2": 0,
+      "T3": 0
+    },
+    "by_intent": {
+      "definition": 0,
+      "recommendation": 2,
+      "comparison": 0,
+      "ranking": 0,
+      "problem_solution": 0
+    }
+  },
+  "mention_leaderboard": {
+    "阿里云": 2,
+    "铭信": 0,
+    "华为 OceanStor": 0,
+    "中科曙光 ParaStor": 0,
+    "浪潮存储": 0,
+    "焱融科技 YRCloudFile": 0,
+    "新华三 H3C": 0,
+    "XSKY 星辰天合": 0,
+    "同有科技": 0,
+    "DDN": 0,
+    "VAST Data": 0,
+    "WEKA": 0,
+    "Pure Storage": 0,
+    "NetApp": 0,
+    "Dell": 0,
+    "腾讯云": 0,
+    "Alluxio": 0
+  },
+  "n_scored": 8,
+  "grade_breakdown": {
+    "A_api": 8,
+    "B_manual": 0
+  }
+}

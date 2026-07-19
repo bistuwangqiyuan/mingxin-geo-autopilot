@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 """铭信 GEO+SEO 提升闭环 · 苹果风格复现图（matplotlib → PNG）。
 
-读取：outputs/loop_results.json、outputs/gvi_compare.json、
-      geo_plan/outputs/geo_projection.json
+读取：outputs/snapshots/*.json（线上就绪度实测）、outputs/gvi_compare.json、
+      geo_plan/outputs/geo_projection.json；旧静态站闭环产物
+      outputs/loop_results*.json 若存在则一并渲染（历史可追溯），缺失时如实跳过。
 产出：outputs/figures/*.png（全部由数据计算，无手绘、可复现）。
 
 复现：python charts.py
@@ -297,17 +298,64 @@ def live_lab_chart():
     return True
 
 
+def _latest_snapshot():
+    """取 outputs/snapshots/ 下最新的线上就绪度实测快照（cri 非空才算有效）。"""
+    snapdir = os.path.join(OUT, "snapshots")
+    if not os.path.isdir(snapdir):
+        return None
+    files = [os.path.join(snapdir, f) for f in os.listdir(snapdir) if f.endswith(".json")]
+    files.sort(key=os.path.getmtime)
+    for p in reversed(files):
+        try:
+            snap = _load(p)
+        except (json.JSONDecodeError, OSError):
+            continue
+        if snap.get("cri") is not None and snap.get("pillars"):
+            return snap
+    return None
+
+
+def readiness_pillar_chart(snap):
+    """线上 mingxinstorage.xyz 就绪度五支柱实测条形图（readiness_audit 真抓取）。"""
+    keys = ["A", "B", "C", "D", "E"]
+    labels = ["A 技术SEO", "B AI抓取", "C 结构化", "D 答案优先", "E 实体一致"]
+    vals = [snap["pillars"].get(k, 0) for k in keys]
+    x = np.arange(len(keys))
+    fig, ax = plt.subplots(figsize=(9, 4.4), dpi=170)
+    bars = ax.bar(x, vals, 0.55, color=[ACCENT[i % len(ACCENT)] for i in range(len(keys))], zorder=3)
+    for b, v in zip(bars, vals):
+        ax.text(b.get_x() + b.get_width() / 2, v + 0.015, f"{v:.2f}", ha="center", fontsize=9)
+    ax.set_xticks(x)
+    ax.set_xticklabels(labels, fontsize=9.5)
+    ax.set_ylabel("支柱得分（0–1）")
+    ax.set_ylim(0, 1.12)
+    ax.set_title(f"线上就绪度实测五支柱（CRI {snap['cri']} · {snap.get('label','current')} · HTTP 真抓取）",
+                 fontsize=12.5, fontweight="bold")
+    ax.grid(axis="x", visible=False)
+    fig.tight_layout()
+    fig.savefig(os.path.join(FIG, "readiness_pillars.png"))
+    plt.close(fig)
+
+
 def main():
     _setup()
     os.makedirs(FIG, exist_ok=True)
-    loop = _load(os.path.join(OUT, "loop_results.json"))
-    cri_trajectory(loop)
-    lever_contribution(loop)
-    pillar_radar(loop)
-    pillar_delta(loop)
+    made = []
+    loop_path = os.path.join(OUT, "loop_results.json")
+    if os.path.exists(loop_path):
+        # 旧静态站闭环历史产物（可追溯）；铭信 Next.js 站点缺省不存在，如实跳过。
+        loop = _load(loop_path)
+        cri_trajectory(loop)
+        lever_contribution(loop)
+        pillar_radar(loop)
+        pillar_delta(loop)
+        made += ["cri_trajectory", "lever_contribution", "pillar_radar", "pillar_delta"]
+    snap = _latest_snapshot()
+    if snap:
+        readiness_pillar_chart(snap)
+        made.append("readiness_pillars")
     g = gvi_compare_chart()
     pr = projection_chart()
-    made = ["cri_trajectory", "lever_contribution", "pillar_radar", "pillar_delta"]
     if g:
         made.append("gvi_compare")
     if pr:

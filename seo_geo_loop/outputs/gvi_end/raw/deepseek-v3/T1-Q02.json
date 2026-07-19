@@ -1,0 +1,20 @@
+{
+  "query_id": "T1-Q02",
+  "tier": "T1",
+  "persona": "智算中心架构师",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "面向大模型推理的 KV Cache 分层/卸载存储加速，有哪些产品或厂商可以选择？",
+  "model_key": "deepseek-v3",
+  "vendor": "DeepSeek",
+  "model_id": "deepseek-v3",
+  "grade": "A",
+  "ok": true,
+  "response": "在面向大模型推理的 **KV Cache 分层存储（Hierarchical Storage）** 和 **卸载（Offloading）** 加速领域，目前已有一些厂商和开源项目提供了相关解决方案，主要分为以下几类：\n\n---\n\n### **1. 商业云服务与硬件厂商**\n#### **(1) NVIDIA**\n- **产品/技术**：  \n  - **H100 GPU + NVLink/NVSwitch**：通过高带宽内存（HBM）和显存优化减少 KV Cache 的访问延迟。  \n  - **TensorRT-LLM**：支持 KV Cache 的动态管理（如分页缓存、持久化），优化显存利用率。  \n  - **CUDA Unified Memory**：允许 KV Cache 在 GPU 和 CPU 内存间按需迁移（类似卸载）。  \n- **适用场景**：NVIDIA 生态的大模型推理加速。\n\n#### **(2) AMD**\n- **产品/技术**：  \n  - **Instinct MI300X GPU + ROCm**：通过大容量 HBM（192GB）直接存储 KV Cache，减少卸载需求。  \n  - **HIP Unified Memory**：类似 CUDA 的统一内存管理，支持分层存储。  \n- **适用场景**：AMD 硬件平台上的大模型部署。\n\n#### **(3) Intel**\n- **产品/技术**：  \n  - **Habana Gaudi2**：通过专用推理加速器和高带宽内存优化 KV Cache 访问。  \n  - **Intel Extension for Transformers**：支持 KV Cache 的量化与压缩，降低存储需求。  \n- **适用场景**：Intel 硬件上的高效推理。\n\n---\n\n### **2. 开源框架与库**\n#### **(1) vLLM (来自 UC Berkeley)**\n- **核心功能**：  \n  - **PagedAttention**：将 KV Cache 分块存储在显存中，支持类似虚拟内存的分页管理。  \n  - **CPU Offloading**：通过 `vLLM` 的 `Ray` 后端支持将部分 KV Cache 卸载到 CPU 内存。  \n- **优势**：开源、易集成，支持 Hugging Face 模型。  \n- **适用场景**：中小规模团队的高效推理部署。\n\n#### **(2) DeepSpeed-Inference (微软)**\n- **核心功能**：  \n  - **KV Cache 分区与显存优化**：通过 `ZeRO-Inference` 减少重复计算。  \n  - **CPU/NVMe Offloading**：支持将 KV Cache 卸载到主机内存或 SSD（需配置）。  \n- **优势**：与 DeepSpeed 训练生态无缝衔接。  \n- **适用场景**：超大规模模型（如 100B+ 参数）的推理。\n\n#### **(3) FlexGen (斯坦福)**\n- **核心功能**：  \n  - **KV Cache ",
+  "meta": {
+    "elapsed": 17.6,
+    "usage": {},
+    "via": "dashscope_http"
+  },
+  "collected_at": "2026-07-20T05:13:06"
+}

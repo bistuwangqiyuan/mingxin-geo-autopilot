@@ -1,5 +1,5 @@
 {
-  "computed_at": "2026-07-20T04:47:23",
+  "computed_at": "2026-07-20T05:14:44",
   "site": "https://mingxinstorage.xyz",
   "method_note": "收录/排名为 agent web_search 实查(无付费 SERP API);在线技术 SEO 为线上 HTML 确定性核对;性能见 lighthouse.json(method=psi/lab)。",
   "indexing": {
@@ -141,11 +141,14 @@
   ],
   "live_deploy_ok": true,
   "deploy_note": "mingxinstorage.xyz 为 Next.js 站点（Vercel mingxin-site），自带内容引擎与 robots/llms.txt/sitemap/JSON-LD；本审计对线上 HTML 做确定性核对以确认部署版本。",
-  "gvi": null,
+  "gvi": {
+    "start": 5.64,
+    "end": 0.0
+  },
   "cri_local_best": null,
   "lighthouse": null,
   "indexnow": {
-    "submitted_at": "2026-07-20T04:47:23+08:00",
+    "submitted_at": "2026-07-20T05:14:43+08:00",
     "url_count": 172,
     "seo_ping_status": null,
     "endpoints": {}

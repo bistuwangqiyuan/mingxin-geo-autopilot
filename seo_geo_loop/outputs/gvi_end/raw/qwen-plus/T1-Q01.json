@@ -1,0 +1,20 @@
+{
+  "query_id": "T1-Q01",
+  "tier": "T1",
+  "persona": "大模型推理工程师",
+  "intent": "definition",
+  "lang": "zh",
+  "query": "什么是 KV Cache 分层存储（KV cache tiering）？把 KV Cache 卸载到外置全闪存储如何降低大模型推理成本？",
+  "model_key": "qwen-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "KV Cache 分层存储（KV Cache Tiering）是一种针对大语言模型（LLM）推理优化的内存管理技术，其核心思想是**将 KV Cache（Key-Value 缓存）按访问热度、时序重要性或延迟容忍度，分层存储在不同性能/成本特性的硬件介质上**（如：GPU HBM → CPU DRAM → NVMe SSD → 全闪分布式存储），而非全部驻留在昂贵的 GPU 显存中。它本质上是“缓存分级 + 智能置换 + 异构卸载”的协同机制。\n\n下面从原理、实现方式和成本效益三方面详细解析：\n\n---\n\n### 一、为什么需要 KV Cache 分层存储？\n\n在自回归推理中（如生成文本），模型每步需缓存已处理 token 的 Key 和 Value 矩阵（即 KV Cache），用于避免重复计算。其特点：\n- **显存占用巨大**：以 LLaMA-70B（4-bit量化）为例，1024-token上下文的KV Cache约需 **~1.8 GB GPU显存**；若支持32K上下文，达 **~56 GB** —— 超出单卡A100（40G）或H100（80G）容量。\n- **访问具有强局部性与时间衰减性**：最新 few tokens 的 KV 被高频访问（用于 next-token 预测），而早期 token 的 KV 访问频次随生成步数增加而显著下降（尤其在长文本生成中）。\n- **GPU 显存成本极高**：H100 80GB 显存成本约占整卡价格的 30–40%，且带宽虽高（>2TB/s），但容量稀缺、扩展困难。\n\n传统方案（如 PagedAttention、vLLM）通过显存分页+swap缓解OOM，但仅限于 GPU↔CPU DRAM 两级，仍受限于主机内存带宽（~100 GB/s）和容量（通常≤1TB）。而**外置全闪存储（如高性能NVMe-oF集群、CXL-attached SSD池）提供了TB级低成本容量+微秒级延迟的新选项**，催生了三级甚至四级分层。\n\n---\n\n### 二、KV Cache 分层存储架构（典型三级）\n\n| 层级 | 存储介质 | 容量 | 带宽 | 访问延迟 | 适用KV数据 | 管理策略 |\n|------|-----------|------|------|------------|-------------|-----------|\n| **L0（热层）** | GPU HBM | 小（几十GB） | >2 TB/s | <100 ns | 当前窗口（e.g",
+  "meta": {
+    "elapsed": 9.99,
+    "usage": {},
+    "via": "dashscope_http"
+  },
+  "collected_at": "2026-07-20T05:12:48"
+}

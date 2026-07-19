@@ -1,5 +1,5 @@
 {
-  "computed_at": "2026-07-20T04:55:08",
+  "computed_at": "2026-07-20T05:14:56",
   "site": "https://mingxinstorage.xyz",
   "repo": "bistuwangqiyuan/zk-geo-autopilot",
   "today": "2026-07-20",
@@ -144,7 +144,7 @@
         {
           "key": "latest_run_green",
           "ok": true,
-          "detail": "conclusion=success, status=completed, age_h=0.1 (<= 26.0), title='GEO Autopilot (every 4h)'",
+          "detail": "conclusion=success, status=completed, age_h=0.4 (<= 26.0), title='GEO Autopilot (every 4h)'",
           "required": true
         }
       ]

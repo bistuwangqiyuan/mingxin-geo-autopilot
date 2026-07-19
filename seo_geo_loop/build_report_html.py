@@ -131,8 +131,63 @@ def _fig(name, cap):
     return f'<div class="fig"><img src="figures/{name}" alt="{esc(cap)}"/><div class="cap">{esc(cap)}</div></div>'
 
 
+def _latest_snapshot():
+    """取 outputs/snapshots/ 下最新有效的线上就绪度实测快照；没有则现场真抓取一次。"""
+    snapdir = os.path.join(OUT, "snapshots")
+    cands = []
+    if os.path.isdir(snapdir):
+        cands = sorted((os.path.join(snapdir, f) for f in os.listdir(snapdir) if f.endswith(".json")),
+                       key=os.path.getmtime)
+    for p in reversed(cands):
+        snap = _load(p, {})
+        if snap.get("cri") is not None and snap.get("pillars"):
+            return snap
+    import importlib
+    import sys
+    if BASE not in sys.path:
+        sys.path.insert(0, BASE)
+    RA = importlib.import_module("readiness_audit")
+    snap = RA.run("report_live")
+    if snap.get("cri") is not None:
+        os.makedirs(snapdir, exist_ok=True)
+        with open(os.path.join(snapdir, "report_live.json"), "w", encoding="utf-8") as f:
+            json.dump(snap, f, ensure_ascii=False, indent=2)
+    return snap
+
+
+def _readiness_section(snap):
+    """线上就绪度实测段落（readiness_audit HTTP 真抓取，替代已退役的静态站闭环）。"""
+    if not snap or snap.get("cri") is None:
+        return ("""<section class="s"><span class="eyebrow">线上就绪度</span>
+<h2>线上就绪度实测暂不可得</h2>
+<p>本次对线上 mingxinstorage.xyz 的 HTTP 抓取审计全部失败（网络/站点不可达），
+如实记录、不编造分数。复现：<code>python readiness_audit.py --label current</code>。</p>
+</section>""")
+    prow = "".join(
+        f"<tr><td>{k} · {PILLAR_NAMES[k]}</td><td class='num'>{snap['pillars'].get(k, 0)}</td>"
+        f"<td class='num'>{int(snap['weights'].get(k, 0) * 100)}%</td></tr>"
+        for k in ["A", "B", "C", "D", "E"])
+    err_note = ""
+    if snap.get("errors"):
+        bad = "、".join(esc(e.get("url", "")) for e in snap["errors"][:4])
+        err_note = f"<p class='cap' style='font-size:11.5px;color:var(--faint)'>抓取失败页（如实记录）：{bad}</p>"
+    return f"""<section class="s"><span class="eyebrow">线上就绪度实测</span>
+<h2>当前线上 CRI = {snap['cri']}（{esc(snap.get('cri_version', 'v1'))} · HTTP 真抓取）</h2>
+<p class="lead">铭信官网为 Next.js 站点（amd 仓库 site/ 子目录，Vercel 部署），旧静态站
+「逐轮改站→重审」闭环已退役；现行口径为对线上 {esc(snap.get('n_pages', 0))} 个内容页的
+确定性 HTTP 抓取审计（<code>readiness_audit.py</code>，无随机、可复算）。</p>
+{_fig('readiness_pillars.png', '线上就绪度实测五支柱（HTTP 真抓取，确定性打分）')}
+<table><thead><tr><th>支柱</th><th class="num">得分（0–1）</th><th class="num">权重</th></tr></thead>
+<tbody>{prow}</tbody></table>
+{err_note}
+</section>"""
+
+
 def build():
+    # 旧静态站闭环历史产物（中科时代，已退役；存在则渲染为历史章节，缺失如实跳过）
     loop = _load(os.path.join(OUT, "loop_results.json"))
+    # 现行口径：线上就绪度实测（真实 HTTP 抓取，铭信 Next.js 站点）
+    snap = _latest_snapshot()
     gvi = _load(os.path.join(OUT, "gvi_compare.json"))
     proj = _load(os.path.join(GEO, "outputs", "geo_projection.json"), {})
     base_snap = _load(os.path.join(OUT, "snapshots", "round00.json"), {})
@@ -143,8 +198,9 @@ def build():
     final_v2_snap = _load(os.path.join(OUT, "snapshots", "final_best_v2.json"), {})
     today = dt.date.today().isoformat()
 
-    w = loop["weights"]
-    rounds = loop["rounds"]
+    w = (loop or snap or {}).get("weights") or {}
+    rounds = loop["rounds"] if loop else []
+    scope = (loop or snap or {}).get("scope", "线上 HTTP 抓取审计")
 
     # KPI 区
     gvi_kpi = ""
@@ -160,6 +216,15 @@ def build():
         n_pub = sum(1 for c in offsite.get("channels", []) if c.get("status") == "published")
         offsite_kpi = (f'<div class="kpi"><div class="v">{n_pub}</div>'
                        f'<div class="k">站外信源真实上线（已验证 200）</div></div>')
+    if loop:
+        cri_kpi = (f'<div class="kpi"><div class="v">{loop["baseline_cri"]}→{loop["final_cri"]}</div>'
+                   f'<div class="k">CRI v1 基线 → 最终（0–100）</div></div>')
+    elif snap and snap.get("cri") is not None:
+        cri_kpi = (f'<div class="kpi"><div class="v">{snap["cri"]}</div>'
+                   f'<div class="k">线上就绪度 CRI 实测（0–100）</div></div>')
+    else:
+        cri_kpi = ('<div class="kpi"><div class="v">—</div>'
+                   '<div class="k">线上 CRI 暂不可得（网络失败，如实记录）</div></div>')
 
     h = []
     h.append(f"""<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"/>
@@ -170,11 +235,13 @@ def build():
     h.append(f"""<div class="cover">
 <span class="badge">实事求是 · 可复现 · 白帽</span>
 <h1>铭信官网<br/><span class="grad">SEO / GEO 提升与站外发布报告</span></h1>
-<p class="sub">真实测评收录/排名与线上性能，完成站外内容包并真实上线可自动化渠道，
-再以 5 个全新白帽杠杆把站内就绪度（CRI v2）推过第一阶段 97.9 上限，并诚实对照真实 GVI。</p>
+<p class="sub">{('真实测评收录/排名与线上性能，完成站外内容包并真实上线可自动化渠道，'
+                 '再以 5 个全新白帽杠杆把站内就绪度（CRI v2）推过第一阶段 97.9 上限，并诚实对照真实 GVI。') if loop else
+                ('真实测评收录/排名与线上性能，以 HTTP 真抓取审计线上就绪度（CRI），'
+                 '完成站外内容包并真实上线可自动化渠道，并诚实对照真实 GVI。')}</p>
 <p class="meta">Mingxin Technology · 铭信（天津）半导体设备有限公司 · 生成于 {today} · 全程无随机、无臆造</p>
 <div class="kpis">
-<div class="kpi"><div class="v">{loop['baseline_cri']}→{loop['final_cri']}</div><div class="k">CRI v1 基线 → 最终（0–100）</div></div>
+{cri_kpi}
 {v2_kpi}
 {offsite_kpi}
 {gvi_kpi}
@@ -205,28 +272,32 @@ def build():
     h.append(f"""<section class="s"><span class="eyebrow">方法学</span>
 <h2>CRI 的五支柱与公式（公开、可调、可复现）</h2>
 <p class="lead">CRI = 100 · Σ wᵢ·支柱ᵢ。每个支柱为 0–1 的客观达成度，由对官网页面的
-确定性扫描（{loop['scope']}）而来；现行口径为对线上 mingxinstorage.xyz 的 HTTP 抓取审计
+确定性扫描（{esc(scope)}）而来；现行口径为对线上 mingxinstorage.xyz 的 HTTP 抓取审计
 （<code>readiness_audit.py</code>）。</p>
 <table><thead><tr><th>支柱</th><th class="num">权重</th><th>口径（节选）</th></tr></thead>
 <tbody>{rowsw}</tbody></table>
 <div class="callout"><h4>数据纪律</h4>
 <p>所有站内事实单一来源于 <code>business_plan/outputs/results.json</code>（与官网单一数据源
 <code>company.ts</code> 同源镜像，签字级实测 R1–R9）；结构化数据/答案块/索引均与之一致，
-绝不臆造。复现链：<code>python run_loop.py → gvi_measure.py → charts.py → build_report_html.py → export_report_pdf.py</code>。</p></div>
+绝不臆造。复现链：<code>python readiness_audit.py → gvi_measure.py → charts.py → build_report_html.py → export_report_pdf.py</code>。</p></div>
 </section>""")
 
-    # 2. 闭环结果
-    trow = []
-    for r in rounds:
-        p = r["pillars"]
-        cls = ' class="hl"' if r["round"] == len(rounds) - 1 else ""
-        d = f'+{r["delta"]:.2f}' if r["delta"] > 0 else f'{r["delta"]:.2f}'
-        trow.append(f"<tr{cls}><td class='num'>{r['round']:02d}</td><td>{esc(r['lever_name'])}</td>"
-                    f"<td class='num'>{r['cri']:.2f}</td><td class='num'>{d}</td>"
-                    f"<td class='num'>{p['A']}</td><td class='num'>{p['B']}</td><td class='num'>{p['C']}</td>"
-                    f"<td class='num'>{p['D']}</td><td class='num'>{p['E']}</td>"
-                    f"<td>{'OK' if r['verify_ok'] else 'FAIL'}</td></tr>")
-    h.append(f"""<section class="s"><span class="eyebrow">闭环结果</span>
+    # 2. 现行口径：线上就绪度实测（真实 HTTP 抓取）
+    h.append(_readiness_section(snap))
+
+    # 2b–4. 旧静态站闭环历史章节（产物存在才渲染；铭信 Next.js 站点缺省跳过）
+    if loop:
+        trow = []
+        for r in rounds:
+            p = r["pillars"]
+            cls = ' class="hl"' if r["round"] == len(rounds) - 1 else ""
+            d = f'+{r["delta"]:.2f}' if r["delta"] > 0 else f'{r["delta"]:.2f}'
+            trow.append(f"<tr{cls}><td class='num'>{r['round']:02d}</td><td>{esc(r['lever_name'])}</td>"
+                        f"<td class='num'>{r['cri']:.2f}</td><td class='num'>{d}</td>"
+                        f"<td class='num'>{p['A']}</td><td class='num'>{p['B']}</td><td class='num'>{p['C']}</td>"
+                        f"<td class='num'>{p['D']}</td><td class='num'>{p['E']}</td>"
+                        f"<td>{'OK' if r['verify_ok'] else 'FAIL'}</td></tr>")
+        h.append(f"""<section class="s"><span class="eyebrow">闭环结果（历史）</span>
 <h2>10 轮优化：CRI 从 {loop['baseline_cri']} 单调升至 {loop['final_cri']}</h2>
 {_fig('cri_trajectory.png', 'CRI 逐轮提升轨迹（每轮真实改站+重审，无随机）')}
 <p>第 {loop['converged_round']} 轮后杠杆全开，CRI 收敛于结构上限 <b>{loop['final_cri']}</b>
@@ -237,14 +308,13 @@ def build():
 <tbody>{''.join(trow)}</tbody></table>
 </section>""")
 
-    # 3. 杠杆边际贡献
-    grow = []
-    contrib = {r["lever_enabled"]: r["delta"] for r in rounds if r.get("lever_enabled")}
-    for g in loop["lever_groups"]:
-        dv = contrib.get(g["id"], 0.0)
-        grow.append(f"<tr><td><b>{esc(g['name'])}</b><span class='tag'>{g['pillar']}</span></td>"
-                    f"<td class='num up'>+{dv:.2f}</td><td>{esc(g['desc'])}</td></tr>")
-    h.append(f"""<section class="s"><span class="eyebrow">归因复盘</span>
+        grow = []
+        contrib = {r["lever_enabled"]: r["delta"] for r in rounds if r.get("lever_enabled")}
+        for g in loop["lever_groups"]:
+            dv = contrib.get(g["id"], 0.0)
+            grow.append(f"<tr><td><b>{esc(g['name'])}</b><span class='tag'>{g['pillar']}</span></td>"
+                        f"<td class='num up'>+{dv:.2f}</td><td>{esc(g['desc'])}</td></tr>")
+        h.append(f"""<section class="s"><span class="eyebrow">归因复盘（历史）</span>
 <h2>八个白帽杠杆组的边际贡献</h2>
 {_fig('lever_contribution.png', '各杠杆组带来的 CRI 增量（逐轮 Δ）')}
 <p>每个杠杆都是真实、可核验、单一数据源的站内改进；不堆砌关键词、不隐藏文字、不臆造外部档案。</p>
@@ -252,8 +322,7 @@ def build():
 <tbody>{''.join(grow)}</tbody></table>
 </section>""")
 
-    # 4. 五支柱
-    h.append(f"""<section class="s"><span class="eyebrow">支柱画像</span>
+        h.append(f"""<section class="s"><span class="eyebrow">支柱画像（历史）</span>
 <h2>五支柱：基线 → 最终</h2>
 <div class="grid2">{_fig('pillar_radar.png','五支柱雷达：基线 vs 最终')}{_fig('pillar_delta.png','五支柱条形：基线 vs 最终')}</div>
 {_pillar_detail_table(base_snap, final_snap)}
@@ -280,13 +349,18 @@ def build():
 </section>""")
 
     # 6. 预测 + 收敛/自我批评
+    cri_now = loop["final_cri"] if loop else ((snap or {}).get("cri") if snap else None)
+    cri_txt = (f"杠杆全开后 CRI 收敛于 {loop['final_cri']}，并非人为 100。" if loop
+               else (f"当前线上实测 CRI = {cri_now}，尚未拉满。" if cri_now is not None
+                     else "本次线上抓取失败，CRI 暂不可得（如实记录）。"))
+    lowest_src = final_snap if loop else (snap or {})
     h.append(f"""<section class="s"><span class="eyebrow">规划区间（非承诺）</span>
 <h2>GEO 提升预测与收敛复盘</h2>
 {_fig('geo_projection.png','GEO 提及率提升预测 P10–P90（规划区间）')}
 {_projection_table(proj)}
 <h3>收敛与自我批评（实事求是）</h3>
-<p>杠杆全开后 CRI 收敛于 {loop['final_cri']}，并非人为 100。如实记录仍未满分的子项，留待后续迭代/站外执行：</p>
-<ul>{_lowest_list(final_snap)}</ul>
+<p>{cri_txt}如实记录仍未满分的子项，留待后续迭代/站外执行：</p>
+<ul>{_lowest_list(lowest_src)}</ul>
 </section>""")
 
     # 6b. 站外内容包与已上线 URL

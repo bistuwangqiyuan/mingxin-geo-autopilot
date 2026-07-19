@@ -1,0 +1,236 @@
+[
+  {
+    "name": "import:llm_providers",
+    "ok": true,
+    "elapsed": 0.5,
+    "note": "['tongyi', 'deepseek', 'glm', 'kimi', 'hunyuan', 'spark', 'doubao', 'claude', 'gemini']"
+  },
+  {
+    "name": "import:geo_data",
+    "ok": true,
+    "elapsed": 0.2,
+    "note": "12 11"
+  },
+  {
+    "name": "import:geo_config",
+    "ok": true,
+    "elapsed": 0.1,
+    "note": "5"
+  },
+  {
+    "name": "import:site_facts",
+    "ok": true,
+    "elapsed": 0.1,
+    "note": "铭信 https://mingxinstorage.xyz"
+  },
+  {
+    "name": "import:paths",
+    "ok": true,
+    "elapsed": 0.1,
+    "note": "{\"ROOT\": \"C:\\\\Users\\\\Administrator\\\\Desktop\\\\google\\\\zk-geo-autopilot\", \"GEO_PLAN\": \"C:\\\\Users\\\\Administrator\\\\Desktop\\\\google\\\\zk-geo-autopilot\\\\geo_plan\", \"LOOP\": \"C:\\\\Users\\\\Administrator\\\\Desktop\\\\google\\\\zk-geo-autopilot\\\\seo_geo_loop\", \"OFFICIAL_WEBSITE\": \"C:\\\\Users\\\\Administrator\\\\Desktop\\\\google\\\\zk-geo-autopilot\\\\official_website\", \"SITE_SRC\": \"C:\\\\Users\\\\Administrator\\\\Desktop\\\\google\\\\z"
+  },
+  {
+    "name": "geo_plan:audit_probe",
+    "ok": true,
+    "elapsed": 12.3,
+    "note": "  [probe] deepseek-r1    (deepseek-r1) -> OK  3.1s | 可用 API 模型：['qwen-max', 'qwen-plus', 'qwen3.6-plus', 'deepseek-v3', 'deepseek-r1']"
+  },
+  {
+    "name": "geo_plan:scoring70",
+    "ok": true,
+    "elapsed": 2.7,
+    "note": "  声量榜前5： [('华为 OceanStor', 154), ('浪潮存储', 96), ('中科曙光 ParaStor', 66), ('Pure Storage', 57), ('WEKA', 52)] |   图表 -> outputs/figures/  数据 -> outputs/geo_baseline.json"
+  },
+  {
+    "name": "geo_plan:source_audit",
+    "ok": true,
+    "elapsed": 2.1,
+    "note": "  优先级前6平台： ['CSDN', '搜狐号', '知乎技术区', 'GitHub/GitCode', 'arXiv/学术', '权威媒体'] |   实体事实表 -> outputs/entity_facts.json"
+  },
+  {
+    "name": "geo_plan:projection",
+    "ok": true,
+    "elapsed": 1.5,
+    "note": "  Tornado 头部： ['站外多信源覆盖(全部)', '结构化数据(JSON-LD @graph)', '抓取放行(robots/sitemap)'] |   数据 -> outputs/geo_projection.json  图 -> outputs/figures/"
+  },
+  {
+    "name": "geo_plan:scoring12",
+    "ok": true,
+    "elapsed": 3.2,
+    "note": "  [Gemini] 不可用/无数据（status=unavailable） |   [联网检索可见度（DashScope WebSearch）] 不可用/无数据（status=unavailable）"
+  },
+  {
+    "name": "geo_plan:charts_geo",
+    "ok": true,
+    "elapsed": 2.8,
+    "note": "Charts saved to C:\\Users\\Administrator\\Desktop\\google\\zk-geo-autopilot\\geo_plan\\figures"
+  },
+  {
+    "name": "geo_plan:build_geo_html",
+    "ok": true,
+    "elapsed": 0.1,
+    "note": "Saved: C:\\Users\\Administrator\\Desktop\\google\\zk-geo-autopilot\\geo_plan\\outputs\\铭信-GEO提升计划.html  (1.09 MB)"
+  },
+  {
+    "name": "geo_plan:build_report_html",
+    "ok": true,
+    "elapsed": 0.1,
+    "note": "报告 HTML 已生成：C:\\Users\\Administrator\\Desktop\\google\\zk-geo-autopilot\\geo_plan\\outputs\\铭信-GEO提升计划.html"
+  },
+  {
+    "name": "geo_plan:build_impl_report",
+    "ok": true,
+    "elapsed": 0.1,
+    "note": "Saved: C:\\Users\\Administrator\\Desktop\\google\\zk-geo-autopilot\\geo_plan\\outputs\\铭信-GEO计划落地实施报告.html"
+  },
+  {
+    "name": "geo_plan:export_geo_pdf",
+    "ok": true,
+    "elapsed": 7.4,
+    "note": "Saved: C:\\Users\\Administrator\\Desktop\\google\\zk-geo-autopilot\\铭信-GEO提升计划.pdf  (1.3 MB)"
+  },
+  {
+    "name": "geo_plan:export_impl_pdf",
+    "ok": true,
+    "elapsed": 4.0,
+    "note": "Saved: C:\\Users\\Administrator\\Desktop\\google\\zk-geo-autopilot\\铭信-GEO计划落地实施报告.pdf  (0.23 MB)"
+  },
+  {
+    "name": "geo_plan:make_offsite_kit",
+    "ok": true,
+    "elapsed": 0.1,
+    "note": "  - wechat_mp.md |   - zhihu.md"
+  },
+  {
+    "name": "geo_plan:verify_geo",
+    "ok": true,
+    "elapsed": 0.1,
+    "note": "通过 33 · 警告 2 · 失败 0 | 结论：校验通过，可对外交付。"
+  },
+  {
+    "name": "loop:gvi_measure_lim2",
+    "ok": true,
+    "elapsed": 56.4,
+    "note": "gvi_end  =0.0  (n=8)  Δ=-5.64 | 写出：C:\\Users\\Administrator\\Desktop\\google\\zk-geo-autopilot\\seo_geo_loop\\outputs\\gvi_compare.json"
+  },
+  {
+    "name": "loop:make_geo_kit_en",
+    "ok": true,
+    "elapsed": 0.1,
+    "note": "[geo_kit_en] 生成 14 个成品包 -> C:\\Users\\Administrator\\Desktop\\google\\zk-geo-autopilot\\geo_plan\\offsite\\en_kit"
+  },
+  {
+    "name": "loop:build_offsite_site",
+    "ok": true,
+    "elapsed": 0.1,
+    "note": "[offsite_site] 生成 7 页 + robots/sitemap/llms -> C:\\Users\\Administrator\\Desktop\\google\\zk-geo-autopilot\\offsite_site"
+  },
+  {
+    "name": "loop:build_offsite_github",
+    "ok": true,
+    "elapsed": 0.2,
+    "note": "[offsite_github] articles: 渲染 14 篇问答型深度文章 -> docs/articles/ | [offsite_github] 组装完成 -> C:\\Users\\Administrator\\Desktop\\google\\zk-geo-autopilot\\offsite_github  (docs 文件 16 个)"
+  },
+  {
+    "name": "loop:charts",
+    "ok": true,
+    "elapsed": 2.0,
+    "note": "图表已生成： readiness_pillars, gvi_compare, geo_projection -> C:\\Users\\Administrator\\Desktop\\google\\zk-geo-autopilot\\seo_geo_loop\\outputs\\figures"
+  },
+  {
+    "name": "loop:live_audit",
+    "ok": true,
+    "elapsed": 0.4,
+    "note": "  SERP 追加 0 行 -> C:\\Users\\Administrator\\Desktop\\google\\zk-geo-autopilot\\seo\\data\\serp_observations.csv |   写出 -> C:\\Users\\Administrator\\Desktop\\google\\zk-geo-autopilot\\seo_geo_loop\\outputs\\live_status.json"
+  },
+  {
+    "name": "loop:update_live_status",
+    "ok": true,
+    "elapsed": 0.6,
+    "note": "  } | ]"
+  },
+  {
+    "name": "loop:indexnow_submit",
+    "ok": true,
+    "elapsed": 0.3,
+    "note": " | [SKIP] 172 URLs; written C:\\Users\\Administrator\\Desktop\\google\\zk-geo-autopilot\\seo_geo_loop\\outputs\\indexnow_submit.json"
+  },
+  {
+    "name": "loop:build_report_html",
+    "ok": true,
+    "elapsed": 0.2,
+    "note": "Saved: C:\\Users\\Administrator\\Desktop\\google\\zk-geo-autopilot\\seo_geo_loop\\outputs\\铭信-SEO-GEO提升与站外发布报告.html"
+  },
+  {
+    "name": "loop:export_report_pdf",
+    "ok": true,
+    "elapsed": 6.6,
+    "note": "Saved: C:\\Users\\Administrator\\Desktop\\google\\zk-geo-autopilot\\铭信-SEO-GEO提升与站外发布报告.pdf  (0.76 MB)"
+  },
+  {
+    "name": "ap:keyword_miner",
+    "ok": true,
+    "elapsed": 0.1,
+    "note": "[keyword_miner] source=skipped_backpressure added=0 bank_total=30 pending=13"
+  },
+  {
+    "name": "ap:geo_brain",
+    "ok": true,
+    "elapsed": 16.4,
+    "note": "[geo_brain] engine=provider:tongyi -> C:\\Users\\Administrator\\Desktop\\google\\zk-geo-autopilot\\geo_autopilot\\outputs\\brain_decision.json |   priorities=3 proposals=3"
+  },
+  {
+    "name": "ap:apply_proposals",
+    "ok": true,
+    "elapsed": 0.1,
+    "note": "[apply_proposals] accepted=3 rejected=0 applied=True verify_ok=True |   已应用 3 条提案并通过事实闸门（company.ts 口径）"
+  },
+  {
+    "name": "ap:metrics",
+    "ok": true,
+    "elapsed": 0.1,
+    "note": "  } | }"
+  },
+  {
+    "name": "ap:trend",
+    "ok": true,
+    "elapsed": 1.7,
+    "note": "  - trend_coverage.png |   - trend_answerable.png"
+  },
+  {
+    "name": "ap:traffic_check",
+    "ok": true,
+    "elapsed": 0.1,
+    "note": "[traffic_check] status=ga4_not_configured reddit=None ai_sources=None"
+  },
+  {
+    "name": "ap:build_daily_report",
+    "ok": true,
+    "elapsed": 1.9,
+    "note": "Saved: C:\\Users\\Administrator\\Desktop\\google\\zk-geo-autopilot\\geo_autopilot\\reports\\铭信-GEO自动驾驶日报.html"
+  },
+  {
+    "name": "ap:export_daily_pdf",
+    "ok": true,
+    "elapsed": 4.4,
+    "note": "Saved: C:\\Users\\Administrator\\Desktop\\google\\zk-geo-autopilot\\geo_autopilot\\reports\\铭信-GEO自动驾驶日报-2026-07-20.pdf  (0.47 MB)"
+  },
+  {
+    "name": "ap:alerting",
+    "ok": true,
+    "elapsed": 0.1,
+    "note": "[alerting] level=warn delivery=local_file_only(无 MX_ALERT_REPO 或 dry-run) alerts=0 blocked=3"
+  },
+  {
+    "name": "orchestrator:once_skipgvi",
+    "ok": true,
+    "elapsed": 41.1,
+    "note": "[autopilot] run_log -> C:\\Users\\Administrator\\Desktop\\google\\zk-geo-autopilot\\geo_autopilot\\outputs\\run_log.json | [autopilot] 完成：23/23 步 OK；关键失败 0。用时 41.0s"
+  },
+  {
+    "name": "acceptance:test_suite",
+    "ok": true,
+    "elapsed": 5.5,
+    "note": "  报告 -> C:\\Users\\Administrator\\Desktop\\google\\zk-geo-autopilot\\tests\\last_report.json |   ALL_PASSED = True"
+  }
+]

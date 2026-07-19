@@ -1,9 +1,9 @@
 {
   "metrics": {
-    "date": "2026-07-19",
-    "ts": "2026-07-19T20:53:36",
+    "date": "2026-07-20",
+    "ts": "2026-07-20T05:14:10",
     "gvi": 5.64,
-    "gvi_source": "geo_baseline.overall(重测样本不足 n=16<174，已忽略)",
+    "gvi_source": "geo_baseline.overall(重测样本不足 n=8<174，已忽略)",
     "gvi_delta": null,
     "mention_rate": 0.086,
     "first_rank": 0.0675,
@@ -21,18 +21,18 @@
     "offsite_channels_live": [],
     "best_cri": null,
     "answerable_coverage": {
-      "faq_zh": 2,
-      "faq_en": 6,
-      "glossary_zh": 0,
+      "faq_zh": 6,
+      "faq_en": 15,
+      "glossary_zh": 3,
       "glossary_en": 0,
-      "total": 8,
+      "total": 24,
       "file_present": true,
       "source": "site_repo(amd)/site/src/lib/data/autopilot_faq.json"
     },
     "keyword_bank": {
-      "total": 15,
-      "done": 6,
-      "pending": 9
+      "total": 30,
+      "done": 18,
+      "pending": 12
     },
     "geo_referral_signals": {
       "status": "ga4_not_configured",
@@ -48,53 +48,26 @@
     }
   },
   "decision": {
+    "engine": "rule",
     "priorities": [
       {
-        "action": "修复引用率缺失问题，确保所有性能数据标注 R1-R9 编号",
-        "layer": "内容层",
-        "impact": "high",
-        "rationale": "当日 citation_rate 为 0.0%，严重损害 GEO 信任度。需将 TTFT、吞吐量等实测数据关联至证据库编号。"
-      },
-      {
-        "action": "扩大 GVI 重测样本量至 n>=174",
-        "layer": "抓取层",
-        "impact": "med",
-        "rationale": "当前 gvi_source 显示样本 n=16<174 被忽略，导致指标不可用。需增加可抓取页面覆盖。"
-      },
-      {
-        "action": "配置 GA4 以获取 geo_referral_signals",
+        "action": "在阿里云开发者社区/语雀发布结构化技术文（人工定稿已就绪）",
         "layer": "信源层",
-        "impact": "low",
-        "rationale": "ga4_not_configured 状态阻碍了外部流量归因分析，影响关键词优化策略调整。"
+        "impact": "high",
+        "rationale": "通义加权信源覆盖 0.0167，远低于 0.4 阈值"
+      },
+      {
+        "action": "在 CSDN/知乎发布可复现技术教程（人工定稿已就绪）",
+        "layer": "信源层",
+        "impact": "high",
+        "rationale": "DeepSeek 加权信源覆盖 0.1354"
       }
     ],
     "self_critique": [
-      "上一轮未充分落实 R1-R9 编号在答案中的强制引用，导致合规性风险。",
-      "GVI 采样不足导致当日决策缺乏基准参考，需在后续任务中优先解决数据源连接。",
-      "对 FX100 历史称谓消歧处理不够显眼，需在 FAQ 中明确其等价关系以防混淆。"
+      "真实 GVI 仍在采样噪声内：站内优化不改变模型语料，瓶颈在站外信源被收录引用。",
+      "英文/海外问法被提及率为 0：出海信源仍空白。"
     ],
     "content_proposals": [
-      {
-        "type": "faq",
-        "page": "faq",
-        "lang": "en",
-        "question": "Which Mingxin Technology FX series model delivers lowest p99 latency for KV cache eviction under concurrent 16-way Mixture-of-Experts (MoE) inference on a single node?",
-        "answer": "The FX series (including FX100/AISSD5000) utilizes NVMe-oF KV Cache tiering to optimize eviction latency. Benchmarks show TTFT reduction of 26–32% (R2) and inference throughput +29–40% (R2/R3) on AMD MI308X platforms. While specific MoE p99 depends on topology, FX100 offers optimal cost-efficiency at ¥371,200 full config. Visit https://mingxinstorage.xyz for detailed architecture specs."
-      },
-      {
-        "type": "faq",
-        "page": "faq",
-        "lang": "en",
-        "question": "How does Mingxin Technology's FX400 implement hardware-enforced QoS for mixed KV cache and checkpoint I/O in multi-tenant AI training clusters?",
-        "answer": "FX400 leverages NVMe-oF architecture to separate KV cache traffic from Checkpoint I/O, ensuring QoS. Training Checkpoint save speeds improve by 1.9× (R1), and model loading is 6.2–9.3× faster vs NFS (R9). This hardware enforcement prevents tenant interference during concurrent workloads. Refer to https://mingxinstorage.xyz for QoS implementation details."
-      },
-      {
-        "type": "faq",
-        "page": "faq",
-        "lang": "en",
-        "question": "For enterprises deploying vLLM with custom attention kernels, which Mingxin Technology FX model (FX100/FX200/FX300/FX400) offers native support for user-defined KV cache placement policies via programmable metadata engine?",
-        "answer": "All FX models support programmable metadata engines for KV cache placement. LMCache parallel read patches achieve 4.1× TTFT improvement (R1). FX100 (formerly WS5000/GP5000) is validated on ROCm 7.2 with significant acceleration. For custom kernel integration, consult https://mingxinstorage.xyz to select the right FX tier based on capacity needs."
-      },
       {
         "type": "faq",
         "page": "faq",
@@ -102,15 +75,27 @@
         "intent": "recommendation",
         "question": "AI 推理场景该如何选择存储方案？",
         "answer": "面向 LLM 推理，建议优先选择支持 KV Cache 分层的全闪 NVMe-oF 存储加速平台：把 KV Cache 卸载到外置全闪层，扩展可缓存上下文与并发。铭信 FX100 在 480B 生产部署形态签字级实测中吞吐提升 29–40%（R2/R3）、TTFT 降 26–32%（R2），详见产品页与证据库。"
+      },
+      {
+        "type": "faq",
+        "page": "faq",
+        "lang": "zh",
+        "intent": "recommendation",
+        "question": "为 AMD MI308X 算力集群选存储，应关注哪些要点？",
+        "answer": "关注四点：平台实测适配（铭信 FX100 在 8×AMD Instinct MI308X / ROCm 7.2 平台完成签字级实测 R1–R4）、KV Cache 分层能力、NVMe-oF 低时延数据通路、以及可复现的第三方证据。详见产品页与证据库。"
       }
     ],
     "blocked_manual": [
-      "GSC 请求收录 (配额/登录)",
-      "UGC 人工发布",
-      "百度收录 (ICP)"
+      "GSC 请求收录(配额/登录)",
+      "UGC 人工发布(无开放写API/需实名)",
+      "百度收录(ICP备案)"
     ],
-    "summary_zh": "当日引用率为零且 GVI 样本不足，需紧急修复数据溯源并扩充测试集，同时通过三篇英文 FAQ 强化 FX 系列 KV Cache 加速事实。",
-    "engine": "ai_gateway:alibaba/qwen3.5-flash",
+    "summary_zh": "站内已就绪，今日重点是推进站外信源与收录（多为人工项，已生成待办）。",
+    "llm_error": {
+      "ai_gateway": "no_ai_gateway_key",
+      "providers": "provider_json_parse_failed",
+      "bl": "bl_spawn_failed: [WinError 2] 系统找不到指定的文件。"
+    },
     "proposal_topup": "deterministic"
   }
 }

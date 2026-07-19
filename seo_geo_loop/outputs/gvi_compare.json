@@ -1,0 +1,44 @@
+{
+  "computed_at": "2026-07-20T05:13:34",
+  "method": "GVI = 100·(0.30·mention + 0.25·first_rank + 0.20·SoV + 0.15·citation + 0.10·accuracy)；geo_scoring 同口径；4 模型 × 查询集真实 API 采样(grade A)。",
+  "models": [
+    "qwen-max",
+    "qwen-plus",
+    "deepseek-v3",
+    "deepseek-r1"
+  ],
+  "honest_note": "站内 CRI 优化不改变模型训练语料，故 gvi_end 与 gvi_start 预期落在采样噪声内；真实 GVI 阶跃需站外多信源随时间被收录/引用（见 geo_plan 预测 P10/P50/P90 与站外内容包）。",
+  "start": {
+    "source": "geo_plan/outputs/geo_baseline.json",
+    "n_records_ok": 349,
+    "gvi": 5.64,
+    "mention_rate": 0.086,
+    "first_rank": 0.0675,
+    "share_of_voice": 0.0417,
+    "citation_rate": 0.0,
+    "by_model": {
+      "deepseek-r1": 4.95,
+      "deepseek-v3": 6.47,
+      "qwen-max": 5.49,
+      "qwen-plus": 5.42,
+      "qwen3.6-plus": 5.87
+    }
+  },
+  "end": {
+    "source": "seo_geo_loop/outputs/gvi_end/raw/**（本次真实重测）",
+    "n_records_ok": 8,
+    "gvi": 0.0,
+    "mention_rate": 0.0,
+    "first_rank": 0.0,
+    "share_of_voice": 0.0,
+    "citation_rate": 0.0,
+    "by_model": {
+      "deepseek-r1": 0.0,
+      "deepseek-v3": 0.0,
+      "qwen-max": 0.0,
+      "qwen-plus": 0.0
+    }
+  },
+  "delta_gvi": -5.64,
+  "delta_mention_rate": -0.086
+}

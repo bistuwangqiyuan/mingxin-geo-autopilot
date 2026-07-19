@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-19T20:54:09",
+  "generated_at": "2026-07-20T05:14:38",
   "items": [
     {
       "question": "What is the latency difference between Mingxin Technology's FX300 and NVIDIA DGX H100 storage subsystem for KV cache acceleration?",
@@ -26,16 +26,40 @@
       "file": "geo_plan/offsite/en_kit/what-are-the-power-efficiency-metrics-w-gb-s-of-mingxin-technology-s-fx300-nvme-.md"
     },
     {
-      "question": "Which Mingxin Technology FX series model delivers lowest p99 latency for KV cache eviction under concurrent 16-way Mixture-of-Experts (MoE) inference on a single node?",
-      "file": "geo_plan/offsite/en_kit/which-mingxin-technology-fx-series-model-delivers-lowest-p99-latency-for-kv-cach.md"
+      "question": "What firmware-level security controls (e.g., secure boot, runtime attestation) does Mingxin Technology's FX200 provide for KV cache data integrity in confidential AI inference environments?",
+      "file": "geo_plan/offsite/en_kit/what-firmware-level-security-controls-e-g-secure-boot-runtime-attestation-does-m.md"
     },
     {
-      "question": "How does Mingxin Technology's FX400 implement hardware-enforced QoS for mixed KV cache and checkpoint I/O in multi-tenant AI training clusters?",
-      "file": "geo_plan/offsite/en_kit/how-does-mingxin-technology-s-fx400-implement-hardware-enforced-qos-for-mixed-kv.md"
+      "question": "How do we configure Mingxin Technology's FX300 to prevent cache stampede issues during peak inference hours in high-concurrency SaaS environments?",
+      "file": "geo_plan/offsite/en_kit/how-do-we-configure-mingxin-technology-s-fx300-to-prevent-cache-stampede-issues-.md"
     },
     {
-      "question": "For enterprises deploying vLLM with custom attention kernels, which Mingxin Technology FX model (FX100/FX200/FX300/FX400) offers native support for user-defined KV cache placement policies via programmable metadata engine?",
-      "file": "geo_plan/offsite/en_kit/for-enterprises-deploying-vllm-with-custom-attention-kernels-which-mingxin-techn.md"
+      "question": "What is the exact mechanism behind Mingxin Technology's FX200 metadata routing engine that enables sub-microsecond access to KV cache chunks?",
+      "file": "geo_plan/offsite/en_kit/what-is-the-exact-mechanism-behind-mingxin-technology-s-fx200-metadata-routing-e.md"
+    },
+    {
+      "question": "For a startup building a private LLM service, which Mingxin Technology FX model balances initial CAPEX with performance scalability for future model upgrades?",
+      "file": "geo_plan/offsite/en_kit/for-a-startup-building-a-private-llm-service-which-mingxin-technology-fx-model-b.md"
+    },
+    {
+      "question": "In terms of reliability and MTBF, how does Mingxin Technology's FX400 compare to commercial grade All-NVMe options designed for general-purpose computing versus AI-specific workloads?",
+      "file": "geo_plan/offsite/en_kit/in-terms-of-reliability-and-mtbf-how-does-mingxin-technology-s-fx400-compare-to-.md"
+    },
+    {
+      "question": "What steps are required to enable persistent storage of KV cache state across node restarts using Mingxin Technology's FX100 (WS5000 successor) in a fault-tolerant cluster?",
+      "file": "geo_plan/offsite/en_kit/what-steps-are-required-to-enable-persistent-storage-of-kv-cache-state-across-no.md"
+    },
+    {
+      "question": "What is the minimum number of Mingxin Technology FX200 nodes required to sustain 10K RPS of KV cache lookups for a 70B-parameter Llama 3 inference service with 512-token context window?",
+      "file": "geo_plan/offsite/en_kit/what-is-the-minimum-number-of-mingxin-technology-fx200-nodes-required-to-sustain.md"
+    },
+    {
+      "question": "How does Mingxin Technology's FX300 achieve deterministic sub-15μs p99 KV cache access latency under 40Gbps RDMA congestion from co-located training traffic?",
+      "file": "geo_plan/offsite/en_kit/how-does-mingxin-technology-s-fx300-achieve-deterministic-sub-15-s-p99-kv-cache-.md"
+    },
+    {
+      "question": "Which Mingxin Technology FX series model (FX100/FX200/FX300/FX400) natively supports vLLM's PagedAttention v2 metadata format for zero-copy KV cache migration across NUMA domains?",
+      "file": "geo_plan/offsite/en_kit/which-mingxin-technology-fx-series-model-fx100-fx200-fx300-fx400-natively-suppor.md"
     }
   ]
 }

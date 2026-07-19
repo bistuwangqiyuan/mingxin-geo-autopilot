@@ -1,0 +1,20 @@
+{
+  "query_id": "T1-Q02",
+  "tier": "T1",
+  "persona": "智算中心架构师",
+  "intent": "recommendation",
+  "lang": "zh",
+  "query": "面向大模型推理的 KV Cache 分层/卸载存储加速，有哪些产品或厂商可以选择？",
+  "model_key": "qwen-plus",
+  "vendor": "通义千问",
+  "model_id": "qwen-plus",
+  "grade": "A",
+  "ok": true,
+  "response": "面向大模型推理的 KV Cache 分层/卸载存储加速（如将部分 KV Cache 从 GPU HBM 卸载到 CPU DRAM、NVMe SSD 或专用内存池），是当前提升大模型推理吞吐、降低显存占用、支持长上下文的关键技术方向。目前尚无完全标准化的“开箱即用”商业产品，但已有多个厂商和开源/闭源方案在该领域提供成熟能力或生产级支持。以下是按类型分类的主流选择：\n\n---\n\n### ✅ 一、头部云厂商 & 基础设施平台（生产级部署首选）\n| 厂商 | 方案/产品 | 关键特性 | 备注 |\n|------|-----------|----------|------|\n| **NVIDIA** | **vLLM + PagedAttention + Unified Memory / NVMe Offload（via Triton + CUDA UVM）**<br>• **TensorRT-LLM**（v0.9+ 支持 KV Cache 分层）<br>• **NVIDIA Triton Inference Server**（集成 vLLM/PagedAttention 后端） | • 原生支持 PagedAttention（分页式 KV 缓存管理）<br>• 支持 GPU→CPU DRAM 的异步卸载（需配合 `--kv-cache-dtype fp8` + `--enable-kv-cache-offload`）<br>• TRT-LLM 提供 `--kv-cache-enable-block-reuse` 和 `--kv-cache-max-blocks` 等精细控制<br>• 与 NVIDIA GPUDirect Storage（GDS）结合可实现 NVMe 零拷贝卸载（实验性） | 最成熟、生态最完善；需 A100/H100/B200 及较新驱动/CUDA 版本；企业版 TensorRT-LLM 提供 NVMe offload 官方支持（2024 Q2起） |\n| **AWS** | **Amazon SageMaker Inference (with vLLM backend)**<br>• **EC2 Inf2/Trn1 实例 + Neuron SDK v2.20+** | • NeuronX 推理运行时支持 KV Cache 分块驻留与跨层级迁移（HBM ↔ DDR）<br>• 自动感知 L2 cache + DDR 容量，动态调度 KV block<br>• 通过 `neuronx-distributed` 库支持多芯片 KV 共享与卸载 | 专为 AWS Neuron 芯片优化；不支持通用 GPU，但成本/能效比高；适合长文本批量推理 |\n| **阿里云** | **PAI-EAS + vLLM/Triton 定制版**<br>• **灵骏",
+  "meta": {
+    "elapsed": 10.22,
+    "usage": {},
+    "via": "dashscope_http"
+  },
+  "collected_at": "2026-07-20T05:12:48"
+}

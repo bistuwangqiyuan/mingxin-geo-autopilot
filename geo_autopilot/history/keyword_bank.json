@@ -85,50 +85,179 @@
       "en": "What firmware-level security controls (e.g., secure boot, runtime attestation) does Mingxin Technology's FX200 provide for KV cache data integrity in confidential AI inference environments?",
       "zh": "铭信科技FX200在机密AI推理环境中为KV缓存数据完整性提供了哪些固件级安全控制（例如安全启动、运行时远程证明）？",
       "intent": "definition",
-      "status": "new",
+      "status": "done",
       "source": "llm_providers",
-      "added_at": "2026-07-20T04:46:50"
+      "added_at": "2026-07-20T04:46:50",
+      "done_at": "2026-07-20T05:00:54"
     },
     {
       "en": "How do we configure Mingxin Technology's FX300 to prevent cache stampede issues during peak inference hours in high-concurrency SaaS environments?",
       "zh": "在高性能并发 SaaS 环境中，如何配置铭信科技的 FX300 以防止高推理高峰期出现缓存风暴问题？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-19T20:52:15"
+      "added_at": "2026-07-19T20:52:15",
+      "done_at": "2026-07-20T05:00:54"
     },
     {
       "en": "What is the exact mechanism behind Mingxin Technology's FX200 metadata routing engine that enables sub-microsecond access to KV cache chunks?",
       "zh": "铭信科技 FX200 元数据路由引擎实现微秒级 KV 缓存块访问的确切机制是什么？",
       "intent": "definition",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-19T20:52:15"
+      "added_at": "2026-07-19T20:52:15",
+      "done_at": "2026-07-20T05:00:54"
     },
     {
       "en": "For a startup building a private LLM service, which Mingxin Technology FX model balances initial CAPEX with performance scalability for future model upgrades?",
       "zh": "对于构建私有 LLM 服务的初创公司，哪款铭信科技 FX 系列型号能在初始资本支出与未来模型升级的性能扩展性之间取得平衡？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-19T20:52:15"
+      "added_at": "2026-07-19T20:52:15",
+      "done_at": "2026-07-20T05:01:32"
     },
     {
       "en": "In terms of reliability and MTBF, how does Mingxin Technology's FX400 compare to commercial grade All-NVMe options designed for general-purpose computing versus AI-specific workloads?",
       "zh": "在可靠性和平均故障间隔时间方面，铭信科技 FX400 与专为通用计算设计的商业级全闪存选项相比如何？它针对 AI 特定工作负载有何不同？",
       "intent": "comparison",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-19T20:52:15"
+      "added_at": "2026-07-19T20:52:15",
+      "done_at": "2026-07-20T05:10:20"
     },
     {
       "en": "What steps are required to enable persistent storage of KV cache state across node restarts using Mingxin Technology's FX100 (WS5000 successor) in a fault-tolerant cluster?",
       "zh": "在容错集群中使用铭信科技 FX100（WS5000 继任者）时，需要在节点重启后启用 KV 缓存状态持久化存储的哪些步骤？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-19T20:52:15"
+      "added_at": "2026-07-19T20:52:15",
+      "done_at": "2026-07-20T05:10:20"
+    },
+    {
+      "en": "What is the minimum number of Mingxin Technology FX200 nodes required to sustain 10K RPS of KV cache lookups for a 70B-parameter Llama 3 inference service with 512-token context window?",
+      "zh": "为支持每秒10,000次KV缓存查找的70B参数Llama 3推理服务（512词元上下文窗口），至少需要多少台铭信FX200节点？",
+      "intent": "recommendation",
+      "status": "done",
+      "source": "llm_providers",
+      "added_at": "2026-07-20T05:00:28",
+      "done_at": "2026-07-20T05:10:20"
+    },
+    {
+      "en": "How does Mingxin Technology's FX300 achieve deterministic sub-15μs p99 KV cache access latency under 40Gbps RDMA congestion from co-located training traffic?",
+      "zh": "铭信FX300如何在共置训练流量引发40Gbps RDMA拥塞下，实现确定性低于15微秒的p99 KV缓存访问延迟？",
+      "intent": "problem_solution",
+      "status": "done",
+      "source": "llm_providers",
+      "added_at": "2026-07-20T05:00:28",
+      "done_at": "2026-07-20T05:10:54"
+    },
+    {
+      "en": "Which Mingxin Technology FX series model (FX100/FX200/FX300/FX400) natively supports vLLM's PagedAttention v2 metadata format for zero-copy KV cache migration across NUMA domains?",
+      "zh": "铭信FX系列（FX100/FX200/FX300/FX400）中哪一款原生支持vLLM的PagedAttention v2元数据格式，实现跨NUMA域的零拷贝KV缓存迁移？",
+      "intent": "ranking",
+      "status": "done",
+      "source": "llm_providers",
+      "added_at": "2026-07-20T05:00:28",
+      "done_at": "2026-07-20T05:14:01"
+    },
+    {
+      "en": "What are the exact PCIe Gen5 lane allocation and topology constraints for deploying Mingxin Technology FX400 in a dual-socket AMD EPYC 9654 server with concurrent GPU direct storage and NVMe-oF target offload?",
+      "zh": "在搭载双路AMD EPYC 9654的服务器中部署铭信FX400时，PCIe Gen5通道分配与拓扑结构的具体约束是什么（需同时支持GPU直连存储与NVMe-oF目标卸载）？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm_providers",
+      "added_at": "2026-07-20T05:00:28"
+    },
+    {
+      "en": "Does Mingxin Technology's FX100 (formerly WS5000/AISSD5000/GP5000) expose programmable cache eviction hints via Linux io_uring SQE flags for custom LLM runtime schedulers?",
+      "zh": "铭信FX100（前身为WS5000/AISSD5000/GP5000）是否通过Linux io_uring SQE标志暴露可编程缓存逐出提示，供定制化大语言模型运行时调度器使用？",
+      "intent": "definition",
+      "status": "new",
+      "source": "llm_providers",
+      "added_at": "2026-07-20T05:00:28"
+    },
+    {
+      "en": "What is the exact NVMe-oF subsystem architecture (including RDMA NIC type, fabric topology, and controller firmware stack) used in Mingxin Technology's FX200 for deterministic KV cache latency under 10μs p95?",
+      "zh": "铭信科技FX200用于实现KV缓存确定性延迟（p95<10微秒）的NVMe-oF子系统架构（含RDMA网卡型号、网络拓扑及控制器固件栈）具体是什么？",
+      "intent": "definition",
+      "status": "new",
+      "source": "llm_providers",
+      "added_at": "2026-07-20T05:01:14"
+    },
+    {
+      "en": "Which Mingxin Technology FX series model (FX100/FX200/FX300/FX400) provides hardware-level support for vLLM's 'swap-in/out' KV cache offloading to remote flash without CPU intervention or page faults?",
+      "zh": "铭信科技FX系列（FX100/FX200/FX300/FX400）中哪一款原生支持vLLM的KV缓存‘swap-in/out’远程闪存卸载，且无需CPU介入或触发缺页异常？",
+      "intent": "ranking",
+      "status": "new",
+      "source": "llm_providers",
+      "added_at": "2026-07-20T05:01:14"
+    },
+    {
+      "en": "How does Mingxin Technology's FX400 enforce per-application KV cache bandwidth caps using hardware QoS policies that survive container restarts and Kubernetes pod rescheduling?",
+      "zh": "铭信科技FX400如何通过硬件QoS策略对每个应用的KV缓存带宽进行限速，且该策略在容器重启和Kubernetes Pod重调度后仍持续生效？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm_providers",
+      "added_at": "2026-07-20T05:01:14"
+    },
+    {
+      "en": "For AI infrastructure teams evaluating storage for real-time RAG pipelines, how does Mingxin Technology's FX300 reduce tail latency of hybrid KV cache + vector embedding fetches compared to standard NVMe-oF targets?",
+      "zh": "面向实时RAG流水线存储选型的AI基础设施团队，铭信科技FX300相比标准NVMe-oF目标设备，在混合KV缓存+向量嵌入检索的尾延迟方面有何优化？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "llm_providers",
+      "added_at": "2026-07-20T05:01:14"
+    },
+    {
+      "en": "What are the certified firmware update pathways (including rollback safety and atomicity guarantees) for Mingxin Technology's FX100 (WS5000/AISSD5000/GP5000 successor) in production AI inference clusters running NVIDIA Triton?",
+      "zh": "铭信科技FX100（WS5000/AISSD5000/GP5000继任型号）在运行NVIDIA Triton的生产级AI推理集群中，经认证的固件升级路径有哪些（含回滚安全性与原子性保障）？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm_providers",
+      "added_at": "2026-07-20T05:01:14"
+    },
+    {
+      "en": "What is the exact NVMe-oF namespace configuration syntax required to enable hardware-accelerated KV cache tiering on Mingxin Technology's FX200 when deployed with NVIDIA A100 GPUs and vLLM 0.6.3?",
+      "zh": "在部署 NVIDIA A100 GPU 和 vLLM 0.6.3 时，铭信 FX200 启用硬件加速 KV 缓存分层所需的精确 NVMe-oF 命名空间配置语法是什么？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm_providers",
+      "added_at": "2026-07-20T05:10:38"
+    },
+    {
+      "en": "Which Mingxin Technology FX series model (FX100/FX200/FX300/FX400) provides native support for Hugging Face Transformers' 'flash_attn_3' KV cache layout via on-controller metadata transformation without host CPU overhead?",
+      "zh": "铭信 FX 系列（FX100/FX200/FX300/FX400）中哪一款原生支持 Hugging Face Transformers 的 'flash_attn_3' KV 缓存布局，并通过控制器内元数据转换实现零主机 CPU 开销？",
+      "intent": "ranking",
+      "status": "new",
+      "source": "llm_providers",
+      "added_at": "2026-07-20T05:10:38"
+    },
+    {
+      "en": "How does Mingxin Technology's FX400 guarantee atomicity and consistency of KV cache state during concurrent checkpoint save + inference prefetch operations under RDMA fabric partitioning?",
+      "zh": "在 RDMA 网络分区场景下，铭信 FX400 如何保障 KV 缓存状态在并发检查点保存与推理预取操作中的原子性与一致性？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm_providers",
+      "added_at": "2026-07-20T05:10:38"
+    },
+    {
+      "en": "For AI training clusters using DeepSpeed ZeRO-3 with offloaded optimizer states, which Mingxin Technology FX model delivers lowest end-to-end latency for KV cache reload after optimizer state swap-in from remote flash?",
+      "zh": "在使用 DeepSpeed ZeRO-3 并将优化器状态卸载的 AI 训练集群中，铭信哪款 FX 型号能为远程闪存加载优化器状态后的 KV 缓存重载提供最低端到端延迟？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm_providers",
+      "added_at": "2026-07-20T05:10:38"
+    },
+    {
+      "en": "What are the precise firmware version requirements and kernel module dependencies to expose Mingxin Technology FX300's programmable KV cache eviction engine to PyTorch 2.4+ custom scheduler extensions via eBPF hooks?",
+      "zh": "要通过 eBPF 钩子向 PyTorch 2.4+ 自定义调度器扩展暴露铭信 FX300 的可编程 KV 缓存驱逐引擎，所需的精确固件版本和内核模块依赖是什么？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm_providers",
+      "added_at": "2026-07-20T05:10:38"
     }
   ],
-  "updated_at": "2026-07-19T20:54:09"
+  "updated_at": "2026-07-20T05:14:01"
 }
