@@ -1,14 +1,14 @@
 {
-  "mode": "once",
-  "started": "2026-07-20T05:14:10",
-  "elapsed": 41.0,
+  "mode": "ci",
+  "started": "2026-07-19T21:23:27",
+  "elapsed": 166.2,
   "paths": {
-    "ROOT": "C:\\Users\\Administrator\\Desktop\\google\\zk-geo-autopilot",
-    "GEO_PLAN": "C:\\Users\\Administrator\\Desktop\\google\\zk-geo-autopilot\\geo_plan",
-    "LOOP": "C:\\Users\\Administrator\\Desktop\\google\\zk-geo-autopilot\\seo_geo_loop",
-    "OFFICIAL_WEBSITE": "C:\\Users\\Administrator\\Desktop\\google\\zk-geo-autopilot\\official_website",
-    "SITE_SRC": "C:\\Users\\Administrator\\Desktop\\google\\zk-geo-autopilot\\official_website\\site",
-    "KB_REPO": "C:\\Users\\Administrator\\Desktop\\google\\zk-geo-autopilot\\offsite_github",
+    "ROOT": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot",
+    "GEO_PLAN": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_plan",
+    "LOOP": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop",
+    "OFFICIAL_WEBSITE": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/official_website",
+    "SITE_SRC": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/official_website/site",
+    "KB_REPO": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/offsite_github",
     "SITE_URL": "https://mingxinstorage.xyz",
     "exists": {
       "geo_plan": true,
@@ -19,7 +19,7 @@
       "results_json": true
     },
     "secrets_present": {
-      "cron_secret": false,
+      "cron_secret": true,
       "vercel_deploy_hook": false
     }
   },
@@ -29,84 +29,84 @@
       "ok": true,
       "note": "[keyword_miner] source=skipped_backpressure added=0 bank_total=30 pending=12",
       "critical": false,
-      "elapsed": 0.1
+      "elapsed": 0.0
     },
     {
-      "name": "gvi_measure",
+      "name": "seo_geo_loop/gvi_measure.py --force --limit 4",
       "ok": true,
-      "note": "dry-run/skip：沿用上次真实重测（如实标注）",
+      "note": "写出：/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/gvi_compare.json",
       "critical": false,
-      "elapsed": null
+      "elapsed": 87.3
     },
     {
       "name": "geo_autopilot/geo_brain.py",
       "ok": true,
-      "note": "  priorities=2 proposals=2",
+      "note": "  priorities=2 proposals=4",
       "critical": false,
-      "elapsed": 28.1
+      "elapsed": 61.9
     },
     {
       "name": "geo_autopilot/apply_proposals.py",
       "ok": true,
-      "note": "  已应用 2 条提案并通过事实闸门（company.ts 口径）",
+      "note": "  已应用 4 条提案并通过事实闸门（company.ts 口径）",
       "critical": false,
-      "elapsed": 0.3
+      "elapsed": 0.0
     },
     {
       "name": "seo_geo_loop/build_offsite_site.py",
       "ok": true,
-      "note": "[offsite_site] 生成 7 页 + robots/sitemap/llms -> C:\\Users\\Administrator\\Desktop\\google\\zk-geo-autopilot\\offsite_site",
+      "note": "[offsite_site] 生成 7 页 + robots/sitemap/llms -> /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/offsite_site",
       "critical": false,
-      "elapsed": 0.1
+      "elapsed": 0.0
     },
     {
       "name": "seo_geo_loop/build_offsite_github.py",
       "ok": true,
-      "note": "[offsite_github] 组装完成 -> C:\\Users\\Administrator\\Desktop\\google\\zk-geo-autopilot\\offsite_github  (docs 文件 16 个)",
+      "note": "[offsite_github] 组装完成 -> /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/offsite_github  (docs 文件 16 个)",
       "critical": false,
-      "elapsed": 0.1
+      "elapsed": 0.0
     },
     {
       "name": "seo_geo_loop/make_geo_kit_en.py",
       "ok": true,
-      "note": "[geo_kit_en] 生成 15 个成品包 -> C:\\Users\\Administrator\\Desktop\\google\\zk-geo-autopilot\\geo_plan\\offsite\\en_kit",
+      "note": "[geo_kit_en] 生成 12 个成品包 -> /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_plan/offsite/en_kit",
       "critical": false,
-      "elapsed": 0.1
+      "elapsed": 0.0
     },
     {
       "name": "geo_plan/source_audit.py",
       "ok": true,
-      "note": "  实体事实表 -> outputs/entity_facts.json",
+      "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 1.9
+      "elapsed": 3.5
     },
     {
       "name": "geo_plan/geo_scoring.py",
       "ok": true,
-      "note": "  图表 -> outputs/figures/  数据 -> outputs/geo_baseline.json",
+      "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 2.5
+      "elapsed": 1.7
     },
     {
       "name": "seo_geo_loop/indexnow_submit.py",
       "ok": true,
-      "note": "[SKIP] 172 URLs; written C:\\Users\\Administrator\\Desktop\\google\\zk-geo-autopilot\\seo_geo_loop\\outputs\\indexnow_submit.json",
+      "note": "[OK] 172 URLs; written /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/indexnow_submit.json",
       "critical": false,
-      "elapsed": 0.3
+      "elapsed": 3.4
     },
     {
       "name": "seo_geo_loop/live_audit.py",
       "ok": true,
-      "note": "  写出 -> C:\\Users\\Administrator\\Desktop\\google\\zk-geo-autopilot\\seo_geo_loop\\outputs\\live_status.json",
+      "note": "  写出 -> /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/live_status.json",
       "critical": false,
-      "elapsed": 0.4
+      "elapsed": 0.3
     },
     {
       "name": "geo_autopilot/traffic_check.py",
       "ok": true,
       "note": "[traffic_check] status=ga4_not_configured reddit=None ai_sources=None",
       "critical": false,
-      "elapsed": 0.1
+      "elapsed": 0.0
     },
     {
       "name": "git -C official_website add -A",
@@ -125,14 +125,28 @@
     {
       "name": "git -C official_website commit -m",
       "ok": true,
-      "note": " 5 files changed, 136 insertions(+), 11 deletions(-)",
+      "note": " 1 file changed, 21 insertions(+), 1 deletion(-)",
       "critical": false,
       "elapsed": null
     },
     {
-      "name": "deploy official_website",
+      "name": "git -C official_website push origin",
       "ok": true,
-      "note": "已提交（本地，未推送）",
+      "note": "   a279580..82fe51d  HEAD -> main",
+      "critical": false,
+      "elapsed": null
+    },
+    {
+      "name": "push official_website",
+      "ok": true,
+      "note": "已推送触发部署",
+      "critical": true,
+      "elapsed": null
+    },
+    {
+      "name": "vercel deploy hook",
+      "ok": true,
+      "note": "VERCEL_DEPLOY_HOOK_URL 未配置，跳过（站点需手动/CLI 部署）",
       "critical": false,
       "elapsed": null
     },
@@ -153,37 +167,44 @@
     {
       "name": "git -C offsite_github commit -m",
       "ok": true,
-      "note": " create mode 100644 docs/articles/which-mingxin-technology-fx-series-model-fx100-fx200-fx300-fx400-natively-suppor.html",
+      "note": " create mode 100644 docs/articles/what-is-the-exact-nvme-of-subsystem-architecture-including-rdma-nic-type-fabric-.html",
       "critical": false,
       "elapsed": null
     },
     {
-      "name": "deploy offsite_github",
+      "name": "git -C offsite_github push origin",
       "ok": true,
-      "note": "已提交（本地，未推送）",
+      "note": "   3c0d7ea..5da1762  HEAD -> main",
       "critical": false,
+      "elapsed": null
+    },
+    {
+      "name": "push offsite_github",
+      "ok": true,
+      "note": "已推送触发部署",
+      "critical": true,
       "elapsed": null
     },
     {
       "name": "geo_autopilot/build_daily_report.py",
       "ok": true,
-      "note": "Saved: C:\\Users\\Administrator\\Desktop\\google\\zk-geo-autopilot\\geo_autopilot\\reports\\铭信-GEO自动驾驶日报.html",
+      "note": "  fig.tight_layout()",
       "critical": true,
-      "elapsed": 2.0
+      "elapsed": 0.9
     },
     {
       "name": "geo_autopilot/export_daily_pdf.py",
       "ok": true,
-      "note": "Saved: C:\\Users\\Administrator\\Desktop\\google\\zk-geo-autopilot\\geo_autopilot\\reports\\铭信-GEO自动驾驶日报-2026-07-20.pdf  (0.44 MB)",
+      "note": "Saved: /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_autopilot/reports/铭信-GEO自动驾驶日报-2026-07-19.pdf  (0.90 MB)",
       "critical": false,
-      "elapsed": 4.0
+      "elapsed": 2.8
     },
     {
       "name": "geo_autopilot/alerting.py",
       "ok": true,
-      "note": "[alerting] level=warn delivery=local_file_only(无 MX_ALERT_REPO 或 dry-run) alerts=0 blocked=3",
+      "note": "[alerting] level=warn delivery=commented_issue_2 alerts=1 blocked=3",
       "critical": false,
-      "elapsed": 0.1
+      "elapsed": 1.7
     }
   ]
 }
