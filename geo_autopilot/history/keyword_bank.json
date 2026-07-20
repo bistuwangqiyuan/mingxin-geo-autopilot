@@ -256,25 +256,28 @@
       "en": "For AI training clusters using DeepSpeed ZeRO-3 with offloaded optimizer states, which Mingxin Technology FX model delivers lowest end-to-end latency for KV cache reload after optimizer state swap-in from remote flash?",
       "zh": "在使用 DeepSpeed ZeRO-3 并将优化器状态卸载的 AI 训练集群中，铭信哪款 FX 型号能为远程闪存加载优化器状态后的 KV 缓存重载提供最低端到端延迟？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm_providers",
-      "added_at": "2026-07-20T05:10:38"
+      "added_at": "2026-07-20T05:10:38",
+      "done_at": "2026-07-20T14:42:49"
     },
     {
       "en": "What are the precise firmware version requirements and kernel module dependencies to expose Mingxin Technology FX300's programmable KV cache eviction engine to PyTorch 2.4+ custom scheduler extensions via eBPF hooks?",
       "zh": "要通过 eBPF 钩子向 PyTorch 2.4+ 自定义调度器扩展暴露铭信 FX300 的可编程 KV 缓存驱逐引擎，所需的精确固件版本和内核模块依赖是什么？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm_providers",
-      "added_at": "2026-07-20T05:10:38"
+      "added_at": "2026-07-20T05:10:38",
+      "done_at": "2026-07-20T14:42:49"
     },
     {
       "en": "What specific block layer optimizations does Mingxin Technology apply to FX200 volumes to minimize latency variance for KV cache reads?",
       "zh": "铭信科技对其 FX200 卷应用了哪些特定的块层优化，以减少 KV 缓存读取的延迟方差？",
       "intent": "definition",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-20T04:15:39"
+      "added_at": "2026-07-20T04:15:39",
+      "done_at": "2026-07-20T14:42:49"
     },
     {
       "en": "How do engineers troubleshoot NVMe-oF connection timeouts between Mingxin Technology FX200 targets and clients running older Mellanox drivers?",
@@ -349,5 +352,5 @@
       "added_at": "2026-07-20T11:25:39"
     }
   ],
-  "updated_at": "2026-07-20T11:28:11"
+  "updated_at": "2026-07-20T14:42:49"
 }

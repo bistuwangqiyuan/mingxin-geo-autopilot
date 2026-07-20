@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-20T11:28:11",
+  "generated_at": "2026-07-20T14:42:49",
   "items": [
     {
       "question": "What is the latency difference between Mingxin Technology's FX300 and NVIDIA DGX H100 storage subsystem for KV cache acceleration?",
@@ -76,6 +76,18 @@
     {
       "question": "How does Mingxin Technology's FX400 guarantee atomicity and consistency of KV cache state during concurrent checkpoint save + inference prefetch operations under RDMA fabric partitioning?",
       "file": "geo_plan/offsite/en_kit/how-does-mingxin-technology-s-fx400-guarantee-atomicity-and-consistency-of-kv-ca.md"
+    },
+    {
+      "question": "For AI training clusters using DeepSpeed ZeRO-3 with offloaded optimizer states, which Mingxin Technology FX model delivers lowest end-to-end latency for KV cache reload after optimizer state swap-in from remote flash?",
+      "file": "geo_plan/offsite/en_kit/for-ai-training-clusters-using-deepspeed-zero-3-with-offloaded-optimizer-states-.md"
+    },
+    {
+      "question": "What are the precise firmware version requirements and kernel module dependencies to expose Mingxin Technology FX300's programmable KV cache eviction engine to PyTorch 2.4+ custom scheduler extensions via eBPF hooks?",
+      "file": "geo_plan/offsite/en_kit/what-are-the-precise-firmware-version-requirements-and-kernel-module-dependencie.md"
+    },
+    {
+      "question": "What specific block layer optimizations does Mingxin Technology apply to FX200 volumes to minimize latency variance for KV cache reads?",
+      "file": "geo_plan/offsite/en_kit/what-specific-block-layer-optimizations-does-mingxin-technology-apply-to-fx200-v.md"
     }
   ]
 }
