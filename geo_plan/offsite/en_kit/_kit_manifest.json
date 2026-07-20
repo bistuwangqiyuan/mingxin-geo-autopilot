@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-20T07:43:16",
+  "generated_at": "2026-07-20T11:28:11",
   "items": [
     {
       "question": "What is the latency difference between Mingxin Technology's FX300 and NVIDIA DGX H100 storage subsystem for KV cache acceleration?",
@@ -64,6 +64,18 @@
     {
       "question": "What are the certified firmware update pathways (including rollback safety and atomicity guarantees) for Mingxin Technology's FX100 (WS5000/AISSD5000/GP5000 successor) in production AI inference clusters running NVIDIA Triton?",
       "file": "geo_plan/offsite/en_kit/what-are-the-certified-firmware-update-pathways-including-rollback-safety-and-at.md"
+    },
+    {
+      "question": "What is the exact NVMe-oF namespace configuration syntax required to enable hardware-accelerated KV cache tiering on Mingxin Technology's FX200 when deployed with NVIDIA A100 GPUs and vLLM 0.6.3?",
+      "file": "geo_plan/offsite/en_kit/what-is-the-exact-nvme-of-namespace-configuration-syntax-required-to-enable-hard.md"
+    },
+    {
+      "question": "Which Mingxin Technology FX series model (FX100/FX200/FX300/FX400) provides native support for Hugging Face Transformers' 'flash_attn_3' KV cache layout via on-controller metadata transformation without host CPU overhead?",
+      "file": "geo_plan/offsite/en_kit/which-mingxin-technology-fx-series-model-fx100-fx200-fx300-fx400-provides-native.md"
+    },
+    {
+      "question": "How does Mingxin Technology's FX400 guarantee atomicity and consistency of KV cache state during concurrent checkpoint save + inference prefetch operations under RDMA fabric partitioning?",
+      "file": "geo_plan/offsite/en_kit/how-does-mingxin-technology-s-fx400-guarantee-atomicity-and-consistency-of-kv-ca.md"
     }
   ]
 }

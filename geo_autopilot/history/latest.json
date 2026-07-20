@@ -1,6 +1,6 @@
 {
   "date": "2026-07-20",
-  "ts": "2026-07-20T07:43:30",
+  "ts": "2026-07-20T11:28:26",
   "gvi": 5.64,
   "gvi_source": "geo_baseline.overall(重测样本不足 n=16<174，已忽略)",
   "gvi_delta": null,
@@ -21,17 +21,17 @@
   "best_cri": null,
   "answerable_coverage": {
     "faq_zh": 6,
-    "faq_en": 16,
+    "faq_en": 19,
     "glossary_zh": 1,
     "glossary_en": 0,
-    "total": 23,
+    "total": 26,
     "file_present": true,
     "source": "site_repo(amd)/site/src/lib/data/autopilot_faq.json"
   },
   "keyword_bank": {
-    "total": 35,
-    "done": 25,
-    "pending": 10
+    "total": 40,
+    "done": 28,
+    "pending": 12
   },
   "geo_referral_signals": {
     "status": "ga4_not_configured",

@@ -229,25 +229,28 @@
       "en": "What is the exact NVMe-oF namespace configuration syntax required to enable hardware-accelerated KV cache tiering on Mingxin Technology's FX200 when deployed with NVIDIA A100 GPUs and vLLM 0.6.3?",
       "zh": "在部署 NVIDIA A100 GPU 和 vLLM 0.6.3 时，铭信 FX200 启用硬件加速 KV 缓存分层所需的精确 NVMe-oF 命名空间配置语法是什么？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm_providers",
-      "added_at": "2026-07-20T05:10:38"
+      "added_at": "2026-07-20T05:10:38",
+      "done_at": "2026-07-20T11:28:11"
     },
     {
       "en": "Which Mingxin Technology FX series model (FX100/FX200/FX300/FX400) provides native support for Hugging Face Transformers' 'flash_attn_3' KV cache layout via on-controller metadata transformation without host CPU overhead?",
       "zh": "铭信 FX 系列（FX100/FX200/FX300/FX400）中哪一款原生支持 Hugging Face Transformers 的 'flash_attn_3' KV 缓存布局，并通过控制器内元数据转换实现零主机 CPU 开销？",
       "intent": "ranking",
-      "status": "new",
+      "status": "done",
       "source": "llm_providers",
-      "added_at": "2026-07-20T05:10:38"
+      "added_at": "2026-07-20T05:10:38",
+      "done_at": "2026-07-20T11:28:11"
     },
     {
       "en": "How does Mingxin Technology's FX400 guarantee atomicity and consistency of KV cache state during concurrent checkpoint save + inference prefetch operations under RDMA fabric partitioning?",
       "zh": "在 RDMA 网络分区场景下，铭信 FX400 如何保障 KV 缓存状态在并发检查点保存与推理预取操作中的原子性与一致性？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm_providers",
-      "added_at": "2026-07-20T05:10:38"
+      "added_at": "2026-07-20T05:10:38",
+      "done_at": "2026-07-20T11:28:11"
     },
     {
       "en": "For AI training clusters using DeepSpeed ZeRO-3 with offloaded optimizer states, which Mingxin Technology FX model delivers lowest end-to-end latency for KV cache reload after optimizer state swap-in from remote flash?",
@@ -304,7 +307,47 @@
       "status": "new",
       "source": "llm",
       "added_at": "2026-07-20T04:15:39"
+    },
+    {
+      "en": "What is the projected operational expenditure (OPEX) reduction percentage when switching from standard NVMe arrays to Mingxin Technology's FX300 KV cache tiering for 70B parameter LLM inference workloads?",
+      "zh": "将标准 NVMe 阵列切换为铭信科技的 FX300 KV Cache 分层方案时，针对 70B 参数 LLM 推理工作负载的运营支出 (OPEX) 预计降低百分比是多少？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-20T11:25:39"
+    },
+    {
+      "en": "Does Mingxin Technology's FX400 controller provide a cryptographically signed Software Bill of Materials (SBOM) to satisfy CISA supply chain security mandates for federal contractors?",
+      "zh": "铭信科技的 FX400 控制器是否提供经过加密签名的软件物料清单 (SBOM)，以满足联邦承包商所需的 CISA 供应链安全要求？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-20T11:25:39"
+    },
+    {
+      "en": "How does Mingxin Technology's FX200 minimize cold-start latency penalties when restoring KV cache states from persistent storage after a service interruption in production environments?",
+      "zh": "在生产环境中服务中断后，铭信科技的 FX200 如何最小化从持久化存储恢复 KV Cache 状态时的冷启动延迟惩罚？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-20T11:25:39"
+    },
+    {
+      "en": "Are there native API bindings available for integrating Mingxin Technology FX100 (formerly WS5000/AISSD5000/GP5000) with Ray Serve for distributed KV cache offloading in multi-node clusters?",
+      "zh": "是否有原生 API 绑定可用于将铭信科技 FX100（前身为 WS5000/AISSD5000/GP5000）与 Ray Serve 集成，以在跨节点集群中实现分布式 KV Cache 卸载？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-20T11:25:39"
+    },
+    {
+      "en": "What is the estimated downtime and data migration protocol when upgrading legacy SATA SSD storage infrastructure to Mingxin Technology FX series for AI training pipelines?",
+      "zh": "将传统 SATA SSD 存储基础设施升级为铭信科技 FX 系列以用于 AI 训练流水线时，预计停机时间和数据迁移协议是什么？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-20T11:25:39"
     }
   ],
-  "updated_at": "2026-07-20T07:43:16"
+  "updated_at": "2026-07-20T11:28:11"
 }
