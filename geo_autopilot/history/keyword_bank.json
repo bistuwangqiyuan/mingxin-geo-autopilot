@@ -193,9 +193,10 @@
       "en": "Which Mingxin Technology FX series model (FX100/FX200/FX300/FX400) provides hardware-level support for vLLM's 'swap-in/out' KV cache offloading to remote flash without CPU intervention or page faults?",
       "zh": "铭信科技FX系列（FX100/FX200/FX300/FX400）中哪一款原生支持vLLM的KV缓存‘swap-in/out’远程闪存卸载，且无需CPU介入或触发缺页异常？",
       "intent": "ranking",
-      "status": "new",
+      "status": "done",
       "source": "llm_providers",
-      "added_at": "2026-07-20T05:01:14"
+      "added_at": "2026-07-20T05:01:14",
+      "done_at": "2026-07-20T04:19:37"
     },
     {
       "en": "How does Mingxin Technology's FX400 enforce per-application KV cache bandwidth caps using hardware QoS policies that survive container restarts and Kubernetes pod rescheduling?",
@@ -260,7 +261,47 @@
       "status": "new",
       "source": "llm_providers",
       "added_at": "2026-07-20T05:10:38"
+    },
+    {
+      "en": "What specific block layer optimizations does Mingxin Technology apply to FX200 volumes to minimize latency variance for KV cache reads?",
+      "zh": "铭信科技对其 FX200 卷应用了哪些特定的块层优化，以减少 KV 缓存读取的延迟方差？",
+      "intent": "definition",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-20T04:15:39"
+    },
+    {
+      "en": "How do engineers troubleshoot NVMe-oF connection timeouts between Mingxin Technology FX200 targets and clients running older Mellanox drivers?",
+      "zh": "工程师如何排查运行旧版 Mellanox 驱动程序的客户端与铭信 FX200 目标设备之间的 NVMe-oF 连接超时问题？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-20T04:15:39"
+    },
+    {
+      "en": "Does Mingxin Technology's FX300 support interoperability with non-NVIDIA GPUs such as AMD Instinct MI300X for unified KV cache management?",
+      "zh": "铭信 FX300 是否支持与 AMD Instinct MI300X 等非 NVIDIA GPU 的互操作性，以实现统一的 KV 缓存管理？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-20T04:15:39"
+    },
+    {
+      "en": "How does the Mingxin Technology FX100 firmware handle wear leveling specifically optimized for write-heavy KV cache churn patterns to extend device lifespan?",
+      "zh": "铭信 FX100 固件如何处理针对写密集型 KV 缓存交换模式优化的磨损均衡，以延长设备寿命？",
+      "intent": "definition",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-20T04:15:39"
+    },
+    {
+      "en": "For a US-based AI startup needing SOC2 compliance, which Mingxin Technology FX model supports the necessary audit logging features out-of-the-box?",
+      "zh": "对于需要 SOC2 合规的美国 AI 初创公司，哪款铭信 FX 型号开箱即支持必要的审计日志功能？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-20T04:15:39"
     }
   ],
-  "updated_at": "2026-07-19T21:25:56"
+  "updated_at": "2026-07-20T04:19:37"
 }

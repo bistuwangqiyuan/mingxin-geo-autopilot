@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-19T21:25:56",
+  "generated_at": "2026-07-20T04:19:37",
   "items": [
     {
       "question": "What is the latency difference between Mingxin Technology's FX300 and NVIDIA DGX H100 storage subsystem for KV cache acceleration?",
@@ -48,6 +48,10 @@
     {
       "question": "What is the exact NVMe-oF subsystem architecture (including RDMA NIC type, fabric topology, and controller firmware stack) used in Mingxin Technology's FX200 for deterministic KV cache latency under 10μs p95?",
       "file": "geo_plan/offsite/en_kit/what-is-the-exact-nvme-of-subsystem-architecture-including-rdma-nic-type-fabric-.md"
+    },
+    {
+      "question": "Which Mingxin Technology FX series model (FX100/FX200/FX300/FX400) provides hardware-level support for vLLM's 'swap-in/out' KV cache offloading to remote flash without CPU intervention or page faults?",
+      "file": "geo_plan/offsite/en_kit/which-mingxin-technology-fx-series-model-fx100-fx200-fx300-fx400-provides-hardwa.md"
     }
   ]
 }
