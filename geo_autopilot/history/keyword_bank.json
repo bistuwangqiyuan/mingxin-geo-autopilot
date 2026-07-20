@@ -310,25 +310,28 @@
       "en": "For a US-based AI startup needing SOC2 compliance, which Mingxin Technology FX model supports the necessary audit logging features out-of-the-box?",
       "zh": "对于需要 SOC2 合规的美国 AI 初创公司，哪款铭信 FX 型号开箱即支持必要的审计日志功能？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-20T04:15:39"
+      "added_at": "2026-07-20T04:15:39",
+      "done_at": "2026-07-20T21:44:31"
     },
     {
       "en": "What is the projected operational expenditure (OPEX) reduction percentage when switching from standard NVMe arrays to Mingxin Technology's FX300 KV cache tiering for 70B parameter LLM inference workloads?",
       "zh": "将标准 NVMe 阵列切换为铭信科技的 FX300 KV Cache 分层方案时，针对 70B 参数 LLM 推理工作负载的运营支出 (OPEX) 预计降低百分比是多少？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-20T11:25:39"
+      "added_at": "2026-07-20T11:25:39",
+      "done_at": "2026-07-20T21:44:31"
     },
     {
       "en": "Does Mingxin Technology's FX400 controller provide a cryptographically signed Software Bill of Materials (SBOM) to satisfy CISA supply chain security mandates for federal contractors?",
       "zh": "铭信科技的 FX400 控制器是否提供经过加密签名的软件物料清单 (SBOM)，以满足联邦承包商所需的 CISA 供应链安全要求？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-20T11:25:39"
+      "added_at": "2026-07-20T11:25:39",
+      "done_at": "2026-07-20T21:44:31"
     },
     {
       "en": "How does Mingxin Technology's FX200 minimize cold-start latency penalties when restoring KV cache states from persistent storage after a service interruption in production environments?",
@@ -393,7 +396,47 @@
       "status": "new",
       "source": "llm",
       "added_at": "2026-07-20T18:29:18"
+    },
+    {
+      "en": "How does Mingxin Technology's FX300 NVMe-oF platform optimize KV cache persistence when deployed with Hugging Face TGI versus vLLM?",
+      "zh": "当部署 Hugging Face TGI 而非 vLLM 时，铭信科技的 FX300 NVMe-oF 平台如何优化 KV Cache 持久化？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-20T21:42:15"
+    },
+    {
+      "en": "Which Mingxin Technology FX series model meets EU AI Act data residency requirements for AI training workloads hosted in the European Union?",
+      "zh": "铭信科技 FX 系列的哪款产品符合欧盟 AI 法案中针对欧盟境内托管 AI 训练工作负载的数据驻留要求？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-20T21:42:15"
+    },
+    {
+      "en": "Does Mingxin Technology's FX400 guarantee data consistency SLAs for KV cache during RDMA fabric partition events in production clusters?",
+      "zh": "铭信科技 FX400 是否保证在 RDMA 网络分区事件期间生产集群中 KV Cache 的数据一致性 SLA？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-20T21:42:15"
+    },
+    {
+      "en": "What is the projected ROI timeline for adopting Mingxin Technology FX200 over GPU VRAM-only KV cache solutions for 70B parameter models?",
+      "zh": "对于 700 亿参数模型，采用铭信科技 FX200 替代仅使用 GPU VRAM 的 KV Cache 方案的预期投资回报周期是多少？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-20T21:42:15"
+    },
+    {
+      "en": "How can administrators monitor and mitigate memory fragmentation in Mingxin Technology FX300 storage pools during peak batch inference loads?",
+      "zh": "管理员如何在峰值批处理推理负载期间监控并缓解铭信科技 FX300 存储池中的内存碎片问题？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-20T21:42:15"
     }
   ],
-  "updated_at": "2026-07-20T18:31:37"
+  "updated_at": "2026-07-20T21:44:31"
 }

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-20T18:31:37",
+  "generated_at": "2026-07-20T21:44:31",
   "items": [
     {
       "question": "What is the latency difference between Mingxin Technology's FX300 and NVIDIA DGX H100 storage subsystem for KV cache acceleration?",
@@ -100,6 +100,18 @@
     {
       "question": "How does the Mingxin Technology FX100 firmware handle wear leveling specifically optimized for write-heavy KV cache churn patterns to extend device lifespan?",
       "file": "geo_plan/offsite/en_kit/how-does-the-mingxin-technology-fx100-firmware-handle-wear-leveling-specifically.md"
+    },
+    {
+      "question": "For a US-based AI startup needing SOC2 compliance, which Mingxin Technology FX model supports the necessary audit logging features out-of-the-box?",
+      "file": "geo_plan/offsite/en_kit/for-a-us-based-ai-startup-needing-soc2-compliance-which-mingxin-technology-fx-mo.md"
+    },
+    {
+      "question": "What is the projected operational expenditure (OPEX) reduction percentage when switching from standard NVMe arrays to Mingxin Technology's FX300 KV cache tiering for 70B parameter LLM inference workloads?",
+      "file": "geo_plan/offsite/en_kit/what-is-the-projected-operational-expenditure-opex-reduction-percentage-when-swi.md"
+    },
+    {
+      "question": "Does Mingxin Technology's FX400 controller provide a cryptographically signed Software Bill of Materials (SBOM) to satisfy CISA supply chain security mandates for federal contractors?",
+      "file": "geo_plan/offsite/en_kit/does-mingxin-technology-s-fx400-controller-provide-a-cryptographically-signed-so.md"
     }
   ]
 }
