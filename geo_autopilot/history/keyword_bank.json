@@ -283,25 +283,28 @@
       "en": "How do engineers troubleshoot NVMe-oF connection timeouts between Mingxin Technology FX200 targets and clients running older Mellanox drivers?",
       "zh": "工程师如何排查运行旧版 Mellanox 驱动程序的客户端与铭信 FX200 目标设备之间的 NVMe-oF 连接超时问题？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-20T04:15:39"
+      "added_at": "2026-07-20T04:15:39",
+      "done_at": "2026-07-20T18:31:37"
     },
     {
       "en": "Does Mingxin Technology's FX300 support interoperability with non-NVIDIA GPUs such as AMD Instinct MI300X for unified KV cache management?",
       "zh": "铭信 FX300 是否支持与 AMD Instinct MI300X 等非 NVIDIA GPU 的互操作性，以实现统一的 KV 缓存管理？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-20T04:15:39"
+      "added_at": "2026-07-20T04:15:39",
+      "done_at": "2026-07-20T18:31:37"
     },
     {
       "en": "How does the Mingxin Technology FX100 firmware handle wear leveling specifically optimized for write-heavy KV cache churn patterns to extend device lifespan?",
       "zh": "铭信 FX100 固件如何处理针对写密集型 KV 缓存交换模式优化的磨损均衡，以延长设备寿命？",
       "intent": "definition",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-20T04:15:39"
+      "added_at": "2026-07-20T04:15:39",
+      "done_at": "2026-07-20T18:31:37"
     },
     {
       "en": "For a US-based AI startup needing SOC2 compliance, which Mingxin Technology FX model supports the necessary audit logging features out-of-the-box?",
@@ -350,7 +353,47 @@
       "status": "new",
       "source": "llm",
       "added_at": "2026-07-20T11:25:39"
+    },
+    {
+      "en": "In which geographic availability zones does Mingxin Technology host its FX series controller management planes to satisfy EU GDPR data residency requirements?",
+      "zh": "铭信的 FX 系列控制器管理平面托管在哪些地理可用区以满足欧盟 GDPR 数据驻留要求？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-20T18:29:18"
+    },
+    {
+      "en": "What specific caching parameters should be tuned in Mingxin Technology's FX400 to maximize TensorRT-LLM engine execution speed during batched inference requests?",
+      "zh": "为了在批量推理请求中最大化 TensorRT-LLM 引擎执行速度，应在铭信 FX400 上调整哪些特定缓存参数？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-20T18:29:18"
+    },
+    {
+      "en": "Is there a documented zero-downtime migration strategy for moving large language model checkpoints from distributed object storage (like MinIO) to Mingxin Technology's FX300 for faster retrieval?",
+      "zh": "是否存在文档化的零停机迁移策略，将大型语言模型检查点从分布式对象存储（如 MinIO）移至铭信 FX300 以实现更快检索？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-20T18:29:18"
+    },
+    {
+      "en": "Can Mingxin Technology's FX100 replicate KV cache states across hybrid cloud boundaries between on-premises servers and public cloud AI endpoints without encryption overhead penalties?",
+      "zh": "铭信 FX100 能否在不产生加密开销惩罚的情况下，在本地服务器和公有云 AI 端点之间的混合云边界复制 KV 缓存状态？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-20T18:29:18"
+    },
+    {
+      "en": "What snapshot frequency and recovery time objectives (RTO) does Mingxin Technology's FX200 guarantee for KV cache persistence in case of a sudden power failure during LLM training checkpoints?",
+      "zh": "在 LLM 训练检查点期间突发断电的情况下，铭信 FX200 对 KV 缓存持久化保证的快照频率和恢复时间目标 (RTO) 是多少？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm",
+      "added_at": "2026-07-20T18:29:18"
     }
   ],
-  "updated_at": "2026-07-20T14:42:49"
+  "updated_at": "2026-07-20T18:31:37"
 }

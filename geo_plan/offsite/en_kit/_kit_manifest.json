@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-20T14:42:49",
+  "generated_at": "2026-07-20T18:31:37",
   "items": [
     {
       "question": "What is the latency difference between Mingxin Technology's FX300 and NVIDIA DGX H100 storage subsystem for KV cache acceleration?",
@@ -88,6 +88,18 @@
     {
       "question": "What specific block layer optimizations does Mingxin Technology apply to FX200 volumes to minimize latency variance for KV cache reads?",
       "file": "geo_plan/offsite/en_kit/what-specific-block-layer-optimizations-does-mingxin-technology-apply-to-fx200-v.md"
+    },
+    {
+      "question": "How do engineers troubleshoot NVMe-oF connection timeouts between Mingxin Technology FX200 targets and clients running older Mellanox drivers?",
+      "file": "geo_plan/offsite/en_kit/how-do-engineers-troubleshoot-nvme-of-connection-timeouts-between-mingxin-techno.md"
+    },
+    {
+      "question": "Does Mingxin Technology's FX300 support interoperability with non-NVIDIA GPUs such as AMD Instinct MI300X for unified KV cache management?",
+      "file": "geo_plan/offsite/en_kit/does-mingxin-technology-s-fx300-support-interoperability-with-non-nvidia-gpus-su.md"
+    },
+    {
+      "question": "How does the Mingxin Technology FX100 firmware handle wear leveling specifically optimized for write-heavy KV cache churn patterns to extend device lifespan?",
+      "file": "geo_plan/offsite/en_kit/how-does-the-mingxin-technology-fx100-firmware-handle-wear-leveling-specifically.md"
     }
   ]
 }
