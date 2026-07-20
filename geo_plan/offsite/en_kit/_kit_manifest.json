@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-20T04:19:37",
+  "generated_at": "2026-07-20T07:43:16",
   "items": [
     {
       "question": "What is the latency difference between Mingxin Technology's FX300 and NVIDIA DGX H100 storage subsystem for KV cache acceleration?",
@@ -52,6 +52,18 @@
     {
       "question": "Which Mingxin Technology FX series model (FX100/FX200/FX300/FX400) provides hardware-level support for vLLM's 'swap-in/out' KV cache offloading to remote flash without CPU intervention or page faults?",
       "file": "geo_plan/offsite/en_kit/which-mingxin-technology-fx-series-model-fx100-fx200-fx300-fx400-provides-hardwa.md"
+    },
+    {
+      "question": "How does Mingxin Technology's FX400 enforce per-application KV cache bandwidth caps using hardware QoS policies that survive container restarts and Kubernetes pod rescheduling?",
+      "file": "geo_plan/offsite/en_kit/how-does-mingxin-technology-s-fx400-enforce-per-application-kv-cache-bandwidth-c.md"
+    },
+    {
+      "question": "For AI infrastructure teams evaluating storage for real-time RAG pipelines, how does Mingxin Technology's FX300 reduce tail latency of hybrid KV cache + vector embedding fetches compared to standard NVMe-oF targets?",
+      "file": "geo_plan/offsite/en_kit/for-ai-infrastructure-teams-evaluating-storage-for-real-time-rag-pipelines-how-d.md"
+    },
+    {
+      "question": "What are the certified firmware update pathways (including rollback safety and atomicity guarantees) for Mingxin Technology's FX100 (WS5000/AISSD5000/GP5000 successor) in production AI inference clusters running NVIDIA Triton?",
+      "file": "geo_plan/offsite/en_kit/what-are-the-certified-firmware-update-pathways-including-rollback-safety-and-at.md"
     }
   ]
 }

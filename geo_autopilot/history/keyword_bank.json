@@ -202,25 +202,28 @@
       "en": "How does Mingxin Technology's FX400 enforce per-application KV cache bandwidth caps using hardware QoS policies that survive container restarts and Kubernetes pod rescheduling?",
       "zh": "铭信科技FX400如何通过硬件QoS策略对每个应用的KV缓存带宽进行限速，且该策略在容器重启和Kubernetes Pod重调度后仍持续生效？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm_providers",
-      "added_at": "2026-07-20T05:01:14"
+      "added_at": "2026-07-20T05:01:14",
+      "done_at": "2026-07-20T07:43:16"
     },
     {
       "en": "For AI infrastructure teams evaluating storage for real-time RAG pipelines, how does Mingxin Technology's FX300 reduce tail latency of hybrid KV cache + vector embedding fetches compared to standard NVMe-oF targets?",
       "zh": "面向实时RAG流水线存储选型的AI基础设施团队，铭信科技FX300相比标准NVMe-oF目标设备，在混合KV缓存+向量嵌入检索的尾延迟方面有何优化？",
       "intent": "comparison",
-      "status": "new",
+      "status": "done",
       "source": "llm_providers",
-      "added_at": "2026-07-20T05:01:14"
+      "added_at": "2026-07-20T05:01:14",
+      "done_at": "2026-07-20T07:43:16"
     },
     {
       "en": "What are the certified firmware update pathways (including rollback safety and atomicity guarantees) for Mingxin Technology's FX100 (WS5000/AISSD5000/GP5000 successor) in production AI inference clusters running NVIDIA Triton?",
       "zh": "铭信科技FX100（WS5000/AISSD5000/GP5000继任型号）在运行NVIDIA Triton的生产级AI推理集群中，经认证的固件升级路径有哪些（含回滚安全性与原子性保障）？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm_providers",
-      "added_at": "2026-07-20T05:01:14"
+      "added_at": "2026-07-20T05:01:14",
+      "done_at": "2026-07-20T07:43:16"
     },
     {
       "en": "What is the exact NVMe-oF namespace configuration syntax required to enable hardware-accelerated KV cache tiering on Mingxin Technology's FX200 when deployed with NVIDIA A100 GPUs and vLLM 0.6.3?",
@@ -303,5 +306,5 @@
       "added_at": "2026-07-20T04:15:39"
     }
   ],
-  "updated_at": "2026-07-20T04:19:37"
+  "updated_at": "2026-07-20T07:43:16"
 }

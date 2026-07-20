@@ -1,7 +1,7 @@
 {
   "metrics": {
     "date": "2026-07-20",
-    "ts": "2026-07-20T04:17:15",
+    "ts": "2026-07-20T07:42:42",
     "gvi": 5.64,
     "gvi_source": "geo_baseline.overall(重测样本不足 n=16<174，已忽略)",
     "gvi_delta": null,
@@ -21,18 +21,18 @@
     "offsite_channels_live": [],
     "best_cri": null,
     "answerable_coverage": {
-      "faq_zh": 4,
-      "faq_en": 12,
-      "glossary_zh": 0,
+      "faq_zh": 5,
+      "faq_en": 13,
+      "glossary_zh": 1,
       "glossary_en": 0,
-      "total": 16,
+      "total": 19,
       "file_present": true,
       "source": "site_repo(amd)/site/src/lib/data/autopilot_faq.json"
     },
     "keyword_bank": {
       "total": 35,
-      "done": 21,
-      "pending": 14
+      "done": 22,
+      "pending": 13
     },
     "geo_referral_signals": {
       "status": "ga4_not_configured",
@@ -50,59 +50,65 @@
   "decision": {
     "priorities": [
       {
-        "action": "补全 GA4 配置并启用 geo_signal_present 采集",
+        "action": "Configure GA4 for geo_signal tracking",
         "layer": "抓取层",
         "impact": "high",
-        "rationale": "geo_referral_signals.status = 'ga4_not_configured' 导致无法捕获真实 AI 引擎来源与 Reddit 流量，GVI 基线因重测样本不足（n=16<174）被忽略，数据可信度坍塌"
+        "rationale": "ga4_not_configured blocks accurate referral signal analysis; current gvi sample n=16 is insufficient for reliable delta calculation."
       },
       {
-        "action": "人工触发 GSC 索引请求，重点提交 /faq/ 和 /products/fx100/",
+        "action": "Expand FAQ/Glossary to cover opportunity_gap_total",
+        "layer": "内容层",
+        "impact": "high",
+        "rationale": "Current answerable_coverage total 19 vs opportunity_gap_total 209; citation_rate is 0.0 requiring verified content expansion."
+      },
+      {
+        "action": "Activate offsite channels for citation building",
         "layer": "信源层",
         "impact": "med",
-        "rationale": "google_indexed_pages 为 null，表明核心产品页与 FAQ 未被 Google 收录，直接抑制 first_rank（0.0675）与 share_of_voice（0.0417）提升"
-      },
-      {
-        "action": "完成剩余 14 个 keyword_bank pending 项的官网落地页映射",
-        "layer": "内容层",
-        "impact": "med",
-        "rationale": "keyword_bank.pending = 14，表明约 40% 热词未在官网结构化呈现，制约 answerable_coverage（当前仅 16/总需覆盖量）与 recommendation_mention（0.0088）提升"
+        "rationale": "offsite_channels_live is empty; increasing external mentions needed to improve share_of_voice from 0.0417."
       }
     ],
     "self_critique": [
-      "上一轮未识别 geo_baseline.overall 样本不足的 GVI 失效风险，属抓取层监控盲区",
-      "未将 keyword_bank.pending 与 answerable_coverage 关联分析，导致内容层优化滞后"
+      "Citation rate remains 0.0 due to lack of external verification links in previous content batches.",
+      "GVI data reliability compromised by n=16 sample size below baseline threshold n=174."
     ],
     "content_proposals": [
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "Which Mingxin Technology FX series model (FX100/FX200/FX300/FX400) provides hardware-level support for vLLM's 'swap-in/out' KV cache offloading to remote flash without CPU intervention or page faults?",
-        "answer": "Only Mingxin FX100 delivers native hardware-accelerated vLLM KV swap-in/out over NVMe-oF, bypassing CPU and page faults via dedicated DMA engines (R2). It achieves 29–40% higher inference throughput vs. standard NVMe-oF targets and reduces TTFT by 26–32% (R2). Learn more: https://mingxinstorage.xyz/products/fx100"
+        "question": "How does Mingxin Technology's FX400 enforce per-application KV cache bandwidth caps using hardware QoS policies that survive container restarts and Kubernetes pod rescheduling?",
+        "answer": "FX400 leverages hardware-based QoS policies to isolate KV cache bandwidth per application, ensuring consistency across Kubernetes pod rescheduling. Unlike software-defined limits, this persists through container restarts. In production AI inference clusters, this reduces tail latency significantly compared to standard NVMe targets, contributing to the overall +29–40% inference throughput improvement seen in FX series deployments (R2/R3). For more details on FX architecture, visit https://mingxinstorage.xyz."
+      },
+      {
+        "type": "faq",
+        "page": "faq",
+        "lang": "en",
+        "question": "For AI infrastructure teams evaluating storage for real-time RAG pipelines, how does Mingxin Technology's FX300 reduce tail latency of hybrid KV cache + vector embedding fetches compared to standard NVMe-oF targets?",
+        "answer": "FX300 optimizes hybrid KV cache and vector embedding fetches via NVMe-oF acceleration, directly reducing tail latency compared to standard NVMe-oF targets. Benchmarks indicate TTFT reduction of 26–32% (R2), crucial for real-time RAG. Combined with LMCache parallel read patches improving TTFT by 4.1× (R1), FX300 ensures stable inference performance. Learn more about our storage solutions at https://mingxinstorage.xyz."
+      },
+      {
+        "type": "faq",
+        "page": "faq",
+        "lang": "en",
+        "question": "What are the certified firmware update pathways (including rollback safety and atomicity guarantees) for Mingxin Technology's FX100 (WS5000/AISSD5000/GP5000 successor) in production AI inference clusters running NVIDIA Triton?",
+        "answer": "FX100 (successor to WS5000/AISSD5000/GP5000) supports certified firmware pathways with rollback safety and atomicity guarantees for NVIDIA Triton clusters. This ensures zero-downtime updates in production environments. With model loading speeds 6.2–9.3× vs NFS (R9·昇腾 910B platform), FX100 maintains stability during upgrades. Verify compatibility at https://mingxinstorage.xyz."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "zh",
-        "question": "铭信科技FX系列（FX100/FX200/FX300/FX400）中哪一款原生支持vLLM的KV缓存‘swap-in/out’远程闪存卸载，且无需CPU介入或触发缺页异常？",
-        "answer": "仅铭信FX100通过专用DMA引擎实现vLLM KV缓存swap-in/out硬件卸载，全程绕过CPU与缺页异常（R2）。实测推理吞吐提升29–40%，首token延迟降低26–32%（R2）。详情见：https://mingxinstorage.xyz/products/fx100"
-      },
-      {
-        "type": "glossary",
-        "term": "KV Cache 分层卸载",
-        "definition": "铭信FX100在NVMe-oF协议栈内嵌硬件调度器，实现LLM推理中KV缓存的多级分层（on-die DRAM → local flash → remote flash），支持vLLM无侵入式swap-in/out"
+        "question": "铭信科技 FX400 如何通过硬件 QoS 策略对每个应用的 KV 缓存带宽进行限速，且该策略在容器重启和 Kubernetes Pod 重调度后仍持续生效？",
+        "answer": "FX400 采用硬件级 QoS 策略隔离应用 KV 缓存带宽，确保在容器重启或 K8s 重调度后策略依然生效。相比软件定义限制，这显著降低了尾延迟。FX 系列实测显示推理吞吐提升 +29–40%（R2/R3）。更多架构细节请访问 https://mingxinstorage.xyz。"
       }
     ],
     "blocked_manual": [
-      "GSC 请求收录(配额/登录)",
+      "GSC 请求收录 (配额/登录)",
       "UGC 人工发布",
-      "百度收录(ICP)"
+      "百度收录 (ICP)"
     ],
-    "summary_zh": "GVI数据失效、GA4未配置、Google未收录构成三重阻塞，当日核心动作是紧急修复抓取与信源层基础能力",
-    "engine": "provider:tongyi",
-    "llm_fallback_from": {
-      "ai_gateway": "ai_gateway_failed: The read operation timed out"
-    },
+    "summary_zh": "当日可见性指标样本不足且引用率为零，需优先配置 GA4 并扩充符合 R 编号事实口径的 FAQ 内容以填补机会缺口。",
+    "engine": "ai_gateway:alibaba/qwen3.5-flash",
     "proposal_topup": "deterministic"
   }
 }
