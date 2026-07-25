@@ -94,8 +94,12 @@ jobs:
       DOUBAO_API_KEY: ${{ secrets.DOUBAO_API_KEY }}
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      # GH_PAT 只为访问**别的**仓库（私有的 amd、知识库 mingxin-storage-kb）而存在。
       GH_PAT: ${{ secrets.GH_PAT }}
-      GH_TOKEN: ${{ secrets.GH_PAT }}
+      # 而 alerting.py 是在**本仓库**开告警 issue，内置 GITHUB_TOKEN 即可胜任。
+      # 回退到它，是为了让「PAT 缺失/过期」这件事本身还能被告警出来——
+      # 若两者绑死，PAT 一旦失效，连报警能力都一起失效（这正是上次 5 天无人发现的成因）。
+      GH_TOKEN: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
       # 铭信站点自带引擎/SEO 接口鉴权（/api/seo/ping、/api/engine/*）
       CRON_SECRET: ${{ secrets.CRON_SECRET }}
       # 可选：push amd 仓库后触发 Vercel 重新部署（项目未连 GitHub）
@@ -171,6 +175,12 @@ jobs:
           # 仓库已公开 => 运行日志对外可读。GH_PAT 拼进 URL 的安全性依赖 GitHub
           # 对 secrets 的日志掩码（输出中会显示为 ***）。切勿在此处 set -x，
           # 也切勿把该 URL 回显到日志。
+          if [ -z "${GH_PAT}" ]; then
+            # 不让它退化成一句裸的 "Authentication failed"：那句话不告诉任何人该做什么。
+            echo "::error::缺少 secret GH_PAT。官网仓库 amd 是私有的，没有它无法 clone，流水线无法继续。"
+            echo "::error::请签发 fine-grained PAT（仅授权 amd / mingxin-storage-kb / mingxin-geo-autopilot 三个仓库的 Contents+Issues 读写），然后 gh secret set GH_PAT --repo ${{ github.repository }}"
+            exit 1
+          fi
           AUTH="https://x-access-token:${GH_PAT}@github.com"
           git clone --depth 1 "${AUTH}/${{ github.repository_owner }}/amd.git" official_website
           git clone --depth 1 "${AUTH}/${{ github.repository_owner }}/mingxin-storage-kb.git" offsite_github || echo "kb repo not created yet; offsite KB steps will be skipped"
