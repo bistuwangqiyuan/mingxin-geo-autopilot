@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 """敏感信息扫描器（密钥 + 越界 PII），规则单一来源、多处复用。
 
-两种模式：
-  --worktree <dir>          扫描工作区文件（CI 提交前闸门、pre-commit）
-  --git-all-objects <repo>  扫描 git 仓库的每一个 blob（含已删除文件的历史版本、
-                            不可达对象），用于公开前的历史复扫
+三种模式，按"发布时机"由早到晚排列：
+  --worktree <dir>          扫描工作区文件（本地 pre-commit、CI 开跑前的体检）
+  --staged <repo>           扫描暂存区，即本次提交将发布出去的**确切**内容。
+                            仓库已公开，这是 CI 提交闸门唯一严丝合缝的口径
+  --git-all-objects <repo>  扫描每一个 blob（含已删除文件的历史版本、不可达对象），
+                            用于公开前的历史复扫
 
 设计纪律：
   - 本文件自身会进入公开仓库，因此**规则里不得写死任何真实 PII**。
@@ -16,6 +18,7 @@
 
 复现：
   python tools/scan_sensitive.py --worktree .
+  python tools/scan_sensitive.py --staged .
   python tools/scan_sensitive.py --git-all-objects <path-to-repo.git> --extra-pattern "xxx"
 """
 from __future__ import annotations
@@ -158,6 +161,46 @@ def scan_worktree(root: str, content_rules, path_rules, extra,
     return findings
 
 
+def scan_staged(root: str, content_rules, path_rules, extra) -> list[str]:
+    """扫描已 `git add` 的内容——即本次提交将要发布出去的**确切**字节。
+
+    公开仓库里这是唯一严丝合缝的口径：`--worktree` 会连引擎生成但不提交的中间
+    产物一起扫（误杀合法运行），`--git-all-objects` 只看已入库的历史（太晚了）。
+    读 index 而非工作区文件，因为两者可能不一致（add 之后又被改写）。
+    """
+    listing = subprocess.run(
+        ["git", "-C", root, "diff", "--cached", "--name-only", "-z",
+         "--diff-filter=ACMR"],
+        capture_output=True).stdout
+    rels = [x.decode("utf-8", "ignore") for x in listing.split(b"\x00") if x]
+    if not rels:
+        print("[scan] 暂存区为空，本次无内容将被发布")
+        return []
+
+    findings: list[str] = []
+    scanned = skipped = 0
+    for rel in rels:
+        hits = [f"[{n}] {rel} -> 敏感文件路径"
+                for n, rx in path_rules if rx.search(rel)]
+        if os.path.splitext(rel)[1].lower() in SKIP_EXT:
+            findings.extend(hits)
+            skipped += 1
+            continue
+        blob = subprocess.run(["git", "-C", root, "show", f":{rel}"],
+                              capture_output=True).stdout
+        try:
+            text = blob.decode("utf-8")
+        except UnicodeDecodeError:
+            findings.extend(hits)
+            skipped += 1
+            continue
+        scanned += 1
+        findings.extend(scan_text(text, rel, content_rules + extra, hits))
+    print(f"[scan] 暂存区待发布文件 {len(rels)} 个：已扫描 {scanned} 个，"
+          f"跳过二进制/免扫后缀 {skipped} 个")
+    return findings
+
+
 def scan_git_all_objects(repo: str, content_rules, path_rules, extra) -> list[str]:
     """扫描每一个 blob（含不可达对象）+ 全历史出现过的路径。"""
     findings: list[str] = []
@@ -210,6 +253,7 @@ def scan_git_all_objects(repo: str, content_rules, path_rules, extra) -> list[st
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--worktree")
+    ap.add_argument("--staged", help="扫描该仓库暂存区（本次提交将发布的确切内容）")
     ap.add_argument("--git-all-objects")
     ap.add_argument("--extra-pattern", action="append", default=[],
                     help="运行时追加的正则（用于不宜入库的具体 PII）")
@@ -227,12 +271,15 @@ def main() -> int:
     if args.git_all_objects:
         findings = scan_git_all_objects(args.git_all_objects, content_rules, path_rules, extra)
         target = args.git_all_objects
+    elif args.staged:
+        findings = scan_staged(args.staged, content_rules, path_rules, extra)
+        target = f"{args.staged} (staged)"
     elif args.worktree:
         findings = scan_worktree(args.worktree, content_rules, path_rules, extra,
                                  respect_gitignore=not args.no_gitignore)
         target = args.worktree
     else:
-        ap.error("需指定 --worktree 或 --git-all-objects")
+        ap.error("需指定 --worktree、--staged 或 --git-all-objects")
         return 2
 
     if findings:

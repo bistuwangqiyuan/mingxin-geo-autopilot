@@ -13,7 +13,9 @@ import subprocess
 import sys
 from pathlib import Path
 
-REPO = "bistuwangqiyuan/zk-geo-autopilot"
+from repo_target import repo_slug
+
+REPO = repo_slug()
 OUT = Path("reports/actions_enabled.json")
 
 

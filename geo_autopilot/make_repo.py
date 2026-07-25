@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """铭信 GEO Autopilot · 自治仓库装配器（make_repo.py）。
 
-把运行所需的最小引擎集合装配成一个可推送的 git 仓库 zk-geo-autopilot（引擎仓库名沿用不变）：
+把运行所需的最小引擎集合装配成一个可推送的 git 仓库 mingxin-geo-autopilot：
   repo/
     .github/workflows/geo-autopilot.yml   (从 geo_autopilot/.github 提升到根)
     geo_autopilot/                         (引擎主体)
@@ -13,7 +13,7 @@ CI 中再把官网仓库 amd（Next.js 站点在其 site/ 子目录）clone 为 
 知识库仓库 mingxin-storage-kb clone 为 offsite_github，paths.py 零改动解析。
 
 用法：
-  python make_repo.py                  # 装配到 ../zk-geo-autopilot 并 git init+commit
+  python make_repo.py                  # 装配到 ../mingxin-geo-autopilot 并 git init+commit
   python make_repo.py --dest <PATH>    # 指定目标目录
 """
 from __future__ import annotations
@@ -77,10 +77,10 @@ def assemble(dest, do_git=True):
 def _write_root_readme(dest):
     with open(os.path.join(dest, "README.md"), "w", encoding="utf-8") as f:
         f.write(
-            "# zk-geo-autopilot\n\n"
-            "铭信官网（mingxinstorage.xyz）**全自动 AI GEO 系统**（云端每 4 小时无人值守）。\n\n"
+            "# mingxin-geo-autopilot\n\n"
+            "铭信官网（mingxinstorage.xyz）**全自动 AI GEO 系统**（云端每天 2 次无人值守）。\n\n"
             "- 引擎与编排见 [`geo_autopilot/`](geo_autopilot/)（入口 `autopilot.py`）。\n"
-            "- 由 GitHub Actions cron（每 4h）运行：clone amd + mingxin-storage-kb → 真实 GVI 重测 → "
+            "- 由 GitHub Actions cron（每天 2 次）运行：clone amd + mingxin-storage-kb → 真实 GVI 重测 → "
             "AI 决策与内容自进化（经 verify 闸门，写入 site/src/lib/data/autopilot_faq.json）→ "
             "push amd → Vercel Deploy Hook 触发部署 → /api/seo/ping IndexNow → 历史快照 → "
             "苹果视觉日报 HTML/PDF → 告警。\n"
@@ -90,9 +90,19 @@ def _write_root_readme(dest):
 
 
 def _write_root_gitignore(dest):
-    with open(os.path.join(dest, ".gitignore"), "w", encoding="utf-8") as f:
-        f.write("__pycache__/\n*.pyc\n.venv/\nnode_modules/\n_sites/\n.env\n"
-                "official_website/\noffsite_github/\n*.bak.*\n")
+    """复制源仓库的 .gitignore，而不是在这里另写一份。
+
+    装配出的仓库是**公开**的，.gitignore 是凭据不入库的第一道防线。若在此处
+    维护第二份副本，它迟早会落后于源仓库那份（曾经就是：这里只有 9 行，
+    而源仓库已补上凭据文件类型、会话态与 GSC 域名清单等规则）。
+    """
+    src = os.path.join(paths.ROOT, ".gitignore")
+    if os.path.isfile(src):
+        shutil.copyfile(src, os.path.join(dest, ".gitignore"))
+        return
+    raise SystemExit(
+        f"[fatal] 找不到源 .gitignore（{src}）。装配出的仓库将公开，"
+        "缺少忽略规则等于把凭据直接推上去，故此处硬失败而不静默降级。")
 
 
 def _git_init(dest):
@@ -109,15 +119,17 @@ def _git_init(dest):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--dest", default=os.path.join(os.path.dirname(paths.ROOT), "zk-geo-autopilot"))
+    ap.add_argument("--dest", default=os.path.join(os.path.dirname(paths.ROOT), "mingxin-geo-autopilot"))
     ap.add_argument("--no-git", action="store_true")
     args = ap.parse_args()
     assemble(os.path.abspath(args.dest), do_git=not args.no_git)
     print("\n下一步（人工一次）：")
-    print("  1. gh repo create zk-geo-autopilot --private --source . --push   # 在目标目录内")
+    print("  1. gh repo create mingxin-geo-autopilot --public --source . --push   # 在目标目录内")
+    print("     公开是刻意选择：GitHub 托管 runner 对公开仓库免费无限量，可绕开账户级计费拒绝。")
+    print("     公开前务必先跑 python tools/scan_sensitive.py --git-all-objects <dest>")
     print("  2. 配置仓库 Secrets：AI_GATEWAY_API_KEY、DASHSCOPE_API_KEY、GH_PAT、CRON_SECRET、"
           "VERCEL_DEPLOY_HOOK_URL(可选)（见 SETUP.md）")
-    print("  3. gh workflow run 'GEO Autopilot (every 4h)'   # 手动首跑验证")
+    print("  3. gh workflow run 'GEO Autopilot (twice daily)'   # 手动首跑验证")
 
 
 if __name__ == "__main__":

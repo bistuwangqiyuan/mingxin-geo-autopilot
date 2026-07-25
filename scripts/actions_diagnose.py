@@ -26,7 +26,9 @@ import sys
 from collections import Counter
 from datetime import datetime, timezone
 
-REPO = "bistuwangqiyuan/zk-geo-autopilot"
+from repo_target import repo_slug
+
+REPO = repo_slug()
 FREE_PRIVATE_MINUTES_PER_MONTH = 2000
 LINUX_BILLING_MULTIPLIER = 1
 

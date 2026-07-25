@@ -17,8 +17,9 @@ import subprocess
 import sys
 from pathlib import Path
 
-REPO = "bistuwangqiyuan/zk-geo-autopilot"
-WORKFLOW_PATH = ".github/workflows/geo-autopilot.yml"
+from repo_target import WORKFLOW_PATH, repo_slug
+
+REPO = repo_slug()
 OUT = Path("reports/actions_status.json")
 
 

@@ -11,7 +11,9 @@ import json
 import subprocess
 import sys
 
-REPO = "bistuwangqiyuan/zk-geo-autopilot"
+from repo_target import repo_slug
+
+REPO = repo_slug()
 
 
 def gh(endpoint: str):

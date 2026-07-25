@@ -37,7 +37,7 @@ import urllib.request
 import xml.etree.ElementTree as ET
 
 SITE = os.environ.get("MX_SITE_URL", "https://mingxinstorage.xyz").rstrip("/")
-REPO = os.environ.get("MX_REPO", "bistuwangqiyuan/zk-geo-autopilot")
+REPO = os.environ.get("MX_REPO", "bistuwangqiyuan/mingxin-geo-autopilot")
 WORKFLOW = os.environ.get("MX_WORKFLOW", "geo-autopilot.yml")
 # 站点收录推送由站点自身 /api/seo/ping 完成（IndexNow key 由站点持有）；
 # 本地 key 校验为可选项：未配置 MX_INDEXNOW_KEY 时该项 SKIP。

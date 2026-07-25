@@ -1,7 +1,7 @@
 # 事故复盘：站外 GEO 引擎自 2026-07-21 起停摆
 
-复盘时间：2026-07-25
-状态：**根因已确认，恢复动作待人工决策**（涉及账户付款，程序无法也不应代办）
+复盘时间：2026-07-25；结案追加：2026-07-26
+状态：**已恢复**——改由新建的公开仓库运行，绕开计费链路。经过与代价见第八节。
 
 ## 一、发生了什么
 
@@ -109,6 +109,10 @@ GitHub 托管 runner 对 public 仓库免费无限量。前置核验已完成：
 这是 PII 暴露而非安全事故，**是否可接受由邮箱所有者本人决定**。
 若决定转 public 且不希望暴露该地址，需先用 `git filter-repo` 重写历史。
 
+> **2026-07-26 更正：上面这段的最后一句是错的，照做会造成泄露。**
+> `git filter-repo` 重写 + force push **不足以**让本仓库安全转 public，
+> 因为 GitHub 不销毁不可达对象。详见第八节的实测。
+
 ### 已实施的用量瘦身（账单恢复后立刻生效）
 
 见 `.github/workflows/geo-autopilot.yml` 头部注释。要点：
@@ -171,3 +175,66 @@ GitHub 没有提供创建 PAT 的 API，令牌只能在网页端签发，因此�
 
 这两件事完成后，无需再改任何代码：workflow 会按 cron 自行恢复，看门狗会自行开始
 探测。
+
+## 八、结案：2026-07-26 迁至公开仓库
+
+第七节写「在账单恢复之前本仓库的任何改动都不会让 runner 启动」——这句话本身没错，
+但它**默认了必须留在这个仓库里**。跳出这个前提就有解：GitHub 托管 runner 对公开仓库
+免费无限量，换一个公开仓库跑即可，不必等账单。
+
+### 为什么不是把本仓库直接翻公开
+
+第五节曾建议「先 `git filter-repo` 重写历史再转 public」。**这个建议是错的**，
+它假定重写 + force push 之后旧对象就没了。实测证明不是：
+
+```
+# 重写并 force push 约 2.5 小时后，旧提交仍能取回
+gh api "repos/bistuwangqiyuan/zk-geo-autopilot/contents/\
+seo_geo_loop/outputs/gsc_properties.json?ref=a5d823d"   → size: 3357
+```
+
+更要命的是 GitHub API **接受 4 位短 SHA**：
+
+```
+gh api repos/bistuwangqiyuan/zk-geo-autopilot/commits/a5d8
+  → a5d823da39d047ce10c18ac65d58b1eeed2ded92
+```
+
+于是"需要知道 40 位 SHA"这个安全假设不成立：穷举空间只有 16^4 = 65,536，
+按认证配额 5,000 次/小时算约 13 小时即可枚举完，且有公开工具专做此事
+（Truffle Security 2024 年披露的 CFOR）。**翻公开等于连同已删除的 222 域名
+GSC 清单与谷歌账号一起公开，且不可撤回。**
+
+### 实际做法与验收
+
+新建 `bistuwangqiyuan/mingxin-geo-autopilot`（public），只把**新克隆**的历史
+推进去——新克隆只含可达对象，全新仓库的对象库从未收到过那些旧 blob。
+
+| 验收项 | 命令 | 结果 |
+| --- | --- | --- |
+| 新仓库无旧对象 | `gh api repos/.../mingxin-geo-autopilot/commits/a5d8` | `422 No commit found` |
+| 对照：旧仓库仍有 | `gh api repos/.../zk-geo-autopilot/commits/a5d8` | 解析出完整 SHA |
+| 全对象扫描 | `python tools/scan_sensitive.py --git-all-objects <新克隆>` | 3932 blob，**0 命中** |
+| 历史完整性 | `git rev-list --all --count` | 131（与迁移前一致） |
+
+旧仓库保持 private 并已 `archived`。归档还顺带堵掉一个隐患：若将来账单恢复，
+旧仓库的 cron 会与新仓库同时触发，重复推送 `amd`。
+
+### 公开带来的新代价与新约束（如实列出）
+
+- **引擎回写提交的内容全部公开可检索**：GVI 评分、关键词策略、竞品分析、日报
+  HTML/PDF。这是商业信息披露，由仓库所有者决定后执行，同样受上述 4 位 SHA
+  问题约束，即不可逆。
+- **提交即发布**，因此 workflow 在 `git add` 与 `git commit` 之间强制过敏感信息
+  闸门（`tools/scan_sensitive.py --staged .`）。已用植入的假密钥实测：
+  干净内容 exit 0 放行，命中 exit 1 且提交不发生。
+- **运行日志对外可读**。`GH_PAT` 拼进 clone URL 的安全性依赖 GitHub 的 secret
+  日志掩码，故该步骤禁止 `set -x`、禁止回显 URL。
+- **旧仓库的不可达对象仍在**。保持 private 即不构成对外泄露；若要彻底销毁，
+  只能向 GitHub Support 开工单，或删库重建（需 `delete_repo` scope）。
+
+### 看门狗的意外收获
+
+第六节说看门狗需要在 Vercel 配 `GH_PAT` 才能读取本仓库 Actions 状态。仓库转公开后
+**这个人工依赖没了**：公开仓库的 Actions API 匿名可读，探测无需鉴权，只有"开 Issue"
+仍需令牌。

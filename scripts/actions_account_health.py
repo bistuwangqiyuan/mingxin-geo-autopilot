@@ -15,9 +15,14 @@ import sys
 from collections import Counter
 from datetime import datetime, timezone
 
-# 账户内近期活跃的私有仓库（由 actions_usage_account.py 的输出得到）
+from repo_target import LEGACY_REPO, repo_slug
+
+# 账户内近期活跃的私有仓库（由 actions_usage_account.py 的输出得到）。
+# 保留已归档的 LEGACY_REPO：本脚本判定的是"账户级还是仓库级"，历史对照样本
+# 恰恰是判据的一部分，删掉反而削弱结论。
 REPOS = [
-    "bistuwangqiyuan/zk-geo-autopilot",
+    repo_slug(),
+    LEGACY_REPO,
     "bistuwangqiyuan/mingxin-marketing-cron",
     "bistuwangqiyuan/aiseoauto",
     "bistuwangqiyuan/amd",

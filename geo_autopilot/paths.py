@@ -15,7 +15,8 @@ from __future__ import annotations
 import os
 
 AUTOPILOT_DIR = os.path.dirname(os.path.abspath(__file__))
-# 工程根：本地为 zk-geo-autopilot/；引擎与站点目录默认在根下。
+# 工程根：本地目录名仍是 zk-geo-autopilot/（磁盘路径，未随 GitHub 仓库改名而变，
+# 远端已是 mingxin-geo-autopilot）；引擎与站点目录默认在根下。
 ROOT = os.environ.get("MX_WORKSPACE_ROOT") or os.path.dirname(AUTOPILOT_DIR)
 
 

@@ -88,7 +88,7 @@ def _publish_kit_lines():
         return []
     if not items:
         return []
-    repo = ALERT_REPO or "bistuwangqiyuan/zk-geo-autopilot"
+    repo = ALERT_REPO or "bistuwangqiyuan/mingxin-geo-autopilot"
     lines = ["", "### 英文成品包待一键发布（Medium/Quora/LinkedIn·复制粘贴即可）",
              "平台无开放写 API，机器人代发违反 ToS——这是全流程唯一残留人工点："]
     for it in items[-6:]:

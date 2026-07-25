@@ -3,7 +3,36 @@ __pycache__/
 .venv/
 node_modules/
 _sites/
-.env
+*.bak.*
+
+# 本地临时日志（诊断脚本与扫描器的输出，不入库）
+_*.log
+
+# —— 独立仓库的本地 clone（各自有独立的扫描与发布责任）——
 official_website/
 offsite_github/
-*.bak.*
+
+# —— 凭据与会话态：本仓库已公开，以下任何一项入库都是直接泄露 ——
+# 规则与 tools/scan_sensitive.py 的 PATH_RULES 对齐，两处口径必须一致。
+.env
+.env.*
+!.env.example
+*.pem
+*.p12
+*.pfx
+*.jks
+*.ppk
+id_rsa
+id_rsa.*
+credentials*.json
+*service-account*.json
+*service_account*.json
+client_secret*.json
+storage_state*.json
+browser_state*.json
+
+# —— 结构性敏感产物：整站资产清单一旦公开即等于披露域名矩阵 ——
+# 这些由引擎在本地运行（有 GSC 授权时）生成，属运行期产物，不应入库。
+seo_geo_loop/outputs/gsc_properties.json
+seo_geo_loop/outputs/gsc_*inspection.json
+seo_geo_loop/outputs/external_actions_status.json
