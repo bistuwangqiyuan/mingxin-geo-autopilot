@@ -44,6 +44,36 @@ GitHub 返回的 check-run 注解原文：
 
 **所以：降频瘦身不能解除本次停摆。** 谁把恢复寄望于改配置，就会白等。
 
+## 三点五、2026-07-25 当日复验（瘦身改动推送之后）
+
+瘦身与看门狗上线后立刻做了一次直接检验，结论是**根因未变，且拒绝仍在持续**。
+
+**手动触发的对照实验。** 定时触发失败可以有很多解释，手动触发能把"调度问题"彻底
+排除。`gh workflow run geo-autopilot.yml` 触发 run `30163497541`
+（2026-07-25T15:22:52Z），结果仍是 `conclusion: failure`、`steps=0`，注解原文
+一字未变：
+
+> The job was not started because recent account payments have failed or your
+> spending limit needs to be increased. Please check the 'Billing & plans'
+> section in your settings
+
+**一个新增的观察：运行历史被清空了。** 同一天早些时候 `actions/runs` 还能返回
+146 条记录（其中 28 次连续失败），复验时两条独立口径（仓库级 `actions/runs` 与按
+workflow id 查询）**同时**返回 `total_count: 0`；手动触发后变成 1。
+
+这件事有两点实际影响，都值得记下来：
+
+1. **它会伪装成"从未运行过"。** 历史归零 + 零失败计数，看起来像一个刚建好还没跑过
+   的 workflow，而真相是它被拒了 28 次。任何依赖"连续失败次数"来告警的逻辑都会在
+   这一刻失明——这正是看门狗为什么必须同时看"距上次成功多久"（`null` 也算超阈值）
+   而不只看失败计数。
+2. **仓库层面查不出异常。** `actions/permissions` 返回 `enabled: true`，
+   仓库 `archived: false`、`disabled: false`。也就是说，**能看到的开关全是正常的**，
+   唯一的线索仍然只在注解原文里。
+
+复现：`python scripts/actions_status.py`（运行记录与失败计数）、
+`python scripts/actions_enabled.py`（仓库/账户层面的 Actions 开关）。
+
 ## 四、复现方式
 
 ```bash
@@ -111,12 +141,33 @@ GitHub 托管 runner 对 public 仓库免费无限量。前置核验已完成：
   去重的追踪 issue → 写入 `engine_log`
 - 关键设计：取不到数据时报 `unknown` 并计为 `degraded`，**绝不因为查不到就报告健康**
 
+**看门狗目前尚未真正生效，原因如实说明：** 它需要官网 Vercel 项目里有 `GH_PAT`
+才能读取本仓库的 Actions 状态，而 2026-07-25 核对 production 环境变量时确认
+`GH_PAT` **未配置**（其余 `DATABASE_URL`/`CRON_SECRET`/`ADMIN_PASSWORD`/
+`INDEXNOW_KEY`/`PAGESPEED_API_KEY` 均已配置）。缺失时看门狗返回
+`status: "unknown"` 并记为 `degraded`——它不会误报健康，但也发不出有效告警。
+
+GitHub 没有提供创建 PAT 的 API，令牌只能在网页端签发，因此这一步无法自动化。
+建议签发 fine-grained PAT 并按最小权限收口：仅 `bistuwangqiyuan/zk-geo-autopilot`
+一个仓库，Actions 只读 + Issues 读写。
+
 ## 七、当前未达成的验收标准（如实声明）
 
 原计划的 P1 验收标准是「workflow 连续 3 次 `conclusion: success`」。
 
 **该标准目前无法达成，因为它的前置条件是账户付款问题被解决，而这不在程序的
-能力范围内。** 在账单恢复之前，本仓库的任何改动都不会让 runner 启动。
+能力范围内。** 2026-07-25 15:22 UTC 的手动触发实验已直接验证这一点：改完配置、
+推送完代码之后，runner 依然在 2 秒内被拒，注解原文一字未变。在账单恢复之前，
+**本仓库的任何改动都不会让 runner 启动**——把恢复寄望于继续改代码就是白等。
 
-已达成的部分：根因确认（可复现）、用量瘦身（恢复后生效）、跨系统看门狗
-（已上线，下次停摆当天即可发现）。
+已达成的部分：根因确认（可复现，且当日复验仍成立）、用量瘦身（恢复后立即生效）、
+跨系统看门狗（代码已上线）。
+
+**待人工完成的两件事，都是程序无法代办的：**
+
+1. **GitHub Settings → Billing** 处理付款失败或提高支出上限。涉及支出，属人的决策。
+2. **在 Vercel 配 `GH_PAT`**（fine-grained，仅本仓库，Actions 只读 + Issues 读写）。
+   GitHub 不提供签发 PAT 的 API，只能在网页端完成。配好之前看门狗只能报 `unknown`。
+
+这两件事完成后，无需再改任何代码：workflow 会按 cron 自行恢复，看门狗会自行开始
+探测。
