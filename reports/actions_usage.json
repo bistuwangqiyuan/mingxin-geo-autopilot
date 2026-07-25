@@ -1,0 +1,119 @@
+{
+  "generated_at": "2026-07-25T14:53:10.538018+00:00",
+  "since": "2026-07-01T00:00:00+00:00",
+  "repos_total": 583,
+  "repos_private": 421,
+  "repos_scanned": 315,
+  "repo_enumeration_truncated": false,
+  "per_repo": [
+    {
+      "repo": "bistuwangqiyuan/mingxin-marketing-cron",
+      "runs_since": 250,
+      "billed_minutes": 326,
+      "contains_estimated": true
+    },
+    {
+      "repo": "bistuwangqiyuan/aiseoauto",
+      "runs_since": 133,
+      "billed_minutes": 267,
+      "contains_estimated": true
+    },
+    {
+      "repo": "bistuwangqiyuan/amd",
+      "runs_since": 149,
+      "billed_minutes": 149,
+      "contains_estimated": true
+    },
+    {
+      "repo": "bistuwangqiyuan/aiteams",
+      "runs_since": 126,
+      "billed_minutes": 129,
+      "contains_estimated": true
+    },
+    {
+      "repo": "bistuwangqiyuan/toolsignal",
+      "runs_since": 127,
+      "billed_minutes": 127,
+      "contains_estimated": true
+    },
+    {
+      "repo": "bistuwangqiyuan/ainovelclaude",
+      "runs_since": 25,
+      "billed_minutes": 45,
+      "contains_estimated": true
+    },
+    {
+      "repo": "bistuwangqiyuan/sidebrain",
+      "runs_since": 16,
+      "billed_minutes": 16,
+      "contains_estimated": true
+    },
+    {
+      "repo": "bistuwangqiyuan/inklet-ai",
+      "runs_since": 13,
+      "billed_minutes": 15,
+      "contains_estimated": true
+    },
+    {
+      "repo": "bistuwangqiyuan/investment-feasibility-platform-bp",
+      "runs_since": 5,
+      "billed_minutes": 9,
+      "contains_estimated": true
+    },
+    {
+      "repo": "bistuwangqiyuan/syntro",
+      "runs_since": 5,
+      "billed_minutes": 5,
+      "contains_estimated": true
+    },
+    {
+      "repo": "bistuwangqiyuan/resume-fasthtml-python-boilerplate",
+      "runs_since": 2,
+      "billed_minutes": 2,
+      "contains_estimated": true
+    },
+    {
+      "repo": "bistuwangqiyuan/ai-research-agent",
+      "runs_since": 1,
+      "billed_minutes": 1,
+      "contains_estimated": true
+    },
+    {
+      "repo": "bistuwangqiyuan/mailphoneinforai",
+      "runs_since": 1,
+      "billed_minutes": 1,
+      "contains_estimated": true
+    },
+    {
+      "repo": "bistuwangqiyuan/moneyagent",
+      "runs_since": 1,
+      "billed_minutes": 1,
+      "contains_estimated": true
+    },
+    {
+      "repo": "bistuwangqiyuan/promptevolvefasthtml",
+      "runs_since": 1,
+      "billed_minutes": 1,
+      "contains_estimated": true
+    },
+    {
+      "repo": "bistuwangqiyuan/seoai",
+      "runs_since": 1,
+      "billed_minutes": 1,
+      "contains_estimated": true
+    },
+    {
+      "repo": "bistuwangqiyuan/microai",
+      "runs_since": 15,
+      "billed_minutes": 0,
+      "contains_estimated": false
+    }
+  ],
+  "notes": [
+    "billable 为 0 的运行用 run_duration_ms 向上取整做上界估算，已标注 contains_estimated。",
+    "public 仓库不计入（GitHub 托管 runner 对 public 仓库免费无限量）。"
+  ],
+  "total_billed_minutes_private": 1095,
+  "free_quota_minutes": 2000,
+  "over_quota": false
+}

@@ -1,21 +1,48 @@
-name: GEO Autopilot (every 4h)
+name: GEO Autopilot (twice daily)
 
 # 铭信官网（mingxinstorage.xyz）全自动 GEO 系统 · 云端无人值守运行。
-# 触发：每 4 小时定时 cron（每天 6 次）+ 手动 workflow_dispatch。
+# 触发：每天 2 次定时 cron + 手动 workflow_dispatch。
 # 每次运行都做完整流水线（热词挖掘 + GVI 真实重测 + 内容自进化 + 多点分发 + IndexNow + 线上审计 + 部署 + 流量信号检测）。
 # 仓库布局（zk-geo-autopilot）：geo_autopilot/ + geo_plan/ + seo_geo_loop/ + business_plan/outputs/results.json
 # CI 把官网(amd，Next.js 站点在其 site/ 子目录)/知识库仓库 clone 为同级目录，paths.py 零改动即可解析。
 # 注意：Vercel 项目 mingxin-site 未连 GitHub 自动构建；push 到 amd 后由 VERCEL_DEPLOY_HOOK_URL 触发部署（可选）。
+#
+# ── 2026-07-25 停摆事故与本次改动（依据可复现，勿轻易回退）───────────────────
+#
+# 事实：2026-07-21 起本 workflow 连续 28 次 conclusion=failure，每次 job 在
+# 2 秒内结束且 steps 总数为 0（runner 从未启动）。GitHub 返回的注解原文是：
+#   "The job was not started because recent account payments have failed
+#    or your spending limit needs to be increased."
+# 同一时刻账户下多个互不相关的私有仓库同时出现同一注解 —— 这是**账户级计费
+# 拒绝**，不是本仓库的代码或配置故障。诊断脚本可复现：
+#   python scripts/actions_diagnose.py        # 失败模式与 PAT 有效期
+#   python scripts/actions_annotations.py     # GitHub 注解原文
+#   python scripts/actions_account_health.py  # 证明是账户级而非单仓库
+#   python scripts/actions_usage_account.py --out reports/actions_usage.json
+#
+# **并且已排除"免费额度耗尽"这一最初假设**：完整枚举账户 583 个仓库（421 个
+# 私有，枚举未被截断）后，本月私有仓库合计计费 1095 分钟 / 免费额度 2000 分钟，
+# 未超额；且因所有运行的 billable 字段为 0、用墙钟时长做上界估算，真实值只会更低。
+# 证据见 reports/actions_usage.json。所以停摆的原因是**付款失败**，不是用量。
+#
+# 因此：**恢复运行必须先在 GitHub Settings → Billing 处理付款方式或支出上限，
+# 这一步涉及支出，只能由人来决定，任何代码改动都无法绕过。**
+# 反过来说：下面的用量瘦身不能解除本次停摆，不要误以为改了配置就会恢复。
+#
+# 本次改动做的是账单恢复后立刻生效、且降低将来触顶概率的用量瘦身
+# （6 次/天对一个日更站点本就过量，账户总用量的大头也不在本仓库）：
+#   1. cron 6 次/天 → 2 次/天（-67% 运行次数）
+#   2. timeout-minutes 50 → 25（失控运行的计费上界砍半）
+#   3. pip 依赖缓存（setup-python cache: pip）
+#   4. Playwright Chromium 缓存（命中时只装系统依赖，省去每次下载浏览器）
+#   5. bailian-cli 仅在决策脑回退链需要时安装，并缓存 npm 全局目录
+# 每一项都只减少"每次运行的固定开销"，不削减流水线的实际业务动作。
 
 on:
   schedule:
-    # 每 4 小时一次（UTC）= 北京时间 08:30 / 12:30 / 16:30 / 20:30 / 00:30 / 04:30
+    # 每天 2 次（UTC）= 北京时间 08:30 与 20:30
     - cron: "30 0 * * *"
-    - cron: "30 4 * * *"
-    - cron: "30 8 * * *"
     - cron: "30 12 * * *"
-    - cron: "30 16 * * *"
-    - cron: "30 20 * * *"
   workflow_dispatch:
     inputs:
       mode:
@@ -38,7 +65,7 @@ concurrency:
 jobs:
   autopilot:
     runs-on: ubuntu-latest
-    timeout-minutes: 50
+    timeout-minutes: 25
     env:
       # 首选 LLM 决策脑：Vercel AI Gateway（OpenAI 兼容）。缺失则回退多厂商直连链→bl/DashScope→规则脑。
       AI_GATEWAY_API_KEY: ${{ secrets.AI_GATEWAY_API_KEY }}
@@ -73,19 +100,51 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+          cache: pip
+          cache-dependency-path: geo_autopilot/requirements.txt
 
-      - name: Setup Node (for bailian-cli)
+      - name: Setup Node (for bailian-cli fallback)
         uses: actions/setup-node@v4
         with:
           node-version: "20"
 
-      - name: Install dependencies
+      - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r geo_autopilot/requirements.txt
-          python -m playwright install --with-deps chromium
-          npm i -g bailian-cli
-          bl --version || true
+
+      # Chromium 每次重新下载约占单次运行的最大固定开销，缓存后只需装系统依赖。
+      - name: Cache Playwright browsers
+        id: playwright-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('geo_autopilot/requirements.txt') }}
+
+      - name: Install Playwright (full)
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: python -m playwright install --with-deps chromium
+
+      - name: Install Playwright system deps only (cache hit)
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: python -m playwright install-deps chromium
+
+      # bl 是决策脑回退链的第 3 顺位，仅在 AI Gateway 与各厂商直连全部不可用时才会被调用。
+      # 缓存 npm 全局目录，避免为一个低频回退项每次付出安装时间。
+      - name: Cache npm global (bailian-cli)
+        id: npm-global-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm-global
+          key: npm-global-bailian-${{ runner.os }}
+
+      - name: Install bailian-cli
+        run: |
+          npm config set prefix "$HOME/.npm-global"
+          echo "$HOME/.npm-global/bin" >> "$GITHUB_PATH"
+          if [ ! -x "$HOME/.npm-global/bin/bl" ]; then
+            npm i -g bailian-cli || echo "bailian-cli install failed; brain will fall back further"
+          fi
 
       - name: Clone site repos (siblings)
         run: |
@@ -98,8 +157,8 @@ jobs:
       - name: Run GEO Autopilot
         run: |
           MODE="${{ github.event.inputs.mode || 'ci' }}"
-          # 定时高频运行（每 4h × 6 次/天）默认限量采样控制成本；手动 dispatch 可指定 0=全量。
-          GVI="${{ github.event.inputs.gvi_limit || '4' }}"
+          # 降频到 2 次/天后每次可承担更多采样：定时运行的 GVI 上限从 4 提到 8。
+          GVI="${{ github.event.inputs.gvi_limit || '8' }}"
           python geo_autopilot/autopilot.py --${MODE} --gvi-limit ${GVI}
 
       - name: Commit autopilot data (history/reports/outputs)
@@ -109,7 +168,7 @@ jobs:
           git config --global user.email "geo-autopilot@users.noreply.github.com"
           git add geo_autopilot/history geo_autopilot/reports geo_autopilot/outputs geo_plan/offsite/en_kit 2>/dev/null || true
           git commit -m "chore(autopilot): run $(date -u +%FT%TZ) data & report" || echo "no changes"
-          # 高频运行下远端可能已被上一次运行推进：先 rebase 再推，避免 non-fast-forward
+          # 远端可能已被上一次运行推进：先 rebase 再推，避免 non-fast-forward
           git pull --rebase origin "${GITHUB_REF_NAME}" || git rebase --abort || true
           git push origin "HEAD:${GITHUB_REF_NAME}" || echo "push skipped"
 
