@@ -1,0 +1,24 @@
+{
+  "repo_actions_permissions": {
+    "rc": 0,
+    "data": {
+      "enabled": true,
+      "allowed_actions": "all",
+      "sha_pinning_required": false
+    }
+  },
+  "owner_actions_permissions": {
+    "rc": 1,
+    "data": "gh: Not Found (HTTP 404)\n"
+  },
+  "repo_meta": {
+    "rc": 0,
+    "data": {
+      "private": true,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2026-07-25T15:08:19Z",
+      "has_issues": true
+    }
+  }
+}
