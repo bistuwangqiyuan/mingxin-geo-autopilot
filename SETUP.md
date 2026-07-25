@@ -47,9 +47,18 @@ gh secret set VERCEL_DEPLOY_HOOK_URL --repo bistuwangqiyuan/mingxin-geo-autopilo
 ## 2. 首跑验证
 
 ```bash
-gh workflow run "GEO Autopilot (twice daily)" --repo bistuwangqiyuan/mingxin-geo-autopilot -f mode=ci -f gvi_limit=4
-gh run watch --repo bistuwangqiyuan/mingxin-geo-autopilot   # 观察绿跑
+python scripts/verify_secrets.py       # 先问「能不能跑成」，别触发一次撞一次墙
+python scripts/trigger_and_watch.py    # 触发 + 盯到结束 + 按验收标准判定
 ```
+
+`trigger_and_watch.py` 之所以不只看 Actions 的绿灯：workflow 里绝大多数业务步骤
+都带 `|| true`（单点失败不该拖垮整条流水线），所以 `conclusion=success` **不等于**
+每一步都成功。它会把 `run_log.json` 一并读回来核对各阶段，并比对时间戳——运行若
+在回写提交前就失败，仓库里留着的是上一轮的记录，此时它判不通过而非拿旧数据充数。
+
+退出码：0 验收通过 / 1 不通过 / 2 无法判定。可直接被定时任务或告警脚本消费。
+
+冒烟用 `--gvi-limit 4`；重建基线用默认的 `0`（全量采样）。
 
 - 绿跑后核验：
   - `amd` 仓库出现 `chore(geo-autopilot)` 提交，且 `site/src/lib/data/autopilot_faq.json` 有新增条目；
