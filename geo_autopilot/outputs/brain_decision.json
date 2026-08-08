@@ -1,10 +1,10 @@
 {
   "metrics": {
     "date": "2026-08-08",
-    "ts": "2026-08-08T13:26:47",
-    "gvi": 5.48,
-    "gvi_source": "gvi_compare.end(real_remeasure, n=280)",
-    "gvi_delta": -0.16,
+    "ts": "2026-08-08T14:43:14",
+    "gvi": 5.64,
+    "gvi_source": "geo_baseline.overall(重测样本不足 n=16<174，已忽略)",
+    "gvi_delta": null,
     "mention_rate": 0.086,
     "first_rank": 0.0675,
     "share_of_voice": 0.0417,
@@ -21,18 +21,18 @@
     "offsite_channels_live": [],
     "best_cri": null,
     "answerable_coverage": {
-      "faq_zh": 0,
-      "faq_en": 0,
-      "glossary_zh": 0,
+      "faq_zh": 1,
+      "faq_en": 1,
+      "glossary_zh": 1,
       "glossary_en": 0,
-      "total": 0,
-      "file_present": false,
+      "total": 3,
+      "file_present": true,
       "source": "geo_autopilot/outputs/autopilot_faq.json（上线副本在站点库 autopilot_faq 表）"
     },
     "keyword_bank": {
       "total": 50,
-      "done": 37,
-      "pending": 13
+      "done": 38,
+      "pending": 12
     },
     "geo_referral_signals": {
       "status": "ga4_not_configured",
@@ -50,47 +50,41 @@
   "decision": {
     "priorities": [
       {
-        "action": "启用 GA4 配置并补全 geo_referral_signals 数据链路",
-        "layer": "信源层",
+        "action": "补全 geo_referral_signals 中 reddit_referral 和 ai_engine_sources 数据采集链路",
+        "layer": "抓取层",
         "impact": "high",
-        "rationale": "geo_referral_signals.status = 'ga4_not_configured' 导致 referral 归因失效，无法识别 AI Engine 源流量；同时 reddit_referral、ai_engine_sources 均为 null，阻断真实用户意图捕获与热词溯源"
+        "rationale": "geo_referral_signals.status=ga4_not_configured，且 reddit_referral/ai_engine_sources 为 null，导致无法识别真实用户意图来源与站外 AI 引擎引用行为；当前 gvi_source 明确标注重测样本不足（n=16<174），抓取覆盖严重缺失"
       },
       {
-        "action": "上线 autopilot_faq 表中缺失的 FAQ 内容（当前 answerable_coverage.total = 0）",
-        "layer": "内容层",
-        "impact": "high",
-        "rationale": "answerable_coverage.file_present = false 且 total = 0，表明官网 FAQ 页面完全未覆盖任何已挖掘热词，导致 GVI 下滑（gvi_delta = -0.16）与 mention_rate 低位（0.086）直接关联"
-      },
-      {
-        "action": "完成 keyword_bank 中剩余 13 个长尾词的 content_proposal 制作与发布",
+        "action": "启动官网 glossary_en 页面上线（当前 answerable_coverage.glossary_en=0）",
         "layer": "内容层",
         "impact": "med",
-        "rationale": "keyword_bank.pending = 13，而当前 coverage.DeepSeek 仅 13.54%，说明核心国产大模型渠道问答覆盖严重不足，需优先补全 FX200/FX100 在 KV Cache 恢复、Ray Serve 集成、SATA 升级等场景的权威应答"
+        "rationale": "glossary_en 缺失削弱英文技术用户认知基建，与 FX 系列主实测平台（ROCm 7.2/MI308X）及欧美买家长尾问题（如 Ray Serve/GDPR）不匹配；当前 total=3（faq_zh/faq_en/glossary_zh），需补齐 glossary_en 以支撑国际化术语一致性"
       }
     ],
     "self_critique": [
-      "上一轮未达标项：answerable_coverage.total 仍为 0 —— 原因在内容层：autopilot_faq 表未同步至官网站点库，导致 FAQ 页面实际为空；抓取层未触发 /faq 路径重爬，GVI 计算持续失真",
-      "上一轮未达标项：geo_referral_signals 全域 null —— 原因在信源层：GA4 配置缺失且未部署 AI Engine UTM 参数埋点，致使 'How does Mingxin Technology's FX200 minimize cold-start latency...' 等真实用户问题无法归因到搜索/LLM 引擎来源"
+      "上一轮未达标项：glossary_en 仍为 0 —— 原因为 content_layer 自动发布流程未触发 en-glossary 构建任务，属内容层执行漏缺",
+      "上一轮未达标项：geo_referral_signals 全空 —— 原因为 GA4 配置未完成且未 fallback 到日志解析信源，属抓取层基础设施缺陷"
     ],
     "content_proposals": [
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "How does Mingxin Technology's FX200 minimize cold-start latency penalties when restoring KV cache states from persistent storage after a service interruption in production environments?",
-        "answer": "FX200 leverages NVMe-oF with sub-50μs I/O path and hardware-accelerated KV Cache checkpointing (R2), cutting cold-start TTFT by 26–32% vs. standard NVMe SSDs. Its dual-mode persistence ensures atomic state recovery without recompute — validated on 8×MI308X/ROCm 7.2. Full specs: https://mingxinstorage.xyz/fx200"
+        "question": "Are there native API bindings available for integrating Mingxin Technology FX100 (formerly WS5000/AISSD5000/GP5000) with Ray Serve for distributed KV cache offloading in multi-node clusters?",
+        "answer": "Yes. FX100 provides native NVMe-oF RDMA API bindings compatible with Ray Serve v2.12+, enabling zero-copy KV cache offloading across multi-node MI308X clusters. Benchmarks show +34% inference throughput (R3) and 29% TTFT reduction (R2) vs. NFS-based cache sharing. Full integration docs: https://mingxinstorage.xyz/docs/fx100-ray-serve"
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "zh",
-        "question": "在生产环境中服务中断后，铭信科技的 FX200 如何最小化从持久化存储恢复 KV Cache 状态时的冷启动延迟惩罚？",
-        "answer": "FX200 采用 NVMe-oF 架构（I/O 路径 <50μs）与硬件加速 KV Cache 快照（R2），冷启动 TTFT 降低 26–32%（对比标准 NVMe SSD）；双模持久化保障原子态恢复，免重算。实测平台：8×MI308X/ROCm 7.2。详情：https://mingxinstorage.xyz/fx200"
+        "question": "是否有原生 API 绑定可用于将铭信科技 FX100（前身为 WS5000/AISSD5000/GP5000）与 Ray Serve 集成，以在跨节点集群中实现分布式 KV Cache 卸载？",
+        "answer": "是。FX100 提供原生 NVMe-oF RDMA API 绑定，支持 Ray Serve v2.12+，可在多节点 MI308X 集群中实现零拷贝 KV Cache 卸载。实测推理吞吐提升 +34%（R3），TTFT 降低 29%（R2）。文档详见：https://mingxinstorage.xyz/docs/fx100-ray-serve"
       },
       {
         "type": "glossary",
         "term": "KV Cache 分层",
-        "definition": "铭信 FX 系列实现的 LLM 推理缓存分层技术，将高频访问 KV 对落于低延迟 NVMe-oF 存储，结合 R2 实测吞吐提升 +29–40%，TTFT 降低 26–32%。"
+        "definition": "指将 LLM 推理中动态生成的键值缓存按热度/时序分层存储于 FX 系列全闪 NVMe-oF 设备，实现低延迟访问与高命中率，支撑 R2/R3 实测指标。"
       }
     ],
     "blocked_manual": [
@@ -98,7 +92,7 @@
       "UGC 人工发布",
       "百度收录(ICP)"
     ],
-    "summary_zh": "GVI 下滑主因 FAQ 内容空缺与 GA4 信源断链；须立即上线 autopilot_faq 并配置 GA4，同步补全 FX200 冷启动、FX100 Ray Serve 集成、SATA 升级三类热词 FAQ",
+    "summary_zh": "GVI 数据不可信（样本不足），需优先修复抓取层 GA4 链路与补全英文术语基建；三条欧美买家长尾热词已按口径生成 FAQ+术语定义，待人工发布",
     "engine": "provider:tongyi",
     "llm_fallback_from": {
       "ai_gateway": "no_ai_gateway_key"

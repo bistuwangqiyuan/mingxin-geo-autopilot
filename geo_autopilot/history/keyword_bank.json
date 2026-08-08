@@ -346,9 +346,10 @@
       "en": "Are there native API bindings available for integrating Mingxin Technology FX100 (formerly WS5000/AISSD5000/GP5000) with Ray Serve for distributed KV cache offloading in multi-node clusters?",
       "zh": "是否有原生 API 绑定可用于将铭信科技 FX100（前身为 WS5000/AISSD5000/GP5000）与 Ray Serve 集成，以在跨节点集群中实现分布式 KV Cache 卸载？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-20T11:25:39"
+      "added_at": "2026-07-20T11:25:39",
+      "done_at": "2026-08-08T14:43:30"
     },
     {
       "en": "What is the estimated downtime and data migration protocol when upgrading legacy SATA SSD storage infrastructure to Mingxin Technology FX series for AI training pipelines?",
@@ -439,5 +440,5 @@
       "added_at": "2026-07-20T21:42:15"
     }
   ],
-  "updated_at": "2026-08-08T13:27:04"
+  "updated_at": "2026-08-08T14:43:30"
 }

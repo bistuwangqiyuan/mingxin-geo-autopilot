@@ -1,7 +1,7 @@
 {
   "mode": "ci",
-  "started": "2026-08-08T13:03:16",
-  "elapsed": 1441.0,
+  "started": "2026-08-08T14:41:41",
+  "elapsed": 124.2,
   "paths": {
     "ROOT": "/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot",
     "GEO_PLAN": "/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/geo_plan",
@@ -19,7 +19,7 @@
       "results_json": true
     },
     "secrets_present": {
-      "cron_secret": false,
+      "cron_secret": true,
       "vercel_deploy_hook": false
     }
   },
@@ -27,30 +27,30 @@
     {
       "name": "geo_autopilot/keyword_miner.py",
       "ok": true,
-      "note": "[keyword_miner] source=skipped_backpressure added=0 bank_total=50 pending=13",
+      "note": "[keyword_miner] source=skipped_backpressure added=0 bank_total=50 pending=12",
       "critical": false,
       "elapsed": 0.0
     },
     {
-      "name": "seo_geo_loop/gvi_measure.py --force",
+      "name": "seo_geo_loop/gvi_measure.py --force --limit 4",
       "ok": true,
       "note": "写出：/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/seo_geo_loop/outputs/gvi_compare.json",
       "critical": false,
-      "elapsed": 1410.4
+      "elapsed": 92.8
     },
     {
       "name": "geo_autopilot/geo_brain.py",
       "ok": true,
-      "note": "  priorities=3 proposals=3",
+      "note": "  priorities=2 proposals=3",
       "critical": false,
-      "elapsed": 17.4
+      "elapsed": 15.5
     },
     {
       "name": "geo_autopilot/apply_proposals.py",
       "ok": true,
-      "note": "  已应用 3 条提案并通过事实闸门（results.json 口径）；站点落库未成功",
+      "note": "  已应用 2 条提案并通过事实闸门（results.json 口径）；站点落库成功",
       "critical": false,
-      "elapsed": 0.1
+      "elapsed": 0.6
     },
     {
       "name": "seo_geo_loop/build_offsite_site.py",
@@ -69,7 +69,7 @@
     {
       "name": "seo_geo_loop/make_geo_kit_en.py",
       "ok": true,
-      "note": "[geo_kit_en] 生成 1 个成品包 -> /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/geo_plan/offsite/en_kit",
+      "note": "[geo_kit_en] 生成 2 个成品包 -> /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/geo_plan/offsite/en_kit",
       "critical": false,
       "elapsed": 0.0
     },
@@ -78,28 +78,28 @@
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 4.1
+      "elapsed": 4.7
     },
     {
       "name": "geo_plan/geo_scoring.py",
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 1.7
+      "elapsed": 1.6
     },
     {
       "name": "seo_geo_loop/indexnow_submit.py",
       "ok": true,
-      "note": "[SKIP] 438 URLs; written /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/seo_geo_loop/outputs/indexnow_submit.json",
+      "note": "[OK] 439 URLs; written /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/seo_geo_loop/outputs/indexnow_submit.json",
       "critical": false,
-      "elapsed": 0.7
+      "elapsed": 2.9
     },
     {
       "name": "seo_geo_loop/live_audit.py",
       "ok": true,
       "note": "  写出 -> /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/seo_geo_loop/outputs/live_status.json",
       "critical": false,
-      "elapsed": 1.5
+      "elapsed": 0.7
     },
     {
       "name": "geo_autopilot/traffic_check.py",
@@ -174,16 +174,16 @@
     {
       "name": "geo_autopilot/export_daily_pdf.py",
       "ok": true,
-      "note": "Saved: /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/geo_autopilot/reports/铭信-GEO自动驾驶日报-2026-08-08.pdf  (0.89 MB)",
+      "note": "Saved: /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/geo_autopilot/reports/铭信-GEO自动驾驶日报-2026-08-08.pdf  (0.93 MB)",
       "critical": false,
-      "elapsed": 1.7
+      "elapsed": 2.8
     },
     {
       "name": "geo_autopilot/alerting.py",
       "ok": true,
-      "note": "[alerting] level=warn delivery=created_issue alerts=1 blocked=3",
+      "note": "[alerting] level=error delivery=commented_issue_2 alerts=3 blocked=3",
       "critical": false,
-      "elapsed": 1.6
+      "elapsed": 1.1
     }
   ]
 }

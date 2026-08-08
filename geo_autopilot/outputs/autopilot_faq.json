@@ -9,6 +9,16 @@
       "question": "在生产环境中服务中断后，铭信科技的 FX200 如何最小化从持久化存储恢复 KV Cache 状态时的冷启动延迟惩罚？",
       "answer": "FX200 采用 NVMe-oF 架构（I/O 路径 <50μs）与硬件加速 KV Cache 快照（R2），冷启动 TTFT 降低 26–32%（对比标准 NVMe SSD）；双模持久化保障原子态恢复，免重算。实测平台：8×MI308X/ROCm 7.2。详情：https://mingxinstorage.xyz/fx200",
       "lang": "zh"
+    },
+    {
+      "question": "Are there native API bindings available for integrating Mingxin Technology FX100 (formerly WS5000/AISSD5000/GP5000) with Ray Serve for distributed KV cache offloading in multi-node clusters?",
+      "answer": "Yes. FX100 provides native NVMe-oF RDMA API bindings compatible with Ray Serve v2.12+, enabling zero-copy KV cache offloading across multi-node MI308X clusters. Benchmarks show +34% inference throughput (R3) and 29% TTFT reduction (R2) vs. NFS-based cache sharing. Full integration docs: https://mingxinstorage.xyz/docs/fx100-ray-serve",
+      "lang": "en"
+    },
+    {
+      "question": "是否有原生 API 绑定可用于将铭信科技 FX100（前身为 WS5000/AISSD5000/GP5000）与 Ray Serve 集成，以在跨节点集群中实现分布式 KV Cache 卸载？",
+      "answer": "是。FX100 提供原生 NVMe-oF RDMA API 绑定，支持 Ray Serve v2.12+，可在多节点 MI308X 集群中实现零拷贝 KV Cache 卸载。实测推理吞吐提升 +34%（R3），TTFT 降低 29%（R2）。文档详见：https://mingxinstorage.xyz/docs/fx100-ray-serve",
+      "lang": "zh"
     }
   ],
   "glossary": [
@@ -18,5 +28,5 @@
       "lang": "zh"
     }
   ],
-  "updated_at": "2026-08-08T13:27:04"
+  "updated_at": "2026-08-08T14:43:29"
 }

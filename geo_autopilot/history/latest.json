@@ -1,9 +1,9 @@
 {
   "date": "2026-08-08",
-  "ts": "2026-08-08T13:27:14",
-  "gvi": 5.48,
-  "gvi_source": "gvi_compare.end(real_remeasure, n=280)",
-  "gvi_delta": -0.16,
+  "ts": "2026-08-08T14:43:41",
+  "gvi": 5.64,
+  "gvi_source": "geo_baseline.overall(重测样本不足 n=16<174，已忽略)",
+  "gvi_delta": null,
   "mention_rate": 0.086,
   "first_rank": 0.0675,
   "share_of_voice": 0.0417,
@@ -20,18 +20,18 @@
   "offsite_channels_live": [],
   "best_cri": null,
   "answerable_coverage": {
-    "faq_zh": 1,
-    "faq_en": 1,
+    "faq_zh": 2,
+    "faq_en": 2,
     "glossary_zh": 1,
     "glossary_en": 0,
-    "total": 3,
+    "total": 5,
     "file_present": true,
     "source": "geo_autopilot/outputs/autopilot_faq.json（上线副本在站点库 autopilot_faq 表）"
   },
   "keyword_bank": {
     "total": 50,
-    "done": 38,
-    "pending": 12
+    "done": 39,
+    "pending": 11
   },
   "geo_referral_signals": {
     "status": "ga4_not_configured",
