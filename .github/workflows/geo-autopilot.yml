@@ -66,8 +66,11 @@ on:
         type: choice
         options: ["ci", "once"]
       gvi_limit:
-        description: "每模型 GVI 采样上限(0=全部)"
-        default: "0"
+        description: "每模型 GVI 采样上限(0=全部，慎用：全量约 24 分钟)"
+        # 默认与定时分支一致（8）。原默认是 0=全部，于是**每一次手动触发都是全量采样**：
+        # 实测 gvi_measure 全量耗时 1454s，加上装 Playwright 的 5 分钟必然撞 timeout，
+        # 手动验证永远看不到成功。要跑全量请显式填 0。
+        default: "8"
 
 permissions:
   contents: write
@@ -80,7 +83,11 @@ concurrency:
 jobs:
   autopilot:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    # 25 分钟是私有仓时代为省计费额度压下来的（50→25）。仓库转公开后托管 runner
+    # 免费且不限量，那个前提已不成立，而 25 分钟连一次「Playwright 缓存未命中 +
+    # GVI 全量采样」都装不下——2026-08-08 的两次手动验证都是卡在这个上限被取消。
+    # 放宽到 40 分钟：够容纳最坏情况，又仍能兜住真正卡死的运行。
+    timeout-minutes: 40
     env:
       # 首选 LLM 决策脑：Vercel AI Gateway（OpenAI 兼容）。缺失则回退多厂商直连链→bl/DashScope→规则脑。
       AI_GATEWAY_API_KEY: ${{ secrets.AI_GATEWAY_API_KEY }}
