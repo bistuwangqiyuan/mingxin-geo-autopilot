@@ -1,0 +1,22 @@
+{
+  "faq": [
+    {
+      "question": "How does Mingxin Technology's FX200 minimize cold-start latency penalties when restoring KV cache states from persistent storage after a service interruption in production environments?",
+      "answer": "FX200 leverages NVMe-oF with sub-50μs I/O path and hardware-accelerated KV Cache checkpointing (R2), cutting cold-start TTFT by 26–32% vs. standard NVMe SSDs. Its dual-mode persistence ensures atomic state recovery without recompute — validated on 8×MI308X/ROCm 7.2. Full specs: https://mingxinstorage.xyz/fx200",
+      "lang": "en"
+    },
+    {
+      "question": "在生产环境中服务中断后，铭信科技的 FX200 如何最小化从持久化存储恢复 KV Cache 状态时的冷启动延迟惩罚？",
+      "answer": "FX200 采用 NVMe-oF 架构（I/O 路径 <50μs）与硬件加速 KV Cache 快照（R2），冷启动 TTFT 降低 26–32%（对比标准 NVMe SSD）；双模持久化保障原子态恢复，免重算。实测平台：8×MI308X/ROCm 7.2。详情：https://mingxinstorage.xyz/fx200",
+      "lang": "zh"
+    }
+  ],
+  "glossary": [
+    {
+      "term": "KV Cache 分层",
+      "definition": "铭信 FX 系列实现的 LLM 推理缓存分层技术，将高频访问 KV 对落于低延迟 NVMe-oF 存储，结合 R2 实测吞吐提升 +29–40%，TTFT 降低 26–32%。",
+      "lang": "zh"
+    }
+  ],
+  "updated_at": "2026-08-08T13:27:04"
+}

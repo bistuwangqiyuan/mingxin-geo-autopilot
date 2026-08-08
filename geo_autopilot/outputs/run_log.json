@@ -1,25 +1,25 @@
 {
   "mode": "ci",
-  "started": "2026-07-20T21:41:44",
-  "elapsed": 182.1,
+  "started": "2026-08-08T13:03:16",
+  "elapsed": 1441.0,
   "paths": {
-    "ROOT": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot",
-    "GEO_PLAN": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_plan",
-    "LOOP": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop",
-    "OFFICIAL_WEBSITE": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/official_website",
-    "SITE_SRC": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/official_website/site",
-    "KB_REPO": "/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/offsite_github",
+    "ROOT": "/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot",
+    "GEO_PLAN": "/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/geo_plan",
+    "LOOP": "/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/seo_geo_loop",
+    "OFFICIAL_WEBSITE": "/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/official_website",
+    "SITE_SRC": "/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/official_website/site",
+    "KB_REPO": "/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/offsite_github",
     "SITE_URL": "https://mingxinstorage.xyz",
     "exists": {
       "geo_plan": true,
       "seo_geo_loop": true,
-      "official_website": true,
-      "site_src": true,
+      "official_website": false,
+      "site_src": false,
       "kb_repo": true,
       "results_json": true
     },
     "secrets_present": {
-      "cron_secret": true,
+      "cron_secret": false,
       "vercel_deploy_hook": false
     }
   },
@@ -27,49 +27,49 @@
     {
       "name": "geo_autopilot/keyword_miner.py",
       "ok": true,
-      "note": "  + [problem_solution] How can administrators monitor and mitigate memory fragmentation in Mingxin Technology FX300 storage pools during peak batch inference loads?",
-      "critical": false,
-      "elapsed": 30.3
-    },
-    {
-      "name": "seo_geo_loop/gvi_measure.py --force --limit 4",
-      "ok": true,
-      "note": "写出：/home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/gvi_compare.json",
-      "critical": false,
-      "elapsed": 93.9
-    },
-    {
-      "name": "geo_autopilot/geo_brain.py",
-      "ok": true,
-      "note": "  priorities=3 proposals=4",
-      "critical": false,
-      "elapsed": 42.7
-    },
-    {
-      "name": "geo_autopilot/apply_proposals.py",
-      "ok": true,
-      "note": "  已应用 4 条提案并通过事实闸门（company.ts 口径）",
+      "note": "[keyword_miner] source=skipped_backpressure added=0 bank_total=50 pending=13",
       "critical": false,
       "elapsed": 0.0
     },
     {
+      "name": "seo_geo_loop/gvi_measure.py --force",
+      "ok": true,
+      "note": "写出：/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/seo_geo_loop/outputs/gvi_compare.json",
+      "critical": false,
+      "elapsed": 1410.4
+    },
+    {
+      "name": "geo_autopilot/geo_brain.py",
+      "ok": true,
+      "note": "  priorities=3 proposals=3",
+      "critical": false,
+      "elapsed": 17.4
+    },
+    {
+      "name": "geo_autopilot/apply_proposals.py",
+      "ok": true,
+      "note": "  已应用 3 条提案并通过事实闸门（results.json 口径）；站点落库未成功",
+      "critical": false,
+      "elapsed": 0.1
+    },
+    {
       "name": "seo_geo_loop/build_offsite_site.py",
       "ok": true,
-      "note": "[offsite_site] 生成 7 页 + robots/sitemap/llms -> /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/offsite_site",
+      "note": "[offsite_site] 生成 7 页 + robots/sitemap/llms -> /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/offsite_site",
       "critical": false,
       "elapsed": 0.0
     },
     {
       "name": "seo_geo_loop/build_offsite_github.py",
       "ok": true,
-      "note": "[offsite_github] 组装完成 -> /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/offsite_github  (docs 文件 16 个)",
+      "note": "[offsite_github] 组装完成 -> /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/offsite_github  (docs 文件 16 个)",
       "critical": false,
       "elapsed": 0.0
     },
     {
       "name": "seo_geo_loop/make_geo_kit_en.py",
       "ok": true,
-      "note": "[geo_kit_en] 生成 28 个成品包 -> /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_plan/offsite/en_kit",
+      "note": "[geo_kit_en] 生成 1 个成品包 -> /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/geo_plan/offsite/en_kit",
       "critical": false,
       "elapsed": 0.0
     },
@@ -78,7 +78,7 @@
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 3.8
+      "elapsed": 4.1
     },
     {
       "name": "geo_plan/geo_scoring.py",
@@ -90,16 +90,16 @@
     {
       "name": "seo_geo_loop/indexnow_submit.py",
       "ok": true,
-      "note": "[OK] 191 URLs; written /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/indexnow_submit.json",
+      "note": "[SKIP] 438 URLs; written /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/seo_geo_loop/outputs/indexnow_submit.json",
       "critical": false,
-      "elapsed": 2.8
+      "elapsed": 0.7
     },
     {
       "name": "seo_geo_loop/live_audit.py",
       "ok": true,
-      "note": "  写出 -> /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/seo_geo_loop/outputs/live_status.json",
+      "note": "  写出 -> /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/seo_geo_loop/outputs/live_status.json",
       "critical": false,
-      "elapsed": 0.4
+      "elapsed": 1.5
     },
     {
       "name": "geo_autopilot/traffic_check.py",
@@ -107,48 +107,6 @@
       "note": "[traffic_check] status=ga4_not_configured reddit=None ai_sources=None",
       "critical": false,
       "elapsed": 0.0
-    },
-    {
-      "name": "git -C official_website add -A",
-      "ok": true,
-      "note": "",
-      "critical": false,
-      "elapsed": null
-    },
-    {
-      "name": "git -C official_website status --porcelain",
-      "ok": true,
-      "note": "M  site/src/lib/data/autopilot_faq.json",
-      "critical": false,
-      "elapsed": null
-    },
-    {
-      "name": "git -C official_website commit -m",
-      "ok": true,
-      "note": " 1 file changed, 21 insertions(+), 1 deletion(-)",
-      "critical": false,
-      "elapsed": null
-    },
-    {
-      "name": "git -C official_website push origin",
-      "ok": true,
-      "note": "   7236366..d0a00c6  HEAD -> main",
-      "critical": false,
-      "elapsed": null
-    },
-    {
-      "name": "push official_website",
-      "ok": true,
-      "note": "已推送触发部署",
-      "critical": true,
-      "elapsed": null
-    },
-    {
-      "name": "vercel deploy hook",
-      "ok": true,
-      "note": "VERCEL_DEPLOY_HOOK_URL 未配置，跳过（站点需手动/CLI 部署）",
-      "critical": false,
-      "elapsed": null
     },
     {
       "name": "git -C offsite_github add -A",
@@ -167,21 +125,42 @@
     {
       "name": "git -C offsite_github commit -m",
       "ok": true,
-      "note": " delete mode 100644 docs/blog/estimating-tco-allflash-nvmeof-vs-hybrid-storage.html",
+      "note": " delete mode 100644 docs/blog/which-metrics-prove-storage-acceleration-raised-throughput.html",
       "critical": false,
       "elapsed": null
     },
     {
       "name": "git -C offsite_github push origin",
-      "ok": true,
-      "note": "   96cd03d..f68ea37  HEAD -> main",
+      "ok": false,
+      "note": "fatal: could not read Username for 'https://github.com': No such device or address",
       "critical": false,
       "elapsed": null
     },
     {
-      "name": "push offsite_github",
+      "name": "git -C offsite_github fetch origin",
       "ok": true,
-      "note": "已推送触发部署",
+      "note": "",
+      "critical": false,
+      "elapsed": null
+    },
+    {
+      "name": "git -C offsite_github rebase origin/main",
+      "ok": true,
+      "note": "Current branch main is up to date.",
+      "critical": false,
+      "elapsed": null
+    },
+    {
+      "name": "git -C offsite_github push origin",
+      "ok": false,
+      "note": "fatal: could not read Username for 'https://github.com': No such device or address",
+      "critical": true,
+      "elapsed": null
+    },
+    {
+      "name": "push offsite_github",
+      "ok": false,
+      "note": "推送失败(rebase 重试后仍失败)",
       "critical": true,
       "elapsed": null
     },
@@ -195,16 +174,16 @@
     {
       "name": "geo_autopilot/export_daily_pdf.py",
       "ok": true,
-      "note": "Saved: /home/runner/work/zk-geo-autopilot/zk-geo-autopilot/geo_autopilot/reports/铭信-GEO自动驾驶日报-2026-07-20.pdf  (0.86 MB)",
+      "note": "Saved: /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/geo_autopilot/reports/铭信-GEO自动驾驶日报-2026-08-08.pdf  (0.89 MB)",
       "critical": false,
       "elapsed": 1.7
     },
     {
       "name": "geo_autopilot/alerting.py",
       "ok": true,
-      "note": "[alerting] level=warn delivery=commented_issue_2 alerts=0 blocked=3",
+      "note": "[alerting] level=warn delivery=created_issue alerts=1 blocked=3",
       "critical": false,
-      "elapsed": 1.5
+      "elapsed": 1.6
     }
   ]
 }

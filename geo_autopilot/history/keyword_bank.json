@@ -337,9 +337,10 @@
       "en": "How does Mingxin Technology's FX200 minimize cold-start latency penalties when restoring KV cache states from persistent storage after a service interruption in production environments?",
       "zh": "在生产环境中服务中断后，铭信科技的 FX200 如何最小化从持久化存储恢复 KV Cache 状态时的冷启动延迟惩罚？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-20T11:25:39"
+      "added_at": "2026-07-20T11:25:39",
+      "done_at": "2026-08-08T13:27:04"
     },
     {
       "en": "Are there native API bindings available for integrating Mingxin Technology FX100 (formerly WS5000/AISSD5000/GP5000) with Ray Serve for distributed KV cache offloading in multi-node clusters?",
@@ -438,5 +439,5 @@
       "added_at": "2026-07-20T21:42:15"
     }
   ],
-  "updated_at": "2026-07-20T21:44:31"
+  "updated_at": "2026-08-08T13:27:04"
 }
