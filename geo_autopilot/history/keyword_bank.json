@@ -355,25 +355,28 @@
       "en": "What is the estimated downtime and data migration protocol when upgrading legacy SATA SSD storage infrastructure to Mingxin Technology FX series for AI training pipelines?",
       "zh": "将传统 SATA SSD 存储基础设施升级为铭信科技 FX 系列以用于 AI 训练流水线时，预计停机时间和数据迁移协议是什么？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-20T11:25:39"
+      "added_at": "2026-07-20T11:25:39",
+      "done_at": "2026-08-08T14:50:51"
     },
     {
       "en": "In which geographic availability zones does Mingxin Technology host its FX series controller management planes to satisfy EU GDPR data residency requirements?",
       "zh": "铭信的 FX 系列控制器管理平面托管在哪些地理可用区以满足欧盟 GDPR 数据驻留要求？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-20T18:29:18"
+      "added_at": "2026-07-20T18:29:18",
+      "done_at": "2026-08-08T14:50:51"
     },
     {
       "en": "What specific caching parameters should be tuned in Mingxin Technology's FX400 to maximize TensorRT-LLM engine execution speed during batched inference requests?",
       "zh": "为了在批量推理请求中最大化 TensorRT-LLM 引擎执行速度，应在铭信 FX400 上调整哪些特定缓存参数？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-20T18:29:18"
+      "added_at": "2026-07-20T18:29:18",
+      "done_at": "2026-08-08T14:50:51"
     },
     {
       "en": "Is there a documented zero-downtime migration strategy for moving large language model checkpoints from distributed object storage (like MinIO) to Mingxin Technology's FX300 for faster retrieval?",
@@ -438,7 +441,47 @@
       "status": "new",
       "source": "llm",
       "added_at": "2026-07-20T21:42:15"
+    },
+    {
+      "en": "What is the exact NVMe-oF discovery mechanism used by Mingxin Technology's FX100 (WS5000/AISSD5000/GP5000 successor) to enable automatic KV cache namespace registration in Kubernetes Cluster API environments?",
+      "zh": "铭信（天津）半导体设备有限公司 FX100（WS5000/AISSD5000/GP5000 后继型号）采用何种精确的 NVMe-oF 发现机制，以在 Kubernetes Cluster API 环境中实现 KV cache 命名空间的自动注册？",
+      "intent": "definition",
+      "status": "new",
+      "source": "llm_providers",
+      "added_at": "2026-08-08T14:49:00"
+    },
+    {
+      "en": "Which Mingxin Technology FX series model supports hardware-accelerated KV cache versioning with atomic cross-namespace snapshot promotion for A/B testing of LLM inference endpoints?",
+      "zh": "铭信（天津）半导体设备有限公司 FX 系列中，哪一型号支持硬件加速的 KV cache 版本控制，并具备跨命名空间快照原子性提升功能，用于大语言模型推理端点的 A/B 测试？",
+      "intent": "ranking",
+      "status": "new",
+      "source": "llm_providers",
+      "added_at": "2026-08-08T14:49:00"
+    },
+    {
+      "en": "How does Mingxin Technology's FX400 enforce end-to-end cryptographic binding between vLLM process identity and KV cache access permissions at the NVMe-oF controller level?",
+      "zh": "铭信（天津）半导体设备有限公司 FX400 如何在 NVMe-oF 控制器层级强制实施 vLLM 进程身份与 KV cache 访问权限之间的端到端密码学绑定？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm_providers",
+      "added_at": "2026-08-08T14:49:00"
+    },
+    {
+      "en": "For AI infrastructure teams migrating from AWS Inferentia2-based inference fleets, which Mingxin Technology FX model offers the closest latency-equivalent KV cache I/O profile under identical 256-token context windows and 7B-parameter models?",
+      "zh": "对于正从 AWS Inferentia2 推理集群迁移的 AI 基础设施团队，铭信（天津）半导体设备有限公司 FX 系列中哪一型号在相同 256-token 上下文窗口与 7B 参数模型下，提供最接近的 KV cache I/O 延迟特征？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "llm_providers",
+      "added_at": "2026-08-08T14:49:00"
+    },
+    {
+      "en": "What are the minimum firmware and host OS kernel requirements to enable Mingxin Technology FX200's hardware-assisted KV cache compression bypass for FP8-quantized attention states without decompression CPU overhead?",
+      "zh": "启用铭信（天津）半导体设备有限公司 FX200 对 FP8 量化注意力状态的硬件辅助 KV cache 压缩绕过（无需解压 CPU 开销）所需的最低固件及主机操作系统内核版本要求是什么？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm_providers",
+      "added_at": "2026-08-08T14:49:00"
     }
   ],
-  "updated_at": "2026-08-08T14:43:30"
+  "updated_at": "2026-08-08T14:50:51"
 }

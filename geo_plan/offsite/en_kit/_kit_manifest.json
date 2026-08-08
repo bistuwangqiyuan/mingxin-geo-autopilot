@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-08T14:43:30",
+  "generated_at": "2026-08-08T14:50:51",
   "items": [
     {
       "question": "How does Mingxin Technology's FX200 minimize cold-start latency penalties when restoring KV cache states from persistent storage after a service interruption in production environments?",
@@ -8,6 +8,18 @@
     {
       "question": "Are there native API bindings available for integrating Mingxin Technology FX100 (formerly WS5000/AISSD5000/GP5000) with Ray Serve for distributed KV cache offloading in multi-node clusters?",
       "file": "geo_plan/offsite/en_kit/are-there-native-api-bindings-available-for-integrating-mingxin-technology-fx100.md"
+    },
+    {
+      "question": "What is the estimated downtime and data migration protocol when upgrading legacy SATA SSD storage infrastructure to Mingxin Technology FX series for AI training pipelines?",
+      "file": "geo_plan/offsite/en_kit/what-is-the-estimated-downtime-and-data-migration-protocol-when-upgrading-legacy.md"
+    },
+    {
+      "question": "In which geographic availability zones does Mingxin Technology host its FX series controller management planes to satisfy EU GDPR data residency requirements?",
+      "file": "geo_plan/offsite/en_kit/in-which-geographic-availability-zones-does-mingxin-technology-host-its-fx-serie.md"
+    },
+    {
+      "question": "What specific caching parameters should be tuned in Mingxin Technology's FX400 to maximize TensorRT-LLM engine execution speed during batched inference requests?",
+      "file": "geo_plan/offsite/en_kit/what-specific-caching-parameters-should-be-tuned-in-mingxin-technology-s-fx400-t.md"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "mode": "ci",
-  "started": "2026-08-08T14:41:41",
-  "elapsed": 124.2,
+  "started": "2026-08-08T14:48:50",
+  "elapsed": 132.0,
   "paths": {
     "ROOT": "/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot",
     "GEO_PLAN": "/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/geo_plan",
@@ -27,30 +27,30 @@
     {
       "name": "geo_autopilot/keyword_miner.py",
       "ok": true,
-      "note": "[keyword_miner] source=skipped_backpressure added=0 bank_total=50 pending=12",
+      "note": "  + [recommendation] What are the minimum firmware and host OS kernel requirements to enable Mingxin Technology FX200's hardware-assisted KV cache compression bypass for FP8-quantized attention states without decompression CPU overhead?",
       "critical": false,
-      "elapsed": 0.0
+      "elapsed": 10.6
     },
     {
       "name": "seo_geo_loop/gvi_measure.py --force --limit 4",
       "ok": true,
       "note": "写出：/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/seo_geo_loop/outputs/gvi_compare.json",
       "critical": false,
-      "elapsed": 92.8
+      "elapsed": 87.2
     },
     {
       "name": "geo_autopilot/geo_brain.py",
       "ok": true,
-      "note": "  priorities=2 proposals=3",
+      "note": "  priorities=3 proposals=4",
       "critical": false,
-      "elapsed": 15.5
+      "elapsed": 23.3
     },
     {
       "name": "geo_autopilot/apply_proposals.py",
       "ok": true,
-      "note": "  已应用 2 条提案并通过事实闸门（results.json 口径）；站点落库成功",
+      "note": "  已应用 4 条提案并通过事实闸门（results.json 口径）；站点落库成功",
       "critical": false,
-      "elapsed": 0.6
+      "elapsed": 0.3
     },
     {
       "name": "seo_geo_loop/build_offsite_site.py",
@@ -69,7 +69,7 @@
     {
       "name": "seo_geo_loop/make_geo_kit_en.py",
       "ok": true,
-      "note": "[geo_kit_en] 生成 2 个成品包 -> /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/geo_plan/offsite/en_kit",
+      "note": "[geo_kit_en] 生成 5 个成品包 -> /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/geo_plan/offsite/en_kit",
       "critical": false,
       "elapsed": 0.0
     },
@@ -78,7 +78,7 @@
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 4.7
+      "elapsed": 1.6
     },
     {
       "name": "geo_plan/geo_scoring.py",
@@ -92,7 +92,7 @@
       "ok": true,
       "note": "[OK] 439 URLs; written /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/seo_geo_loop/outputs/indexnow_submit.json",
       "critical": false,
-      "elapsed": 2.9
+      "elapsed": 3.1
     },
     {
       "name": "seo_geo_loop/live_audit.py",
@@ -107,6 +107,13 @@
       "note": "[traffic_check] status=ga4_not_configured reddit=None ai_sources=None",
       "critical": false,
       "elapsed": 0.0
+    },
+    {
+      "name": "push offsite_github",
+      "ok": true,
+      "note": "跳过推送：未配置 GH_PAT（匿名 clone 只读）。配置后自动恢复回写",
+      "critical": false,
+      "elapsed": null
     },
     {
       "name": "git -C offsite_github add -A",
@@ -130,38 +137,10 @@
       "elapsed": null
     },
     {
-      "name": "git -C offsite_github push origin",
-      "ok": false,
-      "note": "fatal: could not read Username for 'https://github.com': No such device or address",
-      "critical": false,
-      "elapsed": null
-    },
-    {
-      "name": "git -C offsite_github fetch origin",
+      "name": "deploy offsite_github",
       "ok": true,
-      "note": "",
+      "note": "已提交（本地，未推送）",
       "critical": false,
-      "elapsed": null
-    },
-    {
-      "name": "git -C offsite_github rebase origin/main",
-      "ok": true,
-      "note": "Current branch main is up to date.",
-      "critical": false,
-      "elapsed": null
-    },
-    {
-      "name": "git -C offsite_github push origin",
-      "ok": false,
-      "note": "fatal: could not read Username for 'https://github.com': No such device or address",
-      "critical": true,
-      "elapsed": null
-    },
-    {
-      "name": "push offsite_github",
-      "ok": false,
-      "note": "推送失败(rebase 重试后仍失败)",
-      "critical": true,
       "elapsed": null
     },
     {
@@ -174,16 +153,16 @@
     {
       "name": "geo_autopilot/export_daily_pdf.py",
       "ok": true,
-      "note": "Saved: /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/geo_autopilot/reports/铭信-GEO自动驾驶日报-2026-08-08.pdf  (0.93 MB)",
+      "note": "Saved: /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/geo_autopilot/reports/铭信-GEO自动驾驶日报-2026-08-08.pdf  (0.89 MB)",
       "critical": false,
-      "elapsed": 2.8
+      "elapsed": 1.4
     },
     {
       "name": "geo_autopilot/alerting.py",
       "ok": true,
       "note": "[alerting] level=error delivery=commented_issue_2 alerts=3 blocked=3",
       "critical": false,
-      "elapsed": 1.1
+      "elapsed": 1.2
     }
   ]
 }
