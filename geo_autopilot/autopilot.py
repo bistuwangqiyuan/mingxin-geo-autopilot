@@ -81,11 +81,29 @@ def git(args, cwd, critical=False):
         return False, None
 
 
+def can_push(repo_dir):
+    """该仓库是否具备推送凭据。
+
+    知识库仓在无 GH_PAT 时是匿名 clone 的，只读；此时 push 必然被拒。
+    明知推不动还去推，会把一个「可选凭据未配置」记成两条 critical 失败，
+    整个运行因此红灯——2026-08-08 的验证运行就是这么红的，而流水线其余
+    20 步全部正常。假红灯与假绿灯同样有害：天天红，就没人再看。
+    """
+    if os.path.basename(repo_dir) == os.path.basename(paths.KB_REPO):
+        return bool(os.environ.get("GH_PAT"))
+    return True
+
+
 def deploy_repo(repo_dir, message, push):
     """提交并（可选）推送一个站点仓库；返回是否有改动被提交。"""
     if not os.path.isdir(os.path.join(repo_dir, ".git")):
         record(f"deploy {os.path.basename(repo_dir)}", False, "非 git 仓库，跳过", False)
         return False
+    if push and not can_push(repo_dir):
+        # 如实记为跳过而非失败，并写清缺什么——不掩盖，也不误报
+        push = False
+        record(f"push {os.path.basename(repo_dir)}", True,
+               "跳过推送：未配置 GH_PAT（匿名 clone 只读）。配置后自动恢复回写", False)
     git(["add", "-A"], repo_dir)
     st, proc = git(["status", "--porcelain"], repo_dir)
     if proc is None or not (proc.stdout or "").strip():
