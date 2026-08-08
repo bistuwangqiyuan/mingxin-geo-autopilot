@@ -1,16 +1,24 @@
 # -*- coding: utf-8 -*-
 """铭信 GEO Autopilot · 提案确定性应用器（apply_proposals.py）。
 
-把 geo_brain 的 content_proposals 安全落地到铭信官网内容数据源，并经事实闸门：
-  - 站点为 amd 仓库 site/ 子目录（Next.js）；提案写入
-    site/src/lib/data/autopilot_faq.json（附加产物：站点可选消费，不破坏现有构建）。
+把 geo_brain 的 content_proposals 安全落地为站内可抽取内容，并经事实闸门：
   - 事实闸门以官网单一数据源 company.ts 的镜像（business_plan/outputs/results.json）
     为准：仅接受 schema 合法、口径一致(关键数值不被改写)的提案。
-  - 写入前**备份**目标文件；校验失败则**自动回滚**，绝不带病部署（自我净化）。
+  - 先写本仓库的 outputs/autopilot_faq.json（去重与指标统计的依据），
+    再经 HTTP 提交给站点 /api/engine/autopilot-faq 落库上线。
+  - 写入前**备份**目标文件；校验失败则**自动回滚**，绝不带病提交（自我净化）。
 
 白帽纪律：
   - 只动站内"FAQ/术语"等可被抽取内容；UGC 草稿仅由 make_offsite_kit 刷新，不在此发布。
   - 一致性检查复用 geo_plan/source_audit.check_consistency。
+
+── 2026-08-08 改动：不再写官网仓库 ──────────────────────────────────
+原实现把 JSON 写进 clone 下来的 amd 仓库再 commit+push。那条路要求本公开仓的 CI
+持有私有主仓 amd 的**写**权限，而且实测三处都断着：缺 GH_PAT 连 clone 都做不到、
+VERCEL_DEPLOY_HOOK_URL 未配置（推了也不会部署）、**站点代码从来没有读过那个文件**
+（即整条链路即便跑通，产出也到不了任何读者面前）。
+改为写本仓 + HTTP 提交站点接口后：跨仓写权限的需求整个消失，产出直接出现在
+/faq 与 /en/faq 上，且 CRON_SECRET 本来就已经配在本仓 secrets 里，不新增凭据。
 """
 from __future__ import annotations
 
@@ -19,15 +27,16 @@ import os
 import shutil
 import sys
 import time
+import urllib.error
+import urllib.request
 
 import paths
 
 sys.path.insert(0, paths.GEO_PLAN)
 
 APPLIED_LOG = os.path.join(paths.OUTPUTS, "applied_proposals.json")
-# amd 仓库内的落地目标（site/ 子目录 = Next.js 站点根）
-EXTRA_FAQ = os.path.join(paths.SITE_SRC, "src", "lib", "data", "autopilot_faq.json")
-COMPANY_TS = os.path.join(paths.SITE_SRC, "src", "lib", "data", "company.ts")
+# 落地目标改到本仓库自己的 outputs/：它同时是「已落地条目」的去重依据与 metrics 口径
+EXTRA_FAQ = paths.AUTOPILOT_FAQ
 
 
 def _consistency_issues(text):
@@ -84,9 +93,46 @@ def _backup(path):
     return None
 
 
+def push_to_site(accepted, timeout=60):
+    """把已过闸门的条目提交给站点接口落库。
+
+    站点侧会再过一遍自己的 QC（禁用语、性能宣称白名单）——两侧各自把关，
+    不因为来自自家引擎就免检。返回 (ok, detail)，失败不抛异常：
+    本地文件已经写好，下一轮会带着同一批条目重试（接口按 (kind,lang,question) 幂等）。
+    """
+    if not paths.CRON_SECRET:
+        return False, "CRON_SECRET 未配置，跳过站点提交（条目已存本地，配好后自动补交）"
+    items = [
+        {
+            "type": p.get("type"),
+            "lang": "en" if p.get("lang") == "en" else "zh",
+            "question": p.get("question"),
+            "answer": p.get("answer"),
+            "term": p.get("term"),
+            "definition": p.get("definition"),
+        }
+        for p in accepted
+    ]
+    req = urllib.request.Request(
+        paths.AUTOPILOT_FAQ_URL,
+        data=json.dumps({"items": items}).encode("utf-8"),
+        headers={
+            "Authorization": f"Bearer {paths.CRON_SECRET}",
+            "Content-Type": "application/json",
+        },
+        method="POST",
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            return True, json.loads(resp.read().decode("utf-8"))
+    except urllib.error.HTTPError as ex:
+        return False, f"HTTP {ex.code}: {ex.read().decode('utf-8', 'replace')[:300]}"
+    except Exception as ex:  # noqa: BLE001
+        return False, f"exception: {ex}"
+
+
 def _write_extra_faq(accepted):
-    """把接受的提案累积写入 site/src/lib/data/autopilot_faq.json。
-    设计为**附加产物**：即便站点构建未消费它，也不会破坏现有站点。"""
+    """把接受的提案累积写入本仓 outputs/autopilot_faq.json（去重与指标的单一依据）。"""
     existing = {"faq": [], "glossary": [], "updated_at": None}
     if os.path.isfile(EXTRA_FAQ):
         try:
@@ -117,11 +163,15 @@ def _write_extra_faq(accepted):
 
 
 def verify_written():
-    """写盘后的确定性闸门（站点为 Next.js，本仓库不做 npm 构建）：
+    """写盘后的确定性闸门：
       1) autopilot_faq.json 必须是合法 JSON 且结构正确；
-      2) 全部条目再过一遍事实一致性检查（与 company.ts 镜像 results.json 对照）；
-      3) 官网单一数据源 company.ts 必须存在且未被本流程触碰。
-    返回 (ok, log)。"""
+      2) 全部条目再过一遍事实一致性检查（与 company.ts 镜像 results.json 对照）。
+    返回 (ok, log)。
+
+    原第 3 条「company.ts 必须存在」已去掉：它检查的是 clone 下来的官网仓库，
+    而本流程不再 clone 官网仓；条件写成 `if isdir(SITE_SRC) and not isfile(...)`
+    在仓库不存在时本就恒不成立，是个从未生效的空检查。真正的事实闸门是第 2 条，
+    它对照的 results.json 在本仓库内，与官网仓在不在无关。"""
     logs = []
     try:
         with open(EXTRA_FAQ, "r", encoding="utf-8") as f:
@@ -138,8 +188,6 @@ def verify_written():
         issues = _consistency_issues(x.get("definition") or "")
         if issues:
             logs.append(f"glossary 口径冲突: {x.get('term')}: {issues}")
-    if os.path.isdir(paths.SITE_SRC) and not os.path.isfile(COMPANY_TS):
-        logs.append("company.ts 缺失：站点单一数据源不在预期位置")
     ok = not logs
     return ok, "\n".join(logs) if logs else "verify OK"
 
@@ -172,11 +220,6 @@ def apply(decision, dry_run=False):
         _save(result)
         return result
 
-    if not os.path.isdir(paths.SITE_SRC):
-        result["note"] = f"站点目录不存在（{paths.SITE_SRC}），提案未落地（如实记录）"
-        _save(result)
-        return result
-
     added, bak = _write_extra_faq(accepted)
     result["added"] = added
     result["backup"] = bak
@@ -185,7 +228,12 @@ def apply(decision, dry_run=False):
     result["verify_ok"] = ok
     if ok:
         result["applied"] = True
-        result["note"] = f"已应用 {added} 条提案并通过事实闸门（company.ts 口径）"
+        # 过闸门后才提交站点：先本地自证一致，再对外发布
+        pushed, push_detail = push_to_site(accepted)
+        result["site_pushed"] = pushed
+        result["site_detail"] = push_detail
+        result["note"] = (f"已应用 {added} 条提案并通过事实闸门（results.json 口径）；"
+                          f"站点落库{'成功' if pushed else '未成功'}")
         # 热词闭环：已成文并通过闸门的英文问题，回写 keyword_bank 标记 done（收敛）
         try:
             import keyword_miner

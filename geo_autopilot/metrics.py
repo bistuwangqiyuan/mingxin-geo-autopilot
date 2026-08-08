@@ -26,12 +26,16 @@ def answerable_coverage():
     """统计站内 answer-first 单元数（诚实的"可被回答"覆盖度）。
 
     铭信站为 Next.js（amd 仓库 site/ 子目录），无本地静态 HTML 可数：
-    口径改为统计内容自进化的落地文件 site/src/lib/data/autopilot_faq.json
-    中的 FAQ/术语条目数（按 lang 分中英）。文件不存在时如实记 0，绝不臆造。
+    口径改为统计内容自进化的落地文件 outputs/autopilot_faq.json 中的
+    FAQ/术语条目数（按 lang 分中英）。文件不存在时如实记 0，绝不臆造。
     这是真正由站内内容自进化驱动、可逐日累计且可现场核验的指标，
     不同于 GVI(站外语料/时间驱动) 与 CRI(站内就绪度，已收敛)。
+
+    2026-08-08：文件从官网仓移到本仓 outputs/。口径未变（同一份内容、同一种计数），
+    变的只是它存在哪儿——本仓的副本随每次运行提交，比过去那份从未被 clone 成功、
+    因而恒为 0 的官网仓路径可核验得多。
     """
-    p = os.path.join(paths.SITE_SRC, "src", "lib", "data", "autopilot_faq.json")
+    p = paths.AUTOPILOT_FAQ
     exists = os.path.isfile(p)
     faq_zh = faq_en = gl_zh = gl_en = 0
     if exists:
@@ -51,7 +55,7 @@ def answerable_coverage():
         "glossary_zh": gl_zh, "glossary_en": gl_en,
         "total": faq_zh + faq_en + gl_zh + gl_en,
         "file_present": exists,
-        "source": "site_repo(amd)/site/src/lib/data/autopilot_faq.json",
+        "source": "geo_autopilot/outputs/autopilot_faq.json（上线副本在站点库 autopilot_faq 表）",
     }
 
 

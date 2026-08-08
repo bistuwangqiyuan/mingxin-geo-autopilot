@@ -74,13 +74,14 @@ def main() -> int:
         live_onpage.append({"url": u, "status": st, "onpage": onpage(html) if st == 200 else {}})
     data["live_onpage"] = live_onpage
 
-    # deploy record（amd 仓库 clone 位于 ../official_website，路径保留）
+    # deploy record：CI 不再 clone 官网仓，故取不到它的 commit。
+    # 本地开发时若该目录仍在，照旧取值；取不到就如实记 unknown，不臆造。
     try:
         commit = subprocess.check_output(
             ["git", "-C", str(Path(__file__).resolve().parent.parent / "official_website"),
              "rev-parse", "HEAD"]).decode().strip()[:9]
     except Exception:  # noqa: BLE001
-        commit = "unknown"
+        commit = "unknown（CI 不 clone 官网仓，内容经站点 API 落库）"
     deployed = all(p["onpage"].get("jsonld_count", 0) >= 1 and p["onpage"].get("canonical")
                    for p in live_onpage if p["status"] == 200)
     data["live_deploy_has_session_upgrades"] = bool(deployed)

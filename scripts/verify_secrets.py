@@ -21,17 +21,18 @@ import sys
 
 from repo_target import repo_slug
 
-# 缺了就跑不动。目前只有一个：官网仓库 amd 是私有的，没有它 clone 步骤即失败。
+# 缺了就跑不动。
+# 2026-08-08：GH_PAT 从这里移出——流水线不再 clone 私有的 amd 仓，
+# 内容自进化改经站点 API 落库，鉴权用 CRON_SECRET。
 REQUIRED = {
-    "GH_PAT": "clone 私有仓库 amd 与知识库；缺失则流水线在第 3 步即失败",
+    "CRON_SECRET": "站点 /api/engine/autopilot-faq 落库与 /api/seo/ping 推送；缺失则内容产出上不了线",
 }
 
 # 缺了照样跑绿，但某条链是断的——**这比直接失败更危险**，因为它不报错。
 # 例：indexnow_submit.py 无 CRON_SECRET 时返回 0 并写下 "跳过站点 /api/seo/ping"，
 # 流水线一路 success，而收录提交其实一次都没发生过。故在此逐条点名。
 DEGRADED = {
-    "CRON_SECRET": "站点 /api/seo/ping 与 /api/engine/*；缺失则收录提交静默跳过（不报错）",
-    "VERCEL_DEPLOY_HOOK_URL": "官网 Vercel 未连 GitHub 自动构建；缺失则改动推上去也不会上线",
+    "GH_PAT": "回写公开的知识库仓 mingxin-storage-kb 与开告警 Issue；缺失则该仓只读、告警仅落本地",
     "GA4_PROPERTY_ID": "流量信号闭环；缺失则 traffic_check 恒返回 ga4_not_configured",
     "GA4_SA_JSON": "同上，需与 GA4_PROPERTY_ID 成对提供",
     "MX_GA4_ID": "页面埋码 Measurement ID",

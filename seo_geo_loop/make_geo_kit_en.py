@@ -28,9 +28,9 @@ BASE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(BASE)
 
 KIT_DIR = os.path.join(ROOT, "geo_plan", "offsite", "en_kit")
-# 铭信官网为 Next.js 站点（amd 仓库 site/ 子目录）；内容引擎的问答闸门产物在此路径。
-AUTOPILOT_FAQ = os.path.join(ROOT, "official_website", "site", "src", "lib", "data",
-                             "autopilot_faq.json")
+# 内容引擎的问答闸门产物。2026-08-08 起存在本仓库内（原先在 clone 下来的官网仓，
+# 而官网仓在 CI 里从未 clone 成功，此路径恒不存在、本模块因此长期读到空）。
+AUTOPILOT_FAQ = os.path.join(ROOT, "geo_autopilot", "outputs", "autopilot_faq.json")
 MANIFEST = os.path.join(KIT_DIR, "_kit_manifest.json")
 TODAY = dt.date.today().isoformat()
 

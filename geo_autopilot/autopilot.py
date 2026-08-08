@@ -106,24 +106,6 @@ def deploy_repo(repo_dir, message, push):
     return True
 
 
-def trigger_vercel_deploy():
-    """amd 仓库 push 后触发 Vercel 重新部署（项目未连 GitHub 自动构建）。"""
-    hook = paths.VERCEL_DEPLOY_HOOK_URL
-    if not hook:
-        record("vercel deploy hook", True, "VERCEL_DEPLOY_HOOK_URL 未配置，跳过（站点需手动/CLI 部署）", False)
-        return False
-    import urllib.request
-    try:
-        req = urllib.request.Request(hook, method="POST", data=b"{}")
-        with urllib.request.urlopen(req, timeout=30) as r:
-            ok = 200 <= r.status < 300
-            record("vercel deploy hook", ok, f"HTTP {r.status}", False)
-            return ok
-    except Exception as ex:  # noqa: BLE001
-        record("vercel deploy hook", False, f"exception: {ex}", False)
-        return False
-
-
 def save_run_log(mode):
     paths.ensure_dirs()
     doc = {"mode": mode, "started": time.strftime("%Y-%m-%dT%H:%M:%S",
@@ -158,7 +140,7 @@ def main():
     log(f"mode={mode} net={do_net} push={do_push} gvi_limit={args.gvi_limit}")
     log("paths: " + json.dumps(paths.summary()["exists"], ensure_ascii=False))
 
-    GEO, LOOP, OW = paths.GEO_PLAN, paths.LOOP, paths.OFFICIAL_WEBSITE
+    GEO, LOOP = paths.GEO_PLAN, paths.LOOP
 
     # 0. 行业热词挖掘（四步法第 1 步；台账去重限量，LLM 失败种子库兜底，纯本地写盘）
     run_py("keyword_miner.py", paths.AUTOPILOT_DIR, [], timeout=300, critical=False)
@@ -193,12 +175,11 @@ def main():
         run_py("traffic_check.py", paths.AUTOPILOT_DIR, [], timeout=180, critical=False)
 
     # 6. 部署（仅 ci push；once 本地提交不推）
-    # 官网 = amd 仓库（Next.js 站点在 site/ 子目录）；Vercel 项目未连 GitHub，
-    # push 后需 Deploy Hook 触发重新部署（未配置则如实记录跳过）。
+    #
+    # 官网仓不再参与：内容自进化的产出已在第 3 步经 HTTP 提交给站点接口落库并即时生效，
+    # 不需要 clone 私有仓、不需要 commit、也不需要 Deploy Hook。去掉这条链路同时消掉了
+    # 「公开仓 CI 持有私有主仓写权限」这个安全面。知识库仓是公开仓，仍按原样提交。
     if do_net:
-        pushed_ow = deploy_repo(OW, "chore(geo-autopilot): daily rebuild + content self-evolution", do_push)
-        if pushed_ow and do_push:
-            trigger_vercel_deploy()
         deploy_repo(paths.KB_REPO, "chore(geo-autopilot): daily KB refresh", do_push)
 
     # 7. 历史快照 + 趋势 + 日报 + PDF

@@ -31,7 +31,9 @@ def _resolve(env_key, default_rel):
 GEO_PLAN = _resolve("MX_GEO_PLAN", "geo_plan")
 LOOP = _resolve("MX_LOOP", "seo_geo_loop")
 
-# 站点仓库（部署目标）。official_website = amd 仓库 clone；站点源码在其 site/ 子目录。
+# 站点仓库（**仅本地开发时可能存在**）。CI 不再 clone 私有的 amd 仓库：
+# 内容产出改经 HTTP 提交给站点接口，见 AUTOPILOT_FAQ_URL。保留这几个常量是为了
+# 本地跑 --once 时仍能按老布局解析路径，线上不依赖它们。
 OFFICIAL_WEBSITE = _resolve("MX_OFFICIAL_WEBSITE", "official_website")
 SITE_SUBDIR = os.environ.get("MX_SITE_SUBDIR", "site")
 SITE_SRC = os.path.join(OFFICIAL_WEBSITE, SITE_SUBDIR)  # Next.js 站点根（package.json 所在）
@@ -43,6 +45,10 @@ OUTPUTS = os.path.join(AUTOPILOT_DIR, "outputs")
 HISTORY = os.path.join(AUTOPILOT_DIR, "history")
 REPORTS = os.path.join(AUTOPILOT_DIR, "reports")
 FIGURES = os.path.join(OUTPUTS, "figures")
+
+# 内容自进化产出：本仓库内的单一依据（去重 + metrics 口径），随每次运行提交入库。
+# 上线副本在站点数据库里，由 AUTOPILOT_FAQ_URL 接口写入。
+AUTOPILOT_FAQ = os.path.join(OUTPUTS, "autopilot_faq.json")
 
 # 关键单一事实源
 RESULTS_JSON = os.path.join(ROOT, "business_plan", "outputs", "results.json")
@@ -71,6 +77,8 @@ KB_REMOTE = os.environ.get(
 #   GET  {SITE_URL}/api/engine/*     内容引擎（生成/审计/快照，由站点自身 cron 驱动）
 CRON_SECRET = os.environ.get("CRON_SECRET", "")
 SEO_PING_URL = f"{SITE_URL}/api/seo/ping"
+#   POST {SITE_URL}/api/engine/autopilot-faq  内容自进化条目落库（取代写官网仓库）
+AUTOPILOT_FAQ_URL = f"{SITE_URL}/api/engine/autopilot-faq"
 
 # Vercel 部署触发（可选）：项目未连 GitHub，push 后需 Deploy Hook 或 vercel CLI 触发。
 VERCEL_DEPLOY_HOOK_URL = os.environ.get("VERCEL_DEPLOY_HOOK_URL", "")

@@ -25,9 +25,8 @@ BUILD_DATE = dt.date.today().isoformat()
 LEGACY = "/".join(D.LEGACY_NAMES)  # AISSD5000/WS5000/GP5000
 
 KEYWORD_BANK = os.path.join(ROOT, "geo_autopilot", "history", "keyword_bank.json")
-# 铭信官网为 Next.js 站点（amd 仓库 site/ 子目录）；内容引擎问答闸门产物在此路径。
-AUTOPILOT_FAQ = os.path.join(ROOT, "official_website", "site", "src", "lib", "data",
-                             "autopilot_faq.json")
+# 内容引擎问答闸门产物。2026-08-08 起存在本仓库内，理由同 make_geo_kit_en.py。
+AUTOPILOT_FAQ = os.path.join(ROOT, "geo_autopilot", "outputs", "autopilot_faq.json")
 
 
 def _load_json(path, default):

@@ -438,7 +438,7 @@ def deterministic_en_proposals(limit=2):
 
 def _added_questions():
     """读取 autopilot_faq.json 中已落地的问题，用于去重（保证每次真实新增）。"""
-    p = os.path.join(paths.SITE_SRC, "src", "lib", "data", "autopilot_faq.json")
+    p = paths.AUTOPILOT_FAQ
     try:
         with open(p, "r", encoding="utf-8") as f:
             data = json.load(f)

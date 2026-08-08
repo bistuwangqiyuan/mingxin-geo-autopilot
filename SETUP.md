@@ -4,11 +4,16 @@
 - 仓库：**https://github.com/bistuwangqiyuan/mingxin-geo-autopilot** （**公开**，引擎 + workflow；公开是为绕开账户级 Actions 计费拒绝，见 docs/INCIDENT-2026-07-21-actions-blocked.md）。
 - workflow：**`GEO Autopilot (twice daily)`**（每天 2 次 cron + 手动触发）。
 
-部署链路（一图流）：GitHub Actions 每天 2 次 → clone `amd` + `mingxin-storage-kb` →
+部署链路（一图流）：GitHub Actions 每天 2 次 → clone `mingxin-storage-kb`（公开仓）→
 GVI 实测（DashScope / AI Gateway）→ 决策脑 → `apply_proposals` 写
-`site/src/lib/data/autopilot_faq.json` → push `amd` → `VERCEL_DEPLOY_HOOK_URL` 触发
-Vercel 项目 `mingxin-site` 部署（未配置则需手动 `vercel deploy`）→
-`/api/seo/ping` IndexNow 收录推送（Bearer `CRON_SECRET`）→ 日报/告警。
+`geo_autopilot/outputs/autopilot_faq.json` 并 POST 到官网
+`/api/engine/autopilot-faq` 落库（Bearer `CRON_SECRET`，即时生效于 `/faq`、`/en/faq`）→
+`/api/seo/ping` IndexNow 收录推送 → 日报/告警。
+
+> 2026-08-08 起**不再需要 `GH_PAT` 才能跑**。原链路要 clone 并 push 私有的官网仓 `amd`，
+> 缺 PAT 时流水线直接 exit 1——这正是本 workflow 连续 20 次失败、静默 5 天的原因。
+> 排查发现引擎对 `amd` 的全部依赖只是「写一个自己产出的 JSON 再读回来」，而站点代码
+> **从未读过那个文件**。改走站点 API 后，公开仓 CI 不必再持有私有主仓写权限。
 
 ## 1. 配置仓库 Secrets（Settings → Secrets and variables → Actions，或用 `gh secret set`）
 
@@ -16,9 +21,8 @@ Vercel 项目 `mingxin-site` 部署（未配置则需手动 `vercel deploy`）�
 | --- | --- | --- | --- |
 | `AI_GATEWAY_API_KEY` | 是 | Vercel AI Gateway（首选 LLM 路：决策脑 + 热词挖掘） | Vercel Dashboard → AI Gateway → API Key |
 | `DASHSCOPE_API_KEY` | 是 | 通义千问/DeepSeek 真实 GVI 采样 + LLM 回退路 | 阿里云百炼控制台 → API-KEY |
-| `GH_PAT` | 是 | clone/push 官网与知识库仓库、开告警 Issue | GitHub → Settings → Developer settings → **Fine-grained PAT**，对 `amd`、`mingxin-storage-kb`、`mingxin-geo-autopilot` 授予 **Contents: Read and write**、**Issues: Read and write** |
-| `CRON_SECRET` | 是 | 调用铭信站点自带接口 `/api/seo/ping`、`/api/engine/*`（Bearer 鉴权） | 与 Vercel 项目 `mingxin-site` 环境变量中的 `CRON_SECRET` 保持一致 |
-| `VERCEL_DEPLOY_HOOK_URL` | 可选 | push `amd` 后触发 Vercel 重新部署（项目未连 GitHub 自动构建；未配置则需手动 `vercel deploy`） | Vercel 项目 `mingxin-site` → Settings → Git → Deploy Hooks |
+| `CRON_SECRET` | 是 | 调用铭信站点接口 `/api/seo/ping`、`/api/engine/*`（含内容自进化落库口，Bearer 鉴权） | 与 Vercel 项目 `mingxin-site` 环境变量中的 `CRON_SECRET` 保持一致 |
+| `GH_PAT` | 可选 | 仅用于回写**公开的**知识库仓 `mingxin-storage-kb`、开告警 Issue。缺失时知识库回写会如实记为推送失败，主链路不受影响 | Fine-grained PAT，只需对 `mingxin-storage-kb`、`mingxin-geo-autopilot` 授予 Contents/Issues 读写；**不要**再授予私有仓 `amd` 的权限 |
 | `MX_GA4_ID` | 可选 | GA4 埋码 Measurement ID（流量信号·四步法第 4 步） | GA4 管理后台 |
 | `GA4_PROPERTY_ID` + `GA4_SA_JSON` | 可选 | GA4 Data API 读取流量信号（服务账号 JSON） | Google Cloud Console + GA4 属性授权 |
 | `TONGYI_API_KEY` | 可选* | 通义千问直连（DashScope OpenAI 兼容；与 `DASHSCOPE_API_KEY` 二存一即可） | 阿里云百炼控制台 |
@@ -37,9 +41,8 @@ Vercel 项目 `mingxin-site` 部署（未配置则需手动 `vercel deploy`）�
 ```bash
 gh secret set AI_GATEWAY_API_KEY     --repo bistuwangqiyuan/mingxin-geo-autopilot
 gh secret set DASHSCOPE_API_KEY      --repo bistuwangqiyuan/mingxin-geo-autopilot
-gh secret set GH_PAT                 --repo bistuwangqiyuan/mingxin-geo-autopilot
 gh secret set CRON_SECRET            --repo bistuwangqiyuan/mingxin-geo-autopilot
-gh secret set VERCEL_DEPLOY_HOOK_URL --repo bistuwangqiyuan/mingxin-geo-autopilot   # 可选
+gh secret set GH_PAT                 --repo bistuwangqiyuan/mingxin-geo-autopilot   # 可选，仅知识库回写
 ```
 
 > 安全：本系统从不打印或提交任何密钥；密钥仅以仓库 Secret 注入 CI 环境变量。
