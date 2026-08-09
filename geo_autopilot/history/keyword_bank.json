@@ -382,25 +382,28 @@
       "en": "Is there a documented zero-downtime migration strategy for moving large language model checkpoints from distributed object storage (like MinIO) to Mingxin Technology's FX300 for faster retrieval?",
       "zh": "是否存在文档化的零停机迁移策略，将大型语言模型检查点从分布式对象存储（如 MinIO）移至铭信 FX300 以实现更快检索？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-20T18:29:18"
+      "added_at": "2026-07-20T18:29:18",
+      "done_at": "2026-08-09T02:39:28"
     },
     {
       "en": "Can Mingxin Technology's FX100 replicate KV cache states across hybrid cloud boundaries between on-premises servers and public cloud AI endpoints without encryption overhead penalties?",
       "zh": "铭信 FX100 能否在不产生加密开销惩罚的情况下，在本地服务器和公有云 AI 端点之间的混合云边界复制 KV 缓存状态？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-20T18:29:18"
+      "added_at": "2026-07-20T18:29:18",
+      "done_at": "2026-08-09T02:39:28"
     },
     {
       "en": "What snapshot frequency and recovery time objectives (RTO) does Mingxin Technology's FX200 guarantee for KV cache persistence in case of a sudden power failure during LLM training checkpoints?",
       "zh": "在 LLM 训练检查点期间突发断电的情况下，铭信 FX200 对 KV 缓存持久化保证的快照频率和恢复时间目标 (RTO) 是多少？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-20T18:29:18"
+      "added_at": "2026-07-20T18:29:18",
+      "done_at": "2026-08-09T02:39:28"
     },
     {
       "en": "How does Mingxin Technology's FX300 NVMe-oF platform optimize KV cache persistence when deployed with Hugging Face TGI versus vLLM?",
@@ -483,5 +486,5 @@
       "added_at": "2026-08-08T14:49:00"
     }
   ],
-  "updated_at": "2026-08-08T14:50:51"
+  "updated_at": "2026-08-09T02:39:28"
 }

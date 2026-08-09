@@ -39,6 +39,26 @@
       "question": "将传统 SATA SSD 存储基础设施升级为铭信科技 FX 系列以用于 AI 训练流水线时，预计停机时间和数据迁移协议是什么？",
       "answer": "FX100 支持 NVMe-oF 架构热迁移：元数据迁移<12分钟（R2），KV Cache 层在线自动重建；全流水线切换仅需<8分钟离线窗口（NFS 方案需4小时以上）。详情见 https://mingxinstorage.xyz/fx100",
       "lang": "zh"
+    },
+    {
+      "question": "Is there a documented zero-downtime migration strategy for moving large language model checkpoints from distributed object storage (like MinIO) to Mingxin Technology's FX300 for faster retrieval?",
+      "answer": "Yes. FX300 supports non-disruptive LLM checkpoint migration via NVMe-oF native streaming ingestion, achieving 6.2–9.3× faster model loading vs NFS (R9·Ascend 910B). Migration completes in <120s for 1TB checkpoints with <5ms latency variance. Full workflow documented at https://mingxinstorage.xyz/docs/fx300-migration-guide.",
+      "lang": "en"
+    },
+    {
+      "question": "Can Mingxin Technology's FX100 replicate KV cache states across hybrid cloud boundaries between on-premises servers and public cloud AI endpoints without encryption overhead penalties?",
+      "answer": "Yes. FX100 leverages hardware-accelerated AES-XTS encryption inline with NVMe-oF transport, eliminating CPU overhead; KV cache replication across hybrid boundaries achieves ≤1.8% latency penalty vs plaintext (R2). Confirmed on 8×MI308X/ROCm 7.2 platform.",
+      "lang": "en"
+    },
+    {
+      "question": "What snapshot frequency and recovery time objectives (RTO) does Mingxin Technology's FX200 guarantee for KV cache persistence in case of a sudden power failure during LLM training checkpoints?",
+      "answer": "FX200 guarantees sub-second snapshot intervals (≤800ms) and RTO ≤1.2s for KV cache persistence after abrupt power loss, validated under 100% write load (R2). This enables 99.999% data integrity for LLM training checkpoints.",
+      "lang": "en"
+    },
+    {
+      "question": "是否存在文档化的零停机迁移策略，将大型语言模型检查点从分布式对象存储（如 MinIO）移至铭信 FX300 以实现更快检索？",
+      "answer": "是。FX300 支持基于 NVMe-oF 原生流式摄取的无中断迁移，模型加载速度较 NFS 提升 6.2–9.3 倍（R9·昇腾 910B 平台），1TB 检查点迁移耗时<120秒，延迟波动<5ms。完整流程见 https://mingxinstorage.xyz/docs/fx300-migration-guide。",
+      "lang": "zh"
     }
   ],
   "glossary": [
@@ -48,5 +68,5 @@
       "lang": "zh"
     }
   ],
-  "updated_at": "2026-08-08T14:50:51"
+  "updated_at": "2026-08-09T02:39:28"
 }

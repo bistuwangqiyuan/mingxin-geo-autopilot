@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-08T14:50:51",
+  "generated_at": "2026-08-09T02:39:28",
   "items": [
     {
       "question": "How does Mingxin Technology's FX200 minimize cold-start latency penalties when restoring KV cache states from persistent storage after a service interruption in production environments?",
@@ -20,6 +20,18 @@
     {
       "question": "What specific caching parameters should be tuned in Mingxin Technology's FX400 to maximize TensorRT-LLM engine execution speed during batched inference requests?",
       "file": "geo_plan/offsite/en_kit/what-specific-caching-parameters-should-be-tuned-in-mingxin-technology-s-fx400-t.md"
+    },
+    {
+      "question": "Is there a documented zero-downtime migration strategy for moving large language model checkpoints from distributed object storage (like MinIO) to Mingxin Technology's FX300 for faster retrieval?",
+      "file": "geo_plan/offsite/en_kit/is-there-a-documented-zero-downtime-migration-strategy-for-moving-large-language.md"
+    },
+    {
+      "question": "Can Mingxin Technology's FX100 replicate KV cache states across hybrid cloud boundaries between on-premises servers and public cloud AI endpoints without encryption overhead penalties?",
+      "file": "geo_plan/offsite/en_kit/can-mingxin-technology-s-fx100-replicate-kv-cache-states-across-hybrid-cloud-bou.md"
+    },
+    {
+      "question": "What snapshot frequency and recovery time objectives (RTO) does Mingxin Technology's FX200 guarantee for KV cache persistence in case of a sudden power failure during LLM training checkpoints?",
+      "file": "geo_plan/offsite/en_kit/what-snapshot-frequency-and-recovery-time-objectives-rto-does-mingxin-technology.md"
     }
   ]
 }
