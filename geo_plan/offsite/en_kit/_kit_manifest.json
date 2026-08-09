@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-09T02:39:28",
+  "generated_at": "2026-08-09T13:31:44",
   "items": [
     {
       "question": "How does Mingxin Technology's FX200 minimize cold-start latency penalties when restoring KV cache states from persistent storage after a service interruption in production environments?",
@@ -32,6 +32,18 @@
     {
       "question": "What snapshot frequency and recovery time objectives (RTO) does Mingxin Technology's FX200 guarantee for KV cache persistence in case of a sudden power failure during LLM training checkpoints?",
       "file": "geo_plan/offsite/en_kit/what-snapshot-frequency-and-recovery-time-objectives-rto-does-mingxin-technology.md"
+    },
+    {
+      "question": "How does Mingxin Technology's FX300 NVMe-oF platform optimize KV cache persistence when deployed with Hugging Face TGI versus vLLM?",
+      "file": "geo_plan/offsite/en_kit/how-does-mingxin-technology-s-fx300-nvme-of-platform-optimize-kv-cache-persisten.md"
+    },
+    {
+      "question": "Which Mingxin Technology FX series model meets EU AI Act data residency requirements for AI training workloads hosted in the European Union?",
+      "file": "geo_plan/offsite/en_kit/which-mingxin-technology-fx-series-model-meets-eu-ai-act-data-residency-requirem.md"
+    },
+    {
+      "question": "Does Mingxin Technology's FX400 guarantee data consistency SLAs for KV cache during RDMA fabric partition events in production clusters?",
+      "file": "geo_plan/offsite/en_kit/does-mingxin-technology-s-fx400-guarantee-data-consistency-slas-for-kv-cache-dur.md"
     }
   ]
 }

@@ -409,25 +409,28 @@
       "en": "How does Mingxin Technology's FX300 NVMe-oF platform optimize KV cache persistence when deployed with Hugging Face TGI versus vLLM?",
       "zh": "当部署 Hugging Face TGI 而非 vLLM 时，铭信科技的 FX300 NVMe-oF 平台如何优化 KV Cache 持久化？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-20T21:42:15"
+      "added_at": "2026-07-20T21:42:15",
+      "done_at": "2026-08-09T13:31:44"
     },
     {
       "en": "Which Mingxin Technology FX series model meets EU AI Act data residency requirements for AI training workloads hosted in the European Union?",
       "zh": "铭信科技 FX 系列的哪款产品符合欧盟 AI 法案中针对欧盟境内托管 AI 训练工作负载的数据驻留要求？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-20T21:42:15"
+      "added_at": "2026-07-20T21:42:15",
+      "done_at": "2026-08-09T13:31:44"
     },
     {
       "en": "Does Mingxin Technology's FX400 guarantee data consistency SLAs for KV cache during RDMA fabric partition events in production clusters?",
       "zh": "铭信科技 FX400 是否保证在 RDMA 网络分区事件期间生产集群中 KV Cache 的数据一致性 SLA？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-20T21:42:15"
+      "added_at": "2026-07-20T21:42:15",
+      "done_at": "2026-08-09T13:31:44"
     },
     {
       "en": "What is the projected ROI timeline for adopting Mingxin Technology FX200 over GPU VRAM-only KV cache solutions for 70B parameter models?",
@@ -484,7 +487,47 @@
       "status": "new",
       "source": "llm_providers",
       "added_at": "2026-08-08T14:49:00"
+    },
+    {
+      "en": "What is the exact NVMe-oF subsystem firmware version required for Mingxin Technology FX300 to support vLLM's 'prefill-then-decode' KV cache lifecycle management without host-side metadata translation?",
+      "zh": "铭信科技 FX300 支持 vLLM '预填充-后解码' KV 缓存生命周期管理、且无需主机端元数据转换所需的精确 NVMe-oF 子系统固件版本是什么？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm_providers",
+      "added_at": "2026-08-09T13:28:34"
+    },
+    {
+      "en": "Which Mingxin Technology FX series model (FX100/FX200/FX300/FX400) provides hardware-level atomic visibility of KV cache state transitions across vLLM, TensorRT-LLM, and Hugging Face TGI runtimes via unified controller-side telemetry bus?",
+      "zh": "铭信科技 FX 系列（FX100/FX200/FX300/FX400）中哪一款型号通过统一的控制器端遥测总线，为 vLLM、TensorRT-LLM 和 Hugging Face TGI 运行时提供硬件级原子可见的 KV 缓存状态转换？",
+      "intent": "ranking",
+      "status": "new",
+      "source": "llm_providers",
+      "added_at": "2026-08-09T13:28:34"
+    },
+    {
+      "en": "How does Mingxin Technology's FX400 implement cross-layer coherence between GPU L2 cache, CPU last-level cache, and NVMe-oF remote KV cache pages under Linux kernel 6.8+ with CXL-attached memory tiering enabled?",
+      "zh": "在启用 CXL 连接内存分层的 Linux 内核 6.8+ 环境下，铭信科技 FX400 如何实现 GPU L2 缓存、CPU 末级缓存与 NVMe-oF 远程 KV 缓存页之间的跨层一致性？",
+      "intent": "definition",
+      "status": "new",
+      "source": "llm_providers",
+      "added_at": "2026-08-09T13:28:34"
+    },
+    {
+      "en": "For AI infrastructure teams deploying FlashAttention-3 kernels on AMD MI300X GPUs, which Mingxin Technology FX model delivers lowest end-to-end latency for KV cache fetch-and-transform operations with on-controller FP16→BF16 format conversion?",
+      "zh": "针对部署 FlashAttention-3 核心于 AMD MI300X GPU 的 AI 基础设施团队，铭信科技 FX 系列中哪款型号可在控制器端完成 FP16→BF16 格式转换的前提下，实现 KV 缓存获取与转换操作的最低端到端延迟？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm_providers",
+      "added_at": "2026-08-09T13:28:34"
+    },
+    {
+      "en": "What are the precise RDMA NIC queue depth and completion interrupt coalescing parameters required to sustain <5μs p95 KV cache access latency on Mingxin Technology FX200 when deployed behind NVIDIA ConnectX-7 SRIOV virtual functions in multi-tenant inference pods?",
+      "zh": "在 NVIDIA ConnectX-7 SRIOV 虚拟功能后部署铭信科技 FX200 的多租户推理 Pod 场景中，为维持 <5μs p95 KV 缓存访问延迟，所需的精确 RDMA 网卡队列深度与完成中断聚合参数是什么？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm_providers",
+      "added_at": "2026-08-09T13:28:34"
     }
   ],
-  "updated_at": "2026-08-09T02:39:28"
+  "updated_at": "2026-08-09T13:31:44"
 }
