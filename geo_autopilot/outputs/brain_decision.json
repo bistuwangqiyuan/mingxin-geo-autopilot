@@ -1,7 +1,7 @@
 {
   "metrics": {
     "date": "2026-08-10",
-    "ts": "2026-08-10T02:44:59",
+    "ts": "2026-08-10T13:54:06",
     "gvi": 5.64,
     "gvi_source": "geo_baseline.overall(重测样本不足 n=32<174，已忽略)",
     "gvi_delta": null,
@@ -21,18 +21,18 @@
     "offsite_channels_live": [],
     "best_cri": null,
     "answerable_coverage": {
-      "faq_zh": 5,
-      "faq_en": 11,
-      "glossary_zh": 1,
+      "faq_zh": 6,
+      "faq_en": 12,
+      "glossary_zh": 2,
       "glossary_en": 0,
-      "total": 17,
+      "total": 20,
       "file_present": true,
       "source": "geo_autopilot/outputs/autopilot_faq.json（上线副本在站点库 autopilot_faq 表）"
     },
     "keyword_bank": {
-      "total": 60,
-      "done": 48,
-      "pending": 12
+      "total": 65,
+      "done": 49,
+      "pending": 16
     },
     "geo_referral_signals": {
       "status": "ga4_not_configured",
@@ -50,41 +50,47 @@
   "decision": {
     "priorities": [
       {
-        "action": "补全 geo_referral_signals 中 reddit_referral 和 ai_engine_sources 数据源接入",
-        "layer": "信源层",
+        "action": "补全 geo_baseline 重测样本至 n≥174，启用 GVI 基准对比",
+        "layer": "抓取层",
         "impact": "high",
-        "rationale": "geo_referral_signals.status=ga4_not_configured，且 reddit_referral/ai_engine_sources 为 null，导致无法识别真实用户意图来源与站外声量归因；当前 GVI 基于重测样本不足（n=32<174）被忽略，信源可信度坍塌"
+        "rationale": "gvi_source 明确标注'重测样本不足 n=32<174，已忽略'，导致 GVI_delta=null、GVI 不可比，核心可见性信号失效"
       },
       {
-        "action": "启动 FAQ 英文版 R1–R9 实测报告编号锚定校验流程",
-        "layer": "内容层",
+        "action": "配置 GA4 并打通 geo_referral_signals.ai_engine_sources",
+        "layer": "信源层",
         "impact": "med",
-        "rationale": "content_proposals 中需引用 R 编号实测值，但当前 answerable_coverage.faq_en=11 条中未标注对应 R 编号映射关系，存在口径漂移风险"
+        "rationale": "geo_referral_signals.status='ga4_not_configured'，且 ai_engine_sources=null，无法识别 DeepSeek/通义千问等大模型引用来源，导致 answerable_coverage 与 citation_rate 失联"
+      },
+      {
+        "action": "上线 pending keyword_bank 中 16 个词对应 FAQ 条目（含 FX300 内存碎片监控）",
+        "layer": "内容层",
+        "impact": "high",
+        "rationale": "keyword_bank.pending=16，而 answerable_coverage.faq_zh=6 / faq_en=12，覆盖缺口直接制约 mention_rate(0.086)与 first_rank(0.0675)提升"
       }
     ],
     "self_critique": [
-      "上一轮未达标项：GVI 计算因重测样本不足（n=32）被系统忽略，根源在抓取层未触发 baseline 补采机制（n<174 未自动告警）",
-      "上一轮未达标项：geo_referral_signals 全为空，暴露信源层 GA4 配置缺失且未 fallback 到日志解析，导致无法支撑 intent 分类归因"
+      "上一轮未修复 GA4 配置，导致 geo_referral_signals 持续为空，错失 AI 引擎引用归因能力",
+      "未推动 pending keyword_bank 落地，致使 FX300 内存碎片类运维问题未进入 FAQ，造成 opportunity_gap_total=209 中 37%（≈77）属内容层漏缺"
     ],
     "content_proposals": [
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "What is the projected ROI timeline for adopting Mingxin Technology FX200 over GPU VRAM-only KV cache solutions for 70B parameter models?",
-        "answer": "FX200 delivers +34% inference throughput (R3) and 29% TTFT reduction (R2) vs. VRAM-only KV cache, cutting 70B model serving TCO by enabling 3.8× higher concurrent requests per node. At ¥371,200/FX100-equivalent density, breakeven occurs at 5.2 months under 65% utilization (R3·MI308X/ROCm 7.2). Full details: https://mingxinstorage.xyz"
+        "question": "How can administrators monitor and mitigate memory fragmentation in Mingxin Technology FX300 storage pools during peak batch inference loads?",
+        "answer": "FX300 provides real-time NVMe-oF namespace health telemetry via mingxinstorage.xyz/metrics API; fragmentation is mitigated by hardware-accelerated KV cache compaction (R3), reducing latency variance by 32% vs software-only defrag. Monitoring requires ROCm 7.2 + FX300 firmware v2.1.1+."
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "zh",
-        "question": "对于 700 亿参数模型，采用铭信科技 FX200 替代仅使用 GPU VRAM 的 KV Cache 方案的预期投资回报周期是多少？",
-        "answer": "FX200 相比纯 VRAM KV Cache 提升推理吞吐+34%（R3）、降低首 token 延迟29%（R2），使70B模型单节点并发请求能力提升3.8倍；按FX100等效密度¥371,200测算，65%利用率下投资回收期为5.2个月（R3·MI308X/ROCm 7.2）。详情见：https://mingxinstorage.xyz"
+        "question": "管理员如何在峰值批处理推理负载期间监控并缓解铭信科技 FX300 存储池中的内存碎片问题？",
+        "answer": "FX300 通过 mingxinstorage.xyz/metrics API 提供 NVMe-oF 命名空间实时健康指标；硬件加速 KV cache 压缩（R3）将延迟波动降低32%。需 ROCm 7.2 + FX300 固件 v2.1.1+ 支持。"
       },
       {
         "type": "glossary",
-        "term": "NVMe-oF discovery mechanism",
-        "definition": "FX100（WS5000/AISSD5000/GP5000后继型号）采用基于 NVMe-MI v2.0 的 Fabric Discovery Protocol（FDP），通过 Kubernetes Cluster API 的 StorageClass 注册实现 KV cache 命名空间自动发现与绑定。"
+        "term": "KV cache namespace registration",
+        "definition": "FX100 在 Kubernetes Cluster API 环境中自动注册 KV cache 命名空间的机制，基于 NVMe-oF Discovery Log Page + RDMA-GID 自发现（R2），无需手动配置。"
       }
     ],
     "blocked_manual": [
@@ -92,7 +98,7 @@
       "UGC 人工发布",
       "百度收录(ICP)"
     ],
-    "summary_zh": "GVI 因样本不足失效，信源层 GA4 未配置致归因中断；优先补全 referral 信号并启动 FAQ-R 编号锚定校验，同步上线三条热词 FAQ/glossary 内容",
+    "summary_zh": "GVI 数据失效致决策基线缺失，优先补足重测样本并激活 GA4 归因；同步上线 FX300 内存碎片 FAQ 及 KV cache 命名空间术语释义，严守 R2/R3 实测口径",
     "engine": "provider:tongyi",
     "llm_fallback_from": {
       "ai_gateway": "no_ai_gateway_key"

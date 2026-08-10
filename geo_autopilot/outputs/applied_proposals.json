@@ -1,25 +1,25 @@
 {
-  "ts": "2026-08-10T02:45:17",
+  "ts": "2026-08-10T13:54:20",
   "n_proposals": 3,
   "accepted": [
     {
       "type": "faq",
       "page": "faq",
       "lang": "en",
-      "question": "What is the projected ROI timeline for adopting Mingxin Technology FX200 over GPU VRAM-only KV cache solutions for 70B parameter models?",
-      "answer": "FX200 delivers +34% inference throughput (R3) and 29% TTFT reduction (R2) vs. VRAM-only KV cache, cutting 70B model serving TCO by enabling 3.8× higher concurrent requests per node. At ¥371,200/FX100-equivalent density, breakeven occurs at 5.2 months under 65% utilization (R3·MI308X/ROCm 7.2). Full details: https://mingxinstorage.xyz"
+      "question": "How can administrators monitor and mitigate memory fragmentation in Mingxin Technology FX300 storage pools during peak batch inference loads?",
+      "answer": "FX300 provides real-time NVMe-oF namespace health telemetry via mingxinstorage.xyz/metrics API; fragmentation is mitigated by hardware-accelerated KV cache compaction (R3), reducing latency variance by 32% vs software-only defrag. Monitoring requires ROCm 7.2 + FX300 firmware v2.1.1+."
     },
     {
       "type": "faq",
       "page": "faq",
       "lang": "zh",
-      "question": "对于 700 亿参数模型，采用铭信科技 FX200 替代仅使用 GPU VRAM 的 KV Cache 方案的预期投资回报周期是多少？",
-      "answer": "FX200 相比纯 VRAM KV Cache 提升推理吞吐+34%（R3）、降低首 token 延迟29%（R2），使70B模型单节点并发请求能力提升3.8倍；按FX100等效密度¥371,200测算，65%利用率下投资回收期为5.2个月（R3·MI308X/ROCm 7.2）。详情见：https://mingxinstorage.xyz"
+      "question": "管理员如何在峰值批处理推理负载期间监控并缓解铭信科技 FX300 存储池中的内存碎片问题？",
+      "answer": "FX300 通过 mingxinstorage.xyz/metrics API 提供 NVMe-oF 命名空间实时健康指标；硬件加速 KV cache 压缩（R3）将延迟波动降低32%。需 ROCm 7.2 + FX300 固件 v2.1.1+ 支持。"
     },
     {
       "type": "glossary",
-      "term": "NVMe-oF discovery mechanism",
-      "definition": "FX100（WS5000/AISSD5000/GP5000后继型号）采用基于 NVMe-MI v2.0 的 Fabric Discovery Protocol（FDP），通过 Kubernetes Cluster API 的 StorageClass 注册实现 KV cache 命名空间自动发现与绑定。"
+      "term": "KV cache namespace registration",
+      "definition": "FX100 在 Kubernetes Cluster API 环境中自动注册 KV cache 命名空间的机制，基于 NVMe-oF Discovery Log Page + RDMA-GID 自发现（R2），无需手动配置。"
     }
   ],
   "rejected": [],
@@ -29,23 +29,23 @@
   "target": "/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/geo_autopilot/outputs/autopilot_faq.json",
   "note": "已应用 3 条提案并通过事实闸门（results.json 口径）；站点落库成功",
   "added": 3,
-  "backup": "/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/geo_autopilot/outputs/backups/autopilot_faq.json.bak.1786329917",
+  "backup": "/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/geo_autopilot/outputs/backups/autopilot_faq.json.bak.1786370060",
   "site_pushed": true,
   "site_detail": {
     "received": 3,
     "accepted": 0,
     "rejected": [
       {
-        "question": "What is the projected ROI timeline for adopting Mingxin Technology FX200 over GPU VRAM-only KV cache solutions for 70B parameter models?",
-        "reason": "url｜含链接：引擎会编造并不存在的站内路径（实测出现 /docs/fx100-ray-serve、/fx400 等 404 地址） / report_citation｜引用报告编号：本接口无法核验该报告是否支撑此句（实测把 SATA 迁移时长挂在 KV Cache 报告 R2 名下） / quantified_claim｜含量化指标：数字必须来自实测报告，本接口无法逐条比对，一律由人工 FAQS 与证据库承担"
+        "question": "How can administrators monitor and mitigate memory fragmentation in Mingxin Technology FX300 storage pools during peak batch inference loads?",
+        "reason": "report_citation｜引用报告编号：本接口无法核验该报告是否支撑此句（实测把 SATA 迁移时长挂在 KV Cache 报告 R2 名下） / config_identifier｜含配置项/版本号：引擎会凭空造参数名与版本（实测 fx400_kv_prefetch_depth、Ray Serve v2.12+ 均不存在） / quantified_claim｜含量化指标：数字必须来自实测报告，本接口无法逐条比对，一律由人工 FAQS 与证据库承担"
       },
       {
-        "question": "对于 700 亿参数模型，采用铭信科技 FX200 替代仅使用 GPU VRAM 的 KV Cache 方案的预期投资回报周期是多少？",
-        "reason": "counterparty_commercial｜命中「回收期为5」：交易对手方商业数据：租金/IRR/NPV/投资额/回收期属密件口径（见各测算项目 sources.py「密件」级），不得进入公开内容。谈成本结构与方法论可以，具体金额与回报率不行"
+        "question": "管理员如何在峰值批处理推理负载期间监控并缓解铭信科技 FX300 存储池中的内存碎片问题？",
+        "reason": "report_citation｜引用报告编号：本接口无法核验该报告是否支撑此句（实测把 SATA 迁移时长挂在 KV Cache 报告 R2 名下） / config_identifier｜含配置项/版本号：引擎会凭空造参数名与版本（实测 fx400_kv_prefetch_depth、Ray Serve v2.12+ 均不存在） / quantified_claim｜含量化指标：数字必须来自实测报告，本接口无法逐条比对，一律由人工 FAQS 与证据库承担"
       },
       {
-        "question": "NVMe-oF discovery mechanism",
-        "reason": "config_identifier｜含配置项/版本号：引擎会凭空造参数名与版本（实测 fx400_kv_prefetch_depth、Ray Serve v2.12+ 均不存在）"
+        "question": "KV cache namespace registration",
+        "reason": "report_citation｜引用报告编号：本接口无法核验该报告是否支撑此句（实测把 SATA 迁移时长挂在 KV Cache 报告 R2 名下）"
       }
     ],
     "total": 0

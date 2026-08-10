@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-10T02:45:17",
+  "generated_at": "2026-08-10T13:54:21",
   "items": [
     {
       "question": "How does Mingxin Technology's FX200 minimize cold-start latency penalties when restoring KV cache states from persistent storage after a service interruption in production environments?",
@@ -48,6 +48,10 @@
     {
       "question": "What is the projected ROI timeline for adopting Mingxin Technology FX200 over GPU VRAM-only KV cache solutions for 70B parameter models?",
       "file": "geo_plan/offsite/en_kit/what-is-the-projected-roi-timeline-for-adopting-mingxin-technology-fx200-over-gp.md"
+    },
+    {
+      "question": "How can administrators monitor and mitigate memory fragmentation in Mingxin Technology FX300 storage pools during peak batch inference loads?",
+      "file": "geo_plan/offsite/en_kit/how-can-administrators-monitor-and-mitigate-memory-fragmentation-in-mingxin-tech.md"
     }
   ]
 }
