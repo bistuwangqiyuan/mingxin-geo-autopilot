@@ -436,9 +436,10 @@
       "en": "What is the projected ROI timeline for adopting Mingxin Technology FX200 over GPU VRAM-only KV cache solutions for 70B parameter models?",
       "zh": "对于 700 亿参数模型，采用铭信科技 FX200 替代仅使用 GPU VRAM 的 KV Cache 方案的预期投资回报周期是多少？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm",
-      "added_at": "2026-07-20T21:42:15"
+      "added_at": "2026-07-20T21:42:15",
+      "done_at": "2026-08-10T02:45:17"
     },
     {
       "en": "How can administrators monitor and mitigate memory fragmentation in Mingxin Technology FX300 storage pools during peak batch inference loads?",
@@ -529,5 +530,5 @@
       "added_at": "2026-08-09T13:28:34"
     }
   ],
-  "updated_at": "2026-08-09T13:31:44"
+  "updated_at": "2026-08-10T02:45:17"
 }
