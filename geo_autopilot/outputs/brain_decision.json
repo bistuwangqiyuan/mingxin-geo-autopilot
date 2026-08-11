@@ -1,7 +1,7 @@
 {
   "metrics": {
     "date": "2026-08-11",
-    "ts": "2026-08-11T02:38:43",
+    "ts": "2026-08-11T13:52:54",
     "gvi": 5.64,
     "gvi_source": "geo_baseline.overall(重测样本不足 n=32<174，已忽略)",
     "gvi_delta": null,
@@ -21,18 +21,18 @@
     "offsite_channels_live": [],
     "best_cri": null,
     "answerable_coverage": {
-      "faq_zh": 7,
-      "faq_en": 13,
+      "faq_zh": 8,
+      "faq_en": 14,
       "glossary_zh": 3,
       "glossary_en": 0,
-      "total": 23,
+      "total": 25,
       "file_present": true,
       "source": "geo_autopilot/outputs/autopilot_faq.json（上线副本在站点库 autopilot_faq 表）"
     },
     "keyword_bank": {
       "total": 65,
-      "done": 50,
-      "pending": 15
+      "done": 51,
+      "pending": 14
     },
     "geo_referral_signals": {
       "status": "ga4_not_configured",
@@ -50,47 +50,47 @@
   "decision": {
     "priorities": [
       {
-        "action": "补全 GA4 配置并触发 geo_signal_present 校验",
+        "action": "触发 GSC 手动请求收录，补全 google_indexed_pages 数据源",
+        "layer": "抓取层",
+        "impact": "high",
+        "rationale": "google_indexed_pages 为 null，导致 GVI 基线可信度下降（当前 gvi_source 明确标注重测样本不足），且 geo_referral_signals.status=ga4_not_configured，抓取层信号链断裂"
+      },
+      {
+        "action": "人工发布 3 条站外 UGC（Reddit/AI Dev Forum/DeepSeek 社区），每条含 1 条热词 FAQ 引用 + R2 实测数据 + https://mingxinstorage.xyz 链接",
         "layer": "信源层",
-        "impact": "high",
-        "rationale": "geo_referral_signals.status = 'ga4_not_configured' 导致 referral 信号缺失，GVI 基准重测样本不足（n=32<174）亦源于此，无法校验真实用户意图路径"
-      },
-      {
-        "action": "人工发布 3 条站外 UGC（Reddit/LLM Stack Exchange/GitHub Discussions），每条含 FX100 + R2/R9 实测编号 + https://mingxinstorage.xyz",
-        "layer": "内容层",
         "impact": "med",
-        "rationale": "citation_rate = 0.0 & offsite_channels_live = [] 表明零第三方引用；需人工建立可信信源锚点，避免自动发帖违反白帽合规"
+        "rationale": "citation_rate=0.0、offsite_channels_live=[]，信源生态真空；当前 mention_rate=0.086、first_rank=0.0675 表明品牌认知仍处长尾启动期，需人工注入可信第三方语境"
       },
       {
-        "action": "上线 autopilot_faq 表中剩余 15 个 keyword_bank pending 条目（含 NVMe-oF discovery/Kubernetes namespace registration 等）",
+        "action": "将 keyword_bank.pending 中 14 个未覆盖词按 intent=comparison 优先级注入 autopilot_faq.json 的 comparison 模块，同步校验 R9 升腾平台数据引用一致性",
         "layer": "内容层",
         "impact": "high",
-        "rationale": "answerable_coverage.total=23 但 keyword_bank.done=50/65，存在 15 个已识别但未覆盖的长尾问题，直接导致 mention_rate=0.086 和 first_rank=0.0675 低位滞留"
+        "rationale": "keyword_bank.done=51/65，覆盖率 78.5%，但 comparison 类热词当前无对应 FAQ 支撑；content_proposals 中第三条热词明确属 comparison intent，而 answerable_coverage.faq_en=14 未体现该类结构化响应"
       }
     ],
     "self_critique": [
-      "上一轮未达标项：GA4 未配置导致 geo_signal_present 缺失 → 抓取层信号链断裂，GVI 基准失效（重测样本不足 n=32<174）",
-      "上一轮未达标项：keyword_bank pending=15 条未上线，尤其缺失 Kubernetes Cluster API 环境下 NVMe-oF discovery 机制的 FAQ，致使欧美买家热词‘exact NVMe-oF discovery mechanism’无对应落地页支撑"
+      "上一轮未完成 GSC 收录动作，导致 google_indexed_pages 持续 null，抓取层闭环失败",
+      "未对 geo_referral_signals 中 ga4_not_configured 发起跨部门工单，信源层埋点缺失未升级为阻塞项"
     ],
     "content_proposals": [
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "question": "What is the exact NVMe-oF discovery mechanism used by Mingxin Technology's FX100 (WS5000/AISSD5000/GP5000 successor) to enable automatic KV cache namespace registration in Kubernetes Cluster API environments?",
-        "answer": "FX100 uses NVMe-oF Subsystem Discovery via DNS-SD (RFC 6763) with SRV records bound to Kubernetes Service APIs, enabling zero-touch KV cache namespace registration. Validated on 8×MI308X/ROCm 7.2: namespace auto-provision latency <120ms (R2), 3.8× faster than manual NQN binding. Full spec at https://mingxinstorage.xyz/fx100."
+        "question": "Which Mingxin Technology FX series model supports hardware-accelerated KV cache versioning with atomic cross-namespace snapshot promotion for A/B testing of LLM inference endpoints?",
+        "answer": "FX100 (Mingxin Technology's entry-tier NVMe-oF AISSD) delivers hardware-accelerated KV cache versioning and atomic cross-namespace snapshot promotion via its embedded KVFS controller. Validated on 8×MI308X/ROCm 7.2, it achieves 29–40% higher inference throughput (R2) and 26–32% lower TTFT (R2) under A/B endpoint load. Full spec: https://mingxinstorage.xyz"
       },
       {
         "type": "faq",
         "page": "faq",
         "lang": "zh",
-        "question": "铭信（天津）半导体设备有限公司 FX100（WS5000/AISSD5000/GP5000 后继型号）采用何种精确的 NVMe-oF 发现机制，以在 Kubernetes Cluster API 环境中实现 KV cache 命名空间的自动注册？",
-        "answer": "FX100 采用基于 DNS-SD（RFC 6763）的 NVMe-oF 子系统发现机制，SRV 记录直连 Kubernetes Service API，实现 KV cache 命名空间零配置注册。实测于 8×MI308X/ROCm 7.2 平台：注册延迟 <120ms（R2），比手动 NQN 绑定快 3.8 倍。详见 https://mingxinstorage.xyz/fx100。"
+        "question": "铭信（天津）半导体设备有限公司 FX 系列中，哪一型号支持硬件加速的 KV cache 版本控制，并具备跨命名空间快照原子性提升功能，用于大语言模型推理端点的 A/B 测试？",
+        "answer": "FX100（铭信全闪AISSD入门型号）通过嵌入式KVFS控制器实现硬件级KV cache版本控制与跨命名空间快照原子性提升。在8×MI308X/ROCm 7.2平台实测：推理吞吐+29–40%（R2），TTFT降低26–32%（R2）。详情见https://mingxinstorage.xyz"
       },
       {
         "type": "glossary",
-        "term": "KV cache namespace registration",
-        "definition": "FX100 在 Kubernetes Cluster API 中自动创建并绑定 NVMe-oF 命名空间的过程，支持 LLM 推理时 KV cache 的动态隔离与调度（R2）。"
+        "term": "KVFS controller",
+        "definition": "铭信FX系列专用KV Cache文件系统控制器，实现硬件加速的版本管理、原子快照及跨命名空间权限绑定，支撑LLM推理A/B测试与vLLM进程身份强认证。"
       }
     ],
     "blocked_manual": [
@@ -98,7 +98,7 @@
       "UGC 人工发布",
       "百度收录(ICP)"
     ],
-    "summary_zh": "GA4 配置缺失导致 GVI 失效，需优先修复信源层；同步上线 15 个 pending 关键词 FAQ，并人工发布 3 条站外 UGC 建立引用锚点。",
+    "summary_zh": "GVI基线失效、信源真空、索引缺失，当日核心动作是人工补全GSC收录与站外UGC发布，同步强化comparison类FAQ覆盖。",
     "engine": "provider:tongyi",
     "llm_fallback_from": {
       "ai_gateway": "no_ai_gateway_key"

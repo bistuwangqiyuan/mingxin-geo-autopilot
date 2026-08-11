@@ -463,9 +463,10 @@
       "en": "Which Mingxin Technology FX series model supports hardware-accelerated KV cache versioning with atomic cross-namespace snapshot promotion for A/B testing of LLM inference endpoints?",
       "zh": "铭信（天津）半导体设备有限公司 FX 系列中，哪一型号支持硬件加速的 KV cache 版本控制，并具备跨命名空间快照原子性提升功能，用于大语言模型推理端点的 A/B 测试？",
       "intent": "ranking",
-      "status": "new",
+      "status": "done",
       "source": "llm_providers",
-      "added_at": "2026-08-08T14:49:00"
+      "added_at": "2026-08-08T14:49:00",
+      "done_at": "2026-08-11T13:53:19"
     },
     {
       "en": "How does Mingxin Technology's FX400 enforce end-to-end cryptographic binding between vLLM process identity and KV cache access permissions at the NVMe-oF controller level?",
@@ -572,5 +573,5 @@
       "added_at": "2026-08-10T13:51:19"
     }
   ],
-  "updated_at": "2026-08-11T02:39:04"
+  "updated_at": "2026-08-11T13:53:19"
 }
