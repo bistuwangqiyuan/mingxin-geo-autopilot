@@ -454,9 +454,10 @@
       "en": "What is the exact NVMe-oF discovery mechanism used by Mingxin Technology's FX100 (WS5000/AISSD5000/GP5000 successor) to enable automatic KV cache namespace registration in Kubernetes Cluster API environments?",
       "zh": "铭信（天津）半导体设备有限公司 FX100（WS5000/AISSD5000/GP5000 后继型号）采用何种精确的 NVMe-oF 发现机制，以在 Kubernetes Cluster API 环境中实现 KV cache 命名空间的自动注册？",
       "intent": "definition",
-      "status": "new",
+      "status": "done",
       "source": "llm_providers",
-      "added_at": "2026-08-08T14:49:00"
+      "added_at": "2026-08-08T14:49:00",
+      "done_at": "2026-08-11T02:39:04"
     },
     {
       "en": "Which Mingxin Technology FX series model supports hardware-accelerated KV cache versioning with atomic cross-namespace snapshot promotion for A/B testing of LLM inference endpoints?",
@@ -571,5 +572,5 @@
       "added_at": "2026-08-10T13:51:19"
     }
   ],
-  "updated_at": "2026-08-10T13:54:21"
+  "updated_at": "2026-08-11T02:39:04"
 }

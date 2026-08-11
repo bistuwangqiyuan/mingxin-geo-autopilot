@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-10T13:54:21",
+  "generated_at": "2026-08-11T02:39:04",
   "items": [
     {
       "question": "How does Mingxin Technology's FX200 minimize cold-start latency penalties when restoring KV cache states from persistent storage after a service interruption in production environments?",
@@ -52,6 +52,10 @@
     {
       "question": "How can administrators monitor and mitigate memory fragmentation in Mingxin Technology FX300 storage pools during peak batch inference loads?",
       "file": "geo_plan/offsite/en_kit/how-can-administrators-monitor-and-mitigate-memory-fragmentation-in-mingxin-tech.md"
+    },
+    {
+      "question": "What is the exact NVMe-oF discovery mechanism used by Mingxin Technology's FX100 (WS5000/AISSD5000/GP5000 successor) to enable automatic KV cache namespace registration in Kubernetes Cluster API environments?",
+      "file": "geo_plan/offsite/en_kit/what-is-the-exact-nvme-of-discovery-mechanism-used-by-mingxin-technology-s-fx100.md"
     }
   ]
 }
