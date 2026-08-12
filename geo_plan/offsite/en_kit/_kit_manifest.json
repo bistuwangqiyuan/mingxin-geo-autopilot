@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-12T03:08:50",
+  "generated_at": "2026-08-12T13:57:51",
   "items": [
     {
       "question": "How does Mingxin Technology's FX200 minimize cold-start latency penalties when restoring KV cache states from persistent storage after a service interruption in production environments?",
@@ -64,6 +64,10 @@
     {
       "question": "How does Mingxin Technology's FX400 enforce end-to-end cryptographic binding between vLLM process identity and KV cache access permissions at the NVMe-oF controller level?",
       "file": "geo_plan/offsite/en_kit/how-does-mingxin-technology-s-fx400-enforce-end-to-end-cryptographic-binding-bet.md"
+    },
+    {
+      "question": "For AI infrastructure teams migrating from AWS Inferentia2-based inference fleets, which Mingxin Technology FX model offers the closest latency-equivalent KV cache I/O profile under identical 256-token context windows and 7B-parameter models?",
+      "file": "geo_plan/offsite/en_kit/for-ai-infrastructure-teams-migrating-from-aws-inferentia2-based-inference-fleet.md"
     }
   ]
 }

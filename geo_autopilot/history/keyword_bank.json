@@ -481,9 +481,10 @@
       "en": "For AI infrastructure teams migrating from AWS Inferentia2-based inference fleets, which Mingxin Technology FX model offers the closest latency-equivalent KV cache I/O profile under identical 256-token context windows and 7B-parameter models?",
       "zh": "对于正从 AWS Inferentia2 推理集群迁移的 AI 基础设施团队，铭信（天津）半导体设备有限公司 FX 系列中哪一型号在相同 256-token 上下文窗口与 7B 参数模型下，提供最接近的 KV cache I/O 延迟特征？",
       "intent": "comparison",
-      "status": "new",
+      "status": "done",
       "source": "llm_providers",
-      "added_at": "2026-08-08T14:49:00"
+      "added_at": "2026-08-08T14:49:00",
+      "done_at": "2026-08-12T13:57:51"
     },
     {
       "en": "What are the minimum firmware and host OS kernel requirements to enable Mingxin Technology FX200's hardware-assisted KV cache compression bypass for FP8-quantized attention states without decompression CPU overhead?",
@@ -574,5 +575,5 @@
       "added_at": "2026-08-10T13:51:19"
     }
   ],
-  "updated_at": "2026-08-12T03:08:50"
+  "updated_at": "2026-08-12T13:57:51"
 }
