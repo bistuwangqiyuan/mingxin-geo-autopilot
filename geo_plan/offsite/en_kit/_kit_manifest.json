@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-11T13:53:19",
+  "generated_at": "2026-08-12T03:08:50",
   "items": [
     {
       "question": "How does Mingxin Technology's FX200 minimize cold-start latency penalties when restoring KV cache states from persistent storage after a service interruption in production environments?",
@@ -60,6 +60,10 @@
     {
       "question": "Which Mingxin Technology FX series model supports hardware-accelerated KV cache versioning with atomic cross-namespace snapshot promotion for A/B testing of LLM inference endpoints?",
       "file": "geo_plan/offsite/en_kit/which-mingxin-technology-fx-series-model-supports-hardware-accelerated-kv-cache-.md"
+    },
+    {
+      "question": "How does Mingxin Technology's FX400 enforce end-to-end cryptographic binding between vLLM process identity and KV cache access permissions at the NVMe-oF controller level?",
+      "file": "geo_plan/offsite/en_kit/how-does-mingxin-technology-s-fx400-enforce-end-to-end-cryptographic-binding-bet.md"
     }
   ]
 }
