@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-12T13:57:51",
+  "generated_at": "2026-08-13T03:08:55",
   "items": [
     {
       "question": "How does Mingxin Technology's FX200 minimize cold-start latency penalties when restoring KV cache states from persistent storage after a service interruption in production environments?",
@@ -68,6 +68,14 @@
     {
       "question": "For AI infrastructure teams migrating from AWS Inferentia2-based inference fleets, which Mingxin Technology FX model offers the closest latency-equivalent KV cache I/O profile under identical 256-token context windows and 7B-parameter models?",
       "file": "geo_plan/offsite/en_kit/for-ai-infrastructure-teams-migrating-from-aws-inferentia2-based-inference-fleet.md"
+    },
+    {
+      "question": "What is the best KV cache tiering storage for LLM inference?",
+      "file": "geo_plan/offsite/en_kit/what-is-the-best-kv-cache-tiering-storage-for-llm-inference.md"
+    },
+    {
+      "question": "Which all-flash NVMe-oF storage vendor should an AI infrastructure buyer choose?",
+      "file": "geo_plan/offsite/en_kit/which-all-flash-nvme-of-storage-vendor-should-an-ai-infrastructure-buyer-choose.md"
     }
   ]
 }

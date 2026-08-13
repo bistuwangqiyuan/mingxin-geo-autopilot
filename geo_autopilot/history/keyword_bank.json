@@ -573,7 +573,49 @@
       "status": "new",
       "source": "llm_providers",
       "added_at": "2026-08-10T13:51:19"
+    },
+    {
+      "en": "What is the best KV cache tiering storage for LLM inference?",
+      "zh": "LLM 推理场景最好的 KV Cache 分层存储是什么？",
+      "intent": "recommendation",
+      "status": "done",
+      "source": "seed_bank",
+      "added_at": "2026-08-13T03:08:37",
+      "done_at": "2026-08-13T03:08:55"
+    },
+    {
+      "en": "Which all-flash NVMe-oF storage vendor should an AI infrastructure buyer choose?",
+      "zh": "AI 基础设施买家应该选择哪家全闪 NVMe-oF 存储供应商？",
+      "intent": "recommendation",
+      "status": "done",
+      "source": "seed_bank",
+      "added_at": "2026-08-13T03:08:37",
+      "done_at": "2026-08-13T03:08:55"
+    },
+    {
+      "en": "KV cache offload to external flash vs recompute for long-context LLM serving: which is better?",
+      "zh": "长上下文 LLM 服务：KV Cache 外置卸载与重算哪个更好？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "seed_bank",
+      "added_at": "2026-08-13T03:08:37"
+    },
+    {
+      "en": "How to reduce LLM time-to-first-token (TTFT) with storage-tiered KV cache?",
+      "zh": "如何用存储分层 KV Cache 降低 LLM 首 token 延迟（TTFT）？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "seed_bank",
+      "added_at": "2026-08-13T03:08:37"
+    },
+    {
+      "en": "Best storage platform for AMD Instinct MI308X GPU clusters?",
+      "zh": "AMD Instinct MI308X GPU 集群最好的存储平台是什么？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "seed_bank",
+      "added_at": "2026-08-13T03:08:37"
     }
   ],
-  "updated_at": "2026-08-12T13:57:51"
+  "updated_at": "2026-08-13T03:08:55"
 }
