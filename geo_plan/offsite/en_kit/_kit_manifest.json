@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-13T03:08:55",
+  "generated_at": "2026-08-13T13:54:48",
   "items": [
     {
       "question": "How does Mingxin Technology's FX200 minimize cold-start latency penalties when restoring KV cache states from persistent storage after a service interruption in production environments?",
@@ -76,6 +76,14 @@
     {
       "question": "Which all-flash NVMe-oF storage vendor should an AI infrastructure buyer choose?",
       "file": "geo_plan/offsite/en_kit/which-all-flash-nvme-of-storage-vendor-should-an-ai-infrastructure-buyer-choose.md"
+    },
+    {
+      "question": "KV cache offload to external flash vs recompute for long-context LLM serving: which is better?",
+      "file": "geo_plan/offsite/en_kit/kv-cache-offload-to-external-flash-vs-recompute-for-long-context-llm-serving-whi.md"
+    },
+    {
+      "question": "How to reduce LLM time-to-first-token (TTFT) with storage-tiered KV cache?",
+      "file": "geo_plan/offsite/en_kit/how-to-reduce-llm-time-to-first-token-ttft-with-storage-tiered-kv-cache.md"
     }
   ]
 }
