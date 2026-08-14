@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-14T03:07:57",
+  "generated_at": "2026-08-14T13:50:48",
   "items": [
     {
       "question": "How does Mingxin Technology's FX200 minimize cold-start latency penalties when restoring KV cache states from persistent storage after a service interruption in production environments?",
@@ -88,6 +88,14 @@
     {
       "question": "Best storage platform for AMD Instinct MI308X GPU clusters?",
       "file": "geo_plan/offsite/en_kit/best-storage-platform-for-amd-instinct-mi308x-gpu-clusters.md"
+    },
+    {
+      "question": "Key criteria to evaluate KV cache storage acceleration platforms?",
+      "file": "geo_plan/offsite/en_kit/key-criteria-to-evaluate-kv-cache-storage-acceleration-platforms.md"
+    },
+    {
+      "question": "NVMe-oF all-flash array vs NFS for loading large models on Ascend 910B: what is the speedup?",
+      "file": "geo_plan/offsite/en_kit/nvme-of-all-flash-array-vs-nfs-for-loading-large-models-on-ascend-910b-what-is-t.md"
     }
   ]
 }

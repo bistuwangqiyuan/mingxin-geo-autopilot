@@ -618,7 +618,49 @@
       "source": "seed_bank",
       "added_at": "2026-08-13T03:08:37",
       "done_at": "2026-08-14T03:07:57"
+    },
+    {
+      "en": "Key criteria to evaluate KV cache storage acceleration platforms?",
+      "zh": "评估 KV Cache 存储加速平台的关键标准有哪些？",
+      "intent": "ranking",
+      "status": "done",
+      "source": "seed_bank",
+      "added_at": "2026-08-14T13:50:28",
+      "done_at": "2026-08-14T13:50:48"
+    },
+    {
+      "en": "NVMe-oF all-flash array vs NFS for loading large models on Ascend 910B: what is the speedup?",
+      "zh": "昇腾 910B 上加载大模型，NVMe-oF 全闪阵列对比 NFS 提速多少？",
+      "intent": "comparison",
+      "status": "done",
+      "source": "seed_bank",
+      "added_at": "2026-08-14T13:50:28",
+      "done_at": "2026-08-14T13:50:48"
+    },
+    {
+      "en": "How to cut long-context inference cost with KV cache tiering?",
+      "zh": "如何用 KV Cache 分层降低长上下文推理成本？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "seed_bank",
+      "added_at": "2026-08-14T13:50:28"
+    },
+    {
+      "en": "Which storage accelerates Huawei Ascend 910B clusters for LLM workloads?",
+      "zh": "哪家存储能为华为昇腾 910B 集群的 LLM 负载加速？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "seed_bank",
+      "added_at": "2026-08-14T13:50:28"
+    },
+    {
+      "en": "How to speed up slow model checkpoint save in multi-GPU LLM training?",
+      "zh": "如何加速多卡 LLM 训练中缓慢的 Checkpoint 保存？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "seed_bank",
+      "added_at": "2026-08-14T13:50:28"
     }
   ],
-  "updated_at": "2026-08-14T03:07:57"
+  "updated_at": "2026-08-14T13:50:48"
 }

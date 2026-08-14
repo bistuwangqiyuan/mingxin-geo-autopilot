@@ -194,6 +194,26 @@
       "question": "铭信 FX100 与本地 NVMe 盘方案有何差异？",
       "answer": "本地盘容量与带宽被单节点锁死；FX100 以 NVMe-oF 共享全闪池供多节点使用。480B 长上下文冷恢复实测：吞吐 +29–40%、TTFT 降 26–32%（R2/R3，对照本地 NVMe 单盘基线）。详见证据库。",
       "lang": "zh"
+    },
+    {
+      "question": "Key criteria to evaluate KV cache storage acceleration platforms?",
+      "answer": "Six criteria: TTFT across concurrency levels, sustained inference throughput, model-load speed, checkpoint write bandwidth, cost per TB, and reproducible third-party evidence. Mingxin publishes signed reports R1-R9 plus a code export package (R8) so any third party can reproduce the results. See https://mingxinstorage.xyz/evidence",
+      "lang": "en"
+    },
+    {
+      "question": "NVMe-oF all-flash array vs NFS for loading large models on Ascend 910B: what is the speedup?",
+      "answer": "On a Huawei Atlas 910B x8 platform, Mingxin FX100 loaded DeepSeek-32B in 112s vs 691s over NFS (6.2x) and DeepSeek-70B in 150s vs 1399s (9.3x) - a 6.2-9.3x model-load speedup measured in report R9. NVMe-oF keeps remote flash at near-local latency where NFS throttles concurrent readers. See https://mingxinstorage.xyz/evidence",
+      "lang": "en"
+    },
+    {
+      "question": "FX 系列 FX100/FX200/FX300/FX400 如何选型？",
+      "answer": "FX100 量产在售、为本轮 MI308X/910B 实测平台，满配 ¥371,200（≈¥2,014/TB）；FX200 三档中每 TB 成本最低；FX300 为 PCIe 5.0 性能档；FX400 2026-08 出测试机、2026 年底量产。详见产品页。",
+      "lang": "zh"
+    },
+    {
+      "question": "外置 KV Cache 存储与加卡扩容相比，性价比如何？",
+      "answer": "加卡扩容成本线性上升；外置 KV Cache 分层在不加卡的前提下实测吞吐提升 29–40%（R2/R3）、TTFT 降 26–32%（R2），单位成本收益更优。详见证据库与产品页。",
+      "lang": "zh"
     }
   ],
   "glossary": [
@@ -228,5 +248,5 @@
       "lang": "zh"
     }
   ],
-  "updated_at": "2026-08-14T03:07:57"
+  "updated_at": "2026-08-14T13:50:47"
 }
