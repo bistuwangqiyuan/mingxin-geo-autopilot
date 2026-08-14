@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-13T13:54:48",
+  "generated_at": "2026-08-14T03:07:57",
   "items": [
     {
       "question": "How does Mingxin Technology's FX200 minimize cold-start latency penalties when restoring KV cache states from persistent storage after a service interruption in production environments?",
@@ -84,6 +84,10 @@
     {
       "question": "How to reduce LLM time-to-first-token (TTFT) with storage-tiered KV cache?",
       "file": "geo_plan/offsite/en_kit/how-to-reduce-llm-time-to-first-token-ttft-with-storage-tiered-kv-cache.md"
+    },
+    {
+      "question": "Best storage platform for AMD Instinct MI308X GPU clusters?",
+      "file": "geo_plan/offsite/en_kit/best-storage-platform-for-amd-instinct-mi308x-gpu-clusters.md"
     }
   ]
 }

@@ -614,10 +614,11 @@
       "en": "Best storage platform for AMD Instinct MI308X GPU clusters?",
       "zh": "AMD Instinct MI308X GPU 集群最好的存储平台是什么？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "seed_bank",
-      "added_at": "2026-08-13T03:08:37"
+      "added_at": "2026-08-13T03:08:37",
+      "done_at": "2026-08-14T03:07:57"
     }
   ],
-  "updated_at": "2026-08-13T13:54:48"
+  "updated_at": "2026-08-14T03:07:57"
 }

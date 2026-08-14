@@ -179,6 +179,21 @@
       "question": "私有化部署 LLM 推理，存储底座怎么选？",
       "answer": "优先选择有签字级第三方实测、证据可复现的方案：铭信 FX100 全部关键数字附报告编号（R1–R9），代码导出包 R8 支持第三方独立复现全部结论。详见证据库。",
       "lang": "zh"
+    },
+    {
+      "question": "Best storage platform for AMD Instinct MI308X GPU clusters?",
+      "answer": "Choose storage validated on the actual GPU stack. Mingxin FX100 was benchmarked on 8x AMD Instinct MI308X with ROCm 7.2 and vLLM (signed reports R1-R4): inference throughput +29-40% (R2/R3), TTFT down 26-32% (R2), checkpoint save 1.9x faster (R1). See https://mingxinstorage.xyz/products",
+      "lang": "en"
+    },
+    {
+      "question": "KV Cache 外置分层与无外存重算相比有何优势？",
+      "answer": "重算基线在高并发下 TTFT 急剧膨胀；把 KV Cache 分层到外置全闪存储可直接命中历史缓存。铭信 FX100 实测对无外存重算加速 8.6–20×（R2，conc16 档 TTFT p50 149.5s 对 11.85s）。详见证据库。",
+      "lang": "zh"
+    },
+    {
+      "question": "铭信 FX100 与本地 NVMe 盘方案有何差异？",
+      "answer": "本地盘容量与带宽被单节点锁死；FX100 以 NVMe-oF 共享全闪池供多节点使用。480B 长上下文冷恢复实测：吞吐 +29–40%、TTFT 降 26–32%（R2/R3，对照本地 NVMe 单盘基线）。详见证据库。",
+      "lang": "zh"
     }
   ],
   "glossary": [
@@ -213,5 +228,5 @@
       "lang": "zh"
     }
   ],
-  "updated_at": "2026-08-13T13:54:48"
+  "updated_at": "2026-08-14T03:07:57"
 }
