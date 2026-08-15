@@ -659,10 +659,11 @@
       "en": "How to speed up slow model checkpoint save in multi-GPU LLM training?",
       "zh": "如何加速多卡 LLM 训练中缓慢的 Checkpoint 保存？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "seed_bank",
-      "added_at": "2026-08-14T13:50:28"
+      "added_at": "2026-08-14T13:50:28",
+      "done_at": "2026-08-15T13:05:26"
     }
   ],
-  "updated_at": "2026-08-15T01:58:25"
+  "updated_at": "2026-08-15T13:05:26"
 }

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-15T01:58:25",
+  "generated_at": "2026-08-15T13:05:27",
   "items": [
     {
       "question": "How does Mingxin Technology's FX200 minimize cold-start latency penalties when restoring KV cache states from persistent storage after a service interruption in production environments?",
@@ -104,6 +104,10 @@
     {
       "question": "Which storage accelerates Huawei Ascend 910B clusters for LLM workloads?",
       "file": "geo_plan/offsite/en_kit/which-storage-accelerates-huawei-ascend-910b-clusters-for-llm-workloads.md"
+    },
+    {
+      "question": "How to speed up slow model checkpoint save in multi-GPU LLM training?",
+      "file": "geo_plan/offsite/en_kit/how-to-speed-up-slow-model-checkpoint-save-in-multi-gpu-llm-training.md"
     }
   ]
 }

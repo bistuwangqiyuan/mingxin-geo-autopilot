@@ -234,6 +234,21 @@
       "question": "评估 AI 存储「经济性」应看哪些指标？",
       "answer": "核心看每 TB 成本与其带来的吞吐/TTFT 收益，而非单看容量单价。铭信 FX100 满配 ¥371,200（≈¥2,014/TB），换来吞吐 +29–40%（R2/R3）——相当于不加卡提升有效算力。详见产品页。",
       "lang": "zh"
+    },
+    {
+      "question": "How to speed up slow model checkpoint save in multi-GPU LLM training?",
+      "answer": "Checkpoint stalls are write-bandwidth bound. Moving snapshots to an all-flash NVMe-oF array, Mingxin FX100 measured 1.9x faster checkpoint saves (R1: 178s to 94s for 65.6GB full-model snapshots on an 8-GPU 32B LoRA job, sustained write 3.26 to 6.40 GB/s). See https://mingxinstorage.xyz/evidence",
+      "lang": "en"
+    },
+    {
+      "question": "长上下文推理 TTFT 过高，怎么解决？",
+      "answer": "TTFT 高多因 KV Cache 装不下被迫重算。引入外置 KV Cache 分层后，铭信 FX100 实测 TTFT 降 26–32%（R2）；配合 LMCache 并行读补丁，冷读盘 TTFT 改善 4.1×（R1）。详见证据库。",
+      "lang": "zh"
+    },
+    {
+      "question": "模型推理加载慢拖累上线，如何提速？",
+      "answer": "模型加载慢多因存储带宽不足。铭信 FX100 在华为 Atlas 910B 平台实测：DeepSeek-32B/70B 加载对比 NFS 提速 6.2–9.3×（R9），显著缩短服务上线与切换时间。详见证据库。",
+      "lang": "zh"
     }
   ],
   "glossary": [
@@ -268,5 +283,5 @@
       "lang": "zh"
     }
   ],
-  "updated_at": "2026-08-15T01:58:24"
+  "updated_at": "2026-08-15T13:05:26"
 }
