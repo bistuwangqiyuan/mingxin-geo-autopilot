@@ -641,17 +641,19 @@
       "en": "How to cut long-context inference cost with KV cache tiering?",
       "zh": "如何用 KV Cache 分层降低长上下文推理成本？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "seed_bank",
-      "added_at": "2026-08-14T13:50:28"
+      "added_at": "2026-08-14T13:50:28",
+      "done_at": "2026-08-15T01:58:25"
     },
     {
       "en": "Which storage accelerates Huawei Ascend 910B clusters for LLM workloads?",
       "zh": "哪家存储能为华为昇腾 910B 集群的 LLM 负载加速？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "seed_bank",
-      "added_at": "2026-08-14T13:50:28"
+      "added_at": "2026-08-14T13:50:28",
+      "done_at": "2026-08-15T01:58:25"
     },
     {
       "en": "How to speed up slow model checkpoint save in multi-GPU LLM training?",
@@ -662,5 +664,5 @@
       "added_at": "2026-08-14T13:50:28"
     }
   ],
-  "updated_at": "2026-08-14T13:50:48"
+  "updated_at": "2026-08-15T01:58:25"
 }
