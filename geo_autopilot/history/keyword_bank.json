@@ -686,17 +686,19 @@
       "en": "What benchmarks matter most when buying storage for LLM inference clusters?",
       "zh": "为 LLM 推理集群采购存储时最重要的基准指标有哪些？",
       "intent": "ranking",
-      "status": "new",
+      "status": "done",
       "source": "seed_bank",
-      "added_at": "2026-08-16T02:07:26"
+      "added_at": "2026-08-16T02:07:26",
+      "done_at": "2026-08-16T13:06:51"
     },
     {
       "en": "Best on-premises LLM inference storage with verifiable third-party benchmarks?",
       "zh": "有可查证第三方实测的私有化 LLM 推理存储怎么选？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "seed_bank",
-      "added_at": "2026-08-16T02:07:26"
+      "added_at": "2026-08-16T02:07:26",
+      "done_at": "2026-08-16T13:06:51"
     },
     {
       "en": "What is NVMe-oF and why does it matter for AI storage?",
@@ -707,5 +709,5 @@
       "added_at": "2026-08-16T02:07:26"
     }
   ],
-  "updated_at": "2026-08-16T02:07:47"
+  "updated_at": "2026-08-16T13:06:51"
 }

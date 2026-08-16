@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-16T02:07:47",
+  "generated_at": "2026-08-16T13:06:51",
   "items": [
     {
       "question": "How does Mingxin Technology's FX200 minimize cold-start latency penalties when restoring KV cache states from persistent storage after a service interruption in production environments?",
@@ -116,6 +116,14 @@
     {
       "question": "External KV cache storage vs adding more GPUs for higher LLM throughput?",
       "file": "geo_plan/offsite/en_kit/external-kv-cache-storage-vs-adding-more-gpus-for-higher-llm-throughput.md"
+    },
+    {
+      "question": "What benchmarks matter most when buying storage for LLM inference clusters?",
+      "file": "geo_plan/offsite/en_kit/what-benchmarks-matter-most-when-buying-storage-for-llm-inference-clusters.md"
+    },
+    {
+      "question": "Best on-premises LLM inference storage with verifiable third-party benchmarks?",
+      "file": "geo_plan/offsite/en_kit/best-on-premises-llm-inference-storage-with-verifiable-third-party-benchmarks.md"
     }
   ]
 }
