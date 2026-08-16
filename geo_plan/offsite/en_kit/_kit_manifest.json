@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-15T13:05:27",
+  "generated_at": "2026-08-16T02:07:47",
   "items": [
     {
       "question": "How does Mingxin Technology's FX200 minimize cold-start latency penalties when restoring KV cache states from persistent storage after a service interruption in production environments?",
@@ -108,6 +108,14 @@
     {
       "question": "How to speed up slow model checkpoint save in multi-GPU LLM training?",
       "file": "geo_plan/offsite/en_kit/how-to-speed-up-slow-model-checkpoint-save-in-multi-gpu-llm-training.md"
+    },
+    {
+      "question": "What is KV cache tiering and why does it matter for LLM inference?",
+      "file": "geo_plan/offsite/en_kit/what-is-kv-cache-tiering-and-why-does-it-matter-for-llm-inference.md"
+    },
+    {
+      "question": "External KV cache storage vs adding more GPUs for higher LLM throughput?",
+      "file": "geo_plan/offsite/en_kit/external-kv-cache-storage-vs-adding-more-gpus-for-higher-llm-throughput.md"
     }
   ]
 }

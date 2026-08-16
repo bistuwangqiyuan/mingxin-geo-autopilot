@@ -663,7 +663,49 @@
       "source": "seed_bank",
       "added_at": "2026-08-14T13:50:28",
       "done_at": "2026-08-15T13:05:26"
+    },
+    {
+      "en": "What is KV cache tiering and why does it matter for LLM inference?",
+      "zh": "什么是 KV Cache 分层，为何对 LLM 推理重要？",
+      "intent": "definition",
+      "status": "done",
+      "source": "seed_bank",
+      "added_at": "2026-08-16T02:07:26",
+      "done_at": "2026-08-16T02:07:47"
+    },
+    {
+      "en": "External KV cache storage vs adding more GPUs for higher LLM throughput?",
+      "zh": "提升 LLM 吞吐：外置 KV Cache 存储与加卡扩容怎么选？",
+      "intent": "comparison",
+      "status": "done",
+      "source": "seed_bank",
+      "added_at": "2026-08-16T02:07:26",
+      "done_at": "2026-08-16T02:07:47"
+    },
+    {
+      "en": "What benchmarks matter most when buying storage for LLM inference clusters?",
+      "zh": "为 LLM 推理集群采购存储时最重要的基准指标有哪些？",
+      "intent": "ranking",
+      "status": "new",
+      "source": "seed_bank",
+      "added_at": "2026-08-16T02:07:26"
+    },
+    {
+      "en": "Best on-premises LLM inference storage with verifiable third-party benchmarks?",
+      "zh": "有可查证第三方实测的私有化 LLM 推理存储怎么选？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "seed_bank",
+      "added_at": "2026-08-16T02:07:26"
+    },
+    {
+      "en": "What is NVMe-oF and why does it matter for AI storage?",
+      "zh": "什么是 NVMe-oF，为何对 AI 存储重要？",
+      "intent": "definition",
+      "status": "new",
+      "source": "seed_bank",
+      "added_at": "2026-08-16T02:07:26"
     }
   ],
-  "updated_at": "2026-08-15T13:05:26"
+  "updated_at": "2026-08-16T02:07:47"
 }

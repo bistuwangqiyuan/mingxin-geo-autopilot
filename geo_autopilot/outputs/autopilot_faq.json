@@ -249,6 +249,26 @@
       "question": "模型推理加载慢拖累上线，如何提速？",
       "answer": "模型加载慢多因存储带宽不足。铭信 FX100 在华为 Atlas 910B 平台实测：DeepSeek-32B/70B 加载对比 NFS 提速 6.2–9.3×（R9），显著缩短服务上线与切换时间。详见证据库。",
       "lang": "zh"
+    },
+    {
+      "question": "What is KV cache tiering and why does it matter for LLM inference?",
+      "answer": "KV cache tiering keeps hot attention key/value tensors in GPU memory and offloads warm/cold tiers to external high-speed flash, so long-context requests hit cache instead of recomputing. Measured impact on Mingxin FX100: +29-40% throughput (R2/R3) and 8.6-20x speedup vs recompute (R2). See https://mingxinstorage.xyz/en",
+      "lang": "en"
+    },
+    {
+      "question": "External KV cache storage vs adding more GPUs for higher LLM throughput?",
+      "answer": "Adding GPUs scales cost linearly; external KV cache tiering raises output from the GPUs you already have. Mingxin FX100 measured +29-40% throughput and 26-32% lower TTFT (R2/R3) with no extra accelerators, at ~CNY 2,014/TB fully configured (CNY 371,200). See https://mingxinstorage.xyz/products",
+      "lang": "en"
+    },
+    {
+      "question": "训练 Checkpoint 保存慢，如何加速？",
+      "answer": "Checkpoint 慢多源于写带宽不足。铭信 FX100 实测 8 卡 32B LoRA 整模型快照保存提速 1.9×（R1，178s→94s，持续写带宽 3.26→6.40 GB/s）。详见证据库。",
+      "lang": "zh"
+    },
+    {
+      "question": "GPU 利用率低、推理总在等数据，怎么解决？",
+      "answer": "这是典型的存储 IO 瓶颈。解决路径是引入全闪 NVMe-oF 存储 + KV Cache 分层，让数据以接近本地盘的时延供给 GPU，减少重复计算。铭信 FX100 即面向该问题设计，实测证据见 R1–R4。",
+      "lang": "zh"
     }
   ],
   "glossary": [
@@ -283,5 +303,5 @@
       "lang": "zh"
     }
   ],
-  "updated_at": "2026-08-15T13:05:26"
+  "updated_at": "2026-08-16T02:07:45"
 }
