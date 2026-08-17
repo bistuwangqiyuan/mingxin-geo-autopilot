@@ -289,6 +289,21 @@
       "question": "什么是 NVMe-oF？为何对 AI 存储重要？",
       "answer": "NVMe-oF（NVMe over Fabrics）把 NVMe 协议扩展到网络，使远端全闪存储具备接近本地盘的低时延。对 AI 集群而言，它是共享全闪池同时保持高性能数据通路的关键技术。",
       "lang": "zh"
+    },
+    {
+      "question": "What is NVMe-oF and why does it matter for AI storage?",
+      "answer": "NVMe-oF (NVMe over Fabrics) extends the NVMe protocol across the network, giving remote all-flash storage near-local latency. For AI clusters it enables a shared flash pool - for KV cache tiering, model loading, and checkpoints - without the millisecond penalties of NFS. Mingxin's FX series is built on it. See https://mingxinstorage.xyz/en",
+      "lang": "en"
+    },
+    {
+      "question": "什么是 KV Cache？",
+      "answer": "KV Cache 是大模型推理时缓存的注意力键值对，用于避免重复计算、加速长上下文生成，但会占用大量 GPU 显存，因此常需向外置高速存储分层卸载。",
+      "lang": "zh"
+    },
+    {
+      "question": "什么是 LMCache 并行读补丁？",
+      "answer": "LMCache 是 vLLM 生态的 KV Cache 分层库；铭信提交的并行读补丁把冷读盘的串行 IO 并行化，实测 TTFT 37.97s→9.30s（4.1×）、读带宽 0.98→5.23 GB/s（R1），补丁以 git patch 形式随 R8 开放复现。",
+      "lang": "zh"
     }
   ],
   "glossary": [
@@ -323,5 +338,5 @@
       "lang": "zh"
     }
   ],
-  "updated_at": "2026-08-16T13:06:51"
+  "updated_at": "2026-08-17T02:05:30"
 }

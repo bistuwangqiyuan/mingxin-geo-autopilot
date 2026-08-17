@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-16T13:06:51",
+  "generated_at": "2026-08-17T02:05:30",
   "items": [
     {
       "question": "How does Mingxin Technology's FX200 minimize cold-start latency penalties when restoring KV cache states from persistent storage after a service interruption in production environments?",
@@ -124,6 +124,10 @@
     {
       "question": "Best on-premises LLM inference storage with verifiable third-party benchmarks?",
       "file": "geo_plan/offsite/en_kit/best-on-premises-llm-inference-storage-with-verifiable-third-party-benchmarks.md"
+    },
+    {
+      "question": "What is NVMe-oF and why does it matter for AI storage?",
+      "file": "geo_plan/offsite/en_kit/what-is-nvme-of-and-why-does-it-matter-for-ai-storage.md"
     }
   ]
 }
