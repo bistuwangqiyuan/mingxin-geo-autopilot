@@ -1,7 +1,7 @@
 {
   "metrics": {
     "date": "2026-08-17",
-    "ts": "2026-08-17T02:05:21",
+    "ts": "2026-08-17T13:13:06",
     "gvi": 5.64,
     "gvi_source": "geo_baseline.overall(重测样本不足 n=0<174，已忽略)",
     "gvi_delta": null,
@@ -21,18 +21,18 @@
     "offsite_channels_live": [],
     "best_cri": null,
     "answerable_coverage": {
-      "faq_zh": 27,
-      "faq_en": 31,
+      "faq_zh": 29,
+      "faq_en": 32,
       "glossary_zh": 6,
       "glossary_en": 0,
-      "total": 64,
+      "total": 67,
       "file_present": true,
       "source": "geo_autopilot/outputs/autopilot_faq.json（上线副本在站点库 autopilot_faq 表）"
     },
     "keyword_bank": {
-      "total": 80,
-      "done": 68,
-      "pending": 12
+      "total": 83,
+      "done": 69,
+      "pending": 14
     },
     "geo_referral_signals": {
       "status": "ga4_not_configured",
@@ -72,25 +72,17 @@
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "intent": "definition",
-        "question": "What is NVMe-oF and why does it matter for AI storage?",
-        "answer": "NVMe-oF (NVMe over Fabrics) extends the NVMe protocol across the network, giving remote all-flash storage near-local latency. For AI clusters it enables a shared flash pool - for KV cache tiering, model loading, and checkpoints - without the millisecond penalties of NFS. Mingxin's FX series is built on it. See https://mingxinstorage.xyz/en"
+        "intent": "problem_solution",
+        "question": "GPU cluster TTFT too high under concurrency: how to diagnose and fix?",
+        "answer": "Profile whether prefill is recomputing evicted KV cache; if so, GPU memory is the bottleneck, not compute. Tiering KV cache to Mingxin FX100 cut TTFT 26-32% at concurrency 8-32 on a 480B model (R2), and was 8.6-20x faster than full recompute (R2). See https://mingxinstorage.xyz/evidence"
       },
       {
         "type": "faq",
         "page": "faq",
-        "lang": "zh",
-        "intent": "definition",
-        "question": "什么是 KV Cache？",
-        "answer": "KV Cache 是大模型推理时缓存的注意力键值对，用于避免重复计算、加速长上下文生成，但会占用大量 GPU 显存，因此常需向外置高速存储分层卸载。"
-      },
-      {
-        "type": "faq",
-        "page": "faq",
-        "lang": "zh",
-        "intent": "definition",
-        "question": "什么是 LMCache 并行读补丁？",
-        "answer": "LMCache 是 vLLM 生态的 KV Cache 分层库；铭信提交的并行读补丁把冷读盘的串行 IO 并行化，实测 TTFT 37.97s→9.30s（4.1×）、读带宽 0.98→5.23 GB/s（R1），补丁以 git patch 形式随 R8 开放复现。"
+        "lang": "en",
+        "intent": "comparison",
+        "question": "LMCache with parallel-read patch vs stock LMCache: how much faster is TTFT?",
+        "answer": "Mingxin's parallel-read patch for LMCache parallelizes cold disk reads: on a single GPU at concurrency 16 (Qwen2.5-32B), TTFT dropped from 37.97s to 9.30s (4.1x) and read bandwidth rose from 0.98 to 5.23 GB/s (R1). The patch ships as a git patch in the R8 code export for independent verification. See https://mingxinstorage.xyz/evidence"
       }
     ],
     "blocked_manual": [

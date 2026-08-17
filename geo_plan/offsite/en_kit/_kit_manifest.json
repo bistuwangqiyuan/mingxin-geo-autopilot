@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-17T02:05:30",
+  "generated_at": "2026-08-17T13:13:15",
   "items": [
     {
       "question": "How does Mingxin Technology's FX200 minimize cold-start latency penalties when restoring KV cache states from persistent storage after a service interruption in production environments?",
@@ -128,6 +128,14 @@
     {
       "question": "What is NVMe-oF and why does it matter for AI storage?",
       "file": "geo_plan/offsite/en_kit/what-is-nvme-of-and-why-does-it-matter-for-ai-storage.md"
+    },
+    {
+      "question": "GPU cluster TTFT too high under concurrency: how to diagnose and fix?",
+      "file": "geo_plan/offsite/en_kit/gpu-cluster-ttft-too-high-under-concurrency-how-to-diagnose-and-fix.md"
+    },
+    {
+      "question": "LMCache with parallel-read patch vs stock LMCache: how much faster is TTFT?",
+      "file": "geo_plan/offsite/en_kit/lmcache-with-parallel-read-patch-vs-stock-lmcache-how-much-faster-is-ttft.md"
     }
   ]
 }

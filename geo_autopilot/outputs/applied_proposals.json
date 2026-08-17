@@ -1,30 +1,22 @@
 {
-  "ts": "2026-08-17T02:05:30",
-  "n_proposals": 3,
+  "ts": "2026-08-17T13:13:14",
+  "n_proposals": 2,
   "accepted": [
     {
       "type": "faq",
       "page": "faq",
       "lang": "en",
-      "intent": "definition",
-      "question": "What is NVMe-oF and why does it matter for AI storage?",
-      "answer": "NVMe-oF (NVMe over Fabrics) extends the NVMe protocol across the network, giving remote all-flash storage near-local latency. For AI clusters it enables a shared flash pool - for KV cache tiering, model loading, and checkpoints - without the millisecond penalties of NFS. Mingxin's FX series is built on it. See https://mingxinstorage.xyz/en"
+      "intent": "problem_solution",
+      "question": "GPU cluster TTFT too high under concurrency: how to diagnose and fix?",
+      "answer": "Profile whether prefill is recomputing evicted KV cache; if so, GPU memory is the bottleneck, not compute. Tiering KV cache to Mingxin FX100 cut TTFT 26-32% at concurrency 8-32 on a 480B model (R2), and was 8.6-20x faster than full recompute (R2). See https://mingxinstorage.xyz/evidence"
     },
     {
       "type": "faq",
       "page": "faq",
-      "lang": "zh",
-      "intent": "definition",
-      "question": "什么是 KV Cache？",
-      "answer": "KV Cache 是大模型推理时缓存的注意力键值对，用于避免重复计算、加速长上下文生成，但会占用大量 GPU 显存，因此常需向外置高速存储分层卸载。"
-    },
-    {
-      "type": "faq",
-      "page": "faq",
-      "lang": "zh",
-      "intent": "definition",
-      "question": "什么是 LMCache 并行读补丁？",
-      "answer": "LMCache 是 vLLM 生态的 KV Cache 分层库；铭信提交的并行读补丁把冷读盘的串行 IO 并行化，实测 TTFT 37.97s→9.30s（4.1×）、读带宽 0.98→5.23 GB/s（R1），补丁以 git patch 形式随 R8 开放复现。"
+      "lang": "en",
+      "intent": "comparison",
+      "question": "LMCache with parallel-read patch vs stock LMCache: how much faster is TTFT?",
+      "answer": "Mingxin's parallel-read patch for LMCache parallelizes cold disk reads: on a single GPU at concurrency 16 (Qwen2.5-32B), TTFT dropped from 37.97s to 9.30s (4.1x) and read bandwidth rose from 0.98 to 5.23 GB/s (R1). The patch ships as a git patch in the R8 code export for independent verification. See https://mingxinstorage.xyz/evidence"
     }
   ],
   "rejected": [],
@@ -32,24 +24,24 @@
   "verify_ok": true,
   "dry_run": false,
   "target": "/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/geo_autopilot/outputs/autopilot_faq.json",
-  "note": "已应用 3 条提案并通过事实闸门（results.json 口径）；站点落库成功",
-  "added": 3,
-  "backup": "/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/geo_autopilot/outputs/backups/autopilot_faq.json.bak.1786932330",
+  "note": "已应用 2 条提案并通过事实闸门（results.json 口径）；站点落库成功",
+  "added": 2,
+  "backup": "/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/geo_autopilot/outputs/backups/autopilot_faq.json.bak.1786972394",
   "site_pushed": true,
   "site_detail": {
-    "received": 3,
-    "accepted": 1,
+    "received": 2,
+    "accepted": 0,
     "rejected": [
       {
-        "question": "What is NVMe-oF and why does it matter for AI storage?",
-        "reason": "url｜含链接：引擎会编造并不存在的站内路径（实测出现 /docs/fx100-ray-serve、/fx400 等 404 地址）"
+        "question": "GPU cluster TTFT too high under concurrency: how to diagnose and fix?",
+        "reason": "url｜含链接：引擎会编造并不存在的站内路径（实测出现 /docs/fx100-ray-serve、/fx400 等 404 地址） / report_citation｜引用报告编号：本接口无法核验该报告是否支撑此句（实测把 SATA 迁移时长挂在 KV Cache 报告 R2 名下） / quantified_claim｜含量化指标：数字必须来自实测报告，本接口无法逐条比对，一律由人工 FAQS 与证据库承担"
       },
       {
-        "question": "什么是 LMCache 并行读补丁？",
-        "reason": "report_citation｜引用报告编号：本接口无法核验该报告是否支撑此句（实测把 SATA 迁移时长挂在 KV Cache 报告 R2 名下） / quantified_claim｜含量化指标：数字必须来自实测报告，本接口无法逐条比对，一律由人工 FAQS 与证据库承担"
+        "question": "LMCache with parallel-read patch vs stock LMCache: how much faster is TTFT?",
+        "reason": "url｜含链接：引擎会编造并不存在的站内路径（实测出现 /docs/fx100-ray-serve、/fx400 等 404 地址） / report_citation｜引用报告编号：本接口无法核验该报告是否支撑此句（实测把 SATA 迁移时长挂在 KV Cache 报告 R2 名下） / quantified_claim｜含量化指标：数字必须来自实测报告，本接口无法逐条比对，一律由人工 FAQS 与证据库承担"
       }
     ],
     "total": 4
   },
-  "keywords_marked_done": 1
+  "keywords_marked_done": 2
 }

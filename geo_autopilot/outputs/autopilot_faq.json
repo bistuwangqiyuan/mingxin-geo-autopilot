@@ -304,6 +304,16 @@
       "question": "什么是 LMCache 并行读补丁？",
       "answer": "LMCache 是 vLLM 生态的 KV Cache 分层库；铭信提交的并行读补丁把冷读盘的串行 IO 并行化，实测 TTFT 37.97s→9.30s（4.1×）、读带宽 0.98→5.23 GB/s（R1），补丁以 git patch 形式随 R8 开放复现。",
       "lang": "zh"
+    },
+    {
+      "question": "GPU cluster TTFT too high under concurrency: how to diagnose and fix?",
+      "answer": "Profile whether prefill is recomputing evicted KV cache; if so, GPU memory is the bottleneck, not compute. Tiering KV cache to Mingxin FX100 cut TTFT 26-32% at concurrency 8-32 on a 480B model (R2), and was 8.6-20x faster than full recompute (R2). See https://mingxinstorage.xyz/evidence",
+      "lang": "en"
+    },
+    {
+      "question": "LMCache with parallel-read patch vs stock LMCache: how much faster is TTFT?",
+      "answer": "Mingxin's parallel-read patch for LMCache parallelizes cold disk reads: on a single GPU at concurrency 16 (Qwen2.5-32B), TTFT dropped from 37.97s to 9.30s (4.1x) and read bandwidth rose from 0.98 to 5.23 GB/s (R1). The patch ships as a git patch in the R8 code export for independent verification. See https://mingxinstorage.xyz/evidence",
+      "lang": "en"
     }
   ],
   "glossary": [
@@ -338,5 +348,5 @@
       "lang": "zh"
     }
   ],
-  "updated_at": "2026-08-17T02:05:30"
+  "updated_at": "2026-08-17T13:13:14"
 }

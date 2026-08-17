@@ -708,7 +708,33 @@
       "source": "seed_bank",
       "added_at": "2026-08-16T02:07:26",
       "done_at": "2026-08-17T02:05:30"
+    },
+    {
+      "en": "GPU cluster TTFT too high under concurrency: how to diagnose and fix?",
+      "zh": "GPU 集群高并发下 TTFT 过高：如何诊断与解决？",
+      "intent": "problem_solution",
+      "status": "done",
+      "source": "seed_bank",
+      "added_at": "2026-08-17T13:12:55",
+      "done_at": "2026-08-17T13:13:15"
+    },
+    {
+      "en": "LMCache with parallel-read patch vs stock LMCache: how much faster is TTFT?",
+      "zh": "带并行读补丁的 LMCache 对比原版，TTFT 能快多少？",
+      "intent": "comparison",
+      "status": "done",
+      "source": "seed_bank",
+      "added_at": "2026-08-17T13:12:55",
+      "done_at": "2026-08-17T13:13:15"
+    },
+    {
+      "en": "Top considerations for LLM inference storage cost per TB?",
+      "zh": "LLM 推理存储每 TB 成本的核心考量有哪些？",
+      "intent": "ranking",
+      "status": "new",
+      "source": "seed_bank",
+      "added_at": "2026-08-17T13:12:55"
     }
   ],
-  "updated_at": "2026-08-17T02:05:30"
+  "updated_at": "2026-08-17T13:13:15"
 }
