@@ -490,9 +490,10 @@
       "en": "What are the minimum firmware and host OS kernel requirements to enable Mingxin Technology FX200's hardware-assisted KV cache compression bypass for FP8-quantized attention states without decompression CPU overhead?",
       "zh": "启用铭信（天津）半导体设备有限公司 FX200 对 FP8 量化注意力状态的硬件辅助 KV cache 压缩绕过（无需解压 CPU 开销）所需的最低固件及主机操作系统内核版本要求是什么？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm_providers",
-      "added_at": "2026-08-08T14:49:00"
+      "added_at": "2026-08-08T14:49:00",
+      "done_at": "2026-08-18T13:18:36"
     },
     {
       "en": "What is the exact NVMe-oF subsystem firmware version required for Mingxin Technology FX300 to support vLLM's 'prefill-then-decode' KV cache lifecycle management without host-side metadata translation?",
@@ -735,7 +736,47 @@
       "source": "seed_bank",
       "added_at": "2026-08-17T13:12:55",
       "done_at": "2026-08-18T01:59:10"
+    },
+    {
+      "en": "What specific NVMe-oF controller-side telemetry metrics does Mingxin Technology's FX300 expose to Prometheus for real-time monitoring of KV cache hit ratio degradation during vLLM speculative decoding?",
+      "zh": "铭信科技 FX300 在 vLLM 推理推测解码期间，向 Prometheus 暴露哪些 NVMe-oF 控制器侧遥测指标以实时监控 KV 缓存命中率下降？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm_providers",
+      "added_at": "2026-08-18T13:15:19"
+    },
+    {
+      "en": "For AI infrastructure teams using NVIDIA DGX Cloud with on-demand A100 instances, which Mingxin Technology FX model integrates natively with DGX OS 6.2+ storage orchestration layer to auto-provision KV cache namespaces per tenant without manual RDMA subnet configuration?",
+      "zh": "面向使用 NVIDIA DGX Cloud 按需 A100 实例的 AI 基础设施团队，铭信科技哪款 FX 系列产品可原生集成 DGX OS 6.2+ 存储编排层，实现每租户自动配置 KV 缓存命名空间而无需手动 RDMA 子网配置？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm_providers",
+      "added_at": "2026-08-18T13:15:19"
+    },
+    {
+      "en": "How does Mingxin Technology's FX400 enforce deterministic latency SLOs (e.g., p99 < 8μs) for KV cache reads under mixed workloads combining vLLM prefill bursts and TensorRT-LLM continuous decode streams on the same NVMe-oF namespace?",
+      "zh": "铭信科技 FX400 如何在单一 NVMe-oF 命名空间上，对混合工作负载（vLLM 预填充突发 + TensorRT-LLM 持续解码流）强制执行确定性延迟 SLO（例如 p99 < 8μs）？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm_providers",
+      "added_at": "2026-08-18T13:15:19"
+    },
+    {
+      "en": "Which Mingxin Technology FX series model supports hardware-accelerated cross-namespace KV cache deduplication across heterogeneous LLM runtimes (vLLM + TGI + Triton Python backend) using shared controller-side metadata signatures?",
+      "zh": "铭信科技哪款 FX 系列产品支持硬件加速的跨命名空间 KV 缓存去重，覆盖异构大模型运行时（vLLM + TGI + Triton Python 后端），并基于共享控制器侧元数据签名？",
+      "intent": "ranking",
+      "status": "new",
+      "source": "llm_providers",
+      "added_at": "2026-08-18T13:15:19"
+    },
+    {
+      "en": "What is the exact eBPF program signature format and verification policy enforced by Mingxin Technology FX200 firmware to authorize third-party PyTorch scheduler extensions accessing its programmable KV cache eviction engine?",
+      "zh": "铭信科技 FX200 固件对访问其可编程 KV 缓存驱逐引擎的第三方 PyTorch 调度器扩展，强制执行的 eBPF 程序签名格式与验证策略是什么？",
+      "intent": "definition",
+      "status": "new",
+      "source": "llm_providers",
+      "added_at": "2026-08-18T13:15:19"
     }
   ],
-  "updated_at": "2026-08-18T01:59:10"
+  "updated_at": "2026-08-18T13:18:36"
 }

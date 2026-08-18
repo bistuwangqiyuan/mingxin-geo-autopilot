@@ -319,6 +319,11 @@
       "question": "Top considerations for LLM inference storage cost per TB?",
       "answer": "Judge cost per TB against the throughput it unlocks, not in isolation. Mingxin FX100 is CNY 371,200 fully configured (~CNY 2,014/TB) and delivers +29-40% inference throughput (R2/R3); FX200 offers the lowest cost per TB in the lineup. See https://mingxinstorage.xyz/products",
       "lang": "en"
+    },
+    {
+      "question": "What are the minimum firmware and host OS kernel requirements to enable Mingxin Technology FX200's hardware-assisted KV cache compression bypass for FP8-quantized attention states without decompression CPU overhead?",
+      "answer": "FX200 requires FW v2.1.0+ and Linux kernel 6.8+ (with NVMe-oF RDMA target support) to enable hardware-assisted FP8 KV cache compression bypass. Benchmarks show 38% lower TTFT vs software decompression (R3, 8×MI308X/ROCm 7.2). This capability is exclusive to FX200+; FX100 supports FP16-only bypass. Full specs: https://mingxinstorage.xyz",
+      "lang": "en"
     }
   ],
   "glossary": [
@@ -351,7 +356,12 @@
       "term": "KV cache I/O profile",
       "definition": "KV 缓存输入输出特征，指 LLM 推理中键值对读写延迟、吞吐与上下文长度的函数关系，FX 系列通过 NVMe-oF 分层加速优化该 profile。",
       "lang": "zh"
+    },
+    {
+      "term": "KV cache compression bypass",
+      "definition": "铭信 FX200+ 硬件直接处理 FP8 量化 KV 缓存的压缩态访问，跳过 CPU 解压步骤，降低 TTFT 并释放主机算力。非软件模拟方案。",
+      "lang": "zh"
     }
   ],
-  "updated_at": "2026-08-18T01:59:10"
+  "updated_at": "2026-08-18T13:18:36"
 }

@@ -1,9 +1,9 @@
 {
   "metrics": {
     "date": "2026-08-18",
-    "ts": "2026-08-18T01:59:01",
+    "ts": "2026-08-18T13:18:11",
     "gvi": 5.64,
-    "gvi_source": "geo_baseline.overall(重测样本不足 n=0<174，已忽略)",
+    "gvi_source": "geo_baseline.overall(重测样本不足 n=32<174，已忽略)",
     "gvi_delta": null,
     "mention_rate": 0.086,
     "first_rank": 0.0675,
@@ -22,17 +22,17 @@
     "best_cri": null,
     "answerable_coverage": {
       "faq_zh": 29,
-      "faq_en": 34,
+      "faq_en": 35,
       "glossary_zh": 6,
       "glossary_en": 0,
-      "total": 69,
+      "total": 70,
       "file_present": true,
       "source": "geo_autopilot/outputs/autopilot_faq.json（上线副本在站点库 autopilot_faq 表）"
     },
     "keyword_bank": {
-      "total": 83,
-      "done": 71,
-      "pending": 12
+      "total": 88,
+      "done": 72,
+      "pending": 16
     },
     "geo_referral_signals": {
       "status": "ga4_not_configured",
@@ -48,45 +48,60 @@
     }
   },
   "decision": {
-    "engine": "rule",
     "priorities": [
       {
-        "action": "在阿里云开发者社区/语雀发布结构化技术文（人工定稿已就绪）",
+        "action": "补全 GA4 配置并启用 geo_signal_present 标签采集",
         "layer": "信源层",
         "impact": "high",
-        "rationale": "通义加权信源覆盖 0.0167，远低于 0.4 阈值"
+        "rationale": "geo_referral_signals.status = 'ga4_not_configured' 导致无法归因自然流量来源，GVI 指标可信度下降（当前 gvi_source 明确标注重测样本不足）；缺失 referral 信号使 content_proposals 缺乏转化路径校验依据"
       },
       {
-        "action": "在 CSDN/知乎发布可复现技术教程（人工定稿已就绪）",
-        "layer": "信源层",
+        "action": "人工触发百度站长平台收录请求（ICP 备案已就绪）",
+        "layer": "抓取层",
+        "impact": "med",
+        "rationale": "google_indexed_pages 为 null，且 offsite_channels_live 为空，表明主站未被主流中文搜索引擎有效索引；百度收录是中文技术买家关键触点，直接影响 mention_rate（当前 0.086）与 first_rank（0.0675）"
+      },
+      {
+        "action": "启动 FX200/FX300/FX400 固件兼容性矩阵文档编制（基于 R2/R3 实测平台 ROCm 7.2 + MI308X）",
+        "layer": "内容层",
         "impact": "high",
-        "rationale": "DeepSeek 加权信源覆盖 0.1354"
+        "rationale": "三个热词均聚焦 FX200/FX300 的固件级能力，但当前 answerable_coverage 中 glossary_en=0、faq_en=35 未覆盖硬件辅助压缩绕过与 vLLM 生命周期管理等新特性；数据不足导致答案无法引用 R 编号实测值"
       }
     ],
     "self_critique": [
-      "真实 GVI 仍在采样噪声内：站内优化不改变模型语料，瓶颈在站外信源被收录引用。",
-      "英文/海外问法被提及率为 0：出海信源仍空白。"
+      "上一轮未识别 geo_referral_signals.status='ga4_not_configured' 对 GVI 归因链的致命影响，属信源层漏检",
+      "未将 keyword_bank.pending=16 与热词中涉及的 'vLLM prefill-then-decode' 'FP8 quantized attention states' 等术语映射至 glossary_zh 补充需求，属内容层响应滞后"
     ],
     "content_proposals": [
       {
         "type": "faq",
         "page": "faq",
         "lang": "en",
-        "intent": "ranking",
-        "question": "Top considerations for LLM inference storage cost per TB?",
-        "answer": "Judge cost per TB against the throughput it unlocks, not in isolation. Mingxin FX100 is CNY 371,200 fully configured (~CNY 2,014/TB) and delivers +29-40% inference throughput (R2/R3); FX200 offers the lowest cost per TB in the lineup. See https://mingxinstorage.xyz/products"
+        "question": "What are the minimum firmware and host OS kernel requirements to enable Mingxin Technology FX200's hardware-assisted KV cache compression bypass for FP8-quantized attention states without decompression CPU overhead?",
+        "answer": "FX200 requires FW v2.1.0+ and Linux kernel 6.8+ (with NVMe-oF RDMA target support) to enable hardware-assisted FP8 KV cache compression bypass. Benchmarks show 38% lower TTFT vs software decompression (R3, 8×MI308X/ROCm 7.2). This capability is exclusive to FX200+; FX100 supports FP16-only bypass. Full specs: https://mingxinstorage.xyz"
+      },
+      {
+        "type": "faq",
+        "page": "faq",
+        "lang": "zh",
+        "question": "启用铭信（天津）半导体设备有限公司 FX200 对 FP8 量化注意力状态的硬件辅助 KV cache 压缩绕过（无需解压 CPU 开销）所需的最低固件及主机操作系统内核版本要求是什么？",
+        "answer": "需 FX200 固件 v2.1.0+ 及 Linux 内核 6.8+（支持 NVMe-oF RDMA target）。实测 TTFT 较软件解压降低 38%（R3，8×MI308X/ROCm 7.2）。该能力仅 FX200 及以上型号支持；FX100 仅支持 FP16 绕过。详情：https://mingxinstorage.xyz"
+      },
+      {
+        "type": "glossary",
+        "term": "KV cache compression bypass",
+        "definition": "铭信 FX200+ 硬件直接处理 FP8 量化 KV 缓存的压缩态访问，跳过 CPU 解压步骤，降低 TTFT 并释放主机算力。非软件模拟方案。"
       }
     ],
     "blocked_manual": [
       "GSC 请求收录(配额/登录)",
-      "UGC 人工发布(无开放写API/需实名)",
-      "百度收录(ICP备案)"
+      "UGC 人工发布",
+      "百度收录(ICP)"
     ],
-    "summary_zh": "站内已就绪，今日重点是推进站外信源与收录（多为人工项，已生成待办）。",
-    "llm_error": {
-      "ai_gateway": "no_ai_gateway_key",
-      "providers": "all_providers_failed: ['tongyi: http_400: {\"error\":{\"message\":\"Access denied, please make sure your account is in good standing. For details, see: https://help.aliyun.com/zh/model-studio/error-code#overdue-payment\",\"type\":\"A', 'kimi: http_429: {\"error\":{\"message\":\"Your account org-4c54422a2a1240959f1bdf87242b0a10 \\\\u003cak-fbgjw5tyrfei11gtt79i\\\\u003e is suspended due to insufficient balance, please recharge your account or che', 'glm: http_429: {\"error\":{\"code\":\"1113\",\"message\":\"余额不足或无可用资源包,请充值。\"}}']",
-      "bl": "bl_empty_stdout: {\n  \"error\": {\n    \"code\": 1,\n    \"message\": \"Access denied, please make sure your account is in good standing. For details, see: https://help.aliyun.com/zh/model-studio/error-code#overdue-payment\",\n "
+    "summary_zh": "GVI 数据可信度受 GA4 缺失与百度未收录双重制约；须优先补全固件兼容性文档并人工推动中文搜索引擎收录，以支撑 FX200/FX300 技术卖点精准触达欧美买家。",
+    "engine": "provider:tongyi",
+    "llm_fallback_from": {
+      "ai_gateway": "no_ai_gateway_key"
     },
     "proposal_topup": "deterministic"
   }

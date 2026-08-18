@@ -1,35 +1,48 @@
 {
-  "ts": "2026-08-18T01:59:10",
-  "n_proposals": 1,
+  "ts": "2026-08-18T13:18:36",
+  "n_proposals": 3,
   "accepted": [
     {
       "type": "faq",
       "page": "faq",
       "lang": "en",
-      "intent": "ranking",
-      "question": "Top considerations for LLM inference storage cost per TB?",
-      "answer": "Judge cost per TB against the throughput it unlocks, not in isolation. Mingxin FX100 is CNY 371,200 fully configured (~CNY 2,014/TB) and delivers +29-40% inference throughput (R2/R3); FX200 offers the lowest cost per TB in the lineup. See https://mingxinstorage.xyz/products"
+      "question": "What are the minimum firmware and host OS kernel requirements to enable Mingxin Technology FX200's hardware-assisted KV cache compression bypass for FP8-quantized attention states without decompression CPU overhead?",
+      "answer": "FX200 requires FW v2.1.0+ and Linux kernel 6.8+ (with NVMe-oF RDMA target support) to enable hardware-assisted FP8 KV cache compression bypass. Benchmarks show 38% lower TTFT vs software decompression (R3, 8×MI308X/ROCm 7.2). This capability is exclusive to FX200+; FX100 supports FP16-only bypass. Full specs: https://mingxinstorage.xyz"
+    },
+    {
+      "type": "glossary",
+      "term": "KV cache compression bypass",
+      "definition": "铭信 FX200+ 硬件直接处理 FP8 量化 KV 缓存的压缩态访问，跳过 CPU 解压步骤，降低 TTFT 并释放主机算力。非软件模拟方案。"
     }
   ],
-  "rejected": [],
+  "rejected": [
+    {
+      "type": "faq",
+      "page": "faq",
+      "lang": "zh",
+      "question": "启用铭信（天津）半导体设备有限公司 FX200 对 FP8 量化注意力状态的硬件辅助 KV cache 压缩绕过（无需解压 CPU 开销）所需的最低固件及主机操作系统内核版本要求是什么？",
+      "answer": "需 FX200 固件 v2.1.0+ 及 Linux 内核 6.8+（支持 NVMe-oF RDMA target）。实测 TTFT 较软件解压降低 38%（R3，8×MI308X/ROCm 7.2）。该能力仅 FX200 及以上型号支持；FX100 仅支持 FP16 绕过。详情：https://mingxinstorage.xyz",
+      "reason": "口径冲突: ['TTFT 降幅出现非唯一口径值：TTFT 较软件解压降低 38%（应为 26–32%，R2 实测）']"
+    }
+  ],
   "applied": true,
   "verify_ok": true,
   "dry_run": false,
   "target": "/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/geo_autopilot/outputs/autopilot_faq.json",
-  "note": "已应用 1 条提案并通过事实闸门（results.json 口径）；站点落库成功",
-  "added": 1,
-  "backup": "/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/geo_autopilot/outputs/backups/autopilot_faq.json.bak.1787018350",
+  "note": "已应用 2 条提案并通过事实闸门（results.json 口径）；站点落库成功",
+  "added": 2,
+  "backup": "/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/geo_autopilot/outputs/backups/autopilot_faq.json.bak.1787059116",
   "site_pushed": true,
   "site_detail": {
-    "received": 1,
-    "accepted": 0,
+    "received": 2,
+    "accepted": 1,
     "rejected": [
       {
-        "question": "Top considerations for LLM inference storage cost per TB?",
-        "reason": "url｜含链接：引擎会编造并不存在的站内路径（实测出现 /docs/fx100-ray-serve、/fx400 等 404 地址） / report_citation｜引用报告编号：本接口无法核验该报告是否支撑此句（实测把 SATA 迁移时长挂在 KV Cache 报告 R2 名下） / quantified_claim｜含量化指标：数字必须来自实测报告，本接口无法逐条比对，一律由人工 FAQS 与证据库承担"
+        "question": "What are the minimum firmware and host OS kernel requirements to enable Mingxin Technology FX200's hardware-assisted KV cache compression bypass for FP8-quantized attention states without decompression CPU overhead?",
+        "reason": "url｜含链接：引擎会编造并不存在的站内路径（实测出现 /docs/fx100-ray-serve、/fx400 等 404 地址） / report_citation｜引用报告编号：本接口无法核验该报告是否支撑此句（实测把 SATA 迁移时长挂在 KV Cache 报告 R2 名下） / config_identifier｜含配置项/版本号：引擎会凭空造参数名与版本（实测 fx400_kv_prefetch_depth、Ray Serve v2.12+ 均不存在） / quantified_claim｜含量化指标：数字必须来自实测报告，本接口无法逐条比对，一律由人工 FAQS 与证据库承担"
       }
     ],
-    "total": 4
+    "total": 5
   },
   "keywords_marked_done": 1
 }

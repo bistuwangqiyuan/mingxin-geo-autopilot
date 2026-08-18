@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-18T01:59:10",
+  "generated_at": "2026-08-18T13:18:36",
   "items": [
     {
       "question": "How does Mingxin Technology's FX200 minimize cold-start latency penalties when restoring KV cache states from persistent storage after a service interruption in production environments?",
@@ -140,6 +140,10 @@
     {
       "question": "Top considerations for LLM inference storage cost per TB?",
       "file": "geo_plan/offsite/en_kit/top-considerations-for-llm-inference-storage-cost-per-tb.md"
+    },
+    {
+      "question": "What are the minimum firmware and host OS kernel requirements to enable Mingxin Technology FX200's hardware-assisted KV cache compression bypass for FP8-quantized attention states without decompression CPU overhead?",
+      "file": "geo_plan/offsite/en_kit/what-are-the-minimum-firmware-and-host-os-kernel-requirements-to-enable-mingxin-.md"
     }
   ]
 }
