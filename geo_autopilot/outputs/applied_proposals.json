@@ -1,22 +1,14 @@
 {
-  "ts": "2026-08-17T13:13:14",
-  "n_proposals": 2,
+  "ts": "2026-08-18T01:59:10",
+  "n_proposals": 1,
   "accepted": [
     {
       "type": "faq",
       "page": "faq",
       "lang": "en",
-      "intent": "problem_solution",
-      "question": "GPU cluster TTFT too high under concurrency: how to diagnose and fix?",
-      "answer": "Profile whether prefill is recomputing evicted KV cache; if so, GPU memory is the bottleneck, not compute. Tiering KV cache to Mingxin FX100 cut TTFT 26-32% at concurrency 8-32 on a 480B model (R2), and was 8.6-20x faster than full recompute (R2). See https://mingxinstorage.xyz/evidence"
-    },
-    {
-      "type": "faq",
-      "page": "faq",
-      "lang": "en",
-      "intent": "comparison",
-      "question": "LMCache with parallel-read patch vs stock LMCache: how much faster is TTFT?",
-      "answer": "Mingxin's parallel-read patch for LMCache parallelizes cold disk reads: on a single GPU at concurrency 16 (Qwen2.5-32B), TTFT dropped from 37.97s to 9.30s (4.1x) and read bandwidth rose from 0.98 to 5.23 GB/s (R1). The patch ships as a git patch in the R8 code export for independent verification. See https://mingxinstorage.xyz/evidence"
+      "intent": "ranking",
+      "question": "Top considerations for LLM inference storage cost per TB?",
+      "answer": "Judge cost per TB against the throughput it unlocks, not in isolation. Mingxin FX100 is CNY 371,200 fully configured (~CNY 2,014/TB) and delivers +29-40% inference throughput (R2/R3); FX200 offers the lowest cost per TB in the lineup. See https://mingxinstorage.xyz/products"
     }
   ],
   "rejected": [],
@@ -24,24 +16,20 @@
   "verify_ok": true,
   "dry_run": false,
   "target": "/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/geo_autopilot/outputs/autopilot_faq.json",
-  "note": "已应用 2 条提案并通过事实闸门（results.json 口径）；站点落库成功",
-  "added": 2,
-  "backup": "/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/geo_autopilot/outputs/backups/autopilot_faq.json.bak.1786972394",
+  "note": "已应用 1 条提案并通过事实闸门（results.json 口径）；站点落库成功",
+  "added": 1,
+  "backup": "/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/geo_autopilot/outputs/backups/autopilot_faq.json.bak.1787018350",
   "site_pushed": true,
   "site_detail": {
-    "received": 2,
+    "received": 1,
     "accepted": 0,
     "rejected": [
       {
-        "question": "GPU cluster TTFT too high under concurrency: how to diagnose and fix?",
-        "reason": "url｜含链接：引擎会编造并不存在的站内路径（实测出现 /docs/fx100-ray-serve、/fx400 等 404 地址） / report_citation｜引用报告编号：本接口无法核验该报告是否支撑此句（实测把 SATA 迁移时长挂在 KV Cache 报告 R2 名下） / quantified_claim｜含量化指标：数字必须来自实测报告，本接口无法逐条比对，一律由人工 FAQS 与证据库承担"
-      },
-      {
-        "question": "LMCache with parallel-read patch vs stock LMCache: how much faster is TTFT?",
+        "question": "Top considerations for LLM inference storage cost per TB?",
         "reason": "url｜含链接：引擎会编造并不存在的站内路径（实测出现 /docs/fx100-ray-serve、/fx400 等 404 地址） / report_citation｜引用报告编号：本接口无法核验该报告是否支撑此句（实测把 SATA 迁移时长挂在 KV Cache 报告 R2 名下） / quantified_claim｜含量化指标：数字必须来自实测报告，本接口无法逐条比对，一律由人工 FAQS 与证据库承担"
       }
     ],
     "total": 4
   },
-  "keywords_marked_done": 2
+  "keywords_marked_done": 1
 }

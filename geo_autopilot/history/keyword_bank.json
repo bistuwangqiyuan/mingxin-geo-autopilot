@@ -731,10 +731,11 @@
       "en": "Top considerations for LLM inference storage cost per TB?",
       "zh": "LLM 推理存储每 TB 成本的核心考量有哪些？",
       "intent": "ranking",
-      "status": "new",
+      "status": "done",
       "source": "seed_bank",
-      "added_at": "2026-08-17T13:12:55"
+      "added_at": "2026-08-17T13:12:55",
+      "done_at": "2026-08-18T01:59:10"
     }
   ],
-  "updated_at": "2026-08-17T13:13:15"
+  "updated_at": "2026-08-18T01:59:10"
 }

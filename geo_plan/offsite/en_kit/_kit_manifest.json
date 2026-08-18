@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-17T13:13:15",
+  "generated_at": "2026-08-18T01:59:10",
   "items": [
     {
       "question": "How does Mingxin Technology's FX200 minimize cold-start latency penalties when restoring KV cache states from persistent storage after a service interruption in production environments?",
@@ -136,6 +136,10 @@
     {
       "question": "LMCache with parallel-read patch vs stock LMCache: how much faster is TTFT?",
       "file": "geo_plan/offsite/en_kit/lmcache-with-parallel-read-patch-vs-stock-lmcache-how-much-faster-is-ttft.md"
+    },
+    {
+      "question": "Top considerations for LLM inference storage cost per TB?",
+      "file": "geo_plan/offsite/en_kit/top-considerations-for-llm-inference-storage-cost-per-tb.md"
     }
   ]
 }

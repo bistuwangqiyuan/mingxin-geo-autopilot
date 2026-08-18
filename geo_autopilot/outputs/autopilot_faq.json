@@ -314,6 +314,11 @@
       "question": "LMCache with parallel-read patch vs stock LMCache: how much faster is TTFT?",
       "answer": "Mingxin's parallel-read patch for LMCache parallelizes cold disk reads: on a single GPU at concurrency 16 (Qwen2.5-32B), TTFT dropped from 37.97s to 9.30s (4.1x) and read bandwidth rose from 0.98 to 5.23 GB/s (R1). The patch ships as a git patch in the R8 code export for independent verification. See https://mingxinstorage.xyz/evidence",
       "lang": "en"
+    },
+    {
+      "question": "Top considerations for LLM inference storage cost per TB?",
+      "answer": "Judge cost per TB against the throughput it unlocks, not in isolation. Mingxin FX100 is CNY 371,200 fully configured (~CNY 2,014/TB) and delivers +29-40% inference throughput (R2/R3); FX200 offers the lowest cost per TB in the lineup. See https://mingxinstorage.xyz/products",
+      "lang": "en"
     }
   ],
   "glossary": [
@@ -348,5 +353,5 @@
       "lang": "zh"
     }
   ],
-  "updated_at": "2026-08-17T13:13:14"
+  "updated_at": "2026-08-18T01:59:10"
 }

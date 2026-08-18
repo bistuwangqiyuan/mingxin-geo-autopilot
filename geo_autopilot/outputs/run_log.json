@@ -1,7 +1,7 @@
 {
   "mode": "ci",
-  "started": "2026-08-17T13:12:47",
-  "elapsed": 44.8,
+  "started": "2026-08-18T01:58:51",
+  "elapsed": 37.3,
   "paths": {
     "ROOT": "/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot",
     "GEO_PLAN": "/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/geo_plan",
@@ -27,30 +27,30 @@
     {
       "name": "geo_autopilot/keyword_miner.py",
       "ok": true,
-      "note": "  + [ranking] Top considerations for LLM inference storage cost per TB?",
+      "note": "[keyword_miner] source=skipped_backpressure added=0 bank_total=83 pending=12",
       "critical": false,
-      "elapsed": 8.3
+      "elapsed": 0.0
     },
     {
       "name": "seo_geo_loop/gvi_measure.py --force --limit 8",
       "ok": true,
       "note": "写出：/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/seo_geo_loop/outputs/gvi_compare.json",
       "critical": false,
-      "elapsed": 11.4
+      "elapsed": 9.9
     },
     {
       "name": "geo_autopilot/geo_brain.py",
       "ok": true,
-      "note": "  priorities=2 proposals=2",
+      "note": "  priorities=2 proposals=1",
       "critical": false,
-      "elapsed": 8.2
+      "elapsed": 8.4
     },
     {
       "name": "geo_autopilot/apply_proposals.py",
       "ok": true,
-      "note": "  已应用 2 条提案并通过事实闸门（results.json 口径）；站点落库成功",
+      "note": "  已应用 1 条提案并通过事实闸门（results.json 口径）；站点落库成功",
       "critical": false,
-      "elapsed": 0.9
+      "elapsed": 0.7
     },
     {
       "name": "seo_geo_loop/build_offsite_site.py",
@@ -69,7 +69,7 @@
     {
       "name": "seo_geo_loop/make_geo_kit_en.py",
       "ok": true,
-      "note": "[geo_kit_en] 生成 34 个成品包 -> /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/geo_plan/offsite/en_kit",
+      "note": "[geo_kit_en] 生成 35 个成品包 -> /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/geo_plan/offsite/en_kit",
       "critical": false,
       "elapsed": 0.0
     },
@@ -78,28 +78,28 @@
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 3.8
+      "elapsed": 3.7
     },
     {
       "name": "geo_plan/geo_scoring.py",
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 1.6
+      "elapsed": 1.7
     },
     {
       "name": "seo_geo_loop/indexnow_submit.py",
       "ok": true,
-      "note": "[OK] 560 URLs; written /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/seo_geo_loop/outputs/indexnow_submit.json",
+      "note": "[OK] 565 URLs; written /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/seo_geo_loop/outputs/indexnow_submit.json",
       "critical": false,
-      "elapsed": 3.9
+      "elapsed": 4.5
     },
     {
       "name": "seo_geo_loop/live_audit.py",
       "ok": true,
       "note": "  写出 -> /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/seo_geo_loop/outputs/live_status.json",
       "critical": false,
-      "elapsed": 1.3
+      "elapsed": 1.2
     },
     {
       "name": "geo_autopilot/traffic_check.py",
@@ -148,21 +148,21 @@
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": true,
-      "elapsed": 1.1
+      "elapsed": 1.2
     },
     {
       "name": "geo_autopilot/export_daily_pdf.py",
       "ok": true,
-      "note": "Saved: /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/geo_autopilot/reports/铭信-GEO自动驾驶日报-2026-08-17.pdf  (0.89 MB)",
+      "note": "Saved: /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/geo_autopilot/reports/铭信-GEO自动驾驶日报-2026-08-18.pdf  (0.89 MB)",
       "critical": false,
-      "elapsed": 2.4
+      "elapsed": 2.2
     },
     {
       "name": "geo_autopilot/alerting.py",
       "ok": true,
       "note": "[alerting] level=warn delivery=commented_issue_2 alerts=0 blocked=3",
       "critical": false,
-      "elapsed": 1.6
+      "elapsed": 3.6
     }
   ]
 }
