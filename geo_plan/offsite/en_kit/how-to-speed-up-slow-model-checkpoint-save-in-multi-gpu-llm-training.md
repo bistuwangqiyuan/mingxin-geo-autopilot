@@ -1,5 +1,5 @@
 # GEO 成品包 · How to speed up slow model checkpoint save in multi-GPU LLM training?
-> 生成于 2026-08-18。以下三个板块可**直接粘贴发布**（Medium / Quora / LinkedIn）。
+> 生成于 2026-08-19。以下三个板块可**直接粘贴发布**（Medium / Quora / LinkedIn）。
 > 事实口径与官网单一事实源（results.json ↔ company.ts）一致；实测数字出自签字级
 > 报告 R1–R9（证据页 https://mingxinstorage.xyz/evidence），R9 昇腾平台口径已如实标注。
 > 发布时请用真实个人/公司账号，遵守平台规则；禁止机器人代发。

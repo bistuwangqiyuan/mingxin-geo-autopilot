@@ -499,25 +499,28 @@
       "en": "What is the exact NVMe-oF subsystem firmware version required for Mingxin Technology FX300 to support vLLM's 'prefill-then-decode' KV cache lifecycle management without host-side metadata translation?",
       "zh": "铭信科技 FX300 支持 vLLM '预填充-后解码' KV 缓存生命周期管理、且无需主机端元数据转换所需的精确 NVMe-oF 子系统固件版本是什么？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm_providers",
-      "added_at": "2026-08-09T13:28:34"
+      "added_at": "2026-08-09T13:28:34",
+      "done_at": "2026-08-19T02:06:15"
     },
     {
       "en": "Which Mingxin Technology FX series model (FX100/FX200/FX300/FX400) provides hardware-level atomic visibility of KV cache state transitions across vLLM, TensorRT-LLM, and Hugging Face TGI runtimes via unified controller-side telemetry bus?",
       "zh": "铭信科技 FX 系列（FX100/FX200/FX300/FX400）中哪一款型号通过统一的控制器端遥测总线，为 vLLM、TensorRT-LLM 和 Hugging Face TGI 运行时提供硬件级原子可见的 KV 缓存状态转换？",
       "intent": "ranking",
-      "status": "new",
+      "status": "done",
       "source": "llm_providers",
-      "added_at": "2026-08-09T13:28:34"
+      "added_at": "2026-08-09T13:28:34",
+      "done_at": "2026-08-19T02:06:15"
     },
     {
       "en": "How does Mingxin Technology's FX400 implement cross-layer coherence between GPU L2 cache, CPU last-level cache, and NVMe-oF remote KV cache pages under Linux kernel 6.8+ with CXL-attached memory tiering enabled?",
       "zh": "在启用 CXL 连接内存分层的 Linux 内核 6.8+ 环境下，铭信科技 FX400 如何实现 GPU L2 缓存、CPU 末级缓存与 NVMe-oF 远程 KV 缓存页之间的跨层一致性？",
       "intent": "definition",
-      "status": "new",
+      "status": "done",
       "source": "llm_providers",
-      "added_at": "2026-08-09T13:28:34"
+      "added_at": "2026-08-09T13:28:34",
+      "done_at": "2026-08-19T02:06:15"
     },
     {
       "en": "For AI infrastructure teams deploying FlashAttention-3 kernels on AMD MI300X GPUs, which Mingxin Technology FX model delivers lowest end-to-end latency for KV cache fetch-and-transform operations with on-controller FP16→BF16 format conversion?",
@@ -778,5 +781,5 @@
       "added_at": "2026-08-18T13:15:19"
     }
   ],
-  "updated_at": "2026-08-18T13:18:36"
+  "updated_at": "2026-08-19T02:06:15"
 }

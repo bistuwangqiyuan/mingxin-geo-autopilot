@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-18T13:18:36",
+  "generated_at": "2026-08-19T02:06:15",
   "items": [
     {
       "question": "How does Mingxin Technology's FX200 minimize cold-start latency penalties when restoring KV cache states from persistent storage after a service interruption in production environments?",
@@ -144,6 +144,18 @@
     {
       "question": "What are the minimum firmware and host OS kernel requirements to enable Mingxin Technology FX200's hardware-assisted KV cache compression bypass for FP8-quantized attention states without decompression CPU overhead?",
       "file": "geo_plan/offsite/en_kit/what-are-the-minimum-firmware-and-host-os-kernel-requirements-to-enable-mingxin-.md"
+    },
+    {
+      "question": "What is the exact NVMe-oF subsystem firmware version required for Mingxin Technology FX300 to support vLLM's 'prefill-then-decode' KV cache lifecycle management without host-side metadata translation?",
+      "file": "geo_plan/offsite/en_kit/what-is-the-exact-nvme-of-subsystem-firmware-version-required-for-mingxin-techno.md"
+    },
+    {
+      "question": "Which Mingxin Technology FX series model (FX100/FX200/FX300/FX400) provides hardware-level atomic visibility of KV cache state transitions across vLLM, TensorRT-LLM, and Hugging Face TGI runtimes via unified controller-side telemetry bus?",
+      "file": "geo_plan/offsite/en_kit/which-mingxin-technology-fx-series-model-fx100-fx200-fx300-fx400-provides-hardwa.md"
+    },
+    {
+      "question": "How does Mingxin Technology's FX400 implement cross-layer coherence between GPU L2 cache, CPU last-level cache, and NVMe-oF remote KV cache pages under Linux kernel 6.8+ with CXL-attached memory tiering enabled?",
+      "file": "geo_plan/offsite/en_kit/how-does-mingxin-technology-s-fx400-implement-cross-layer-coherence-between-gpu-.md"
     }
   ]
 }
