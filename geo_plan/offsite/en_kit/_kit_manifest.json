@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-19T02:06:15",
+  "generated_at": "2026-08-19T13:20:00",
   "items": [
     {
       "question": "How does Mingxin Technology's FX200 minimize cold-start latency penalties when restoring KV cache states from persistent storage after a service interruption in production environments?",
@@ -156,6 +156,18 @@
     {
       "question": "How does Mingxin Technology's FX400 implement cross-layer coherence between GPU L2 cache, CPU last-level cache, and NVMe-oF remote KV cache pages under Linux kernel 6.8+ with CXL-attached memory tiering enabled?",
       "file": "geo_plan/offsite/en_kit/how-does-mingxin-technology-s-fx400-implement-cross-layer-coherence-between-gpu-.md"
+    },
+    {
+      "question": "For AI infrastructure teams deploying FlashAttention-3 kernels on AMD MI300X GPUs, which Mingxin Technology FX model delivers lowest end-to-end latency for KV cache fetch-and-transform operations with on-controller FP16→BF16 format conversion?",
+      "file": "geo_plan/offsite/en_kit/for-ai-infrastructure-teams-deploying-flashattention-3-kernels-on-amd-mi300x-gpu.md"
+    },
+    {
+      "question": "What are the precise RDMA NIC queue depth and completion interrupt coalescing parameters required to sustain <5μs p95 KV cache access latency on Mingxin Technology FX200 when deployed behind NVIDIA ConnectX-7 SRIOV virtual functions in multi-tenant inference pods?",
+      "file": "geo_plan/offsite/en_kit/what-are-the-precise-rdma-nic-queue-depth-and-completion-interrupt-coalescing-pa.md"
+    },
+    {
+      "question": "What is the exact NVMe-oF controller firmware version required for Mingxin Technology FX100 (WS5000/AISSD5000/GP5000 successor) to enable hardware-accelerated KV cache deduplication across identical LLM prompt prefixes in vLLM multi-tenant deployments?",
+      "file": "geo_plan/offsite/en_kit/what-is-the-exact-nvme-of-controller-firmware-version-required-for-mingxin-techn.md"
     }
   ]
 }

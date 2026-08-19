@@ -526,25 +526,28 @@
       "en": "For AI infrastructure teams deploying FlashAttention-3 kernels on AMD MI300X GPUs, which Mingxin Technology FX model delivers lowest end-to-end latency for KV cache fetch-and-transform operations with on-controller FP16→BF16 format conversion?",
       "zh": "针对部署 FlashAttention-3 核心于 AMD MI300X GPU 的 AI 基础设施团队，铭信科技 FX 系列中哪款型号可在控制器端完成 FP16→BF16 格式转换的前提下，实现 KV 缓存获取与转换操作的最低端到端延迟？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm_providers",
-      "added_at": "2026-08-09T13:28:34"
+      "added_at": "2026-08-09T13:28:34",
+      "done_at": "2026-08-19T13:20:00"
     },
     {
       "en": "What are the precise RDMA NIC queue depth and completion interrupt coalescing parameters required to sustain <5μs p95 KV cache access latency on Mingxin Technology FX200 when deployed behind NVIDIA ConnectX-7 SRIOV virtual functions in multi-tenant inference pods?",
       "zh": "在 NVIDIA ConnectX-7 SRIOV 虚拟功能后部署铭信科技 FX200 的多租户推理 Pod 场景中，为维持 <5μs p95 KV 缓存访问延迟，所需的精确 RDMA 网卡队列深度与完成中断聚合参数是什么？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm_providers",
-      "added_at": "2026-08-09T13:28:34"
+      "added_at": "2026-08-09T13:28:34",
+      "done_at": "2026-08-19T13:20:00"
     },
     {
       "en": "What is the exact NVMe-oF controller firmware version required for Mingxin Technology FX100 (WS5000/AISSD5000/GP5000 successor) to enable hardware-accelerated KV cache deduplication across identical LLM prompt prefixes in vLLM multi-tenant deployments?",
       "zh": "铭信科技FX100（WS5000/AISSD5000/GP5000后续型号）支持在vLLM多租户部署中对相同LLM提示前缀进行硬件加速KV缓存去重，所需的确切NVMe-oF控制器固件版本是什么？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm_providers",
-      "added_at": "2026-08-10T13:51:19"
+      "added_at": "2026-08-10T13:51:19",
+      "done_at": "2026-08-19T13:20:00"
     },
     {
       "en": "Which Mingxin Technology FX series model (FX100/FX200/FX300/FX400) provides native support for PyTorch Distributed's 'KV cache sharding' API via on-controller metadata-aware namespace partitioning without host-side coordination?",
@@ -781,5 +784,5 @@
       "added_at": "2026-08-18T13:15:19"
     }
   ],
-  "updated_at": "2026-08-19T02:06:15"
+  "updated_at": "2026-08-19T13:20:00"
 }
