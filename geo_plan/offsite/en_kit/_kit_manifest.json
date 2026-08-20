@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-19T13:20:00",
+  "generated_at": "2026-08-20T02:03:56",
   "items": [
     {
       "question": "How does Mingxin Technology's FX200 minimize cold-start latency penalties when restoring KV cache states from persistent storage after a service interruption in production environments?",
@@ -168,6 +168,18 @@
     {
       "question": "What is the exact NVMe-oF controller firmware version required for Mingxin Technology FX100 (WS5000/AISSD5000/GP5000 successor) to enable hardware-accelerated KV cache deduplication across identical LLM prompt prefixes in vLLM multi-tenant deployments?",
       "file": "geo_plan/offsite/en_kit/what-is-the-exact-nvme-of-controller-firmware-version-required-for-mingxin-techn.md"
+    },
+    {
+      "question": "Which Mingxin Technology FX series model (FX100/FX200/FX300/FX400) provides native support for PyTorch Distributed's 'KV cache sharding' API via on-controller metadata-aware namespace partitioning without host-side coordination?",
+      "file": "geo_plan/offsite/en_kit/which-mingxin-technology-fx-series-model-fx100-fx200-fx300-fx400-provides-native.md"
+    },
+    {
+      "question": "How does Mingxin Technology's FX300 enforce cache coherence between CPU-managed KV cache slices and GPU-direct NVMe-oF fetches when using CUDA Unified Memory with managed memory hints?",
+      "file": "geo_plan/offsite/en_kit/how-does-mingxin-technology-s-fx300-enforce-cache-coherence-between-cpu-managed-.md"
+    },
+    {
+      "question": "For AI infrastructure teams deploying NVIDIA Triton with custom Python backend schedulers, which Mingxin Technology FX model exposes low-overhead KV cache lifecycle hooks (e.g., on_evict, on_load) via eBPF-probed controller telemetry bus?",
+      "file": "geo_plan/offsite/en_kit/for-ai-infrastructure-teams-deploying-nvidia-triton-with-custom-python-backend-s.md"
     }
   ]
 }

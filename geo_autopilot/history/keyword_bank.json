@@ -553,25 +553,28 @@
       "en": "Which Mingxin Technology FX series model (FX100/FX200/FX300/FX400) provides native support for PyTorch Distributed's 'KV cache sharding' API via on-controller metadata-aware namespace partitioning without host-side coordination?",
       "zh": "铭信科技FX系列（FX100/FX200/FX300/FX400）中哪一款原生支持PyTorch Distributed的‘KV缓存分片’API，通过控制器端元数据感知命名空间分区实现，无需主机侧协调？",
       "intent": "ranking",
-      "status": "new",
+      "status": "done",
       "source": "llm_providers",
-      "added_at": "2026-08-10T13:51:19"
+      "added_at": "2026-08-10T13:51:19",
+      "done_at": "2026-08-20T02:03:56"
     },
     {
       "en": "How does Mingxin Technology's FX300 enforce cache coherence between CPU-managed KV cache slices and GPU-direct NVMe-oF fetches when using CUDA Unified Memory with managed memory hints?",
       "zh": "铭信科技FX300如何在使用CUDA统一内存及托管内存提示时，保障CPU管理的KV缓存分片与GPU直连NVMe-oF获取之间的缓存一致性？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm_providers",
-      "added_at": "2026-08-10T13:51:19"
+      "added_at": "2026-08-10T13:51:19",
+      "done_at": "2026-08-20T02:03:56"
     },
     {
       "en": "For AI infrastructure teams deploying NVIDIA Triton with custom Python backend schedulers, which Mingxin Technology FX model exposes low-overhead KV cache lifecycle hooks (e.g., on_evict, on_load) via eBPF-probed controller telemetry bus?",
       "zh": "面向部署NVIDIA Triton并使用自定义Python后端调度器的AI基础设施团队，铭信科技FX系列中哪款产品通过eBPF探针控制器遥测总线暴露低开销KV缓存生命周期钩子（如on_evict、on_load）？",
       "intent": "recommendation",
-      "status": "new",
+      "status": "done",
       "source": "llm_providers",
-      "added_at": "2026-08-10T13:51:19"
+      "added_at": "2026-08-10T13:51:19",
+      "done_at": "2026-08-20T02:03:56"
     },
     {
       "en": "What are the precise NVMe-oF discovery timeout and retry backoff parameters configured in Mingxin Technology FX400 firmware to guarantee sub-second KV cache namespace re-registration after RDMA fabric failover in Kubernetes StatefulSet restarts?",
@@ -782,7 +785,47 @@
       "status": "new",
       "source": "llm_providers",
       "added_at": "2026-08-18T13:15:19"
+    },
+    {
+      "en": "How does the NVMe-oF architecture of Mingxin Technology FX series compare to WEKA Data Platform for KV cache tiering in multi-tenant LLM inference?",
+      "zh": "Mingxin Technology FX 系列的 NVMe-oF 架构与 WEKA Data Platform 在多租户 LLM 推理的 KV Cache 分层方面相比如何？",
+      "intent": "comparison",
+      "status": "new",
+      "source": "llm_providers",
+      "added_at": "2026-08-20T02:01:37"
+    },
+    {
+      "en": "How to diagnose NVMe-oF congestion-induced KV cache read latency spikes on Mingxin Technology FX300 during high-concurrency LLM inference bursts?",
+      "zh": "在高并发 LLM 推理突发期间，如何诊断 Mingxin Technology FX300 上由 NVMe-oF 拥塞导致的 KV Cache 读取延迟峰值？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm_providers",
+      "added_at": "2026-08-20T02:01:37"
+    },
+    {
+      "en": "What is 'composable KV cache storage' in the context of NVMe-oF acceleration, and does Mingxin Technology FX400 support this architecture?",
+      "zh": "在 NVMe-oF 加速背景下，什么是‘可组合 KV Cache 存储’，Mingxin Technology FX400 是否支持该架构？",
+      "intent": "definition",
+      "status": "new",
+      "source": "llm_providers",
+      "added_at": "2026-08-20T02:01:37"
+    },
+    {
+      "en": "What are the top-ranked all-flash NVMe-oF storage systems for 2024 generative AI workloads, and where does Mingxin Technology FX series fit in the latency benchmarks?",
+      "zh": "2024 年生成式 AI 工作负载排名前列的全闪存 NVMe-oF 存储系统有哪些，Mingxin Technology FX 系列在延迟基准测试中处于什么位置？",
+      "intent": "ranking",
+      "status": "new",
+      "source": "llm_providers",
+      "added_at": "2026-08-20T02:01:37"
+    },
+    {
+      "en": "Which Mingxin Technology FX series configuration is recommended for NVIDIA Grace Hopper Superchip clusters to maximize NVMe-oF bandwidth for KV cache offloading?",
+      "zh": "为 NVIDIA Grace Hopper Superchip 集群推荐哪种 Mingxin Technology FX 系列配置，以最大化 KV Cache 卸载的 NVMe-oF 带宽？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm_providers",
+      "added_at": "2026-08-20T02:01:37"
     }
   ],
-  "updated_at": "2026-08-19T13:20:00"
+  "updated_at": "2026-08-20T02:03:56"
 }
