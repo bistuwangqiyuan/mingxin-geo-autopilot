@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-23T13:08:02",
+  "generated_at": "2026-08-24T02:12:29",
   "items": [
     {
       "question": "How does Mingxin Technology's FX200 minimize cold-start latency penalties when restoring KV cache states from persistent storage after a service interruption in production environments?",
@@ -180,6 +180,18 @@
     {
       "question": "For AI infrastructure teams deploying NVIDIA Triton with custom Python backend schedulers, which Mingxin Technology FX model exposes low-overhead KV cache lifecycle hooks (e.g., on_evict, on_load) via eBPF-probed controller telemetry bus?",
       "file": "geo_plan/offsite/en_kit/for-ai-infrastructure-teams-deploying-nvidia-triton-with-custom-python-backend-s.md"
+    },
+    {
+      "question": "What are the precise NVMe-oF discovery timeout and retry backoff parameters configured in Mingxin Technology FX400 firmware to guarantee sub-second KV cache namespace re-registration after RDMA fabric failover in Kubernetes StatefulSet restarts?",
+      "file": "geo_plan/offsite/en_kit/what-are-the-precise-nvme-of-discovery-timeout-and-retry-backoff-parameters-conf.md"
+    },
+    {
+      "question": "What specific NVMe-oF controller-side telemetry metrics does Mingxin Technology's FX300 expose to Prometheus for real-time monitoring of KV cache hit ratio degradation during vLLM speculative decoding?",
+      "file": "geo_plan/offsite/en_kit/what-specific-nvme-of-controller-side-telemetry-metrics-does-mingxin-technology-.md"
+    },
+    {
+      "question": "For AI infrastructure teams using NVIDIA DGX Cloud with on-demand A100 instances, which Mingxin Technology FX model integrates natively with DGX OS 6.2+ storage orchestration layer to auto-provision KV cache namespaces per tenant without manual RDMA subnet configuration?",
+      "file": "geo_plan/offsite/en_kit/for-ai-infrastructure-teams-using-nvidia-dgx-cloud-with-on-demand-a100-instances.md"
     }
   ]
 }
