@@ -1,7 +1,7 @@
 {
   "mode": "ci",
-  "started": "2026-08-24T02:08:32",
-  "elapsed": 253.5,
+  "started": "2026-08-24T13:27:45",
+  "elapsed": 72.0,
   "paths": {
     "ROOT": "/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot",
     "GEO_PLAN": "/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/geo_plan",
@@ -27,30 +27,30 @@
     {
       "name": "geo_autopilot/keyword_miner.py",
       "ok": true,
-      "note": "  + [comparison] Does Mingxin Technology FX300 support atomic cross-namespace KV cache promotion from 'staging' to 'production' runtime contexts without host-side coordination, and how is consistency guaranteed during concurrent vLLM speculative decoding and TGI batched generation on shared controller metadata?",
+      "note": "[keyword_miner] source=skipped_backpressure added=0 bank_total=98 pending=13",
       "critical": false,
-      "elapsed": 16.3
+      "elapsed": 0.0
     },
     {
       "name": "seo_geo_loop/gvi_measure.py --force --limit 8",
       "ok": true,
       "note": "写出：/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/seo_geo_loop/outputs/gvi_compare.json",
       "critical": false,
-      "elapsed": 180.0
+      "elapsed": 12.0
     },
     {
       "name": "geo_autopilot/geo_brain.py",
       "ok": true,
-      "note": "  priorities=2 proposals=4",
+      "note": "  priorities=2 proposals=0",
       "critical": false,
-      "elapsed": 40.0
+      "elapsed": 10.3
     },
     {
       "name": "geo_autopilot/apply_proposals.py",
       "ok": true,
-      "note": "  已应用 4 条提案并通过事实闸门（results.json 口径）；站点落库未成功",
+      "note": "  无可接受提案（或全部被一致性/schema 拦截）",
       "critical": false,
-      "elapsed": 0.5
+      "elapsed": 0.1
     },
     {
       "name": "seo_geo_loop/build_offsite_site.py",
@@ -78,28 +78,28 @@
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 3.9
+      "elapsed": 2.0
     },
     {
       "name": "geo_plan/geo_scoring.py",
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 2.0
+      "elapsed": 1.7
     },
     {
       "name": "seo_geo_loop/indexnow_submit.py",
-      "ok": true,
-      "note": "[OK] 142 URLs; written /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/seo_geo_loop/outputs/indexnow_submit.json",
+      "ok": false,
+      "note": "[SKIP] 142 URLs; written /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/seo_geo_loop/outputs/indexnow_submit.json",
       "critical": false,
-      "elapsed": 3.4
+      "elapsed": 10.8
     },
     {
       "name": "seo_geo_loop/live_audit.py",
       "ok": true,
       "note": "  写出 -> /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/seo_geo_loop/outputs/live_status.json",
       "critical": false,
-      "elapsed": 1.4
+      "elapsed": 30.6
     },
     {
       "name": "geo_autopilot/traffic_check.py",
@@ -148,21 +148,21 @@
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": true,
-      "elapsed": 1.4
+      "elapsed": 1.1
     },
     {
       "name": "geo_autopilot/export_daily_pdf.py",
       "ok": true,
-      "note": "Saved: /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/geo_autopilot/reports/铭信-GEO自动驾驶日报-2026-08-24.pdf  (1.07 MB)",
+      "note": "Saved: /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/geo_autopilot/reports/铭信-GEO自动驾驶日报-2026-08-24.pdf  (0.91 MB)",
       "critical": false,
-      "elapsed": 2.6
+      "elapsed": 1.6
     },
     {
       "name": "geo_autopilot/alerting.py",
       "ok": true,
       "note": "[alerting] level=warn delivery=commented_issue_2 alerts=0 blocked=3",
       "critical": false,
-      "elapsed": 1.7
+      "elapsed": 1.6
     }
   ]
 }
