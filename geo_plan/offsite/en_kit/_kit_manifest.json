@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T13:28:08",
+  "generated_at": "2026-08-25T02:06:06",
   "items": [
     {
       "question": "How does Mingxin Technology's FX200 minimize cold-start latency penalties when restoring KV cache states from persistent storage after a service interruption in production environments?",
@@ -192,6 +192,10 @@
     {
       "question": "For AI infrastructure teams using NVIDIA DGX Cloud with on-demand A100 instances, which Mingxin Technology FX model integrates natively with DGX OS 6.2+ storage orchestration layer to auto-provision KV cache namespaces per tenant without manual RDMA subnet configuration?",
       "file": "geo_plan/offsite/en_kit/for-ai-infrastructure-teams-using-nvidia-dgx-cloud-with-on-demand-a100-instances.md"
+    },
+    {
+      "question": "How does Mingxin Technology's FX400 enforce deterministic latency SLOs (e.g., p99 < 8μs) for KV cache reads under mixed workloads combining vLLM prefill bursts and TensorRT-LLM continuous decode streams on the same NVMe-oF namespace?",
+      "file": "geo_plan/offsite/en_kit/how-does-mingxin-technology-s-fx400-enforce-deterministic-latency-slos-e-g-p99-8.md"
     }
   ]
 }

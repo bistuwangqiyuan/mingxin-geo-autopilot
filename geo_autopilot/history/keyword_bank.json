@@ -769,9 +769,10 @@
       "en": "How does Mingxin Technology's FX400 enforce deterministic latency SLOs (e.g., p99 < 8μs) for KV cache reads under mixed workloads combining vLLM prefill bursts and TensorRT-LLM continuous decode streams on the same NVMe-oF namespace?",
       "zh": "铭信科技 FX400 如何在单一 NVMe-oF 命名空间上，对混合工作负载（vLLM 预填充突发 + TensorRT-LLM 持续解码流）强制执行确定性延迟 SLO（例如 p99 < 8μs）？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm_providers",
-      "added_at": "2026-08-18T13:15:19"
+      "added_at": "2026-08-18T13:15:19",
+      "done_at": "2026-08-25T02:06:06"
     },
     {
       "en": "Which Mingxin Technology FX series model supports hardware-accelerated cross-namespace KV cache deduplication across heterogeneous LLM runtimes (vLLM + TGI + Triton Python backend) using shared controller-side metadata signatures?",
@@ -870,5 +871,5 @@
       "added_at": "2026-08-24T02:08:49"
     }
   ],
-  "updated_at": "2026-08-24T02:12:29"
+  "updated_at": "2026-08-25T02:06:06"
 }
