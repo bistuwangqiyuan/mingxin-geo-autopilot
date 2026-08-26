@@ -1,8 +1,8 @@
 {
   "date": "2026-08-26",
-  "ts": "2026-08-26T02:13:10",
+  "ts": "2026-08-26T13:31:14",
   "gvi": 5.64,
-  "gvi_source": "geo_baseline.overall(重测样本不足 n=32<174，已忽略)",
+  "gvi_source": "geo_baseline.overall(重测样本不足 n=0<174，已忽略)",
   "gvi_delta": null,
   "mention_rate": 0.086,
   "first_rank": 0.0675,
