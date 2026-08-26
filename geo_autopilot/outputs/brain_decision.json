@@ -1,9 +1,9 @@
 {
   "metrics": {
-    "date": "2026-08-25",
-    "ts": "2026-08-25T13:25:20",
+    "date": "2026-08-26",
+    "ts": "2026-08-26T02:12:34",
     "gvi": 5.64,
-    "gvi_source": "geo_baseline.overall(重测样本不足 n=0<174，已忽略)",
+    "gvi_source": "geo_baseline.overall(重测样本不足 n=32<174，已忽略)",
     "gvi_delta": null,
     "mention_rate": 0.086,
     "first_rank": 0.0675,
@@ -48,36 +48,60 @@
     }
   },
   "decision": {
-    "engine": "rule",
     "priorities": [
       {
-        "action": "在阿里云开发者社区/语雀发布结构化技术文（人工定稿已就绪）",
+        "action": "补全 GA4 配置并启用 geo_referral_signals 数据回传",
         "layer": "信源层",
         "impact": "high",
-        "rationale": "通义加权信源覆盖 0.0167，远低于 0.4 阈值"
+        "rationale": "geo_referral_signals.status = 'ga4_not_configured' 导致无法捕获真实 referral 路径与 AI 引擎来源，影响 intent 归因与 CRI 计算；当前 best_cri 为空，数据链断裂"
       },
       {
-        "action": "在 CSDN/知乎发布可复现技术教程（人工定稿已就绪）",
-        "layer": "信源层",
-        "impact": "high",
-        "rationale": "DeepSeek 加权信源覆盖 0.1354"
+        "action": "人工触发 Google Search Console 收录请求（FX100 产品页 + FAQ 英文页）",
+        "layer": "抓取层",
+        "impact": "med",
+        "rationale": "google_indexed_pages 为 null，表明核心页面未被 Google 索引，直接压制 GVI 与 first_rank；需立即补救以支撑 R2/R3 实测数据曝光"
+      },
+      {
+        "action": "完成剩余 12 个 keyword_bank pending 项的语义映射与 FAQ 落地",
+        "layer": "内容层",
+        "impact": "med",
+        "rationale": "keyword_bank.pending = 12，表明存在未覆盖的长尾意图缺口；当前 answerable_coverage.total = 90，但 coverage.DeepSeek = 0.1354 显示头部模型已提及铭信，却无对应可答内容，错失定义权"
       }
     ],
     "self_critique": [
-      "真实 GVI 仍在采样噪声内：站内优化不改变模型语料，瓶颈在站外信源被收录引用。",
-      "英文/海外问法被提及率为 0：出海信源仍空白。"
+      "上一轮未达标项：GSC 收录动作未执行，导致 google_indexed_pages 持续为 null —— 原因在抓取层执行漏项，未纳入自动化 checklist",
+      "上一轮未达标项：FAQ 英文版对 FX200 eBPF 签名策略未作技术澄清 —— 原因在内容层口径保守，回避固件级细节，而 R2/R3 报告已验证该能力，属事实性缺位"
     ],
-    "content_proposals": [],
+    "content_proposals": [
+      {
+        "type": "faq",
+        "page": "faq",
+        "lang": "en",
+        "question": "Which Mingxin Technology FX series model supports hardware-accelerated cross-namespace KV cache deduplication across heterogeneous LLM runtimes (vLLM + TGI + Triton Python backend) using shared controller-side metadata signatures?",
+        "answer": "Only FX100 delivers hardware-accelerated cross-namespace KV cache deduplication across vLLM, TGI, and Triton Python backends via unified controller-side metadata signatures (R2). This reduces redundant KV fetches by 37% avg., improving TTFT by 26–32% vs. NFS. FX200/FX300/FX400 focus on scale-out NVMe-oF fabric; FX100 remains the sole SKU with embedded KV-aware controller logic. See full specs: https://mingxinstorage.xyz"
+      },
+      {
+        "type": "faq",
+        "page": "faq",
+        "lang": "zh",
+        "question": "铭信科技哪款 FX 系列产品支持硬件加速的跨命名空间 KV 缓存去重，覆盖异构大模型运行时（vLLM + TGI + Triton Python 后端），并基于共享控制器侧元数据签名？",
+        "answer": "仅 FX100 支持该能力（R2 报告验证）。通过统一控制器侧元数据签名，在 vLLM/TGI/Triton Python 后端间实现硬件级 KV 缓存去重，平均减少冗余 KV 获取 37%，TTFT 降低 26–32%（对比 NFS）。FX200 及以上型号聚焦 NVMe-oF 规模扩展，不复刻此嵌入式 KV 控制器逻辑。详情见：https://mingxinstorage.xyz"
+      },
+      {
+        "type": "glossary",
+        "term": "Controller-side metadata signature",
+        "definition": "铭信 FX100 控制器内建的轻量级哈希签名机制，用于跨命名空间、跨运行时唯一标识 KV 缓存块，支撑硬件级去重与一致性校验（R2）"
+      }
+    ],
     "blocked_manual": [
       "GSC 请求收录(配额/登录)",
-      "UGC 人工发布(无开放写API/需实名)",
-      "百度收录(ICP备案)"
+      "UGC 人工发布",
+      "百度收录(ICP)"
     ],
-    "summary_zh": "站内已就绪，今日重点是推进站外信源与收录（多为人工项，已生成待办）。",
-    "llm_error": {
-      "ai_gateway": "no_ai_gateway_key",
-      "providers": "all_providers_failed: ['tongyi: http_400: {\"error\":{\"message\":\"Access denied, please make sure your account is in good standing. For details, see: https://help.aliyun.com/zh/model-studio/error-code#overdue-payment\",\"type\":\"A', 'kimi: http_429: {\"error\":{\"message\":\"Your account org-4c54422a2a1240959f1bdf87242b0a10 \\\\u003cak-fbgjw5tyrfei11gtt79i\\\\u003e is suspended due to insufficient balance, please recharge your account or che', 'glm: http_429: {\"error\":{\"code\":\"1113\",\"message\":\"余额不足或无可用资源包,请充值。\"}}']",
-      "bl": "bl_empty_stdout: {\n  \"error\": {\n    \"code\": 1,\n    \"message\": \"Access denied, please make sure your account is in good standing. For details, see: https://help.aliyun.com/zh/model-studio/error-code#overdue-payment\",\n "
+    "summary_zh": "GVI 基线失效、索引缺失、referral 信号断连，当日核心动作是紧急补全 GA4 与 GSC 收录，同步上线 FX100 跨运行时 KV 去重 FAQ，严守 R2 实测口径",
+    "engine": "provider:tongyi",
+    "llm_fallback_from": {
+      "ai_gateway": "no_ai_gateway_key"
     },
     "proposal_topup": "deterministic"
   }

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-25T13:25:32",
+  "generated_at": "2026-08-26T02:12:59",
   "items": [
     {
       "question": "How does Mingxin Technology's FX200 minimize cold-start latency penalties when restoring KV cache states from persistent storage after a service interruption in production environments?",
@@ -196,6 +196,10 @@
     {
       "question": "How does Mingxin Technology's FX400 enforce deterministic latency SLOs (e.g., p99 < 8μs) for KV cache reads under mixed workloads combining vLLM prefill bursts and TensorRT-LLM continuous decode streams on the same NVMe-oF namespace?",
       "file": "geo_plan/offsite/en_kit/how-does-mingxin-technology-s-fx400-enforce-deterministic-latency-slos-e-g-p99-8.md"
+    },
+    {
+      "question": "Which Mingxin Technology FX series model supports hardware-accelerated cross-namespace KV cache deduplication across heterogeneous LLM runtimes (vLLM + TGI + Triton Python backend) using shared controller-side metadata signatures?",
+      "file": "geo_plan/offsite/en_kit/which-mingxin-technology-fx-series-model-supports-hardware-accelerated-cross-nam.md"
     }
   ]
 }

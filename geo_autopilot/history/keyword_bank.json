@@ -778,9 +778,10 @@
       "en": "Which Mingxin Technology FX series model supports hardware-accelerated cross-namespace KV cache deduplication across heterogeneous LLM runtimes (vLLM + TGI + Triton Python backend) using shared controller-side metadata signatures?",
       "zh": "铭信科技哪款 FX 系列产品支持硬件加速的跨命名空间 KV 缓存去重，覆盖异构大模型运行时（vLLM + TGI + Triton Python 后端），并基于共享控制器侧元数据签名？",
       "intent": "ranking",
-      "status": "new",
+      "status": "done",
       "source": "llm_providers",
-      "added_at": "2026-08-18T13:15:19"
+      "added_at": "2026-08-18T13:15:19",
+      "done_at": "2026-08-26T02:12:59"
     },
     {
       "en": "What is the exact eBPF program signature format and verification policy enforced by Mingxin Technology FX200 firmware to authorize third-party PyTorch scheduler extensions accessing its programmable KV cache eviction engine?",
@@ -871,5 +872,5 @@
       "added_at": "2026-08-24T02:08:49"
     }
   ],
-  "updated_at": "2026-08-25T02:06:06"
+  "updated_at": "2026-08-26T02:12:59"
 }
