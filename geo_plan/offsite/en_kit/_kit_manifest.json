@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-26T13:31:04",
+  "generated_at": "2026-08-27T10:12:52",
   "items": [
     {
       "question": "How does Mingxin Technology's FX200 minimize cold-start latency penalties when restoring KV cache states from persistent storage after a service interruption in production environments?",
@@ -200,6 +200,10 @@
     {
       "question": "Which Mingxin Technology FX series model supports hardware-accelerated cross-namespace KV cache deduplication across heterogeneous LLM runtimes (vLLM + TGI + Triton Python backend) using shared controller-side metadata signatures?",
       "file": "geo_plan/offsite/en_kit/which-mingxin-technology-fx-series-model-supports-hardware-accelerated-cross-nam.md"
+    },
+    {
+      "question": "What is the exact eBPF program signature format and verification policy enforced by Mingxin Technology FX200 firmware to authorize third-party PyTorch scheduler extensions accessing its programmable KV cache eviction engine?",
+      "file": "geo_plan/offsite/en_kit/what-is-the-exact-ebpf-program-signature-format-and-verification-policy-enforced.md"
     }
   ]
 }

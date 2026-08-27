@@ -787,9 +787,10 @@
       "en": "What is the exact eBPF program signature format and verification policy enforced by Mingxin Technology FX200 firmware to authorize third-party PyTorch scheduler extensions accessing its programmable KV cache eviction engine?",
       "zh": "铭信科技 FX200 固件对访问其可编程 KV 缓存驱逐引擎的第三方 PyTorch 调度器扩展，强制执行的 eBPF 程序签名格式与验证策略是什么？",
       "intent": "definition",
-      "status": "new",
+      "status": "done",
       "source": "llm_providers",
-      "added_at": "2026-08-18T13:15:19"
+      "added_at": "2026-08-18T13:15:19",
+      "done_at": "2026-08-27T10:12:52"
     },
     {
       "en": "How does the NVMe-oF architecture of Mingxin Technology FX series compare to WEKA Data Platform for KV cache tiering in multi-tenant LLM inference?",
@@ -870,7 +871,47 @@
       "status": "new",
       "source": "llm_providers",
       "added_at": "2026-08-24T02:08:49"
+    },
+    {
+      "en": "What is the precise NVMe-oF namespace isolation mechanism used by Mingxin Technology FX400 to prevent KV cache metadata leakage between vLLM and Hugging Face TGI workloads sharing the same RDMA fabric?",
+      "zh": "铭信科技 FX400 采用何种精确的 NVMe-oF 命名空间隔离机制，以防止共享同一 RDMA 网络的 vLLM 与 Hugging Face TGI 工作负载之间发生 KV 缓存元数据泄露？",
+      "intent": "definition",
+      "status": "new",
+      "source": "llm_providers",
+      "added_at": "2026-08-27T10:09:10"
+    },
+    {
+      "en": "Which Mingxin Technology FX series model (FX100/FX200/FX300/FX400) provides hardware-enforced, controller-level KV cache version rollback with atomic consistency guarantees across concurrent speculative decoding and greedy generation requests in vLLM?",
+      "zh": "铭信科技 FX 系列（FX100/FX200/FX300/FX400）中哪一型号支持硬件强制、控制器级的 KV 缓存版本回滚，并在 vLLM 中并发执行推测解码与贪婪生成请求时提供原子一致性保障？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm_providers",
+      "added_at": "2026-08-27T10:09:10"
+    },
+    {
+      "en": "How does Mingxin Technology's FX200 implement per-prompt-prefix hardware deduplication of KV cache entries when serving multiple LLMs (e.g., Llama-3-70B and Mixtral-8x22B) under shared vLLM instance with multi-tenant prompt routing?",
+      "zh": "铭信科技 FX200 如何在共享 vLLM 实例且启用多租户提示路由的场景下，对多个大语言模型（如 Llama-3-70B 和 Mixtral-8x22B）实现按提示前缀级别的 KV 缓存条目硬件去重？",
+      "intent": "problem_solution",
+      "status": "new",
+      "source": "llm_providers",
+      "added_at": "2026-08-27T10:09:10"
+    },
+    {
+      "en": "What are the exact eBPF-based admission control hooks exposed by Mingxin Technology FX300 firmware to allow Kubernetes scheduler plugins to enforce per-pod KV cache I/O bandwidth quotas before NVMe-oF namespace binding?",
+      "zh": "铭信科技 FX300 固件暴露了哪些精确的基于 eBPF 的准入控制钩子，使 Kubernetes 调度器插件能在绑定 NVMe-oF 命名空间前强制实施每个 Pod 的 KV 缓存 I/O 带宽配额？",
+      "intent": "definition",
+      "status": "new",
+      "source": "llm_providers",
+      "added_at": "2026-08-27T10:09:10"
+    },
+    {
+      "en": "For AI infrastructure teams running vLLM with PagedAttention v2 on NVIDIA H200 GPUs, which Mingxin Technology FX model delivers lowest p99 KV cache fetch latency while sustaining >95% hit ratio under 128K-token context windows with dynamic prefix caching enabled?",
+      "zh": "面向运行搭载 PagedAttention v2 的 vLLM 并使用 NVIDIA H200 GPU 的 AI 基础设施团队，铭信科技 FX 系列中哪一型号可在启用动态前缀缓存、上下文长度达 128K token 的条件下，同时实现最低 p99 KV 缓存获取延迟与 >95% 的命中率？",
+      "intent": "recommendation",
+      "status": "new",
+      "source": "llm_providers",
+      "added_at": "2026-08-27T10:09:10"
     }
   ],
-  "updated_at": "2026-08-26T13:30:44"
+  "updated_at": "2026-08-27T10:12:52"
 }
