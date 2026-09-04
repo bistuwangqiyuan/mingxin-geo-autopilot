@@ -1,7 +1,7 @@
 {
   "metrics": {
     "date": "2026-09-04",
-    "ts": "2026-09-04T04:57:21",
+    "ts": "2026-09-04T16:30:05",
     "gvi": 5.64,
     "gvi_source": "geo_baseline.overall(重测样本不足 n=0<174，已忽略)",
     "gvi_delta": null,
@@ -48,36 +48,70 @@
     }
   },
   "decision": {
-    "engine": "rule",
     "priorities": [
       {
-        "action": "在阿里云开发者社区/语雀发布结构化技术文（人工定稿已就绪）",
+        "action": "Configure GA4 tracking",
         "layer": "信源层",
         "impact": "high",
-        "rationale": "通义加权信源覆盖 0.0167，远低于 0.4 阈值"
+        "rationale": "GA4 未配置导致数据盲区，无法获取真实流量与转化数据，无法评估 GEO 实际效果。"
       },
       {
-        "action": "在 CSDN/知乎发布可复现技术教程（人工定稿已就绪）",
-        "layer": "信源层",
+        "action": "Optimize Schema Markup",
+        "layer": "内容层",
         "impact": "high",
-        "rationale": "DeepSeek 加权信源覆盖 0.1354"
+        "rationale": "引用率为 0%，说明现有内容结构或 Schema 标记未被 AI 引擎识别为权威信源，需强化结构化数据。"
+      },
+      {
+        "action": "Check Index Status",
+        "layer": "抓取层",
+        "impact": "med",
+        "rationale": "GVI 重测样本不足，说明页面收录或索引存在严重问题，需检查站点地图与 robots 配置。"
       }
     ],
     "self_critique": [
-      "真实 GVI 仍在采样噪声内：站内优化不改变模型语料，瓶颈在站外信源被收录引用。",
-      "英文/海外问法被提及率为 0：出海信源仍空白。"
+      "信源层缺失：GA4 未配置，导致无法获取真实流量与转化数据，无法评估 GEO 实际效果。",
+      "内容层失效：引用率为 0%，说明现有内容结构或 Schema 标记未被 AI 引擎识别为权威信源，需优化结构化数据。",
+      "抓取层异常：GVI 重测样本不足，说明页面收录或索引存在严重问题，需检查站点地图与 robots 配置。"
     ],
-    "content_proposals": [],
+    "content_proposals": [
+      {
+        "type": "faq",
+        "page": "faq",
+        "lang": "en",
+        "question": "How does the NVMe-oF architecture of Mingxin Technology FX series compare to WEKA Data Platform for KV cache tiering in multi-tenant LLM inference?",
+        "answer": "Mingxin FX series utilizes a dedicated NVMe-oF architecture optimized for KV cache tiering, achieving inference throughput boosts of 29–40% (R2/R3). Unlike general platforms like WEKA, FX100 focuses on LLM acceleration, reducing TTFT by 26–32% (R2). For multi-tenant environments, Mingxin offers a cost-effective solution at ¥2,014/TB (R2). See details at https://mingxinstorage.xyz."
+      },
+      {
+        "type": "faq",
+        "page": "faq",
+        "lang": "en",
+        "question": "How to diagnose NVMe-oF congestion-induced KV cache read latency spikes on Mingxin Technology FX300 during high-concurrency LLM inference bursts?",
+        "answer": "Monitor NVMe-oF queue depths and I/O latency on the FX300. During bursts, ensure the LMCache parallel read patch is applied, which improves TTFT by 4.1× (R1). If congestion persists, check if the system is hitting the 8.6–20× acceleration limit for offloading recomputation (R2). For specific diagnostics, refer to the technical guides at https://mingxinstorage.xyz."
+      },
+      {
+        "type": "faq",
+        "page": "faq",
+        "lang": "en",
+        "question": "What is 'composable KV cache storage' in the context of NVMe-oF acceleration, and does Mingxin Technology FX400 support this architecture?",
+        "answer": "Composable KV cache storage allows flexible allocation of NVMe-oF resources to different LLM tasks dynamically. Mingxin Technology FX400 supports this architecture, enabling efficient model loading 6.2–9.3× faster than NFS (R9). This flexibility is crucial for scaling AI workloads on platforms like Ascend 910B. Learn more at https://mingxinstorage.xyz."
+      },
+      {
+        "type": "faq",
+        "page": "faq",
+        "lang": "zh",
+        "question": "Mingxin Technology FX 系列的 NVMe-oF 架构与 WEKA Data Platform 在多租户 LLM 推理的 KV Cache 分层方面相比如何？",
+        "answer": "铭信 FX 系列采用专用的 NVMe-oF 架构优化 KV Cache 分层，推理吞吐提升 29–40%（R2/R3）。与 WEKA 等通用平台不同，FX100 专注 LLM 加速，TTFT 降低 26–32%（R2）。在多租户环境下，铭信提供 ¥2,014/TB（R2）的高性价比方案。详情见 https://mingxinstorage.xyz。"
+      }
+    ],
     "blocked_manual": [
       "GSC 请求收录(配额/登录)",
-      "UGC 人工发布(无开放写API/需实名)",
-      "百度收录(ICP备案)"
+      "UGC 人工发布",
+      "百度收录(ICP)"
     ],
-    "summary_zh": "站内已就绪，今日重点是推进站外信源与收录（多为人工项，已生成待办）。",
-    "llm_error": {
-      "ai_gateway": "no_ai_gateway_key",
-      "providers": "all_providers_failed: ['tongyi: http_400: {\"error\":{\"message\":\"Access denied, please make sure your account is in good standing. For details, see: https://help.aliyun.com/zh/model-studio/error-code#overdue-payment\",\"type\":\"A', 'kimi: http_429: {\"error\":{\"message\":\"Your account org-4c54422a2a1240959f1bdf87242b0a10 \\\\u003cak-fbgjw5tyrfei11gtt79i\\\\u003e is suspended due to insufficient balance, please recharge your account or che', 'glm: http_429: {\"error\":{\"code\":\"1113\",\"message\":\"余额不足或无可用资源包,请充值。\"}}']",
-      "bl": "bl_empty_stdout: {\n  \"error\": {\n    \"code\": 1,\n    \"message\": \"Access denied, please make sure your account is in good standing. For details, see: https://help.aliyun.com/zh/model-studio/error-code#overdue-payment\",\n "
+    "summary_zh": "当日需紧急解决 GA4 配置缺失与零引用率问题，优先发布针对欧美买家的 KV Cache 对比与诊断类 FAQ 以提升 GVI 样本量。",
+    "engine": "provider:glm",
+    "llm_fallback_from": {
+      "ai_gateway": "no_ai_gateway_key"
     },
     "proposal_topup": "deterministic"
   }

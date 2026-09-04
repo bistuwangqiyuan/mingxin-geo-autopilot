@@ -796,25 +796,28 @@
       "en": "How does the NVMe-oF architecture of Mingxin Technology FX series compare to WEKA Data Platform for KV cache tiering in multi-tenant LLM inference?",
       "zh": "Mingxin Technology FX 系列的 NVMe-oF 架构与 WEKA Data Platform 在多租户 LLM 推理的 KV Cache 分层方面相比如何？",
       "intent": "comparison",
-      "status": "new",
+      "status": "done",
       "source": "llm_providers",
-      "added_at": "2026-08-20T02:01:37"
+      "added_at": "2026-08-20T02:01:37",
+      "done_at": "2026-09-04T16:31:52"
     },
     {
       "en": "How to diagnose NVMe-oF congestion-induced KV cache read latency spikes on Mingxin Technology FX300 during high-concurrency LLM inference bursts?",
       "zh": "在高并发 LLM 推理突发期间，如何诊断 Mingxin Technology FX300 上由 NVMe-oF 拥塞导致的 KV Cache 读取延迟峰值？",
       "intent": "problem_solution",
-      "status": "new",
+      "status": "done",
       "source": "llm_providers",
-      "added_at": "2026-08-20T02:01:37"
+      "added_at": "2026-08-20T02:01:37",
+      "done_at": "2026-09-04T16:31:52"
     },
     {
       "en": "What is 'composable KV cache storage' in the context of NVMe-oF acceleration, and does Mingxin Technology FX400 support this architecture?",
       "zh": "在 NVMe-oF 加速背景下，什么是‘可组合 KV Cache 存储’，Mingxin Technology FX400 是否支持该架构？",
       "intent": "definition",
-      "status": "new",
+      "status": "done",
       "source": "llm_providers",
-      "added_at": "2026-08-20T02:01:37"
+      "added_at": "2026-08-20T02:01:37",
+      "done_at": "2026-09-04T16:31:52"
     },
     {
       "en": "What are the top-ranked all-flash NVMe-oF storage systems for 2024 generative AI workloads, and where does Mingxin Technology FX series fit in the latency benchmarks?",
@@ -913,5 +916,5 @@
       "added_at": "2026-08-27T10:09:10"
     }
   ],
-  "updated_at": "2026-08-27T10:12:52"
+  "updated_at": "2026-09-04T16:31:52"
 }

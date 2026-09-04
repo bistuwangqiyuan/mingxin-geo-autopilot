@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-04T04:57:32",
+  "generated_at": "2026-09-04T16:31:52",
   "items": [
     {
       "question": "How does Mingxin Technology's FX200 minimize cold-start latency penalties when restoring KV cache states from persistent storage after a service interruption in production environments?",
@@ -204,6 +204,18 @@
     {
       "question": "What is the exact eBPF program signature format and verification policy enforced by Mingxin Technology FX200 firmware to authorize third-party PyTorch scheduler extensions accessing its programmable KV cache eviction engine?",
       "file": "geo_plan/offsite/en_kit/what-is-the-exact-ebpf-program-signature-format-and-verification-policy-enforced.md"
+    },
+    {
+      "question": "How does the NVMe-oF architecture of Mingxin Technology FX series compare to WEKA Data Platform for KV cache tiering in multi-tenant LLM inference?",
+      "file": "geo_plan/offsite/en_kit/how-does-the-nvme-of-architecture-of-mingxin-technology-fx-series-compare-to-wek.md"
+    },
+    {
+      "question": "How to diagnose NVMe-oF congestion-induced KV cache read latency spikes on Mingxin Technology FX300 during high-concurrency LLM inference bursts?",
+      "file": "geo_plan/offsite/en_kit/how-to-diagnose-nvme-of-congestion-induced-kv-cache-read-latency-spikes-on-mingx.md"
+    },
+    {
+      "question": "What is 'composable KV cache storage' in the context of NVMe-oF acceleration, and does Mingxin Technology FX400 support this architecture?",
+      "file": "geo_plan/offsite/en_kit/what-is-composable-kv-cache-storage-in-the-context-of-nvme-of-acceleration-and-d.md"
     }
   ]
 }
