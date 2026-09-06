@@ -1,7 +1,7 @@
 {
   "mode": "ci",
-  "started": "2026-09-06T04:58:26",
-  "elapsed": 30.9,
+  "started": "2026-09-06T15:35:27",
+  "elapsed": 33.0,
   "paths": {
     "ROOT": "/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot",
     "GEO_PLAN": "/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/geo_plan",
@@ -36,14 +36,14 @@
       "ok": true,
       "note": "写出：/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/seo_geo_loop/outputs/gvi_compare.json",
       "critical": false,
-      "elapsed": 10.3
+      "elapsed": 11.2
     },
     {
       "name": "geo_autopilot/geo_brain.py",
       "ok": true,
       "note": "  priorities=2 proposals=0",
       "critical": false,
-      "elapsed": 7.2
+      "elapsed": 10.7
     },
     {
       "name": "geo_autopilot/apply_proposals.py",
@@ -78,28 +78,28 @@
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 2.6
+      "elapsed": 1.8
     },
     {
       "name": "geo_plan/geo_scoring.py",
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 2.0
+      "elapsed": 1.7
     },
     {
       "name": "seo_geo_loop/indexnow_submit.py",
       "ok": true,
-      "note": "[OK] 675 URLs; written /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/seo_geo_loop/outputs/indexnow_submit.json",
+      "note": "[OK] 678 URLs; written /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/seo_geo_loop/outputs/indexnow_submit.json",
       "critical": false,
-      "elapsed": 3.1
+      "elapsed": 2.6
     },
     {
       "name": "seo_geo_loop/live_audit.py",
       "ok": true,
       "note": "  写出 -> /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/seo_geo_loop/outputs/live_status.json",
       "critical": false,
-      "elapsed": 0.7
+      "elapsed": 0.5
     },
     {
       "name": "geo_autopilot/traffic_check.py",
@@ -148,21 +148,21 @@
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": true,
-      "elapsed": 1.6
+      "elapsed": 1.4
     },
     {
       "name": "geo_autopilot/export_daily_pdf.py",
       "ok": true,
       "note": "Saved: /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/geo_autopilot/reports/铭信-GEO自动驾驶日报-2026-09-06.pdf  (0.94 MB)",
       "critical": false,
-      "elapsed": 1.6
+      "elapsed": 1.5
     },
     {
       "name": "geo_autopilot/alerting.py",
       "ok": true,
       "note": "[alerting] level=warn delivery=commented_issue_2 alerts=0 blocked=3",
       "critical": false,
-      "elapsed": 1.6
+      "elapsed": 1.3
     }
   ]
 }
