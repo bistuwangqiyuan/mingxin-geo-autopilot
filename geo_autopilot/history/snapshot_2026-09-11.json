@@ -1,6 +1,6 @@
 {
   "date": "2026-09-11",
-  "ts": "2026-09-11T05:01:27",
+  "ts": "2026-09-11T16:38:24",
   "gvi": 5.64,
   "gvi_source": "geo_baseline.overall(重测样本不足 n=0<174，已忽略)",
   "gvi_delta": null,
@@ -12,7 +12,7 @@
   "recommendation_mention": 0.0088,
   "opportunity_gap_total": 209,
   "coverage": {
-    "DeepSeek": 0.1354,
+    "DeepSeek": 0.0769,
     "通义千问": 0.0167,
     "文心一言": 0.02
   },
