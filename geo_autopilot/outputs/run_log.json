@@ -1,7 +1,7 @@
 {
   "mode": "ci",
-  "started": "2026-09-14T18:06:54",
-  "elapsed": 28.6,
+  "started": "2026-09-15T05:10:40",
+  "elapsed": 29.8,
   "paths": {
     "ROOT": "/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot",
     "GEO_PLAN": "/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/geo_plan",
@@ -36,14 +36,14 @@
       "ok": true,
       "note": "写出：/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/seo_geo_loop/outputs/gvi_compare.json",
       "critical": false,
-      "elapsed": 11.1
+      "elapsed": 10.6
     },
     {
       "name": "geo_autopilot/geo_brain.py",
       "ok": true,
       "note": "  priorities=2 proposals=0",
       "critical": false,
-      "elapsed": 7.9
+      "elapsed": 7.8
     },
     {
       "name": "geo_autopilot/apply_proposals.py",
@@ -78,7 +78,7 @@
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 1.8
+      "elapsed": 3.1
     },
     {
       "name": "geo_plan/geo_scoring.py",
@@ -99,7 +99,7 @@
       "ok": true,
       "note": "  写出 -> /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/seo_geo_loop/outputs/live_status.json",
       "critical": false,
-      "elapsed": 0.5
+      "elapsed": 0.4
     },
     {
       "name": "geo_autopilot/traffic_check.py",
@@ -153,16 +153,16 @@
     {
       "name": "geo_autopilot/export_daily_pdf.py",
       "ok": true,
-      "note": "Saved: /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/geo_autopilot/reports/铭信-GEO自动驾驶日报-2026-09-14.pdf  (0.95 MB)",
+      "note": "Saved: /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/geo_autopilot/reports/铭信-GEO自动驾驶日报-2026-09-15.pdf  (0.96 MB)",
       "critical": false,
-      "elapsed": 1.5
+      "elapsed": 1.6
     },
     {
       "name": "geo_autopilot/alerting.py",
       "ok": true,
       "note": "[alerting] level=warn delivery=commented_issue_2 alerts=0 blocked=3",
       "critical": false,
-      "elapsed": 1.9
+      "elapsed": 2.2
     }
   ]
 }
