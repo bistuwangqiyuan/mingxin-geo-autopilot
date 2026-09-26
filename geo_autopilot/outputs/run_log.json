@@ -1,7 +1,7 @@
 {
   "mode": "ci",
-  "started": "2026-09-26T05:18:46",
-  "elapsed": 30.4,
+  "started": "2026-09-26T16:33:04",
+  "elapsed": 33.1,
   "paths": {
     "ROOT": "/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot",
     "GEO_PLAN": "/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/geo_plan",
@@ -36,14 +36,14 @@
       "ok": true,
       "note": "写出：/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/seo_geo_loop/outputs/gvi_compare.json",
       "critical": false,
-      "elapsed": 11.7
+      "elapsed": 13.8
     },
     {
       "name": "geo_autopilot/geo_brain.py",
       "ok": true,
       "note": "  priorities=2 proposals=0",
       "critical": false,
-      "elapsed": 11.0
+      "elapsed": 10.8
     },
     {
       "name": "geo_autopilot/apply_proposals.py",
@@ -64,7 +64,7 @@
       "ok": true,
       "note": "[offsite_github] 组装完成 -> /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/offsite_github  (docs 文件 16 个)",
       "critical": false,
-      "elapsed": 0.1
+      "elapsed": 0.0
     },
     {
       "name": "seo_geo_loop/make_geo_kit_en.py",
@@ -78,14 +78,14 @@
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 1.5
+      "elapsed": 2.0
     },
     {
       "name": "geo_plan/geo_scoring.py",
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 1.6
+      "elapsed": 1.7
     },
     {
       "name": "seo_geo_loop/indexnow_submit.py",
@@ -99,7 +99,7 @@
       "ok": true,
       "note": "  写出 -> /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/seo_geo_loop/outputs/live_status.json",
       "critical": false,
-      "elapsed": 0.3
+      "elapsed": 0.4
     },
     {
       "name": "geo_autopilot/traffic_check.py",
@@ -148,21 +148,21 @@
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": true,
-      "elapsed": 1.6
+      "elapsed": 1.9
     },
     {
       "name": "geo_autopilot/export_daily_pdf.py",
       "ok": false,
       "note": "╚════════════════════════════════════════════════════════════╝",
       "critical": false,
-      "elapsed": 0.4
+      "elapsed": 0.5
     },
     {
       "name": "geo_autopilot/alerting.py",
       "ok": true,
       "note": "[alerting] level=warn delivery=commented_issue_2 alerts=0 blocked=3",
       "critical": false,
-      "elapsed": 1.7
+      "elapsed": 1.6
     }
   ]
 }
