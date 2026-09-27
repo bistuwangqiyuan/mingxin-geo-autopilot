@@ -1,7 +1,7 @@
 {
   "mode": "ci",
-  "started": "2026-09-26T16:33:04",
-  "elapsed": 33.1,
+  "started": "2026-09-27T05:35:57",
+  "elapsed": 32.4,
   "paths": {
     "ROOT": "/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot",
     "GEO_PLAN": "/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/geo_plan",
@@ -36,14 +36,14 @@
       "ok": true,
       "note": "写出：/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/seo_geo_loop/outputs/gvi_compare.json",
       "critical": false,
-      "elapsed": 13.8
+      "elapsed": 12.4
     },
     {
       "name": "geo_autopilot/geo_brain.py",
       "ok": true,
       "note": "  priorities=2 proposals=0",
       "critical": false,
-      "elapsed": 10.8
+      "elapsed": 9.7
     },
     {
       "name": "geo_autopilot/apply_proposals.py",
@@ -71,14 +71,14 @@
       "ok": true,
       "note": "[geo_kit_en] 生成 54 个成品包 -> /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/geo_plan/offsite/en_kit",
       "critical": false,
-      "elapsed": 0.0
+      "elapsed": 1.4
     },
     {
       "name": "geo_plan/source_audit.py",
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 2.0
+      "elapsed": 1.4
     },
     {
       "name": "geo_plan/geo_scoring.py",
@@ -92,14 +92,14 @@
       "ok": false,
       "note": "[SKIP] 2 URLs; written /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/seo_geo_loop/outputs/indexnow_submit.json",
       "critical": false,
-      "elapsed": 0.2
+      "elapsed": 0.1
     },
     {
       "name": "seo_geo_loop/live_audit.py",
       "ok": true,
       "note": "  写出 -> /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/seo_geo_loop/outputs/live_status.json",
       "critical": false,
-      "elapsed": 0.4
+      "elapsed": 0.3
     },
     {
       "name": "geo_autopilot/traffic_check.py",
@@ -148,7 +148,7 @@
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": true,
-      "elapsed": 1.9
+      "elapsed": 1.8
     },
     {
       "name": "geo_autopilot/export_daily_pdf.py",
@@ -162,7 +162,7 @@
       "ok": true,
       "note": "[alerting] level=warn delivery=commented_issue_2 alerts=0 blocked=3",
       "critical": false,
-      "elapsed": 1.6
+      "elapsed": 2.8
     }
   ]
 }
