@@ -1,7 +1,7 @@
 {
   "mode": "ci",
-  "started": "2026-10-07T19:00:11",
-  "elapsed": 29.5,
+  "started": "2026-10-08T06:30:16",
+  "elapsed": 31.7,
   "paths": {
     "ROOT": "/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot",
     "GEO_PLAN": "/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/geo_plan",
@@ -36,14 +36,14 @@
       "ok": true,
       "note": "写出：/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/seo_geo_loop/outputs/gvi_compare.json",
       "critical": false,
-      "elapsed": 11.5
+      "elapsed": 11.9
     },
     {
       "name": "geo_autopilot/geo_brain.py",
       "ok": true,
       "note": "  priorities=2 proposals=0",
       "critical": false,
-      "elapsed": 9.4
+      "elapsed": 11.0
     },
     {
       "name": "geo_autopilot/apply_proposals.py",
@@ -85,7 +85,7 @@
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 1.6
+      "elapsed": 1.7
     },
     {
       "name": "seo_geo_loop/indexnow_submit.py",
