@@ -1,7 +1,7 @@
 {
   "mode": "ci",
-  "started": "2026-10-10T06:13:48",
-  "elapsed": 27.9,
+  "started": "2026-10-10T17:24:18",
+  "elapsed": 32.3,
   "paths": {
     "ROOT": "/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot",
     "GEO_PLAN": "/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/geo_plan",
@@ -36,21 +36,21 @@
       "ok": true,
       "note": "写出：/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/seo_geo_loop/outputs/gvi_compare.json",
       "critical": false,
-      "elapsed": 10.9
+      "elapsed": 11.9
     },
     {
       "name": "geo_autopilot/geo_brain.py",
       "ok": true,
       "note": "  priorities=2 proposals=0",
       "critical": false,
-      "elapsed": 8.4
+      "elapsed": 11.4
     },
     {
       "name": "geo_autopilot/apply_proposals.py",
       "ok": true,
       "note": "  无可接受提案（或全部被一致性/schema 拦截）",
       "critical": false,
-      "elapsed": 0.1
+      "elapsed": 0.2
     },
     {
       "name": "seo_geo_loop/build_offsite_site.py",
@@ -71,21 +71,21 @@
       "ok": true,
       "note": "[geo_kit_en] 生成 54 个成品包 -> /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/geo_plan/offsite/en_kit",
       "critical": false,
-      "elapsed": 0.0
+      "elapsed": 0.3
     },
     {
       "name": "geo_plan/source_audit.py",
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 1.6
+      "elapsed": 1.5
     },
     {
       "name": "geo_plan/geo_scoring.py",
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 1.9
+      "elapsed": 1.7
     },
     {
       "name": "seo_geo_loop/indexnow_submit.py",
@@ -99,7 +99,7 @@
       "ok": true,
       "note": "  写出 -> /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/seo_geo_loop/outputs/live_status.json",
       "critical": false,
-      "elapsed": 0.2
+      "elapsed": 0.3
     },
     {
       "name": "geo_autopilot/traffic_check.py",
@@ -162,7 +162,7 @@
       "ok": true,
       "note": "[alerting] level=warn delivery=commented_issue_2 alerts=0 blocked=3",
       "critical": false,
-      "elapsed": 1.9
+      "elapsed": 2.1
     }
   ]
 }
