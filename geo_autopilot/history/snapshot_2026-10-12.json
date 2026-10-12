@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-12",
+  "ts": "2026-10-12T06:21:17",
+  "gvi": 5.64,
+  "gvi_source": "geo_baseline.overall(重测样本不足 n=0<174，已忽略)",
+  "gvi_delta": null,
+  "mention_rate": 0.086,
+  "first_rank": 0.0675,
+  "share_of_voice": 0.0417,
+  "citation_rate": 0.0,
+  "n_records_ok": 349,
+  "recommendation_mention": 0.0088,
+  "opportunity_gap_total": 209,
+  "coverage": {
+    "DeepSeek": 0.0769,
+    "通义千问": 0.0167,
+    "文心一言": 0.02
+  },
+  "google_indexed_pages": null,
+  "offsite_channels_live": [],
+  "best_cri": null,
+  "answerable_coverage": {
+    "faq_zh": 36,
+    "faq_en": 54,
+    "glossary_zh": 8,
+    "glossary_en": 0,
+    "total": 98,
+    "file_present": true,
+    "source": "geo_autopilot/outputs/autopilot_faq.json（上线副本在站点库 autopilot_faq 表）"
+  },
+  "keyword_bank": {
+    "total": 103,
+    "done": 91,
+    "pending": 12
+  },
+  "geo_referral_signals": {
+    "status": "ga4_not_configured",
+    "reddit_referral": null,
+    "ai_engine_sources": null,
+    "geo_signal_present": null
+  },
+  "sources": {
+    "geo_baseline": true,
+    "gvi_compare": true,
+    "source_gap": true,
+    "live_status": true
+  }
+}
