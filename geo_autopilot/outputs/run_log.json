@@ -1,7 +1,7 @@
 {
   "mode": "ci",
-  "started": "2026-10-20T05:08:15",
-  "elapsed": 30.9,
+  "started": "2026-10-20T17:22:42",
+  "elapsed": 30.8,
   "paths": {
     "ROOT": "/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot",
     "GEO_PLAN": "/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/geo_plan",
@@ -36,14 +36,14 @@
       "ok": true,
       "note": "写出：/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/seo_geo_loop/outputs/gvi_compare.json",
       "critical": false,
-      "elapsed": 11.3
+      "elapsed": 11.7
     },
     {
       "name": "geo_autopilot/geo_brain.py",
       "ok": true,
       "note": "  priorities=2 proposals=0",
       "critical": false,
-      "elapsed": 7.7
+      "elapsed": 9.2
     },
     {
       "name": "geo_autopilot/apply_proposals.py",
@@ -78,14 +78,14 @@
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 2.2
+      "elapsed": 2.6
     },
     {
       "name": "geo_plan/geo_scoring.py",
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 2.0
+      "elapsed": 1.6
     },
     {
       "name": "seo_geo_loop/indexnow_submit.py",
@@ -148,21 +148,21 @@
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": true,
-      "elapsed": 2.3
+      "elapsed": 2.0
     },
     {
       "name": "geo_autopilot/export_daily_pdf.py",
       "ok": false,
       "note": "╚════════════════════════════════════════════════════════════╝",
       "critical": false,
-      "elapsed": 0.5
+      "elapsed": 0.6
     },
     {
       "name": "geo_autopilot/alerting.py",
       "ok": true,
       "note": "[alerting] level=warn delivery=commented_issue_2 alerts=0 blocked=3",
       "critical": false,
-      "elapsed": 3.6
+      "elapsed": 1.9
     }
   ]
 }
