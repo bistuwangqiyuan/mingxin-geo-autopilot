@@ -111,6 +111,8 @@ jobs:
       GH_TOKEN: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
       # 铭信站点自带引擎/SEO 接口鉴权（/api/seo/ping、/api/engine/*）
       CRON_SECRET: ${{ secrets.CRON_SECRET }}
+      # 站点地址：官网已迁至 Netlify（lvsuan.top），旧域名 mingxinstorage.xyz 返回 402。
+      MX_SITE_URL: https://lvsuan.top
       MX_ALERT_REPO: ${{ github.repository }}
       # GA4（可选，提供即自动激活）：MX_GA4_ID=埋码 Measurement ID；PROPERTY_ID+SA_JSON=Data API 读流量信号。
       MX_GA4_ID: ${{ secrets.MX_GA4_ID }}
