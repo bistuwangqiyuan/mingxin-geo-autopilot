@@ -31,6 +31,7 @@ import urllib.error
 import urllib.request
 
 import paths
+from provenance_gate import build_corpus, provenance_issues
 
 sys.path.insert(0, paths.GEO_PLAN)
 
@@ -45,6 +46,16 @@ def _consistency_issues(text):
         return check_consistency(text, entity_facts())
     except Exception:
         return []
+
+
+_PROVENANCE_CORPUS = None
+
+
+def _provenance_corpus():
+    global _PROVENANCE_CORPUS
+    if _PROVENANCE_CORPUS is None:
+        _PROVENANCE_CORPUS = build_corpus(paths.RESULTS_JSON, paths.SITE_URL)
+    return _PROVENANCE_CORPUS
 
 
 def validate_proposals(proposals):
@@ -62,7 +73,7 @@ def validate_proposals(proposals):
             if len(a) > max_len:
                 rejected.append({**p, "reason": f"answer 过长(>{max_len})"})
                 continue
-            issues = _consistency_issues(q + " " + a)
+            issues = _consistency_issues(q + " " + a) + provenance_issues(q + " " + a, _provenance_corpus(), paths.SITE_URL)
             if issues:
                 rejected.append({**p, "reason": f"口径冲突: {issues}"})
                 continue
@@ -72,7 +83,7 @@ def validate_proposals(proposals):
             if not term or not d:
                 rejected.append({**p, "reason": "glossary 缺 term/definition"})
                 continue
-            issues = _consistency_issues(d)
+            issues = _consistency_issues(d) + provenance_issues(d, _provenance_corpus(), paths.SITE_URL)
             if issues:
                 rejected.append({**p, "reason": f"口径冲突: {issues}"})
                 continue
