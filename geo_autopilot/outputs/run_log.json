@@ -1,7 +1,7 @@
 {
   "mode": "ci",
-  "started": "2026-11-07T06:24:19",
-  "elapsed": 31.3,
+  "started": "2026-11-07T17:47:55",
+  "elapsed": 35.1,
   "paths": {
     "ROOT": "/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot",
     "GEO_PLAN": "/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/geo_plan",
@@ -43,7 +43,7 @@
       "ok": true,
       "note": "  priorities=2 proposals=0",
       "critical": false,
-      "elapsed": 8.4
+      "elapsed": 7.2
     },
     {
       "name": "geo_autopilot/apply_proposals.py",
@@ -57,28 +57,28 @@
       "ok": true,
       "note": "[offsite_site] 生成 7 页 + robots/sitemap/llms -> /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/offsite_site",
       "critical": false,
-      "elapsed": 0.2
+      "elapsed": 0.0
     },
     {
       "name": "seo_geo_loop/build_offsite_github.py",
       "ok": true,
       "note": "[offsite_github] 组装完成 -> /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/offsite_github  (docs 文件 16 个)",
       "critical": false,
-      "elapsed": 0.2
+      "elapsed": 0.0
     },
     {
       "name": "seo_geo_loop/make_geo_kit_en.py",
       "ok": true,
       "note": "[geo_kit_en] 生成 54 个成品包 -> /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/geo_plan/offsite/en_kit",
       "critical": false,
-      "elapsed": 0.0
+      "elapsed": 0.4
     },
     {
       "name": "geo_plan/source_audit.py",
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 2.0
+      "elapsed": 2.6
     },
     {
       "name": "geo_plan/geo_scoring.py",
@@ -92,14 +92,14 @@
       "ok": false,
       "note": "[SKIP] 2 URLs; written /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/seo_geo_loop/outputs/indexnow_submit.json",
       "critical": false,
-      "elapsed": 0.4
+      "elapsed": 0.2
     },
     {
       "name": "seo_geo_loop/live_audit.py",
       "ok": true,
       "note": "  写出 -> /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/seo_geo_loop/outputs/live_status.json",
       "critical": false,
-      "elapsed": 2.4
+      "elapsed": 6.2
     },
     {
       "name": "geo_autopilot/traffic_check.py",
@@ -155,14 +155,14 @@
       "ok": false,
       "note": "╚════════════════════════════════════════════════════════════╝",
       "critical": false,
-      "elapsed": 0.5
+      "elapsed": 0.6
     },
     {
       "name": "geo_autopilot/alerting.py",
       "ok": true,
       "note": "[alerting] level=warn delivery=commented_issue_2 alerts=0 blocked=3",
       "critical": false,
-      "elapsed": 1.7
+      "elapsed": 2.1
     }
   ]
 }
