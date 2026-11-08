@@ -1,7 +1,7 @@
 {
   "mode": "ci",
-  "started": "2026-11-08T06:32:19",
-  "elapsed": 361.4,
+  "started": "2026-11-08T17:59:31",
+  "elapsed": 35.3,
   "paths": {
     "ROOT": "/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot",
     "GEO_PLAN": "/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/geo_plan",
@@ -36,14 +36,14 @@
       "ok": true,
       "note": "写出：/home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/seo_geo_loop/outputs/gvi_compare.json",
       "critical": false,
-      "elapsed": 200.5
+      "elapsed": 10.4
     },
     {
       "name": "geo_autopilot/geo_brain.py",
       "ok": true,
       "note": "  priorities=2 proposals=0",
       "critical": false,
-      "elapsed": 145.1
+      "elapsed": 8.2
     },
     {
       "name": "geo_autopilot/apply_proposals.py",
@@ -64,7 +64,7 @@
       "ok": true,
       "note": "[offsite_github] 组装完成 -> /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/offsite_github  (docs 文件 16 个)",
       "critical": false,
-      "elapsed": 0.1
+      "elapsed": 0.0
     },
     {
       "name": "seo_geo_loop/make_geo_kit_en.py",
@@ -78,7 +78,7 @@
       "ok": true,
       "note": "  fig.tight_layout()",
       "critical": false,
-      "elapsed": 2.0
+      "elapsed": 2.3
     },
     {
       "name": "geo_plan/geo_scoring.py",
@@ -92,14 +92,14 @@
       "ok": false,
       "note": "[SKIP] 2 URLs; written /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/seo_geo_loop/outputs/indexnow_submit.json",
       "critical": false,
-      "elapsed": 0.5
+      "elapsed": 0.4
     },
     {
       "name": "seo_geo_loop/live_audit.py",
       "ok": true,
       "note": "  写出 -> /home/runner/work/mingxin-geo-autopilot/mingxin-geo-autopilot/seo_geo_loop/outputs/live_status.json",
       "critical": false,
-      "elapsed": 6.4
+      "elapsed": 7.0
     },
     {
       "name": "geo_autopilot/traffic_check.py",
