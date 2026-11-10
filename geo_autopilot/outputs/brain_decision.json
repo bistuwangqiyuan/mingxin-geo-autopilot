@@ -1,7 +1,7 @@
 {
   "metrics": {
-    "date": "2026-11-09",
-    "ts": "2026-11-09T22:33:54",
+    "date": "2026-11-10",
+    "ts": "2026-11-10T07:40:09",
     "gvi": 5.64,
     "gvi_source": "geo_baseline.overall(重测样本不足 n=0<174，已忽略)",
     "gvi_delta": null,
